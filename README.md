@@ -1,2 +1,2 @@
-# ProfileCreatorManifests
-Manifest repository for ProfileCreator
+# ProfileManifests
+Manifest repository for ProfilePayloads
