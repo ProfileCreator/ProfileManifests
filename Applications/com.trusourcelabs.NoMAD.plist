@@ -465,7 +465,7 @@
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
 			<key>pfm_subkeys</key>
-			<!-- HELP with the titles and names to clarify what this is -->
+			<!-- HELP with the titles and description to clarify what should be entered where -->
 			<array>
 				<dict>
 					<key>pfm_name</key>
@@ -483,15 +483,156 @@
 					<key>pfm_name</key>
 					<string>{{value}}</string>
 					<key>pfm_title</key>
-					<string>Value</string>
+					<string>Account</string>
 					<key>pfm_description</key>
-					<string>The agreement localized to that language.</string>
+					<string></string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_placeholder</key>
 					<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>KeychainItemsDebug</string>
+			<key>pfm_description</key>
+			<string>Enbables KeychainItems debugging. Will attempt to update passwords on any sign in through the NoMAD UI and log verbosely as to what’s not working.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LDAPAnonymous</string>
+			<key>pfm_description</key>
+			<string>Determines if NoMAD uses anonymous LDAP binding when getting the user record.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+		</dict>
+		<!-- Verify it's a comma separated list, and update the description (and the nomad site)-->
+		<dict>
+			<key>pfm_name</key>
+			<string>LDAPServerList</string>
+			<key>pfm_description</key>
+			<string>List of LDAP servers for NoMAD to use instead of doing SRV lookups</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_placeholder</key>
+			<string>2k12.jodapro.com,ausaddc2.jodapro.com</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LDAPOnly</string>
+			<key>pfm_description</key>
+			<string>Sets NoMAD to treat the remote server as just an LDAP server and not specifically AD.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LDAPOverSSL</string>
+			<key>pfm_description</key>
+			<string>Determines if NoMAD uses LDAP over SSL.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LDAPType</string>
+			<key>pfm_description</key>
+			<string>An indication of what specific LDAP type is in use. Currently only “OD” for Apple’s Open Directory is available.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+			<key>pfm_default</key>
+			<string>OD</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LocalPasswordSync</string>
+			<key>pfm_description</key>
+			<string>Determines if we keep the local password in sync with the network password or not</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LocalPasswordSyncDontSyncLocalUsers</string>
+			<key>pfm_description</key>
+			<string>An array of user names that if they match the current local user, NoMAD won’t synchronize the password regardless of what user logs into AD.</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>Username</string>
+					<key>pfm_title</key>
+					<string>Username</string>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LocalPasswordSyncDontSyncNetworkUsers</string>
+			<key>pfm_description</key>
+			<string>An array of user names that if they match the AD user signing in, NoMAD won’t synchronize the password regardless of what user logs into AD.</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>Username</string>
+					<key>pfm_title</key>
+					<string>Username</string>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LocalPasswordSyncOnMatchOnly</string>
+			<key>pfm_description</key>
+			<string>Determines if the domain password will be synced to the local account only when the account names match.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.4</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>LoginItem</string>
+			<key>pfm_description</key>
+			<string>Determines wether or not to add NoMAD to the user’s start up items</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
 		</dict>
 	</array>
 </dict>
