@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>NoMAD settings</string>
+	<key>pfm_title</key>
+	<string>NoMAD</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_version</key>
+	<integer>1</integer>
+	<key>pfm_icon</key>
+	<data></data>
+	<key>pfm_domain</key>
+	<string>com.trusourcelabs.NoMAD</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_subkeys</key>
+	<array>
+		
+		<!-- Default Payload Keys -->
+		
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>Configures NoMAD settings</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>NoMAD settings</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>com.trusourcelabs.NoMAD</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>com.trusourcelabs.NoMAD</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		
+		<!-- Custom Payload Keys -->
+		
+		<dict>
+			<key>pfm_name</key>
+			<string>ADDomain</string>
+			<key>pfm_title</key>
+			<string>ADDomain</string>
+			<key>pfm_description</key>
+			<string>Defines the AD domain you’re working with</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>AutoConfigure</string>
+			<key>pfm_title</key>
+			<string>AutoConfigure</string>
+			<key>pfm_description</key>
+			<string>Keyword to determine what auto configuration scheme to use</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_default</key>
+			<string>TSL</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>CaribouTime</string>
+			<key>pfm_title</key>
+			<string>CaribouTime</string>
+			<key>pfm_description</key>
+			<string>Changes the icon set to Carrie the Caribou</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.2</string>
+			<key>pfm_default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ChangePasswordCommand</string>
+			<key>pfm_title</key>
+			<string>ChangePasswordCommand</string>
+			<key>pfm_description</key>
+			<string>Script or other binary to run when a password is sucessfully changed</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+			<key>pfm_placeholder</key>
+			<string>/usr/bin/local/scripts/something.bash</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ChangePasswordOptions</string>
+			<key>pfm_title</key>
+			<string>ChangePasswordOptions</string>
+			<key>pfm_description</key>
+			<string>Task, URL or App path for ChangePasswordType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_placeholder</key>
+			<string>/Applications/Google Chrome.app</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ChangePasswordType</string>
+			<key>pfm_title</key>
+			<string>ChangePasswordType</string>
+			<key>pfm_description</key>
+			<string>Determines type of ChangePassword function</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Kerberos</string>
+				<string>Task</string>
+				<string>App</string>
+				<string>None</string>
+			</array>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ConfigureChrome</string>
+			<key>pfm_title</key>
+			<string>ConfigureChrome</string>
+			<key>pfm_description</key>
+			<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with your AD domain.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ConfigureChromeDomain</string>
+			<key>pfm_title</key>
+			<string>ConfigureChromeDomain</string>
+			<key>pfm_description</key>
+			<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with for the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of “nomad.test” will result in *nomad.test being set.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>DontMatchKerbPrefs</string>
+			<key>pfm_title</key>
+			<string>DontMatchKerbPrefs</string>
+			<key>pfm_description</key>
+			<string>Determines if the kasspwd server is written out to the com.apple.Kerberos preference domain.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>DontShowWelcome</string>
+			<key>pfm_title</key>
+			<string>DontShowWelcome</string>
+			<key>pfm_description</key>
+			<string>Determines if the Welcome window is shown on first launch.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ExportableKey</string>
+			<key>pfm_title</key>
+			<string>ExportableKey</string>
+			<key>pfm_description</key>
+			<string>determines if the private key from any generate certs can be exported</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>GetCertificateAutomatically</string>
+			<key>pfm_title</key>
+			<string>GetCertificateAutomatically</string>
+			<key>pfm_description</key>
+			<string>Determines if a certificate is automatically requested for a user when they don’t have a valid existing certificate.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>GetHelpOptions</string>
+			<key>pfm_title</key>
+			<string>GetHelpOptions</string>
+			<key>pfm_description</key>
+			<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_placeholder</key>
+			<string>/Applications/Google Chrome.app</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>GetHelpType</string>
+			<key>pfm_title</key>
+			<string>GetHelpType</string>
+			<key>pfm_description</key>
+			<string>Determines type of GetHelp function</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Bomgar</string>
+				<string>URL</string>
+				<string>App</string>
+			</array>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HicFix</string>
+			<key>pfm_title</key>
+			<string>HicFix</string>
+			<key>pfm_description</key>
+			<string>Enables a secondary password change with AD to fix an issue with macOS 10.13.0 with AD-bound mobiles accounts.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideExpiration</string>
+			<key>pfm_title</key>
+			<string>HideExpiration</string>
+			<key>pfm_description</key>
+			<string>Hides the password countdown display in the menu bar.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.4</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideExpirationMessage</string>
+			<key>pfm_title</key>
+			<string>HideExpirationMessage</string>
+			<key>pfm_description</key>
+			<string>Specifies text to show in the menu bar when the password countdown has been suppressed.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.4</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideGetSoftware</string>
+			<key>pfm_title</key>
+			<string>HideGetSoftware</string>
+			<key>pfm_description</key>
+			<string>Determines if the Get Software menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideHelp</string>
+			<key>pfm_title</key>
+			<string>HideHelp</string>
+			<key>pfm_description</key>
+			<string>Determines if the Get Help menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideLockScreen</string>
+			<key>pfm_title</key>
+			<string>HideLockScreen</string>
+			<key>pfm_description</key>
+			<string>Determines if the Lock Screen menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.4</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HidePrefs</string>
+			<key>pfm_title</key>
+			<string>HidePrefs</string>
+			<key>pfm_description</key>
+			<string>Prevents the Preferences menu from being accessible</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.2</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideRenew</string>
+			<key>pfm_title</key>
+			<string>HideRenew</string>
+			<key>pfm_description</key>
+			<string>Determines if the Renew Tickets menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideSignOut</string>
+			<key>pfm_title</key>
+			<string>HideSignOut</string>
+			<key>pfm_description</key>
+			<string>Determines if the Sign Out menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>HideQuit</string>
+			<key>pfm_title</key>
+			<string>HideQuit</string>
+			<key>pfm_description</key>
+			<string>Determines if the Quit menu is visible.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>IconOff</string>
+			<key>pfm_title</key>
+			<string>IconOff</string>
+			<key>pfm_description</key>
+			<string>Specifies an icon file to use for when NoMAD is not connected. Note: this needs to be a 16×16 image to display correctly.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+			<key>pfm_placeholder</key>
+			<string>/usr/local/icons/NoMADOff.png</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>IconOffDark</string>
+			<key>pfm_title</key>
+			<string>IconOffDark</string>
+			<key>pfm_description</key>
+			<string>Specifies an icon file to use for when NoMAD is not connected in dark mode.Note: this needs to be a 16×16 image to display correctly.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+			<key>pfm_placeholder</key>
+			<string>/usr/local/icons/NoMADOffDark.png</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>IconOn</string>
+			<key>pfm_title</key>
+			<string>IconOn</string>
+			<key>pfm_description</key>
+			<string>Specifies an icon file to use for when NoMAD is connected. Note: this needs to be a 16×16 image to display correctly.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+			<key>pfm_placeholder</key>
+			<string>/usr/local/icons/NoMADOn.png</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>IconOnDark</string>
+			<key>pfm_title</key>
+			<string>IconOnDark</string>
+			<key>pfm_description</key>
+			<string>Specifies an icon file to use for when NoMAD is connected in dark mode. Note: this needs to be a 16×16 image to display correctly.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0.3</string>
+			<key>pfm_placeholder</key>
+			<string>/usr/local/icons/NoMADOnDark.png</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>KerberosRealm</string>
+			<key>pfm_title</key>
+			<string>KerberosRealm</string>
+			<key>pfm_description</key>
+			<string>Defines your Kerberos realm</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_placeholder</key>
+			<string>JODAPRO.COM</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>KeychainItems</string>
+			<key>pfm_title</key>
+			<string>KeychainItems</string>
+			<key>pfm_description</key>
+			<string>A Dictionary or Keychain Items matching an item name to an account name. On password change, NoMAD will update these items with the user’s new password.</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
