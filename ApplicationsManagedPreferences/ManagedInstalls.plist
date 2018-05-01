@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_description</key>
+		<string>Munki settings</string>
+		<key>pfm_title</key>
+		<string>Munki</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_icon</key>
+		<data></data>
+		<key>pfm_domain</key>
+		<string>ManagedInstalls</string>
+		<key>pfm_unique</key>
+		<true/>
+		<key>pfm_app_url</key>
+		<string>https://github.com/munki/munki</string>
+		<key>pfm_app_documentation_url</key>
+		<string>https://github.com/munki/munki/wiki</string>
+		<key>pfm_subkeys</key>
+		<array>
+		
+			<!-- Default Payload Keys -->
+		
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Configures Munki settings</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Munki</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>ManagedInstalls</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.ManagedClient.preferences</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+		
+			<!-- Custom Payload Keys -->
+		
+			<dict>
+				<key>pfm_name</key>
+				<string>AppleSoftwareUpdatesOnly</string>
+				<key>pfm_description</key>
+				<string>Only install updates from an Apple Software Update server. No Munki repository is needed or used.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>InstallAppleSoftwareUpdates</string>
+				<key>pfm_description</key>
+				<string>Install updates from an Apple Software Update server, in addition to "regular" Munki updates.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UnattendedAppleUpdates</string>
+				<key>pfm_description</key>
+				<string>Updates that declare no "must-close" applications, or have one or more "must-close" applications, none of which is running, and do not require a logout or restart will be installed as part of a normal periodic background run without notifying the user.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_app_min</key>
+				<string>2.5</string>
+				<key>pfm_macos_min</key>
+				<string>10.10</string>
+			</dict>
+			<!-- Deprecated, include anyway?
+			<dict>
+			<key>pfm_name</key>
+			<string>SoftwareUpdateServerURL</string>
+			<key>pfm_description</key>
+			<string>Catalog URL for Apple Software Updates. If undefined or empty, Munki will use the same catalog that the OS uses.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			</dict> -->
+			<dict>
+				<key>pfm_name</key>
+				<string>SoftwareRepoURL</string>
+				<key>pfm_description</key>
+				<string>Base URL for Munki repository.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>http://munki/repo</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PackageURL</string>
+				<key>pfm_description</key>
+				<string>Base URL for Munki pkgs. Useful if your packages are served from a different server than your catalogs or manifests.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_placeholder</key>
+				<string><SoftwareRepoURL>/pkgs</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CatalogURL</string>
+				<key>pfm_description</key>
+				<string>Base URL for Munki catalogs. Useful if your catalogs are served from a different server than your packages or manifests.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_placeholder</key>
+				<string><SoftwareRepoURL>/catalogs</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>IconURL</string>
+				<key>pfm_description</key>
+				<string>Base URL for product icons. Useful if your icons are served from a different server or different directory than the default.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_placeholder</key>
+				<string><SoftwareRepoURL>/icons</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientResourceURL</string>
+				<key>pfm_description</key>
+				<string>Base URL for custom client resources for Managed Software Center. Useful if your resources are served from a different server or different directory than the default.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_placeholder</key>
+				<string><SoftwareRepoURL>/client_resources</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientResourcesFilename</string>
+				<key>pfm_description</key>
+				<string>Specific filename to use when requesting custom client resources.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_placeholder</key>
+				<string>site_default.zip</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>HelpURL</string>
+				<key>pfm_description</key>
+				<string>URL to open/display when the user selects "Managed Software Center Help" from Managed Software Center's Help menu.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+		</array>
+	</dict>
+</plist>
