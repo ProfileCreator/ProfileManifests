@@ -1,290 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>pfm_description</key>
-	<string>Use the Contacts payload to provide account settings for connecting to a CardDAV-compliant contact server. If you omit the account information, users need to enter it manually when the profile is installed.</string>
-	<key>pfm_title</key>
-	<string>Contacts</string>
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-	<key>pfm_version</key>
-	<integer>1</integer>
-	<key>pfm_domain</key>
-	<string>com.apple.carddav.account</string>
-	<key>pfm_interaction</key>
-	<string>combined</string>
-	<key>pfm_targets</key> <!-- Added for ProfilePayloads -->
-	<array>
-		<string>user</string>
-	</array>
-	<key>pfm_platforms</key> <!-- Added for ProfilePayloads -->
-	<array>
-		<string>iOS</string>
-		<string>macOS</string>
-	</array>
-	<key>pfm_unique</key>
-	<false/>
-	<key>pfm_subkeys</key>
-	<array>
+	<dict>
+		<key>pfm_description</key>
+		<string>Use the Contacts payload to provide account settings for connecting to a CardDAV-compliant contact server. If you omit the account information, users need to enter it manually when the profile is installed.</string>
+		<key>pfm_title</key>
+		<string>Contacts</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_domain</key>
+		<string>com.apple.carddav.account</string>
+		<key>pfm_interaction</key>
+		<string>combined</string>
+		<key>pfm_targets</key> <!-- Added for ProfilePayloads -->
+		<array>
+			<string>user</string>
+		</array>
+		<key>pfm_platforms</key> <!-- Added for ProfilePayloads -->
+		<array>
+			<string>iOS</string>
+			<string>macOS</string>
+		</array>
+		<key>pfm_unique</key>
+		<false/>
+		<key>pfm_subkeys</key>
+		<array>
 		
-		<!-- Default Payload Keys -->
+			<!-- Default Payload Keys -->
 		
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadDescription</string>
-			<key>pfm_title</key>
-			<string>Payload Description</string>
-			<key>pfm_description</key>
-			<string>Description of the payload</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>Configures a Contacts account</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadDisplayName</string>
-			<key>pfm_title</key>
-			<string>Payload Display Name</string>
-			<key>pfm_description</key>
-			<string>Name of the payload</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>Contacts</string>
-			<key>pfm_require</key>
-			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadIdentifier</string>
-			<key>pfm_title</key>
-			<string>Payload Identifier</string>
-			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.carddav.account</string>
-			<key>pfm_require</key>
-			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadType</string>
-			<key>pfm_title</key>
-			<string>Payload Type</string>
-			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.carddav.account</string>
-			<key>pfm_require</key>
-			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadUUID</string>
-			<key>pfm_title</key>
-			<string>Payload UUID</string>
-			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string></string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_format</key>
-			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadVersion</string>
-			<key>pfm_title</key>
-			<string>Payload Version</string>
-			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>1</integer>
-			<key>pfm_require</key>
-			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
-			<key>pfm_title</key>
-			<string>Payload Organization</string>
-			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Configures a Contacts account</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Contacts</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.carddav.account</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.carddav.account</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
 		
-		<!-- Custom Payload Keys -->
+			<!-- Custom Payload Keys -->
 		
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVAccountDescription</string>
-			<key>pfm_title</key>
-			<string>Account Description</string>
-			<key>pfm_description</key>
-			<string>The display name of the account (e.g. &quot;Company Contacts Account&quot;)</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>My Contacts Account</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVHostName</string>
-			<key>pfm_title</key>
-			<string>Account Hostname</string>
-			<key>pfm_description</key>
-			<string>The IP address or fully qualified domain name (FQDN) of the CardDAV server.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVPort</string>
-			<key>pfm_title</key>
-			<string>Port Number</string>
-			<key>pfm_description</key>
-			<string>The port on which to connect to the CardDAV server.</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>443</integer>
-			<key>pfm_range_min</key>
-			<integer>0</integer>
-			<key>pfm_range_max</key>
-			<integer>65535</integer>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVPrincipalURL</string>
-			<key>pfm_title</key>
-			<string>Principal URL</string>
-			<key>pfm_description</key>
-			<string>The Principal URL for the CardDAV account.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_exclude</key> <!-- According to the configuration profile reference -->
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_n_platforms</key>
-							<array>
-								<string>macOS</string>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVUsername</string>
-			<key>pfm_title</key>
-			<string>Account Username</string>
-			<key>pfm_description</key>
-			<string>The CardDAV username</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_require</key>
-			<string>push</string>
-			<key>pfm_conditionals</key>
-			<array>
-				<dict>
-					<key>pfm_require</key>
-					<string>always</string>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_platforms</key>
-							<array>
-								<string>macOS</string>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVPassword</string>
-			<key>pfm_title</key>
-			<string>Account Password</string>
-			<key>pfm_description</key>
-			<string>The CardDAV password</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_sensitive</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CardDAVUseSSL</string>
-			<key>pfm_title</key>
-			<string>Use SSL</string>
-			<key>pfm_description</key>
-			<string>Enable Secure Socket Layer communication with CardDAV server</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_enabled</key> <!-- If enabled by default -->
-			<true/>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>CommunicationServiceRules</string>
-			<key>pfm_title</key>
-			<string>Communication Service Rules</string>
-			<key>pfm_description</key>
-			<string>The communication service handler rules for this account</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
-			<!-- <key>pfm_ios_min</key>  Not found info on this anywhere, it's just that the google oauth has that restriction 
-			<string>10.0</string> -->
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_name</key>
-					<string>DefaultServiceHandlers</string>
-					<key>pfm_title</key>
-					<string>Default Service Handlers</string>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_name</key>
-							<string>AudioCall</string>
-							<key>pfm_title</key>
-							<string>BundleIdentifier</string>
-							<key>pfm_description</key>
-							<string>Bundle identifier for the default application that handles audio calls made to contacts from this account</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_required</key>
-					<true/>
-				</dict>
-			</array>
-		</dict>
-	</array>
-</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVAccountDescription</string>
+				<key>pfm_title</key>
+				<string>Account Description</string>
+				<key>pfm_description</key>
+				<string>The display name of the account (e.g. &quot;Company Contacts Account&quot;)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>My Contacts Account</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVHostName</string>
+				<key>pfm_title</key>
+				<string>Account Hostname</string>
+				<key>pfm_description</key>
+				<string>The IP address or fully qualified domain name (FQDN) of the CardDAV server.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVPort</string>
+				<key>pfm_title</key>
+				<string>Port Number</string>
+				<key>pfm_description</key>
+				<string>The port on which to connect to the CardDAV server.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>443</integer>
+				<key>pfm_range_min</key>
+				<integer>0</integer>
+				<key>pfm_range_max</key>
+				<integer>65535</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVPrincipalURL</string>
+				<key>pfm_title</key>
+				<string>Principal URL</string>
+				<key>pfm_description</key>
+				<string>The Principal URL for the CardDAV account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_exclude</key> <!-- According to the configuration profile reference -->
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_n_platforms</key>
+								<array>
+									<string>macOS</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVUsername</string>
+				<key>pfm_title</key>
+				<string>Account Username</string>
+				<key>pfm_description</key>
+				<string>The CardDAV username</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>push</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>always</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_platforms</key>
+								<array>
+									<string>macOS</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVPassword</string>
+				<key>pfm_title</key>
+				<string>Account Password</string>
+				<key>pfm_description</key>
+				<string>The CardDAV password</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_sensitive</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CardDAVUseSSL</string>
+				<key>pfm_title</key>
+				<string>Use SSL</string>
+				<key>pfm_description</key>
+				<string>Enable Secure Socket Layer communication with CardDAV server</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_enabled</key> <!-- If enabled by default -->
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>CommunicationServiceRules</string>
+				<key>pfm_title</key>
+				<string>Communication Service Rules</string>
+				<key>pfm_description</key>
+				<string>The communication service handler rules for this account</string>
+				<key>pfm_type</key>
+				<string>dictionary</string>
+				<!-- <key>pfm_ios_min</key>  Not found info on this anywhere, it's just that the google oauth has that restriction 
+				<string>10.0</string> -->
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>DefaultServiceHandlers</string>
+						<key>pfm_title</key>
+						<string>Default Service Handlers</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>dictionary</string>
+						<key>pfm_subkeys</key>
+						<array>
+							<dict>
+								<key>pfm_name</key>
+								<string>AudioCall</string>
+								<key>pfm_title</key>
+								<string>BundleIdentifier</string>
+								<key>pfm_description</key>
+								<string>Bundle identifier for the default application that handles audio calls made to contacts from this account</string>
+								<key>pfm_type</key>
+								<string>string</string>
+							</dict>
+						</array>
+						<key>pfm_required</key>
+						<true/>
+					</dict>
+				</array>
+			</dict>
+		</array>
+	</dict>
 </plist>
