@@ -155,9 +155,11 @@
 					</array>
 					<key>Options</key>
 					<array>
+						<string>com.apple.login.mcx.DisableAutoLoginClient</string>
 						<string>DisableConsoleAccess</string>
 						<string>EnableExternalAccounts</string>
 						<string>AdminMayDisableMCX</string>
+						<string>UseComputerNameForComputerRecordName</string>
 					</array>
 					<key>Access</key>
 					<array>
@@ -478,6 +480,22 @@
 			
 			<dict>
 				<key>pfm_name</key>
+				<string>com.apple.login.mcx.DisableAutoLoginClient</string>
+				<key>pfm_title</key>
+				<string>Disable automatic login</string>
+				<key>pfm_description</key>
+				<string>Disables the automatic login feature.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>DisableConsoleAccess</string>
 				<key>pfm_title</key>
 				<string>Enable >console login</string>
@@ -519,6 +537,22 @@
 				<string>Mac computer administrators may refresh content or disable management</string>
 				<key>pfm_description</key>
 				<string>Allows Mac administrators on the computer to refresh or disable the management features.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string> <!-- FIXME Not sure-->
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UseComputerNameForComputerRecordName</string>
+				<key>pfm_title</key>
+				<string>Set Mac computer name to computer record name</string>
+				<key>pfm_description</key>
+				<string>Forces the name of the Mac to be set as the computer record name.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
