@@ -147,6 +147,11 @@
 						<string>SleepDisabled</string>
 						<string>RestartDisabled</string>
 						<string>ShutDownDisabled</string>
+						<string>RestartDisabledWhileLoggedIn</string>
+						<string>ShutDownDisabledWhileLoggedIn</string>
+						<string>PowerOffDisabledWhileLoggedIn</string>
+						<string>LogOutDisabledWhileLoggedIn</string>
+						<string>DisableScreenLockImmediate</string>
 					</array>
 					<key>Options</key>
 					<array>
@@ -216,6 +221,8 @@
 				<array>
 					<string>system-managed</string>
 				</array>
+				<key>pfm_range_max</key>
+				<integer>2</integer>
 			</dict>
 			
 			<!-- Login Prompt -->
@@ -382,7 +389,90 @@
 				<key>pfm_value_inverted</key>
 				<true/>
 			</dict>
-			
+			<dict>
+				<key>pfm_name</key>
+				<string>RestartDisabledWhileLoggedIn</string>
+				<key>pfm_title</key>
+				<string>Disable the Restart menu item while logged in</string>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ShutDownDisabledWhileLoggedIn</string>
+				<key>pfm_title</key>
+				<string>Disable the Shut Down menu item while logged in</string>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PowerOffDisabledWhileLoggedIn</string>
+				<key>pfm_title</key>
+				<string>Disable the Power Off menu item while logged in</string>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>LogOutDisabledWhileLoggedIn</string>
+				<key>pfm_title</key>
+				<string>Disable the Log Out menu item while logged in</string>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+				<key>pfm_macos_min</key>
+				<string>10.13</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>DisableScreenLockImmediate</string>
+				<key>pfm_title</key>
+				<string>Disable the immediate Screen Lock function</string>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_targets</key>
+				<array>
+					<string>system-managed</string>
+				</array>
+				<key>pfm_macos_min</key>
+				<string>10.13</string>
+			</dict>
 			
 			<!-- Login Window Options -->
 			
