@@ -139,7 +139,7 @@
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_require</key>
-				<string>always</string>
+				<string>push</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -151,7 +151,7 @@
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_require</key>
-				<string>always</string>
+				<string>push</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -163,7 +163,7 @@
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_require</key>
-				<string>always</string>
+				<string>push</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -175,7 +175,6 @@
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
-			<!-- FIXME: Can't find documentation for this
 			<dict>
 				<key>pfm_name</key>
 				<string>AuthMethod</string>
@@ -192,8 +191,21 @@
 					<string>Password</string>
 					<string>UserEnteredPassword</string>
 				</array>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_distribution</key>
+								<array>
+									<string>push</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
 			</dict>
-				-->
 			<dict>
 				<key>pfm_name</key>
 				<string>Prompt</string>
@@ -203,6 +215,20 @@
 				<string>Short prompt text</string>
 				<key>pfm_type</key>
 				<string>string</string>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_distribution</key>
+								<array>
+									<string>push</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -213,6 +239,20 @@
 				<string>Additional prompt description.</string>
 				<key>pfm_type</key>
 				<string>string</string>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_distribution</key>
+								<array>
+									<string>push</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
 			</dict>
 		</array>
 	</dict>
