@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_description</key>
+		<string>Active Directory settings</string>
+		<key>pfm_title</key>
+		<string>Active Directory</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_domain</key>
+		<string>com.apple.DirectoryService.managed</string>
+		<key>pfm_interaction</key>
+		<string>combined</string>
+		<key>pfm_targets</key>
+		<array>
+			<string>user</string>
+			<string>system</string>
+		</array>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_unique</key>
+		<true/>
+		<key>pfm_macos_min</key>
+		<string>10.9</string>
+		<key>pfm_subkeys</key>
+		<array>
+			
+			<!-- Default Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Configures Active Directory settings</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Active Directory</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.DirectoryService.managed</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.DirectoryService.managed</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			<!-- Custom Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>HostName</string>
+				<key>pfm_title</key>
+				<string>Server Hostname</string>
+				<key>pfm_description</key>
+				<string>The hostname of the directory server.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UserName</string>
+				<key>pfm_title</key>
+				<string>User name</string>
+				<key>pfm_description</key>
+				<string>User name of the account used to join the domain.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Password</string>
+				<key>pfm_title</key>
+				<string>Password</string>
+				<key>pfm_description</key>
+				<string>Password of the account used to join the domain.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientID</string>
+				<key>pfm_title</key>
+				<string>Client ID</string>
+				<key>pfm_description</key>
+				<string>The directory server client ID.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADOrganizationalUnit</string>
+				<key>pfm_title</key>
+				<string>Organizational Unit</string>
+				<key>pfm_description</key>
+				<string>The organizational unit (OU) where the joining computer object is added.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADCreateMobileAccountAtLoginFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADCreateMobileAccountAtLogin Flag</string>
+				<key>pfm_description</key>
+				<string>Enable ADCreateMobileAccountAtLogin Flag</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADCreateMobileAccountAtLogin</string>
+				<key>pfm_title</key>
+				<string>Create mobile account at login</string>
+				<key>pfm_description</key>
+				<string>Create mobile account at login.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADWarnUserBeforeCreatingMAFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADWarnUserBeforeCreatingMA Flag</string>
+				<key>pfm_description</key>
+				<string>Enable ADWarnUserBeforeCreatingMA Flag</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADWarnUserBeforeCreatingMA</string>
+				<key>pfm_title</key>
+				<string>Require confirmation before creating mobile account</string>
+				<key>pfm_description</key>
+				<string>Require confirmation before creating mobile account</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADForceHomeLocalFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADForceHomeLocal Flag</string>
+				<key>pfm_description</key>
+				<string>Enable ADForceHomeLocal Flag</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADForceHomeLocal</string>
+				<key>pfm_title</key>
+				<string>Force local home directory on startup disk</string>
+				<key>pfm_description</key>
+				<string>Force local home directory on startup disk</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADUseWindowsUNCPathFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADUseWindowsUNCPath Flag</string>
+				<key>pfm_description</key>
+				<string>Enable ADUseWindowsUNCPath Flag</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADUseWindowsUNCPath</string>
+				<key>pfm_title</key>
+				<string>Use UNC path for network home location</string>
+				<key>pfm_description</key>
+				<string>Use UNC path from Active Directory to derive network home location</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMountStyle</string>
+				<key>pfm_title</key>
+				<string>Mount Style</string>
+				<key>pfm_description</key>
+				<string>Network protocol to be used to mount home directory.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>afp</string>
+					<string>smb</string>
+				</array>
+				<key>pfm_default</key>
+				<string>smb</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADDefaultUserShellFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADDefaultUserShell Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADDefaultUserShell Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADDefaultUserShell</string>
+				<key>pfm_title</key>
+				<string>Default user shell</string>
+				<key>pfm_description</key>
+				<string>Default user shell</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/bin/bash</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapUIDAttributeFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADMapUIDAttribute Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADMapUIDAttribute Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapUIDAttribute</string>
+				<key>pfm_title</key>
+				<string>Map UID to attribute</string>
+				<key>pfm_description</key>
+				<string>Map UID to attribute</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapGIDAttributeFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADMapGIDAttribute Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADMapGIDAttribute Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapGIDAttribute</string>
+				<key>pfm_title</key>
+				<string>Map user GID to attribute</string>
+				<key>pfm_description</key>
+				<string>Map user GID to attribute</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapGGIDAttributeFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADMapGGIDAttribute Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADMapGGIDAttribute Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADMapGGIDAttribute</string>
+				<key>pfm_title</key>
+				<string>Map group GID to attribute</string>
+				<key>pfm_description</key>
+				<string>Map group GID to attribute</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPreferredDCServerFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADPreferredDCServer Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADPreferredDCServer Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPreferredDCServer</string>
+				<key>pfm_title</key>
+				<string>Preferred domain server</string>
+				<key>pfm_description</key>
+				<string>Preferred domain server</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADDomainAdminGroupListFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADDomainAdminGroupList Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADDomainAdminGroupList Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADDomainAdminGroupList</string>
+				<key>pfm_title</key>
+				<string>Allow administration by specified Active Directory groups.</string>
+				<key>pfm_description</key>
+				<string>Allow administration by specified Active Directory groups.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>ADDomainAdminGroupListItem</string>
+						<key>pfm_title</key>
+						<string>Domain Admin Group Item</string>
+						<key>pfm_description</key>
+						<string>An active directory group</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_require</key>
+						<string>always</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADAllowMultiDomainAuthFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADAllowMultiDomainAuth Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADAllowMultiDomainAuth Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADAllowMultiDomainAuth</string>
+				<key>pfm_title</key>
+				<string>Allow authentication from any domain in the forest</string>
+				<key>pfm_description</key>
+				<string>Allow authentication from any domain in the forest</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADNamespaceFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADNamespace Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADNamespace Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADNamespace</string>
+				<key>pfm_title</key>
+				<string>Set primary user account naming convention: "forest" or "domain"</string>
+				<key>pfm_description</key>
+				<string>Set primary user account naming convention: "forest" or "domain"</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>domain</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>domain</string>
+					<string>forest</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPacketSignFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADPacketSign Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADPacketSign Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPacketSign</string>
+				<key>pfm_title</key>
+				<string>Packet signing</string>
+				<key>pfm_description</key>
+				<string>Packet signing</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>allow</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>allow</string>
+					<string>disable</string>
+					<string>require</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPacketEncryptFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADPacketEncrypt Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADPacketEncrypt Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADPacketEncrypt</string>
+				<key>pfm_title</key>
+				<string>Packet encryption</string>
+				<key>pfm_description</key>
+				<string>Packet encryption</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>allow</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>allow</string>
+					<string>disable</string>
+					<string>require</string>
+					<string>ssl</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADRestrictDDNSFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADRestrictDDNS Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADRestrictDDNS Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADRestrictDDNS</string>
+				<key>pfm_title</key>
+				<string>Restrict DDNS on interfaces</string>
+				<key>pfm_description</key>
+				<string>Restrict Dynamic DNS updates to the specified interfaces (e.g. en0, en1, etc).</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>ADRestrictDDNSItem</string>
+						<key>pfm_title</key>
+						<string>Allowed DDNS Interface Item</string>
+						<key>pfm_description</key>
+						<string>An interface name which is allowed to make DDNS updates</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_require</key>
+						<string>always</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADTrustChangePassIntervalDaysFlag</string>
+				<key>pfm_title</key>
+				<string>Enable ADTrustChangePassIntervalDays Key</string>
+				<key>pfm_description</key>
+				<string>Enable ADTrustChangePassIntervalDays Key</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ADTrustChangePassIntervalDays</string>
+				<key>pfm_title</key>
+				<string>Password trust interval</string>
+				<key>pfm_description</key>
+				<string>How often to change computer trust account password in days</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>14</integer>
+			</dict>
+		</array>
+	</dict>
+</plist>
