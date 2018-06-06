@@ -203,11 +203,19 @@
 				<string>boolean</string>
 				<key>pfm_default</key>
 				<false/>
+				<!-- FIXME:  ALL exclude conditions in this manifest needs to be looked at when time permits. 
+				First, figure out what a good approach is to avoid two checks for each key. Need to finish other things atm. -->
 				<key>pfm_exclude</key>
 				<array>
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADCreateMobileAccountAtLoginFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADCreateMobileAccountAtLoginFlag</string>
@@ -251,6 +259,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADWarnUserBeforeCreatingMAFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADWarnUserBeforeCreatingMAFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -291,6 +305,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADForceHomeLocalFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADForceHomeLocalFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -328,6 +348,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADUseWindowsUNCPathFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADUseWindowsUNCPathFlag</string>
@@ -388,6 +414,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADDefaultUserShellFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADDefaultUserShellFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -423,6 +455,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADMapUIDAttributeFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADMapUIDAttributeFlag</string>
@@ -464,6 +502,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADMapGIDAttributeFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADMapGIDAttributeFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -502,6 +546,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADMapGGIDAttributeFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADMapGGIDAttributeFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -537,6 +587,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADPreferredDCServerFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADPreferredDCServerFlag</string>
@@ -593,6 +649,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADDomainAdminGroupListFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADDomainAdminGroupListFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -630,6 +692,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADAllowMultiDomainAuthFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADAllowMultiDomainAuthFlag</string>
@@ -678,6 +746,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADNamespaceFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADNamespaceFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -721,6 +795,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADPacketSignFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADPacketSignFlag</string>
@@ -771,9 +851,15 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADPacketEncryptFlag</string>
-								<key>pfm_n_range_list</key>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADPacketEncryptFlag</string>
+								<key>pfm_range_list</key>
 								<array>
-									<true/>
+									<false/>
 								</array>
 							</dict>
 						</array>
@@ -824,6 +910,12 @@
 							<dict>
 								<key>pfm_target</key>
 								<string>ADRestrictDDNSFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADRestrictDDNSFlag</string>
 								<key>pfm_range_list</key>
 								<array>
 									<false/>
@@ -861,6 +953,12 @@
 					<dict>
 						<key>pfm_target_conditions</key>
 						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>ADTrustChangePassIntervalDaysFlag</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
 							<dict>
 								<key>pfm_target</key>
 								<string>ADTrustChangePassIntervalDaysFlag</string>
