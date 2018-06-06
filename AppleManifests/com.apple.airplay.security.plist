@@ -137,7 +137,12 @@
 				<string>Security Type for devices that connect to the Apple TV using airplay</string>
 				<key>pfm_type</key>
 				<string>string</string>
-				<key>pfm_range_list</key>
+				<!-- FIXME: 
+							From the documentation:
+				 				NONE was deprecated in tvOS 11.3. Existing profiles using NONE will get the PASSWORD_ONCE behavior. 
+							Unsure how to handle when a range_list item is deprecated.
+				-->
+				<key>pfm_range_list</key> 
 				<array>
 					<string>PASSCODE_ONCE</string>
 					<string>PASSCODE_ALWAYS</string>
