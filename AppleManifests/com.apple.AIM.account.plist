@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_description</key>
+		<string>Messages: AIM settings</string>
+		<key>pfm_title</key>
+		<string>Messages: AIM</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_domain</key>
+		<string>com.apple.AIM.account</string>
+		<key>pfm_interaction</key>
+		<string>combined</string>
+		<key>pfm_targets</key>
+		<array>
+			<string>user</string>
+		</array>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_unique</key>
+		<false/>
+		<key>pfm_subkeys</key>
+		<array>
+			
+			<!-- Default Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Configures Messages: AIM settings</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Messages: AIM</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.AIM.account</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.mobiledevice.passwordpolicy</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			<!-- Custom Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMAccountDescription</string>
+				<key>pfm_title</key>
+				<string>Account description</string>
+				<key>pfm_description</key>
+				<string>The display name for the account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMUserName</string>
+				<key>pfm_title</key>
+				<string>Account name</string>
+				<key>pfm_description</key>
+				<string>The chat name of the user.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMPassword</string>
+				<key>pfm_title</key>
+				<string>Password</string>
+				<key>pfm_description</key>
+				<string>The password for the account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_sensitive</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMPassword</string>
+				<key>pfm_title</key>
+				<string>Password</string>
+				<key>pfm_description</key>
+				<string>The password for the account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_sensitive</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMAuthentication</string>
+				<key>pfm_title</key>
+				<string>Authentication Method</string>
+				<key>pfm_description</key>
+				<string>The password for the account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>AIMAuthPassword</string>
+				</array>
+				<key>pfm_require</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMHostName</string>
+				<key>pfm_title</key>
+				<string>Hostname</string>
+				<key>pfm_description</key>
+				<string>The IP address or fully qualified domain name (FQDN) of the host.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>slogin.oscar.aol.com</string>
+				<key>pfm_require</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMPort</string>
+				<key>pfm_title</key>
+				<string>Port</string>
+				<key>pfm_description</key>
+				<string>The port number of the host.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<string>5190</string>
+				<key>pfm_range_min</key>
+				<integer>0</integer>
+				<key>pfm_range_max</key>
+				<integer>65535</integer>
+				<key>pfm_require</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AIMUseSSL</string>
+				<key>pfm_title</key>
+				<string>Use SSL</string>
+				<key>pfm_description</key>
+				<string>Enable Secure Socket Layer for this connection.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
+</plist>
