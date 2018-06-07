@@ -130,66 +130,70 @@
 			
 			<dict>
 				<key>pfm_name</key>
-				<string>UserPairing</string>
+				<string>allowSmartCard</string>
 				<key>pfm_title</key>
-				<string>Enable user pairing dialog</string>
+				<string>Disable Smart Card</string>
 				<key>pfm_description</key>
-				<string>Whether users can see any new pairing dialogs. Existing pairings will still work.</string>
+				<string>Disable smart card for logins, authorizations and unlocking screensaver. A restart is required for this change to take effect.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
+				<true/>
+				<key>pfm_value_inverted</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>allowSmartCard</string>
+				<string>UserPairing</string>
 				<key>pfm_title</key>
-				<string>Allow SmartCard Unlock</string>
+				<string>Disable User Pairing</string>
 				<key>pfm_description</key>
-				<string>Whether users can use a smart card for logins, authorizations, and screensaver unlocking. Smart cards can still be used for signing mail messages, web access, and other services. The Mac must be restarted for this change to take effect.</string>
+				<string>Disable users from pairing new smart cards. Existing pairings will continue to work.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
 				<true/>
+				<key>pfm_value_inverted</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>oneCardPerUser</string>
+				<key>pfm_title</key>
+				<string>Restrict One Card Per User</string>
+				<key>pfm_description</key>
+				<string>Restrict a user to pair only one smart card. Existing pairings will continue to work.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>checkCertificateTrust</string>
 				<key>pfm_title</key>
-				<string>Verify certificate trust</string>
+				<string>Enable Certificate Trust Validation</string>
 				<key>pfm_description</key>
-				<string>Certificates on the card must be valid in these ways: its issuer is system-trusted, the certificate is not expired, its "valid-after" date is in the past, and it passes CRL and OCSP checking. User overrides are not allowed. Usually this key is set to true for SmartCard use in corporate environments.</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
-					<key>pfm_default</key>
-					<false/>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>oneCardPerUser</string>
-					<key>pfm_title</key>
-					<string>User can only pair with one card</string>
-					<key>pfm_description</key>
-					<string>Whether users can pair with only one smart card. Existing pairings for that user will still work.</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
-					<key>pfm_default</key>
-					<false/>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>enforceSmartCard</string>
-					<key>pfm_title</key>
-					<string>Users cannot log in without a smart card</string>
-					<key>pfm_description</key>
-					<string>If true, users will be unable to log in or authenticate without a SmartCard.</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
-					<key>pfm_default</key>
-					<false/>
-					<key>pfm_macos_min</key>
-					<string>10.13.2</string>
-				</dict>
-			</array>
-		</dict>
-	</plist>
+				<string>Require unexpired, system trusted certificates for smart cards to work.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>enforceSmartCard</string>
+				<key>pfm_title</key>
+				<string>Require Smart Card</string>
+				<key>pfm_description</key>
+				<string>Require smart card for logins, authorizations and unlocking screensaver.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_macos_min</key>
+				<string>10.13.2</string>
+			</dict>
+		</array>
+	</dict>
+</plist>
