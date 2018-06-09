@@ -121,7 +121,20 @@
 			</dict>
 		
 			<!-- Custom Payload Keys -->
-		
+				
+			<dict>
+				<key>pfm_name</key>
+				<string>ADDomain</string>
+				<key>pfm_description</key>
+				<string>Defines the AD domain you’re working with</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+			</dict>
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>PFC_SegmentedControl_0</string>
@@ -141,23 +154,35 @@
 						<string>LDAPOverSSL</string>
 						<string>LDAPType</string>
 					</array>
+					<key>Password</key>
+					<array>
+						<string>ChangePasswordCommand</string>
+						<string>ChangePasswordOptions</string>
+						<string>ChangePasswordType</string>
+					</array>
+					<key>Layout</key>
+					<array>
+						<string>MenuAbout</string>
+						<string>MenuChangePassword</string>
+						<string>MenuGetCertificate</string>
+						<string>MenuHomeDirectory</string>
+						<string>MenuGetHelp</string>
+						<string>MenuGetSoftware</string>
+						<string>MenuFileServers</string>
+						<string>MenuPasswordExpires</string>
+						<string>MenuRenewTickets</string>
+						<string>MenuUserName</string>
+						<string>MenuWelcome</string>
+						<string>MessageLocalSync</string>
+						<string>MessageNotConnected</string>
+						<string>MessagePasswordChangePolicy</string>
+						<string>MessageUPCAlert</string>
+					</array>
 				</dict>
 				<key>pfm_require</key>
 				<string>always</string>
 			</dict>
-		
-			<dict>
-				<key>pfm_name</key>
-				<string>ADDomain</string>
-				<key>pfm_description</key>
-				<string>Defines the AD domain you’re working with</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>AutoConfigure</string>
