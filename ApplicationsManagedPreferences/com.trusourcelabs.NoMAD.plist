@@ -984,21 +984,151 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>GetHelpType</string>
+				<key>pfm_description</key>
+				<string>Determines type of GetHelp function</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>Bomgar</string>
+					<string>URL</string>
+					<string>App</string>
+				</array>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>GetHelpOptions</string>
+				<key>pfm_description</key>
+				<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+				<key>pfm_value_placeholder</key>
+				<string>/Applications/Google Chrome.app</string>
+			</dict>
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>SelfServicePath</string>
+				<key>pfm_description</key>
+				<string>Sets a path for an application to be used with the Get Software menu item</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+				<key>pfm_default</key>
+				<string>/Applications/IT Software.app</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MenuWelcome</string>
+				<key>pfm_description</key>
+				<string>Path to a folder enclosing an index.html file and associated resources for displaying as a Welcome screen when running NoMAD.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.1.0</string>
+				<key>pfm_value_placeholder</key>
+				<string>/usr/local/welcome/</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PFC_SegmentedControl_1</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_segments</key>
+				<dict>
+					<key>Menu Items</key>
+					<array>
+						<string>HideRenew</string>
+						<string>ShowHome</string>
+						<string>HideGetSoftware</string>
+						<string>HideExpiration</string>
+						<string>HideLockScreen</string>
+						<string>HidePrefs</string>
+						<string>HideSignOut</string>
+						<string>HideQuit</string>
+						<string>HideSignOut</string>
+						<string>HideAbout</string>
+						<string>HideHelp</string>						
+					</array>
+					<key>Messages</key>
+					<array>
+						<string>MessageUPCAlert</string>
+						<string>MessagePasswordChangePolicy</string>
+						<string>MessageNotConnected</string>
+						<string>MessageLocalSync</string>
+						<string>HideExpirationMessage</string>
+					</array>
+					<key>Titles</key>
+					<array>
+						<string>MenuAbout</string>
+						<string>MenuGetCertificate</string>
+						<string>MenuChangePassword</string>
+						<string>MenuHomeDirectory</string>
+						<string>MenuRenewTickets</string>
+						<string>MenuUserName</string>
+						<string>MenuFileServers</string>
+						<string>MenuPasswordExpires</string>
+						<string>MenuGetSoftware</string>
+						<string>MenuGetHelp</string>						
+					</array>
+					<key>Icons</key>
+					<array>
+						<string>CaribouTime</string>
+						<string>IconOff</string>
+						<string>IconOffDark</string>
+						<string>IconOn</string>
+						<string>IconOnDark</string>
+					</array>
+				</dict>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			
+			<!-- Menu: Menu Items -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>HideRenew</string>
+				<key>pfm_description</key>
+				<string>Determines if the Renew Tickets menu is visible.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+			</dict>		
+			<dict>
+				<key>pfm_name</key>
+				<string>ShowHome</string>
+				<key>pfm_description</key>
+				<string>Determines whether the AD home share is shown in the menu.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>HideGetSoftware</string>
+				<key>pfm_description</key>
+				<string>Determines if the Get Software menu is visible.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>HideExpiration</string>
 				<key>pfm_description</key>
 				<string>Hides the password countdown display in the menu bar.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.4</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideExpirationMessage</string>
-				<key>pfm_description</key>
-				<string>Specifies text to show in the menu bar when the password countdown has been suppressed.</string>
-				<key>pfm_type</key>
-				<string>string</string>
 				<key>pfm_app_min</key>
 				<string>1.0.4</string>
 			</dict>
@@ -1062,127 +1192,7 @@
 				<key>pfm_app_min</key>
 				<string>1.0.3</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>GetHelpType</string>
-				<key>pfm_description</key>
-				<string>Determines type of GetHelp function</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>Bomgar</string>
-					<string>URL</string>
-					<string>App</string>
-				</array>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>GetHelpOptions</string>
-				<key>pfm_description</key>
-				<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-				<key>pfm_value_placeholder</key>
-				<string>/Applications/Google Chrome.app</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideGetSoftware</string>
-				<key>pfm_description</key>
-				<string>Determines if the Get Software menu is visible.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>SelfServicePath</string>
-				<key>pfm_description</key>
-				<string>Sets a path for an application to be used with the Get Software menu item</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-				<key>pfm_default</key>
-				<string>/Applications/IT Software.app</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideRenew</string>
-				<key>pfm_description</key>
-				<string>Determines if the Renew Tickets menu is visible.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-			</dict>		
-			<dict>
-				<key>pfm_name</key>
-				<string>ShowHome</string>
-				<key>pfm_description</key>
-				<string>Determines whether the AD home share is shown in the menu.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MenuWelcome</string>
-				<key>pfm_description</key>
-				<string>Path to a folder enclosing an index.html file and associated resources for displaying as a Welcome screen when running NoMAD.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.1.0</string>
-				<key>pfm_value_placeholder</key>
-				<string>/usr/local/welcome/</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PFC_SegmentedControl_1</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_segments</key>
-				<dict>
-					<key>Messages</key>
-					<array>
-						<string>MessageUPCAlert</string>
-						<string>MessagePasswordChangePolicy</string>
-						<string>MessageNotConnected</string>
-						<string>MessageLocalSync</string>
-					</array>
-					<key>Titles</key>
-					<array>
-						<string>MenuAbout</string>
-						<string>MenuGetCertificate</string>
-						<string>MenuChangePassword</string>
-						<string>MenuHomeDirectory</string>
-						<string>MenuRenewTickets</string>
-						<string>MenuUserName</string>
-						<string>MenuFileServers</string>
-						<string>MenuPasswordExpires</string>
-						<string>MenuGetSoftware</string>
-						<string>MenuGetHelp</string>						
-					</array>
-					<key>Icons</key>
-					<array>
-						<string>CaribouTime</string>
-						<string>IconOff</string>
-						<string>IconOffDark</string>
-						<string>IconOn</string>
-						<string>IconOnDark</string>
-					</array>
-				</dict>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
+			
 			
 			<!-- Menu: Messages -->
 			
@@ -1233,6 +1243,16 @@
 				<string>1.0.3</string>
 				<key>pfm_default</key>
 				<string>Please provide your local password.</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>HideExpirationMessage</string>
+				<key>pfm_description</key>
+				<string>Specifies text to show in the menu bar when the password countdown has been suppressed.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.4</string>
 			</dict>
 			
 			<!-- Menu: Titles -->
