@@ -169,14 +169,11 @@
 						<string>LocalPasswordSyncDontSyncLocalUsers</string>
 						<string>LocalPasswordSyncDontSyncNetworkUsers</string>
 						<string>LocalPasswordSyncOnMatchOnly</string>
-						<string>PasswordExpireCustomAlertTime</string>
 						<string>PasswordPolicy</string>
-						<string>PasswordExpireAlertTime</string>
-						<string>PasswordExpireCustomAlert</string>
-						<string>PasswordExpireCustomWarnTime</string>
 						<string>PersistExpiration</string>
 						<string>UPCAlert</string>
 						<string>UPCAlertAction</string>
+						<string>MessageUPCAlert</string>
 						<string>KeychainItems</string>
 						<string>KeychainItemsDebug</string>
 						<string>HicFix</string>
@@ -223,7 +220,6 @@
 						<string>MessageLocalSync</string>
 						<string>MessageNotConnected</string>
 						<string>MessagePasswordChangePolicy</string>
-						<string>MessageUPCAlert</string>
 						<string>ShowHome</string>
 						<string>CaribouTime</string>
 						<string>IconOff</string>
@@ -231,6 +227,10 @@
 						<string>IconOn</string>
 						<string>IconOnDark</string>
 						<string>MountSharesWithFinder</string>
+						<string>PasswordExpireCustomAlertTime</string>
+						<string>PasswordExpireAlertTime</string>
+						<string>PasswordExpireCustomAlert</string>
+						<string>PasswordExpireCustomWarnTime</string>
 					</array>
 					<key>General</key>
 					<array>
@@ -625,76 +625,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>PasswordExpireCustomAlertTime</string>
-				<key>pfm_description</key>
-				<string>Will cause the custom alert to be only shown at a specific threshold, and in red.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<integer>5</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PasswordExpireCustomAlert</string>
-				<key>pfm_description</key>
-				<string>Custom alert to show in the menu bar instead of days to go.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<string>Account expiring soon</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PasswordExpireAlertTime</string>
-				<key>pfm_description</key>
-				<string>The threshold, in seconds, for when to start notifying the user about their expiring password – set to 0 to never be bothered, and defaults to 15 days or 1,296,000 seconds</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-				<key>pfm_default</key>
-				<integer>3600</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PasswordExpireCustomWarnTime</string>
-				<key>pfm_description</key>
-				<string>Will cause the custom alert to be only shown at a specific threshold, and in yellow.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<integer>20</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UPCAlert</string>
-				<key>pfm_description</key>
-				<string>Determines if NoMAD will alert the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user’s system.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.2</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UPCAlertAction</string>
-				<key>pfm_description</key>
-				<string>Path to a script or other binary to execute when a UPC Alert occurs.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<string>/usr/local/bin/upca.sh</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>KeychainItems</string>
 				<key>pfm_title</key>
 				<string>KeychainItems</string>
@@ -732,6 +662,40 @@
 						<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
 					</dict>
 				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UPCAlert</string>
+				<key>pfm_description</key>
+				<string>Determines if NoMAD will alert the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user’s system.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.2</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UPCAlertAction</string>
+				<key>pfm_description</key>
+				<string>Path to a script or other binary to execute when a UPC Alert occurs.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+				<key>pfm_default</key>
+				<string>/usr/local/bin/upca.sh</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MessageUPCAlert</string>
+				<key>pfm_description</key>
+				<string>Message to be shown in an UPCAlert notification.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.1.1</string>
+				<key>pfm_default</key>
+				<string>Your password was changed elsewhere.</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -890,7 +854,10 @@
 					</array>
 					<key>Messages</key>
 					<array>
-						<string>MessageUPCAlert</string>
+						<string>PasswordExpireCustomAlertTime</string>
+						<string>PasswordExpireAlertTime</string>
+						<string>PasswordExpireCustomAlert</string>
+						<string>PasswordExpireCustomWarnTime</string>
 						<string>MessagePasswordChangePolicy</string>
 						<string>MessageNotConnected</string>
 						<string>MessageLocalSync</string>
@@ -1112,15 +1079,51 @@
 			
 			<dict>
 				<key>pfm_name</key>
-				<string>MessageUPCAlert</string>
+				<string>PasswordExpireCustomAlertTime</string>
 				<key>pfm_description</key>
-				<string>Message to be shown in an UPCAlert notification.</string>
+				<string>Will cause the custom alert to be only shown at a specific threshold, and in red.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+				<key>pfm_default</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PasswordExpireCustomAlert</string>
+				<key>pfm_description</key>
+				<string>Custom alert to show in the menu bar instead of days to go.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_app_min</key>
-				<string>1.1.1</string>
+				<string>1.0.5</string>
 				<key>pfm_default</key>
-				<string>Your password was changed elsewhere.</string>
+				<string>Account expiring soon</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PasswordExpireAlertTime</string>
+				<key>pfm_description</key>
+				<string>The threshold, in seconds, for when to start notifying the user about their expiring password – set to 0 to never be bothered, and defaults to 15 days or 1,296,000 seconds</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+				<key>pfm_default</key>
+				<integer>3600</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PasswordExpireCustomWarnTime</string>
+				<key>pfm_description</key>
+				<string>Will cause the custom alert to be only shown at a specific threshold, and in yellow.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+				<key>pfm_default</key>
+				<integer>20</integer>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
