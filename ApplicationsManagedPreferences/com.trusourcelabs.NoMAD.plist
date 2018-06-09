@@ -1054,18 +1054,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MenuAbout</string>
-				<key>pfm_description</key>
-				<string>Determines the name of the About menu item.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.1.4</string>
-				<key>pfm_default</key>
-				<string>This Application</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>HideHelp</string>
 				<key>pfm_description</key>
 				<string>Determines if the Get Help menu is visible.</string>
@@ -1133,6 +1121,16 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.0.3</string>
+			</dict>		
+			<dict>
+				<key>pfm_name</key>
+				<string>ShowHome</string>
+				<key>pfm_description</key>
+				<string>Determines whether the AD home share is shown in the menu.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1148,72 +1146,21 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MessageLocalSync</string>
-				<key>pfm_description</key>
-				<string>Message text for when a user is asked for their local password to sync their network password to their local account.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-				<key>pfm_default</key>
-				<string>Please provide your local password.</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MessageNotConnected</string>
-				<key>pfm_description</key>
-				<string>The text in the menu bar to display when NoMAD is not connected to the AD domain.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-				<key>pfm_default</key>
-				<string>No dice!</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MessagePasswordChangePolicy</string>
-				<key>pfm_description</key>
-				<string>Message text to display in the password change dialog to help the user understand how complex they need to be.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-				<key>pfm_default</key>
-				<string>Your password is required to have 128 characters.</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MessageUPCAlert</string>
-				<key>pfm_description</key>
-				<string>Message to be shown in an UPCAlert notification.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.1.1</string>
-				<key>pfm_default</key>
-				<string>Your password was changed elsewhere.</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShowHome</string>
-				<key>pfm_description</key>
-				<string>Determines whether the AD home share is shown in the menu.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
-			
-			<dict>
-				<key>pfm_name</key>
 				<string>PFC_SegmentedControl_1</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_segments</key>
 				<dict>
+					<key>Messages</key>
+					<array>
+						<string>MessageUPCAlert</string>
+						<string>MessagePasswordChangePolicy</string>
+						<string>MessageNotConnected</string>
+						<string>MessageLocalSync</string>
+					</array>
 					<key>Titles</key>
 					<array>
+						<string>MenuAbout</string>
 						<string>MenuGetCertificate</string>
 						<string>MenuChangePassword</string>
 						<string>MenuHomeDirectory</string>
@@ -1237,8 +1184,71 @@
 				<string>always</string>
 			</dict>
 			
+			<!-- Menu: Messages -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>MessageUPCAlert</string>
+				<key>pfm_description</key>
+				<string>Message to be shown in an UPCAlert notification.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.1.1</string>
+				<key>pfm_default</key>
+				<string>Your password was changed elsewhere.</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MessagePasswordChangePolicy</string>
+				<key>pfm_description</key>
+				<string>Message text to display in the password change dialog to help the user understand how complex they need to be.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+				<key>pfm_default</key>
+				<string>Your password is required to have 128 characters.</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MessageNotConnected</string>
+				<key>pfm_description</key>
+				<string>The text in the menu bar to display when NoMAD is not connected to the AD domain.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+				<key>pfm_default</key>
+				<string>No dice!</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MessageLocalSync</string>
+				<key>pfm_description</key>
+				<string>Message text for when a user is asked for their local password to sync their network password to their local account.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+				<key>pfm_default</key>
+				<string>Please provide your local password.</string>
+			</dict>
+			
 			<!-- Menu: Titles -->
 			
+			<dict>
+				<key>pfm_name</key>
+				<string>MenuAbout</string>
+				<key>pfm_description</key>
+				<string>Determines the name of the About menu item.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.1.4</string>
+				<key>pfm_default</key>
+				<string>This Application</string>
+			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>MenuGetCertificate</string>
