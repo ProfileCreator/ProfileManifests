@@ -162,6 +162,7 @@
 					</array>
 					<key>Password</key>
 					<array>
+						<string>UseKeychainPrompt</string>
 						<string>ChangePasswordCommand</string>
 						<string>ChangePasswordOptions</string>
 						<string>ChangePasswordType</string>
@@ -174,6 +175,11 @@
 						<string>PasswordExpireAlertTime</string>
 						<string>PasswordExpireCustomAlert</string>
 						<string>PasswordExpireCustomWarnTime</string>
+						<string>PersistExpiration</string>
+						<string>UPCAlert</string>
+						<string>UPCAlertAction</string>
+						<string>KeychainItems</string>
+						<string>KeychainItemsDebug</string>
 					</array>
 					<key>Certificates</key>
 					<array>
@@ -183,18 +189,15 @@
 						<string>GetCertificateAutomatically</string>
 						<string>X509CA</string>
 						<string>Template</string>
+						<string>WifiNetworks</string>
 					</array>
 					<key>Menu</key>
 					<array>
 						<string>LightsOutIKnowWhatImDoing</string>
-						<string>CaribouTime</string>
 						<string>HideExpiration</string>
 						<string>HideExpirationMessage</string>
-						<string>HideGetSoftware</string>
-						<string>HideHelp</string>
 						<string>HideLockScreen</string>
 						<string>HidePrefs</string>
-						<string>HideRenew</string>
 						<string>HideSignOut</string>
 						<string>HideQuit</string>
 						<string>HideAbout</string>
@@ -202,10 +205,16 @@
 						<string>MenuChangePassword</string>
 						<string>MenuGetCertificate</string>
 						<string>MenuHomeDirectory</string>
+						<string>HideHelp</string>
 						<string>MenuGetHelp</string>
+						<string>GetHelpOptions</string>
+						<string>GetHelpType</string>
+						<string>HideGetSoftware</string>
 						<string>MenuGetSoftware</string>
+						<string>SelfServicePath</string>
 						<string>MenuFileServers</string>
 						<string>MenuPasswordExpires</string>
+						<string>HideRenew</string>
 						<string>MenuRenewTickets</string>
 						<string>MenuUserName</string>
 						<string>MenuWelcome</string>
@@ -214,6 +223,7 @@
 						<string>MessagePasswordChangePolicy</string>
 						<string>MessageUPCAlert</string>
 						<string>ShowHome</string>
+						<string>CaribouTime</string>
 						<string>IconOff</string>
 						<string>IconOffDark</string>
 						<string>IconOn</string>
@@ -228,6 +238,21 @@
 						<string>SignInWindowAlertTime</string>
 						<string>SignInWindowOnLaunch</string>
 						<string>SignInWindowOnLaunchExclusions</string>
+					</array>
+					<key>Other</key>
+					<array>
+						<string>AutoConfigure</string>
+						<string>ConfigureChrome</string>
+						<string>ConfigureChromeDomain</string>
+						<string>HicFix</string>
+						<string>HomeAppendDomain</string>
+						<string>LoginItem</string>
+						<string>MountSharesWithFinder</string>
+						<string>RecursiveGroupLookup</string>
+						<string>SignInCommand</string>
+						<string>SignOutCommand</string>
+						<string>StateChangeAction</string>
+						<string>Verbose</string>
 					</array>
 				</dict>
 				<key>pfm_require</key>
@@ -384,6 +409,16 @@
 			
 			<!-- Password -->
 			
+			<dict>
+				<key>pfm_name</key>
+				<string>UseKeychainPrompt</string>
+				<key>pfm_description</key>
+				<string>Will cause NoMAD to force a sign in to NoMAD to caputre the password in the Keychain.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.1.1</string>
+			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>ChangePasswordCommand</string>
@@ -636,6 +671,88 @@
 				<key>pfm_default</key>
 				<integer>20</integer>
 			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PersistExpiration</string>
+				<key>pfm_description</key>
+				<string>Setting this to true will display the password expiration countdown even when the user is not logged into the domain.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.4</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UPCAlert</string>
+				<key>pfm_description</key>
+				<string>Determines if NoMAD will alert the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user’s system.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.2</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UPCAlertAction</string>
+				<key>pfm_description</key>
+				<string>Path to a script or other binary to execute when a UPC Alert occurs.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+				<key>pfm_default</key>
+				<string>/usr/local/bin/upca.sh</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>KeychainItems</string>
+				<key>pfm_title</key>
+				<string>KeychainItems</string>
+				<key>pfm_description</key>
+				<string>A Dictionary or Keychain Items matching an item name to an account name. On password change, NoMAD will update these items with the user’s new password.</string>
+				<key>pfm_type</key>
+				<string>dictionary</string>
+				<key>pfm_app_min</key>
+				<string>1.1.0</string>
+				<key>pfm_subkeys</key>
+				<!-- HELP with the titles and description to clarify what should be entered where -->
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>{{key}}</string>
+						<key>pfm_title</key>
+						<string>Keychain Item</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_value_placeholder</key>
+						<string>Exchange</string>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>{{value}}</string>
+						<key>pfm_title</key>
+						<string>Account</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_value_placeholder</key>
+						<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>KeychainItemsDebug</string>
+				<key>pfm_description</key>
+				<string>Enbables KeychainItems debugging. Will attempt to update passwords on any sign in through the NoMAD UI and log verbosely as to what’s not working.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.1.0</string>
+			</dict>
 			
 			<!-- Certificates -->
 			
@@ -704,6 +821,27 @@
 				<string>1.0</string>
 				<key>pfm_default</key>
 				<string>User Auth</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>WifiNetworks</string>
+				<key>pfm_description</key>
+				<string>SSIDs of wireless networks you would like to associate any certificates created with NoMAD to via an identity preference in the Keychain.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_app_min</key>
+				<string>1.1.0</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>SSID</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>string</string>
+					</dict>
+				</array>
 			</dict>
 			
 			<!-- Window -->
@@ -810,18 +948,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>CaribouTime</string>
-				<key>pfm_description</key>
-				<string>Changes the icon set to Carrie the Caribou</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.2</string>
-				<key>pfm_default</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>HideExpiration</string>
 				<key>pfm_description</key>
 				<string>Hides the password countdown display in the menu bar.</string>
@@ -842,26 +968,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>HideGetSoftware</string>
-				<key>pfm_description</key>
-				<string>Determines if the Get Software menu is visible.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideHelp</string>
-				<key>pfm_description</key>
-				<string>Determines if the Get Help menu is visible.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>HideLockScreen</string>
 				<key>pfm_description</key>
 				<string>Determines if the Lock Screen menu is visible.</string>
@@ -879,16 +985,6 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.0.2</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideRenew</string>
-				<key>pfm_description</key>
-				<string>Determines if the Renew Tickets menu is visible.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -970,6 +1066,16 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>HideHelp</string>
+				<key>pfm_description</key>
+				<string>Determines if the Get Help menu is visible.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>MenuGetHelp</string>
 				<key>pfm_description</key>
 				<string>Changes the menu text of the Get Help menu item.</string>
@@ -982,6 +1088,44 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>GetHelpOptions</string>
+				<key>pfm_description</key>
+				<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+				<key>pfm_value_placeholder</key>
+				<string>/Applications/Google Chrome.app</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>GetHelpType</string>
+				<key>pfm_description</key>
+				<string>Determines type of GetHelp function</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>Bomgar</string>
+					<string>URL</string>
+					<string>App</string>
+				</array>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>HideGetSoftware</string>
+				<key>pfm_description</key>
+				<string>Determines if the Get Software menu is visible.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>MenuGetSoftware</string>
 				<key>pfm_description</key>
 				<string>Changes the menu text of the Software menu item.</string>
@@ -991,6 +1135,18 @@
 				<string>1.0.3</string>
 				<key>pfm_default</key>
 				<string>Software</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>SelfServicePath</string>
+				<key>pfm_description</key>
+				<string>Sets a path for an application to be used with the Get Software menu item</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
+				<key>pfm_default</key>
+				<string>/Applications/IT Software.app</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1015,6 +1171,16 @@
 				<string>1.0.3</string>
 				<key>pfm_default</key>
 				<string>Welcome!</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>HideRenew</string>
+				<key>pfm_description</key>
+				<string>Determines if the Renew Tickets menu is visible.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1110,6 +1276,18 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>CaribouTime</string>
+				<key>pfm_description</key>
+				<string>Changes the icon set to Carrie the Caribou</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.2</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>IconOff</string>
 				<key>pfm_description</key>
 				<string>Specifies an icon file to use for when NoMAD is not connected. Note: this needs to be a 16×16 image to display correctly.</string>
@@ -1157,7 +1335,7 @@
 				<string>/usr/local/icons/NoMADOnDark.png</string>
 			</dict>
 			
-			<!-- Other -->
+			<!-- Other == Not added to a category yet-->
 			
 			<dict>
 				<key>pfm_name</key>
@@ -1193,34 +1371,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>GetHelpOptions</string>
-				<key>pfm_description</key>
-				<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-				<key>pfm_value_placeholder</key>
-				<string>/Applications/Google Chrome.app</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>GetHelpType</string>
-				<key>pfm_description</key>
-				<string>Determines type of GetHelp function</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>Bomgar</string>
-					<string>URL</string>
-					<string>App</string>
-				</array>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>HicFix</string>
 				<key>pfm_description</key>
 				<string>Enables a secondary password change with AD to fix an issue with macOS 10.13.0 with AD-bound mobiles accounts.</string>
@@ -1238,56 +1388,6 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.1.4</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>KeychainItems</string>
-				<key>pfm_title</key>
-				<string>KeychainItems</string>
-				<key>pfm_description</key>
-				<string>A Dictionary or Keychain Items matching an item name to an account name. On password change, NoMAD will update these items with the user’s new password.</string>
-				<key>pfm_type</key>
-				<string>dictionary</string>
-				<key>pfm_app_min</key>
-				<string>1.1.0</string>
-				<key>pfm_subkeys</key>
-				<!-- HELP with the titles and description to clarify what should be entered where -->
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>{{key}}</string>
-						<key>pfm_title</key>
-						<string>Keychain Item</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>Exchange</string>
-					</dict>
-					<dict>
-						<key>pfm_name</key>
-						<string>{{value}}</string>
-						<key>pfm_title</key>
-						<string>Account</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>KeychainItemsDebug</string>
-				<key>pfm_description</key>
-				<string>Enbables KeychainItems debugging. Will attempt to update passwords on any sign in through the NoMAD UI and log verbosely as to what’s not working.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.1.0</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1311,16 +1411,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>PersistExpiration</string>
-				<key>pfm_description</key>
-				<string>Setting this to true will display the password expiration countdown even when the user is not logged into the domain.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.4</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>RecursiveGroupLookup</string>
 				<key>pfm_description</key>
 				<string>Allows for recursive group lookups in AD to find all nested groups a user may be a member of.</string>
@@ -1328,18 +1418,6 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>SelfServicePath</string>
-				<key>pfm_description</key>
-				<string>Sets a path for an application to be used with the Get Software menu item</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-				<key>pfm_default</key>
-				<string>/Applications/IT Software.app</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1379,38 +1457,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>UPCAlert</string>
-				<key>pfm_description</key>
-				<string>Determines if NoMAD will alert the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user’s system.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.2</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UPCAlertAction</string>
-				<key>pfm_description</key>
-				<string>Path to a script or other binary to execute when a UPC Alert occurs.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<string>/usr/local/bin/upca.sh</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UseKeychainPrompt</string>
-				<key>pfm_description</key>
-				<string>Will cause NoMAD to force a sign in to NoMAD to caputre the password in the Keychain.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.1.1</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>Verbose</string>
 				<key>pfm_description</key>
 				<string>Enables verbose logging</string>
@@ -1418,27 +1464,6 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>WifiNetworks</string>
-				<key>pfm_description</key>
-				<string>SSIDs of wireless networks you would like to associate any certificates created with NoMAD to via an identity preference in the Keychain.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_app_min</key>
-				<string>1.1.0</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>SSID</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-					</dict>
-				</array>
 			</dict>
 		</array>
 	</dict>
