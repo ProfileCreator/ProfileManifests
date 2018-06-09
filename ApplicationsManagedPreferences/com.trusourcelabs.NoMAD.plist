@@ -194,7 +194,7 @@
 						<string>Template</string>
 						<string>WifiNetworks</string>
 					</array>
-					<key>UI</key>
+					<key>Menu</key>
 					<array>
 						<string>LightsOutIKnowWhatImDoing</string>
 						<string>HideExpiration</string>
@@ -498,6 +498,16 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>PersistExpiration</string>
+				<key>pfm_description</key>
+				<string>Setting this to true will display the password expiration countdown even when the user is not logged into the domain.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.4</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>UseKeychainPrompt</string>
 				<key>pfm_description</key>
 				<string>Will cause NoMAD to force a sign in to NoMAD to caputre the password in the Keychain.</string>
@@ -522,16 +532,6 @@
 				<string>string</string>
 				<key>pfm_app_min</key>
 				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PersistExpiration</string>
-				<key>pfm_description</key>
-				<string>Setting this to true will display the password expiration countdown even when the user is not logged into the domain.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.4</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -969,7 +969,7 @@
 				</array>
 			</dict>
 			
-			<!-- UI -->
+			<!-- Menu -->
 			
 			<dict>
 				<key>pfm_name</key>
@@ -1074,18 +1074,6 @@
 				<string>1.0.5</string>
 				<key>pfm_default</key>
 				<string>Update Account</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MenuGetCertificate</string>
-				<key>pfm_description</key>
-				<string>Changes the menu text of the Get Certificate menu item.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
-				<key>pfm_default</key>
-				<string>Update Certificate</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1309,6 +1297,48 @@
 				<key>pfm_app_min</key>
 				<string>1.0</string>
 			</dict>
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PFC_SegmentedControl_1</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_segments</key>
+				<dict>
+					<key>Titles</key>
+					<array>
+						<string>MenuGetCertificate</string>
+					</array>
+					<key>Icons</key>
+					<array>
+						<string>CaribouTime</string>
+						<string>IconOff</string>
+						<string>IconOffDark</string>
+						<string>IconOn</string>
+						<string>IconOnDark</string>
+					</array>
+				</dict>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			
+			<!-- Menu: Titles -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>MenuGetCertificate</string>
+				<key>pfm_description</key>
+				<string>Changes the menu text of the Get Certificate menu item.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
+				<key>pfm_default</key>
+				<string>Update Certificate</string>
+			</dict>
+			
+			<!-- Menu: Icons -->
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>CaribouTime</string>
@@ -1369,6 +1399,7 @@
 				<key>pfm_value_placeholder</key>
 				<string>/usr/local/icons/NoMADOnDark.png</string>
 			</dict>
+			
 			
 			<!-- Other == Not added to a category yet-->
 			
