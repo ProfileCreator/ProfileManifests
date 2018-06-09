@@ -183,10 +183,10 @@
 					</array>
 					<key>Certificates</key>
 					<array>
-						<string>AutoRenewCert</string>
-						<string>CleanCerts</string>
-						<string>ExportableKey</string>
 						<string>GetCertificateAutomatically</string>
+						<string>AutoRenewCert</string>
+						<string>ExportableKey</string>
+						<string>CleanCerts</string>
 						<string>X509CA</string>
 						<string>Template</string>
 						<string>WifiNetworks</string>
@@ -759,6 +759,16 @@
 			
 			<dict>
 				<key>pfm_name</key>
+				<string>GetCertificateAutomatically</string>
+				<key>pfm_description</key>
+				<string>Determines if a certificate is automatically requested for a user when they don’t have a valid existing certificate.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>AutoRenewCert</string>
 				<key>pfm_description</key>
 				<string>Sets the number of days to go on a cert before automatically renewing it.</string>
@@ -768,6 +778,16 @@
 				<string>1.1.1</string>
 				<key>pfm_default</key>
 				<integer>30</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ExportableKey</string>
+				<key>pfm_description</key>
+				<string>Determines if the private key from any generate certs can be exported.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -781,29 +801,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>ExportableKey</string>
-				<key>pfm_description</key>
-				<string>Determines if the private key from any generate certs can be exported</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>GetCertificateAutomatically</string>
-				<key>pfm_description</key>
-				<string>Determines if a certificate is automatically requested for a user when they don’t have a valid existing certificate.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>X509CA</string>
 				<key>pfm_description</key>
-				<string>FQDN of the Windows web Certificate Authority you would like to use</string>
+				<string>FQDN of the Windows web Certificate Authority you would like to use.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_app_min</key>
@@ -815,7 +815,7 @@
 				<key>pfm_name</key>
 				<string>Template</string>
 				<key>pfm_description</key>
-				<string>The certificate template that you’d like to request when using the Windows CA</string>
+				<string>The certificate template that you’d like to request when using the Windows CA.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_app_min</key>
