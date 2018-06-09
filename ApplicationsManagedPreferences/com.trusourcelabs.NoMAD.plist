@@ -159,6 +159,8 @@
 						<string>UseKeychain</string>
 						<string>UserSwitch</string>
 						<string>DontMatchKerbPrefs</string>
+						<string>ConfigureChrome</string>
+						<string>ConfigureChromeDomain</string>
 					</array>
 					<key>Password</key>
 					<array>
@@ -242,8 +244,6 @@
 					<key>Other</key>
 					<array>
 						<string>AutoConfigure</string>
-						<string>ConfigureChrome</string>
-						<string>ConfigureChromeDomain</string>
 						<string>HicFix</string>
 						<string>HomeAppendDomain</string>
 						<string>LoginItem</string>
@@ -406,6 +406,26 @@
 				<string>boolean</string>
 				<key>pfm_app_min</key>
 				<string>1.0.3</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ConfigureChrome</string>
+				<key>pfm_description</key>
+				<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with your AD domain.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_app_min</key>
+				<string>1.0.3</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ConfigureChromeDomain</string>
+				<key>pfm_description</key>
+				<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with for the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of “nomad.test” will result in *nomad.test being set.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>1.0.5</string>
 			</dict>
 			
 			<!-- Password -->
@@ -778,6 +798,8 @@
 				<string>1.1.1</string>
 				<key>pfm_default</key>
 				<integer>30</integer>
+				<key>pfm_value_unit</key>
+				<string>Days</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -898,6 +920,8 @@
 				<string>1.1.0</string>
 				<key>pfm_default</key>
 				<integer>360</integer>
+				<key>pfm_value_unit</key>
+				<string>Seconds</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -1349,26 +1373,6 @@
 				<string>1.0</string>
 				<key>pfm_default</key>
 				<string>TSL</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ConfigureChrome</string>
-				<key>pfm_description</key>
-				<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with your AD domain.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_app_min</key>
-				<string>1.0.3</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ConfigureChromeDomain</string>
-				<key>pfm_description</key>
-				<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with for the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of “nomad.test” will result in *nomad.test being set.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>1.0.5</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
