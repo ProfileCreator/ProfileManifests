@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_description</key>
+		<string>Dock settings</string>
+		<key>pfm_title</key>
+		<string>Dock</string>
+		<key>pfm_domain</key>
+		<string>com.apple.dock</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_interaction</key>
+		<string>combined</string>
+		<key>pfm_targets</key>
+		<array>
+			<string>system</string>
+			<string>user</string>
+		</array>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_unique</key>
+		<true/>
+		<key>pfm_subkeys</key>
+		<array>
+			
+			<!-- Default Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Dock Payload</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Dock Payload</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.dock</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.dock</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			<!-- Custom Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>tilesize</string>
+				<key>pfm_title</key>
+				<string>Dock size</string>
+				<key>pfm_description</key>
+				<string>The tile size in pixels.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_range_max</key>
+				<integer>128</integer>
+				<key>pfm_range_min</key>
+				<integer>16</integer>
+				<key>pfm_default</key>
+				<integer>64</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>magnification</string>
+				<key>pfm_title</key>
+				<string>Magnification</string>
+				<key>pfm_description</key>
+				<string>Set to true to turn on magnification.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>largesize</string>
+				<key>pfm_title</key>
+				<string>Largest Magnification Tile Size</string>
+				<key>pfm_description</key>
+				<string>Largest magnification tile size in pixels.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_range_max</key>
+				<integer>128</integer>
+				<key>pfm_range_min</key>
+				<integer>16</integer>
+				<key>pfm_default</key>
+				<integer>128</integer>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>magnification</string>
+								<key>pfm_range_list</key>
+								<array>
+									<false/>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>magnify-immutable</string>
+				<key>pfm_title</key>
+				<string>Disable Magnification Checkbox</string>
+				<key>pfm_description</key>
+				<string>If true, the magnification checkbox is disabled.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>magsize-immutable</string>
+				<key>pfm_title</key>
+				<string>Disable Magnification Slider</string>
+				<key>pfm_description</key>
+				<string>If true, the magnify slider is disabled.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>orientation</string>
+				<key>pfm_title</key>
+				<string>Position</string>
+				<key>pfm_description</key>
+				<string>Position of the dock.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>left</string>
+					<string>bottom</string>
+					<string>right</string>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Left</string>
+					<string>Bottom</string>
+					<string>Right</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>position-immutable</string>
+				<key>pfm_title</key>
+				<string>Lock Position</string>
+				<key>pfm_description</key>
+				<string>If true, the position is locked.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>mineffect</string>
+				<key>pfm_title</key>
+				<string>Minimize effect</string>
+				<key>pfm_description</key>
+				<string>Transition effect to use when minimizing the Dock.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>genie</string>
+					<string>scale</string>
+				</array>
+				<key>pfm_range_list</key>
+				<array>
+					<string>Genie Effect</string>
+					<string>Scale Effect</string>
+				</array>
+				<key>pfm_default</key>
+				<string>genie</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>minimize-to-application</string>
+				<key>pfm_title</key>
+				<string>Minimize to application</string>
+				<key>pfm_description</key>
+				<string>If true, enable the minimize-to-application feature.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>minimize-to-application-immutable</string>
+				<key>pfm_title</key>
+				<string>Lock Minimize to application</string>
+				<key>pfm_description</key>
+				<string>If true, the minimize-to-application checkbox is disabled.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			
+			
+			
+			
+			
+			
+			
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>autohide</string>
+				<key>pfm_title</key>
+				<string>Auto Hide</string>
+				<key>pfm_description</key>
+				<string>If true, automatically hide and show the dock.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>autohide-immutable</string>
+				<key>pfm_title</key>
+				<string>Lock Auto Hide</string>
+				<key>pfm_description</key>
+				<string>If true, the Automatically Hide checkbox is disabled.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>show-process-indicators</string>
+				<key>pfm_title</key>
+				<string>Show process indicators</string>
+				<key>pfm_description</key>
+				<string>If true, show the process indicator.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>launchanim</string>
+				<key>pfm_title</key>
+				<string>Launch Animation</string>
+				<key>pfm_description</key>
+				<string>Set to true to use launch animation.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_title</key>
+				<string>Launch Animation Checkbox Disabled</string>
+				<key>pfm_name</key>
+				<string>launchanim-immutable</string>
+				<key>pfm_description</key>
+				<string>Set to true to disable the launch animation checkbox.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>mineffect-immutable</string>
+				<key>pfm_title</key>
+				<string>Minimization Popup Menu Disabled</string>
+				<key>pfm_description</key>
+				<string>Set to true to disable the minimization effect popup.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_title</key>
+				<string>Tile Size UI Disabled</string>
+				<key>pfm_name</key>
+				<string>size-immutable</string>
+				<key>pfm_description</key>
+				<string>Set to true to prevent user from changing tile size.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MCXDockSpecialFolders</string>
+				<key>pfm_title</key>
+				<string>Managed Client Special Folders</string>
+				<key>pfm_description</key>
+				<string>Folders added by Managed Client.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_repetition_min</key>
+				<integer>0</integer>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>mcxfolderflag</string>
+						<key>pfm_title</key>
+						<string>Folder Flag</string>
+						<key>pfm_description</key>
+						<string>Flag for one folder added by Managed Client.</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_repetition_max</key>
+						<integer>3</integer>
+						<key>pfm_repetition_min</key>
+						<integer>0</integer>
+						<key>pfm_range_list</key>
+						<array>
+							<string>AddDockMCXMyApplicationsFolder</string>
+							<string>AddDockMCXDocumentsFolder</string>
+							<string>AddDockMCXOriginalNetworkHomeFolder</string>
+						</array>
+						<key>pfm_range_list_titles</key>
+						<array>
+							<string>My apps</string>
+							<string>Documents</string>
+							<string>Network home</string>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AllowDockFixupOverride</string>
+				<key>pfm_title</key>
+				<string>AllowDockFixupOverride</string>
+				<key>pfm_description</key>
+				<string>If true, use the file in /Library/Preferences/com.apple.dockfixup.plist when a new user or migrated user logs in. The format of this file currently has no documentation. This option has no effect for existing users.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_macos_min</key>
+				<string>10.12</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>static-only</string>
+				<key>pfm_title</key>
+				<string>Static items only</string>
+				<key>pfm_description</key>
+				<string>If true, the device will use the static-apps and static-others dictionaries for the dock and ignore any items in the persistent-apps and persistent-others dictionaries. If false, the contents will be merged with the static items listed first.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>static-apps</string>
+				<key>pfm_title</key>
+				<string>Forced Dock Applications</string>
+				<key>pfm_description</key>
+				<string>Dock items in the Applications side that cannot be removed from the dock.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>apptile</string>
+						<key>pfm_title</key>
+						<string>Forced Dock Application</string>
+						<key>pfm_description</key>
+						<string>Application Dock Item.</string>
+						<key>pfm_type</key>
+						<string>dictionary</string>
+						<key>pfm_subkeys</key>
+						<array>
+							<dict>
+								<key>pfm_name</key>
+								<string>tile-data</string>
+								<key>pfm_subkeys</key>
+								<array>
+									<dict>
+										<key>pfm_name</key>
+										<string>label</string>
+										<key>pfm_title</key>
+										<string></string>
+										<key>pfm_description</key>
+										<string>Label of a dock item.</string>
+										<key>pfm_type</key>
+										<string>string</string>
+										<key>pfm_require</key>
+										<string>always</string>
+									</dict>
+									<dict>
+										<key>pfm_name</key>
+										<string>url</string>
+										<key>pfm_title</key>
+										<string></string>
+										<key>pfm_description</key>
+										<string>For URL tiles, the URL string.</string>
+										<key>pfm_type</key>
+										<string>string</string>
+									</dict>
+									<dict>
+										<key>pfm_name</key>
+										<string>file-type</string>
+										<key>pfm_title</key>
+										<string>File Type</string>
+										<key>pfm_description</key>
+										<string>The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file</string>
+										<key>pfm_type</key>
+										<string>integer</string>
+										<key>pfm_require</key>
+										<string>always</string>
+									</dict>
+								</array>
+							</dict>
+							<dict>
+								<key>pfm_name</key>
+								<string>tile-type</string>
+								<key>pfm_title</key>
+								<string>Tile Type</string>
+								<key>pfm_description</key>
+								<string>Type of tile.</string>
+								<key>pfm_type</key>
+								<string>string</string>
+								<key>pfm_range_list</key>
+								<array>
+									<string>file-tile</string>
+									<string>directory-tile</string>
+									<string>url-tile</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>static-others</string>
+				<key>pfm_title</key>
+				<string>Forced Dock Documents</string>
+				<key>pfm_description</key>
+				<string>Dock items in the Documents side that cannot be removed from the dock.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>contents-immutable</string>
+				<key>pfm_title</key>
+				<string>Changes Disabled</string>
+				<key>pfm_description</key>
+				<string>If true, the user cannot remove any item from or add any item to the dock.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+</plist>
