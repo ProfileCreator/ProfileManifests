@@ -149,7 +149,7 @@
 				<key>pfm_title</key>
 				<string>Size slider disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing tile size.</string>
+				<string>Prevent user from changing tile size.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -171,7 +171,7 @@
 				<key>pfm_title</key>
 				<string>Enable magnification checkbox disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to disable the enable magnification checkbox.</string>
+				<string>Prevent user from changing the enable magnification setting.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -213,7 +213,7 @@
 				<key>pfm_title</key>
 				<string>Magnification slider disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing magnification size.</string>
+				<string>Prevent user from changing magnification size.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -245,7 +245,7 @@
 				<key>pfm_title</key>
 				<string>Position on screen buttons disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing position.</string>
+				<string>Prevent user from changing position.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -287,7 +287,7 @@
 				<key>pfm_title</key>
 				<string>Minimize windows into application icon Checkbox Disable</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing the minimize windows into application icon setting.</string>
+				<string>Prevent user from changing the minimize windows into application icon setting.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -309,7 +309,7 @@
 				<key>pfm_title</key>
 				<string>Animate opening applications checkbox disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing the animate opening applications setting.</string>
+				<string>Prevent user from changing the animate opening applications setting.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -331,7 +331,7 @@
 				<key>pfm_title</key>
 				<string>Automatically hide and show the Dock checkbox disabled</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from changing the automatically hide and show the dock setting.</string>
+				<string>Prevent user from changing the automatically hide and show the dock setting.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -349,11 +349,23 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
+				<string>static-only</string>
+				<key>pfm_title</key>
+				<string>Merge with User's Dock</string>
+				<key>pfm_description</key>
+				<string>Whether these settings will merge with the user’s existing Dock settings.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
 				<string>contents-immutable</string>
 				<key>pfm_title</key>
-				<string>Changes Disabled</string>
+				<string>Allow modifying items in Dock</string>
 				<key>pfm_description</key>
-				<string>Set to true to prevent user from removing any item from or adding any item to the dock.</string>
+				<string>Prevent user from removing any item from or adding any item to the dock.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -376,43 +388,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MCXDockSpecialFolders</string>
-				<key>pfm_title</key>
-				<string>Managed Client Special Folders</string>
-				<key>pfm_description</key>
-				<string>Folders added by Managed Client.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_repetition_max</key>
-				<integer>3</integer>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>mcxfolderflag</string>
-						<key>pfm_title</key>
-						<string>Folder Flag</string>
-						<key>pfm_description</key>
-						<string>Flag for one folder added by Managed Client.</string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_range_list</key>
-						<array>
-							<string>AddDockMCXMyApplicationsFolder</string>
-							<string>AddDockMCXDocumentsFolder</string>
-							<string>AddDockMCXOriginalNetworkHomeFolder</string>
-						</array>
-						<key>pfm_range_list_titles</key>
-						<array>
-							<string>My apps</string>
-							<string>Documents</string>
-							<string>Network home</string>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>AllowDockFixupOverride</string>
 				<key>pfm_title</key>
 				<string>AllowDockFixupOverride</string>
@@ -423,18 +398,7 @@
 				<key>pfm_macos_min</key>
 				<string>10.12</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>static-only</string>
-				<key>pfm_title</key>
-				<string>Static items only</string>
-				<key>pfm_description</key>
-				<string>If true, the device will use the static-apps and static-others dictionaries for the dock and ignore any items in the persistent-apps and persistent-others dictionaries. If false, the contents will be merged with the static items listed first.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
+			<!-- FIXME: These are a little challenging to present right now, will have to do it a little later.
 			<dict>
 				<key>pfm_name</key>
 				<string>static-apps</string>
@@ -527,6 +491,44 @@
 				<string>Dock items in the Documents side that cannot be removed from the dock.</string>
 				<key>pfm_type</key>
 				<string>array</string>
+			</dict>
+			-->
+			<dict>
+				<key>pfm_name</key>
+				<string>MCXDockSpecialFolders</string>
+				<key>pfm_title</key>
+				<string>Managed Client Special Folders</string>
+				<key>pfm_description</key>
+				<string>Folders added by Managed Client.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_repetition_max</key>
+				<integer>3</integer>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>mcxfolderflag</string>
+						<key>pfm_title</key>
+						<string>Folder Flag</string>
+						<key>pfm_description</key>
+						<string>Flag for one folder added by Managed Client.</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_range_list</key>
+						<array>
+							<string>AddDockMCXMyApplicationsFolder</string>
+							<string>AddDockMCXDocumentsFolder</string>
+							<string>AddDockMCXOriginalNetworkHomeFolder</string>
+						</array>
+						<key>pfm_range_list_titles</key>
+						<array>
+							<string>My apps</string>
+							<string>Documents</string>
+							<string>Network home</string>
+						</array>
+					</dict>
+				</array>
 			</dict>
 		</array>
 	</dict>
