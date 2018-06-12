@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_description</key>
+		<string>Proxy settings</string>
+		<key>pfm_title</key>
+		<string>Proxy</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_domain</key>
+		<string>com.apple.SystemConfiguration</string>
+		<key>pfm_interaction</key>
+		<string>exclusive</string>
+		<key>pfm_targets</key>
+		<array>
+			<string>system</string>
+			<string>user</string>
+		</array>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_unique</key>
+		<true/>
+		<key>pfm_subkeys</key>
+		<array>
+			
+			<!-- Default Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_description</key>
+				<string>Description of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Configures Proxy settings</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_description</key>
+				<string>Name of the payload</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>Proxy</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.SystemConfiguration</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>com.apple.SystemConfiguration</string>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string></string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_require</key>
+				<string>always</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			<!-- Custom Payload Keys -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>Proxies</string>
+				<key>pfm_title</key>
+				<string>Proxy Configuration</string>
+				<key>pfm_description</key>
+				<string>macOS System Proxy Configuration</string>
+				<key>pfm_type</key>
+				<string>dictionary</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPEnable</string>
+						<key>pfm_title</key>
+						<string>Enable Web Proxy (HTTP)</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_type_input</key>
+						<string>boolean</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPProxy</string>
+						<key>pfm_title</key>
+						<string>HTTP Proxy Hostname</string>
+						<key>pfm_description</key>
+						<string>The IP address or fully qualified domain name (FQDN) of the http proxy server.</string>
+						<key>pfm_type</key>
+						<string>string</string>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPPort</string>
+						<key>pfm_title</key>
+						<string>HTTP Proxy Port</string>
+						<key>pfm_description</key>
+						<string>HTTP Proxy Port</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>80</integer>
+					</dict>
+					
+					
+					
+					
+					
+					<dict>
+						<key>pfm_name</key>
+						<string>FTPEnable</string>
+						<key>pfm_title</key>
+						<string>Enable FTP Proxy</string>
+						<key>pfm_description</key>
+						<string>Enable FTP Proxy, 0 - disabled, 1 - enabled</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>GopherEnable</string>
+						<key>pfm_title</key>
+						<string>Enable Gopher Proxy</string>
+						<key>pfm_description</key>
+						<string>Enable Gopher Proxy, 0 - disabled, 1 - enabled</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					
+					
+					
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPSEnable</string>
+						<key>pfm_title</key>
+						<string>Enable HTTPS Proxy</string>
+						<key>pfm_description</key>
+						<string>Enable HTTPS Proxy, 0 - disabled, 1 - enabled</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>ProxyAutoConfigEnable</string>
+						<key>pfm_title</key>
+						<string>Enable PAC file</string>
+						<key>pfm_description</key>
+						<string>Enable the use of a Proxy AutoConfig file</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>RTSPEnable</string>
+						<key>pfm_title</key>
+						<string>Enable RTSP Steaming Proxy</string>
+						<key>pfm_description</key>
+						<string>Enable RTSP Streaming Proxy, 0 - disabled, 1 - enabled</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>SOCKSEnable</string>
+						<key>pfm_title</key>
+						<string>Enable SOCKS Proxy</string>
+						<key>pfm_description</key>
+						<string>Enable SOCKS Proxy, 0 - disabled, 1 - enabled</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>ExceptionsList</string>
+						<key>pfm_title</key>
+						<string>Proxy Bypass List</string>
+						<key>pfm_description</key>
+						<string>Bypass proxy settings for these Hosts &amp; Domains</string>
+						<key>pfm_type</key>
+						<string>array</string>
+						<key>pfm_subkeys</key>
+						<array>
+							<dict>
+								<key>pfm_name</key>
+								<string>ExceptionsListItem</string>
+								<key>pfm_title</key>
+								<string>Bypassed Domain</string>
+								<key>pfm_description</key>
+								<string>Bypassed domain or IP address. May contain wildcards. IP addresses may be in CIDR format.</string>
+								<key>pfm_type</key>
+								<string>string</string>
+								<key>pfm_require</key>
+								<string>always</string>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</plist>
