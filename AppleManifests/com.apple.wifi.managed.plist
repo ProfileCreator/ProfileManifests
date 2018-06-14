@@ -162,8 +162,41 @@
 				<string>Enter the SSID of the wireless network to connect to.</string>
 				<key>pfm_type</key>
 				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>always</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Interface</string>
+								<key>pfm_contains_any</key>
+								<array>
+									<string>BuiltInWireless</string>
+									<string>Hotspot</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Interface</string>
+								<key>pfm_n_range_list</key>
+								<array>
+									<string>Hotspot2</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
