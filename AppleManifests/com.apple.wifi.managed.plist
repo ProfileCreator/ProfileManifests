@@ -1001,13 +1001,13 @@
 								<string>integer</string>
 								<key>pfm_range_list</key>
 								<array>
-									<integer>13</integer>
-									<integer>17</integer>
-									<integer>21</integer>
-									<integer>25</integer>
-									<integer>43</integer>
-									<integer>18</integer>
-									<integer>23</integer>
+									<integer>13</integer> 		<!-- TLS -->
+									<integer>17</integer> 		<!-- LEAP -->
+									<integer>21</integer> 		<!-- TTLS -->
+									<integer>25</integer> 		<!-- PEAP -->
+									<integer>43</integer> 		<!-- EAP-FAST -->
+									<integer>18</integer> 		<!-- EAP-SIM -->
+									<integer>23</integer> 		<!-- EAP-AKA -->
 								</array>
 								<key>pfm_range_list_titles</key>
 								<array>
@@ -1022,8 +1022,61 @@
 							</dict>
 						</array>
 					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>UserName</string>
+						<key>pfm_title</key>
+						<string>Username</string>
+						<key>pfm_description</key>
+						<string>Username. If not provided, the user may be prompted during login</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_conditionals</key>
+						<array>
+							<dict>
+								<key>pfm_require</key>
+								<string>push</string>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_target</key>
+										<string>EAPClientConfiguration.AcceptEAPTypes</string>
+										<key>pfm_contains_any</key>
+										<array>
+											<integer>17</integer> 	<!-- LEAP -->
+											<integer>21</integer> 	<!-- TTLS -->
+											<integer>25</integer> 	<!-- PEAP -->
+											<integer>43</integer> 	<!-- EAP-FAST -->
+										</array>
+									</dict>
+								</array>
+							</dict>
+						</array>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_require</key>
+								<string>push</string>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_target</key>
+										<string>EAPClientConfiguration.AcceptEAPTypes</string>
+										<key>pfm_n_contains_any</key>
+										<array>
+											<integer>17</integer> 	<!-- LEAP -->
+											<integer>21</integer> 	<!-- TTLS -->
+											<integer>25</integer> 	<!-- PEAP -->
+											<integer>43</integer> 	<!-- EAP-FAST -->
+										</array>
+									</dict>
+								</array>
+							</dict>
+						</array>
+					</dict>
 				</array>
 			</dict>
+			
 			
 			<!-- QoS -->
 			
@@ -1096,99 +1149,9 @@
 			<dict>
 				<key>pfm_name</key>
 				<string>EAPClientConfiguration</string>
-				<key>pfm_title</key>
-				<string>EAP Client Configuration</string>
-				<key>pfm_description</key>
-				<string>Specifies 802.1x EAP authentication parameters</string>
-				<key>pfm_type</key>
-				<string>dictionary</string>
-				<key>pfm_subkeys</key>
+				...
 				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>AcceptEAPTypes</string>
-						<key>pfm_title</key>
-						<string>Accept EAP Types</string>
-						<key>pfm_description</key>
-						<string>The EAP types accepted</string>
-						<key>pfm_type</key>
-						<string>array</string>
-						<key>pfm_subkeys</key>
-						<array>
-							<dict>
-								<key>pfm_name</key>
-								<string>EAPType</string>
-								<key>pfm_title</key>
-								<string>EAP Type</string>
-								<key>pfm_description</key>
-								<string>An integer representing an EAP type, inside of the Accept EAP Types array</string>
-								<key>pfm_type</key>
-								<string>integer</string>
-								<key>pfm_range_list</key>
-								<array>
-									<integer>13</integer>
-									<integer>17</integer>
-									<integer>21</integer>
-									<integer>25</integer>
-									<integer>43</integer>
-									<integer>18</integer>
-									<integer>23</integer>
-								</array>
-							</dict>
-						</array>
-					</dict>
-					<dict>
-						<key>pfm_name</key>
-						<string>UserName</string>
-						<key>pfm_title</key>
-						<string>Username</string>
-						<key>pfm_description</key>
-						<string>Username. If not provided, the user may be prompted during login</string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_conditionals</key>
-						<array>
-							<dict>
-								<key>pfm_require</key>
-								<string>push</string>
-								<key>pfm_target_conditions</key>
-								<array>
-									<dict>
-										<key>pfm_target</key>
-										<string>EAPClientConfiguration.AcceptEAPTypes</string>
-										<key>pfm_contains_any</key>
-										<array>
-											<integer>17</integer>
-											<integer>21</integer>
-											<integer>25</integer>
-											<integer>43</integer>
-										</array>
-									</dict>
-								</array>
-							</dict>
-						</array>
-						<key>pfm_exclude</key>
-						<array>
-							<dict>
-								<key>pfm_require</key>
-								<string>push</string>
-								<key>pfm_target_conditions</key>
-								<array>
-									<dict>
-										<key>pfm_target</key>
-										<string>EAPClientConfiguration.AcceptEAPTypes</string>
-										<key>pfm_n_contains_any</key>
-										<array>
-											<integer>17</integer>
-											<integer>21</integer>
-											<integer>25</integer>
-											<integer>43</integer>
-										</array>
-									</dict>
-								</array>
-							</dict>
-						</array>
-					</dict>
+					
 				<dict>
 					<key>pfm_name</key>
 					<string>UserPassword</string>
