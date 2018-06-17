@@ -1025,6 +1025,73 @@
 				</array>
 			</dict>
 			
+			<!-- -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>QoSMarkingPolicy</string>
+				<key>pfm_title</key>
+				<string>QoS Marking Policy</string>
+				<key>pfm_description</key>
+				<string>Restrict fast lane QoS marking</string>
+				<key>pfm_type</key>
+				<string>dictionary</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>QoSMarkingEnabled</string>
+						<key>pfm_title</key>
+						<string>Allow QoS marking</string>
+						<key>pfm_description</key>
+						<string>Enable any kind of QoS marking</string>
+						<key>pfm_type</key>
+						<string>boolean</string>
+						<key>pfm_default</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>QoSMarkingAppleAudioVideoCalls</string>
+						<key>pfm_title</key>
+						<string>QoS marking for audio/video calls</string>
+						<key>pfm_description</key>
+						<string>Enable QoS for WiFi Calling, FaceTime, SMS, etc.</string>
+						<key>pfm_type</key>
+						<string>boolean</string>
+						<key>pfm_default</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>QoSMarkingWhitelistedAppIdentifiers</string>
+						<key>pfm_title</key>
+						<string>Whitelisted App Identifiers</string>
+						<key>pfm_description</key>
+						<string>Whitelist specific apps for QoS marking</string>
+						<key>pfm_type</key>
+						<string>array</string>
+						<key>pfm_subkeys</key>
+						<array>
+							<dict>
+								<key>pfm_name</key>
+								<string>appBundleID</string>
+								<key>pfm_title</key>
+								<string>Whitelisted App</string>
+								<key>pfm_description</key>
+								<string>Whitelisted App</string>
+								<key>pfm_type</key>
+								<string>string</string>
+								<key>pfm_default</key>
+								<string></string>
+							</dict>
+						</array>
+					</dict>
+				</array>
+				<key>pfm_ios_min</key>
+				<string>10.0</string>
+			</dict>
+			
 			<!--
 			<dict>
 				<key>pfm_name</key>
@@ -1600,70 +1667,6 @@
 				<string>boolean</string>
 				<key>pfm_ios_min</key>
 				<string>7.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>QoSMarkingPolicy</string>
-				<key>pfm_title</key>
-				<string>QoS Marking Policy</string>
-				<key>pfm_description</key>
-				<string>Restrict fast lane QoS marking</string>
-				<key>pfm_type</key>
-				<string>dictionary</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>QoSMarkingEnabled</string>
-						<key>pfm_title</key>
-						<string>Allow QoS marking</string>
-						<key>pfm_description</key>
-						<string>Enable any kind of QoS marking</string>
-						<key>pfm_type</key>
-						<string>boolean</string>
-						<key>pfm_default</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>pfm_name</key>
-						<string>QoSMarkingAppleAudioVideoCalls</string>
-						<key>pfm_title</key>
-						<string>QoS marking for audio/video calls</string>
-						<key>pfm_description</key>
-						<string>Enable QoS for WiFi Calling, FaceTime, SMS, etc.</string>
-						<key>pfm_type</key>
-						<string>boolean</string>
-						<key>pfm_default</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>pfm_name</key>
-						<string>QoSMarkingWhitelistedAppIdentifiers</string>
-						<key>pfm_title</key>
-						<string>Whitelisted App Identifiers</string>
-						<key>pfm_description</key>
-						<string>Whitelist specific apps for QoS marking</string>
-						<key>pfm_type</key>
-						<string>array</string>
-						<key>pfm_subkeys</key>
-						<array>
-							<dict>
-								<key>pfm_name</key>
-								<string>appBundleID</string>
-								<key>pfm_title</key>
-								<string>Whitelisted App</string>
-								<key>pfm_description</key>
-								<string>Whitelisted App</string>
-								<key>pfm_type</key>
-								<string>string</string>
-								<key>pfm_default</key>
-								<string></string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_ios_min</key>
-				<string>10.0</string>
 			</dict>
 				-->
 		</array>
