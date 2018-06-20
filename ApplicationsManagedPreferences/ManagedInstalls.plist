@@ -146,8 +146,9 @@
 				<string>always</string>
 				<key>pfm_segments</key>
 				<dict>
-					<key>Install</key>
+					<key>General</key>
 					<array>
+						<string>ClientIdentifier</string>
 						<string>SuppressAutoInstall</string>
 						<string>SuppressLoginwindowInstall</string>
 						<string>InstallAppleSoftwareUpdates</string>
@@ -173,13 +174,16 @@
 						<string>IconURL</string>
 						<string>ClientResourceURL</string>
 						<string>HelpURL</string>
+						<string>AdditionalHttpHeaders</string>
+						<string>FollowHTTPRedirects</string>
+						<string>IgnoreSystemProxies</string>
 					</array>
 					<key>Certificate</key>
 					<array>
 						<string>UseClientCertificate</string>
+						<string>UseClientCertificateCNAsClientIdentifier</string>
 						<string>ClientCertificatePath</string>
 						<string>ClientKeyPath</string>
-						<string>UseClientCertificateCNAsClientIdentifier</string>
 						<string>SoftwareRepoCAPath</string>
 						<string>SoftwareRepoCACertificate</string>
 					</array>
@@ -196,21 +200,25 @@
 					<key>Other</key>
 					<array>
 						<string>ClientResourcesFilename</string>
-						<string>ClientIdentifier</string>
 						<string>ManagedInstallDir</string>
-						<string>AdditionalHttpHeaders</string>
 						<string>PackageVerificationMode</string>
 						<string>LocalOnlyManifest</string>
-						<string>FollowHTTPRedirects</string>
-						<string>IgnoreSystemProxies</string>
 						<string>PerformAuthRestarts</string>
 						<string>RecoveryKeyFile</string>
 					</array>
 				</dict>
 			</dict>
 			
-			<!-- Install -->
+			<!-- General -->
 			
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientIdentifier</string>
+				<key>pfm_description</key>
+				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>SuppressAutoInstall</string>
@@ -381,6 +389,51 @@
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>AdditionalHttpHeaders</string>
+				<key>pfm_description</key>
+				<string>This key provides the ability to specify custom HTTP headers to be sent with all curl() HTTP requests.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPHeader</string>
+						<key>pfm_title</key>
+						<string>HTTPHeader</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>string</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>FollowHTTPRedirects</string>
+				<key>pfm_description</key>
+				<string>Defines whether Munki will follow all, some or no redirects from the web server. (none = The default behaviour. No redirects are followed. https = Only redirects to URLs using HTTPS are followed. all = Redirects to both HTTP and HTTPS URLs are followed.)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>none</string>
+					<string>https</string>
+					<string>all</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>IgnoreSystemProxies</string>
+				<key>pfm_description</key>
+				<string>HTTP and/or HTTPS proxies set system-wide will be ignored, connections will be made directly.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
 			
 			<!-- Certificate -->
 			
@@ -389,6 +442,16 @@
 				<string>UseClientCertificate</string>
 				<key>pfm_description</key>
 				<string>Use an SSL client certificate when communicating with the Munki server. Requires an https:// URL for the Munki repo.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UseClientCertificateCNAsClientIdentifier</string>
+				<key>pfm_description</key>
+				<string>Use the CN of the client certificate as the Client Identifier. Used in combination with the UseClientCertificate key.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -411,16 +474,6 @@
 				<string>Absolute path to a client private key.</string>
 				<key>pfm_type</key>
 				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UseClientCertificateCNAsClientIdentifier</string>
-				<key>pfm_description</key>
-				<string>Use the CN of the client certificate as the Client Identifier. Used in combination with the UseClientCertificate key.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -540,14 +593,6 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>ClientIdentifier</string>
-				<key>pfm_description</key>
-				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>ManagedInstallDir</string>
 				<key>pfm_description</key>
 				<string>Folder where Munki keeps its data on the client.</string>
@@ -559,27 +604,7 @@
 			
 			
 			
-			<dict>
-				<key>pfm_name</key>
-				<string>AdditionalHttpHeaders</string>
-				<key>pfm_description</key>
-				<string>This key provides the ability to specify custom HTTP headers to be sent with all curl() HTTP requests.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>HTTPHeader</string>
-						<key>pfm_title</key>
-						<string>HTTPHeader</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-					</dict>
-				</array>
-			</dict>
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>PackageVerificationMode</string>
@@ -606,30 +631,7 @@
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>FollowHTTPRedirects</string>
-				<key>pfm_description</key>
-				<string>Defines whether Munki will follow all, some or no redirects from the web server. (none = The default behaviour. No redirects are followed. https = Only redirects to URLs using HTTPS are followed. all = Redirects to both HTTP and HTTPS URLs are followed.)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>none</string>
-					<string>https</string>
-					<string>all</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>IgnoreSystemProxies</string>
-				<key>pfm_description</key>
-				<string>HTTP and/or HTTPS proxies set system-wide will be ignored, connections will be made directly.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>PerformAuthRestarts</string>
