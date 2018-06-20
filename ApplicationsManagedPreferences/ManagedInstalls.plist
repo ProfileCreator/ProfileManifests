@@ -148,6 +148,8 @@
 				<dict>
 					<key>Install</key>
 					<array>
+						<string>SuppressAutoInstall</string>
+						<string>SuppressLoginwindowInstall</string>
 						<string>InstallAppleSoftwareUpdates</string>
 						<string>AppleSoftwareUpdatesOnly</string>
 						<string>UnattendedAppleUpdates</string>
@@ -181,10 +183,54 @@
 						<string>SoftwareRepoCAPath</string>
 						<string>SoftwareRepoCACertificate</string>
 					</array>
+					<key>Managed Software Center</key>
+					<array>
+						<string>SuppressUserNotification</string>
+						<string>SuppressStopButtonOnInstall</string>
+						<string>InstallRequiresLogout</string>
+						<string>ShowRemovalDetail</string>
+						<string>ShowOptionalInstallsForHigherOSVersions</string>
+						<string>DaysBetweenNotifications</string>
+						<string>UseNotificationCenterDays</string>
+					</array>
+					<key>Other</key>
+					<array>
+						<string>ClientResourcesFilename</string>
+						<string>ClientIdentifier</string>
+						<string>ManagedInstallDir</string>
+						<string>AdditionalHttpHeaders</string>
+						<string>PackageVerificationMode</string>
+						<string>LocalOnlyManifest</string>
+						<string>FollowHTTPRedirects</string>
+						<string>IgnoreSystemProxies</string>
+						<string>PerformAuthRestarts</string>
+						<string>RecoveryKeyFile</string>
+					</array>
 				</dict>
 			</dict>
 			
 			<!-- Install -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>SuppressAutoInstall</string>
+				<key>pfm_description</key>
+				<string>Munki will not automatically install or remove items.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>SuppressLoginwindowInstall</string>
+				<key>pfm_description</key>
+				<string>Munki will not install items while idle at the loginwindow except for those marked for unattended_install or unattended_uninstall.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>InstallAppleSoftwareUpdates</string>
@@ -251,6 +297,26 @@
 				<string>integer</string>
 				<key>pfm_default</key>
 				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MSULogEnabled</string>
+				<key>pfm_description</key>
+				<string>Log user actions in the GUI.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MSUDebugLogEnabled</string>
+				<key>pfm_description</key>
+				<string>Debug logging for Managed Software Center.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
 			</dict>
 			
 			<!-- URL -->
@@ -375,121 +441,13 @@
 				<string>/Library/Managed Installs/certs/ca.pem</string>
 			</dict>
 			
+			<!-- Managed Software Center -->
 			
-			
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>ClientResourcesFilename</string>
-				<key>pfm_description</key>
-				<string>Specific filename to use when requesting custom client resources.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_value_placeholder</key>
-				<string>site_default.zip</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ClientIdentifier</string>
-				<key>pfm_description</key>
-				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ManagedInstallDir</string>
-				<key>pfm_description</key>
-				<string>Folder where Munki keeps its data on the client.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>/Library/Managed Installs</string>
-			</dict>
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>DaysBetweenNotifications</string>
-				<key>pfm_description</key>
-				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UseNotificationCenterDays</string>
-				<key>pfm_description</key>
-				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>3</integer>
-				<key>pfm_app_min</key>
-				<string>3.0</string>
-			</dict>
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>AdditionalHttpHeaders</string>
-				<key>pfm_description</key>
-				<string>This key provides the ability to specify custom HTTP headers to be sent with all curl() HTTP requests.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>HTTPHeader</string>
-						<key>pfm_title</key>
-						<string>HTTPHeader</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PackageVerificationMode</string>
-				<key>pfm_description</key>
-				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>none</string>
-					<string>hash</string>
-					<string>hash_strict</string>
-				</array>
-			</dict>
 			<dict>
 				<key>pfm_name</key>
 				<string>SuppressUserNotification</string>
 				<key>pfm_description</key>
 				<string>Managed Software Center will never notify the user of available updates.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>SuppressAutoInstall</string>
-				<key>pfm_description</key>
-				<string>Munki will not automatically install or remove items.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>SuppressLoginwindowInstall</string>
-				<key>pfm_description</key>
-				<string>Munki will not install items while idle at the loginwindow except for those marked for unattended_install or unattended_uninstall.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -527,24 +485,119 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MSULogEnabled</string>
+				<string>ShowOptionalInstallsForHigherOSVersions</string>
 				<key>pfm_description</key>
-				<string>Log user actions in the GUI.</string>
+				<string>Managed Software Center.app will show optional installs and updates that apply to macOS versions higher than the currently installed version.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
 				<false/>
+				<key>pfm_app_min</key>
+				<string>3.1</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MSUDebugLogEnabled</string>
+				<string>DaysBetweenNotifications</string>
 				<key>pfm_description</key>
-				<string>Debug logging for Managed Software Center.</string>
+				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
 				<key>pfm_type</key>
-				<string>boolean</string>
+				<string>integer</string>
 				<key>pfm_default</key>
-				<false/>
+				<integer>1</integer>
 			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UseNotificationCenterDays</string>
+				<key>pfm_description</key>
+				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>3</integer>
+				<key>pfm_app_min</key>
+				<string>3.0</string>
+			</dict>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientResourcesFilename</string>
+				<key>pfm_description</key>
+				<string>Specific filename to use when requesting custom client resources.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_value_placeholder</key>
+				<string>site_default.zip</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientIdentifier</string>
+				<key>pfm_description</key>
+				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ManagedInstallDir</string>
+				<key>pfm_description</key>
+				<string>Folder where Munki keeps its data on the client.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/Library/Managed Installs</string>
+			</dict>
+			
+			
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>AdditionalHttpHeaders</string>
+				<key>pfm_description</key>
+				<string>This key provides the ability to specify custom HTTP headers to be sent with all curl() HTTP requests.</string>
+				<key>pfm_type</key>
+				<string>array</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>HTTPHeader</string>
+						<key>pfm_title</key>
+						<string>HTTPHeader</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_type</key>
+						<string>string</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PackageVerificationMode</string>
+				<key>pfm_description</key>
+				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>none</string>
+					<string>hash</string>
+					<string>hash_strict</string>
+				</array>
+			</dict>
+			
+			
+			
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>LocalOnlyManifest</string>
@@ -599,18 +652,7 @@
 				<key>pfm_app_min</key>
 				<string>3.0</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShowOptionalInstallsForHigherOSVersions</string>
-				<key>pfm_description</key>
-				<string>Managed Software Center.app will show optional installs and updates that apply to macOS versions higher than the currently installed version.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_app_min</key>
-				<string>3.1</string>
-			</dict>
+			
 		</array>
 	</dict>
 </plist>
