@@ -144,49 +144,16 @@
 				<string>string</string>
 				<key>pfm_require</key>
 				<string>always</string>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>General</string>
+					<string>Managed Software Center</string>
+					<string>URL</string>
+					<string>General</string>
+					<string>General</string>
+				</array>
 				<key>pfm_segments</key>
 				<dict>
-					<key>URL</key>
-					<array>
-						<string>PackageVerificationMode</string>
-						<string>FollowHTTPRedirects</string>
-						<string>AdditionalHttpHeaders</string>
-						<string>IgnoreSystemProxies</string>
-						<string>PackageURL</string>
-						<string>CatalogURL</string>
-						<string>IconURL</string>
-						<string>ClientResourceURL</string>
-						<string>ClientResourcesFilename</string>
-						<string>HelpURL</string>
-						<string>SoftwareUpdateServerURL</string>
-					</array>
-					<key>Log</key>
-					<array>
-						<string>LogFile</string>
-						<string>LogToSyslog</string>
-						<string>LoggingLevel</string>
-						<string>MSULogEnabled</string>
-						<string>MSUDebugLogEnabled</string>
-					</array>
-					<key>Certificate</key>
-					<array>
-						<string>UseClientCertificate</string>
-						<string>UseClientCertificateCNAsClientIdentifier</string>
-						<string>ClientCertificatePath</string>
-						<string>ClientKeyPath</string>
-						<string>SoftwareRepoCAPath</string>
-						<string>SoftwareRepoCACertificate</string>
-					</array>
-					<key>Managed Software Center</key>
-					<array>
-						<string>SuppressUserNotification</string>
-						<string>SuppressStopButtonOnInstall</string>
-						<string>InstallRequiresLogout</string>
-						<string>ShowRemovalDetail</string>
-						<string>ShowOptionalInstallsForHigherOSVersions</string>
-						<string>DaysBetweenNotifications</string>
-						<string>UseNotificationCenterDays</string>
-					</array>
 					<key>General</key>
 					<array>
 						<string>ClientIdentifier</string>
@@ -202,6 +169,47 @@
 						<string>AppleSoftwareUpdatesOnly</string>
 						<string>PerformAuthRestarts</string>
 						<string>RecoveryKeyFile</string>
+					</array>
+					<key>Managed Software Center</key>
+					<array>
+						<string>SuppressUserNotification</string>
+						<string>SuppressStopButtonOnInstall</string>
+						<string>InstallRequiresLogout</string>
+						<string>ShowRemovalDetail</string>
+						<string>ShowOptionalInstallsForHigherOSVersions</string>
+						<string>DaysBetweenNotifications</string>
+						<string>UseNotificationCenterDays</string>
+					</array>
+					<key>URL</key>
+					<array>
+						<string>PackageVerificationMode</string>
+						<string>FollowHTTPRedirects</string>
+						<string>AdditionalHttpHeaders</string>
+						<string>IgnoreSystemProxies</string>
+						<string>PackageURL</string>
+						<string>CatalogURL</string>
+						<string>IconURL</string>
+						<string>ClientResourceURL</string>
+						<string>ClientResourcesFilename</string>
+						<string>HelpURL</string>
+						<string>SoftwareUpdateServerURL</string>
+					</array>
+					<key>Certificate</key>
+					<array>
+						<string>UseClientCertificate</string>
+						<string>UseClientCertificateCNAsClientIdentifier</string>
+						<string>ClientCertificatePath</string>
+						<string>ClientKeyPath</string>
+						<string>SoftwareRepoCAPath</string>
+						<string>SoftwareRepoCACertificate</string>
+					</array>
+					<key>Log</key>
+					<array>
+						<string>LogFile</string>
+						<string>LogToSyslog</string>
+						<string>LoggingLevel</string>
+						<string>MSULogEnabled</string>
+						<string>MSUDebugLogEnabled</string>
 					</array>
 				</dict>
 			</dict>
@@ -311,23 +319,13 @@
 				<string>3.0</string>
 			</dict>
 			
-			<!-- Log -->
+			<!-- Managed Software Center -->
 			
 			<dict>
 				<key>pfm_name</key>
-				<string>LogFile</string>
+				<string>SuppressUserNotification</string>
 				<key>pfm_description</key>
-				<string>Primary log is written to this file. Other logs are written into the same directory as this file.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LogToSyslog</string>
-				<key>pfm_description</key>
-				<string>Log to syslog in addition to ManagedSoftwareUpdate.log</string>
+				<string>Managed Software Center will never notify the user of available updates.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -335,9 +333,51 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>LoggingLevel</string>
+				<string>SuppressStopButtonOnInstall</string>
 				<key>pfm_description</key>
-				<string>Higher values cause more detail to be written to the primary log.</string>
+				<string>Managed Software Center will hide the stop button while installing or removing software, preventing users from interrupting the install.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>InstallRequiresLogout</string>
+				<key>pfm_description</key>
+				<string>Managed Software Center will require a logout for all installs or removals.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ShowRemovalDetail</string>
+				<key>pfm_description</key>
+				<string>Managed Software Center will display detail for scheduled removals.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ShowOptionalInstallsForHigherOSVersions</string>
+				<key>pfm_description</key>
+				<string>Managed Software Center.app will show optional installs and updates that apply to macOS versions higher than the currently installed version.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_app_min</key>
+				<string>3.1</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>DaysBetweenNotifications</string>
+				<key>pfm_description</key>
+				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
 				<key>pfm_type</key>
 				<string>integer</string>
 				<key>pfm_default</key>
@@ -345,25 +385,17 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>MSULogEnabled</string>
+				<string>UseNotificationCenterDays</string>
 				<key>pfm_description</key>
-				<string>Log user actions in the GUI.</string>
+				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
 				<key>pfm_type</key>
-				<string>boolean</string>
+				<string>integer</string>
 				<key>pfm_default</key>
-				<false/>
+				<integer>3</integer>
+				<key>pfm_app_min</key>
+				<string>3.0</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>MSUDebugLogEnabled</string>
-				<key>pfm_description</key>
-				<string>Debug logging for Managed Software Center.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			
+						
 			<!-- URL -->
 			
 			<dict>
@@ -555,13 +587,23 @@
 				<string>/Library/Managed Installs/certs/ca.pem</string>
 			</dict>
 			
-			<!-- Managed Software Center -->
+			<!-- Log -->
 			
 			<dict>
 				<key>pfm_name</key>
-				<string>SuppressUserNotification</string>
+				<string>LogFile</string>
 				<key>pfm_description</key>
-				<string>Managed Software Center will never notify the user of available updates.</string>
+				<string>Primary log is written to this file. Other logs are written into the same directory as this file.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>LogToSyslog</string>
+				<key>pfm_description</key>
+				<string>Log to syslog in addition to ManagedSoftwareUpdate.log</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -569,51 +611,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>SuppressStopButtonOnInstall</string>
+				<string>LoggingLevel</string>
 				<key>pfm_description</key>
-				<string>Managed Software Center will hide the stop button while installing or removing software, preventing users from interrupting the install.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>InstallRequiresLogout</string>
-				<key>pfm_description</key>
-				<string>Managed Software Center will require a logout for all installs or removals.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShowRemovalDetail</string>
-				<key>pfm_description</key>
-				<string>Managed Software Center will display detail for scheduled removals.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShowOptionalInstallsForHigherOSVersions</string>
-				<key>pfm_description</key>
-				<string>Managed Software Center.app will show optional installs and updates that apply to macOS versions higher than the currently installed version.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_app_min</key>
-				<string>3.1</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DaysBetweenNotifications</string>
-				<key>pfm_description</key>
-				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
+				<string>Higher values cause more detail to be written to the primary log.</string>
 				<key>pfm_type</key>
 				<string>integer</string>
 				<key>pfm_default</key>
@@ -621,15 +621,23 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>UseNotificationCenterDays</string>
+				<string>MSULogEnabled</string>
 				<key>pfm_description</key>
-				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
+				<string>Log user actions in the GUI.</string>
 				<key>pfm_type</key>
-				<string>integer</string>
+				<string>boolean</string>
 				<key>pfm_default</key>
-				<integer>3</integer>
-				<key>pfm_app_min</key>
-				<string>3.0</string>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>MSUDebugLogEnabled</string>
+				<key>pfm_description</key>
+				<string>Debug logging for Managed Software Center.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
