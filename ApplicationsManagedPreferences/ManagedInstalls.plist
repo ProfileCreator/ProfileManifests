@@ -148,36 +148,12 @@
 				<string>General</string>
 				<key>pfm_segments</key>
 				<dict>
-					<key>Log</key>
-					<array>
-						<string>LogFile</string>
-						<string>LogToSyslog</string>
-						<string>LoggingLevel</string>
-						<string>MSULogEnabled</string>
-						<string>MSUDebugLogEnabled</string>
-					</array>
-					<key>General</key>
-					<array>
-						<string>ClientIdentifier</string>
-						<string>ManagedInstallDir</string>
-						<string>LocalOnlyManifest</string>
-						<string>SuppressAutoInstall</string>
-						<string>SuppressLoginwindowInstall</string>
-						<string>InstallAppleSoftwareUpdates</string>
-						<string>AppleSoftwareUpdatesOnly</string>
-						<string>UnattendedAppleUpdates</string>
-						<string>AppleSoftwareUpdatesOnly</string>
-						<string>AppleSoftwareUpdatesOnly</string>
-						<string>AppleSoftwareUpdatesOnly</string>
-						<string>PackageVerificationMode</string>
-						<string>PerformAuthRestarts</string>
-						<string>RecoveryKeyFile</string>
-					</array>
 					<key>URL</key>
 					<array>
 						<string>FollowHTTPRedirects</string>
 						<string>AdditionalHttpHeaders</string>
 						<string>IgnoreSystemProxies</string>
+						<string>PackageVerificationMode</string>
 						<string>PackageURL</string>
 						<string>CatalogURL</string>
 						<string>IconURL</string>
@@ -185,6 +161,14 @@
 						<string>ClientResourcesFilename</string>
 						<string>HelpURL</string>
 						<string>SoftwareUpdateServerURL</string>
+					</array>
+					<key>Log</key>
+					<array>
+						<string>LogFile</string>
+						<string>LogToSyslog</string>
+						<string>LoggingLevel</string>
+						<string>MSULogEnabled</string>
+						<string>MSUDebugLogEnabled</string>
 					</array>
 					<key>Certificate</key>
 					<array>
@@ -204,6 +188,22 @@
 						<string>ShowOptionalInstallsForHigherOSVersions</string>
 						<string>DaysBetweenNotifications</string>
 						<string>UseNotificationCenterDays</string>
+					</array>
+					<key>General</key>
+					<array>
+						<string>ClientIdentifier</string>
+						<string>ManagedInstallDir</string>
+						<string>LocalOnlyManifest</string>
+						<string>SuppressAutoInstall</string>
+						<string>SuppressLoginwindowInstall</string>
+						<string>InstallAppleSoftwareUpdates</string>
+						<string>AppleSoftwareUpdatesOnly</string>
+						<string>UnattendedAppleUpdates</string>
+						<string>AppleSoftwareUpdatesOnly</string>
+						<string>AppleSoftwareUpdatesOnly</string>
+						<string>AppleSoftwareUpdatesOnly</string>
+						<string>PerformAuthRestarts</string>
+						<string>RecoveryKeyFile</string>
 					</array>
 				</dict>
 			</dict>
@@ -289,20 +289,6 @@
 				<string>2.5</string>
 				<key>pfm_macos_min</key>
 				<string>10.10</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PackageVerificationMode</string>
-				<key>pfm_description</key>
-				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>none</string>
-					<string>hash</string>
-					<string>hash_strict</string>
-				</array>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -426,6 +412,20 @@
 				<string>boolean</string>
 				<key>pfm_default</key>
 				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PackageVerificationMode</string>
+				<key>pfm_description</key>
+				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>none</string>
+					<string>hash</string>
+					<string>hash_strict</string>
+				</array>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
