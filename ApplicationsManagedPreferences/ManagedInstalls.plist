@@ -144,6 +144,8 @@
 				<string>string</string>
 				<key>pfm_require</key>
 				<string>always</string>
+				<key>pfm_default</key>
+				<string>General</string>
 				<key>pfm_segments</key>
 				<dict>
 					<key>General</key>
@@ -157,6 +159,11 @@
 						<string>AppleSoftwareUpdatesOnly</string>
 						<string>AppleSoftwareUpdatesOnly</string>
 						<string>AppleSoftwareUpdatesOnly</string>
+						<string>ManagedInstallDir</string>
+						<string>PackageVerificationMode</string>
+						<string>LocalOnlyManifest</string>
+						<string>PerformAuthRestarts</string>
+						<string>RecoveryKeyFile</string>
 					</array>
 					<key>Log</key>
 					<array>
@@ -173,6 +180,7 @@
 						<string>CatalogURL</string>
 						<string>IconURL</string>
 						<string>ClientResourceURL</string>
+						<string>ClientResourcesFilename</string>
 						<string>HelpURL</string>
 						<string>AdditionalHttpHeaders</string>
 						<string>FollowHTTPRedirects</string>
@@ -196,15 +204,6 @@
 						<string>ShowOptionalInstallsForHigherOSVersions</string>
 						<string>DaysBetweenNotifications</string>
 						<string>UseNotificationCenterDays</string>
-					</array>
-					<key>Other</key>
-					<array>
-						<string>ClientResourcesFilename</string>
-						<string>ManagedInstallDir</string>
-						<string>PackageVerificationMode</string>
-						<string>LocalOnlyManifest</string>
-						<string>PerformAuthRestarts</string>
-						<string>RecoveryKeyFile</string>
 					</array>
 				</dict>
 			</dict>
@@ -272,6 +271,60 @@
 				<string>2.5</string>
 				<key>pfm_macos_min</key>
 				<string>10.10</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ManagedInstallDir</string>
+				<key>pfm_description</key>
+				<string>Folder where Munki keeps its data on the client.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/Library/Managed Installs</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PackageVerificationMode</string>
+				<key>pfm_description</key>
+				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>none</string>
+					<string>hash</string>
+					<string>hash_strict</string>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>LocalOnlyManifest</string>
+				<key>pfm_description</key>
+				<string>Defines the name of your LocalOnlyManifest. Setting this activates the feature. Unsetting it means Munki will remove the file on the next run.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>PerformAuthRestarts</string>
+				<key>pfm_description</key>
+				<string>Munki will attempt to perform a filevault auth restart.</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_app_min</key>
+				<string>3.0</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>RecoveryKeyFile</string>
+				<key>pfm_description</key>
+				<string>Absolute path to a plist file containing filevault credentials in key/value format. Used to perform auth restarts.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_app_min</key>
+				<string>3.0</string>
 			</dict>
 			
 			<!-- Log -->
@@ -380,6 +433,16 @@
 				<string>string</string>
 				<key>pfm_value_placeholder</key>
 				<string>&lt;SoftwareRepoURL&gt;/client_resources</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientResourcesFilename</string>
+				<key>pfm_description</key>
+				<string>Specific filename to use when requesting custom client resources.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_value_placeholder</key>
+				<string>site_default.zip</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -570,91 +633,6 @@
 				<key>pfm_app_min</key>
 				<string>3.0</string>
 			</dict>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>ClientResourcesFilename</string>
-				<key>pfm_description</key>
-				<string>Specific filename to use when requesting custom client resources.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_value_placeholder</key>
-				<string>site_default.zip</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ManagedInstallDir</string>
-				<key>pfm_description</key>
-				<string>Folder where Munki keeps its data on the client.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>/Library/Managed Installs</string>
-			</dict>
-			
-			
-			
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>PackageVerificationMode</string>
-				<key>pfm_description</key>
-				<string>Controls how Munki verifies the integrity of downloaded packages. (none = No integrity check is performed, hash = Integrity check is performed if package info contains checksum information, hash_strict = Integrity check is performed, and fails if package info does not contain checksum information.)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>none</string>
-					<string>hash</string>
-					<string>hash_strict</string>
-				</array>
-			</dict>
-			
-			
-			
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>LocalOnlyManifest</string>
-				<key>pfm_description</key>
-				<string>Defines the name of your LocalOnlyManifest. Setting this activates the feature. Unsetting it means Munki will remove the file on the next run.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>PerformAuthRestarts</string>
-				<key>pfm_description</key>
-				<string>Munki will attempt to perform a filevault auth restart.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_app_min</key>
-				<string>3.0</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>RecoveryKeyFile</string>
-				<key>pfm_description</key>
-				<string>Absolute path to a plist file containing filevault credentials in key/value format. Used to perform auth restarts.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_app_min</key>
-				<string>3.0</string>
-			</dict>
-			
 		</array>
 	</dict>
 </plist>
