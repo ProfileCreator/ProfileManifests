@@ -1514,6 +1514,53 @@
 							</dict>
 						</array>
 					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>EAPSIMNumberOfRANDs</string>
+						<key>pfm_title</key>
+						<string>Number of RANDs</string>
+						<key>pfm_description</key>
+						<string>The minimum number of RAND values accepted from the server. 3 is the default, and 2 is allowed, but offers less security.</string>
+						<key>pfm_type</key>
+						<string>integer</string>
+						<key>pfm_default</key>
+						<integer>3</integer>
+						<key>pfm_range_list</key>
+						<array>
+							<integer>2</integer>
+							<integer>2</integer>
+						</array>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_target</key>
+										<string>EAPClientConfiguration.AcceptEAPTypes</string>
+										<key>pfm_n_contains_any</key>
+										<array>
+											<integer>18</integer>
+										</array>
+									</dict>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>SystemModeCredentialsSource</string>
+						<key>pfm_title</key>
+						<string>System Profile Credentials Source</string>
+						<key>pfm_description</key>
+						<string>Use an alternate set of credentials when in System mode (AKA not a loginwindow profile). This can be used to tell EAPOLClient to use the computer password in a bound active directory scenario for authentication.</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_range_list</key>
+						<array>
+							<string>ActiveDirectory</string>
+						</array>
+					</dict>
 				</array>
 			</dict>
 			
@@ -1585,65 +1632,15 @@
 				<string>10.0</string>
 			</dict>
 			
-			<!--
-			<dict>
-				<key>pfm_name</key>
-				<string>EAPClientConfiguration</string>
-				...
-				<array>
-					
-					<dict>
-						<key>pfm_name</key>
-						<string>SystemModeCredentialsSource</string>
-						<key>pfm_title</key>
-						<string>System Profile Credentials Source</string>
-						<key>pfm_description</key>
-						<string>Use an alternate set of credentials when in System mode (AKA not a loginwindow profile). This can be used to tell EAPOLClient to use the computer password in a bound active directory scenario for authentication.</string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_range_list</key>
-						<array>
-							<string>ActiveDirectory</string>
-						</array>
-					</dict>
-					
-					<dict>
-						<key>pfm_name</key>
-						<string>EAPSIMNumberOfRANDs</string>
-						<key>pfm_title</key>
-						<string>Allow Two RANDs</string>
-						<key>pfm_description</key>
-						<string>The minimum number of RAND values accepted from the server. 3 is the default, and 2 is allowed, but offers less security. For use with EAP-SIM only.</string>
-						<key>pfm_type</key>
-						<string>integer</string>
-						<key>pfm_default</key>
-						<integer>3</integer>
-						<key>pfm_exclude</key>
-						<array>
-							<dict>
-								<key>pfm_target_conditions</key>
-								<array>
-									<dict>
-										<key>pfm_target</key>
-										<string>EAPClientConfiguration.AcceptEAPTypes</string>
-										<key>pfm_n_contains_any</key>
-										<array>
-											<integer>18</integer>
-										</array>
-									</dict>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
+			<!-- -->
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>PayloadCertificateUUID</string>
 				<key>pfm_title</key>
 				<string>Certificate UUID</string>
 				<key>pfm_description</key>
-				<string>UUID of the certificate payload containing an identity used as the client credential</string>
+				<string>UUID of the certificate payload containing an identity used as the client credential.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_format</key>
@@ -1658,10 +1655,10 @@
 								<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								<key>pfm_n_contains_any</key>
 								<array>
-									<integer>13</integer>
-									<integer>21</integer>
-									<integer>25</integer>
-									<integer>43</integer>
+									<integer>13</integer> 	<!-- TLS -->
+									<integer>21</integer> 	<!-- TTLS -->
+									<integer>25</integer> 	<!-- PEAP -->
+									<integer>43</integer> 	<!-- EAP-FAST -->
 								</array>
 							</dict>
 						</array>
@@ -1679,7 +1676,7 @@
 								<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								<key>pfm_contains_any</key>
 								<array>
-									<integer>13</integer>
+									<integer>13</integer> 	<!-- TLS -->
 								</array>
 							</dict>
 						</array>
@@ -1698,7 +1695,6 @@
 				<key>pfm_ios_min</key>
 				<string>7.0</string>
 			</dict>
-				-->
 		</array>
 	</dict>
 </plist>
