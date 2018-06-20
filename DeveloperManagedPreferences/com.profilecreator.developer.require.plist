@@ -166,19 +166,7 @@
 				<key>pfm_name</key>
 				<string>Require02</string>
 				<key>pfm_title</key>
-				<string>Require 02: Push</string>
-				<key>pfm_description</key>
-				<string>Require push.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>push</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>Require03</string>
-				<key>pfm_title</key>
-				<string>Require 03: Always If Item01 is selected</string>
+				<string>Require 02: Always If Item01 is selected</string>
 				<key>pfm_description</key>
 				<string>Require always if Item01 is selected.</string>
 				<key>pfm_type</key>
@@ -204,9 +192,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>Require04</string>
+				<string>Require03</string>
 				<key>pfm_title</key>
-				<string>Require 04: Always If Item02 or Item03 is selected</string>
+				<string>Require 03: Always If Item02 or Item03 is selected</string>
 				<key>pfm_description</key>
 				<string>Require always if Item02 or Item03 is selected.</string>
 				<key>pfm_type</key>
@@ -233,9 +221,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>Require05</string>
+				<string>Require04</string>
 				<key>pfm_title</key>
-				<string>Require 05: Always If Item04 is NOT selected</string>
+				<string>Require 04: Always If Item04 is NOT selected</string>
 				<key>pfm_description</key>
 				<string>Require always if Item04 is NOT selected.</string>
 				<key>pfm_type</key>
@@ -261,9 +249,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>Require06</string>
+				<string>Require05</string>
 				<key>pfm_title</key>
-				<string>Require 06: Always If Item05 or Item06 is NOT selected</string>
+				<string>Require 05: Always If Item05 or Item06 is NOT selected</string>
 				<key>pfm_description</key>
 				<string>Require always if Item05 or Item06 is NOT selected.</string>
 				<key>pfm_type</key>
@@ -273,6 +261,132 @@
 					<dict>
 						<key>pfm_require</key>
 						<string>always</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Require00</string>
+								<key>pfm_n_contains_any</key>
+								<array>
+									<string>Item05</string>
+									<string>Item06</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Require06</string>
+				<key>pfm_title</key>
+				<string>Require 06: Push</string>
+				<key>pfm_description</key>
+				<string>Require push.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_require</key>
+				<string>push</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Require07</string>
+				<key>pfm_title</key>
+				<string>Require 07: Push If Item01 is selected</string>
+				<key>pfm_description</key>
+				<string>Require always if Item01 is selected.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>push</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Require00</string>
+								<key>pfm_range_list</key>
+								<array>
+									<string>Item01</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Require08</string>
+				<key>pfm_title</key>
+				<string>Require 08: Always If Item02 or Item03 is selected</string>
+				<key>pfm_description</key>
+				<string>Require always if Item02 or Item03 is selected.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>push</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Require00</string>
+								<key>pfm_contains_any</key>
+								<array>
+									<string>Item02</string>
+									<string>Item03</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Require09</string>
+				<key>pfm_title</key>
+				<string>Require 09: Always If Item04 is NOT selected</string>
+				<key>pfm_description</key>
+				<string>Require always if Item04 is NOT selected.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>push</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>Require00</string>
+								<key>pfm_n_range_list</key>
+								<array>
+									<string>Item04</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>Require10</string>
+				<key>pfm_title</key>
+				<string>Require 10: Always If Item05 or Item06 is NOT selected</string>
+				<key>pfm_description</key>
+				<string>Require always if Item05 or Item06 is NOT selected.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>push</string>
 						<key>pfm_target_conditions</key>
 						<array>
 							<dict>
