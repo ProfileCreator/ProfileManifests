@@ -122,11 +122,57 @@
 		
 			<!-- Custom Payload Keys -->
 		
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_segments</key>
+			<dict>
+				<key>Install</key>
+				<array>
+					<string>InstallAppleSoftwareUpdates</string>
+					<string>AppleSoftwareUpdatesOnly</string>
+					<string>UnattendedAppleUpdates</string>
+					
+					<string>AppleSoftwareUpdatesOnly</string>
+					<string>AppleSoftwareUpdatesOnly</string>
+					<string>AppleSoftwareUpdatesOnly</string>
+				</array>
+				<key>Log</key>
+				<array>
+					<string>LogFile</string>
+					<string>LogToSyslog</string>
+					<string>LoggingLevel</string>
+					<string>MSULogEnabled</string>
+					<string>MSUDebugLogEnabled</string>
+				</array>
+				<key>URL</key>
+				<array>
+					<string>SoftwareUpdateServerURL</string>
+					<string>SoftwareRepoURL</string>
+					<string>PackageURL</string>
+					<string>CatalogURL</string>
+					<string>IconURL</string>
+					<string>ClientResourceURL</string>
+					<string>HelpURL</string>
+				</array>
+				<key>Certificate</key>
+				<array>
+					<string>UseClientCertificate</string>
+					<string>ClientCertificatePath</string>
+					<string>ClientKeyPath</string>
+					<string>UseClientCertificateCNAsClientIdentifier</string>
+					<string>SoftwareRepoCAPath</string>
+					<string>SoftwareRepoCACertificate</string>
+				</array>
+			</dict>
+			
+			<!-- Install -->
 			<dict>
 				<key>pfm_name</key>
-				<string>AppleSoftwareUpdatesOnly</string>
+				<string>InstallAppleSoftwareUpdates</string>
 				<key>pfm_description</key>
-				<string>Only install updates from an Apple Software Update server. No Munki repository is needed or used.</string>
+				<string>Install updates from an Apple Software Update server, in addition to "regular" Munki updates.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -134,9 +180,9 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>InstallAppleSoftwareUpdates</string>
+				<string>AppleSoftwareUpdatesOnly</string>
 				<key>pfm_description</key>
-				<string>Install updates from an Apple Software Update server, in addition to "regular" Munki updates.</string>
+				<string>Only install updates from an Apple Software Update server. No Munki repository is needed or used.</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 				<key>pfm_default</key>
@@ -156,6 +202,42 @@
 				<key>pfm_macos_min</key>
 				<string>10.10</string>
 			</dict>
+			
+			<!-- Log -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>LogFile</string>
+				<key>pfm_description</key>
+				<string>Primary log is written to this file. Other logs are written into the same directory as this file.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>LogToSyslog</string>
+				<key>pfm_description</key>
+				<string>Log to syslog in addition to ManagedSoftwareUpdate.log</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_default</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>LoggingLevel</string>
+				<key>pfm_description</key>
+				<string>Higher values cause more detail to be written to the primary log.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+			</dict>
+			
+			<!-- URL -->
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>SoftwareUpdateServerURL</string>
@@ -220,92 +302,15 @@
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>ClientResourcesFilename</string>
-				<key>pfm_description</key>
-				<string>Specific filename to use when requesting custom client resources.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_value_placeholder</key>
-				<string>site_default.zip</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
 				<string>HelpURL</string>
 				<key>pfm_description</key>
 				<string>URL to open/display when the user selects "Managed Software Center Help" from Managed Software Center's Help menu.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ClientIdentifier</string>
-				<key>pfm_description</key>
-				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ManagedInstallDir</string>
-				<key>pfm_description</key>
-				<string>Folder where Munki keeps its data on the client.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>/Library/Managed Installs</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LogFile</string>
-				<key>pfm_description</key>
-				<string>Primary log is written to this file. Other logs are written into the same directory as this file.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LogToSyslog</string>
-				<key>pfm_description</key>
-				<string>Log to syslog in addition to ManagedSoftwareUpdate.log</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LoggingLevel</string>
-				<key>pfm_description</key>
-				<string>Higher values cause more detail to be written to the primary log.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DaysBetweenNotifications</string>
-				<key>pfm_description</key>
-				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UseNotificationCenterDays</string>
-				<key>pfm_description</key>
-				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>3</integer>
-				<key>pfm_app_min</key>
-				<string>3.0</string>
-			</dict>
+			
+			<!-- Certificate -->
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>UseClientCertificate</string>
@@ -315,6 +320,24 @@
 				<string>boolean</string>
 				<key>pfm_default</key>
 				<false/>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientCertificatePath</string>
+				<key>pfm_description</key>
+				<string>Absolute path to a client certificate. There are 3 defaults for this key. Concatenated cert/key PEM file accepted.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_value_placeholder</key>
+				<string>/Library/Managed Installs/certs/[munki.pem|client.pem|cert.pem]</string>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ClientKeyPath</string>
+				<key>pfm_description</key>
+				<string>Absolute path to a client private key.</string>
+				<key>pfm_type</key>
+				<string>string</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
@@ -344,24 +367,62 @@
 				<key>pfm_default</key>
 				<string>/Library/Managed Installs/certs/ca.pem</string>
 			</dict>
+			
+			
+			
+			
 			<dict>
 				<key>pfm_name</key>
-				<string>ClientCertificatePath</string>
+				<string>ClientResourcesFilename</string>
 				<key>pfm_description</key>
-				<string>Absolute path to a client certificate. There are 3 defaults for this key. Concatenated cert/key PEM file accepted.</string>
+				<string>Specific filename to use when requesting custom client resources.</string>
 				<key>pfm_type</key>
 				<string>string</string>
 				<key>pfm_value_placeholder</key>
-				<string>/Library/Managed Installs/certs/[munki.pem|client.pem|cert.pem]</string>
+				<string>site_default.zip</string>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
-				<string>ClientKeyPath</string>
+				<string>ClientIdentifier</string>
 				<key>pfm_description</key>
-				<string>Absolute path to a client private key.</string>
+				<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>ManagedInstallDir</string>
+				<key>pfm_description</key>
+				<string>Folder where Munki keeps its data on the client.</string>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>/Library/Managed Installs</string>
+			</dict>
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>DaysBetweenNotifications</string>
+				<key>pfm_description</key>
+				<string>Number of days between user notifications from Managed Software Center. Set to 0 to have Managed Software Center notify every time a background check runs if there are available updates.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>pfm_name</key>
+				<string>UseNotificationCenterDays</string>
+				<key>pfm_description</key>
+				<string>Number of days Notification Center notifications should be used before switching to launching Managed Software Center.</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_default</key>
+				<integer>3</integer>
+				<key>pfm_app_min</key>
+				<string>3.0</string>
+			</dict>
+			
 			<dict>
 				<key>pfm_name</key>
 				<string>AdditionalHttpHeaders</string>
