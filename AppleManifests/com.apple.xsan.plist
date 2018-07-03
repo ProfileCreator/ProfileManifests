@@ -172,8 +172,30 @@
 				<string></string>
 				<key>pfm_type</key>
 				<string>string</string>
-				<key>pfm_defaults</key>
-				<string>auth_secret</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>auth_secret</string>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Shared Secret</string>
+				</array>
+				<key>pfm_conditionals</key>
+				<array>
+					<dict>
+						<key>pfm_require</key>
+						<string>always</string>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_target</key>
+								<string>sharedSecret</string>
+								<key>pfm_present</key>
+								<true/>
+							</dict>
+						</array>
+					</dict>
+				</array>
 			</dict>
 			<dict>
 				<key>pfm_name</key>
