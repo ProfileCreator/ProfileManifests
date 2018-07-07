@@ -45,26 +45,42 @@ for directory_name in ${manifest_directories[@]}; do
 		# Verify the value returned is valid
 		if [[ -z ${file_version} ]] && ! /usr/libexec/PlistBuddy -c "Add pfm_version integer 1" "${file}"; then
 			printf "%s\n" "${file_name}: Failed to add value: 1 for key: pfm_version"
+			exit 1
 		elif ! [[ ${file_version} =~ ^[0-9]+$ ]]; then
 			printf "%s\n" "${file_name}: Invalid or missing value: ${file_version} for key: pfm_version"
 			exit 1	
 		fi
 		
+		# Get the value of the pfm_domain key
+		file_domain=$( /usr/libexec/PlistBuddy -c "Print pfm_domain" "${file}" 2>/dev/null )
+		
+		# Verify the value returned is valid
+		if [[ -z ${file_domain} ]]; then
+			printf "%s\n" "${file_name}: Invalid or missing value: ${file_domain} for key: pfm_domain"
+			exit 1
+		fi
+		
 		# Create the file dictionary
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name} dict" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_name}"
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_domain}"
 			exit 1
 		fi
 		
 		# Add the file version
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name}:version integer ${file_version}" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add value: ${file_version} for key: ${directory_name}:${file_name}:version"
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:version integer ${file_version}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${file_version} for key: ${directory_name}:${file_domain}:version"
 			exit 1
 		fi
 		
 		# Add the file hash
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name}:hash string ${file_hash}" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_name}:hash"
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:hash"
+			exit 1
+		fi
+		
+		# Add the file name
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:filename string ${file_name}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:filename"
 			exit 1
 		fi
 	done
