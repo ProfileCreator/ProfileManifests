@@ -37,7 +37,7 @@ for directory_name in ${manifest_directories[@]}; do
 		file_name=$( basename ${file} )
 		
 		# Get the file hash
-		file_hash=$( md5 -q "${file}" )
+		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
 		
 		# Get the value of the pfm_version key
 		file_version=$( /usr/libexec/PlistBuddy -c "Print pfm_version" "${file}" 2>/dev/null )
