@@ -1,257 +1,253 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_description</key>
-		<string>System Migration settings</string>
-		<key>pfm_title</key>
-		<string>System Migration</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_version</key>
-		<integer>1</integer>
-		<key>pfm_domain</key>
-		<string>com.apple.systemmigration</string>
-		<key>pfm_interaction</key>
-		<string>combined</string>
-		<key>pfm_targets</key>
-		<array>
-			<string>system</string>
-		</array>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_unique</key>
-		<true/>
-		<key>pfm_macos_min</key>
-		<string>10.12.4</string>
-		<key>pfm_subkeys</key>
-		<array>
-			
-			<!-- Default Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_description</key>
-				<string>Description of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Configures System Migration settings</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_description</key>
-				<string>Name of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>System Migration</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.systemmigration</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.systemmigration</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadOrganization</string>
-				<key>pfm_title</key>
-				<string>Payload Organization</string>
-				<key>pfm_description</key>
-				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			
-			<!-- Custom Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>CustomBehavior</string>
-				<key>pfm_title</key>
-				<string>Custom Paths</string>
-				<key>pfm_description</key>
-				<string>Custom Paths to be migrated from source system</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_range_max</key>
-				<integer>1</integer>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>CustomBehaviorItem</string>
-						<key>pfm_title</key>
-						<string>Custom Paths Item</string>
-						<key>pfm_description</key>
-						<string>Custom Paths Item Dictionary</string>
-						<key>pfm_type</key>
-						<string>dictionary</string>
-						<key>pfm_subkeys</key>
-						<array>
-							<dict>
-								<key>pfm_name</key>
-								<string>Context</string>
-								<key>pfm_title</key>
-								<string>Context</string>
-								<key>pfm_description</key>
-								<string>The context to which custom paths apply.</string>
-								<key>pfm_type</key>
-								<string>string</string>
-								<key>pfm_require</key>
-								<string>always</string>
-								<key>pfm_range_list</key>
-								<array>
-									<string>Windows</string>
-								</array>
-							</dict>
-							<dict>
-								<key>pfm_name</key>
-								<string>Paths</string>
-								<key>pfm_title</key>
-								<string>Paths</string>
-								<key>pfm_description</key>
-								<string>The custom paths to be migrated from a source system to a target system.</string>
-								<key>pfm_require</key>
-								<string>always</string>
-								<key>pfm_type</key>
-								<string>array</string>
-								<key>pfm_subkeys</key>
-								<array>
-									<dict>
-										<key>pfm_name</key>
-										<string>PathsItem</string>
-										<key>pfm_title</key>
-										<string>Custom Paths Path Item</string>
-										<key>pfm_description</key>
-										<string>Custom Paths Path Item Dictionary</string>
-										<key>pfm_type</key>
-										<string>dictionary</string>
-										<key>pfm_subkeys</key>
-										<array>
-											<dict>
-												<key>pfm_name</key>
-												<string>SourcePath</string>
-												<key>pfm_title</key>
-												<string>Source Path</string>
-												<key>pfm_description</key>
-												<string>The path to the migrating file or directory on the source system.</string>
-												<key>pfm_require</key>
-												<string>always</string>
-												<key>pfm_type</key>
-												<string>string</string>
-												<key>pfm_value_placeholder</key>
-												<string>/path/to/source</string>
-											</dict>
-											<dict>
-												<key>pfm_name</key>
-												<string>SourcePathInUserHome</string>
-												<key>pfm_title</key>
-												<string>Source Path In User Home</string>
-												<key>pfm_description</key>
-												<string>If the source path is located within a user home directory.</string>
-												<key>pfm_require</key>
-												<string>always</string>
-												<key>pfm_type</key>
-												<string>boolean</string>
-											</dict>
-											<dict>
-												<key>pfm_name</key>
-												<string>TargetPath</string>
-												<key>pfm_title</key>
-												<string>Target Path</string>
-												<key>pfm_description</key>
-												<string>The path to the destination file or directory on the target system.</string>
-												<key>pfm_require</key>
-												<string>always</string>
-												<key>pfm_type</key>
-												<string>string</string>
-												<key>pfm_value_placeholder</key>
-												<string>/path/to/target</string>
-											</dict>
-											<dict>
-												<key>pfm_name</key>
-												<string>TargetPathInUserHome</string>
-												<key>pfm_title</key>
-												<string>Target Path In User Home</string>
-												<key>pfm_description</key>
-												<string>If the target path is located within a user home directory.</string>
-												<key>pfm_require</key>
-												<string>always</string>
-												<key>pfm_type</key>
-												<string>boolean</string>
-											</dict>
-										</array>
-									</dict>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-		</array>
-	</dict>
+<dict>
+	<key>pfm_description</key>
+	<string>System Migration settings</string>
+	<key>pfm_domain</key>
+	<string>com.apple.systemmigration</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>combined</string>
+	<key>pfm_last_modified</key>
+	<date>2018-07-09T11:54:42Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.12.4</string>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures System Migration settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>System Migration</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.systemmigration</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.systemmigration</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Custom Paths to be migrated from source system</string>
+			<key>pfm_name</key>
+			<string>CustomBehavior</string>
+			<key>pfm_range_max</key>
+			<integer>1</integer>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Custom Paths Item Dictionary</string>
+					<key>pfm_name</key>
+					<string>CustomBehaviorItem</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>The context to which custom paths apply.</string>
+							<key>pfm_name</key>
+							<string>Context</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Windows</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Context</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The custom paths to be migrated from a source system to a target system.</string>
+							<key>pfm_name</key>
+							<string>Paths</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>Custom Paths Path Item Dictionary</string>
+									<key>pfm_name</key>
+									<string>PathsItem</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>The path to the migrating file or directory on the source system.</string>
+											<key>pfm_name</key>
+											<string>SourcePath</string>
+											<key>pfm_require</key>
+											<string>always</string>
+											<key>pfm_title</key>
+											<string>Source Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+											<key>pfm_value_placeholder</key>
+											<string>/path/to/source</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>If the source path is located within a user home directory.</string>
+											<key>pfm_name</key>
+											<string>SourcePathInUserHome</string>
+											<key>pfm_require</key>
+											<string>always</string>
+											<key>pfm_title</key>
+											<string>Source Path In User Home</string>
+											<key>pfm_type</key>
+											<string>boolean</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>The path to the destination file or directory on the target system.</string>
+											<key>pfm_name</key>
+											<string>TargetPath</string>
+											<key>pfm_require</key>
+											<string>always</string>
+											<key>pfm_title</key>
+											<string>Target Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+											<key>pfm_value_placeholder</key>
+											<string>/path/to/target</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>If the target path is located within a user home directory.</string>
+											<key>pfm_name</key>
+											<string>TargetPathInUserHome</string>
+											<key>pfm_require</key>
+											<string>always</string>
+											<key>pfm_title</key>
+											<string>Target Path In User Home</string>
+											<key>pfm_type</key>
+											<string>boolean</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>Custom Paths Path Item</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Paths</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Custom Paths Item</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Custom Paths</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>System Migration</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
 </plist>

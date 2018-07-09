@@ -1,297 +1,293 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_description</key>
-		<string>Active Directory Certificate settings</string>
-		<key>pfm_title</key>
-		<string>AD Certificate</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_version</key>
-		<integer>1</integer>
-		<key>pfm_domain</key>
-		<string>com.apple.ADCertificate.managed</string>
-		<key>pfm_interaction</key>
-		<string>exclusive</string>
-		<key>pfm_targets</key>
-		<array>
-			<string>user</string>
-			<string>system</string>
-		</array>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_unique</key>
-		<false/>
-		<key>pfm_subkeys</key>
-		<array>
-			
-			<!-- Default Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_description</key>
-				<string>Description of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Requests an Active Directory certificate</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_description</key>
-				<string>Name of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>AD Certificate</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.ADCertificate.managed</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.ADCertificate.managed</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadOrganization</string>
-				<key>pfm_title</key>
-				<string>Payload Organization</string>
-				<key>pfm_description</key>
-				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			
-			<!-- Custom Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>Description</string>
-				<key>pfm_title</key>
-				<string>Description</string>
-				<key>pfm_description</key>
-				<string>The description of the certificate request as shown in the certificate selector of other payloads such as VPN and Network</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CertServer</string>
-				<key>pfm_title</key>
-				<string>Certificate Server</string>
-				<key>pfm_description</key>
-				<string>Fully qualified host name of the Active Directory issuing CA.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CertificateAuthority</string>
-				<key>pfm_title</key>
-				<string>Certificate Authority</string>
-				<key>pfm_description</key>
-				<string>Name of the CA. This value is determined from the Common Name (CN) of the Active Directory entry: CN=(your CA name), CN='Certification Authorities', CN='Public Key Services', CN='Services', or CN='Configuration', (your base Domain Name).</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CertTemplate</string>
-				<key>pfm_title</key>
-				<string>Certificate Template</string>
-				<key>pfm_description</key>
-				<string>The name of the certificate template as it appears in the General tab of the template’s object in the Certificate Templates’ Microsoft Management Console snap-in component. Usually Machine or User</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>User</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CertificateAcquisitionMechanism</string>
-				<key>pfm_title</key>
-				<string>Acquisition Mechanism</string>
-				<key>pfm_description</key>
-				<string>Most commonly RPC. If using Web enrollment, HTTP.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>RPC</string>
-					<string>HTTP</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CertificateRenewalTimeInterval</string>
-				<key>pfm_title</key>
-				<string>Certificate Expiration Notification Threshold</string>
-				<key>pfm_description</key>
-				<string>The number of days before the certificate expires at which to start showing the expiration notification</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>14</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>Keysize</string>
-				<key>pfm_title</key>
-				<string>RSA Key Size</string>
-				<key>pfm_description</key>
-				<string>The RSA key size for the Certificate Signing Request (CSR).</string>
-				<key>pfm_macos_min</key>
-				<string>10.11</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>2048</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PromptForCredentials</string>
-				<key>pfm_title</key>
-				<string>Prompt for credentials</string>
-				<key>pfm_description</key>
-				<string>Prompt the user for credentials.  This setting is not supported for pushed profiles</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UserName</string>
-				<key>pfm_title</key>
-				<string>User name</string>
-				<key>pfm_description</key>
-				<string>The user name with which to authenticate to the certificate server</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>Password</string>
-				<key>pfm_title</key>
-				<string>Password</string>
-				<key>pfm_description</key>
-				<string>The password with which to authenticate to the certificate server</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>AllowAllAppsAccess</string>
-				<key>pfm_title</key>
-				<string>Allow access to all apps</string>
-				<key>pfm_description</key>
-				<string>Allow all apps to access the certificate in the keychain</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>KeyIsExtractable</string>
-				<key>pfm_title</key>
-				<string>Allow export from keychain</string>
-				<key>pfm_description</key>
-				<string>Allow admin to export private key from the keychain</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>EnableAutoRenewal</string>
-				<key>pfm_title</key>
-				<string>Enable auto-renewal</string>
-				<key>pfm_description</key>
-				<string>Allows the certificate to attempt an auto-renewal from the server.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_macos_min</key>
-				<string>10.13.4</string>
-			</dict>
-		</array>
-	</dict>
+<dict>
+	<key>pfm_description</key>
+	<string>Active Directory Certificate settings</string>
+	<key>pfm_domain</key>
+	<string>com.apple.ADCertificate.managed</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_last_modified</key>
+	<date>2018-07-09T11:53:27Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Requests an Active Directory certificate</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>AD Certificate</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.ADCertificate.managed</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.ADCertificate.managed</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The description of the certificate request as shown in the certificate selector of other payloads such as VPN and Network</string>
+			<key>pfm_name</key>
+			<string>Description</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Fully qualified host name of the Active Directory issuing CA.</string>
+			<key>pfm_name</key>
+			<string>CertServer</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Certificate Server</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Name of the CA. This value is determined from the Common Name (CN) of the Active Directory entry: CN=(your CA name), CN='Certification Authorities', CN='Public Key Services', CN='Services', or CN='Configuration', (your base Domain Name).</string>
+			<key>pfm_name</key>
+			<string>CertificateAuthority</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Certificate Authority</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>User</string>
+			<key>pfm_description</key>
+			<string>The name of the certificate template as it appears in the General tab of the template’s object in the Certificate Templates’ Microsoft Management Console snap-in component. Usually Machine or User</string>
+			<key>pfm_name</key>
+			<string>CertTemplate</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Certificate Template</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Most commonly RPC. If using Web enrollment, HTTP.</string>
+			<key>pfm_name</key>
+			<string>CertificateAcquisitionMechanism</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>RPC</string>
+				<string>HTTP</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Acquisition Mechanism</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>14</integer>
+			<key>pfm_description</key>
+			<string>The number of days before the certificate expires at which to start showing the expiration notification</string>
+			<key>pfm_name</key>
+			<string>CertificateRenewalTimeInterval</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Certificate Expiration Notification Threshold</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>2048</integer>
+			<key>pfm_description</key>
+			<string>The RSA key size for the Certificate Signing Request (CSR).</string>
+			<key>pfm_macos_min</key>
+			<string>10.11</string>
+			<key>pfm_name</key>
+			<string>Keysize</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>RSA Key Size</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Prompt the user for credentials.  This setting is not supported for pushed profiles</string>
+			<key>pfm_name</key>
+			<string>PromptForCredentials</string>
+			<key>pfm_title</key>
+			<string>Prompt for credentials</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The user name with which to authenticate to the certificate server</string>
+			<key>pfm_name</key>
+			<string>UserName</string>
+			<key>pfm_title</key>
+			<string>User name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The password with which to authenticate to the certificate server</string>
+			<key>pfm_name</key>
+			<string>Password</string>
+			<key>pfm_title</key>
+			<string>Password</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow all apps to access the certificate in the keychain</string>
+			<key>pfm_name</key>
+			<string>AllowAllAppsAccess</string>
+			<key>pfm_title</key>
+			<string>Allow access to all apps</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow admin to export private key from the keychain</string>
+			<key>pfm_name</key>
+			<string>KeyIsExtractable</string>
+			<key>pfm_title</key>
+			<string>Allow export from keychain</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allows the certificate to attempt an auto-renewal from the server.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.4</string>
+			<key>pfm_name</key>
+			<string>EnableAutoRenewal</string>
+			<key>pfm_title</key>
+			<string>Enable auto-renewal</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>user</string>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>AD Certificate</string>
+	<key>pfm_unique</key>
+	<false/>
+	<key>pfm_version</key>
+	<integer>2</integer>
+</dict>
 </plist>

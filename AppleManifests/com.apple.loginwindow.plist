@@ -1,884 +1,823 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_description</key>
-		<string>Login Window settings</string>
-		<key>pfm_title</key>
-		<string>Login Window</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_version</key>
-		<integer>1</integer>
-		<key>pfm_domain</key>
-		<string>com.apple.loginwindow</string>
-		<key>pfm_interaction</key>
-		<string>combined</string>
-		<key>pfm_targets</key>
-		<array>
-			<string>user</string>
-			<string>system</string>
-		</array>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_unique</key>
-		<true/>
-		<key>pfm_subkeys</key>
-		<array>
-		
-			<!-- Default Payload Keys -->
-		
+<dict>
+	<key>pfm_description</key>
+	<string>Login Window settings</string>
+	<key>pfm_domain</key>
+	<string>com.apple.loginwindow</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>combined</string>
+	<key>pfm_last_modified</key>
+	<date>2018-07-09T11:54:41Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Loginwindow settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Loginwindow</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.loginwindow</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.loginwindow</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
 			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_description</key>
-				<string>Description of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Configures Loginwindow settings</string>
+				<key>Access</key>
+				<array>
+					<string>AllowList</string>
+					<string>DenyList</string>
+					<string>LocalUserLoginEnabled</string>
+					<string>LocalUsersHaveWorkgroups</string>
+					<string>FlattenUserWorkgroups</string>
+					<string>CombineUserWorkgroups</string>
+					<string>AlwaysShowWorkgroupDialog</string>
+				</array>
+				<key>Options</key>
+				<array>
+					<string>com.apple.login.mcx.DisableAutoLoginClient</string>
+					<string>DisableFDEAutoLogin</string>
+					<string>DisableConsoleAccess</string>
+					<string>EnableExternalAccounts</string>
+					<string>AdminMayDisableMCX</string>
+					<string>UseComputerNameForComputerRecordName</string>
+				</array>
+				<key>Password</key>
+				<array>
+					<string>ChangePasswordDisabled</string>
+					<string>RetriesUntilHint</string>
+				</array>
+				<key>Window</key>
+				<array>
+					<string>AdminHostInfo</string>
+					<string>LoginwindowText</string>
+					<string>SHOWFULLNAME</string>
+					<string>HideLocalUsers</string>
+					<string>HideMobileAccounts</string>
+					<string>IncludeNetworkUser</string>
+					<string>HideAdminUsers</string>
+					<string>SHOWOTHERUSERS_MANAGED</string>
+					<string>SleepDisabled</string>
+					<string>RestartDisabled</string>
+					<string>ShutDownDisabled</string>
+					<string>PowerOffDisabled</string>
+					<string>RestartDisabledWhileLoggedIn</string>
+					<string>ShutDownDisabledWhileLoggedIn</string>
+					<string>PowerOffDisabledWhileLoggedIn</string>
+					<string>LogOutDisabledWhileLoggedIn</string>
+					<string>DisableScreenLockImmediate</string>
+					<string>showInputMenu</string>
+				</array>
 			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_description</key>
-				<string>Name of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Loginwindow</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.loginwindow</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.loginwindow</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadOrganization</string>
-				<key>pfm_title</key>
-				<string>Payload Organization</string>
-				<key>pfm_description</key>
-				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-		
-			<!-- Custom Payload Keys -->
-
-			<dict>
-				<key>pfm_name</key>
-				<string>PFC_SegmentedControl_0</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_segments</key>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>HostName</string>
+			<key>pfm_description</key>
+			<string>Cycle through the hostname, macOS version, and IP address when the menu bar is clicked.</string>
+			<key>pfm_name</key>
+			<string>AdminHostInfo</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show additional information in the menu bar</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Enter a message that’s displayed above the login prompt. You might use this to provide a warning about unauthorized use.</string>
+			<key>pfm_name</key>
+			<string>LoginwindowText</string>
+			<key>pfm_range_max</key>
+			<integer>2</integer>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Banner</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>The display style and related options of the login prompt</string>
+			<key>pfm_name</key>
+			<string>SHOWFULLNAME</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Name and password text fields</string>
+				<string>List of users able to use these computers</string>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Login Prompt</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_exclude</key>
+			<array>
 				<dict>
-					<key>Window</key>
+					<key>pfm_target_conditions</key>
 					<array>
-						<string>AdminHostInfo</string>
-						<string>LoginwindowText</string>
-						<string>SHOWFULLNAME</string>
-						<string>HideLocalUsers</string>
-						<string>HideMobileAccounts</string>
-						<string>IncludeNetworkUser</string>
-						<string>HideAdminUsers</string>
-						<string>SHOWOTHERUSERS_MANAGED</string>
-						<string>SleepDisabled</string>
-						<string>RestartDisabled</string>
-						<string>ShutDownDisabled</string>
-						<string>PowerOffDisabled</string>
-						<string>RestartDisabledWhileLoggedIn</string>
-						<string>ShutDownDisabledWhileLoggedIn</string>
-						<string>PowerOffDisabledWhileLoggedIn</string>
-						<string>LogOutDisabledWhileLoggedIn</string>
-						<string>DisableScreenLockImmediate</string>
-						<string>showInputMenu</string>
-					</array>
-					<key>Options</key>
-					<array>
-						<string>com.apple.login.mcx.DisableAutoLoginClient</string>
-						<string>DisableFDEAutoLogin</string>
-						<string>DisableConsoleAccess</string>
-						<string>EnableExternalAccounts</string>
-						<string>AdminMayDisableMCX</string>
-						<string>UseComputerNameForComputerRecordName</string>
-					</array>
-					<key>Access</key>
-					<array>
-						<string>AllowList</string>
-						<string>DenyList</string>
-						<string>LocalUserLoginEnabled</string>
-						<string>LocalUsersHaveWorkgroups</string>
-						<string>FlattenUserWorkgroups</string>
-						<string>CombineUserWorkgroups</string>
-						<string>AlwaysShowWorkgroupDialog</string>
-					</array>
-					<key>Password</key>
-					<array>
-						<string>ChangePasswordDisabled</string>
-						<string>RetriesUntilHint</string>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>SHOWFULLNAME</string>
+						</dict>
 					</array>
 				</dict>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-
-			<!-- Login Window window options -->
-
-			<dict>
-				<key>pfm_name</key>
-				<string>AdminHostInfo</string>
-				<key>pfm_title</key>
-				<string>Show additional information in the menu bar</string>
-				<key>pfm_description</key>
-				<string>Cycle through the hostname, macOS version, and IP address when the menu bar is clicked.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>HostName</string>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<!-- FIXME Should add some information or implementation to support pre and post version handling. 
-			
-				Optional. If this key is included in the payload, its value will be displayed as additional computer information on the login window. Before macOS 10.10, this string could contain only particular information (HostName, SystemVersion, or IPAddress). After macOS 10.10, setting this key to any value will allow the user to click the “time” area of the menu bar to toggle through various computer information values.
-				
-				-->
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LoginwindowText</string>
-				<key>pfm_title</key>
-				<string>Banner</string>
-				<key>pfm_description</key>
-				<string>Enter a message that’s displayed above the login prompt. You might use this to provide a warning about unauthorized use.</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_range_max</key>
-				<integer>2</integer>
-			</dict>
-			
-			<!-- Login Prompt -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>SHOWFULLNAME</string>
-				<key>pfm_title</key>
-				<string>Login Prompt</string>
-				<key>pfm_description</key>
-				<string>The display style and related options of the login prompt</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_range_list_titles</key>
-				<array>
-					<string>Name and password text fields</string>
-					<string>List of users able to use these computers</string>
-				</array>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideLocalUsers</string>
-				<key>pfm_title</key>
-				<string>Show local users</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-				<!-- This is not a hard exclude line, but it makes sense
-				 as if it's not set to name and password these settings are meaningless
-				 Unsure if I should note that or write it something-->
-				<key>pfm_exclude</key> 
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>SHOWFULLNAME</string>
-								<key>pfm_contains_any</key>
-								<array>
-									<false/>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideMobileAccounts</string>
-				<key>pfm_title</key>
-				<string>Show mobile accounts</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-				<!-- This is not a hard exclude line, but it makes sense
-				 as if it's not set to name and password these settings are meaningless
-				 Unsure if I should note that or write it something-->
-				<key>pfm_exclude</key> 
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>SHOWFULLNAME</string>
-								<key>pfm_contains_any</key>
-								<array>
-									<false/>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>IncludeNetworkUser</string>
-				<key>pfm_title</key>
-				<string>Show network users</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<!-- This is not a hard exclude line, but it makes sense
-				 as if it's not set to name and password these settings are meaningless
-				 Unsure if I should note that or write it something-->
-				<key>pfm_exclude</key> 
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>SHOWFULLNAME</string>
-								<key>pfm_contains_any</key>
-								<array>
-									<false/>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>HideAdminUsers</string>
-				<key>pfm_title</key>
-				<string>Show Mac computer’s administrator accounts</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-				<!-- This is not a hard exclude line, but it makes sense
-				 as if it's not set to name and password these settings are meaningless
-				 Unsure if I should note that or write it something-->
-				<key>pfm_exclude</key> 
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>SHOWFULLNAME</string>
-								<key>pfm_contains_any</key>
-								<array>
-									<false/>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>SHOWOTHERUSERS_MANAGED</string>
-				<key>pfm_title</key>
-				<string>Show “Other”</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<!-- This is not a hard exclude line, but it makes sense
-				 as if it's not set to name and password these settings are meaningless
-				 Unsure if I should note that or write it something-->
-				<key>pfm_exclude</key> 
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>SHOWFULLNAME</string>
-								<key>pfm_contains_any</key>
-								<array>
-									<false/>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>SleepDisabled</string>
-				<key>pfm_title</key>
-				<string>Show the Sleep button</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>RestartDisabled</string>
-				<key>pfm_title</key>
-				<string>Show the Restart button</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShutDownDisabled</string>
-				<key>pfm_title</key>
-				<string>Show the Shut Down button</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<!-- This works, but has weird interactions with the specific buttons settings above.
-					They do the same thing but is just more granular but this removes all at once.
-			<dict>
-				<key>pfm_name</key>
-				<string>PowerOffDisabled</string>
-				<key>pfm_title</key>
-				<string>Show the Sleep, Restart and Shut Down buttons</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-				-->
-			<dict>
-				<key>pfm_name</key>
-				<string>RestartDisabledWhileLoggedIn</string>
-				<key>pfm_title</key>
-				<string>Disable the Restart menu item while logged in</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>ShutDownDisabledWhileLoggedIn</string>
-				<key>pfm_title</key>
-				<string>Disable the Shut Down menu item while logged in</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PowerOffDisabledWhileLoggedIn</string>
-				<key>pfm_title</key>
-				<string>Disable the Power Off menu item while logged in</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LogOutDisabledWhileLoggedIn</string>
-				<key>pfm_title</key>
-				<string>Disable the Log Out menu item while logged in</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DisableScreenLockImmediate</string>
-				<key>pfm_title</key>
-				<string>Disable the immediate Screen Lock function</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-			</dict>
-			
-			<!-- Login Window Options -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>com.apple.login.mcx.DisableAutoLoginClient</string>
-				<key>pfm_title</key>
-				<string>Disable automatic login if FileVault is disabled</string>
-				<key>pfm_description</key>
-				<string>A loginwindow password will be required to login.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DisableFDEAutoLogin</string>
-				<key>pfm_title</key>
-				<string>Disable automatic login if FileVault is enabled</string>
-				<key>pfm_description</key>
-				<string>Both the EFI Login and loginwindow password will be required to login.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DisableConsoleAccess</string>
-				<key>pfm_title</key>
-				<string>Enable >console login</string>
-				<key>pfm_description</key>
-				<string>Allows users to use >console at the login window.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>EnableExternalAccounts</string>
-				<key>pfm_title</key>
-				<string>Enable external accounts</string>
-				<key>pfm_description</key>
-				<string>Allows external accounts to log in.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>AdminMayDisableMCX</string>
-				<key>pfm_title</key>
-				<string>Mac computer administrators may refresh content or disable management</string>
-				<key>pfm_description</key>
-				<string>Allows Mac administrators on the computer to refresh or disable the management features.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>UseComputerNameForComputerRecordName</string>
-				<key>pfm_title</key>
-				<string>Set Mac computer name to computer record name</string>
-				<key>pfm_description</key>
-				<string>Forces the name of the Mac to be set as the computer record name.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			
-			<!-- Login Window access -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>AllowList</string>
-				<key>pfm_title</key>
-				<string>Allowed Users or Groups</string>
-				<key>pfm_description</key>
-				<string>User or group GUIDs of users that are allowed to log in. An asterisk '*' string specifies all users or groups.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>GUID</string>
-						<key>pfm_title</key>
-						<string>User or Group GUID</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
-						<key>pfm_format</key>
-						<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-					</dict>
-				</array>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DenyList</string>
-				<key>pfm_title</key>
-				<string>Denied Users or Groups</string>
-				<key>pfm_description</key>
-				<string>User or group GUIDs of users that cannot log in. This list takes priority over the list in the AllowList key.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>GUID</string>
-						<key>pfm_title</key>
-						<string>User or Group GUID</string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
-						<key>pfm_format</key>
-						<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-					</dict>
-				</array>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LocalUserLoginEnabled</string>
-				<key>pfm_title</key>
-				<string>Local-only users may log in</string>
-				<key>pfm_description</key>
-				<string>Permit only local users to log in. Network users won’t be allowed to log in.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>LocalUsersHaveWorkgroups</string>
-				<key>pfm_title</key>
-				<string>Local-only users use available workgroup settings</string>
-				<key>pfm_description</key>
-				<string>Local users are forced to use any available workgroup settings.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>FlattenUserWorkgroups</string>
-				<key>pfm_title</key>
-				<string>Ignore workgroup nesting</string>
-				<key>pfm_description</key>
-				<string>If users are part of a nested workgroup, only the settings of the user’s workgroup are enforced.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>CombineUserWorkgroups</string>
-				<key>pfm_title</key>
-				<string>Combine available workgroup settings</string>
-				<key>pfm_description</key>
-				<string>If users are part of a nested workgroup, all nested workgroup settings are enforced.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>AlwaysShowWorkgroupDialog</string>
-				<key>pfm_title</key>
-				<string>Always show workgroup dialog during log in</string>
-				<key>pfm_description</key>
-				<string>If the workgroup has a specific dialog, that dialog is shown when users log in.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_targets</key>
-				<array>
-					<string>system-managed</string> <!-- FIXME Not sure-->
-				</array>
-			</dict>
-			
-			<!-- Password -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>ChangePasswordDisabled</string>
-				<key>pfm_title</key>
-				<string>Allow user to change password</string>
-				<key>pfm_description</key>
-				<string>Enable or disable the "Change Password…" button in the Users &amp; Groups preference pane.</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_value_inverted</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>RetriesUntilHint</string>
-				<key>pfm_title</key>
-				<string>Show password hints after failed attempts</string>
-				<key>pfm_description</key>
-				<string>Numer of tries until password hint is shown. (0 = disable password hints)</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-			<dict> <!-- Preference  Need soemthing to tell if the key is "supported" or only a managed preferece in the domain. This key works but the UI will not show that it's managed, and the ui have no effect while this is managed by a profile  -->
-				<key>pfm_name</key>
-				<string>showInputMenu</string>
-				<key>pfm_title</key>
-				<string>Show input menu in login window</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_default</key>
-				<false/>
-			</dict>
-		</array>
-	</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>HideLocalUsers</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show local users</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>SHOWFULLNAME</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>HideMobileAccounts</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show mobile accounts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>SHOWFULLNAME</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>IncludeNetworkUser</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show network users</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>SHOWFULLNAME</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>HideAdminUsers</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show Mac computer’s administrator accounts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>SHOWFULLNAME</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>SHOWOTHERUSERS_MANAGED</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show “Other”</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>SleepDisabled</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show the Sleep button</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>RestartDisabled</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show the Restart button</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>ShutDownDisabled</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show the Shut Down button</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>RestartDisabledWhileLoggedIn</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable the Restart menu item while logged in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>ShutDownDisabledWhileLoggedIn</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable the Shut Down menu item while logged in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>PowerOffDisabledWhileLoggedIn</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable the Power Off menu item while logged in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>LogOutDisabledWhileLoggedIn</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable the Log Out menu item while logged in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>DisableScreenLockImmediate</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable the immediate Screen Lock function</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>A loginwindow password will be required to login.</string>
+			<key>pfm_name</key>
+			<string>com.apple.login.mcx.DisableAutoLoginClient</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable automatic login if FileVault is disabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Both the EFI Login and loginwindow password will be required to login.</string>
+			<key>pfm_name</key>
+			<string>DisableFDEAutoLogin</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable automatic login if FileVault is enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows users to use &gt;console at the login window.</string>
+			<key>pfm_name</key>
+			<string>DisableConsoleAccess</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable &gt;console login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows external accounts to log in.</string>
+			<key>pfm_name</key>
+			<string>EnableExternalAccounts</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable external accounts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows Mac administrators on the computer to refresh or disable the management features.</string>
+			<key>pfm_name</key>
+			<string>AdminMayDisableMCX</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Mac computer administrators may refresh content or disable management</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Forces the name of the Mac to be set as the computer record name.</string>
+			<key>pfm_name</key>
+			<string>UseComputerNameForComputerRecordName</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Set Mac computer name to computer record name</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>User or group GUIDs of users that are allowed to log in. An asterisk '*' string specifies all users or groups.</string>
+			<key>pfm_name</key>
+			<string>AllowList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_format</key>
+					<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+					<key>pfm_name</key>
+					<string>GUID</string>
+					<key>pfm_title</key>
+					<string>User or Group GUID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed Users or Groups</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>User or group GUIDs of users that cannot log in. This list takes priority over the list in the AllowList key.</string>
+			<key>pfm_name</key>
+			<string>DenyList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_format</key>
+					<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+					<key>pfm_name</key>
+					<string>GUID</string>
+					<key>pfm_title</key>
+					<string>User or Group GUID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Denied Users or Groups</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Permit only local users to log in. Network users won’t be allowed to log in.</string>
+			<key>pfm_name</key>
+			<string>LocalUserLoginEnabled</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Local-only users may log in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Local users are forced to use any available workgroup settings.</string>
+			<key>pfm_name</key>
+			<string>LocalUsersHaveWorkgroups</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Local-only users use available workgroup settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If users are part of a nested workgroup, only the settings of the user’s workgroup are enforced.</string>
+			<key>pfm_name</key>
+			<string>FlattenUserWorkgroups</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Ignore workgroup nesting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If users are part of a nested workgroup, all nested workgroup settings are enforced.</string>
+			<key>pfm_name</key>
+			<string>CombineUserWorkgroups</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Combine available workgroup settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If the workgroup has a specific dialog, that dialog is shown when users log in.</string>
+			<key>pfm_name</key>
+			<string>AlwaysShowWorkgroupDialog</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Always show workgroup dialog during log in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enable or disable the "Change Password…" button in the Users &amp; Groups preference pane.</string>
+			<key>pfm_name</key>
+			<string>ChangePasswordDisabled</string>
+			<key>pfm_title</key>
+			<string>Allow user to change password</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Numer of tries until password hint is shown. (0 = disable password hints)</string>
+			<key>pfm_name</key>
+			<string>RetriesUntilHint</string>
+			<key>pfm_title</key>
+			<string>Show password hints after failed attempts</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>showInputMenu</string>
+			<key>pfm_title</key>
+			<string>Show input menu in login window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>user</string>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Login Window</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
 </plist>

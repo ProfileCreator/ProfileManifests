@@ -4,152 +4,132 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Mail settings</string>
-	<key>pfm_title</key>
-	<string>Mail</string>
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-	<key>pfm_version</key>
-	<integer>1</integer>
 	<key>pfm_domain</key>
 	<string>com.apple.mail.managed</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
-	<key>pfm_targets</key>
-	<array>
-		<string>user</string>
-	</array>
+	<key>pfm_last_modified</key>
+	<date>2018-07-09T11:54:41Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
 		<string>macOS</string>
 	</array>
-	<key>pfm_unique</key>
-	<false/>
 	<key>pfm_subkeys</key>
 	<array>
-		
-		<!-- Default Payload Keys -->
-		
 		<dict>
+			<key>pfm_default</key>
+			<string>Configures a Mail account</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
 			<string>Payload Description</string>
-			<key>pfm_description</key>
-			<string>Description of the payload</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>Configures a Mail account</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PayloadDisplayName</string>
-			<key>pfm_title</key>
-			<string>Payload Display Name</string>
-			<key>pfm_description</key>
-			<string>Name of the payload</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_default</key>
 			<string>Mail</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PayloadIdentifier</string>
-			<key>pfm_title</key>
-			<string>Payload Identifier</string>
+			<key>pfm_default</key>
+			<string>com.apple.mail.managed</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.mail.managed</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PayloadType</string>
-			<key>pfm_title</key>
-			<string>Payload Type</string>
+			<key>pfm_default</key>
+			<string>com.apple.mail.managed</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.mail.managed</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
 			<key>pfm_require</key>
 			<string>always</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PayloadUUID</string>
 			<key>pfm_title</key>
-			<string>Payload UUID</string>
-			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>Payload Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
 			<key>pfm_default</key>
 			<string></string>
-			<key>pfm_require</key>
-			<string>always</string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>PayloadVersion</string>
-			<key>pfm_title</key>
-			<string>Payload Version</string>
-			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>1</integer>
+			<string>PayloadUUID</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
 			<string>Payload Organization</string>
-			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- Custom Payload Keys -->
-		
 		<dict>
+			<key>pfm_description</key>
+			<string>The display name of the account (e.g. "Company Mail Account")</string>
 			<key>pfm_name</key>
 			<string>EmailAccountDescription</string>
 			<key>pfm_title</key>
 			<string>Account Description</string>
-			<key>pfm_description</key>
-			<string>The display name of the account (e.g. &quot;Company Mail Account&quot;)</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>EmailAccountType</string>
-			<key>pfm_title</key>
-			<string>Account Type</string>
-			<key>pfm_description</key>
-			<string>The protocol for accessing the account</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_default</key>
 			<string>EmailTypeIMAP</string>
+			<key>pfm_description</key>
+			<string>The protocol for accessing the account</string>
+			<key>pfm_name</key>
+			<string>EmailAccountType</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>EmailTypeIMAP</string>
@@ -160,438 +140,438 @@
 				<string>IMAP</string>
 				<string>POP</string>
 			</array>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>IncomingMailServerIMAPPathPrefix</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
-			<string>Path Prefix</string>
-			<key>pfm_description</key>
-			<string>Path prefix for IMAP mail server</string>
+			<string>Account Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Path prefix for IMAP mail server</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>EmailAccountType</string>
 							<key>pfm_range_list</key>
 							<array>
 								<string>EmailTypeIMAP</string>
 							</array>
+							<key>pfm_target</key>
+							<string>EmailAccountType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>IncomingMailServerIMAPPathPrefix</string>
+			<key>pfm_title</key>
+			<string>Path Prefix</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The display name of the user (e.g. "John Appleseed")</string>
 			<key>pfm_name</key>
 			<string>EmailAccountName</string>
+			<key>pfm_require</key>
+			<string>push</string>
 			<key>pfm_title</key>
 			<string>User Display Name</string>
-			<key>pfm_description</key>
-			<string>The display name of the user (e.g. &quot;John Appleseed&quot;)</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_require</key>
-			<string>push</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The address of the account (e.g. "john@company.com")</string>
 			<key>pfm_name</key>
 			<string>EmailAddress</string>
+			<key>pfm_require</key>
+			<string>push</string>
 			<key>pfm_title</key>
 			<string>Email Address</string>
-			<key>pfm_description</key>
-			<string>The address of the account (e.g. &quot;john@company.com&quot;)</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_require</key>
-			<string>push</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PreventMove</string>
-			<key>pfm_title</key>
-			<string>Allow user to move messages from this account</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Messages can be moved out of this account into another.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+			<key>pfm_name</key>
+			<string>PreventMove</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>5.0</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_title</key>
+			<string>Allow user to move messages from this account</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 			<key>pfm_value_inverted</key>
 			<true/>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>disableMailRecentsSyncing</string>
-			<key>pfm_title</key>
-			<string>Allow recent addresses to be synced</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Include this account in recent address syncing</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_value_inverted</key>
-			<true/>
-			<key>pfm_platforms</key>
-			<array>
-				<string>iOS</string>
-			</array>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
+			<key>pfm_name</key>
+			<string>disableMailRecentsSyncing</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allow recent addresses to be synced</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_value_inverted</key>
+			<true/>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>allowMailDrop</string>
-			<key>pfm_title</key>
-			<string>Allow Mail Drop</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow Mail Drop for this account</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_platforms</key>
-			<array>
-				<string>iOS</string>
-			</array>
 			<key>pfm_ios_min</key>
 			<string>9.2</string>
+			<key>pfm_name</key>
+			<string>allowMailDrop</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allow Mail Drop</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PreventAppSheet</string>
-			<key>pfm_title</key>
-			<string>Use Only In Mail</string>
 			<key>pfm_description</key>
 			<string>Send outgoing mail from this account only from Mail app</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+			<key>pfm_name</key>
+			<string>PreventAppSheet</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<key>pfm_title</key>
+			<string>Use Only In Mail</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEnabled</string>
-			<key>pfm_title</key>
-			<string>S/MIME Enabled</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, this account will support S/MIME</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_platforms</key>
-			<array>
-				<string>iOS</string>
-			</array>
-			<key>pfm_ios_min</key>
-			<string>5.0</string>
 			<key>pfm_ios_max</key>
 			<string>9.3.3</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEnabled</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>S/MIME Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMESigningEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable S/MIME Signing</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Support S/MIME signing for this account</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>10.3</string>
+			<key>pfm_name</key>
+			<string>SMIMESigningEnabled</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>10.3</string>
+			<key>pfm_title</key>
+			<string>Enable S/MIME Signing</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMESigningCertificateUUID</string>
-			<key>pfm_title</key>
-			<string>S/MIME Signing Certificate</string>
 			<key>pfm_description</key>
 			<string>The PayloadUUID of the identity certificate used to sign messages sent from this account.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_format</key>
-			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>SMIMEEnabled</string> <!-- This is probably not correct anymore -->
 							<key>pfm_n_range_list</key>
 							<array>
 								<true/>
 							</array>
+							<key>pfm_target</key>
+							<string>SMIMEEnabled</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+			<key>pfm_name</key>
+			<string>SMIMESigningCertificateUUID</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<key>pfm_title</key>
+			<string>S/MIME Signing Certificate</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEncryptionEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable S/MIME Encryption</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Support S/MIME encryption from this account</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_deprecated</key>
+			<string>12.0</string>
+			<key>pfm_ios_min</key>
+			<string>10.3</string>
+			<key>pfm_name</key>
+			<string>SMIMEEncryptionEnabled</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>10.3</string>
-			<key>pfm_ios_deprecated</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable S/MIME Encryption</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEncryptionCertificateUUID</string>
-			<key>pfm_title</key>
-			<string>S/MIME Encryption Certificate</string>
 			<key>pfm_description</key>
 			<string>The PayloadUUID of the identity certificate used to decrypt messages coming into this account.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_format</key>
-			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>SMIMEEnabled</string> <!-- This is probably not correct anymore -->
 							<key>pfm_n_range_list</key>
 							<array>
 								<true/>
 							</array>
+							<key>pfm_target</key>
+							<string>SMIMEEnabled</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-			<key>pfm_platforms</key>
-			<array>
-				<string>iOS</string>
-			</array>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEncryptionCertificateUUID</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>S/MIME Encryption Certificate</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEnablePerMessageSwitch</string>
-			<key>pfm_title</key>
-			<string>Enable per-message encryption switch</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user to choose whether to encrypt each message</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_platforms</key>
-			<array>
-				<string>iOS</string>
-			</array>
-			<key>pfm_ios_min</key>
-			<string>8.0</string>
 			<key>pfm_ios_deprecated</key>
 			<string>12.0</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEnablePerMessageSwitch</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable per-message encryption switch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMESigningUserOverrideable</string>
-			<key>pfm_title</key>
-			<string>Enable S/MIME toggle</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user to toggle S/MIME signing on or off in Settings.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMESigningUserOverrideable</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable S/MIME toggle</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMESigningCertificateUUIDUserOverrideable</string>
-			<key>pfm_title</key>
-			<string>Enable user to select the signing identity</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user to select the signing identity.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMESigningCertificateUUIDUserOverrideable</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable user to select the signing identity</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEncryptByDefault</string>
-			<key>pfm_title</key>
-			<string>Enable S/MIME by default.</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If SMIMEEnableEncryptionPerMessageSwitch is false, this default cannot be changed by the user.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEncryptByDefault</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable S/MIME by default.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEncryptByDefaultUserOverrideable</string>
-			<key>pfm_title</key>
-			<string>Enable user to toggle S/MIME by default.</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user to toggle the encryption by default setting.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEncryptByDefaultUserOverrideable</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable user to toggle S/MIME by default.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEncryptionCertificateUUIDUserOverrideable</string>
-			<key>pfm_title</key>
-			<string>Enable user to select the signing identity and encryption is enabled</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user to select the signing identity and encryption is enabled.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEncryptionCertificateUUIDUserOverrideable</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable user to select the signing identity and encryption is enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SMIMEEnableEncryptionPerMessageSwitch</string>
-			<key>pfm_title</key>
-			<string>Enable per-message encryption switch</string> <!-- FIXME: Update title when added to ProfileManager -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow the user toggle encrytion in the compose view and encryption is enabled.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>SMIMEEnableEncryptionPerMessageSwitch</string>
 			<key>pfm_platforms</key>
 			<array>
 				<string>iOS</string>
 			</array>
-			<key>pfm_ios_min</key>
-			<string>12.0</string>
+			<key>pfm_title</key>
+			<string>Enable per-message encryption switch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>IncomingMailServerHostName</string>
-			<key>pfm_title</key>
-			<string>Incoming Mail Server Hostname</string>
 			<key>pfm_description</key>
 			<string>Hostname or IP Address for incoming mail</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<key>pfm_name</key>
+			<string>IncomingMailServerHostName</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Incoming Mail Server Hostname</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>IncomingMailServerPortNumber</string>
-			<key>pfm_title</key>
-			<string>Incoming Mail Server Port</string>
-			<key>pfm_description</key>
-			<string>Port number for incoming mail</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_default</key>
 			<integer>993</integer>
-			<key>pfm_range_min</key>
-			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>Port number for incoming mail</string>
+			<key>pfm_name</key>
+			<string>IncomingMailServerPortNumber</string>
 			<key>pfm_range_max</key>
 			<integer>65535</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Incoming Mail Server Port</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>IncomingMailServerUsername</string>
-			<key>pfm_title</key>
-			<string>Incoming Mail Server Username</string>
 			<key>pfm_description</key>
 			<string>The username used to connect to the server for incoming mail</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<key>pfm_name</key>
+			<string>IncomingMailServerUsername</string>
 			<key>pfm_require</key>
 			<string>push</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>IncomingMailServerAuthentication</string>
 			<key>pfm_title</key>
-			<string>Incoming Mail Server Authentification Type</string>
-			<key>pfm_description</key>
-			<string>The authentication method for the incoming mail server</string>
+			<string>Incoming Mail Server Username</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
 			<key>pfm_default</key>
 			<string>EmailAuthPassword</string>
-			<key>pfm_require</key>
-			<string>always</string>
+			<key>pfm_description</key>
+			<string>The authentication method for the incoming mail server</string>
+			<key>pfm_name</key>
+			<string>IncomingMailServerAuthentication</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>EmailAuthNone</string>
@@ -608,82 +588,82 @@
 				<string>NTLM</string>
 				<string>HTTP MD5 Digest</string>
 			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Incoming Mail Server Authentification Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The password for the incoming mail server</string>
 			<key>pfm_name</key>
 			<string>IncomingPassword</string>
 			<key>pfm_title</key>
 			<string>Incoming Mail Server Password</string>
-			<key>pfm_description</key>
-			<string>The password for the incoming mail server</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Retrieve incoming mail through Secure Socket Layer</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerUseSSL</string>
 			<key>pfm_title</key>
 			<string>Incoming Mail Server Use SSL</string>
-			<key>pfm_description</key>
-			<string>Retrieve incoming mail through Secure Socket Layer</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>OutgoingMailServerHostName</string>
-			<key>pfm_title</key>
-			<string>Outgoing Mail Server Hostname</string>
 			<key>pfm_description</key>
 			<string>Hostname or IP address for outgoing mail</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<key>pfm_name</key>
+			<string>OutgoingMailServerHostName</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Outgoing Mail Server Hostname</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>OutgoingMailServerPortNumber</string>
-			<key>pfm_title</key>
-			<string>Outgoing Mail Server Port</string>
-			<key>pfm_description</key>
-			<string>The port number for outgoing mail</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_default</key>
 			<integer>587</integer>
-			<key>pfm_range_min</key>
-			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>The port number for outgoing mail</string>
+			<key>pfm_name</key>
+			<string>OutgoingMailServerPortNumber</string>
 			<key>pfm_range_max</key>
 			<integer>65535</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Outgoing Mail Server Port</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>OutgoingMailServerUsername</string>
-			<key>pfm_title</key>
-			<string>Outgoing Mail Server Username</string>
 			<key>pfm_description</key>
 			<string>The username used to connect to the server for outgoing mail</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<key>pfm_name</key>
+			<string>OutgoingMailServerUsername</string>
 			<key>pfm_require</key>
 			<string>push</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>OutgoingMailServerAuthentication</string>
 			<key>pfm_title</key>
-			<string>Outgoing Mail Server Authentication Type</string>
-			<key>pfm_description</key>
-			<string>The authentication method for the outgoing mail server</string>
+			<string>Outgoing Mail Server Username</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
+		</dict>
+		<dict>
 			<key>pfm_default</key>
 			<string>EmailAuthPassword</string>
+			<key>pfm_description</key>
+			<string>The authentication method for the outgoing mail server</string>
+			<key>pfm_name</key>
+			<string>OutgoingMailServerAuthentication</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>EmailAuthNone</string>
@@ -700,41 +680,57 @@
 				<string>NTLM</string>
 				<string>HTTP MD5 Digest</string>
 			</array>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>OutgoingPassword</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
-			<string>Outgoing Mail Server Password</string>
-			<key>pfm_description</key>
-			<string>The password for the outgoing mail server</string>
+			<string>Outgoing Mail Server Authentication Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The password for the outgoing mail server</string>
+			<key>pfm_name</key>
+			<string>OutgoingPassword</string>
+			<key>pfm_title</key>
+			<string>Outgoing Mail Server Password</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>SMTP authentication uses the same password as POP/IMAP</string>
 			<key>pfm_name</key>
 			<string>OutgoingPasswordSameAsIncomingPassword</string>
 			<key>pfm_title</key>
 			<string>Outgoing Password Same As Incoming</string>
-			<key>pfm_description</key>
-			<string>SMTP authentication uses the same password as POP/IMAP</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<false/>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Send outgoing mail through Secure Socket Layer</string>
 			<key>pfm_name</key>
 			<string>OutgoingMailServerUseSSL</string>
 			<key>pfm_title</key>
 			<string>Outgoing Mail Server Use SSL</string>
-			<key>pfm_description</key>
-			<string>Send outgoing mail through Secure Socket Layer</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
 		</dict>
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Mail</string>
+	<key>pfm_unique</key>
+	<false/>
+	<key>pfm_version</key>
+	<integer>1</integer>
 </dict>
 </plist>

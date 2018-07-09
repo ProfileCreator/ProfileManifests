@@ -1,238 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_description</key>
-		<string>Use the Extensions payload to control which extensions can be used with macOS.</string>
-		<key>pfm_title</key>
-		<string>Extensions</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_version</key>
-		<integer>1</integer>
-		<key>pfm_domain</key>
-		<string>com.apple.NSExtension</string>
-		<key>pfm_interaction</key>
-		<string>exclusive</string>
-		<key>pfm_targets</key>
-		<array>
-			<string>user</string>
-			<string>system</string>
-		</array>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_unique</key>
-		<false/>
-		<key>pfm_macos_min</key>
-		<string>10.13</string>
-		<key>pfm_subkeys</key>
-		<array>
-			
-			<!-- Default Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_description</key>
-				<string>Description of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Configures Extensions settings</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_description</key>
-				<string>Name of the payload</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Extensions</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.font</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>com.apple.font</string>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_require</key>
-				<string>always</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PayloadOrganization</string>
-				<key>pfm_title</key>
-				<string>Payload Organization</string>
-				<key>pfm_description</key>
-				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			
-			<!-- Custom Payload Keys -->
-			
-			<dict>
-				<key>pfm_name</key>
-				<string>AllowedExtensions</string>
-				<key>pfm_title</key>
-				<string>Allowed extensions</string>
-				<key>pfm_description</key>
-				<string>Add the bundle identifier for each extension allowed to run on the Mac. Any extensions not listed are unable to run.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>AllowedExtension</string>
-						<key>pfm_title</key>
-						<string></string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>com.example.app.extension</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DeniedExtensionPoints</string>
-				<key>pfm_title</key>
-				<string>Disallow some extensions points</string>
-				<key>pfm_description</key>
-				<string>Disallow specific extension points.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>DeniedExtensionPoint</string>
-						<key>pfm_title</key>
-						<string></string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<!-- FIXME: This is only a temporary solution. It's very hard to edit this list, and it's not checking for double entries etc. -->
-						<key>pfm_range_list</key> 
-						<array>
-							<string>AllPublicExtensionPoints</string>
-							<string>com.apple.ui-services</string>
-							<string>com.apple.AudioUnit-UI</string>
-							<string>com.apple.Safari.content-blocker</string>
-							<string>com.apple.FinderSync</string>
-							<string>com.apple.photo-editing</string>
-							<string>com.apple.Safari.extension</string>
-							<string>com.apple.share-services</string>
-							<string>com.apple.Safari.sharedlinks-service</string>
-							<string>com.apple.ctk-tokens</string>
-							<string>com.apple.widget-extension</string>
-							<string>com.apple.dt.Xcode.extension.source-editor</string>
-						</array>
-						<key>pfm_range_list_titles</key>
-						<array>
-							<string>All Extension Points</string>
-							<string>Action</string>
-							<string>Audio Unit</string>
-							<string>Content Blocker</string>
-							<string>Finder Sync</string>
-							<string>Photo Editing</string>
-							<string>Safari</string>
-							<string>Share</string>
-							<string>Shared Links</string>
-							<string>Smart Card Token</string>
-							<string>Today</string>
-							<string>Xcode Source Editor</string>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>DeniedExtensions</string>
-				<key>pfm_title</key>
-				<string>Disallowed extensions</string>
-				<key>pfm_description</key>
-				<string>Disallow specific extensions by their bundle identifier.</string>
-				<key>pfm_type</key>
-				<string>array</string>
-				<key>pfm_subkeys</key>
-				<array>
-					<dict>
-						<key>pfm_name</key>
-						<string>DeniedExtension</string>
-						<key>pfm_title</key>
-						<string></string>
-						<key>pfm_description</key>
-						<string></string>
-						<key>pfm_type</key>
-						<string>string</string>
-						<key>pfm_value_placeholder</key>
-						<string>com.example.app.extension</string>
-					</dict>
-				</array>
-			</dict>
-		</array>
-	</dict>
+<dict>
+	<key>pfm_description</key>
+	<string>Use the Extensions payload to control which extensions can be used with macOS.</string>
+	<key>pfm_domain</key>
+	<string>com.apple.NSExtension</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_last_modified</key>
+	<date>2018-07-09T11:54:39Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.13</string>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Extensions settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Extensions</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.font</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.font</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Add the bundle identifier for each extension allowed to run on the Mac. Any extensions not listed are unable to run.</string>
+			<key>pfm_name</key>
+			<string>AllowedExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>AllowedExtension</string>
+					<key>pfm_title</key>
+					<string></string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.example.app.extension</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed extensions</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Disallow specific extension points.</string>
+			<key>pfm_name</key>
+			<string>DeniedExtensionPoints</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>DeniedExtensionPoint</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>AllPublicExtensionPoints</string>
+						<string>com.apple.ui-services</string>
+						<string>com.apple.AudioUnit-UI</string>
+						<string>com.apple.Safari.content-blocker</string>
+						<string>com.apple.FinderSync</string>
+						<string>com.apple.photo-editing</string>
+						<string>com.apple.Safari.extension</string>
+						<string>com.apple.share-services</string>
+						<string>com.apple.Safari.sharedlinks-service</string>
+						<string>com.apple.ctk-tokens</string>
+						<string>com.apple.widget-extension</string>
+						<string>com.apple.dt.Xcode.extension.source-editor</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>All Extension Points</string>
+						<string>Action</string>
+						<string>Audio Unit</string>
+						<string>Content Blocker</string>
+						<string>Finder Sync</string>
+						<string>Photo Editing</string>
+						<string>Safari</string>
+						<string>Share</string>
+						<string>Shared Links</string>
+						<string>Smart Card Token</string>
+						<string>Today</string>
+						<string>Xcode Source Editor</string>
+					</array>
+					<key>pfm_title</key>
+					<string></string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Disallow some extensions points</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Disallow specific extensions by their bundle identifier.</string>
+			<key>pfm_name</key>
+			<string>DeniedExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>DeniedExtension</string>
+					<key>pfm_title</key>
+					<string></string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.example.app.extension</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Disallowed extensions</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>user</string>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Extensions</string>
+	<key>pfm_unique</key>
+	<false/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
 </plist>
