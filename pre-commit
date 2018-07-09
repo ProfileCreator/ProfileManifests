@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Get the current script path and verify it is located at the hooks directory of the ProfileManifests repository
+# FIXME: Sorry for the ugly dirname inception, just needed to get it up and running
+repository_path=$( cd "$( dirname $( dirname $( dirname "${BASH_SOURCE[0]}" )))" && pwd )
+if ! /usr/bin/grep -q "^[[:space:]]url[[:space:]].*ProfileManifests.git$" "${repository_path}/.git/config"; then
+	printf "%s\n" "This script must be located in the ProfileManifests repository root directory."
+	exit 1
+fi
+
+index_path="${repository_path}/index"
+if ! [[ -f ${index_path} ]]; then
+	printf "%s\n" "This script requires an index file to be present at: ${index_path}"
+	exit 1
+fi
+
+# Get the latest commit to verify against
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+    against=HEAD
+else
+    against=$( git rev-list --max-parents=0 HEAD )
+fi
+
+updated_file="false"
+
+# Loop through all plist-files to be commited
+for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plist$' ); do
+	
+	# Get the file name
+	file_name=$( basename "${file}" )
+	
+	# Get the file directory
+	file_directory=$( dirname "${file}" )
+		
+	# Get the value of the pfm_version key
+	file_version=$( /usr/libexec/PlistBuddy -c "Print pfm_version" "${file}" 2>/dev/null )
+
+	# Verify the value returned is valid
+	if [[ -z ${file_version} ]] && ! /usr/libexec/PlistBuddy -c "Add pfm_version integer 1" "${file}"; then
+		printf "%s\n" "${file_name}: Failed to add value: 1 for key: pfm_version"
+		exit 1
+	elif ! [[ ${file_version} =~ ^[0-9]+$ ]]; then
+		printf "%s\n" "${file_name}: Invalid or missing value: ${file_version} for key: pfm_version"
+		exit 1	
+	fi
+	
+	# Get the value of the pfm_domain key
+	file_domain=$( /usr/libexec/PlistBuddy -c "Print pfm_domain" "${file}" 2>/dev/null )
+	
+	# Get the file hash
+	file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
+	
+	# Get the saved file hash
+	file_hash_index=$( /usr/libexec/PlistBuddy -c "Print ${file_directory}:${file_domain}:hash" "${index_path}" 2>/dev/null )
+	
+	if [[ ${file_hash} != ${file_hash_index} ]]; then
+		
+		# Increment the current version number by 1
+		version_updated=$(( file_version + 1 ))
+		
+		# Add the new value to the commit
+		if ! /usr/libexec/PlistBuddy -c "Set pfm_version ${version_updated}" "${file}" 2>/dev/null; then
+			printf "%s\n" "$( basename ${file} ): Failed to set value: ${version_updated} for key: pfm_version"
+			exit 1
+		fi
+		
+		updated_file="true"
+	fi
+done
+
+if [[ ${updated_file} == true ]]; then
+	if [[ -f ${repository_path}/updateIndex ]]; then
+		if ! "${repository_path}/updateIndex"; then
+			printf "%s\n" "Failed to run updateIndex"
+		fi
+	else
+		printf "%s\n" "${repository_path}/updateIndex: No such file or directory"
+	fi
+	exit 1
+fi
