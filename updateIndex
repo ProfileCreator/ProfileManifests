@@ -35,10 +35,7 @@ for directory_name in ${manifest_directories[@]}; do
 		
 		# Get the file name
 		file_name=$( basename ${file} )
-		
-		# Get the file hash
-		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
-		
+				
 		# Get the value of the pfm_version key
 		file_version=$( /usr/libexec/PlistBuddy -c "Print pfm_version" "${file}" 2>/dev/null )
 		
@@ -51,6 +48,9 @@ for directory_name in ${manifest_directories[@]}; do
 			exit 1	
 		fi
 		
+		# Get the file hash
+		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
+		
 		# Get the value of the pfm_domain key
 		file_domain=$( /usr/libexec/PlistBuddy -c "Print pfm_domain" "${file}" 2>/dev/null )
 		
@@ -59,6 +59,9 @@ for directory_name in ${manifest_directories[@]}; do
 			printf "%s\n" "${file_name}: Invalid or missing value: ${file_domain} for key: pfm_domain"
 			exit 1
 		fi
+		
+		# Get the last modification time of the file
+		file_modified=$( date -r ${file} )
 		
 		# Create the file dictionary
 		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_path_tmp}"; then
@@ -81,6 +84,12 @@ for directory_name in ${manifest_directories[@]}; do
 		# Add the file name
 		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string ${directory_name}/${file_name}" "${index_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add value: ${directory_name}/${file_name} for key: ${directory_name}:${file_domain}:filename"
+			exit 1
+		fi
+		
+		# Add the file last modified
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:modified date ${file_modified}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${directory_name}/${file_name} for key: ${directory_name}:${file_domain}:modified"
 			exit 1
 		fi
 	done
