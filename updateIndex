@@ -25,7 +25,7 @@ for directory_name in ${manifest_directories[@]}; do
 	fi
 	
 	# Create the directory dictionary
-	if ! /usr/libexec/PlistBuddy -c "Add :${directory_name} dict" "${index_path_tmp}"; then
+	if ! /usr/libexec/PlistBuddy -c "Add :${directory_name} dict" "${index_path_tmp}" &>/dev/null; then
 		printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}"
 		exit 1
 	fi
