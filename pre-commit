@@ -71,7 +71,7 @@ for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plis
 		if [[ -z ${file_last_modified} ]] && ! /usr/libexec/PlistBuddy -c "Add pfm_last_modified date $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${file}"; then
 			printf "%s\n" "${file_name}: Failed to add value: $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y ) for key: pfm_last_modified"
 			exit 1
-		elif ! /usr/libexec/PlistBuddy -c "Set pfm_last_modified date $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${file}"; then
+		elif ! /usr/libexec/PlistBuddy -c "Set pfm_last_modified $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${file}"; then
 			printf "%s\n" "${file_name}: Failed to add value: $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y ) for key: pfm_last_modified"
 			exit 1	
 		fi
