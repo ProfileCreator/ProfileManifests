@@ -8,7 +8,7 @@ if ! /usr/bin/grep -q "^[[:space:]]url[[:space:]].*ProfileManifests.git$" "${rep
 	exit 1
 fi
 
-index_path="${repository_path}/index"
+index_path="${repository_path}/Manifests/index"
 if ! [[ -f ${index_path} ]]; then
 	printf "%s\n" "This script requires an index file to be present at: ${index_path}"
 	exit 1
