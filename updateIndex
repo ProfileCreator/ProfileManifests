@@ -14,11 +14,11 @@ index_path="${repository_path}/index"
 index_path_tmp="/private/tmp/index.$( cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 8 )"
 
 # List all directories to index
-manifest_directories=( 'AppleManagedPreferences' 'AppleManifests' 'ApplicationsManagedPreferences' 'DeveloperManagedPreferences' )
+manifest_directories=( 'ManagedPreferencesApple' 'ManifestsApple' 'ManagedPreferencesApplications' 'ManagedPreferencesDeveloper' )
 
 # Loop through all directories
 for directory_name in ${manifest_directories[@]}; do
-	directory_path="${repository_path}/${directory_name}"
+	directory_path="${repository_path}/Manifests/${directory_name}"
 	if ! [[ -d ${directory_path} ]]; then
 		printf "%s\n" "${directory_path}: No such file or directory"
 		continue
@@ -88,7 +88,7 @@ for directory_name in ${manifest_directories[@]}; do
 		fi
 		
 		# Add the file name
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string ${directory_name}/${file_name}" "${index_path_tmp}"; then
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string Manifests/${directory_name}/${file_name}" "${index_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add value: ${directory_name}/${file_name} for key: ${directory_name}:${file_domain}:filename"
 			exit 1
 		fi
