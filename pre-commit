@@ -30,7 +30,7 @@ for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plis
 	file_name=$( basename "${file}" )
 	
 	# Get the file directory
-	file_directory=$( dirname "${file}" )
+	file_directory=$(basename $( dirname "${file}" ))
 		
 	# Get the value of the pfm_version key
 	file_version=$( /usr/libexec/PlistBuddy -c "Print pfm_version" "${file}" 2>/dev/null )
