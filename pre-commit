@@ -23,7 +23,7 @@ fi
 
 updated_file="false"
 
-# Loop through all plist-files to be commited
+# Loop through all plist-files to be committed
 for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plist$' ); do
 		
 	# Get the file name
@@ -90,6 +90,6 @@ if [[ ${updated_file} == true ]]; then
 		printf "%s\n" "${repository_path}/updateIndex: No such file or directory"
 		exit 2
 	fi
-	printf "%s\n" "Updated version and date information in commited manifests, please press commit again to include the added changes."
+	printf "%s\n" "Updated version and date information in committed manifests, please press commit again to include the added changes."
 	exit 3
 fi
