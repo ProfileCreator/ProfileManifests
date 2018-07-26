@@ -81,13 +81,13 @@ for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plis
 done
 
 if [[ ${updated_file} == true ]]; then
-	if [[ -f ${repository_path}/updateIndex ]]; then
-		if ! "${repository_path}/updateIndex"; then
-			printf "%s\n" "Failed to run updateIndex at ${repository_path}/updateIndex"
+	if [[ -f ${repository_path}/updateIndexManifests ]]; then
+		if ! "${repository_path}/updateIndexManifests"; then
+			printf "%s\n" "Failed to run updateIndex at ${repository_path}/updateIndexManifests"
 			exit 2
 		fi
 	else
-		printf "%s\n" "${repository_path}/updateIndex: No such file or directory"
+		printf "%s\n" "${repository_path}/updateIndexManifests: No such file or directory"
 		exit 2
 	fi
 	printf "%s\n" "Updated version and date information in committed manifests, please press commit again to include the added changes."
