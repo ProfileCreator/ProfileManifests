@@ -1,0 +1,68 @@
+#!/bin/bash
+
+shopt -s nullglob
+
+# Get the current script path and verify it is located at the root of the ProfileManifests repository
+repository_path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+if ! /usr/bin/grep -q "^[[:space:]]url[[:space:]].*ProfileManifests.git$" "${repository_path}/.git/config"; then
+	printf "%s\n" "This script must be located in the ProfileManifests repository root directory."
+	exit 1
+fi
+
+# Set the path to the index file
+index_path="${repository_path}/Icons/index"
+
+# Set the path to the temporary index file
+index_path_tmp="/private/tmp/index.$( cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 8 )"
+
+# List all directories to index
+manifest_directories=( 'ManagedPreferencesApple' 'ManifestsApple' 'ManagedPreferencesApplications' 'ManagedPreferencesDeveloper' )
+
+# Loop through all directories
+for directory_name in ${manifest_directories[@]}; do
+	directory_path="${repository_path}/Icons/${directory_name}"
+	if ! [[ -d ${directory_path} ]]; then
+		printf "%s\n" "${directory_path}: No such file or directory"
+		continue
+	fi
+	
+	# Create the directory dictionary
+	if ! /usr/libexec/PlistBuddy -c "Add :${directory_name} dict" "${index_path_tmp}" &>/dev/null; then
+		printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}"
+		exit 1
+	fi
+	
+	# Loop through all files in the directory
+	for file in "${directory_path}"/*.png; do
+		
+		# Get the file name
+		file_name=$( basename "${file}" )
+						
+		# Get the file hash
+		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
+				
+		# Create the file dictionary
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name} dict" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_name}"
+			exit 1
+		fi
+				
+		# Add the file hash
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name}:hash string ${file_hash}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_name}:hash"
+			exit 1
+		fi
+	done
+done
+
+# Set the date the file was generated
+if ! /usr/libexec/PlistBuddy -c "Add :date date $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${index_path_tmp}"; then
+	printf "%s\n" "Failed to add value for key: date"
+	exit 1
+fi
+
+# Move the temporary file in place
+if ! mv "${index_path_tmp}" "${index_path}"; then
+	printf "%s\n" "Failed to move the temporary index file to the repository"
+	exit 1
+fi
