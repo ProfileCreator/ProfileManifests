@@ -42,7 +42,7 @@ for directory_name in ${manifest_directories[@]}; do
 		file_domain="${file_name%.*}"
 						
 		# Get the file hash
-		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
+		file_hash=$( md5 -q "${file}" )
 				
 		# Create the file dictionary
 		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_path_tmp}"; then
