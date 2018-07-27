@@ -37,19 +37,22 @@ for directory_name in ${manifest_directories[@]}; do
 		
 		# Get the file name
 		file_name=$( basename "${file}" )
+
+		# Get the file domain
+		file_domain="${file_name%.*}"
 						
 		# Get the file hash
 		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
 				
 		# Create the file dictionary
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name} dict" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_name}"
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_domain}"
 			exit 1
 		fi
 				
 		# Add the file hash
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_name}:hash string ${file_hash}" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_name}:hash"
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_path_tmp}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:hash"
 			exit 1
 		fi
 	done
