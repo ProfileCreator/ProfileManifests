@@ -11,9 +11,9 @@
 	<key>pfm_domain</key>
 	<string>com.github.ants-framework</string>
 	<key>pfm_format_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-07-27T08:22:10Z</date>
+	<date>2018-07-30T18:55:28Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -127,8 +127,8 @@
 			<string>container</string>
 			<key>pfm_name</key>
 			<string>main</string>
-			<key>pfm_required</key>
-			<true/>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -138,8 +138,8 @@
 					<string>URL of the repository that contains your Ansible playbooks.</string>
 					<key>pfm_name</key>
 					<string>git_repository</string>
-					<key>pfm_required</key>
-					<true/>
+					<key>pfm_require</key>
+					<string>always-nested</string>
 					<key>pfm_title</key>
 					<string>Git Repository</string>
 					<key>pfm_type</key>
@@ -238,8 +238,8 @@
 					<string>Whether or not to use strict host key checking when running Git commands.</string>
 					<key>pfm_name</key>
 					<string>ssh_stricthostkeychecking</string>
-					<key>pfm_required</key>
-					<true/>
+					<key>pfm_require</key>
+					<string>always-nested</string>
 					<key>pfm_title</key>
 					<string>Strict Host Key Checking</string>
 					<key>pfm_type</key>
@@ -420,6 +420,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
