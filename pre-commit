@@ -81,15 +81,31 @@ for file in $( git diff --name-only --diff-filter=AM "${against}" | grep '\.plis
 done
 
 if [[ ${updated_file} == true ]]; then
-	if [[ -f ${repository_path}/updateIndexManifests ]]; then
-		if ! "${repository_path}/updateIndexManifests"; then
-			printf "%s\n" "Failed to run updateIndex at ${repository_path}/updateIndexManifests"
+	updateIndex="${repository_path}/updateIndexManifests"
+	if [[ -f ${updateIndex} ]]; then
+		if ! "${updateIndex}"; then
+			printf "%s\n" "Failed to run updateIndex at ${updateIndex}"
 			exit 2
 		fi
 	else
-		printf "%s\n" "${repository_path}/updateIndexManifests: No such file or directory"
+		printf "%s\n" "${updateIndex}: No such file or directory"
 		exit 2
 	fi
 	printf "%s\n" "Updated version and date information in committed manifests, please press commit again to include the added changes."
+	exit 3
+fi
+
+if $( git diff --name-only --diff-filter=AM "${against}" | grep '\.png$' ); then
+	updateIndex="${repository_path}/updateIndexIcons"
+	if [[ -f ${updateIndex} ]]; then
+		if ! "${updateIndex}"; then
+			printf "%s\n" "Failed to run updateIndex at ${updateIndex}"
+			exit 2
+		fi
+	else
+		printf "%s\n" "${updateIndex}: No such file or directory"
+		exit 2
+	fi
+	printf "%s\n" "Updated version and date information in committed icons, please press commit again to include the added changes."
 	exit 3
 fi
