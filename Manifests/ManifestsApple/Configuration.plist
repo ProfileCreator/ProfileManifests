@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>Use this section to define general settings</string>
+	<key>pfm_domain</key>
+	<string>Configuration</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_last_modified</key>
+	<date>2018-09-02T18:18:17Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>iOS</string>
+		<string>macOS</string>
+		<string>tvOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_description</key>
+			<string>Display name of the profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Description of this profile.</string>
+			<key>pfm_enabled</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Name of the organization for the profile.</string>
+			<key>pfm_enabled</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added.</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>A globally unique identifier for the payload.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Prevent manual removal of profiles installed through an MDM. Profiles installed manually can be removed manually, but only by using administrative authority.</string>
+			<key>pfm_name</key>
+			<string>PayloadRemovalDisallowed</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Prevent users from removing this profile</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The date on which the profile will be automatically removed.</string>
+			<key>pfm_name</key>
+			<string>RemovalDate</string>
+			<key>pfm_title</key>
+			<string>Removal Date</string>
+			<key>pfm_type</key>
+			<string>date</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Number of seconds until the profile is automatically removed. If RemovalDate key is present, its value is used instead.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>RemovalDate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>DurationUntilRemoval</string>
+			<key>pfm_title</key>
+			<string>Duration Until Removal</string>
+			<key>pfm_type</key>
+			<string>float</string>
+			<key>pfm_type_input</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>Seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Dictionary specifying localized consent text that will be displayed as a warning during profile installation.</string>
+			<key>pfm_name</key>
+			<string>ConsentText</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>The IETF BCP 47 identifier for that language (for example, en or jp).</string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Language ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>en</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The agreement localized to that language.</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Localized License Agreement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The system chooses a localized version in the order of preference specified by the user (macOS) or based on the user’s current language setting (iOS). If no exact match is found, the default localization is used. If there is no default localization, the en localization is used. If there is no en localization, then the first available localization is used.</string>
+					<key>pfm_name</key>
+					<string>default</string>
+					<key>pfm_title</key>
+					<string>Default License Agreement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Consent Text</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configuration</string>
+			<key>pfm_description</key>
+			<string>Payload Type.</string>
+			<key>pfm_hidden</key>
+			<string>all</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version number of the profile format. This describes the version of the configuration profile as a whole, not of the individual profiles within it.</string>
+			<key>pfm_hidden</key>
+			<string>all</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Specifes if there is a removal passcode for the profile.</string>
+			<key>pfm_hidden</key>
+			<string>all</string>
+			<key>pfm_name</key>
+			<string>HasRemovalPasscode</string>
+			<key>pfm_title</key>
+			<string>Has removal passcode</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If provided, will show an OTA-delivered profile as "expired" on a specific date. Users will be offered an "Update" button when the profile has expired.</string>
+			<key>pfm_hidden</key>
+			<string>all</string>
+			<key>pfm_name</key>
+			<string>PayloadExpirationDate</string>
+			<key>pfm_title</key>
+			<string>Expiration Date</string>
+			<key>pfm_type</key>
+			<string>date</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>General</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>3</integer>
+</dict>
+</plist>
