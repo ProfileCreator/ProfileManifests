@@ -24,6 +24,8 @@
 			<string>Configures settings for a web clip</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -36,6 +38,8 @@
 			<string>Web Clip</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -50,6 +54,8 @@
 			<string>com.apple.webClip.managed</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -64,6 +70,8 @@
 			<string>com.apple.webClip.managed</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -78,6 +86,8 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -94,6 +104,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -106,6 +119,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,6 +132,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>The name of the Web Clip</string>
+			<key>pfm_description_reference</key>
+			<string>The name of the Web Clip as displayed on the Home screen.</string>
 			<key>pfm_name</key>
 			<string>Label</string>
 			<key>pfm_require</key>
@@ -128,6 +146,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>The URL that’s displayed when users open the Web Clip. The URL must begin with HTTP or HTTPS</string>
+			<key>pfm_description_reference</key>
+			<string>The URL that the Web Clip should open when clicked. The URL must begin with HTTP or HTTPS or it wonʼt work.</string>
 			<key>pfm_name</key>
 			<string>URL</string>
 			<key>pfm_require</key>
@@ -142,6 +162,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string>Whether the Web Clip can be removed by users</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If false, the web clip is not removable. Defaults to true. Not available in macOS.</string>
 			<key>pfm_name</key>
 			<string>IsRemovable</string>
 			<key>pfm_platforms</key>
@@ -160,6 +182,8 @@
 			</array>
 			<key>pfm_description</key>
 			<string>The icon to use for the Web Clip</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A PNG icon to be shown on the Home screen. Should be 59 x 60 pixels in size. If not specified, a white square will be shown.</string>
 			<key>pfm_name</key>
 			<string>Icon</string>
 			<key>pfm_range_max</key>
@@ -174,6 +198,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Prevents the iOS device from adding a shine to the image</string>
+			<key>pfm_description_reference</key>
+			<string></string>
 			<key>pfm_name</key>
 			<string>Precomposed</string>
 			<key>pfm_platforms</key>
@@ -190,6 +216,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Opens the URL as a web app without a browser</string>
+			<key>pfm_description_reference</key>
+			<string></string>
 			<key>pfm_name</key>
 			<string>FullScreen</string>
 			<key>pfm_platforms</key>
