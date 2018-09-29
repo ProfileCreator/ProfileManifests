@@ -4,6 +4,9 @@
 <dict>
 	<key>pfm_description</key>
 	<string>AirPrint settings</string>
+	<key>pfm_description_reference</key>
+	<string>The AirPrint payload adds AirPrint printers to the userʼs AirPrint printer list. This makes it easier to support environ- ments where the printers and the devices are on different subnets. An AirPrint payload is designated by specifying com.apple.airprint as the PayloadType value.
+This payload is supported on iOS 7.0 and later and on macOS 10.10 and later.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.airprint</string>
 	<key>pfm_format_version</key>
@@ -12,11 +15,14 @@
 	<string>combined</string>
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
+	<key>pfm_macos_min</key>
+	<string>10.10</string>
 	<key>pfm_last_modified</key>
 	<date>2018-07-18T08:58:50Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
+		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
@@ -25,6 +31,8 @@
 			<string>Configures AirPrint settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -37,6 +45,8 @@
 			<string>AirPrint</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -51,6 +61,8 @@
 			<string>com.apple.airprint</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -65,6 +77,8 @@
 			<string>com.apple.airprint</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -79,6 +93,8 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -95,6 +111,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -107,6 +126,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -117,6 +139,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>List of printers</string>
+			<key>pfm_description_reference</key>
+			<string>An array of AirPrint printers that should always be shown.</string>
 			<key>pfm_name</key>
 			<string>AirPrint</string>
 			<key>pfm_subkeys</key>
@@ -133,6 +157,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay printer's IP address</string>
+							<key>pfm_description_reference</key>
+							<string>The IP Address of the AirPrint destination.</string>
 							<key>pfm_format</key>
 							<string>^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</string>
 							<key>pfm_name</key>
@@ -149,6 +175,9 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay printer's port number</string>
+							<key>pfm_description_reference</key>
+							<string>Listening port of the AirPrint destination. If this key is not specified AirPrint will use the default port.
+Availability: Available only in iOS 11.0 and later.</string>
 							<key>pfm_name</key>
 							<string>Port</string>
 							<key>pfm_range_max</key>
@@ -159,10 +188,21 @@
 							<string>Port</string>
 							<key>pfm_type</key>
 							<string>integer</string>
+							<key>pfm_ios_min</key>
+							<string>11.0</string>
+							<key>pfm_platforms</key>
+							<array>
+								<string>iOS</string>
+							</array>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay printer's resource path</string>
+							<key>pfm_description_reference</key>
+							<string>The Resource Path associated with the printer. This corresponds to the rp parameter of the _ipps.tcp Bonjour record. For example:
+• printers/Canon_MG5300_series • printers/Xerox_Phaser_7600
+• ipp/print
+• Epson_IPP_Printer</string>
 							<key>pfm_name</key>
 							<string>ResourcePath</string>
 							<key>pfm_require</key>
@@ -179,12 +219,21 @@
 							<false/>
 							<key>pfm_description</key>
 							<string>If client should use TLS to connect to the AirPlay printer</string>
+							<key>pfm_description_reference</key>
+							<string>If true AirPrint connections are secured by Transport Layer Security (TLS). Default is false.
+Availability: Available only in iOS 11.0 and later.</string>
 							<key>pfm_name</key>
 							<string>ForceTLS</string>
 							<key>pfm_title</key>
 							<string>ForceTLS</string>
 							<key>pfm_type</key>
 							<string>boolean</string>
+							<key>pfm_ios_min</key>
+							<string>11.0</string>
+							<key>pfm_platforms</key>
+							<array>
+								<string>iOS</string>
+							</array>
 						</dict>
 					</array>
 					<key>pfm_title</key>
