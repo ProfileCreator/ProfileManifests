@@ -4,6 +4,12 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Use this section to define restrictions settings</string>
+	<key>pfm_description_reference</key>
+	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value.
+A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera.
+The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
+	<key>pfm_note</key>
+	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.applicationaccess</string>
 	<key>pfm_format_version</key>
@@ -22,7 +28,9 @@
 			<key>pfm_default</key>
 			<string>Configures restrictions</string>
 			<key>pfm_description</key>
-			<string>Description of the payload. </string>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -35,6 +43,8 @@
 			<string>Restrictions</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -49,6 +59,8 @@
 			<string>com.apple.applicationaccess</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -63,6 +75,8 @@
 			<string>com.apple.applicationaccess</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -77,6 +91,8 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -93,6 +109,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -105,6 +124,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -171,6 +193,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, the camera is completely disabled and its icon is removed from the Home screen. Users are unable to take photographs.
+Availability: Available in iOS and in macOS 10.11 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.11</string>
 			<key>pfm_name</key>
@@ -184,6 +209,10 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_source</key>
 			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.12.4</string>
@@ -199,6 +228,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, disallows macOS auto unlock. Defaults to true. Availability: Available only in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -213,6 +244,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, this disallows content caching. Defaults to true.
+Availability: Available only in macOS 10.13 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -226,6 +260,10 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_source</key>
 			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.11</string>
@@ -241,6 +279,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disables definition lookup. Defaults to true.
+Availability: Available in iOS 8.1.3 and later and in macOS 10.11.2 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.11.2</string>
 			<key>pfm_name</key>
@@ -255,6 +296,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, Music service is disabled and Music app reverts to classic mode. Defaults to true. Availability: Available in iOS 9.3 and later and macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -269,6 +312,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, iTunes application file sharing services are disabled.
+Availability: Available in macOS 10.13 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -283,6 +329,10 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_source</key>
+			<string></string>
 			<key>pfm_name</key>
 			<string>allowDiagnosticSubmission</string>
 			<key>pfm_title</key>
@@ -295,6 +345,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Bookmark sync. Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -309,6 +361,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Calendar services.
+Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -323,6 +378,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Address Book services.
+Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -337,6 +395,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disables document and key-value syncing to iCloud. This key is deprecated on unsupervised devices.
+Availability: Available in iOS 5.0 and later and in macOS 10.11 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.11</string>
 			<key>pfm_name</key>
@@ -350,6 +411,10 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_source</key>
 			<string></string>
 			<key>pfm_exclude</key>
 			<array>
@@ -383,6 +448,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disables iCloud keychain synchronization. Default is true.
+Availability: Available in iOS 7.0 and later and macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -397,6 +465,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS Mail iCloud services. Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -411,6 +481,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Notes services. Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -425,6 +497,9 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, disables iCloud Photo Library. Any photos not fully downloaded from iCloud Photo Library to the device will be removed from local storage.
+Availability: Available in iOS 9.0 and later and in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -439,6 +514,8 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows iCloud Reminder services. Availability: Available in macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -452,6 +529,11 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disallow AirPrint. Defaults to true.
+Availability: Available in iOS 11.0 and later.</string>
+			<key>pfm_documentation_source</key>
 			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
@@ -467,6 +549,11 @@
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to true, requires trusted certificates for TLS printing communication. Defaults to false.
+Availability: Available in iOS 11.0 and later.</string>
+			<key>pfm_documentation_source</key>
+			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -481,6 +568,10 @@
 			<true/>
 			<key>pfm_description</key>
 			<string>If set to false, this prevents prevents spurious AirPrint Bluetooth beacons from phishing for network traffic.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disables iBeacon discovery of AirPrint printers. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic. Defaults to true. Availability: Available in iOS 11.0 and later.</string>
+			<key>pfm_documentation_source</key>
+			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -493,6 +584,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false.
+On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -507,6 +601,10 @@
 			<integer>30</integer>
 			<key>pfm_description</key>
 			<string>Number of days the software updates will be hidden from the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. This restriction allows the admin to set how many days a software update on the device will be delayed. With this restriction in place, the user will not see a software update until the specified number of days after the software update release date.
+The max is 90 days and the default value is 30.
+Availability: Available in iOS 11.3 and later and macOS 10.13.4 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
