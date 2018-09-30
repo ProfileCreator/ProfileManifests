@@ -4,6 +4,15 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Configures Parental Controls: Application Access settings</string>
+	<key>pfm_description_reference</key>
+	<string>The Parental Control Application Access payload is designated by specifying com.apple.applicationaccess.new as the PayloadType value.
+It enables application access restrictions on macOS.
+To determine if an application can be launched, these rules are evaluated:
+1. Certainsystemapplicationsandutilitiesarealwaysallowedtorun.
+2. ThewhiteListissearchedtoseeifamatchingentryisfoundbybundleID.Ifamatchisfound,theappID and detachedSignature (if present) are used to verify the signature of the application being launched. If the signature is valid and matches the designated requirement (in the appID key), the application is allowed to launch.
+3. If the path to the binary being launched matches (or is in a subdirectory) of a path in pathBlackList, the binary is denied.
+4. Ifthepathtothebinarybeinglaunchedmatches(orisasubdirectory)ofapathinpathWhiteList,thebinary is allowed to launch.
+5. Thebinaryisdeniedpermissiontolaunch.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.applicationaccess.new</string>
 	<key>pfm_format_version</key>
@@ -23,6 +32,8 @@
 			<string>Parental Controls: Application Access</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -35,6 +46,8 @@
 			<string>Parental Controls: Application Access</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -49,6 +62,8 @@
 			<string>com.apple.applicationaccess.new</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -63,6 +78,8 @@
 			<string>com.apple.applicationaccess.new</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -77,6 +94,8 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -93,6 +112,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -105,6 +127,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -115,6 +140,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Set to true to enable application access restrictions.</string>
+			<key>pfm_description_reference</key>
+			<string>Required. Set to true to enable application access restrictions.</string>
 			<key>pfm_name</key>
 			<string>familyControlsEnabled</string>
 			<key>pfm_require</key>
@@ -131,6 +158,8 @@
 			</array>
 			<key>pfm_description</key>
 			<string>List of code signatures for applications that are allowed to run.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A list of code signatures for applications that are allowed to run.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -161,6 +190,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>Bundle ID of application.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. Bundle ID of application.</string>
 							<key>pfm_name</key>
 							<string>bundleID</string>
 							<key>pfm_require</key>
@@ -173,6 +204,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>Display name of the application.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. Display name.</string>
 							<key>pfm_name</key>
 							<string>displayName</string>
 							<key>pfm_title</key>
@@ -183,6 +216,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>The designated requirement describing the code signature of this executable.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. The designated requirement describing the code signature of this executable. This value is obtained from the Security.framework using SecCodeCopyDesignatedRequirement.</string>
 							<key>pfm_name</key>
 							<string>appID</string>
 							<key>pfm_require</key>
@@ -199,6 +234,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>For applications that include nested helper applications, describes the signatures of embedded applications.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. For applications that include nested helper applications, describes the signatures of embedded applications. The dictionary format is the same as for the whiteList key.</string>
 							<key>pfm_hidden</key>
 							<string>all</string>
 							<key>pfm_name</key>
@@ -208,6 +245,8 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Bundle ID of application.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. Bundle ID of application.</string>
 									<key>pfm_name</key>
 									<string>bundleID</string>
 									<key>pfm_require</key>
@@ -220,6 +259,8 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Display name of the application.</string>
+									<key>pfm_description_reference</key>
+									<string>Optional. Display name.</string>
 									<key>pfm_name</key>
 									<string>displayName</string>
 									<key>pfm_title</key>
@@ -230,6 +271,8 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>The designated requirement describing the code signature of this executable.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. The designated requirement describing the code signature of this executable. This value is obtained from the Security.framework using SecCodeCopyDesignatedRequirement.</string>
 									<key>pfm_name</key>
 									<string>appID</string>
 									<key>pfm_require</key>
@@ -242,6 +285,8 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>The required signature for an unsigned binary</string>
+									<key>pfm_description_reference</key>
+									<string>Optional. Can be used to provide the required signature for an unsigned binary. Generate an ad-hoc signature of the unsigned binary and store the signature here.</string>
 									<key>pfm_name</key>
 									<string>detachedSignature</string>
 									<key>pfm_title</key>
@@ -251,7 +296,11 @@
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Not Documented.</string>
+									<string></string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string>Profile Manager</string>
 									<key>pfm_name</key>
 									<string>appStore</string>
 									<key>pfm_title</key>
@@ -262,6 +311,9 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Specifies whether this application information is to be included in the whiteList or not.</string>
+									<key>pfm_description_reference</key>
+									<string>Optional. Specifies whether this application information is to be included in the whiteList or not. Set to true to keep the application off the whiteList. It could still be allowed to launch via pathWhiteList, although this behavior is discouraged.
+Default is false.</string>
 									<key>pfm_name</key>
 									<string>disabled</string>
 									<key>pfm_title</key>
@@ -278,6 +330,8 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>The required signature for an unsigned binary</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. Can be used to provide the required signature for an unsigned binary. Generate an ad-hoc signature of the unsigned binary and store the signature here.</string>
 							<key>pfm_hidden</key>
 							<string>all</string>
 							<key>pfm_name</key>
@@ -289,7 +343,11 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Not Documented.</string>
+							<string></string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_documentation_source</key>
+							<string>Profile Manager</string>
 							<key>pfm_name</key>
 							<string>appStore</string>
 							<key>pfm_title</key>
@@ -300,6 +358,9 @@
 						<dict>
 							<key>pfm_description</key>
 							<string>Specifies whether this application information is to be included in the whiteList or not.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. Specifies whether this application information is to be included in the whiteList or not. Set to true to keep the application off the whiteList. It could still be allowed to launch via pathWhiteList, although this behavior is discouraged.
+Default is false.</string>
 							<key>pfm_name</key>
 							<string>disabled</string>
 							<key>pfm_title</key>
@@ -328,6 +389,8 @@
 			</array>
 			<key>pfm_description</key>
 			<string>The user can always launch applications in these folders.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Paths to allowed applications.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -375,6 +438,8 @@
 			</array>
 			<key>pfm_description</key>
 			<string>The user can never launch applications in these folders.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Paths to disallowed applications.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
