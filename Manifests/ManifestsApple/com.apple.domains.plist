@@ -4,6 +4,8 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Use this section to define Domains settings.</string>
+	<key>pfm_description_reference</key>
+	<string>This payload defines domains that are under an enterpriseʼs management. This payload is designated by the com.apple.domains PayloadType value.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.domains</string>
 	<key>pfm_format_version</key>
@@ -15,6 +17,7 @@
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
+		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
@@ -22,7 +25,9 @@
 			<key>pfm_default</key>
 			<string>Configures Managed Domains</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -34,7 +39,9 @@
 			<key>pfm_default</key>
 			<string>Domains</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -48,7 +55,9 @@
 			<key>pfm_default</key>
 			<string>com.apple.domains</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -62,7 +71,9 @@
 			<key>pfm_default</key>
 			<string>com.apple.domains</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -76,7 +87,9 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -93,6 +106,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -105,6 +121,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -115,6 +134,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Mail messages that are addressed to domains not in the approved list are marked in red.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. An array of strings. An email address lacking a suffix that matches any of these strings will be considered out-of-domain.</string>
 			<key>pfm_name</key>
 			<string>EmailDomains</string>
 			<key>pfm_subkeys</key>
@@ -140,6 +161,14 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Downloads from Safari will be considered managed documents if they originate from a managed domain.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. An array of URL strings. URLs matching the patterns listed here will be considered managed. Not supported in macOS.</string>
+			<key>pfm_description_extended</key>
+			<string>Any email address that does not have a suffix that matches one of the unmarked email domains specified by the key EmailDomains will be considered out-of-domain and will be highlighted as such in the Mail app.</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>WebDomains</string>
 			<key>pfm_subkeys</key>
@@ -165,10 +194,36 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>User names and passwords entered in websites with Safari can be saved if the domain is listed.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. An array of URL strings. Supported in iOS 9.3 and later; not supported in macOS. Users can save passwords in Safari only from URLs matching the patterns listed here. Regardless of the iCloud account that the user is using, if the device is not supervised, there can be no whitelist. If the device is supervised, there may be a whitelist, but if there is still no whitelist, note these two cases:
+• IfthedeviceisconfiguredasSharediPad, no password can be saved.
+• IfthedeviceisnotconfiguredasShared iPad, all passwords can be saved.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>SafariPasswordAutoFillDomains</string>
+			<key>pfm_description_extended</key>
+			<string>Opening a document originating from a managed Safari web domain causes iOS to treat the document as managed for the purpose of Managed Open In.
+				
+				The WebDomains and SafariPasswordAutoFillDomains arrays may contain strings using any of the following matching patterns:
+
+apple.com			Any path under apple.com matches, but not site.apple.com/.
+foo.apple.com		Any path under foo.apple.com matches, but not apple.com/ or bar.apple.com/.
+*.apple.com			Any path under foo.apple.com or bar.apple.com matches, but not apple.com.
+apple.com/sub		apple.com/sub and any path under it matches, but not apple.com/.
+foo.apple.com/sub	Any path under foo.apple.com/sub matches, but not apple.com, apple.com/sub, foo.apple.com/, or bar.apple.com/sub.
+*.apple.com/sub		Any path under foo.apple.com/sub or bar.apple.com/sub matches, but not apple.com or foo.apple.com/.
+*.co				Any path under apple.co or beats.co matches, but not apple.co.uk or apple.com.
+
+A URL that begins with the prefix www. is treated as though it did not contain that prefix during matching. For example, http://www.apple.com/store will be matched as http://apple.com/store.
+Trailing slashes will be ignored.
+If a ManagedWebDomain string entry contains a port number, only addresses that specify that port number will be considered managed. Otherwise, the domain will be matched without regard to the port number specified. For example, the pattern *.apple.com:8080 will match http://site.apple.com:8080/page.html but not http://site.apple.com/page.html, while the pattern *.apple.com will match both URLs.
+Managed Safari Web Domain definitions are cumulative. Patterns defined by all Managed Web Domains payloads will be used to match a URL request.
+SafariPasswordAutoFillDomains definitions are cumulative. Patterns defined by all SafariPasswordAutoFillDomains payloads will be used to determine if passwords can be stored for a given URL.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -194,6 +249,7 @@
 	</array>
 	<key>pfm_targets</key>
 	<array>
+		<string>user</string>
 		<string>system</string>
 	</array>
 	<key>pfm_title</key>
