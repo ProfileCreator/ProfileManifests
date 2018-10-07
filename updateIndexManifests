@@ -17,7 +17,7 @@ index_path_tmp="/private/tmp/index.$( cat /dev/urandom | env LC_CTYPE=C tr -cd '
 manifest_directories=( 'ManagedPreferencesApple' 'ManifestsApple' 'ManagedPreferencesApplications' 'ManagedPreferencesDeveloper' )
 
 # Loop through all directories
-for directory_name in ${manifest_directories[@]}; do
+for directory_name in "${manifest_directories[@]}"; do
 	directory_path="${repository_path}/Manifests/${directory_name}"
 	if ! [[ -d ${directory_path} ]]; then
 		printf "%s\n" "${directory_path}: No such file or directory"
@@ -34,7 +34,7 @@ for directory_name in ${manifest_directories[@]}; do
 	for file in "${directory_path}"/*.plist; do
 		
 		# Get the file name
-		file_name=$( basename ${file} )
+		file_name=$( basename "${file}" )
 				
 		# Get the value of the pfm_version key
 		file_version=$( /usr/libexec/PlistBuddy -c "Print pfm_version" "${file}" 2>/dev/null )
