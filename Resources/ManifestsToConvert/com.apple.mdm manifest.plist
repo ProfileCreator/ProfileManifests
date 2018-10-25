@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>Use this section to define settings for mobile device management.</string>
+	<key>pfm_title</key>
+	<string>MDM</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_version</key>
+	<integer>1</integer>
+	<key>pfm_domain</key>
+	<string>com.apple.mdm</string>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>Configures a Mobile Device Management server</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>MDM</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>com.apple.mdm</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>com.apple.mdm</string>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_require</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>IdentityCertificateUUID</string>
+			<key>pfm_title</key>
+			<string>Identity Certificate UUID</string>
+			<key>pfm_description</key>
+			<string>UUID of the certificate payload for the device&apos;s identity. It may also point to a SCEP payload.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_required</key>
+			<string>always</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>Topic</string>
+			<key>pfm_title</key>
+			<string>Topic</string>
+			<key>pfm_description</key>
+			<string>The topic that MDM will listen to for Push notifications. The certificate that the server uses to send push notifications must have the same topic in its subject.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_required</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ServerURL</string>
+			<key>pfm_title</key>
+			<string>Server URL</string>
+			<key>pfm_description</key>
+			<string>The URL that the device will contact to retrieve device management instructions.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_required</key>
+			<string>always</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>ServerCapabilities</string>
+			<key>pfm_title</key>
+			<string>Server Capabilities</string>
+			<key>pfm_description</key>
+			<string>Optional. An array of strings indicating server capabilities. If the server manages OS X devices or a shared iPad, this field is mandatory and must contain the value com.apple.mdm.per-user-connections. This indicates that the server supports both device and user connections.</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>com.apple.mdm.per-user-connections</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>SignMessage</string>
+			<key>pfm_title</key>
+			<string>Sign Message</string>
+			<key>pfm_description</key>
+			<string>If set, each message coming from the device will carry the additional HTTP header Mdm-Signature</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_default</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>CheckInURL</string>
+			<key>pfm_title</key>
+			<string>Check In URL</string>
+			<key>pfm_description</key>
+			<string>The URL that the device will use to check in during installation. If this URL is not given, the ServerURL will be used for both purposes.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>AccessRights</string>
+			<key>pfm_title</key>
+			<string>Access Rights</string>
+			<key>pfm_description</key>
+			<string>Logical OR of several bit-flags. If 2 is specified, then 1 must also be specified. If 128 is specified, then 64 must also be specified.</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_required</key>
+			<string>always</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>CheckOutWhenRemoved</string>
+			<key>pfm_title</key>
+			<string>Check Out when removed</string>
+			<key>pfm_description</key>
+			<string>If true, the device attempts to send a CheckOut message to the check-in server when the profile is removed. Defaults to false.
+				Note: OS X v10.8 acts as though this setting is always true.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>UseDevelopmentAPNS</string>
+			<key>pfm_title</key>
+			<string>Use Development APNS</string>
+			<key>pfm_description</key>
+			<string>If set, will use the development APNS servers. Otherwise, the device will use the production servers.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_default</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>

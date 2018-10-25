@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>pfm_description</key>
+        <string>Printer Settings</string>
+        <key>pfm_title</key>
+        <string>Printers</string>
+        <key>pfm_format_version</key>
+        <integer>1</integer>
+        <key>pfm_version</key>
+        <integer>1</integer>
+        <key>pfm_domain</key>
+        <string>com.apple.mcxprinting</string>
+        <key>pfm_subkeys</key>
+        <array>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDescription</string>
+                <key>pfm_title</key>
+                <string>Payload Description</string>
+                <key>pfm_description</key>
+                <string>Description of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Printer Settings</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDisplayName</string>
+                <key>pfm_title</key>
+                <string>Payload Display Name</string>
+                <key>pfm_description</key>
+                <string>Name of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Printer Settings</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadIdentifier</string>
+                <key>pfm_title</key>
+                <string>Payload Identifier</string>
+                <key>pfm_description</key>
+                <string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.mcxprinting</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadType</string>
+                <key>pfm_title</key>
+                <string>Payload Type</string>
+                <key>pfm_description</key>
+                <string>The type of the payload, a reverse dns string</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.mcxprinting</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadUUID</string>
+                <key>pfm_title</key>
+                <string>Payload UUID</string>
+                <key>pfm_description</key>
+                <string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string></string>
+                <key>pfm_require</key>
+                <string>always</string>
+                <key>pfm_format</key>
+                <string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadVersion</string>
+                <key>pfm_title</key>
+                <string>Payload Version</string>
+                <key>pfm_description</key>
+                <string>The version of the whole configuration profile.</string>
+                <key>pfm_type</key>
+                <string>integer</string>
+                <key>pfm_default</key>
+                <integer>1</integer>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadOrganization</string>
+                <key>pfm_title</key>
+                <string>Payload Organization</string>
+                <key>pfm_description</key>
+                <string>This value describes the issuing organization of the profile, as displayed to the user</string>
+                <key>pfm_type</key>
+                <string>string</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>DefaultPrinter</string>
+                <key>pfm_title</key>
+                <string>Default Printer Configuration</string>
+                <key>pfm_description</key>
+                <string>Default Printer Configuration</string>
+                <key>pfm_type</key>
+                <string>dict</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_name</key>
+                        <string>DeviceURI</string>
+                        <key>pfm_title</key>
+                        <string>Device URI</string>
+                        <key>pfm_description</key>
+                        <string>The device URI of the Default Printer</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_require</key>
+                        <string>always</string>
+                    </dict>
+                    <dict>
+                        <key>pfm_name</key>
+                        <string>DisplayName</string>
+                        <key>pfm_title</key>
+                        <string>Display Name</string>
+                        <key>pfm_description</key>
+                        <string>The display name of the Default Printer</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_require</key>
+                        <string>always</string>
+                    </dict>
+                </array>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>UserPrinterList</string>
+                <key>pfm_title</key>
+                <string>Installed Printers</string>
+                <key>pfm_description</key>
+                <string>A list of printers to manage. The PPD software must already exist on the target</string>
+                <key>pfm_type</key>
+                <string>dict</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_name</key>
+                        <string>QueueName</string>
+                        <key>pfm_title</key>
+                        <string>Printer Queue Name</string>
+                        <key>pfm_description</key>
+                        <string>The queue name of the printer, must not include spaces or special characters. Not shown to the user.</string>
+                        <key>pfm_type</key>
+                        <string>dict</string>
+                        <key>pfm_subkeys</key>
+                        <array>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>DeviceURI</string>
+                                <key>pfm_title</key>
+                                <string>Device URI</string>
+                                <key>pfm_description</key>
+                                <string>The printer device URI, as would be passed to CUPS eg. lpd://printer.name/queue</string>
+                                <key>pfm_type</key>
+                                <string>string</string>
+                                <key>pfm_require</key>
+                                <string>always</string>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>DisplayName</string>
+                                <key>pfm_title</key>
+                                <string>Display Name</string>
+                                <key>pfm_description</key>
+                                <string>The display name shown to the user when choosing a printer.</string>
+                                <key>pfm_type</key>
+                                <string>string</string>
+                                <key>pfm_require</key>
+                                <string>always</string>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>Location</string>
+                                <key>pfm_title</key>
+                                <string>Location</string>
+                                <key>pfm_description</key>
+                                <string>The printer location</string>
+                                <key>pfm_type</key>
+                                <string>string</string>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>Model</string>
+                                <key>pfm_title</key>
+                                <string>Model</string>
+                                <key>pfm_description</key>
+                                <string>The printer model usually corresponding to the PPD model name eg 2nd column of `lpinfo -m`.</string>
+                                <key>pfm_type</key>
+                                <string>string</string>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>PrinterLocked</string>
+                                <key>pfm_title</key>
+                                <string>Require Administrator Password</string>
+                                <key>pfm_description</key>
+                                <string>The printer requires an administrator password</string>
+                                <key>pfm_type</key>
+                                <string>boolean</string>
+                                <key>pfm_default</key>
+                                <false/>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>PPDURL</string>
+                                <key>pfm_title</key>
+                                <string>PPD Path</string>
+                                <key>pfm_description</key>
+                                <string>The path to the PPD file. Local file URLs should be prefixed with file://localhost/</string>
+                                <key>pfm_type</key>
+                                <string>string</string>
+                            </dict>
+                            <dict>
+                                <key>pfm_name</key>
+                                <string>Option</string>
+                                <key>pfm_title</key>
+                                <string>Printer Options</string>
+                                <key>pfm_description</key>
+                                <string>Printer Options. A dict of key to value including options normally supplied to lpadmin</string>
+                                <key>pfm_type</key>
+                                <string>dict</string>
+                                <key>pfm_default</key>
+                                <dict/>
+                            </dict>
+                        </array>
+                    </dict>
+                </array>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>RequireAdminToAddPrinters</string>
+                <key>pfm_title</key>
+                <string>Modification Requires Administrator</string>
+                <key>pfm_description</key>
+                <string>Only administrators may modify the printer list</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>AllowLocalPrinters</string>
+                <key>pfm_title</key>
+                <string>Allow Local Printers</string>
+                <key>pfm_description</key>
+                <string>Allow printers that connect directly to user's computer</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>RequireAdminToPrintLocally</string>
+                <key>pfm_title</key>
+                <string>Require administrator password to print locally</string>
+                <key>pfm_description</key>
+                <string>Require an administrator password to print to locally connected printers</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>ShowOnlyManagedPrinters</string>
+                <key>pfm_title</key>
+                <string>Only show managed printers</string>
+                <key>pfm_description</key>
+                <string>Only show printers managed by profiles</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PrintFooter</string>
+                <key>pfm_title</key>
+                <string>Print page footer</string>
+                <key>pfm_description</key>
+                <string>Print a page footer including the user name and date</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PrintMACAddress</string>
+                <key>pfm_title</key>
+                <string>Include MAC Address on footer</string>
+                <key>pfm_description</key>
+                <string>Include the MAC address of the user's computer in the footer</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>FooterFontSize</string>
+                <key>pfm_title</key>
+                <string>Footer font size</string>
+                <key>pfm_description</key>
+                <string>The font size (in points) of the footer</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>7</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>FooterFontName</string>
+                <key>pfm_title</key>
+                <string>Footer font name</string>
+                <key>pfm_description</key>
+                <string>The name of the font to use for the footer eg. Courier</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Courier</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

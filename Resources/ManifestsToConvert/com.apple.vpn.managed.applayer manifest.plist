@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>pfm_description</key>
+        <string>Per-App VPN Payload</string>
+        <key>pfm_title</key>
+        <string>Per-App VPN</string>
+        <key>pfm_format_version</key>
+        <integer>1</integer>
+        <key>pfm_version</key>
+        <integer>1</integer>
+        <key>pfm_domain</key>
+        <string>com.apple.vpn.managed.applayer</string>
+        <key>pfm_ios_min</key>
+        <string>7.0</string>
+        <key>pfm_macos_min</key>
+        <string>10.9</string>
+        <key>pfm_subkeys</key>
+        <array>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDescription</string>
+                <key>pfm_title</key>
+                <string>Payload Description</string>
+                <key>pfm_description</key>
+                <string>Description of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Per-App VPN Payload</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDisplayName</string>
+                <key>pfm_title</key>
+                <string>Payload Display Name</string>
+                <key>pfm_description</key>
+                <string>Name of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Per-App VPN Payload</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadIdentifier</string>
+                <key>pfm_title</key>
+                <string>Payload Identifier</string>
+                <key>pfm_description</key>
+                <string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.vpn.managed.applayer</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadType</string>
+                <key>pfm_title</key>
+                <string>Payload Type</string>
+                <key>pfm_description</key>
+                <string>The type of the payload, a reverse dns string</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.vpn.managed.applayer</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadUUID</string>
+                <key>pfm_title</key>
+                <string>Payload UUID</string>
+                <key>pfm_description</key>
+                <string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string></string>
+                <key>pfm_require</key>
+                <string>always</string>
+                <key>pfm_format</key>
+                <string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadVersion</string>
+                <key>pfm_title</key>
+                <string>Payload Version</string>
+                <key>pfm_description</key>
+                <string>The version of the whole configuration profile.</string>
+                <key>pfm_type</key>
+                <string>integer</string>
+                <key>pfm_default</key>
+                <integer>1</integer>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadOrganization</string>
+                <key>pfm_title</key>
+                <string>Payload Organization</string>
+                <key>pfm_description</key>
+                <string>This value describes the issuing organization of the profile, as displayed to the user</string>
+                <key>pfm_type</key>
+                <string>string</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>VPNUUID</string>
+                <key>pfm_title</key>
+                <string>VPN Configuration UUID</string>
+                <key>pfm_description</key>
+                <string>A globally-unique identifier for this VPN configuration. This identifier is used to configure apps so that they use the Per-App VPN service for all of their network communication.</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>SafariDomains</string>
+                <key>pfm_title</key>
+                <string>List of Safari Domains Triggering VPN</string>
+                <key>pfm_description</key>
+                <string>This optional key is a special case of App-to-Per App VPN Mapping. It sets up the app mapping for Safari (Webkit) with a specific identifier and a designated requirement. The array contains strings, each of which is a domain that should trigger this VPN connection in Safari.</string>
+                <key>pfm_type</key>
+                <string>array</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_name</key>
+                        <string>SafariDomainsItem</string>
+                        <key>pfm_title</key>
+                        <string>Domain name to match</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_require</key>
+                        <string>always</string>
+                        <key>pfm_description</key>
+                        <string>A domain or partial domain name that should trigger this connection</string>
+                    </dict>
+                </array>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>OnDemandMatchAppEnabled</string>
+                <key>pfm_title</key>
+                <string>VPN connection starts automatically when linked apps initiate network connection</string>
+                <key>pfm_description</key>
+                <string>This key is placed in the VPN payload sub-dictionary.
+                    If true, the Per-App VPN connection starts automatically when apps linked to this Per-App VPN service initiate network communication.
+                    If false, the Per-App VPN connection must be started manually by the user before apps linked to this Per-App VPN service can initiate network communication.
+                    If this key is not present, the value of the OnDemandEnabled key is used to determine the status of Per-App VPN On Demand.
+                </string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

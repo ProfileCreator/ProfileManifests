@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>pfm_version</key>
+        <real>1.0</real>
+        <key>pfm_domain</key>
+        <string>com.apple.loginwindow</string>
+        <key>pfm_description</key>
+        <string>Loginwindow Settings</string>
+        <key>pfm_name</key>
+        <string>loginwindow</string>
+        <key>pfm_title</key>
+        <string>Login Window</string>
+        <key>pfm_subkeys</key>
+        <array>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disables the "Restart" option when users are logged in.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>RestartDisabledWhileLoggedIn</string>
+                <key>pfm_title</key>
+                <string>Disable Restart Apple Menu Item</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>user-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disables the "Shutdown" option when users are logged in.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>ShutDownDisabledWhileLoggedIn</string>
+                <key>pfm_title</key>
+                <string>Disable Shutdown Apple Menu Item</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>user-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the default heading of the Login Window.  Example values include:  "HostName", "SystemVersion", "SystemBuild", "SerialNumber", "IPAddress", "DSStatus", "Time".</string>
+                <key>pfm_name</key>
+                <string>AdminHostInfo</string>
+                <key>pfm_title</key>
+                <string>Heading</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <string>HostName</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set custom text at the Login Window.</string>
+                <key>pfm_name</key>
+                <string>LoginwindowText</string>
+                <key>pfm_title</key>
+                <string>Login Window Text</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <string>This computer is property of Company</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to display name and password text boxes for user login or a list of users.  Set to "True" to display username and password text boxes.  Set to "False" to display a list of users.</string>
+                <key>pfm_name</key>
+                <string>SHOWFULLNAME</string>
+                <key>pfm_title</key>
+                <string>Display Mode</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to hide local users.  Display mode must be set to display "List of Users" for this preference to take effect.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>HideLocalUsers</string>
+                <key>pfm_title</key>
+                <string>Hide Local Users</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to hide mobile accounts.  Display mode must be set to display "List of Users" for this preference to take effect.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>HideMobileAccounts</string>
+                <key>pfm_title</key>
+                <string>Hide Mobile Accounts</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to show network accounts.  Display mode must be set to display "List of Users" for this preference to take effect.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>IncludeNetworkUser</string>
+                <key>pfm_title</key>
+                <string>Show Network Accounts</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to hide admin accounts.  Display mode must be set to display "List of Users" for this preference to take effect.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>HideAdminUsers</string>
+                <key>pfm_title</key>
+                <string>Hide Admin Accounts</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the login window to hide the option to login as "other" account.  Display mode must be set to display "List of Users" for this preference to take effect.  Set to "False" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>SHOWOTHERUSERS_MANAGED</string>
+                <key>pfm_title</key>
+                <string>Hide Other Accounts</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <false/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the option to hide the Restart button from the login window.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>RestartDisabled</string>
+                <key>pfm_title</key>
+                <string>Hide Restart Button</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the option to hide the Shut Down button from the login window.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>ShutDownDisabled</string>
+                <key>pfm_title</key>
+                <string>Hide Shut Down Button</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disables the "Shutdown", "Restart", and "Sleep" buttons from the login window.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>PowerOffDisabled</string>
+                <key>pfm_title</key>
+                <string>Disable Power Off</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the number of retries before showing a password hint, if password hints are set.</string>
+                <key>pfm_name</key>
+                <string>RetriesUntilHint</string>
+                <key>pfm_title</key>
+                <string>Retries Until Hint</string>
+                <key>pfm_type</key>
+                <string>integer</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <integer>3</integer>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disables Automatic Login.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>com.apple.login.mcx.DisableAutoLoginClient</string>
+                <key>pfm_title</key>
+                <string>Disable Auto Login</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disables the ability for a user to access the console by typing ">console" for a username at the login window.  Set to "True" to set the preference.</string>
+                <key>pfm_name</key>
+                <string>DisableConsoleAccess</string>
+                <key>pfm_title</key>
+                <string>Disable Console Access</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Set the computer name to the computer record name in the directory server.  Set to "True" to set the preference.  Please note this preference applies only to Mac OS X 10.5 and later.</string>
+                <key>pfm_name</key>
+                <string>UseComputerNameForComputerRecordName</string>
+                <key>pfm_title</key>
+                <string>Set Computer Name</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Enable external accounts.  Set to "True" to set the preference.  Please note this preference applies only to Mac OS X 10.5 and later.</string>
+                <key>pfm_name</key>
+                <string>EnableExternalAccounts</string>
+                <key>pfm_title</key>
+                <string>Enable External Accounts</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Disable local user account login.  Set to "False" to set the preference.  Please note that local administrators may always log in.</string>
+                <key>pfm_name</key>
+                <string>LocalUserLoginEnabled</string>
+                <key>pfm_title</key>
+                <string>Disable Local User Login</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <false/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Allowed users and groups union policy keys.</string>
+                <key>pfm_name</key>
+                <string>AllowList-UPK</string>
+                <key>pfm_remove_duplicates</key>
+                <true/>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_title</key>
+                <string>Allowed Users and Groups Union Policy</string>
+                <key>pfm_type</key>
+                <string>union policy</string>
+                <key>pfm_upk_input_keys</key>
+                <array>
+                    <string>AllowList-Raw</string>
+                </array>
+                <key>pfm_upk_output_name</key>
+                <string>AllowList</string>
+                <key>pfm_upk_output_type</key>
+                <string>array</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Allow user login for only allow certain users or groups.  The GUID of each user or group must be specified for the scoping to work properly.   To find the GUID of a user, run the command:
+
+                    dscl /Search read /Users/username GeneratedUID
+
+                    To find the GUID of a group, run the command:
+
+                    dscl /Search read /Groups/groupname GeneratedUID
+
+                    Deny Entries take precedence over Allow entries. Entry order is ignored.  Please note that this preference applies only to Mac OS X 10.5 and later.
+                </string>
+                <key>pfm_name</key>
+                <string>AllowList-Raw</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>One GUID.</string>
+                        <key>pfm_name</key>
+                        <string>GUID</string>
+                        <key>pfm_repetition_max</key>
+                        <integer>-1</integer>
+                        <key>pfm_repetition_min</key>
+                        <integer>0</integer>
+                        <key>pfm_title</key>
+                        <string>User or Group GUID</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_default</key>
+                        <string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
+                    </dict>
+                </array>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_title</key>
+                <string>Allowed Users or Groups</string>
+                <key>pfm_type</key>
+                <string>array</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Denied users or groups union policy keys.</string>
+                <key>pfm_name</key>
+                <string>DenyList-UPK</string>
+                <key>pfm_remove_duplicates</key>
+                <true/>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_title</key>
+                <string>Denied Users or Groups Union Policy</string>
+                <key>pfm_type</key>
+                <string>union policy</string>
+                <key>pfm_upk_input_keys</key>
+                <array>
+                    <string>DenyList-Raw</string>
+                </array>
+                <key>pfm_upk_output_name</key>
+                <string>DenyList</string>
+                <key>pfm_upk_output_type</key>
+                <string>array</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Deny user login for certain users or groups.  The GUID of each user or group must be specified for the scoping to work properly.   To find the GUID of a user, run the command:
+
+                    dscl /Search read /Users/username GeneratedUID
+
+                    To find the GUID of a group, run the command:
+
+                    dscl /Search read /Groups/groupname GeneratedUID
+
+                    Deny Entries take precedence over Allow entries. Entry order is ignored.  Please note that this preference applies only to Mac OS X 10.5 and later.
+                </string>
+                <key>pfm_name</key>
+                <string>DenyList-Raw</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>One group.</string>
+                        <key>pfm_name</key>
+                        <string>group</string>
+                        <key>pfm_repetition_max</key>
+                        <integer>-1</integer>
+                        <key>pfm_repetition_min</key>
+                        <integer>0</integer>
+                        <key>pfm_title</key>
+                        <string>Group</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_default</key>
+                        <string>ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000050</string>
+                    </dict>
+                </array>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_title</key>
+                <string>Denied Users or Groups</string>
+                <key>pfm_type</key>
+                <string>array</string>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Allow local users to use available workgroup settings.  Set to "True" to set the preference.  Please note that this preference applies only to Mac OS X 10.4 and later.</string>
+                <key>pfm_name</key>
+                <string>LocalUsersHaveWorkgroups</string>
+                <key>pfm_title</key>
+                <string>Local Users May Use Workgroup Settings</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Ignore nested group membership preferences.  Set to "True" to set the preference.  Please note that this preference applies only to Mac OS X 10.5 and later.</string>
+                <key>pfm_name</key>
+                <string>FlattenUserWorkgroups</string>
+                <key>pfm_title</key>
+                <string>Ignore Workgroup Nesting</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Combine Available Workgroup Settings.  Set to "True" to set the preference.  Please note that this preference applies only to Mac OS X 10.5 and later.</string>
+                <key>pfm_name</key>
+                <string>CombineUserWorkgroups</string>
+                <key>pfm_title</key>
+                <string>Combine Available Workgroup Settings</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>pfm_description</key>
+                <string>Always show the workgroup dialog at user login.  Set to "True" to set the preference.  Please note that this preference applies only to Mac OS X 10.5 and later.</string>
+                <key>pfm_name</key>
+                <string>AlwaysShowWorkgroupDialog</string>
+                <key>pfm_title</key>
+                <string>Always Show Workgroup Dialog</string>
+                <key>pfm_type</key>
+                <string>boolean</string>
+                <key>pfm_targets</key>
+                <array>
+                    <string>system-managed</string>
+                </array>
+                <key>pfm_default</key>
+                <true/>
+            </dict>
+        </array>
+    </dict>
+</plist>

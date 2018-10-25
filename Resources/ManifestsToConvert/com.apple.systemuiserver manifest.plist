@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>pfm_description</key>
+        <string>Allowed Media Payload</string>
+        <key>pfm_title</key>
+        <string>Allowed Media Payload</string>
+        <key>pfm_format_version</key>
+        <integer>1</integer>
+        <key>pfm_version</key>
+        <integer>1</integer>
+        <key>pfm_domain</key>
+        <string>com.apple.systemuiserver</string>
+        <key>pfm_subkeys</key>
+        <array>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDescription</string>
+                <key>pfm_title</key>
+                <string>Payload Description</string>
+                <key>pfm_description</key>
+                <string>Description of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Media Access (SystemUIServer)</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadDisplayName</string>
+                <key>pfm_title</key>
+                <string>Payload Display Name</string>
+                <key>pfm_description</key>
+                <string>Name of the payload</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>Media Access (SystemUIServer)</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadIdentifier</string>
+                <key>pfm_title</key>
+                <string>Payload Identifier</string>
+                <key>pfm_description</key>
+                <string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.systemuiserver</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadType</string>
+                <key>pfm_title</key>
+                <string>Payload Type</string>
+                <key>pfm_description</key>
+                <string>The type of the payload, a reverse dns string</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>com.apple.systemuiserver</string>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadUUID</string>
+                <key>pfm_title</key>
+                <string>Payload UUID</string>
+                <key>pfm_description</key>
+                <string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string></string>
+                <key>pfm_require</key>
+                <string>always</string>
+                <key>pfm_format</key>
+                <string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadVersion</string>
+                <key>pfm_title</key>
+                <string>Payload Version</string>
+                <key>pfm_description</key>
+                <string>The version of the whole configuration profile.</string>
+                <key>pfm_type</key>
+                <string>integer</string>
+                <key>pfm_default</key>
+                <integer>1</integer>
+                <key>pfm_require</key>
+                <string>always</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>PayloadOrganization</string>
+                <key>pfm_title</key>
+                <string>Payload Organization</string>
+                <key>pfm_description</key>
+                <string>This value describes the issuing organization of the profile, as displayed to the user</string>
+                <key>pfm_type</key>
+                <string>string</string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>logout-eject</string>
+                <key>pfm_title</key>
+                <string>Eject on logout</string>
+                <key>pfm_description</key>
+                <string>Media type dictionary to define volumes to eject when the user logs out</string>
+                <key>pfm_type</key>
+                <string>dictionary</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>CD Actions</string>
+                        <key>pfm_name</key>
+                        <string>cd</string>
+                        <key>pfm_title</key>
+                        <string>CD Actions</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                </array>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>mount-controls</string>
+                <key>pfm_title</key>
+                <string>Volume Mount Controls</string>
+                <key>pfm_description</key>
+                <string>Media type dictionary to control volume mounting.</string>
+                <key>pfm_type</key>
+                <string>dict</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank CDs.</string>
+                        <key>pfm_name</key>
+                        <string>blankcd</string>
+                        <key>pfm_title</key>
+                        <string>Blank CD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank DVDs.</string>
+                        <key>pfm_name</key>
+                        <string>blankdvd</string>
+                        <key>pfm_title</key>
+                        <string>Blank DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank Blurays.</string>
+                        <key>pfm_name</key>
+                        <string>blankbd</string>
+                        <key>pfm_title</key>
+                        <string>Blank Bluray Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to CDs.</string>
+                        <key>pfm_name</key>
+                        <string>cd</string>
+                        <key>pfm_title</key>
+                        <string>CD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to disk images.</string>
+                        <key>pfm_name</key>
+                        <string>disk-image</string>
+                        <key>pfm_title</key>
+                        <string>Disk Image Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to DVDs.</string>
+                        <key>pfm_name</key>
+                        <string>dvd</string>
+                        <key>pfm_title</key>
+                        <string>DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to DVD-RAM.</string>
+                        <key>pfm_name</key>
+                        <string>dvdram</string>
+                        <key>pfm_title</key>
+                        <string>DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to Bluray Discs.</string>
+                        <key>pfm_name</key>
+                        <string>bd</string>
+                        <key>pfm_title</key>
+                        <string>Bluray Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Internally installed SD-Cards and USB flash drives are included in the harddisk-external category.
+                            This key is the default for media types that don’t fall into other categories.</string>
+                        <key>pfm_name</key>
+                        <string>harddisk-external</string>
+                        <key>pfm_title</key>
+                        <string>External Hard Disk Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to internal hard disks.</string>
+                        <key>pfm_name</key>
+                        <string>harddisk-internal</string>
+                        <key>pfm_repetition_max</key>
+                        <integer>-1</integer>
+                        <key>pfm_repetition_min</key>
+                        <integer>0</integer>
+                        <key>pfm_title</key>
+                        <string>Internal Hard Disk Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>read-only</string>
+                            <string>deny</string>
+                            <string>eject</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to all media. Unused; set to empty string.</string>
+                        <key>pfm_name</key>
+                        <string>all-media</string>
+                        <key>pfm_title</key>
+                        <string>All Media Access</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_default</key>
+                        <string></string>
+                    </dict>
+                </array>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>unmount-controls</string>
+                <key>pfm_title</key>
+                <string>Volume Unmount Controls</string>
+                <key>pfm_description</key>
+                <string>Media type dictionary to control volume unmounting.</string>
+                <key>pfm_type</key>
+                <string>dict</string>
+                <key>pfm_subkeys</key>
+                <array>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank CDs.</string>
+                        <key>pfm_name</key>
+                        <string>blankcd</string>
+                        <key>pfm_title</key>
+                        <string>Blank CD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank DVDs.</string>
+                        <key>pfm_name</key>
+                        <string>blankdvd</string>
+                        <key>pfm_title</key>
+                        <string>Blank DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to blank Blurays.</string>
+                        <key>pfm_name</key>
+                        <string>blankbd</string>
+                        <key>pfm_title</key>
+                        <string>Blank Bluray Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to CDs.</string>
+                        <key>pfm_name</key>
+                        <string>cd</string>
+                        <key>pfm_title</key>
+                        <string>CD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to disk images.</string>
+                        <key>pfm_name</key>
+                        <string>disk-image</string>
+                        <key>pfm_title</key>
+                        <string>Disk Image Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to DVDs.</string>
+                        <key>pfm_name</key>
+                        <string>dvd</string>
+                        <key>pfm_title</key>
+                        <string>DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to DVD-RAM.</string>
+                        <key>pfm_name</key>
+                        <string>dvdram</string>
+                        <key>pfm_title</key>
+                        <string>DVD Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to Bluray Discs.</string>
+                        <key>pfm_name</key>
+                        <string>bd</string>
+                        <key>pfm_title</key>
+                        <string>Bluray Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Internally installed SD-Cards and USB flash drives are included in the harddisk-external category.
+                            This key is the default for media types that don’t fall into other categories.</string>
+                        <key>pfm_name</key>
+                        <string>harddisk-external</string>
+                        <key>pfm_title</key>
+                        <string>External Hard Disk Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to internal hard disks.</string>
+                        <key>pfm_name</key>
+                        <string>harddisk-internal</string>
+                        <key>pfm_repetition_max</key>
+                        <integer>-1</integer>
+                        <key>pfm_repetition_min</key>
+                        <integer>0</integer>
+                        <key>pfm_title</key>
+                        <string>Internal Hard Disk Access</string>
+                        <key>pfm_type</key>
+                        <string>array</string>
+                        <key>pfm_range_list</key>
+                        <array>
+                            <string>authenticate</string>
+                            <string>deny</string>
+                        </array>
+                    </dict>
+                    <dict>
+                        <key>pfm_description</key>
+                        <string>Access to all media. Unused; set to empty string.</string>
+                        <key>pfm_name</key>
+                        <string>all-media</string>
+                        <key>pfm_title</key>
+                        <string>All Media Access</string>
+                        <key>pfm_type</key>
+                        <string>string</string>
+                        <key>pfm_default</key>
+                        <string></string>
+                    </dict>
+                </array>
+            </dict>
+        </array>
+    </dict>
+</plist>

@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>Dock preferences. Preferences are divided between simple appearance keys and the more complicated Application and Document tile dictionaries.</string>
+	<key>pfm_domain</key>
+	<string>com.apple.dock</string>
+	<key>pfm_name</key>
+	<string>Dock</string>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set to true to turn hiding on.</string>
+			<key>pfm_name</key>
+			<string>autohide</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Hiding</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set to true to prevent user from changing Dock contents.</string>
+			<key>pfm_name</key>
+			<string>contents-immutable</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Changes Disabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to true to use launch animation.</string>
+			<key>pfm_name</key>
+			<string>launchanim</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Launch Animation</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to true to turn on magnification.</string>
+			<key>pfm_name</key>
+			<string>magnify</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Magnification</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>genie</string>
+			<key>pfm_name</key>
+			<string>mineffect</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>genie</string>
+				<string>scale</string>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Minimization Effect</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>bottom</string>
+			<key>pfm_description</key>
+			<string>Left\, right\, or bottom Dock position.</string>
+			<key>pfm_name</key>
+			<string>orientation</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>left</string>
+				<string>bottom</string>
+				<string>right</string>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Position</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<real>64</real>
+			<key>pfm_description</key>
+			<string>The size of the dock tiles. Valid sizes are from 16 to 128.</string>
+			<key>pfm_name</key>
+			<string>tilesize</string>
+			<key>pfm_range_max</key>
+			<real>128</real>
+			<key>pfm_range_min</key>
+			<real>16</real>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Tile Size</string>
+			<key>pfm_type</key>
+			<string>real</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set to true to only show the managed tiles.</string>
+			<key>pfm_name</key>
+			<string>static-only</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Managed Tiles Only</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>show-process-indicators</string>
+			<key>pfm_description</key>
+			<string>Show process indicators (unverified)</string>
+			<key>pfm_title</key>
+			<string>Show process indicators (unverified)</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>AllowDockFixupOverride</string>
+			<key>pfm_description</key>
+			<string>AllowDockFixupOverride (unverified)</string>
+			<key>pfm_title</key>
+			<string>AllowDockFixupOverride (unverified)</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>static-apps</string>
+			<key>pfm_description</key>
+			<string>Forced Dock Applications</string>
+			<key>pfm_title</key>
+			<string>Forced Dock Applications</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>static-others</string>
+			<key>pfm_description</key>
+			<string>Forced Dock Documents or Volumes</string>
+			<key>pfm_title</key>
+			<string>Forced Dock Documents</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Array for holding application tile data.</string>
+			<key>pfm_name</key>
+			<string>AppItems-Raw</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>One application tile.</string>
+					<key>pfm_name</key>
+					<string>apptile</string>
+					<key>pfm_repetition_max</key>
+					<integer>-1</integer>
+					<key>pfm_repetition_min</key>
+					<integer>0</integer>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>tile-data</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>File data for a file tile.</string>
+									<key>pfm_name</key>
+									<string>file-data</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Absolute file system path.</string>
+											<key>pfm_name</key>
+											<string>_CFURLString</string>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>File Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>_CFURLStringType.pfm_description.URL, URL type. Always set to 0.</string>
+											<key>pfm_name</key>
+											<string>_CFURLStringType</string>
+											<key>pfm_range_list</key>
+											<array>
+												<integer>0</integer>
+											</array>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>_CFURLStringType.pfm_title.URL, URL Type</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>Alias data; required for server-based items only.</string>
+											<key>pfm_name</key>
+											<string>_CFURLAliasData</string>
+											<key>pfm_repetition_min</key>
+											<integer>0</integer>
+											<key>pfm_title</key>
+											<string>Alias</string>
+											<key>pfm_type</key>
+											<string>alias</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>File Data</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Tile label.</string>
+									<key>pfm_name</key>
+									<string>file-label</string>
+									<key>pfm_repetition_min</key>
+									<integer>0</integer>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Tile file type.</string>
+									<key>pfm_title</key>
+									<string>File Type</string>
+									<key>pfm_name</key>
+									<string>file-type</string>
+									<key>pfm_repetition_min</key>
+									<integer>0</integer>
+									<key>pfm_type</key>
+									<string>integer</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Dock Tile Data</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Type of tile.</string>
+							<key>pfm_name</key>
+							<string>tile-type</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>file-tile</string>
+							</array>
+							<key>pfm_repetition_min</key>
+							<integer>1</integer>
+							<key>pfm_title</key>
+							<string>Tile Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Used internally by Workgroup Manager.  Do not change.</string>
+							<key>pfm_name</key>
+							<string>mcx_typehint</string>
+							<key>pfm_repetition_min</key>
+							<integer>1</integer>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Application Tile</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Application Tiles</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Array for holding document and URL tile data.</string>
+			<key>pfm_name</key>
+			<string>DocItems-Raw</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>One document tile.</string>
+					<key>pfm_name</key>
+					<string>doctile</string>
+					<key>pfm_repetition_max</key>
+					<integer>-1</integer>
+					<key>pfm_repetition_min</key>
+					<integer>0</integer>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Dock tile data.</string>
+							<key>pfm_name</key>
+							<string>tile-data</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>File data for a file tile.</string>
+									<key>pfm_name</key>
+									<string>file-data</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Absolute file system path.</string>
+											<key>pfm_name</key>
+											<string>_CFURLString</string>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>title</string>
+											<key>pfm_type</key>
+											<string>url</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>_CFURLStringType.pfm_description.file, 0 for file.</string>
+											<key>pfm_name</key>
+											<string>_CFURLStringType</string>
+											<key>pfm_range_list</key>
+											<array>
+												<integer>0</integer>
+											</array>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>_CFURLStringType.pfm_title.file, title</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>Alias data; required for server-based items only.</string>
+											<key>pfm_name</key>
+											<string>_CFURLAliasData</string>
+											<key>pfm_repetition_min</key>
+											<integer>0</integer>
+											<key>pfm_title</key>
+											<string>Alias</string>
+											<key>pfm_type</key>
+											<string>alias</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>File Data</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>URL data for a URL tile.</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Universal resource locator (URL).</string>
+											<key>pfm_name</key>
+											<string>_CFURLString</string>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>URL</string>
+											<key>pfm_type</key>
+											<string>url</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>_CFURLStringType.pfm_description.URLID, URL type. 15 for a URL.</string>
+											<key>pfm_name</key>
+											<string>_CFURLStringType</string>
+											<key>pfm_range_list</key>
+											<array>
+												<integer>15</integer>
+											</array>
+											<key>pfm_repetition_min</key>
+											<integer>1</integer>
+											<key>pfm_title</key>
+											<string>_CFURLStringType.pfm_title.URLID, URL ID</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>URL Data</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Tile label for file.</string>
+									<key>pfm_name</key>
+									<string>file-label</string>
+									<key>pfm_repetition_min</key>
+									<integer>0</integer>
+									<key>pfm_title</key>
+									<string>File Tile Label</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Tile label for URL tile.</string>
+									<key>pfm_name</key>
+									<string>label</string>
+									<key>pfm_repetition_min</key>
+									<integer>0</integer>
+									<key>pfm_title</key>
+									<string>URL Tile Label</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Type of item. For Document tiles: set to 2 for non-volume\, 18 for volume\, 32 if not a folder.</string>
+									<key>pfm_name</key>
+									<string>file-type</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>2</integer>
+										<integer>18</integer>
+										<integer>32</integer>
+									</array>
+									<key>pfm_repetition_min</key>
+									<integer>0</integer>
+									<key>pfm_title</key>
+									<string>Item Type</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Tile Data</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Type of tile.</string>
+							<key>pfm_name</key>
+							<string>tile-type</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>url-tile</string>
+								<string>file-tile</string>
+								<string>directory-tile</string>
+							</array>
+							<key>pfm_repetition_min</key>
+							<integer>1</integer>
+							<key>pfm_title</key>
+							<string>Tile Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Used internally by Workgroup Manager.  Do not change.</string>
+							<key>pfm_name</key>
+							<string>mcx_typehint</string>
+							<key>pfm_repetition_min</key>
+							<integer>1</integer>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Document Tile</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Document Tiles</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Folders added by Managed Client.</string>
+			<key>pfm_name</key>
+			<string>MCXDockSpecialFolders</string>
+			<key>pfm_repetition_min</key>
+			<integer>0</integer>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Flag for one folder added by Managed Client.</string>
+					<key>pfm_name</key>
+					<string>mcxfolderflag</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>AddDockMCXMyApplicationsFolder</string>
+						<string>AddDockMCXDocumentsFolder</string>
+						<string>AddDockMCXOriginalNetworkHomeFolder</string>
+					</array>
+					<key>pfm_repetition_max</key>
+					<integer>3</integer>
+					<key>pfm_repetition_min</key>
+					<integer>0</integer>
+					<key>pfm_title</key>
+					<string>Folder Flag</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Managed Client Special Folders</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Application tiles union policy keys for managed domain.</string>
+			<key>pfm_name</key>
+			<string>appTilesUPKManaged</string>
+			<key>pfm_remove_duplicates</key>
+			<true/>
+			<key>pfm_targets</key>
+			<array>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Managed Application Tiles Union Policy</string>
+			<key>pfm_type</key>
+			<string>union policy</string>
+			<key>pfm_upk_input_keys</key>
+			<array>
+				<string>AppItems-Raw</string>
+			</array>
+			<key>pfm_upk_output_name</key>
+			<string>static-apps</string>
+			<key>pfm_upk_output_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Application tiles union policy keys for user domain.</string>
+			<key>pfm_name</key>
+			<string>appTilesUPKUser</string>
+			<key>pfm_remove_duplicates</key>
+			<true/>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+			</array>
+			<key>pfm_title</key>
+			<string>User Application Tiles Union Policy</string>
+			<key>pfm_type</key>
+			<string>union policy</string>
+			<key>pfm_upk_input_keys</key>
+			<array>
+				<string>AppItems-Raw</string>
+			</array>
+			<key>pfm_upk_output_name</key>
+			<string>persistent-apps</string>
+			<key>pfm_upk_output_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Document tiles union policy keys for managed domain.</string>
+			<key>pfm_name</key>
+			<string>docTilesUPKManaged</string>
+			<key>pfm_remove_duplicates</key>
+			<true/>
+			<key>pfm_targets</key>
+			<array>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Managed Document Tiles Union Policy</string>
+			<key>pfm_type</key>
+			<string>union policy</string>
+			<key>pfm_upk_input_keys</key>
+			<array>
+				<string>DocItems-Raw</string>
+			</array>
+			<key>pfm_upk_output_name</key>
+			<string>static-others</string>
+			<key>pfm_upk_output_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Document tiles union policy keys for user domain.</string>
+			<key>pfm_name</key>
+			<string>docTilesUPKUser</string>
+			<key>pfm_remove_duplicates</key>
+			<true/>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+			</array>
+			<key>pfm_title</key>
+			<string>User Document Tiles Union Policy</string>
+			<key>pfm_type</key>
+			<string>union policy</string>
+			<key>pfm_upk_input_keys</key>
+			<array>
+				<string>DocItems-Raw</string>
+			</array>
+			<key>pfm_upk_output_name</key>
+			<string>persistent-others</string>
+			<key>pfm_upk_output_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Union policy key for Managed Client Dock special folders.</string>
+			<key>pfm_name</key>
+			<string>mcxDocSpecialUPK</string>
+			<key>pfm_remove_duplicates</key>
+			<true/>
+			<key>pfm_targets</key>
+			<array>
+				<string>user</string>
+				<string>user-managed</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Managed Client Special Folders Union Policy Key</string>
+			<key>pfm_type</key>
+			<string>union policy</string>
+			<key>pfm_upk_input_keys</key>
+			<array>
+				<string>MCXDockSpecialFolders-Raw</string>
+			</array>
+			<key>pfm_upk_output_name</key>
+			<string>MCXDockSpecialFolders</string>
+			<key>pfm_upk_output_type</key>
+			<string>array</string>
+		</dict>
+	</array>
+	<key>pfm_title</key>
+	<string>Dock</string>
+	<key>pfm_version</key>
+	<real>1.2</real>
+</dict>
+</plist>
