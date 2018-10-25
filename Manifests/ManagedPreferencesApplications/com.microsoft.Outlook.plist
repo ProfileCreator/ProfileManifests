@@ -457,6 +457,127 @@ If the key is set to TRUE, the code believes that the user has already seen the 
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Specify one or more domains users are allowed to add in Outlook. Format strings as regular expressions. Does not remove or disconnect accounts already added in Outlook. Supports regular expressions to allow for catching multiple domains.</string>
+			<key>pfm_description_reference</key>
+			<string>Specify one or more domains users are allowed to add in Outlook. Format strings as regular expressions. Does not remove or disconnect accounts already added in Outlook. Supports regular expressions to allow for catching multiple domains.</string>
+			<key>pfm_name</key>
+			<string>AllowedEmailDomains</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_app_min</key>
+			<string>16.18</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the “Did you know? Outlook supports…” text in the Set Up Your Email success dialog box. Only hides text. Does not impact ability to add non-corporate mailboxes.</string>
+			<key>pfm_description_reference</key>
+			<string>Hide the “Did you know? Outlook supports…” text in the Set Up Your Email success dialog box. Only hides text. Does not impact ability to add non-corporate mailboxes.</string>
+			<key>pfm_name</key>
+			<string>HideCanAddOtherAccountTypesTipText</string>
+			<key>pfm_app_min</key>
+			<string>16.18</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Prevent users from adding Skype for Business online meeting details to events. Key must be set to true and forced.</string>
+			<key>pfm_description_reference</key>
+			<string>Prevent users from adding Skype for Business online meeting details to events. Key must be set to true and forced.</string>
+			<key>pfm_name</key>
+			<string>DisableSkypeMeeting</string>
+			<key>pfm_app_min</key>
+			<string>16.19</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Set default location for weather in calendar view. Use the format returned by the weather location search within Outlook. Example: "Paris, France"</string>
+			<key>pfm_description_reference</key>
+			<string>Set default location for weather in calendar view. Use the format returned by the weather location search within Outlook. Example: "Paris, France"</string>
+			<key>pfm_name</key>
+			<string>DefaultWeatherLocation</string>
+			<key>pfm_app_min</key>
+			<string>16.18</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Prevent users from choosing Update Location Automatically for weather location.</string>
+			<key>pfm_description_reference</key>
+			<string>Prevent users from choosing Update Location Automatically for weather location.</string>
+			<key>pfm_name</key>
+			<string>Weather_update_automatically</string>
+			<key>pfm_app_min</key>
+			<string>16.19</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Prevent users from being able to create, edit, and add client-side signatures. Key must be set to true and forced.</string>
+			<key>pfm_description_reference</key>
+			<string>Prevent users from being able to create, edit, and add client-side signatures. Key must be set to true and forced.</string>
+			<key>pfm_name</key>
+			<string>DisableSignatures</string>
+			<key>pfm_app_min</key>
+			<string>16.18</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Set the first day of week in calendar view.</string>
+			<key>pfm_description_reference</key>
+			<string>Set the first day of week in calendar view.
+1 = Sunday (default)
+2 = Monday
+3= Tuesday
+4= Wednesday
+5= Thursday
+6 = Friday
+7 = Saturday
+</string>
+			<key>pfm_name</key>
+			<string>CalendarFirstDayOfWeek</string>
+			<key>pfm_app_min</key>
+			<string>16.19</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Sunday</string>
+				<string>Monday</string>
+				<string>Tuesday</string>
+				<string>Wednesday</string>
+				<string>Thursday</string>
+				<string>Friday</string>
+				<string>Saturday</string>
+			</array>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -468,6 +589,6 @@ If the key is set to TRUE, the code believes that the user has already seen the 
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
