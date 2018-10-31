@@ -5,23 +5,17 @@
         <key>pfm_description</key>
         <string>FileVault Recovery Key Redirection settings</string>
 		<key>pfm_description_reference</key>
-		<string>FileVault full-volume encryption (FDE) recovery keys are, by default, sent to Apple if the user requests it. With this key, you can redirect those recovery keys to a corporate server. FileVault Recovery Key Redirection payloads are designated by specifying com.apple.security.FDERecoveryRedirect as the PayloadType value. Only one payload of this type is allowed per system.
-
-A site providing support for archiving the recovery key must implement its own HTTPS server. The client issues a POST request to the server with XML data in the request body containing the recovery key and serial number of the client computer. The server must respond with XML data echoing the device's serial number and provide a RecordNumber, which can be any data that locates the recovery key.
-
-The SSL certificate chain of the server is evaluated by the client, which must trust it. If needed, the configuration profile can include an additional certificate to set up a chain of trust.
-
-Once installed, this payload causes any FileVault recovery keys to be redirected to the specified URL instead of being sent to Apple. This will require sites to implement their own HTTPS server that will receive the recovery keys via a POST request.
-
-This payload is valid only in system-scoped profiles (where PayloadScope is System). Installing more than one payload of this type per machine causes an error. The SSL certificate chain of the server is evaluated by the client, which must trust it. If needed, the configuration profile may contain another payload with the server’s root certificate to be marked as trusted when the profile is installed.
-
-If the client cannot communicate with the server it will continually retry the connection. The retry interval starts at 5 seconds and doubles until retries are hourly. The client then retries once an hour until it successfully contacts the server.</string>
+		<string>Although the previous FDE Recovery payload is no longer supported on macOS 10.13 and later, it is still supported on macOS 10.9 through 10.12. This payload is designated by specifying com.apple.security.FDERecoveryRedirect as the PayloadType.
+			Once installed, this payload will cause any FDE (Full Disk Encryption) recovery keys to be redirected to the specified URL instead of being sent to Apple. This will require sites to implement their own HTTPS server that will receive the recovery keys via a POST request.
+Note these cautions:
+• The payload must exist in a system-scoped profile.
+• Installing more than one payload of this type per machine will cause an error.</string>
         <key>pfm_title</key>
         <string>FileVault Recovery Key Redirection Payload</string>
         <key>pfm_format_version</key>
         <integer>1</integer>
         <key>pfm_version</key>
-        <integer>1</integer>
+        <integer>2</integer>
         <key>pfm_domain</key>
         <string>com.apple.security.FDERecoveryRedirect</string>
 		<key>pfm_interaction</key>
@@ -160,7 +154,7 @@ If the client cannot communicate with the server it will continually retry the c
                 <key>pfm_description</key>
                 <string>The URL to which FDE recovery keys should be sent instead of Apple. Must begin with https://.</string>
 				<key>pfm_description_reference</key>
-				<string>The URL to which FDE recovery keys should be sent instead of Apple. Must begin with https://.</string>
+				<string>Required. The URL to which FDE recovery keys should be sent instead of Apple. Must begin with https://.</string>
                 <key>pfm_type</key>
                 <string>string</string>
                 <key>pfm_require</key>
@@ -176,7 +170,7 @@ If the client cannot communicate with the server it will continually retry the c
                 <key>pfm_description</key>
                 <string>The UUID of a payload within the same profile that contains a certificate whose public key is used to encrypt the recovery key when it is sent to the redirected URL. The referenced payload must be of type com.apple.security.pkcs1.</string>
 				<key>pfm_description_reference</key>
-				<string>The UUID of a payload within the same profile that contains a certificate whose public key is used to encrypt the recovery key when it is sent to the redirected URL. The referenced payload must be of type com.apple.security.pkcs1</string>
+				<string>Required. The UUID of a payload within the same profile that contains a certificate that will be used to encrypt the recovery key when it is sent to the redirected URL. The referenced payload must be of type com.apple.security.pkcs1.</string>
                 <key>pfm_type</key>
                 <string>string</string>
                 <key>pfm_require</key>
