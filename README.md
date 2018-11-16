@@ -6,3 +6,7 @@ The payload manifest files are using Apple's [Preference Manifest](https://devel
 
 
 See the extended format specification here: [Manifest Format](https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format)
+
+## Create your own manifest
+
+If you want to create your own manifest, read the [Getting Started](https://github.com/erikberglund/ProfileManifests/wiki/Getting-Started) wiki page for guide on gettin started.
