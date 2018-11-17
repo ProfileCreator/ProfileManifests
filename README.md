@@ -1,5 +1,5 @@
 # ProfileManifests
-Manifest repository for ProfilePayloads
+Manifest repository for the ProfilePayloads framework and [ProfileCreator](https://github.com/erikberglund/ProfileCreator).
 
 ## Manifest Format
 The payload manifest files are using Apple's Preference Manifest File format to describe the payloads and their keys.
