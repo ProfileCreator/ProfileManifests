@@ -15,8 +15,8 @@
 	<string>https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format</string>
 	
 	<!-- The scope where this payload is valid. -->
-	<!-- If this payload is onlye for iOS and tvOS this should be set to only system.-->
-	<!-- On macOS you inlcude all scopes this payload is valid to install to. -->
+	<!-- If this payload is only for iOS and tvOS this should be set to only system.-->
+	<!-- On macOS you include all scopes this payload is valid to install to. -->
 	<!-- If this is not included, it will default to system AND user.-->
 	<key>pfm_targets</key>
 	<array>
@@ -25,7 +25,7 @@
 	</array>
 	
 	<!-- The platforms where this payload is valid. -->
-	<!-- If thos is not included, it will default to only macOS. -->
+	<!-- If this is not included, it will default to only macOS. -->
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -38,7 +38,7 @@
 	<key>pfm_description</key>
 	<string>Example Application settings</string>
 	
-	<!-- The preference domain of the payload. This should be the same as PayloadType in the pfm_sybkeys.-->
+	<!-- The preference domain of the payload. This should be the same as PayloadType in the pfm_subkeys.-->
 	<key>pfm_domain</key>
 	<string>com.github.ProfileManifests.exampleApplication</string>
 	
@@ -62,7 +62,7 @@
 	<key>pfm_unique</key>
 	<false/>
 	
-	<!-- This is the version number of this manifest, it's used to determine which manifest to loead if two manifests with identical "pfm_domain" is found-->
+	<!-- This is the version number of this manifest, it's used to determine which manifest to load if two manifests with identical "pfm_domain" is found-->
 	<key>pfm_version</key>
 	<integer>1</integer>
 	
@@ -249,7 +249,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<!-- Currently this key is not shown in the ProfileCreator application but will be used for https://mosen.github.io/profiledocs/, and in a future version of ProfileCreator.-->
 			<!-- NOTE: It should be included, even if it's identical to the pfm_description key. -->
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 		</dict>
 		
 		<!-- Example: Required -->
@@ -264,7 +264,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExampleRequired key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- When this key should be required. "always" means that this key cannot be excluded when exporting the payload. -->
 			<!-- For more options for this key, see the documentation:  https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format -->
@@ -284,7 +284,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExampleDefaultValue key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
@@ -303,7 +303,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExamplePlaceholderValue key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This value will be shown as the placeholder value when the TextField is empty. -->
 			<key>pfm_value_placeholder</key>
@@ -322,7 +322,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExamplePopUpButtonInteger key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This is the list of possible values to be set for this key. -->
 			<!-- NOTE: This list values MUST be of the same type as set in pfm_type -->
@@ -355,7 +355,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExampleDictinoary key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This key defines the contents of the array. As this is an array, it should only include ONE (1) subkey, as the array should only contain a single type.-->
 			<key>pfm_subkeys</key>
@@ -370,7 +370,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_description</key>
 					<string>This is the description of the ExampleDictionaryItemString key.</string>
 					<key>pfm_description_reference</key>
-					<string>Optional. This is the original documentation's descriotion</string>
+					<string>Optional. This is the original documentation's description</string>
 				</dict>
 				<dict>
 					<key>pfm_name</key>
@@ -382,7 +382,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_description</key>
 					<string>This is the description of the ExampleDictionaryItemBoolean key.</string>
 					<key>pfm_description_reference</key>
-					<string>Optional. This is the original documentation's descriotion</string>
+					<string>Optional. This is the original documentation's description</string>
 				</dict>
 			</array>
 		</dict>
@@ -399,7 +399,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExampleArrayStrings key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This key defines the contents of the array. As this is an array, it should only include ONE (1) subkey, as the array should only contain a single type.-->
 			<key>pfm_subkeys</key>
@@ -425,7 +425,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description</key>
 			<string>This is the description of the ExampleArrayDictionaries key.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. This is the original documentation's descriotion</string>
+			<string>Optional. This is the original documentation's description</string>
 			
 			<!-- This key defines the contents of the array. As this is an array, it should only include ONE (1) subkey, as the array should only contain a single type.-->
 			<key>pfm_subkeys</key>
@@ -448,7 +448,7 @@ A profile can consist of payloads with different version numbers. For example, c
 							<key>pfm_description</key>
 							<string>This is the description of the ExampleArrayItemString key.</string>
 							<key>pfm_description_reference</key>
-							<string>Optional. This is the original documentation's descriotion</string>
+							<string>Optional. This is the original documentation's description</string>
 						</dict>
 						<dict>
 							<key>pfm_name</key>
@@ -460,7 +460,7 @@ A profile can consist of payloads with different version numbers. For example, c
 							<key>pfm_description</key>
 							<string>This is the description of the ExampleArrayItemBoolean key.</string>
 							<key>pfm_description_reference</key>
-							<string>Optional. This is the original documentation's descriotion</string>
+							<string>Optional. This is the original documentation's description</string>
 						</dict>
 					</array>
 				</dict>
