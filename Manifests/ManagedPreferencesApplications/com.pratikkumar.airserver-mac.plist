@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_app_url</key>
+	<string>https://www.airserver.com</string>
+	<key>pfm_description</key>
+	<string>AirServer settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format</string>
+	<key>pfm_domain</key>
+	<string>com.pratikkumar.airserver-mac</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_last_modified</key>
+	<date>2018-11-27T16:23:00Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures AirServer settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>AirServer</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.pratikkumar.airserver-mac</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.pratikkumar.airserver-mac</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>General</string>
+				<string>Audio</string>
+				<string>Display</string>
+				<string>Mirroring</string>
+				<string>Advanced</string>
+				<string>Updates</string>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
+			<dict>
+				<key>Advanced</key>
+				<array>
+					<string>autoLaunch</string>
+					<string>showInDock</string>
+					<string>UseLionStyleFullscreen</string>
+				</array>
+				<key>Audio</key>
+				<array>
+					<string>com.airserverapp.audioBufferSize2</string>
+					<string>com.airserverapp.dualAirplay</string>
+					<string>com.airserverapp.linkMasterVolume</string>
+					<string>UserLosslessAudioReceiverName</string>
+				</array>
+				<key>Display</key>
+				<array>
+					<string>com.airserverapp.alwaysOnTop</string>
+				</array>
+				<key>General</key>
+				<array>
+					<string>com.airserverapp.PasswordType</string>
+					<string>EnableGoogleCast</string>
+					<string>UserDeviceName</string>
+				</array>
+				<key>Mirroring</key>
+				<array>
+					<string>com.airserverapp.mirroringOptimizedFor2</string>
+					<string>com.airserverapp.slowNetwork</string>
+					<string>com.airserverapp.SoftwareDecoderOnly</string>
+				</array>
+				<key>Updates</key>
+				<array>
+					<string>SUEnableAutomaticChecks</string>
+					<string>SUFeedURL</string>
+					<string>SUSendProfileInfo</string>
+				</array>
+			</dict>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable/disable Google Cast.</string>
+			<key>pfm_name</key>
+			<string>EnableGoogleCast</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Automatically check for AirServer software updates.</string>
+			<key>pfm_description_reference</key>
+			<string>When set to false, AirServer will not automatically check for software updates.</string>
+			<key>pfm_name</key>
+			<string>SUEnableAutomaticChecks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Sparkle update framework key. While automatic update checks can be disabled via the SUEnableAutomaticChecks key, this does not prevent users from manually running a software update check via the GUI. Setting this key to a non-existant local address will prevent users from manually triggering and/or installing updates themselves.</string>
+			<key>pfm_description_reference</key>
+			<string>When set to a non-existant local address, AirServer will be unable to determine if updates are available.</string>
+			<key>pfm_name</key>
+			<string>SUFeedURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>http://127.0.0.1</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>When running software update checks, submit anonymous computer profile data to AirServer.</string>
+			<key>pfm_description_reference</key>
+			<string>When set to false, will not submit this anonymous computer profile data.</string>
+			<key>pfm_name</key>
+			<string>SUSendProfileInfo</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enable this setting if you want to use the native macOS fullscreen mode - slower.</string>
+			<key>pfm_name</key>
+			<string>UseLionStyleFullscreen</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Use this field to override the name of the computer that appears on the AirPlay network.</string>
+			<key>pfm_name</key>
+			<string>UserDeviceName</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Only enable this preference when you wish to set a custom name for the device running AirServer in the AirPlay device list.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>com.airserverapp.dualAirplay</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>com.airserverapp.dualAirplay</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>UserLosslessAudioReceiverName</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Lossless Quality Receiver Name</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Have AirServer launch on system startup.</string>
+			<key>pfm_name</key>
+			<string>autoLaunch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<real>0.5</real>
+			<key>pfm_description</key>
+			<string>Use this setting to tweak multi-room audio sync when streaming music from iTunes.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.audioBufferSize2</string>
+			<key>pfm_range_list</key>
+			<array>
+				<real>0.0</real>
+				<real>0.050000000000000003</real>
+				<real>0.10000000000000001</real>
+				<real>0.15000000000000002</real>
+				<real>0.20000000000000001</real>
+				<real>0.25</real>
+				<real>0.30000000000000004</real>
+				<real>0.35000000000000003</real>
+				<real>0.40000000000000002</real>
+				<real>0.45000000000000001</real>
+				<real>0.5</real>
+				<real>0.55000000000000004</real>
+				<real>0.60000000000000009</real>
+				<real>0.65000000000000002</real>
+				<real>0.70000000000000007</real>
+				<real>0.75</real>
+				<real>0.80000000000000004</real>
+				<real>0.85000000000000009</real>
+				<real>0.90000000000000002</real>
+				<real>0.95000000000000007</real>
+				<real>1</real>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>-500 ms</string>
+				<string>-450 ms</string>
+				<string>-400 ms</string>
+				<string>-350 ms</string>
+				<string>-300 ms</string>
+				<string>-250 ms</string>
+				<string>-200 ms</string>
+				<string>-150 ms</string>
+				<string>-100 ms</string>
+				<string>-50 ms</string>
+				<string>0 ms</string>
+				<string>50 ms</string>
+				<string>100 ms</string>
+				<string>150 ms</string>
+				<string>200 ms</string>
+				<string>250 ms</string>
+				<string>300 ms</string>
+				<string>350 ms</string>
+				<string>400 ms</string>
+				<string>450 ms</string>
+				<string>500 ms</string>
+			</array>
+			<key>pfm_type</key>
+			<string>real</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Choose authentication method when connecting to AirServer. While a Fixed Password is an available setting, it's not possible to define this password via profile.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.PasswordType</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Fixed Password</string>
+				<string>Onscreen Code</string>
+				<string>Ask me</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enable this setting if you want AirServer windows to be on top of all other windows.</string>
+			<key>pfm_description_reference</key>
+			<string>When set to false, AirServer will not automatically check for software updates.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.alwaysOnTop</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This option creates a second AirPort Expresss-like audio receiver suffixed with an Ex. Streaming music to this endpoint will force the iOS device to stream your music in lossless quality. Enabling this setting can also allow you to watch a video on your iOS device and send only the audiostream to the AirServer.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_contains_any</key>
+							<array>
+								<string></string>
+							</array>
+							<key>pfm_target</key>
+							<string>UserLosslessAudioReceiverName</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>com.airserverapp.dualAirplay</string>
+			<key>pfm_title</key>
+			<string>Enable Dual-Airplay Device</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If enabled, changing the volume on your iOS device will change the volume of your preferred output sound device; otherwise AirServer will lower the streaming music volume.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.linkMasterVolume</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>1080p</string>
+			<key>pfm_description</key>
+			<string>Here you can set the mirroring resolution AirServer provides to your iOS device. 'Retina' is recommended for all users, but if you are having connection problems, try the 1080p option. Do not enable this preference if you wish use the default 'Retina - High Quality' resolution setting.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.mirroringOptimizedFor2</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>1080p</string>
+				<string>720p</string>
+				<string>iPad Retina</string>
+				<string>iPhone 6/6s Plus Retina</string>
+				<string>iPhone 6/6s Retina</string>
+				<string>iPhone 5/5s Retina</string>
+				<string>iPhone 4s Retina</string>
+				<string>iPad</string>
+				<string>iPhone 6/6s</string>
+				<string>iPhone 5/5s</string>
+				<string>iPhone 4s</string>
+				<string>Target Display</string>
+				<string>Projector 1024x768</string>
+				<string>Projector 1600x1200</string>
+			</array>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enabling this setting will lower the mirroring quality by half but uses four times less bandwidth.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.slowNetwork</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enable this setting if your AirPlay device regularly freezes or if you notice green artifacts when using AirPlay mirroring. This is common on older Macs that do not properly support hardware-accelerated video encoding.</string>
+			<key>pfm_name</key>
+			<string>com.airserverapp.SoftwareDecoderOnly</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Use this setting to toggle between running AirServer in the Dock and in the menu bar.</string>
+			<key>pfm_description_reference</key>
+			<string>When set to true, AirServer will show up in the Dock and not in the menu bar.</string>
+			<key>pfm_name</key>
+			<string>showInDock</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>AirServer</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
