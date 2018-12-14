@@ -6,7 +6,7 @@
 	<string>https://www.office.com</string>
 	<key>pfm_description</key>
 	<string>Microsoft OneDrive settings</string>
-	<key>pfm_documentation</key>
+	<key>pfm_documentation_url</key>
 	<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
 	<key>pfm_domain</key>
 	<string>com.microsoft.OneDrive</string>
@@ -131,8 +131,6 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_hidden</key>
-			<string>all</string>
 			<key>pfm_description</key>
 			<string>OneDrive folder default location.</string>
 			<key>pfm_description_reference</key>
@@ -165,12 +163,14 @@ Standalone: The path will be created on users' computers if it doesn't already e
 				<dict>
 					<key>pfm_app_min</key>
 					<string></string>
+					<key>pfm_hidden</key>
+					<string>container</string>
 					<key>pfm_title</key>
-					<string>DefaultFolder</string>
+					<string>DefaultFolderDict</string>
 					<key>pfm_description</key>
-					<string>A globally unique identifier (GUID) that is different than your tenant name or domain.</string>
+					<string></string>
 					<key>pfm_description_reference</key>
-					<string>Your Office 365 tenant ID is a globally unique identifier (GUID) that is different than your tenant name or domain.</string>
+					<string></string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
 					<key>pfm_type</key>
@@ -389,6 +389,6 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>0</integer>
+	<integer>1</integer>
 </dict>
 </plist>
