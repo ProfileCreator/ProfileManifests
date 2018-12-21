@@ -2,38 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
+		<key>pfm_app_url</key>
+		<string>https://www.mozilla.org/firefox</string>
 		<key>pfm_description</key>
-		<string>Configures com.mozilla.firefox settings</string>
+		<string>Configures Firefox settings</string>
+		<key>pfm_documentation_url</key>
+		<string>https://github.com/mozilla/policy-templates/tree/master/mac</string>
+		<key>pfm_domain</key>
+		<string>org.mozilla.firefox</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_last_modified</key>
+		<date>2018-12-14T07:55:44Z</date>
 		<key>pfm_distribution</key>
 		<array>
 			<string>Manual</string>
 			<string>Push</string>
 		</array>
-		<key>pfm_domain</key>
-		<string>com.mozilla.firefox</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
 		<key>pfm_interaction</key>
 		<string>undefined</string>
-		<key>pfm_last_modified</key>
-		<date>2018-19-19T09:14:00Z</date>
 		<key>pfm_platforms</key>
 		<array>
 			<string>macOS</string>
 		</array>
+		<key>pfm_app_min</key>
+		<string>64.0</string>
 		<key>pfm_subkeys</key>
 		<array>
 			<dict>
 				<key>pfm_default</key>
-				<string>Firefox</string>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_type</key>
-				<string>String</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<string>Configures com.mozilla.firefox settings</string>
+				<string>Configures Firefox settings</string>
 				<key>pfm_description</key>
 				<string>Description of the payload.</string>
 				<key>pfm_name</key>
@@ -45,7 +43,7 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>com.mozilla.firefox</string>
+				<string>Firefox</string>
 				<key>pfm_description</key>
 				<string>Name of the payload.</string>
 				<key>pfm_name</key>
@@ -59,7 +57,7 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>com.mozilla.firefox</string>
+				<string>org.mozilla.firefox</string>
 				<key>pfm_description</key>
 				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
 				<key>pfm_name</key>
@@ -73,7 +71,7 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>com.mozilla.firefox</string>
+				<string>org.mozilla.firefox</string>
 				<key>pfm_description</key>
 				<string>The type of the payload, a reverse dns string.</string>
 				<key>pfm_name</key>
@@ -379,7 +377,7 @@ For more information on setting up your own update server: https://developer.moz
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, the specified websites are permitted to engage in SPNEGO authentication with the browser. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
+						<string>If this preference is enabled, the specified websites are permitted to engage in SPNEGO authentication with the browser. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
 If this preference is disabled or not configured, no websites are permitted to engage in SPNEGO authentication with the browser.
 
@@ -412,7 +410,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, the browser may delegate user authorization to the server for the specified websites. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
+						<string>If this preference is enabled, the browser may delegate user authorization to the server for the specified websites. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
 If this preference is disabled or not configured, the browser will not delegate user authorization to the server for any websites.
 
@@ -445,7 +443,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, the specified websites are trusted to use NTLM authentification. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
+						<string>If this preference is enabled, the specified websites are trusted to use NTLM authentification. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
 If this policy is disabled or not configured, no websites are trusted to use NTLM authentification.
 
@@ -1415,7 +1413,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Required. Enable DNS over HTTPS.</string>
+						<string>Enable DNS over HTTPS.</string>
 						<key>pfm_description_reference</key>
 						<string>Required. Enable DNS over HTTPS.</string>
 						<key>pfm_require</key>
@@ -1429,7 +1427,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Required. URL to an alternative DNS over HTTPS provider.</string>
+						<string>URL to an alternative DNS over HTTPS provider.</string>
 						<key>pfm_description_reference</key>
 						<string>Required. URL to an alternative DNS over HTTPS provider.</string>
 						<key>pfm_name</key>
@@ -1443,7 +1441,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, DNS over HTTPS preferences cannot be changed.</string>
+						<string>If this is true, DNS over HTTPS preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, DNS over HTTPS preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -1468,9 +1466,11 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Required. If this preference is enabled, you will be setting the proxy mode.</string>
+						<string>If this preference is enabled, you will be setting the proxy mode.</string>
 						<key>pfm_description_reference</key>
 						<string>Required. If this preference is enabled, you will be setting the proxy mode.</string>
+						<key>pfm_require</key>
+						<string>always</string>
 						<key>pfm_name</key>
 						<string>Mode</string>
 						<key>pfm_type</key>
@@ -1494,7 +1494,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, Proxy preferences cannot be changed.</string>
+						<string>If this preference is enabled, Proxy preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, Proxy preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -1506,7 +1506,66 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. HTTP Proxy URL.</string>
+						<string>If this preference is enabled, do not prompt for authentication if password is saved.</string>
+						<key>pfm_description_reference</key>
+						<string>Optional. If this preference is enabled, do not prompt for authentication if password is saved.</string>
+						<key>pfm_default</key>
+						<false/>
+						<key>pfm_name</key>
+						<string>AutoLogin</string>
+						<key>pfm_type</key>
+						<string>boolean</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_range_list</key>
+										<array>
+											<string>none</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>pfm_description</key>
+						<string>If this preference is enabled, you will use Proxy DNS when using SOCKS v5.</string>
+						<key>pfm_description_reference</key>
+						<string>Optional. If this preference is enabled, you will use Proxy DNS when using SOCKS v5.</string>
+						<key>pfm_default</key>
+						<false/>
+						<key>pfm_name</key>
+						<string>UseProxyForDNS</string>
+						<key>pfm_type</key>
+						<string>boolean</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_range_list</key>
+										<array>
+											<string>none</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					
+					<!-- Manual Keys -->
+					
+					<dict>
+						<key>pfm_description</key>
+						<string>HTTP Proxy URL.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. HTTP Proxy URL.</string>
 						<key>pfm_name</key>
@@ -1517,10 +1576,26 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>string</string>
 						<key>pfm_value_placeholder</key>
 						<string>htttp://proxy.example.com:8080</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, use the HTTP proxy server for all protocols.</string>
+						<string>If this preference is enabled, use the HTTP proxy server for all protocols.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, use the HTTP proxy server for all protocols.</string>
 						<key>pfm_default</key>
@@ -1529,10 +1604,26 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>UseHTTPProxyForAllProtocols</string>
 						<key>pfm_type</key>
 						<string>boolean</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. SSL Proxy URL.</string>
+						<string>SSL Proxy URL.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. SSL Proxy URL.</string>
 						<key>pfm_name</key>
@@ -1543,10 +1634,26 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>string</string>
 						<key>pfm_value_placeholder</key>
 						<string>htttp://proxy.example.com:8080</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. FTP Proxy URL.</string>
+						<string>FTP Proxy URL.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. FTP Proxy URL.</string>
 						<key>pfm_name</key>
@@ -1557,10 +1664,26 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>string</string>
 						<key>pfm_value_placeholder</key>
 						<string>htttp://proxy.example.com:8080</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. SOCKS Proxy URL.</string>
+						<string>SOCKS Proxy URL.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. SOCKS Proxy URL.</string>
 						<key>pfm_name</key>
@@ -1571,14 +1694,30 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>string</string>
 						<key>pfm_value_placeholder</key>
 						<string>htttp://proxy.example.com:8080</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Select SOCKS Version.</string>
+						<string>Select SOCKS Version.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Select SOCKS Version.</string>
 						<key>pfm_name</key>
-						<string>Mode</string>
+						<string>SOCKSVersion</string>
 						<key>pfm_type</key>
 						<string>string</string>
 						<key>pfm_range_list</key>
@@ -1591,10 +1730,26 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>4</string>
 							<string>5</string>
 						</array>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Proxy bypass URLs.</string>
+						<string>Proxy bypass URLs.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Proxy bypass URLs.</string>
 						<key>pfm_name</key>
@@ -1607,10 +1762,29 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>localhost, 127.0.0.1</string>
 						<key>pfm_value_placeholder</key>
 						<string>E.g.: .mozilla.org, .net.nz, 192.168.1.0/24</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>manual</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
+					
+					<!-- AutoConfig Keys -->
+					
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Proxy bypass URLs.</string>
+						<string>Proxy bypass URLs.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Proxy bypass URLs.</string>
 						<key>pfm_name</key>
@@ -1621,30 +1795,22 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>string</string>
 						<key>pfm_value_placeholder</key>
 						<string>htttp://proxy.example.com:8080/proxy.pac</string>
-					</dict>
-					<dict>
-						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, do not prompt for authentication if password is saved.</string>
-						<key>pfm_description_reference</key>
-						<string>Optional. If this preference is enabled, do not prompt for authentication if password is saved.</string>
-						<key>pfm_default</key>
-						<false/>
-						<key>pfm_name</key>
-						<string>AutoLogin</string>
-						<key>pfm_type</key>
-						<string>boolean</string>
-					</dict>
-					<dict>
-						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, you will use Proxy DNS when using SOCKS v5.</string>
-						<key>pfm_description_reference</key>
-						<string>Optional. If this preference is enabled, you will use Proxy DNS when using SOCKS v5.</string>
-						<key>pfm_default</key>
-						<false/>
-						<key>pfm_name</key>
-						<string>UseProxyForDNS</string>
-						<key>pfm_type</key>
-						<string>boolean</string>
+						<key>pfm_exclude</key>
+						<array>
+							<dict>
+								<key>pfm_target_conditions</key>
+								<array>
+									<dict>
+										<key>pfm_n_range_list</key>
+										<array>
+											<string>autoConfig</string>
+										</array>
+										<key>pfm_target</key>
+										<string>Proxy.Mode</string>
+									</dict>
+								</array>
+							</dict>
+						</array>
 					</dict>
 				</array>
 				<key>pfm_type</key>
@@ -1662,7 +1828,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Domains where cookies are always allowed.</string>
+						<string>Domains where cookies are always allowed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Domains where cookies are always allowed.</string>
 						<key>pfm_name</key>
@@ -1687,7 +1853,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Domains where cookies are always blocked.</string>
+						<string>Domains where cookies are always blocked.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Domains where cookies are always blocked.</string>
 						<key>pfm_name</key>
@@ -1712,7 +1878,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. This sets the default value for "Accept cookies from websites".</string>
+						<string>This sets the default value for "Accept cookies from websites".</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. This sets the default value for "Accept cookies from websites".</string>
 						<key>pfm_default</key>
@@ -1724,7 +1890,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. This sets the default value for "Accept third-party cookies".</string>
+						<string>This sets the default value for "Accept third-party cookies".</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. This sets the default value for "Accept third-party cookies".</string>
 						<key>pfm_name</key>
@@ -1746,7 +1912,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. This determines when cookies expire.</string>
+						<string>This determines when cookies expire.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. This determines when cookies expire.</string>
 						<key>pfm_default</key>
@@ -1758,7 +1924,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Only reject trackers.</string>
+						<string>Only reject trackers.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Only reject trackers.</string>
 						<key>pfm_default</key>
@@ -1770,7 +1936,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, cookies preferences cannot be changed.</string>
+						<string>If this is true, cookies preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, cookies preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -1832,7 +1998,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If Value is set to false, tracking protection is disabled and locked in both the regular browser and private browsing. If Value is set to true, tracking protection is enabled by default in both the regular browser and private browsing.</string>
+						<string>If Value is set to false, tracking protection is disabled and locked in both the regular browser and private browsing. If Value is set to true, tracking protection is enabled by default in both the regular browser and private browsing.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If Value is set to false, tracking protection is disabled and locked in both the regular browser and private browsing. If Value is set to true, tracking protection is enabled by default in both the regular browser and private browsing.</string>
 						<key>pfm_default</key>
@@ -1844,7 +2010,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, Tracking Protection preferences cannot be changed.</string>
+						<string>If this is true, Tracking Protection preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, Tracking Protection preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -1871,7 +2037,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, sites on the allow list do not override Flash being completely disabled. Flash is activated by default for the domains indicated unless Flash is completely disabled. If a top level domain is specified (http://example.org), Flash is allowed for all subdomains as well.</string>
+						<string>If this preference is enabled, sites on the allow list do not override Flash being completely disabled. Flash is activated by default for the domains indicated unless Flash is completely disabled. If a top level domain is specified (http://example.org), Flash is allowed for all subdomains as well.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, sites on the allow list do not override Flash being completely disabled. Flash is activated by default for the domains indicated unless Flash is completely disabled. If a top level domain is specified (http://example.org), Flash is allowed for all subdomains as well.</string>
 						<key>pfm_name</key>
@@ -1894,7 +2060,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, Flash is blocked for the domains indicated. If a top level domain is specified (http://example.org), Flash is blocked from all subdomains as well.</string>
+						<string>If this preference is enabled, Flash is blocked for the domains indicated. If a top level domain is specified (http://example.org), Flash is blocked from all subdomains as well.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, Flash is blocked for the domains indicated. If a top level domain is specified (http://example.org), Flash is blocked from all subdomains as well.</string>
 						<key>pfm_name</key>
@@ -1917,7 +2083,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, Flash preferences cannot be changed. If this is false, Flash is never activated on websites even if they are in the specified in the Allow list.</string>
+						<string>If this is true, Flash preferences cannot be changed. If this is false, Flash is never activated on websites even if they are in the specified in the Allow list.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, Flash preferences cannot be changed. If this is false, Flash is never activated on websites even if they are in the specified in the Allow list.</string>
 						<key>pfm_default</key>
@@ -1929,7 +2095,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, Flash preferences cannot be changed.</string>
+						<string>If this is true, Flash preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, Flash preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -1956,7 +2122,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, add-ons are always allowed for the domains indicated unless add-on install is disabled. If a top level domain is specified (http://example.org), add-ons are allowed for all subdomains as well.</string>
+						<string>If this preference is enabled, add-ons are always allowed for the domains indicated unless add-on install is disabled. If a top level domain is specified (http://example.org), add-ons are allowed for all subdomains as well.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, add-ons are always allowed for the domains indicated unless add-on install is disabled. If a top level domain is specified (http://example.org), add-ons are allowed for all subdomains as well.</string>
 						<key>pfm_name</key>
@@ -1979,7 +2145,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is set to false, add-ons cannot be installed by the user.</string>
+						<string>If this is set to false, add-ons cannot be installed by the user.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is set to false, add-ons cannot be installed by the user.</string>
 						<key>pfm_default</key>
@@ -2014,20 +2180,24 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<string>This preference allows you to change the permissions associated with camera, microphone, location, and notifications.</string>
 				<key>pfm_name</key>
 				<string>Permissions</string>
+				<key>pfm_hidden</key>
+				<string>container</string>
 				<key>pfm_subkeys</key>
 				<array>
 					<dict>
+						<key>pfm_description</key>
+						<string>This preference allows you to change the camera permissions.</string>
 						<key>pfm_name</key>
 						<string>Camera</string>
 						<key>pfm_title</key>
-						<string>Camera</string>
+						<string>Camera Permissions</string>
 						<key>pfm_type</key>
 						<string>Dictionary</string>
 						<key>pfm_subkeys</key>
 						<array>
 							<dict>
 							<key>pfm_description</key>
-							<string>Optional. If this preference is enabled, access to the camera is always allowed for the domains indicated. If this preference is disabled or not configured, the default camera preference is followed.</string>
+							<string>If this preference is enabled, access to the camera is always allowed for the domains indicated. If this preference is disabled or not configured, the default camera preference is followed.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If this preference is enabled, access to the camera is always allowed for the domains indicated. If this preference is disabled or not configured, the default camera preference is followed.</string>
 								<key>pfm_name</key>
@@ -2050,7 +2220,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, access to the camera is blocked for the domains indicated. If this preference is disabled or not configured, access to the camera is not blocked by default.</string>
+								<string>If this preference is enabled, access to the camera is blocked for the domains indicated. If this preference is disabled or not configured, access to the camera is not blocked by default.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, access to the camera is blocked for the domains indicated. If this preference is disabled or not configured, access to the camera is not blocked by default.</string>
 								<key>pfm_name</key>
@@ -2073,7 +2243,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the camera. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the camera.</string>
+								<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the camera. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the camera.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the camera. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the camera.</string>
 								<key>pfm_name</key>
@@ -2087,7 +2257,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, camera preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their camera preferences.</string>
+								<string>If this preference is enabled, camera preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their camera preferences.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, camera preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their camera preferences.</string>
 								<key>pfm_name</key>
@@ -2102,17 +2272,19 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						</array>
 					</dict>
 					<dict>
+						<key>pfm_description</key>
+						<string>This preference allows you to change the microphone permissions.</string>
 						<key>pfm_name</key>
 						<string>Microphone</string>
 						<key>pfm_title</key>
-						<string>Microphone</string>
+						<string>Microphone Permissions</string>
 						<key>pfm_type</key>
 						<string>Dictionary</string>
 						<key>pfm_subkeys</key>
 						<array>
 							<dict>
 							<key>pfm_description</key>
-							<string>Optional. If this preference is enabled, access to the microphone is always allowed for the domains indicated. If this preference is disabled or not configured, the default microphone preference is followed.</string>
+							<string>If this preference is enabled, access to the microphone is always allowed for the domains indicated. If this preference is disabled or not configured, the default microphone preference is followed.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If this preference is enabled, access to the microphone is always allowed for the domains indicated. If this preference is disabled or not configured, the default microphone preference is followed.</string>
 								<key>pfm_name</key>
@@ -2135,7 +2307,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, access to the microphone is blocked for the domains indicated. If this preference is disabled or not configured, access to the microphone is not blocked by default.</string>
+								<string>If this preference is enabled, access to the microphone is blocked for the domains indicated. If this preference is disabled or not configured, access to the microphone is not blocked by default.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, access to the microphone is blocked for the domains indicated. If this preference is disabled or not configured, access to the microphone is not blocked by default.</string>
 								<key>pfm_name</key>
@@ -2158,7 +2330,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the microphone. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the microphone.</string>
+								<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the microphone. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the microphone.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access the microphone. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the microphone.</string>
 								<key>pfm_name</key>
@@ -2172,7 +2344,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, microphone preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their microphone preferences.</string>
+								<string>If this preference is enabled, microphone preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their microphone preferences.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, microphone preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their microphone preferences.</string>
 								<key>pfm_name</key>
@@ -2187,17 +2359,19 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						</array>
 					</dict>
 					<dict>
+						<key>pfm_description</key>
+						<string>This preference allows you to change the location permissions.</string>
 						<key>pfm_name</key>
 						<string>Location</string>
 						<key>pfm_title</key>
-						<string>Location</string>
+						<string>Location Permissions</string>
 						<key>pfm_type</key>
 						<string>Dictionary</string>
 						<key>pfm_subkeys</key>
 						<array>
 							<dict>
 							<key>pfm_description</key>
-							<string>Optional. If this preference is enabled, access to location is always allowed for the domains indicated. If this preference is disabled or not configured, the default location preference is followed.</string>
+							<string>If this preference is enabled, access to location is always allowed for the domains indicated. If this preference is disabled or not configured, the default location preference is followed.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If this preference is enabled, access to location is always allowed for the domains indicated. If this preference is disabled or not configured, the default location preference is followed.</string>
 								<key>pfm_name</key>
@@ -2220,7 +2394,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, access to location is blocked for the domains indicated. If this preference is disabled or not configured, access to location is not blocked by default.</string>
+								<string>If this preference is enabled, access to location is blocked for the domains indicated. If this preference is disabled or not configured, access to location is not blocked by default.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, access to location is blocked for the domains indicated. If this preference is disabled or not configured, access to location is not blocked by default.</string>
 								<key>pfm_name</key>
@@ -2243,7 +2417,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access location. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the location.</string>
+								<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access location. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the location.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access location. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access the location.</string>
 								<key>pfm_name</key>
@@ -2257,7 +2431,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, location preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their location preferences.</string>
+								<string>If this preference is enabled, location preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their location preferences.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, location preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their location preferences.</string>
 								<key>pfm_name</key>
@@ -2272,17 +2446,19 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						</array>
 					</dict>
 					<dict>
+						<key>pfm_description</key>
+						<string>This preference allows you to change the notifications permissions.</string>
 						<key>pfm_name</key>
 						<string>Notifications</string>
 						<key>pfm_title</key>
-						<string>Notifications</string>
+						<string>Notifications Permissions</string>
 						<key>pfm_type</key>
 						<string>Dictionary</string>
 						<key>pfm_subkeys</key>
 						<array>
 							<dict>
 							<key>pfm_description</key>
-							<string>Optional. If this preference is enabled, notifications can always be sent for the domains indicated. If this preference is disabled or not configured, the default nofication preference is followed.</string>
+							<string>If this preference is enabled, notifications can always be sent for the domains indicated. If this preference is disabled or not configured, the default nofication preference is followed.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If this preference is enabled, notifications can always be sent for the domains indicated. If this preference is disabled or not configured, the default nofication preference is followed.</string>
 								<key>pfm_name</key>
@@ -2305,7 +2481,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, notifications are always blocked for the domains indicated. If this preference is disabled or not configured, notifications are not blocked by default.</string>
+								<string>If this preference is enabled, notifications are always blocked for the domains indicated. If this preference is disabled or not configured, notifications are not blocked by default.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, notifications are always blocked for the domains indicated. If this preference is disabled or not configured, notifications are not blocked by default.</string>
 								<key>pfm_name</key>
@@ -2328,7 +2504,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to send notifications. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to send notifications.</string>
+								<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to send notifications. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to send notifications.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to send notifications. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to send notifications.</string>
 								<key>pfm_name</key>
@@ -2342,7 +2518,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							</dict>
 							<dict>
 								<key>pfm_description</key>
-								<string>Optional. If this preference is enabled, notification preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their notification preferences.</string>
+								<string>If this preference is enabled, notification preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their notification preferences.</string>
 								<key>pfm_description_reference</key>
 								<string>Optional. If this preference is enabled, location preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their location preferences.</string>
 								<key>pfm_name</key>
@@ -2373,7 +2549,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Specify the domains for which pop-up windows are always allowed. If a top level domain is specified (http://example.org), pop-up windows are allowed for all subdomains as well.</string>
+						<string>Specify the domains for which pop-up windows are always allowed. If a top level domain is specified (http://example.org), pop-up windows are allowed for all subdomains as well.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Specify the domains for which pop-up windows are always allowed. If a top level domain is specified (http://example.org), pop-up windows are allowed for all subdomains as well.</string>
 						<key>pfm_name</key>
@@ -2396,7 +2572,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is false, pop-up windows are allowed by default.</string>
+						<string>If this is false, pop-up windows are allowed by default.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is false, pop-up windows are allowed by default.</string>
 						<key>pfm_default</key>
@@ -2408,7 +2584,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this is true, pop-up blocking preferences cannot be changed.</string>
+						<string>If this is true, pop-up blocking preferences cannot be changed.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this is true, pop-up blocking preferences cannot be changed.</string>
 						<key>pfm_default</key>
@@ -2442,7 +2618,7 @@ In Firefox 65, you can specify a fully qualified path.</string>
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, Firefox will read certificates from the macOS keychain. If this preference is disabled or not configured, Firefox will not read certificates from the macOS keychain.</string>
+						<string>If this preference is enabled, Firefox will read certificates from the macOS keychain. If this preference is disabled or not configured, Firefox will not read certificates from the macOS keychain.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, Firefox will read certificates from the macOS keychain. If this preference is disabled or not configured, Firefox will not read certificates from the macOS keychain.</string>
 						<key>pfm_default</key>
@@ -2454,7 +2630,7 @@ In Firefox 65, you can specify a fully qualified path.</string>
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, Firefox will install the listed certificates. It will look in /Library/Application Support/Mozilla/Certificates and ~/Library/Application Support/Mozilla/Certificates.
+						<string>If this preference is enabled, Firefox will install the listed certificates. It will look in /Library/Application Support/Mozilla/Certificates and ~/Library/Application Support/Mozilla/Certificates.
 
 If this preference is disabled or not configured, Firefox will not install additional certificates.
 
@@ -2500,7 +2676,7 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Prevents adding an exception when an invalid certificate is shown. If this preference is enabled, the &quot;Add Exception&quot; button is not available when a certificate is invalid. This prevents the user from overriding the certificate error. If this preference is disabled or not configured, certificate errors can be overridden.</string>
+						<string>Prevents adding an exception when an invalid certificate is shown. If this preference is enabled, the &quot;Add Exception&quot; button is not available when a certificate is invalid. This prevents the user from overriding the certificate error. If this preference is disabled or not configured, certificate errors can be overridden.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Prevents adding an exception when an invalid certificate is shown. If this preference is enabled, the &quot;Add Exception&quot; button is not available when a certificate is invalid. This prevents the user from overriding the certificate error. If this preference is disabled or not configured, certificate errors can be overridden.</string>
 						<key>pfm_default</key>
@@ -2512,7 +2688,7 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. Prevents selecting "ignore the risk" and visiting a harmful site anyway. If this preference is enabled, a user cannot bypass the warning and visit a harmful site. If this preference is disabled or not configured, a user can choose to visit a harmful site.</string>
+						<string>Prevents selecting "ignore the risk" and visiting a harmful site anyway. If this preference is enabled, a user cannot bypass the warning and visit a harmful site. If this preference is disabled or not configured, a user can choose to visit a harmful site.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. Prevents selecting "ignore the risk" and visiting a harmful site anyway. If this preference is enabled, a user cannot bypass the warning and visit a harmful site. If this preference is disabled or not configured, a user can choose to visit a harmful site.</string>
 						<key>pfm_default</key>
@@ -2541,12 +2717,32 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				<key>pfm_subkeys</key>
 				<array>
 					<dict>
-						<key>pfm_default</key>
-						<string>PATH_TO_LIBRARY_FOR_DEVICE</string>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_description_reference</key>
+						<string></string>
 						<key>pfm_name</key>
-						<string>NAME_OF_DEVICE</string>
+						<string>{{key}}</string>
+						<key>pfm_title</key>
+						<string>Device Name</string>
 						<key>pfm_type</key>
-						<string>String</string>
+						<string>string</string>
+						<key>pfm_value_placeholder</key>
+						<string>NAME_OF_DEVICE</string>
+					</dict>
+					<dict>
+						<key>pfm_description</key>
+						<string></string>
+						<key>pfm_description_reference</key>
+						<string></string>
+						<key>pfm_name</key>
+						<string>{{value}}</string>
+						<key>pfm_title</key>
+						<string>Library Path</string>
+						<key>pfm_type</key>
+						<string>string</string>
+						<key>pfm_value_placeholder</key>
+						<string>PATH_TO_LIBRARY_FOR_DEVICE</string>
 					</dict>
 				</array>
 				<key>pfm_type</key>
@@ -2563,7 +2759,7 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				<array>
 					<dict>
 						<key>pfm_description</key>
-						<string>Required. If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
+						<string>If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
 						<key>pfm_description_reference</key>
 						<string>Required. If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
 						<key>pfm_name</key>
@@ -2590,7 +2786,7 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					</dict>
 					<dict>
 						<key>pfm_description</key>
-						<string>Optional. If this preference is enabled, and the website filter is enabled, you can specify match patterns for sites you do not want to block. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, there are no exceptions to the website filter.</string>
+						<string>If this preference is enabled, and the website filter is enabled, you can specify match patterns for sites you do not want to block. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, there are no exceptions to the website filter.</string>
 						<key>pfm_description_reference</key>
 						<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
 						<key>pfm_name</key>
@@ -2626,7 +2822,7 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>System</string>
 		</array>
 		<key>pfm_title</key>
-		<string>Mozilla Firefox (Beta)</string>
+		<string>Firefox</string>
 		<key>pfm_unique</key>
 		<false/>
 		<key>pfm_user_approved</key>
