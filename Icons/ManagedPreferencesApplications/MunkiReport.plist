@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_app_url</key>
+	<string>https://github.com/munkireport/munkireport-php</string>
+	<key>pfm_description</key>
+	<string>MunkiReport settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration</string>
+	<key>pfm_domain</key>
+	<string>MunkiReport</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_icon</key>
+	<data>
+	</data>
+	<key>pfm_last_modified</key>
+	<date>2019-01-02T00:37:00Z</date>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures MunkiReport settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>MunkiReport</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>MunkiReport</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>MunkiReport</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>http://yourserver/munkireport/</string>
+			<key>pfm_description</key>
+			<string>BaseUrl tells MunkiReport where to find the MunkiReport server. It contains the full url to the server - and subdirectory - ending in a slash - /. Note: BaseUrl is set automatically when installing MunkiReport via the command line or a package.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration#baseurl</string>
+			<key>pfm_enabled</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>BaseUrl</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>ReportItems contains a dictionary that tells MunkiReport where to look for the report files. The key is the name of the module, the value contains a path to the appropriate file. Note: ReportItems are set automatically when installing MunkiReport via the command line or a package.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration#reportitems</string>
+			<key>pfm_name</key>
+			<string>ReportItems</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>MunkiReport Module</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>ex. localadmin</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>File Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>ex. /usr/local/munki/preflight.d/cache/localadmins.txt</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If you have the MunkiReport server configured to use passphrases, you need to set these on the client to allow it to report in.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration#passphrase</string>
+			<key>pfm_name</key>
+			<string>Passphrase</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>mysecretpassphrase</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>By default, MunkiReport kills a script if it takes longer than 10 seconds to run. You can override this behavior by adding the scriptTimeOut preference key. The entry should consist of an integer containing the number of seconds that a script can run.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration#scripttimeout</string>
+			<key>pfm_name</key>
+			<string>scriptTimeOut</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>30</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If the munki repository and MunkiReport are served from the same server, it may be necessary to use the headers set in munki.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munkireport/munkireport-php/wiki/Client-Configuration#usemunkiadditionalhttpheaders</string>
+			<key>pfm_name</key>
+			<string>UseMunkiAdditionalHttpHeaders</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+	</array>
+	<key>pfm_title</key>
+	<string>MunkiReport</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
