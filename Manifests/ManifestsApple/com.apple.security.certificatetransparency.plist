@@ -3,24 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description_reference</key>
-	<string>The Global Preferences payload is designated by specifying .GlobalPreferences as the PayloadType value.</string>
+	<string>Certificate Preference payloads are designated by specifying com.apple.security.certificatetransparency as the PayloadType value.
+A Certificate Transparency payload controls Certificate Transparency enforcement. It can only appear in a device profile, not a user profile. You can include multiple Certificate Transparency payloads as needed.
+This payload does not require MDM or DEP enrollment.
+Available in iOS 12.1.1, MacOS 10.14.2, tvOS 12.1.1, and watchOS 5.1.1 and later.</string>
 	<key>pfm_description</key>
-	<string>Global Preferences settings</string>
+	<string>Certificate Transparency settings</string>
 	<key>pfm_domain</key>
-	<string>.GlobalPreferences</string>
+	<string>com.apple.security.certificatetransparency</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:48Z</date>
+	<date>2018-07-18T08:58:49Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
+		<string>iOS</string>
+		<string>tvOS</string>
 	</array>
+	<key>pfm_macos_min</key>
+	<string>10.14.2</string>
+	<key>pfm_ios_min</key>
+	<string>12.1.1</string>
+	<key>pfm_tvos_min</key>
+	<string>12.1.1</string>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures Global Preferences settings</string>
+			<string>Configures Certificate Transparency settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -34,7 +47,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Global Preferences</string>
+			<string>Certificate Transparency</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -50,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.GlobalPreferences</string>
+			<string>com.apple.security.certificatetransparency</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
@@ -66,7 +79,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.ManagedClient.preferences</string>
+			<string>com.apple.security.certificatetransparency</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -130,63 +143,102 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
-			<string></string>
+			<string>Optional. List of domains where certificate transparency is disabled. A leading period can be used to match subdomains, but a domain matching rule must not match all domains within a top level domain (”.example.com” and ”.example.co.uk” are allowed while ”.com” and ”.co.uk” are not allowed).</string>
 			<key>pfm_description</key>
-			<string>Hides the one-time alert shown when opening a 32-bit application.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://support.apple.com/en-us/HT208436</string>
-			<key>pfm_macos_min</key>
-			<string>10.13.4</string>
+			<string>List of domains where certificate transparency is disabled.</string>
 			<key>pfm_name</key>
-			<string>CSUIDisable32BitWarning</string>
+			<string>DisabledForDomains</string>
 			<key>pfm_title</key>
-			<string>Hide 32-bit app compatibility alert</string>
+			<string>Disabled Domains</string>
 			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>array</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>pfm_description</key>
-			<string>If set to false, fast user switching is disabled.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If set to false, fast user switching is disabled. Defaults to true.</string>
-			<key>pfm_macos_min</key>
-			<string>10.12</string>
-			<key>pfm_name</key>
-			<string>MultipleSessionEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable Fast User Switching</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
+			<string>Optional. A list of hashed subjectPublicKeyInfo dictionaries defining the certificates where certificate transparency is disabled. For certificate transparency enforcement to be disabled, one of the following conditions must be met:
+• The hash is of the server certificate's subjectPublicKeyInfo.
+• The hash is of a subjectPublicKeyInfo that appears in a CA certificate in the certificate chain, the CA certificate is constrained via the X. 509v3 nameConstraints extension, one or more directoryName nameConstraints are present in the permittedSubtrees, and the directoryName contains an organizationName attribute.
+• The hash is of a subjectPublicKeyInfo that appears in a CA certificate in the certificate chain, the CA certificate has one or more organizationName attributes in the certificate Subject, and the server's certificate contains the same number of organizationName attributes, in the same order, and with byte-for- byte identical values.</string>
 			<key>pfm_description</key>
-			<string>A value of zero, means auto-logout is off. In some cases, this value may be restricted to values between 5 minutes and 24 hours.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The auto log out delay (in seconds). A value of zero, means auto-logout is off. In some cases, this value may be restricted to values between 5 minutes and 24 hours.</string>
-			<key>pfm_range_min</key>
-			<integer>0</integer>
-			<key>pfm_range_max</key>
-			<integer>86400</integer>
-			<key>pfm_value_unit</key>
-			<string>Seconds</string>
+			<string>A list of certificate hashes for which certificate transparency is disabled.</string>
 			<key>pfm_name</key>
-			<string>com.apple.autologout.AutoLogOutDelay</string>
+			<string>DisabledForCerts</string>
 			<key>pfm_title</key>
-			<string>Auto LogOut Delay</string>
+			<string>Disabled Certificates</string>
+			<key>pfm_allowed_file_types</key>
+			<array>
+				<string>public.x509-certificate</string>
+			</array>
+			<key>pfm_value_import_processor</key>
+			<string>com.apple.security.certificatetransparency</string>
 			<key>pfm_type</key>
-			<string>integer</string>
+			<string>array</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>Cert</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>sha256</string>
+							</array>
+							<key>pfm_default</key>
+							<string>sha256</string>
+							<key>pfm_description</key>
+							<string>Hash algorithm</string>
+							<key>pfm_description_reference</key>
+							<string>Required. Currently, must be "sha256".</string>
+							<key>pfm_name</key>
+							<string>Algorithm</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_require</key>
+							<string>always</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. Created by applying the specified hash algorithm to the DER- encoding of the certificate'sÂ subjectPublicKeyInfo.</string>
+							<key>pfm_description</key>
+							<string>Hash of the certificate's subjectPublicKeyInfo</string>
+							<key>pfm_name</key>
+							<string>Hash</string>
+							<key>pfm_type</key>
+							<string>data</string>
+							<key>pfm_type_input</key>
+							<string>string</string>
+							<key>pfm_value_processor</key>
+							<string>base642data</string>
+							<key>pfm_format</key>
+							<string>^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
 		<string>system</string>
-		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Global Preferences</string>
+	<string>Certificate Transparency</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>
