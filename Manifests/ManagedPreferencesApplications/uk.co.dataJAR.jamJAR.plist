@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_app_url</key>
+	<string>https://github.com/dataJAR/jamJAR</string>
+	<key>pfm_description</key>
+	<string>jamJAR Preferences</string>
+	<key>pfm_documentation_url</key>
+	<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences</string>
+	<key>pfm_domain</key>
+	<string>uk.co.dataJAR.jamJAR</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_last_modified</key>
+	<date>2019-02-14T08:58:52Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures jamJAR preferences</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>jamJAR Preferences</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.Siri</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>uk.co.dataJAR.jamJAR</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>/var/log/</string>
+			<key>pfm_description</key>
+			<string>jamJAR log file storage location.</string>
+			<key>pfm_description_reference</key>
+			<string>This is the directory in which the jamJAR.log is created, this is created via the jamJAR postflight after every run. The log rotates at midnight &amp; appends the date to the old file.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#log_file_dir</string>
+			<key>pfm_name</key>
+			<string>log_file_dir</string>
+			<key>pfm_title</key>
+			<string>Log File</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>jamJAR</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The notification texts title.</string>
+			<key>pfm_name</key>
+			<string>notifier_msg_title</string>
+			<key>pfm_title</key>
+			<string>Notification Message Title</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>%s %s has been installed</string>
+			<key>pfm_description</key>
+			<string>Notification message content when software is installed. Requires 2 string placeholders (%s), the first being the munki item name and the second being the version.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when an item is installed, this requires 2 string placeholders (%s). These are then passed the following:
+- Item Name (i.e. Google Chrome).
+- Item Version (i.e. 56.0.2924.87).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#notifier_msg_installed</string>
+			<key>pfm_name</key>
+			<string>notifier_msg_installed</string>
+			<key>pfm_title</key>
+			<string>Install Notification Message</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>No updates pending</string>
+			<key>pfm_description</key>
+			<string>Notification message content when no software is pending.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when all pending updates have been installed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#notifier_msg_nopending</string>
+			<key>pfm_name</key>
+			<string>notifier_msg_nopending</string>
+			<key>pfm_title</key>
+			<string>No Pending Installs Notification Message</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Logout to complete pending updates</string>
+			<key>pfm_description</key>
+			<string>Notification message content when software is pending.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when there are updates pending. Currently blocking apps or apps requiring a restart action will all trigger this notification.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#notifier_msg_pending</string>
+			<key>pfm_name</key>
+			<string>notifier_msg_pending</string>
+			<key>pfm_title</key>
+			<string>Pending Installs Exist Notification Message</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Latest version of %s is installed</string>
+			<key>pfm_description</key>
+			<string>Notification message content when software is up-to-date. Requires 1 string placeholder (%s), which defaults to the munki item name.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when a jamJAR policy is initiated via Self Service &amp; the title attempted to install is up-to-date. This requires 1 string placeholders (%s), which defaults to Item Name (i.e. Google Chrome).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#notifier_msg_uptodate</string>
+			<key>pfm_name</key>
+			<string>notifier_msg_uptodate</string>
+			<key>pfm_title</key>
+			<string>Software Up-to-Date Notification Message</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>/Library/Application Support/JAMF/bin/Management Action.app/Contents/MacOS/Management Action</string>
+			<key>pfm_description</key>
+			<string>The path of the application sending jamJAR notifications. Only terminal-notifier &amp; Jamf Pro's Management Action have been tested.</string>
+			<key>pfm_description_reference</key>
+			<string>The path of the application sending the notifications. Currently only terminal-notifier &amp; Jamf Pro's Management Action have been tested. If this is defined within jamJAR preferences but is missing, then no notifications are sent when a user is logged in. The only notifications will be from Munki status over the loginwindow.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/dataJAR/jamJAR/wiki/jamJAR-Preferences#notifier_path</string>
+			<key>pfm_name</key>
+			<string>notifier_path</string>
+			<key>pfm_title</key>
+			<string>Notifying Application Path</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>jamJAR</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
