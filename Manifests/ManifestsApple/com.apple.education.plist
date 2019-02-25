@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>Education Configuration settings</string>
+	<key>pfm_documentation_url</key>
+	<string></string>
+	<key>pfm_documentation_reference</key>
+	<string>The Education Configuration Payload defines the users, groups, and departments within an educational organization. It is supported on iOS 9.3 and later. On iOS, it must be supervised and sent over the device channel. It is supported on macOS 10.14 and later. On macOS, it must be sent over the user channel.</string>
+	<key>pfm_domain</key>
+	<string>com.apple.education</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_ios_min</key>
+	<string>9.3</string>
+	<key>pfm_last_modified</key>
+	<date>2019-02-23T18:50:49Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.14</string>
+	<key>pfm_platforms</key>
+	<array>
+		<string>iOS</string>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Education Configuration settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Apple Education</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.education</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.education</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile. The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Required. The organization's display name. This name will be shown in the iOS login screen.</string>
+			<key>pfm_name</key>
+			<string>OrganizationName</string>
+			<key>pfm_required</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Organization Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Required. The organization's UUID identifier. This can be any valid UUID. All teacher and student devices that need to communicate with one another must have the same OrganizationUUID, particularly if they originated from different Device Enrollment Programs.</string>
+			<key>pfm_name</key>
+			<string>OrganizationUUID</string>
+			<key>pfm_required</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Organization UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Used to perform client authentication between devices.</string>
+			<key>pfm_description_reference</key>
+			<string>Required. The UUID of an identity certificate payload that will be used to perform client authentication with other devices.</string>
+			<key>pfm_name</key>
+			<string>PayloadCertificateUUID</string>
+			<key>pfm_required</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Certificate UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. An array of UUIDs referring to certificate payloads that will be used to authorize leader peer certificate identities. This array must contain all certificates needed to validate the entire chain of trust. Leader certificates must have the common name prefix leader (case insensitive) and have a .cer type.</string>
+			<key>pfm_name</key>
+			<string>LeaderPayloadCertificateAnchorUUID</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>UUID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Leader Payload Certificate Anchor UUIDs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. An array of UUIDs referring to certificate payloads that will be used to authorize group member peer certificate identities. This array must contain all certificates needed to validate the entire chain of trust. Member certificates must have the common name prefix member (case insensitive) and have a .cer type.</string>
+			<key>pfm_name</key>
+			<string>MemberPayloadCertificateAnchorUUID</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>UUID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Member Payload Certificate Anchor UUIDs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. The UUID of an identity certificate payload that will be used to perform client authentication when fetching additional resources, such as, student images. If not specified the MDM client identity will be used.</string>
+			<key>pfm_name</key>
+			<string>ResourcePayloadCertificateUUID</string>
+			<key>pfm_title</key>
+			<string>Resource Payload Certificate UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A unique string that identifies the user of this device within the organization.</string>
+			<key>pfm_name</key>
+			<string>UserIdentifier</string>
+			<key>pfm_title</key>
+			<string>User Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Shared: An array of dictionaries that define departments that are shown in the iOS login window.</string>
+			<key>pfm_name</key>
+			<string>Departments</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_documentation_url</key>
+							<string>Required. The display name of the department.</string>
+							<key>pfm_name</key>
+							<string>Name</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Department Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_documentation_url</key>
+							<string>Required. The group beacon identifiers that are members of this department.</string>
+							<key>pfm_name</key>
+							<string>GroupBeaconIDs</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>Group Beacon ID</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Group Beacon IDs</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>DepartmentsDictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Departments</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Required. Shared: An array of dictionaries that define groups that the user can select in the login window.
+Leader: An array of dictionaries that define the groups that the user can control.
+Member: An array of dictionaries that define the groups of which the user is a member.</string>
+			<key>pfm_name</key>
+			<string>Groups</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The unsigned 16 bit integer specifying this group's unique beacon ID.</string>
+							<key>pfm_name</key>
+							<string>BeaconID</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Beacon ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The display name of the group.</string>
+							<key>pfm_name</key>
+							<string>Name</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Group Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. Description of the group.</string>
+							<key>pfm_name</key>
+							<string>Description</string>
+							<key>pfm_title</key>
+							<string>Group Description</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Deprecated in iOS 9.3.1 and later. URL of an image for the group.</string>
+							<key>pfm_ios_deprecated</key>
+							<string>9.3.1</string>
+							<key>pfm_name</key>
+							<string>ImageURL</string>
+							<key>pfm_title</key>
+							<string>Group Image URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The source that provided this group; e.g. iTunesU, SIS, or MDM.</string>
+							<key>pfm_name</key>
+							<string>ConfigurationSource</string>
+							<key>pfm_title</key>
+							<string>Configuration Source</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The user identifiers that are leaders of this group.</string>
+							<key>pfm_name</key>
+							<string>LeaderIdentifiers</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>Leader Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Leader Identifiers</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The strings that refer to entries in the Users array that are members of the group.</string>
+							<key>pfm_name</key>
+							<string>MemberIdentifiers</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>Member Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Member Identifiers</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The identifier strings that refer to entries in the DeviceGroups array that are device groups to which the instructor can assign users from this class.</string>
+							<key>pfm_name</key>
+							<string>DeviceGroupIdentifiers</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>Device Group Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Device Group Identifiers</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>GroupsDictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Groups</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Required. Shared: An array of dictionaries that define the users that are shown in the iOS login window.
+Leader: An array of dictionaries that define users that are members of the leaderʼs groups.
+Member: An array of a dictionaries that must contain the definition of the user specified in the UserIdentifier key.
+With one-to-one member devices, this key should include only the device user and the leader but not other class members.</string>
+			<key>pfm_name</key>
+			<string>Users</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The string that uniquely identifies a user in the organization.</string>
+							<key>pfm_name</key>
+							<string>Identifier</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>User's Identifier</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The string displayed as the name of the user.</string>
+							<key>pfm_name</key>
+							<string>Name</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>User's Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The string displayed as the given name of the user.</string>
+							<key>pfm_name</key>
+							<string>GivenName</string>
+							<key>pfm_title</key>
+							<string>User's Given Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The string displayed as the family name of the user.</string>
+							<key>pfm_name</key>
+							<string>FamilyName</string>
+							<key>pfm_title</key>
+							<string>User's Family Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The string that represents the userʼs phonetic given name. It will be used to sort users in the Classroom app and the Shared iPad Login Screen.</string>
+							<key>pfm_name</key>
+							<string>PhoneticGivenName</string>
+							<key>pfm_title</key>
+							<string>User's Phonetic Given Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The string that represents the userʼs phonetic family name. It will be used to sort users in the Classroom app and the Shared iPad Login Screen.</string>
+							<key>pfm_name</key>
+							<string>PhoneticFamilyName</string>
+							<key>pfm_title</key>
+							<string>User's Phonetic Family Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>URL pointing to a JPEG, PNG, or TIFF image of the user. Recommended either 256x256 or 512x512 resolution.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. A string containing a URL pointing to an image of the user. This image will be displayed in the iOS login screen and in the Classroom app. The recommended resolution is 256 x 256 pixels (512 x 512 pixels on a 2x device). The recommended formats are JPEG, PNG, and TIFF. The ResourcePayloadCertificateUUID identity certificate or the MDM client identity will be used to perform authentication when fetching the image.</string>
+							<key>pfm_name</key>
+							<string>ImageURL</string>
+							<key>pfm_title</key>
+							<string>User's Image URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Deprecated in iOS 9.3.1 and later. URL pointing to an image of the user. The ResourcePayloadCertificateUUID identity certificate or the MDM client identity will be used to perform authentication when fetching the specified resource.</string>
+							<key>pfm_ios_deprecated</key>
+							<string>9.3.1</string>
+							<key>pfm_name</key>
+							<string>FullScreenImageURL</string>
+							<key>pfm_title</key>
+							<string>User's Fullscreen Image URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Optional. The Managed Apple ID for this user.</string>
+							<key>pfm_name</key>
+							<string>AppleID</string>
+							<key>pfm_title</key>
+							<string>User's Apple ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Complex, 4-digit, or 6-digit number.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. The passcode UI to show when the user is at the login window; possible values are complex, four, or six.</string>
+							<key>pfm_name</key>
+							<string>PasscodeType</string>
+							<key>pfm_title</key>
+							<string>User's Passcode Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>UsersDictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Users</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>Optional. Leader: An array of dictionaries that define the device groups to which the leader can assign devices. This key is not included in member payloads.</string>
+			<key>pfm_name</key>
+			<string>DeviceGroups</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The string that uniquely identifies the device group in the organization.</string>
+							<key>pfm_name</key>
+							<string>Identifier</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Device Group Identifier</string>
+							<string>pfm_type</string>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The string displayed as the name of the device group, which must be unique in the organization.</string>
+							<key>pfm_name</key>
+							<string>Name</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Device Group Name</string>
+							<string>pfm_type</string>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description_reference</key>
+							<string>Required. The strings containing the serial numbers of the devices in the group.</string>
+							<key>pfm_name</key>
+							<string>SerialNumbers</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>Device Serial Number</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Device Group Serial Numbers</string>
+							<string>pfm_type</string>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>DeviceGroupsDictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Device Groups</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Apple Education</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
