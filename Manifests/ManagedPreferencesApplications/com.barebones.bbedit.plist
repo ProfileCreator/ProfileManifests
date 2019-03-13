@@ -12,11 +12,8 @@
 	<string>com.barebones.bbedit</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_icon</key>
-	<data>
-	</data>
 	<key>pfm_last_modified</key>
-	<date>2018-12-03T18:50:49Z</date>
+	<date>2018-03-13T18:50:49Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -140,7 +137,7 @@
 					<string>PFC_SegmentedControl_ExpertPrefs3</string>
 					<string>PFC_SegmentedControl_ExpertPrefs4</string>
 					<string>AllowShiftRightToIndentWhitespaceOnlyLines</string>
-					<string>AllowShiftRightToIndentWhitespaceOnlyLines_C++</string>
+					<!-- <string>AllowShiftRightToIndentWhitespaceOnlyLines_LANGUAGE</string> -->
 					<string>AllowVolumeMountDuringStateRestore</string>
 					<string>AskForUnguessableFileEncoding</string>
 					<string>AskXcodeForOpenFileByName</string>
@@ -162,8 +159,10 @@
 					<string>Editor_DeleteIndentationWhitespaceToTabStop</string>
 					<string>Editor_SpellCheckLengthLimit</string>
 					<string>EnableAutoSave_v2</string>
+					<!-- 
 					<string>EnableFontLigatures_FONTNAME</string>
 					<string>EnableRareLigatures_FONTNAME</string>
+ 					-->
 					<string>FindDialog_UsesFindScrap</string>
 					<string>FixedWidthFontSmoothingThreshold</string>
 					<string>FlashBalancePointsWhenNavigating</string>
@@ -177,6 +176,7 @@
 					<string>MarkupPanelAutoPrefillRecommendedAttributeNames</string>
 					<string>MarkupToolsMisc_SkipXMLFilesWhenScanningFolders</string>
 					<string>MaxDocumentLengthForCompletionTokenizer</string>
+					<!-- <string>MinimumLinesForBlockFold_LANGUAGE</string> -->
 					<string>MostRecentItemsGroupLimit</string>
 					<string>MoveModelessWindowsToActiveSpace</string>
 					<string>MoveModelessWindowsToActiveSpace_FindWindow</string>
@@ -185,10 +185,12 @@
 					<string>NSRecentDocumentsLimit:Folders</string>
 					<string>NSRecentDocumentsLimit:Images</string>
 					<string>NSRecentDocumentsLimit:Projects</string>
-					<string>OpaqueBlockComments_PHP</string>
-					<string>OpaqueHereDoc_PHP</string>
-					<string>OpaqueLineComments_PHP</string>
-					<string>OpaqueStrings_PHP</string>
+					<!-- 
+					<string>OpaqueBlockComments_LANGUAGE</string>
+					<string>OpaqueHereDoc_LANGUAGE</string>
+					<string>OpaqueLineComments_LANGUAGE</string>
+					<string>OpaqueStrings_LANGUAGE</string>
+ 					-->
 					<string>OpenByNameMaxWildcardMatches</string>
 					<string>OpenPanelShowsFrontDocumentDirectory</string>
 					<string>OpenPDFsAsText</string>
@@ -209,7 +211,7 @@
 					<string>SFTPConnectionTimeout</string>
 					<string>ShowFullPathsInSearchResults</string>
 					<string>ShowSVNSwitchedItems</string>
-					<string>ShowVariablesInFunctionList_PHP</string>
+					<!-- <string>ShowVariablesInFunctionList_LANGUAGE</string> -->
 					<string>SkipSCMAdminDirsWhenScanningFolders</string>
 					<string>SubversionToolPathOverride</string>
 					<string>SurfNextPreviousInDisplayOrder</string>
@@ -258,6 +260,8 @@
 			<string>Organization registered to BBEdit 11 license.</string>
 			<key>pfm_name</key>
 			<string>BBEditRegisteredOwner:11.0</string>
+			<key>pfm_title</key>
+			<string>BBEdit Registered Owner v11</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -268,6 +272,8 @@
 			<string>BBEdit 11 license.</string>
 			<key>pfm_name</key>
 			<string>BBEditSerialNumber:11.0</string>
+			<key>pfm_title</key>
+			<string>BBEdit License v11</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -278,6 +284,8 @@
 			<string>Organization registered to BBEdit 12 license.</string>
 			<key>pfm_name</key>
 			<string>BBEditRegisteredOwner:12.0</string>
+			<key>pfm_title</key>
+			<string>BBEdit Registered Owner v12</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -288,6 +296,8 @@
 			<string>BBEdit 12 license.</string>
 			<key>pfm_name</key>
 			<string>BBEditSerialNumber:12.0</string>
+			<key>pfm_title</key>
+			<string>BBEdit License v12</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -351,7 +361,7 @@
 				<key>Shift Right</key>
 				<array>
 					<string>AllowShiftRightToIndentWhitespaceOnlyLines</string>
-					<string>AllowShiftRightToIndentWhitespaceOnlyLines_C++</string>
+					<!-- <string>AllowShiftRightToIndentWhitespaceOnlyLines_LANGUAGE</string> -->
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -359,20 +369,22 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>By default, the “Shift Right” command on the Text menu will not add indentation to lines that are empty or consist entirely of white space. If you would prefer to indent every line, regardless of its whitespace-only nature, set this preference to 'true'.</string>
+			<string>By default, the "Shift Right" command on the Text menu will not add indentation to lines that are empty or consist entirely of white space. If you would prefer to indent every line, regardless of its whitespace-only nature, set this preference to 'true'.</string>
 			<key>pfm_name</key>
 			<string>AllowShiftRightToIndentWhitespaceOnlyLines</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<dict>
+		<!-- 
+			<dict>
 			<key>pfm_description</key>
-			<string>By default, the “Shift Right” command on the Text menu will not add indentation to lines that are empty or consist entirely of white space. If you would prefer to indent every line for C++, regardless of its whitespace-only nature, set this preference to 'true'.</string>
+			<string>By default, the "Shift Right" command on the Text menu will not add indentation to lines that are empty or consist entirely of white space. If you would prefer to indent every line for LANGUAGE, regardless of its whitespace-only nature, set this preference to 'true'.</string>
 			<key>pfm_name</key>
-			<string>AllowShiftRightToIndentWhitespaceOnlyLines_C++</string>
+			<string>AllowShiftRightToIndentWhitespaceOnlyLines_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		-->
 		<dict>
 			<key>pfm_description</key>
 			<string>By default, the "Balance" command (or double-clicking on a delimiter to balance) does not include the delimiters in the resulting selection. If you would like for it to do so, set this preference to 'true'.</string>
@@ -415,7 +427,7 @@ Note that this use of Control-left-arrow and Control-right-arrow replaces the pr
 			<key>pfm_name</key>
 			<string>Editor_ControlArrowCamelCase</string>
 			<key>pfm_type</key>
-			<string>string</string>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -427,7 +439,7 @@ Note that this use of Control-left-arrow and Control-right-arrow replaces the pr
 			<key>pfm_name</key>
 			<string>Editor_ControlArrowHScroll</string>
 			<key>pfm_type</key>
-			<string>string</string>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -600,7 +612,7 @@ Set this preference to 'true' if you prefer the classic behavior.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When generating image markup as a result of dropping an image file into an HTML document, BBEdit will generate an “alt” attribute for the image tag, whose value is the file’s name. If you would prefer for the “alt” attribute to be omitted (which will result in an error when checking syntax), you can disable this by setting this to 'false'.</string>
+			<string>When generating image markup as a result of dropping an image file into an HTML document, BBEdit will generate an "alt" attribute for the image tag, whose value is the file’s name. If you would prefer for the "alt" attribute to be omitted (which will result in an error when checking syntax), you can disable this by setting this to 'false'.</string>
 			<key>pfm_name</key>
 			<string>HTMLImageMarkupUsesFileNameForAlt</string>
 			<key>pfm_type</key>
@@ -608,7 +620,7 @@ Set this preference to 'true' if you prefer the classic behavior.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When you drop an image file into an HTML document to generate an image tag, BBEdit will generate “width” and “height” tags based on information in the file itself. If you would prefer to omit these, set these to 'false'.</string>
+			<string>When you drop an image file into an HTML document to generate an image tag, BBEdit will generate "width" and "height" tags based on information in the file itself. If you would prefer to omit these, set these to 'false'.</string>
 			<key>pfm_name</key>
 			<string>HTMLImageMarkupCreatesSizeAttributes</string>
 			<key>pfm_type</key>
@@ -646,11 +658,11 @@ Set this preference to 'true' if you prefer the classic behavior.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When you invoke the Markup Panel to create a new tag, it will automatically fill in attribute names for “promoted” attributes. If there are any attributes that you don’t want to be present in the generated markup, just leave their values blank, and the panel will omit them (unless the attributes are required).
+			<string>When you invoke the Markup Panel to create a new tag, it will automatically fill in attribute names for "promoted" attributes. If there are any attributes that you don’t want to be present in the generated markup, just leave their values blank, and the panel will omit them (unless the attributes are required).
 
 If you wish, you can suppress the auto fill by setting this to 'false'.
 
-Turning off the auto fill will cause the “gear” to appear in the markup panel, and clicking it will manually fill in the promoted attributes for you.</string>
+Turning off the auto fill will cause the "gear" to appear in the markup panel, and clicking it will manually fill in the promoted attributes for you.</string>
 			<key>pfm_name</key>
 			<string>MarkupPanelAutoPrefillRecommendedAttributeNames</string>
 			<key>pfm_type</key>
@@ -674,12 +686,14 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 				<array>
 					<string>CounterpartSiblingSearchNames</string>
 					<string>DefaultLanguageNameForNewDocuments</string>
-					<string>MinimumLinesForBlockFold_LANGUAGENAME</string>
-					<string>OpaqueBlockComments_PHP</string>
-					<string>OpaqueHereDoc_PHP</string>
-					<string>OpaqueLineComments_PHP</string>
-					<string>OpaqueStrings_PHP</string>
-					<string>ShowVariablesInFunctionList_PHP</string>
+					<!-- 
+					<string>MinimumLinesForBlockFold_LANGUAGE</string>
+					<string>OpaqueBlockComments_LANGUAGE</string>
+					<string>OpaqueHereDoc_LANGUAGE</string>
+					<string>OpaqueLineComments_LANGUAGE</string>
+					<string>OpaqueStrings_LANGUAGE</string>
+					<string>ShowVariablesInFunctionList_LANGUAGE</string>
+ 					-->
 					<string>UseDashForReferenceLookups</string>
 				</array>
 				<key>Other Apps</key>
@@ -718,7 +732,7 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>By default, BBEdit will open AppleScript files using whatever application the OS claims is capable of doing so. If you wish to override this, change the “ScriptEditorBundleID” preference to the bundle ID of your preferred script editor.</string>
+			<string>By default, BBEdit will open AppleScript files using whatever application the OS claims is capable of doing so. If you wish to override this, change the "ScriptEditorBundleID" preference to the bundle ID of your preferred script editor.</string>
 			<key>pfm_name</key>
 			<string>ScriptEditorBundleID</string>
 			<key>pfm_type</key>
@@ -728,7 +742,7 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The “Run in Terminal” and “Go Here in Terminal” commands will use Apple’s “Terminal” application by default. If you would like to use a different one, set this here.</string>
+			<string>The "Run in Terminal" and "Go Here in Terminal" commands will use Apple’s "Terminal" application by default. If you would like to use a different one, set this here.</string>
 			<key>pfm_name</key>
 			<string>TerminalBundleID</string>
 			<key>pfm_type</key>
@@ -738,7 +752,7 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If Dash is installed, BBEdit will use it for “Find in Reference”, in preference to any predefined or custom reference lookup URLs.
+			<string>If Dash is installed, BBEdit will use it for "Find in Reference", in preference to any predefined or custom reference lookup URLs.
 NEEDS LANGUAGE SPECIFIC OPTIONS.
 
 You could, if you wanted, turn off Dash support by default and then enable it for specific languages.</string>
@@ -757,12 +771,13 @@ You could, if you wanted, turn off Dash support by default and then enable it fo
 			<key>pfm_value_placeholder</key>
 			<string>Markdown</string>
 		</dict>
-		<dict>
+		<!-- 
+			<dict>
 			<key>pfm_description</key>
-			<string>Most of the factory supplied language modules generate fold ranges for any brace-delimited block that has at least one line, but to reduce noise, only block folds that have at least four lines are shown in editing windows. You can adjust this from the command line, using a language-specific preference key, which consists of “MinimumLinesForBlockFold_” (note the underscore) and the language name.
+			<string>Most of the factory supplied language modules generate fold ranges for any brace-delimited block that has at least one line, but to reduce noise, only block folds that have at least four lines are shown in editing windows. You can adjust this from the command line, using a language-specific preference key, which consists of "MinimumLinesForBlockFold_" (note the underscore) and the language name.
 NEEDS LANGUAGE SPECIFIC OPTIONS</string>
 			<key>pfm_name</key>
-			<string>MinimumLinesForBlockFold_LANGUAGENAME</string>
+			<string>MinimumLinesForBlockFold_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_unit</key>
@@ -770,47 +785,48 @@ NEEDS LANGUAGE SPECIFIC OPTIONS</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Here are some language-specific settings for PHP. The settings with “Opaque” in their names refer to how certain structures are treated when scanning PHP code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
+			<string>Here are some language-specific settings for LANGUAGE. The settings with "Opaque" in their names refer to how certain structures are treated when scanning LANGUAGE code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
 			<key>pfm_name</key>
-			<string>OpaqueStrings_PHP</string>
+			<string>OpaqueStrings_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Here are some language-specific settings for PHP. The settings with “Opaque” in their names refer to how certain structures are treated when scanning PHP code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
+			<string>Here are some language-specific settings for LANGUAGE. The settings with "Opaque" in their names refer to how certain structures are treated when scanning LANGUAGE code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
 			<key>pfm_name</key>
-			<string>OpaqueBlockComments_PHP</string>
+			<string>OpaqueBlockComments_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Here are some language-specific settings for PHP. The settings with “Opaque” in their names refer to how certain structures are treated when scanning PHP code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
+			<string>Here are some language-specific settings for LANGUAGE. The settings with "Opaque" in their names refer to how certain structures are treated when scanning LANGUAGE code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
 			<key>pfm_name</key>
-			<string>OpaqueLineComments_PHP</string>
+			<string>OpaqueLineComments_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Here are some language-specific settings for PHP. The settings with “Opaque” in their names refer to how certain structures are treated when scanning PHP code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
+			<string>Here are some language-specific settings for LANGUAGE. The settings with "Opaque" in their names refer to how certain structures are treated when scanning LANGUAGE code that’s embedded in HTML; when the preference is YES (the factory default in most cases), the corresponding structure is skipped so that any syntactic elements within it are ignored. When the preference is NO, the comment/string/etc delimiters are ignored and the structure’s contents are interpreted. This is generally not desirable, but currently preserved for legacy compatibility.</string>
 			<key>pfm_name</key>
-			<string>OpaqueHereDoc_PHP</string>
+			<string>OpaqueHereDoc_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If you want variables to appear in the function menu in PHP documents, set this to 'true'.</string>
+			<string>If you want variables to appear in the function menu in LANGUAGE documents, set this to 'true'.</string>
 			<key>pfm_name</key>
-			<string>ShowVariablesInFunctionList_PHP</string>
+			<string>ShowVariablesInFunctionList_LANGUAGE</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+ 		-->
 		<dict>
 			<key>pfm_description</key>
-			<string>When the active document is either a source or a header file, the “Open Counterpart” command will now search the siblings of this file's parent for eligible counterparts. By default, BBEdit will only search in such folders if their names match one of the following patterns (including wildcards): `inc*`, `source`, `src`, or `*priv*`. If you wish to add additional qualifying names, you may do so by setting "CounterpartSiblingSearchNames" to contain a comma-delimited list of folder name patterns.
+			<string>When the active document is either a source or a header file, the "Open Counterpart" command will now search the siblings of this file's parent for eligible counterparts. By default, BBEdit will only search in such folders if their names match one of the following patterns (including wildcards): `inc*`, `source`, `src`, or `*priv*`. If you wish to add additional qualifying names, you may do so by setting "CounterpartSiblingSearchNames" to contain a comma-delimited list of folder name patterns.
 
 Any whitespace surrounding the provided names will be stripped.</string>
 			<key>pfm_name</key>
@@ -868,7 +884,7 @@ Any whitespace surrounding the provided names will be stripped.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Ordinarily, BBEdit will only ask you to choose a file’s encoding when it can’t otherwise figure out what the encoding is, and your “if the file’s encoding can’t be guessed” preference is a UTF-8 or UTF-16 variant. This should be fine for general use, but if for some reason you always want BBEdit to ask you when it can’t guess a file’s encoding, even if your preference would do the job, you can set this to 'true'.</string>
+			<string>Ordinarily, BBEdit will only ask you to choose a file’s encoding when it can’t otherwise figure out what the encoding is, and your "if the file’s encoding can’t be guessed" preference is a UTF-8 or UTF-16 variant. This should be fine for general use, but if for some reason you always want BBEdit to ask you when it can’t guess a file’s encoding, even if your preference would do the job, you can set this to 'true'.</string>
 			<key>pfm_name</key>
 			<string>AskForUnguessableFileEncoding</string>
 			<key>pfm_type</key>
@@ -942,9 +958,11 @@ Any whitespace surrounding the provided names will be stripped.</string>
 				</array>
 				<key>Text Display &amp; Coloring</key>
 				<array>
+					<!-- 
 					<string>DisableFontSmoothing_FONTNAME</string>
 					<string>EnableFontLigatures_FONTNAME</string>
 					<string>EnableRareLigatures_FONTNAME</string>
+ 					-->
 					<string>FixedWidthFontSmoothingThreshold</string>
 					<string>FontSmoothingThreshold</string>
 				</array>
@@ -1044,7 +1062,7 @@ Any whitespace surrounding the provided names will be stripped.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>BBEdit’s Perforce support uses the “p4 login” mechanism. This should be compatible with Perforce repositories and workflows, but if for some reason using p4 login poses a problem in your use of the built-in p4 integration, you can disable it by setting this to 'true'.</string>
+			<string>BBEdit’s Perforce support uses the "p4 login" mechanism. This should be compatible with Perforce repositories and workflows, but if for some reason using p4 login poses a problem in your use of the built-in p4 integration, you can disable it by setting this to 'true'.</string>
 			<key>pfm_name</key>
 			<string>PerforceDoNotUseP4Login</string>
 			<key>pfm_type</key>
@@ -1121,7 +1139,7 @@ NEEDS FONT SPECIFIC OPTION. "FONTNAME" is the display name of the font, as it ap
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Font ligatures are off by default - except for the “Hasklig” font -, but if you wish you may enable ligatures on a per-font basis. To enable ligatures for a specific font, use the preference key "EnableFontLigatures", an underscore, and then the display name of the font, as it appears in the Fonts panel or the Font Book application, not the name of the font file on disk.</string>
+			<string>Font ligatures are off by default - except for the "Hasklig" font -, but if you wish you may enable ligatures on a per-font basis. To enable ligatures for a specific font, use the preference key "EnableFontLigatures", an underscore, and then the display name of the font, as it appears in the Fonts panel or the Font Book application, not the name of the font file on disk.</string>
 			<key>pfm_name</key>
 			<string>EnableFontLigatures_FONTNAME</string>
 			<key>pfm_type</key>
