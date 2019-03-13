@@ -314,11 +314,6 @@
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>Shift Right</key>
-				<array>
-					<string>AllowShiftRightToIndentWhitespaceOnlyLines</string>
-					<string>AllowShiftRightToIndentWhitespaceOnlyLines_C++</string>
-				</array>
 				<key>FTP / SFTP</key>
 				<array>
 					<string>SFTPConnectionTimeout</string>
@@ -353,11 +348,15 @@
 					<string>UseClippingsForCompletion</string>
 					<string>UseTabKeyAsCompletionTrigger</string>
 				</array>
+				<key>Shift Right</key>
+				<array>
+					<string>AllowShiftRightToIndentWhitespaceOnlyLines</string>
+					<string>AllowShiftRightToIndentWhitespaceOnlyLines_C++</string>
+				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
 		<dict>
 			<key>pfm_description</key>
 			<string>By default, the “Shift Right” command on the Text menu will not add indentation to lines that are empty or consist entirely of white space. If you would prefer to indent every line, regardless of its whitespace-only nature, set this preference to 'true'.</string>
@@ -382,18 +381,6 @@
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!---
-		<dict>
-			<key>pfm_description</key>
-			<string>By default, the "Balance" command (or double-clicking on a delimiter to balance) does not include the delimiters in the resulting selection. If you would like for it to do so, set this preference to 'true'.</string>
-			<key>pfm_min_value</key>
-			<float>0</float>
-			<key>pfm_name</key>
-			<string>BRIEFStateTimeout</string>
-			<key>pfm_type</key>
-			<string>float</string>
-		</dict>
-		-->
 		<dict>
 			<key>pfm_description</key>
 			<string>When using the Un/Comment command, if nothing is selected, BBEdit will use the line comment delimiter to comment (or uncomment) the entire line. If you would prefer that BBEdit insert the line-comment delimiter at the insertion point instead, set this preference to 'false'.</string>
@@ -683,12 +670,6 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>Other Apps</key>
-				<array>
-					<string>AskXcodeForOpenFileByName</string>
-					<string>ScriptEditorBundleID</string>
-					<string>TerminalBundleID</string>
-				</array>
 				<key>Language Support</key>
 				<array>
 					<string>CounterpartSiblingSearchNames</string>
@@ -700,6 +681,12 @@ Turning off the auto fill will cause the “gear” to appear in the markup pane
 					<string>OpaqueStrings_PHP</string>
 					<string>ShowVariablesInFunctionList_PHP</string>
 					<string>UseDashForReferenceLookups</string>
+				</array>
+				<key>Other Apps</key>
+				<array>
+					<string>AskXcodeForOpenFileByName</string>
+					<string>ScriptEditorBundleID</string>
+					<string>TerminalBundleID</string>
 				</array>
 				<key>Projects</key>
 				<array>
@@ -849,7 +836,7 @@ Any whitespace surrounding the provided names will be stripped.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>BBEdit will not automatically reveal documents in the project list when you select them;  View => Reveal in Project List works for this purpose. If you want automatic revealing, set to this to 'true'</string>
+			<string>BBEdit will not automatically reveal documents in the project list when you select them;  View =&gt; Reveal in Project List works for this purpose. If you want automatic revealing, set to this to 'true'</string>
 			<key>pfm_name</key>
 			<string>AutoRevealSelectedDocumentInProjectList</string>
 			<key>pfm_type</key>
@@ -906,6 +893,8 @@ Any whitespace surrounding the provided names will be stripped.</string>
 		<dict>
 			<key>pfm_description</key>
 			<string>By default, BBEdit will avoid writing extended attributes - HFS Type/Creator - to volumes which don't natively support them - i.e. to avoid creating the ._FILE - when it is safe to do so. We’ll be able to re-open the document correctly later. If desired, you can fine-tune this behavior.</string>
+			<key>pfm_name</key>
+			<string>WriteExtendedAttributes</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>always</string>
@@ -918,8 +907,6 @@ Any whitespace surrounding the provided names will be stripped.</string>
 				<string>Never set the HFS file type and creator, even if the document's volume supports it</string>
 				<string>Smart: Write HFS file type and creator only if the document's volume supports it</string>
 			</array>
-			<key>pfm_name</key>
-			<string>WriteExtendedAttributes</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1161,6 +1148,14 @@ NEEDS FONT SPECIFIC OPTION. "FONTNAME" is the display name of the font, as it ap
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Misc.</key>
+				<array>
+					<string>DisableCtagsScanOnRemoteVolumes</string>
+					<string>OpenByNameMaxWildcardMatches</string>
+					<string>OpenPanelShowsFrontDocumentDirectory</string>
+					<string>UseInlineStylesForCopiedHTML</string>
+					<string>UseSeparatorsInUnixScriptOutput</string>
+				</array>
 				<key>Text Search &amp; Replace</key>
 				<array>
 					<string>FindDialog_UsesFindScrap</string>
@@ -1185,14 +1180,6 @@ NEEDS FONT SPECIFIC OPTION. "FONTNAME" is the display name of the font, as it ap
 					<string>RecentItems_RememberTempFiles</string>
 					<string>SurfNextPreviousInDisplayOrder</string>
 					<string>ZoomWindowsInPlace</string>
-				</array>
-				<key>Misc.</key>
-				<array>
-					<string>DisableCtagsScanOnRemoteVolumes</string>
-					<string>OpenByNameMaxWildcardMatches</string>
-					<string>OpenPanelShowsFrontDocumentDirectory</string>
-					<string>UseInlineStylesForCopiedHTML</string>
-					<string>UseSeparatorsInUnixScriptOutput</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
