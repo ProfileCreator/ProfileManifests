@@ -139,7 +139,6 @@
 			<array>
 				<string>General</string>
 				<string>Content Settings</string>
-				<string>Extensions</string>
 				<string>Security</string>
 				<string>Other</string>
 			</array>
@@ -213,6 +212,7 @@
 					<string>ShowAppsShortcutInBookmarkBar</string>
 					<string>ShowCastIconInToolbar</string>
 					<string>ShowHomeButton</string>
+					<string>TranslateEnabled</string>
 				</array>
 				<key>Content Settings</key>
 				<array>
@@ -251,21 +251,6 @@
 					<string>WebUsbAllowDevicesForUrls</string>
 					<string>WebUsbAskForUrls</string>
 					<string>WebUsbBlockedForUrls</string>
-					<string>WPADQuickCheckEnabled</string>
-				</array>
-				<key>Extensions</key>
-				<array>
-					<string>PFC_SegmentedControl_Extensions</string>
-					<string>ExtensionAllowedTypes</string>
-					<string>ExtensionInstallSources</string>
-					<string>ExtensionSettings</string>
-					<string>ExtensionInstallForcelist</string>
-					<string>ExtensionInstallBlacklist</string>
-					<string>ExtensionInstallWhitelist</string>
-					<string>ReportMachineIDData</string>
-					<string>ReportPolicyData</string>
-					<string>ReportUserIDData</string>
-					<string>ReportVersionData</string>
 				</array>
 				<key>Security</key>
 				<array>
@@ -299,13 +284,22 @@
 					<string>EnableOnlineRevocationChecks</string>
 					<string>EnableSha1ForLocalAnchors</string>
 					<string>EnableSymantecLegacyInfrastructure</string>
+					<string>ExtensionAllowedTypes</string>
+					<string>ExtensionInstallSources</string>
+					<string>ExtensionSettings</string>
+					<string>ExtensionInstallForcelist</string>
+					<string>ExtensionInstallBlacklist</string>
+					<string>ExtensionInstallWhitelist</string>
 					<string>ForceBrowserSignin</string>
 					<string>Http09OnNonDefaultPortsEnabled</string>
+					<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
 					<string>MaxConnectionsPerProxy</string>
+					<string>MetricsReportingEnabled</string>
 					<string>NativeMessagingUserLevelHosts</string>
 					<string>NativeMessagingBlacklist</string>
 					<string>NativeMessagingWhitelist</string>
 					<string>NetworkPredictionOptions</string>
+					<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
 					<string>PacHttpsUrlStrippingEnabled</string>
 					<string>PasswordManagerEnabled</string>
 					<string>PasswordProtectionChangePasswordURL</string>
@@ -318,10 +312,15 @@
 					<string>ProxyServer</string>
 					<string>QuicAllowed</string>
 					<string>RegisteredProtocolHandlers</string>
+					<string>ReportMachineIDData</string>
+					<string>ReportPolicyData</string>
+					<string>ReportUserIDData</string>
+					<string>ReportVersionData</string>
 					<string>RestrictSigninToPattern</string>
 					<string>SafeBrowsingEnabled</string>
 					<string>SafeBrowsingExtendedReportingEnabled</string>
 					<string>SafeBrowsingWhitelistDomains</string>
+					<string>SavingBrowserHistoryDisabled</string>
 					<string>SSLErrorOverrideAllowed</string>
 					<string>SSLVersionMax</string>
 					<string>SSLVersionMin</string>
@@ -329,6 +328,7 @@
 					<string>URLBlacklist</string>
 					<string>URLWhitelist</string>
 					<string>WebRtcUdpPortRange</string>
+					<string>WPADQuickCheckEnabled</string>
 					<string>UserDataDir</string>
 				</array>
 				<key>Other</key>
@@ -480,6 +480,7 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 			<array>
 				<string>Appearance</string>
 				<string>Autofill</string>
+				<string>Bookmarks</string>
 				<string>Cloud Print</string>
 				<string>Google Cast</string>
 				<string>Import</string>
@@ -487,6 +488,7 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 				<string>Printing</string>
 				<string>Remote Access</string>
 				<string>Search</string>
+				<string>Translate</string>
 				<string>Updates</string>
 			</array>
 			<key>pfm_require</key>
@@ -496,10 +498,8 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 				<key>Appearance</key>
 				<array>
 					<string>BookmarkBarEnabled</string>
-					<string>EditBookmarksEnabled</string>
 					<string>HomepageIsNewTabPage</string>
 					<string>HomepageLocation</string>
-					<string>ManagedBookmarks</string>
 					<string>NewTabPageLocation</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
 					<string>ShowHomeButton</string>
@@ -509,6 +509,11 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 					<string>AutoFillEnabled</string>
 					<string>AutofillAddressEnabled</string>
 					<string>AutofillCreditCardEnabled</string>
+				</array>
+				<key>Bookmarks</key>
+				<array>
+					<string>EditBookmarksEnabled</string>
+					<string>ManagedBookmarks</string>
 				</array>
 				<key>Cloud Print</key>
 				<array>
@@ -575,6 +580,10 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 					<string>DefaultSearchProviderSuggestURL</string>
 					<string>ForceGoogleSafeSearch</string>
 					<string>SearchSuggestEnabled</string>
+				</array>
+				<key>Translate</key>
+				<array>
+					<string>TranslateEnabled</string>
 				</array>
 				<key>Updates</key>
 				<array>
@@ -1253,24 +1262,6 @@ If you enable this setting, Print Preview will use the OS system default printer
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If the policy is enabled, the user will be asked where to save each file before downloading.
-If the policy is disabled, downloads will start immediately, and the user will not be asked where to save the file.
-If the policy is not configured, the user will be able to change this setting.</string>
-			<key>pfm_description_reference</key>
-			<string>If the policy is enabled, the user will be asked where to save each file before downloading.
-If the policy is disabled, downloads will start immediately, and the user will not be asked where to save the file.
-If the policy is not configured, the user will be able to change this setting.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#PromptForDownloadLocation</string>
-			<key>pfm_name</key>
-			<string>PromptForDownloadLocation</string>
-			<key>pfm_title</key>
-			<string>Ask where to save each file before downloading</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
 			<string>Notify users that Google Chrome must be relaunched to apply a pending update.</string>
 			<key>pfm_description_reference</key>
 			<string>1 - Show a recurring prompt to the user indicating that a relaunch is recommended
@@ -1385,6 +1376,28 @@ to a Microsoft® Active Directory® domain.</string>
 			<string>URLs to open on startup</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enables the integrated Google Translate service on Google Chrome.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables the integrated Google Translate service on Google Chrome.
+
+If you enable this setting, Google Chrome will offer translation functionality to the user by showing an integrated translate toolbar (when appropriate) and a translate option on the right-click context menu.
+
+If you disable this setting, all built-in translate features will be disabled.
+
+If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+
+If this setting is left not set the user can decide to use this function or not.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#TranslateEnabled</string>
+			<key>pfm_name</key>
+			<string>TranslateEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable Translate</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -2496,442 +2509,6 @@ If this setting is disabled or not set, Flash content from other origins or smal
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PFC_SegmentedControl_Extensions</string>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Reporting</string>
-				<string>Black/Whitelist</string>
-			</array>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_segments</key>
-			<dict>
-				<key>Reporting</key>
-				<array>
-					<string>ReportMachineIDData</string>
-					<string>ReportPolicyData</string>
-					<string>ReportUserIDData</string>
-					<string>ReportVersionData</string>
-				</array>
-				<key>Black/Whitelist</key>
-				<array>
-					<string>ExtensionAllowedTypes</string>
-					<string>ExtensionInstallForcelist</string>
-					<string>ExtensionInstallBlacklist</string>
-					<string>ExtensionInstallWhitelist</string>
-					<string>ExtensionSettings</string>
-					<string>ExtensionInstallSources</string>
-				</array>
-			</dict>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
-
-A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
-
-If this policy is left not set the user can install any extension in Google Chrome.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallBlacklist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallBlacklist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.
-
-A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the whitelist.
-
-By default, all extensions are whitelisted, but if all extensions have been blacklisted by policy, the whitelist can be used to override that policy.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallWhitelist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallWhitelist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension IDs to exempt from the blacklist</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Controls which app/extension types are allowed to be installed and limits runtime access.</string>
-			<key>pfm_description_reference</key>
-			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
-
-This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
-
-Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
-
-If this setting is configured, extensions/apps which have a type that is not on the list will not be installed.
-
-If this settings is left not-configured, no restrictions on the acceptable extension/app types are enforced.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionAllowedTypes</string>
-			<key>pfm_name</key>
-			<string>ExtensionAllowedTypes</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Types of extensions/apps that are allowed to be installed</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Specifies a list of apps and extensions that are installed silently,
-without user interaction, and which cannot be uninstalled nor
-disabled by the user. All permissions requested by the
-apps/extensions are granted implicitly, without user interaction,
-including any additional permissions requested by future versions of
-the app/extension. Furthermore, permissions are granted for the
-enterprise.deviceAttributes and enterprise.platformKeys extension
-APIs. (These two APIs are not available to apps/extensions that are
-not force-installed.)</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies a list of apps and extensions that are installed silently,
-without user interaction, and which cannot be uninstalled nor
-disabled by the user. All permissions requested by the
-apps/extensions are granted implicitly, without user interaction,
-including any additional permissions requested by future versions of
-the app/extension. Furthermore, permissions are granted for the
-enterprise.deviceAttributes and enterprise.platformKeys extension
-APIs. (These two APIs are not available to apps/extensions that are
-not force-installed.)
-
-This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Google Chrome.
-
-For Windows instances that are not joined to a Microsoft® Active Directory® domain, forced installation is limited to apps and extensions listed in the Chrome Web Store.
-
-Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
-
-Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
-
-For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
-
-If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallForcelist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallForcelist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension/App IDs and update URLs to be silently installed</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.
-
-Starting in Google Chrome 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Google Chrome would offer to install the file after a few warnings. After Google Chrome 21, such files must be downloaded and dragged onto the Google Chrome settings page. This setting allows specific URLs to have the old, easier installation flow.
-
-Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
-
-ExtensionInstallBlacklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallSources</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallSources</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>URL patterns to allow extension, app, and user script installs from</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
-			<key>pfm_description_reference</key>
-			<string>Configures extension management settings for Google Chrome.
-
-This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
-
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID "*", which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
-
-For a full description of possible settings and structure of this policy please visit https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
-			<key>pfm_documentation_source</key>
-			<string>https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionSettings</string>
-			<key>pfm_name</key>
-			<string>ExtensionSettings</string>
-			<key>pfm_title</key>
-			<string>Extension management settings</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>{{key}}</string>
-					<key>pfm_title</key>
-					<string>Extension ID</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-					<key>pfm_hidden</key>
-					<string>container</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a string indicating the installation mode for the extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>installation_mode</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_range_list</key>
-							<array>
-								<string>allowed</string>
-								<string>blocked</string>
-								<string>force_installed</string>
-								<string>normal_installed</string>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a string indicating where Chrome can download a force_installed or normal_installed extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>update_url</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings indicating the blocked API permissions for the extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>blocked_permissions</string>
-							<key>pfm_type</key>
-							<string>array</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a version string.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>minimum_version_required</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Each item in this list is an extension-style match pattern.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>install_sources</string>
-							<key>pfm_type</key>
-							<string>array</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>allowed_types</string>
-							<key>pfm_type</key>
-							<string>array</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-									<key>pfm_range_list</key>
-									<array>
-										<string>extension</string>
-										<string>theme</string>
-										<string>user_script</string>
-										<string>hosted_app</string>
-										<string>legacy_packaged_app</string>
-										<string>platform_app</string>
-									</array>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>blocked_install_message</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings representing hosts whose webpages the extension will be blocked from modifying.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>runtime_blocked_hosts</string>
-							<key>pfm_type</key>
-							<string>array</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in "runtime_blocked_hosts".</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>runtime_allowed_hosts</string>
-							<key>pfm_type</key>
-							<string>array</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>This policy controls whether to report information that can be used to identify machines, such as machine name and network addresses.</string>
-			<key>pfm_description_reference</key>
-			<string>When this policy is left unset or set to True, information that can be used to identify machines is gathered. When this policy is set to False, information that can be used to identify machines is not gathered.
-
-This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ReportMachineIDData</string>
-			<key>pfm_name</key>
-			<string>ReportMachineIDData</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>This policy controls whether to report policy data and time of policy fetch.</string>
-			<key>pfm_description_reference</key>
-			<string>When this policy is left unset or set to True, policy data and time of policy fetch are gathered. When this policy is set to False, policy data and time of policy fetch are not gathered.
-
-This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ReportPolicyData</string>
-			<key>pfm_name</key>
-			<string>ReportPolicyData</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>This policy controls whether to report information that can be used to identify users, such as OS login, Google Chrome Profile login, Google Chrome Profile name, Google Chrome Profile path and Google Chrome executable path.</string>
-			<key>pfm_description_reference</key>
-			<string>When this policy is left unset or set to True, information that can be used to identify users is gathered. When this policy is set to False, information that can be used to identify users is not gathered.
-
-This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ReportMachineIDData</string>
-			<key>pfm_name</key>
-			<string>ReportUserIDData</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>This policy controls whether to report version information, such as OS version, OS platform, OS architecture, Google Chrome version and Google Chrome channel.</string>
-			<key>pfm_description_reference</key>
-			<string>When this policy is left unset or set to True, version information is gathered. When this policy is set to False, version information is not gathered.
-
-This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#ReportVersionData</string>
-			<key>pfm_name</key>
-			<string>ReportVersionData</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
 			<key>pfm_description</key>
 			<string>Allows you to set whether sites with abusive experiences should be prevented from opening new windows or tabs.</string>
 			<key>pfm_description_reference</key>
@@ -3329,6 +2906,7 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				<string>Ads</string>
 				<string>Certificates</string>
 				<string>Downloads</string>
+				<string>Extensions</string>
 				<string>History</string>
 				<string>HTTP Auth</string>
 				<string>Login / User</string>
@@ -3336,9 +2914,10 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				<string>Networking</string>
 				<string>Passwords</string>
 				<string>Plugins</string>
+				<string>Policy</string>
 				<string>Proxy</string>
+				<string>Reporting</string>
 				<string>Safe Browsing</string>
-				<string>Messaging</string>
 				<string>URLs</string>
 			</array>
 			<key>pfm_require</key>
@@ -3365,9 +2944,19 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 					<string>DownloadDirectory</string>
 					<string>PromptForDownloadLocation</string>
 				</array>
+				<key>Extensions</key>
+				<array>
+					<string>ExtensionAllowedTypes</string>
+					<string>ExtensionInstallSources</string>
+					<string>ExtensionSettings</string>
+					<string>ExtensionInstallForcelist</string>
+					<string>ExtensionInstallBlacklist</string>
+					<string>ExtensionInstallWhitelist</string>
+				</array>
 				<key>History</key>
 				<array>
 					<string>AllowDeletingBrowserHistory</string>
+					<string>SavingBrowserHistoryDisabled</string>
 				</array>
 				<key>HTTP Auth</key>
 				<array>
@@ -3418,6 +3007,11 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				<array>
 					<string>AllowOutdatedPlugins</string>
 				</array>
+				<key>Policy</key>
+				<array>
+					<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
+					<string>MaxInvalidationFetchDelay</string>
+				</array>
 				<key>Proxy</key>
 				<array>
 					<string>MaxConnectionsPerProxy</string>
@@ -3426,6 +3020,14 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 					<string>ProxyPacUrl</string>
 					<string>ProxyServer</string>
 					<string>WPADQuickCheckEnabled</string>
+				</array>
+				<key>Reporting</key>
+				<array>
+					<string>MetricsReportingEnabled</string>
+					<string>ReportMachineIDData</string>
+					<string>ReportPolicyData</string>
+					<string>ReportUserIDData</string>
+					<string>ReportVersionData</string>
 				</array>
 				<key>Safe Browsing</key>
 				<array>
@@ -3436,6 +3038,7 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				</array>
 				<key>URLs</key>
 				<array>
+					<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
 					<string>URLBlacklist</string>
 					<string>URLWhitelist</string>
 				</array>
@@ -3496,6 +3099,372 @@ If this setting is disabled, browsing and download history cannot be deleted.</s
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.</string>
+			<key>pfm_description_reference</key>
+			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.
+
+If this setting is enabled, browsing history is not saved. This setting also disables tab syncing.
+
+If this setting is disabled or not set, browsing history is saved.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#SavingBrowserHistoryDisabled</string>
+			<key>pfm_name</key>
+			<string>SavingBrowserHistoryDisabled</string>
+			<key>pfm_title</key>
+			<string>Disable saving browser history</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
+
+A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
+
+If this policy is left not set the user can install any extension in Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallBlacklist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallBlacklist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions are not subject to the blacklist.
+
+A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the whitelist.
+
+By default, all extensions are whitelisted, but if all extensions have been blacklisted by policy, the whitelist can be used to override that policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallWhitelist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallWhitelist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension IDs to exempt from the blacklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Controls which app/extension types are allowed to be installed and limits runtime access.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
+
+This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
+
+Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
+
+If this setting is configured, extensions/apps which have a type that is not on the list will not be installed.
+
+If this settings is left not-configured, no restrictions on the acceptable extension/app types are enforced.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionAllowedTypes</string>
+			<key>pfm_name</key>
+			<string>ExtensionAllowedTypes</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Types of extensions/apps that are allowed to be installed</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Specifies a list of apps and extensions that are installed silently,
+without user interaction, and which cannot be uninstalled nor
+disabled by the user. All permissions requested by the
+apps/extensions are granted implicitly, without user interaction,
+including any additional permissions requested by future versions of
+the app/extension. Furthermore, permissions are granted for the
+enterprise.deviceAttributes and enterprise.platformKeys extension
+APIs. (These two APIs are not available to apps/extensions that are
+not force-installed.)</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies a list of apps and extensions that are installed silently,
+without user interaction, and which cannot be uninstalled nor
+disabled by the user. All permissions requested by the
+apps/extensions are granted implicitly, without user interaction,
+including any additional permissions requested by future versions of
+the app/extension. Furthermore, permissions are granted for the
+enterprise.deviceAttributes and enterprise.platformKeys extension
+APIs. (These two APIs are not available to apps/extensions that are
+not force-installed.)
+
+This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Google Chrome.
+
+For Windows instances that are not joined to a Microsoft® Active Directory® domain, forced installation is limited to apps and extensions listed in the Chrome Web Store.
+
+Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
+
+Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
+
+For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
+
+If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallForcelist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallForcelist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension/App IDs and update URLs to be silently installed</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.
+
+Starting in Google Chrome 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Google Chrome would offer to install the file after a few warnings. After Google Chrome 21, such files must be downloaded and dragged onto the Google Chrome settings page. This setting allows specific URLs to have the old, easier installation flow.
+
+Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
+
+ExtensionInstallBlacklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionInstallSources</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallSources</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>URL patterns to allow extension, app, and user script installs from</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
+			<key>pfm_description_reference</key>
+			<string>Configures extension management settings for Google Chrome.
+
+This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
+
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID "*", which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
+
+For a full description of possible settings and structure of this policy please visit https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
+			<key>pfm_documentation_source</key>
+			<string>https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ExtensionSettings</string>
+			<key>pfm_name</key>
+			<string>ExtensionSettings</string>
+			<key>pfm_title</key>
+			<string>Extension management settings</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Extension ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating the installation mode for the extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>installation_mode</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>allowed</string>
+								<string>blocked</string>
+								<string>force_installed</string>
+								<string>normal_installed</string>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating where Chrome can download a force_installed or normal_installed extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>update_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings indicating the blocked API permissions for the extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>blocked_permissions</string>
+							<key>pfm_type</key>
+							<string>array</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a version string.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>minimum_version_required</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Each item in this list is an extension-style match pattern.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>install_sources</string>
+							<key>pfm_type</key>
+							<string>array</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>allowed_types</string>
+							<key>pfm_type</key>
+							<string>array</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>extension</string>
+										<string>theme</string>
+										<string>user_script</string>
+										<string>hosted_app</string>
+										<string>legacy_packaged_app</string>
+										<string>platform_app</string>
+									</array>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>blocked_install_message</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings representing hosts whose webpages the extension will be blocked from modifying.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>runtime_blocked_hosts</string>
+							<key>pfm_type</key>
+							<string>array</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in "runtime_blocked_hosts".</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>runtime_allowed_hosts</string>
+							<key>pfm_type</key>
+							<string>array</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>If you enable this setting, outdated plugins are used as normal plugins.</string>
 			<key>pfm_description_reference</key>
 			<string>If you enable this setting, outdated plugins are used as normal plugins.
@@ -3511,6 +3480,40 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>Allow running plugins that are outdated</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.</string>
+			<key>pfm_description_reference</key>
+			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.
+
+The value of this policy is an Enrollment token that can be retrieved from the Google Admin console.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#MachineLevelUserCloudPolicyEnrollmentToken</string>
+			<key>pfm_name</key>
+			<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
+			<key>pfm_title</key>
+			<string>The enrollment token of cloud policy on desktop</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Specifies the maximum delay in milliseconds between receiving a policy invalidation and fetching the new policy from the device management service.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies the maximum delay in milliseconds between receiving a policy invalidation and fetching the new policy from the device management service.
+
+Setting this policy overrides the default value of 5000 milliseconds. Valid values for this policy are in the range from 1000 (1 second) to 300000 (5 minutes). Any values not in this range will be clamped to the respective boundary.
+
+Leaving this policy not set will make Google Chrome use the default value of 5000 milliseconds.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#MaxInvalidationFetchDelay</string>
+			<key>pfm_name</key>
+			<string>MaxInvalidationFetchDelay</string>
+			<key>pfm_title</key>
+			<string>Maximum fetch delay after a policy invalidation</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -3681,6 +3684,24 @@ If this policy is left not set the default download directory will be used and t
 			<string>Set download directory</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If the policy is enabled, the user will be asked where to save each file before downloading.
+If the policy is disabled, downloads will start immediately, and the user will not be asked where to save the file.
+If the policy is not configured, the user will be able to change this setting.</string>
+			<key>pfm_description_reference</key>
+			<string>If the policy is enabled, the user will be asked where to save each file before downloading.
+If the policy is disabled, downloads will start immediately, and the user will not be asked where to save the file.
+If the policy is not configured, the user will be able to change this setting.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#PromptForDownloadLocation</string>
+			<key>pfm_name</key>
+			<string>PromptForDownloadLocation</string>
+			<key>pfm_title</key>
+			<string>Ask where to save each file before downloading</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -4036,6 +4057,31 @@ If this policy is not set there will be no exceptions to the blacklist from the 
 			</array>
 			<key>pfm_title</key>
 			<string>Allow access to a list of URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
+Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
+For more information on secure contexts, see https://www.w3.org/TR/secure-contexts/</string>
+			<key>pfm_description_reference</key>
+			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
+Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
+For more information on secure contexts, see https://www.w3.org/TR/secure-contexts/</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#OverrideSecurityRestrictionsOnInsecureOrigin</string>
+			<key>pfm_name</key>
+			<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Origins or hostname patterns to be treated as secure context.</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -4625,6 +4671,104 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.
+
+If this policy is set to false, WPAD optimization is disabled causing Google Chrome to wait longer for DNS-based WPAD servers.  If the policy is not set or is enabled, WPAD optimization is enabled.
+
+Independent of whether or how this policy is set, the WPAD optimization setting cannot be changed by users.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#WPADQuickCheckEnabled</string>
+			<key>pfm_name</key>
+			<string>WPADQuickCheckEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable WPAD optimization</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.
+
+If this setting is enabled, anonymous reporting of usage and crash-related
+data is sent to Google.  If it is disabled, this information is not sent
+to Google.  In both cases, users cannot change or override the setting.
+If this policy is left not set, the setting will be what the user chose
+upon installation / first run.
+
+This policy is not available on Windows instances that are not joined to
+a Microsoft® Active Directory® domain.  (For Chrome OS, see
+DeviceMetricsReportingEnabled.)</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#MetricsReportingEnabled</string>
+			<key>pfm_name</key>
+			<string>MetricsReportingEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable reporting of usage and crash-related data</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This policy controls whether to report information that can be used to identify machines, such as machine name and network addresses.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is left unset or set to True, information that can be used to identify machines is gathered. When this policy is set to False, information that can be used to identify machines is not gathered.
+
+This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ReportMachineIDData</string>
+			<key>pfm_name</key>
+			<string>ReportMachineIDData</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This policy controls whether to report policy data and time of policy fetch.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is left unset or set to True, policy data and time of policy fetch are gathered. When this policy is set to False, policy data and time of policy fetch are not gathered.
+
+This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ReportPolicyData</string>
+			<key>pfm_name</key>
+			<string>ReportPolicyData</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This policy controls whether to report information that can be used to identify users, such as OS login, Google Chrome Profile login, Google Chrome Profile name, Google Chrome Profile path and Google Chrome executable path.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is left unset or set to True, information that can be used to identify users is gathered. When this policy is set to False, information that can be used to identify users is not gathered.
+
+This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ReportUserIDData</string>
+			<key>pfm_name</key>
+			<string>ReportUserIDData</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This policy controls whether to report version information, such as OS version, OS platform, OS architecture, Google Chrome version and Google Chrome channel.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is left unset or set to True, version information is gathered. When this policy is set to False, version information is not gathered.
+
+This policy is only effective when the Chrome Reporting Extension is enabled, and the machine is enrolled with MachineLevelUserCloudPolicyEnrollmentToken.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#ReportVersionData</string>
+			<key>pfm_name</key>
+			<string>ReportVersionData</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>Enables Google Chrome's Safe Browsing feature and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's Safe Browsing feature and prevents users from changing this setting.
@@ -4708,25 +4852,6 @@ This policy is not available on Windows instances that are not joined to a Micro
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.
-
-If this policy is set to false, WPAD optimization is disabled causing Google Chrome to wait longer for DNS-based WPAD servers.  If the policy is not set or is enabled, WPAD optimization is enabled.
-
-Independent of whether or how this policy is set, the WPAD optimization setting cannot be changed by users.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#WPADQuickCheckEnabled</string>
-			<key>pfm_name</key>
-			<string>WPADQuickCheckEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable WPAD optimization</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-
-		<dict>
-			<key>pfm_description</key>
 			<string>Allows you to control where Developer Tools can be used.</string>
 			<key>pfm_description_reference</key>
 			<string>0 - Disallow usage of the Developer Tools on extensions installed by enterprise policy, allow usage of the Developer Tools in other contexts
@@ -4789,28 +4914,6 @@ If disabled or not specified, taking screenshots is allowed.</string>
 			<string>DisableScreenshots</string>
 			<key>pfm_title</key>
 			<string>Disable taking screenshots</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables the integrated Google Translate service on Google Chrome.</string>
-			<key>pfm_description_reference</key>
-			<string>Enables the integrated Google Translate service on Google Chrome.
-
-If you enable this setting, Google Chrome will offer translation functionality to the user by showing an integrated translate toolbar (when appropriate) and a translate option on the right-click context menu.
-
-If you disable this setting, all built-in translate features will be disabled.
-
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
-
-If this setting is left not set the user can decide to use this function or not.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#TranslateEnabled</string>
-			<key>pfm_name</key>
-			<string>TranslateEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable Translate</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -4951,64 +5054,6 @@ NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.
-
-The value of this policy is an Enrollment token that can be retrieved from the Google Admin console.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#MachineLevelUserCloudPolicyEnrollmentToken</string>
-			<key>pfm_name</key>
-			<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
-			<key>pfm_title</key>
-			<string>The enrollment token of cloud policy on desktop</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Specifies the maximum delay in milliseconds between receiving a policy invalidation and fetching the new policy from the device management service.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the maximum delay in milliseconds between receiving a policy invalidation and fetching the new policy from the device management service.
-
-Setting this policy overrides the default value of 5000 milliseconds. Valid values for this policy are in the range from 1000 (1 second) to 300000 (5 minutes). Any values not in this range will be clamped to the respective boundary.
-
-Leaving this policy not set will make Google Chrome use the default value of 5000 milliseconds.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#MaxInvalidationFetchDelay</string>
-			<key>pfm_name</key>
-			<string>MaxInvalidationFetchDelay</string>
-			<key>pfm_title</key>
-			<string>Maximum fetch delay after a policy invalidation</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.
-
-If this setting is enabled, anonymous reporting of usage and crash-related
-data is sent to Google.  If it is disabled, this information is not sent
-to Google.  In both cases, users cannot change or override the setting.
-If this policy is left not set, the setting will be what the user chose
-upon installation / first run.
-
-This policy is not available on Windows instances that are not joined to
-a Microsoft® Active Directory® domain.  (For Chrome OS, see
-DeviceMetricsReportingEnabled.)</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#MetricsReportingEnabled</string>
-			<key>pfm_name</key>
-			<string>MetricsReportingEnabled</string>
-			<key>pfm_title</key>
-			<string>Enable reporting of usage and crash-related data</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
 			<string>Controls whether NTLMv2 is enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>Controls whether NTLMv2 is enabled.
@@ -5024,31 +5069,6 @@ If this policy is not set, the default is true and NTLMv2 is enabled.</string>
 			<string>Whether NTLMv2 authentication is enabled.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
-Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
-For more information on secure contexts, see https://www.w3.org/TR/secure-contexts/</string>
-			<key>pfm_description_reference</key>
-			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
-Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
-For more information on secure contexts, see https://www.w3.org/TR/secure-contexts/</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#OverrideSecurityRestrictionsOnInsecureOrigin</string>
-			<key>pfm_name</key>
-			<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Origins or hostname patterns to be treated as secure context.</string>
-			<key>pfm_type</key>
-			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -5101,24 +5121,6 @@ When this policy is set to "Filter top level sites for adult content", sites cla
 			<string>Control SafeSites adult content filtering.</string>
 			<key>pfm_type</key>
 			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.
-
-If this setting is enabled, browsing history is not saved. This setting also disables tab syncing.
-
-If this setting is disabled or not set, browsing history is saved.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#SavingBrowserHistoryDisabled</string>
-			<key>pfm_name</key>
-			<string>SavingBrowserHistoryDisabled</string>
-			<key>pfm_title</key>
-			<string>Disable saving browser history</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
