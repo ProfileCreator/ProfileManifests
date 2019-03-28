@@ -217,7 +217,6 @@
 				<key>Content Settings</key>
 				<array>
 					<string>PFC_SegmentedControl_ContentSettings</string>
-					<string>PFC_SegmentedControl_ContentSettings2</string>
 					<string>AlwaysOpenPdfExternally</string>
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
@@ -1894,17 +1893,32 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<string>PFC_SegmentedControl_ContentSettings</string>
 			<key>pfm_range_list_titles</key>
 			<array>
+				<string>Audio</string>
+				<string>Autoplay</string>
 				<string>Cookies</string>
 				<string>Images</string>
 				<string>JavaScript</string>
+				<string>Notifications</string>
+				<string>PDF</string>
 				<string>Plugins</string>
 				<string>Popups</string>
+				<string>Video</string>
 				<string>Web</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Audio</key>
+				<array>
+					<string>AudioCaptureAllowed</string>
+					<string>AudioCaptureAllowedUrls</string>
+				</array>
+				<key>Autoplay</key>
+				<array>
+					<string>AutoplayAllowed</string>
+					<string>AutoplayWhitelist</string>
+				</array>
 				<key>Cookies</key>
 				<array>
 					<string>BlockThirdPartyCookies</string>
@@ -1925,6 +1939,16 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 					<string>JavaScriptAllowedForUrls</string>
 					<string>JavaScriptBlockedForUrls</string>
 				</array>
+				<key>Notifications</key>
+				<array>
+					<string>DefaultNotificationsSetting</string>
+					<string>NotificationsAllowedForUrls</string>
+					<string>NotificationsBlockedForUrls</string>
+				</array>
+				<key>PDF</key>
+				<array>
+					<string>AlwaysOpenPdfExternally</string>
+				</array>
 				<key>Plugins</key>
 				<array>
 					<string>DefaultPluginsSetting</string>
@@ -1937,6 +1961,11 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 					<string>DefaultPopupsSetting</string>
 					<string>PopupsAllowedForUrls</string>
 					<string>PopupsBlockedForUrls</string>
+				</array>
+				<key>Video</key>
+				<array>
+					<string>VideoCaptureAllowed</string>
+					<string>VideoCaptureAllowedUrls</string>
 				</array>
 				<key>Web</key>
 				<array>
@@ -3047,50 +3076,6 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 			<string>Enable URL-keyed anonymized data collection</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>PFC_SegmentedControl_ContentSettings2</string>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Audio</string>
-				<string>Autoplay</string>
-				<string>Notifications</string>
-				<string>PDF</string>
-				<string>Video</string>
-			</array>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_segments</key>
-			<dict>
-				<key>Audio</key>
-				<array>
-					<string>AudioCaptureAllowed</string>
-					<string>AudioCaptureAllowedUrls</string>
-				</array>
-				<key>Autoplay</key>
-				<array>
-					<string>AutoplayAllowed</string>
-					<string>AutoplayWhitelist</string>
-				</array>
-				<key>Notifications</key>
-				<array>
-					<string>DefaultNotificationsSetting</string>
-					<string>NotificationsAllowedForUrls</string>
-					<string>NotificationsBlockedForUrls</string>
-				</array>
-				<key>PDF</key>
-				<array>
-					<string>AlwaysOpenPdfExternally</string>
-				</array>
-				<key>Video</key>
-				<array>
-					<string>VideoCaptureAllowed</string>
-					<string>VideoCaptureAllowedUrls</string>
-				</array>
-			</dict>
-			<key>pfm_type</key>
-			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
