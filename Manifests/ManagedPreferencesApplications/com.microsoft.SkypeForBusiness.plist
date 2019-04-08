@@ -125,13 +125,16 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		
+		<!-- Custom Keys -->
+		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>General</string>
-				<string>Accounts</string>
+				<string>Connection</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
@@ -139,20 +142,34 @@ A profile can consist of payloads with different version numbers. For example, c
 			<dict>
 				<key>General</key>
 				<array>
-					<string></string>
-				</array>
-				<key>Accounts</key>
-				<array>
 					<string>userName</string>
 					<string>sipAddress</string>
+					<string>userNameInAdvancedOnly</string>
+					<string>autoAcceptTimeout</string>
+					<string>warnWhenUnknownLocationForE911</string>
+				</array>
+				<key>Connection</key>
+				<array>
+					<string>AutoDetectAutoDiscoveryURLs</string>
+					<string>internalAutoDiscoveryURL</string>
+					<string>externalAutoDiscoveryURL</string>
+					<string>httpProxyDomain</string>
+					<string>httpProxyUserName</string>
+					<string>httpProxyPassword</string>
+					<string>trustedDomainList</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		
+		<!-- General -->
+		
 		<dict>
 			<key>pfm_description</key>
-			<string>This will allow you to setup User Name label under "Advanced Option".</string>
+			<string>The UPN (UserName) used to sign-in to Skype for Business.</string>
+			<key>pfm_description_reference</key>
+			<string>The UPN (UserName) used to sign-in to Skype for Business.</string>
 			<key>pfm_name</key>
 			<string>userName</string>
 			<key>pfm_title</key>
@@ -164,7 +181,9 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This will allow you to setup User Name label under "Advanced Option".</string>
+			<string>The SIP address (Email) used to sign-in to Skype for Business.</string>
+			<key>pfm_description_reference</key>
+			<string>The SIP address (Email) used to sign-in to Skype for Business.</string>
 			<key>pfm_name</key>
 			<string>sipAddress</string>
 			<key>pfm_title</key>
@@ -175,14 +194,75 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>username@company.com</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Specify where the User Name field is displayed during sign-in.</string>
+			<key>pfm_description_reference</key>
+			<string>Specify where the User Name field is displayed during sign-in. 
+0 = display the User Name field on the main sign-in screen and in the Advanced Properties dialog box 
+1 = display the User Name field only in the Advanced Properties dialog box (default)</string>
+			<key>pfm_name</key>
+			<string>userNameInAdvancedOnly</string>
+			<key>pfm_title</key>
+			<string>User Name field location</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Both on the Main Screen and in the Advanced Properties dialog box</string>
+				<string>Only in the Advanced Properties dialog box</string>
+			</array>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>300</integer>
+			<key>pfm_description</key>
+			<string>Auto-Accept timeout for users without Server-side Conversation History.</string>
+			<key>pfm_description_reference</key>
+			<string>Auto-Accept timeout for users without Server-side Conversation History.</string>
+			<key>pfm_name</key>
+			<string>autoAcceptTimeout</string>
+			<key>pfm_title</key>
+			<string>Auto Accept Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Warns the user when dialing an emergency number from an unknown location.</string>
+			<key>pfm_description_reference</key>
+			<string>Warns the user when dialing an emergency number from an unknown location.
+				0 = Disabled 
+				1 = Enabled</string>
+			<key>pfm_name</key>
+			<string>warnWhenUnknownLocationForE911</string>
+			<key>pfm_title</key>
+			<string>Warn Unknown Location for Emergency 911</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		
+		<!-- Connection -->
+		
+		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to 'true', will enable automatic server detection.  If 'false', configures for manual server configuration.</string>
+			<string>Specify how Skype for Business identifies the transport and server to use during sign-in.</string>
+			<key>pfm_description_reference</key>
+			<string>Specify how Skype for Business identifies the transport and server to use during sign-in. If you enable this policy setting, you must specify internalAutoDiscoveryURL and externalAutoDiscoveryURL.
+				0 = manual server configuration 
+				1 = automatic server detection (default)</string>
 			<key>pfm_name</key>
 			<string>AutoDetectAutoDiscoveryURLs</string>
 			<key>pfm_title</key>
-			<string>Enable Server Auto Discover</string>
+			<string>Server Discovery Method</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Manual Server Configuration</string>
+				<string>Automatic Server Detection</string>
+			</array>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -190,6 +270,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_conditionals</key>
 			<array>
 				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
@@ -207,6 +289,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Internal autodiscover URL</string>
 			<key>pfm_name</key>
 			<string>internalAutoDiscoveryURL</string>
 			<key>pfm_title</key>
@@ -218,6 +302,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_conditionals</key>
 			<array>
 				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
@@ -235,6 +321,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>External autodiscover URL</string>
 			<key>pfm_name</key>
 			<string>externalAutoDiscoveryURL</string>
 			<key>pfm_title</key>
@@ -245,6 +333,8 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>HTTP Proxy Domain</string>
 			<key>pfm_name</key>
 			<string>httpProxyDomain</string>
 			<key>pfm_title</key>
@@ -255,8 +345,10 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>HTTP Proxy Username</string>
 			<key>pfm_name</key>
-			<string>httpProxyUsername</string>
+			<string>httpProxyUserName</string>
 			<key>pfm_title</key>
 			<string>HTTP Proxy Username</string>
 			<key>pfm_type</key>
@@ -265,6 +357,8 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string></string>
+			<key>pfm_description_reference</key>
+			<string>HTTP Proxy Password</string>
 			<key>pfm_name</key>
 			<string>httpProxyPassword</string>
 			<key>pfm_title</key>
@@ -274,6 +368,8 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>List of trusted domains for HTTP redirects.</string>
+			<key>pfm_description_reference</key>
 			<string>List of trusted domains for HTTP redirects.</string>
 			<key>pfm_name</key>
 			<string>trustedDomainList</string>
@@ -292,40 +388,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Trusted Domain List</string>
 			<key>pfm_type</key>
 			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<integer>300</integer>
-			<key>pfm_description</key>
-			<string>Auto-Accept timeout for users without Server-side Conversation History.</string>
-			<key>pfm_name</key>
-			<string>autoAcceptTimeout</string>
-			<key>pfm_title</key>
-			<string>Auto Accept Timeout</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_value_unit</key>
-			<string>seconds</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Warns the user when dialing an emergency number from an unknown location.</string>
-			<key>pfm_name</key>
-			<string>warnWhenUnknownLocationForE911</string>
-			<key>pfm_title</key>
-			<string>Warn Unknown Location for Emergency 911</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Specify where the User Name field is displayed during sign-in.</string>
-			<key>pfm_name</key>
-			<string>userNameInAdvancedOnly</string>
-			<key>pfm_title</key>
-			<string>Username in Advanced Only</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
