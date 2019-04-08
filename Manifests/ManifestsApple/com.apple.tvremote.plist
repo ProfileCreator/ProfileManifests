@@ -4,6 +4,10 @@
 <dict>
 	<key>pfm_description</key>
 	<string>TV Remote app settings</string>
+	<key>pfm_description_reference</key>
+	<string>The TV Remote payload is designated by specifying com.apple.tvremote as the PayloadType value. This payload is supported only on supervised devices.
+This payload allows restricting the connections from the Apple TV Remote app to an Apple TV and restricting the available Apple TV devices in the Apple TV Remote app.
+To lock specific Apple TVs to specific devices running Apple TV Remote app, both the Apple TVs and remote devices can be specified in the same payload.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://help.apple.com/deployment/mdm/#/mdm7d0c7f50e</string>
 	<key>pfm_domain</key>
@@ -19,6 +23,8 @@
 		<string>iOS</string>
 		<string>tvOS</string>
 	</array>
+	<key>pfm_supervised</key>
+	<true/>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -26,6 +32,8 @@
 			<string>Configures TV Remote app settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,6 +46,8 @@
 			<string>TV Remote settings</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,6 +62,8 @@
 			<string>com.apple.tvremote</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,6 +78,8 @@
 			<string>com.apple.tvremote</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,6 +94,8 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,6 +112,9 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,6 +127,9 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -115,9 +137,12 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		
+		<!-- Custom Keys -->
+		
 		<dict>
 			<key>pfm_description</key>
-			<string>List of permitted iOS remote devices restricted on this device (applies to supervised devices only)</string>
+			<string>List of permitted iOS remote devices restricted on this device.</string>
 			<key>pfm_description_reference</key>
 			<string>If present, the Apple TV will only connect with the Apple TV Remote app from the devices specified. If not present, or the list is empty, any device will be allowed to connect. Availability: Available in tvOS 11.3 and later.</string>
 			<key>pfm_name</key>
@@ -161,7 +186,7 @@
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Allowed Remotes (supervised only)</string>
+			<string>Allowed Remotes</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -169,7 +194,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>List of permitted tvOS remote devices restricted on this device (applies to supervised devices only)</string>
+			<string>List of permitted tvOS remote devices restricted on this device.</string>
 			<key>pfm_description_reference</key>
 			<string>If present, the Apple TV Remote app will only connect to the specified Apple TVs. If not present, or the list is empty, the device will be able to connect to any Apple TV. Availability: Available in iOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
@@ -215,7 +240,7 @@
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Allowed TVs (supervised only)</string>
+			<string>Allowed TVs</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
