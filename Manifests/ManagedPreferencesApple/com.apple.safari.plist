@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>pfm_app_url</key>
+		<string>https://apple.com/Safari</string>
+		<key>pfm_documentation_url</key>
+		<string>https://developer.apple.com</string>
+		<key>pfm_targets</key>
+		<array>
+			<string>system</string>
+			<string>user</string>
+		</array>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_description</key>
+		<string>Safari settings</string>
+		<key>pfm_domain</key>
+		<string>com.apple.Safari</string>
+		<key>pfm_format_version</key>
+		<integer>4</integer>
+		<key>pfm_last_modified</key>
+		<date>2018-03-28T11:45:00Z</date>
+		<key>pfm_title</key>
+		<string>Safari</string>
+		<key>pfm_unique</key>
+		<false/>
+		<key>pfm_version</key>
+		<integer>1</integer>
+		<key>pfm_subkeys</key>
+		<array>
+			<dict>
+				<key>pfm_default</key>
+				<string>Configures Safari configuration preferences</string>
+				<key>pfm_description</key>
+				<string>Description of the payload.</string>
+				<key>pfm_description_reference</key>
+				<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>Safari</string>
+				<key>pfm_description</key>
+				<string>Name of the payload.</string>
+				<key>pfm_description_reference</key>
+				<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>com.apple.Safari</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_description_reference</key>
+				<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>com.apple.Safari</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string.</string>
+				<key>pfm_description_reference</key>
+				<string>The payload type.</string>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_description_reference</key>
+				<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<integer>1</integer>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_description_reference</key>
+				<string>The version number of the individual payload.
+	A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+				<key>pfm_description_reference</key>
+				<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+	The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+				<key>pfm_name</key>
+				<string>PayloadOrganization</string>
+				<key>pfm_title</key>
+				<string>Payload Organization</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			<!-- *************************** APPLICATION KEYS *************************** -->
+			<!-- Everything below here was ripped from com.apple.Safari.manifest pulled from Safari Version 12.1 (13607.1.40.1.5) -->
+			
+			<dict>
+				<key>pfm_name</key>
+				<string>PFC_SegmentedControl_0</string>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>General</string>
+					<string>Bookmarks</string>
+					<string>AutoFill</string>
+					<string>Security</string>
+					<string>Privacy</string>
+					<string>Advanced</string>
+				</array>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_segments</key>
+				<dict>
+					<key>General</key>
+					<array>
+						<string>HomePage</string>
+						<string>NewWindowBehavior</string>
+						<string>NewTabBehavior</string>
+						<string>TabCreationPolicy</string>
+						<string>CommandClickMakesTabs</string>
+						<string>OpenNewTabsInFront</string>
+						<string>HistoryAgeInDaysLimit</string>
+						<string>DownloadsPath</string>
+						<string>DownloadsClearingPolicy</string>
+						<string>AutoOpenSafeDownloads</string>
+						<string>ConfirmClosingMultiplePages</string>
+					</array>
+					<key>Bookmarks</key>
+					<array>
+						<string>BookmarksMenuIncludesBookmarksToolbar</string>
+						<string>BookmarksMenuIncludesAddressBook</string>
+						<string>BookmarksMenuIncludesRendezvous</string>
+						<string>BookmarksCollectionsIncludeAddressBook</string>
+						<string>BookmarksCollectionsIncludeRendezvous</string>
+					</array>
+					<key>AutoFill</key>
+					<array>
+						<string>AutoFillFromAddressBook</string>
+						<string>AutoFillPasswords</string>
+						<string>AutoFillMiscellaneousForms</string>
+					</array>
+					<key>Security</key>
+					<array>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically</string>
+						<string>AskBeforeSubmittingInsecureForms</string>
+					</array>
+					<key>Privacy</key>
+					<array>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PrivateBrowsingEnabled</string>
+						<string>BlockStoragePolicy</string>
+					</array>
+					<key>Advanced</key>
+					<array>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2LoadsImagesAutomatically</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks</string>
+						<string>IncludeDevelopMenuPreferenceKey</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2MinimumFontSize</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize</string>
+						<string>DefaultDatabaseQuota</string>
+						<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2ShouldPrintBackgrounds</string>
+						<string>PrintHeadersAndFooters</string>
+					</array>
+				</dict>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
+			
+			<!-- General -->
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>Homepage URL.</string>
+				<key>pfm_description_reference</key>
+				<string>Homepage URL</string>
+				<key>pfm_name</key>
+				<string>HomePage</string>
+				<key>pfm_title</key>
+				<string>Homepage</string>
+				<key>pfm_default</key>
+				<string>http://www.apple.com/startpage/</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for new window contents.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for new window contents. 0 = show homepage\, 1 = show empty page\, 2 = show same page as current window\, 3 = show bookmarks</string>
+				<key>pfm_name</key>
+				<string>NewWindowBehavior</string>
+				<key>pfm_title</key>
+				<string>Contents of New Windows</string>
+				<key>pfm_default</key>
+				<integer>0</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+					<integer>3</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Homepage</string>
+					<string>Empty Page</string>
+					<string>Same Page as current window</string>
+					<string>Bookmarks</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for new tab contents.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for new tab contents. 0 = show homepage\, 1 = show empty page\, 2 = show same page as current window/tab\, 3 = show bookmarks</string>
+				<key>pfm_name</key>
+				<string>NewTabBehavior</string>
+				<key>pfm_title</key>
+				<string>Contents of New Tabs</string>
+				<key>pfm_default</key>
+				<integer>0</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+					<integer>3</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Show Homepage</string>
+					<string>Show Empty Page</string>
+					<string>Show Same Page as current window</string>
+					<string>Show Bookmarks</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for when to create a tab instead of a window.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for when to create a tab instead of a window. 0 = always create a window, 1 = create a tab unless JavaScript specifies a window size, 2 = always create a tab, even if JavaScript specifies a window size</string>
+				<key>pfm_name</key>
+				<string>TabCreationPolicy</string>
+				<key>pfm_title</key>
+				<string>Open pages in tabs instead of windows</string>
+				<key>pfm_default</key>
+				<integer>0</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Never</string>
+					<string>Automatically</string>
+					<string>Always</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Open command-clicked links in a new tab rather than a new window.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to open command-clicked links in a new tab rather than a new window</string>
+				<key>pfm_name</key>
+				<string>CommandClickMakesTabs</string>
+				<key>pfm_title</key>
+				<string>⌘-click opens a link in a new tab</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Select a tab when it is created.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to select a tab when it is created</string>
+				<key>pfm_name</key>
+				<string>OpenNewTabsInFront</string>
+				<key>pfm_title</key>
+				<string>When a new tab or window opens, make it active</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for when to automatically remove items from History.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for when to automatically remove items from History. 1 = after one day\, 7 = after one week\, 14 = after two weeks\, 31 = after one month\, 365 = after one year\, 365000 = never (after 1000 years)</string>
+				<key>pfm_name</key>
+				<string>HistoryAgeInDaysLimit</string>
+				<key>pfm_title</key>
+				<string>History Age Limit</string>
+				<key>pfm_default</key>
+				<integer>31</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>1</integer>
+					<integer>7</integer>
+					<integer>14</integer>
+					<integer>31</integer>
+					<integer>365</integer>
+					<integer>365000</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>After one day</string>
+					<string>After one week</string>
+					<string>After two weeks</string>
+					<string>After one month</string>
+					<string>After one year</string>
+					<string>Manually</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>File system path (can start with ~) where downloaded files will be saved.</string>
+				<key>pfm_description_reference</key>
+				<string>File system path (can start with ~) where downloaded files will be saved.</string>
+				<key>pfm_name</key>
+				<string>DownloadsPath</string>
+				<key>pfm_title</key>
+				<string>Downloads Location</string>
+				<key>pfm_default</key>
+				<string>~/Downloads/</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for when to remove items from the Downloads window.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for when to remove items from the Downloads window. 0 = manual\, 1 = on Quit\, 2 = after each download</string>
+				<key>pfm_name</key>
+				<string>DownloadsClearingPolicy</string>
+				<key>pfm_title</key>
+				<string>Downloads Clearing Policy</string>
+				<key>pfm_default</key>
+				<integer>0</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Manually</string>
+					<string>When Safari quits</string>
+					<string>Upon successful download</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Automatically open downloaded files that are of certain well-known safe types.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to automatically open downloaded files that are of certain well-known safe types\, such as images\, PDF and text documents\, etc.</string>
+				<key>pfm_name</key>
+				<string>AutoOpenSafeDownloads</string>
+				<key>pfm_title</key>
+				<string>Open Safe Downloads Automatically</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Display a confirmation alert when multiple pages are closed at once.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to display a confirmation alert when multiple pages are closed at once</string>
+				<key>pfm_name</key>
+				<string>ConfirmClosingMultiplePages</string>
+				<key>pfm_title</key>
+				<string>Confirm Closing Multiple Pages</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			
+			<!-- Bookmarks-->
+			
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Bookmarks Bar bookmarks in the bookmarks menu.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Bookmarks Bar bookmarks in the bookmarks menu</string>
+				<key>pfm_name</key>
+				<string>BookmarksMenuIncludesBookmarksToolbar</string>
+				<key>pfm_title</key>
+				<string>Bookmarks Menu Includes Bookmarks Bar</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Contacts bookmarks in the bookmarks menu.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Contacts bookmarks in the bookmarks menu</string>
+				<key>pfm_name</key>
+				<string>BookmarksMenuIncludesAddressBook</string>
+				<key>pfm_title</key>
+				<string>Bookmarks Menu Includes Contacts</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Bonjour bookmarks in the bookmarks menu.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Bonjour bookmarks in the bookmarks menu</string>
+				<key>pfm_name</key>
+				<string>BookmarksMenuIncludesRendezvous</string>
+				<key>pfm_title</key>
+				<string>Bookmarks Menu Includes Bonjour</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Contacts bookmarks in the Collections column of the bookmarks view.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Contacts bookmarks in the Collections column of the bookmarks view</string>
+				<key>pfm_name</key>
+				<string>BookmarksCollectionsIncludeAddressBook</string>
+				<key>pfm_title</key>
+				<string>Bookmarks Collections Include Contacts</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Bonjour bookmarks in the Collections column of the bookmarks view.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Bonjour bookmarks in the Collections column of the bookmarks view</string>
+				<key>pfm_name</key>
+				<string>BookmarksCollectionsIncludeRendezvous</string>
+				<key>pfm_title</key>
+				<string>Bookmarks Collections Include Bonjour</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			
+			
+			<!-- AutoFill -->
+			
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>Autofill web forms using info from Contacts.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to autofill web forms using info from Contacts</string>
+				<key>pfm_name</key>
+				<string>AutoFillFromAddressBook</string>
+				<key>pfm_title</key>
+				<string>AutoFill web forms from contacts</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Autofill user names and passwords in web forms.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to autofill user names and passwords in web forms</string>
+				<key>pfm_name</key>
+				<string>AutoFillPasswords</string>
+				<key>pfm_title</key>
+				<string>AutoFill Passwords</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Autofill web forms using previously-typed text.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to autofill web forms using previously-typed text</string>
+				<key>pfm_name</key>
+				<string>AutoFillMiscellaneousForms</string>
+				<key>pfm_title</key>
+				<string>AutoFill Miscellaneous Forms</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			
+			
+			<!-- Security -->
+			
+			
+			<dict>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to enable plug-ins</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled</string>
+				<key>pfm_title</key>
+				<string>Enable Plug-ins</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to enable Java</string>
+				<key>pfm_domain</key>
+				<string>com.apple.Safari</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled</string>
+				<key>pfm_title</key>
+				<string>Enable Java</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to enable JavaScript</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled</string>
+				<key>pfm_title</key>
+				<string>Enable JavaScript</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_description_reference</key>
+				<string>FALSE to block pop-up windows</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically</string>
+				<key>pfm_title</key>
+				<string>Allow JavaScript to Open Windows Automatically</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Display a confirmation alert when an insecure form is submitted from a secure site</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to display a confirmation alert when an insecure form is submitted from a secure site</string>
+				<key>pfm_name</key>
+				<string>AskBeforeSubmittingInsecureForms</string>
+				<key>pfm_title</key>
+				<string>Ask Before Submitting Insecure Forms</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			
+			
+			<!-- Privacy -->
+			
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>Prevent Safari from keeping track of most user activities.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to prevent Safari from keeping track of most user activities</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PrivateBrowsingEnabled</string>
+				<key>pfm_title</key>
+				<string>Private Browsing</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<!-- This is another domain... needs another manifest
+			<dict>
+				<key>pfm_description</key>
+				<string>Which cookies Safari should accept.</string>
+				<key>pfm_description_reference</key>
+				<string>which cookies Safari should accept</string>
+				<key>pfm_domain</key>
+				<string>com.apple.WebFoundation</string>
+				<key>pfm_name</key>
+				<string>NSHTTPAcceptCookies</string>
+				<key>pfm_title</key>
+				<string>Cookie Acceptance Policy</string>
+				<key>pfm_targets</key>
+				<array>
+					<string>user</string>
+					<string>user-managed</string>
+				</array>
+				<key>pfm_type</key>
+				<string>string</string>
+				<key>pfm_default</key>
+				<string>current page</string>
+				<key>pfm_range_list</key>
+				<array>
+					<string>always</string>
+					<string>never</string>
+					<string>current page</string>
+				</array>
+			</dict>
+			-->
+			<dict>
+				<key>pfm_description</key>
+				<string>Policy for blocking cookies and other website data.</string>
+				<key>pfm_description_reference</key>
+				<string>Policy for blocking cookies and other website data. 0 = always block cookies\, 1 = never block cookies\, 2 = block cookies from third parties except sites you visited, 3 = block cookies from all third parties</string>
+				<key>pfm_name</key>
+				<string>BlockStoragePolicy</string>
+				<key>pfm_title</key>
+				<string>Block cookies and other website data</string>
+				<key>pfm_default</key>
+				<integer>2</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+					<integer>3</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Always</string>
+					<string>Never</string>
+					<string>Third Parties except sites you visited</string>
+					<string>Thrid Parties</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			
+			
+			<!-- Advanced -->
+			
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>Load and display images when a webpage is loaded.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to load and display images when a webpage is loaded</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2LoadsImagesAutomatically</string>
+				<key>pfm_title</key>
+				<string>Display Images</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Highlight links and form controls as you press the Tab key.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to highlight links and form controls as you press the Tab key</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks</string>
+				<key>pfm_title</key>
+				<string>Press Tab to highlight each item on a webpage</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Include the Develop menu in the menu bar.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to include the Develop menu in the menu bar</string>
+				<key>pfm_name</key>
+				<string>IncludeDevelopMenuPreferenceKey</string>
+				<key>pfm_title</key>
+				<string>Show Develop menu in menu bar</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>The name of the text encoding to use for webpages that don't specify a text encoding. See http://www.iana.org/assignments/character-sets</string>
+				<key>pfm_description</key>
+				<string>The name of the text encoding to use for webpages that don't specify a text encoding. See http://www.iana.org/assignments/character-sets</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName</string>
+				<key>pfm_title</key>
+				<string>Default Text Encoding</string>
+				<key>pfm_default</key>
+				<string>ISO-8859-1</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Minimum font size used for any webpage text.</string>
+				<key>pfm_description_reference</key>
+				<string>minimum font size used for any webpage text</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2MinimumFontSize</string>
+				<key>pfm_title</key>
+				<string>Minimum Font Size</string>
+				<key>pfm_default</key>
+				<integer>9</integer>
+				<key>pfm_range_min</key>
+				<integer>1</integer>
+				<key>pfm_range_max</key>
+				<integer>99</integer>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>The font family used when a webpage does not specify a font.</string>
+				<key>pfm_description_reference</key>
+				<string>The font family used when a webpage does not specify a font</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily</string>
+				<key>pfm_title</key>
+				<string>Default Font</string>
+				<key>pfm_default</key>
+				<string>Times</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>The font size used when a webpage does not specify a font size.</string>
+				<key>pfm_description_reference</key>
+				<string>The font size used when a webpage does not specify a font size</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize</string>
+				<key>pfm_title</key>
+				<string>Default Font Size</string>
+				<key>pfm_default</key>
+				<integer>16</integer>
+				<key>pfm_range_min</key>
+				<integer>1</integer>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			
+			<dict>
+				<key>pfm_description</key>
+				<string>The font family used when a webpage specifies a fixed-width font.</string>
+				<key>pfm_description_reference</key>
+				<string>The font family used when a webpage specifies a fixed-width font</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily</string>
+				<key>pfm_title</key>
+				<string>Default Fixed-width Font</string>
+				<key>pfm_default</key>
+				<string>Courier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>The font size used when a webpage specifies a fixed-width font.</string>
+				<key>pfm_description_reference</key>
+				<string>The font size used when a webpage specifies a fixed-width font</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize</string>
+				<key>pfm_title</key>
+				<string>Default Fixed-width Font Size</string>
+				<key>pfm_default</key>
+				<integer>13</integer>
+				<key>pfm_range_min</key>
+				<integer>1</integer>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Default space reserved for database storage.</string>
+				<key>pfm_description_reference</key>
+				<string>default space reserved for database storage. 0 = 0 MB\, 1048576 = 1 MB\, 5242880 = 5 MB\, 10485760 = 10 MB\, 52428800 = 50 MB\, 104857600 = 100 MB\, 524288000 = 500 MB</string>
+				<key>pfm_name</key>
+				<string>DefaultDatabaseQuota</string>
+				<key>pfm_title</key>
+				<string>Default Space for Database Storage</string>
+				<key>pfm_default</key>
+				<integer>5242880</integer>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1048576</integer>
+					<integer>5242880</integer>
+					<integer>10485760</integer>
+					<integer>52428800</integer>
+					<integer>104857600</integer>
+					<integer>524288000</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>0 MB</string>
+					<string>1 MB</string>
+					<string>5 MB</string>
+					<string>10 MB</string>
+					<string>50 MB</string>
+					<string>100 MB</string>
+					<string>500 MB</string>
+				</array>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Print background images and colors.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to print background images and colors</string>
+				<key>pfm_name</key>
+				<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2ShouldPrintBackgrounds</string>
+				<key>pfm_title</key>
+				<string>Print Backgrounds</string>
+				<key>pfm_default</key>
+				<false/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<!-- What is this
+				<key>pfm_apply</key>
+				<array>
+					<string>login</string>
+				</array>
+				-->
+				<key>pfm_description</key>
+				<string>Print the URL, date, page title, and page number in headers and footers.</string>
+				<key>pfm_description_reference</key>
+				<string>TRUE to print the URL\, date\, page title\, and page number in headers and footers</string>
+				<key>pfm_name</key>
+				<string>PrintHeadersAndFooters</string>
+				<key>pfm_title</key>
+				<string>Print Headers and Footers</string>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+		</array>
+	</dict>
+</plist>
