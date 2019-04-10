@@ -54,10 +54,18 @@ for directory_name in "${manifest_directories[@]}"; do
 		# Get the value of the pfm_domain key
 		file_domain=$( /usr/libexec/PlistBuddy -c "Print pfm_domain" "${file}" 2>/dev/null )
 		
+		# Get the value of the pfm_subdomain key
+		file_subdomain=$( /usr/libexec/PlistBuddy -c "Print pfm_subdomain" "${file}" 2>/dev/null )
+		
 		# Verify the value returned is valid
 		if [[ -z ${file_domain} ]]; then
 			printf "%s\n" "${file_name}: Invalid or missing value: ${file_domain} for key: pfm_domain"
 			exit 1
+		fi
+		
+		# Add subdomain to domain if it exists
+		if [[ -n ${file_subdomain} ]]; then
+			file_domain="${file_domain}-${file_subdomain}"	
 		fi
 		
 		# Get the last modification time of the file
