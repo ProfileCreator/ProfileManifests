@@ -189,6 +189,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>LogOutDisabledWhileLoggedIn</string>
 					<string>DisableScreenLockImmediate</string>
 					<string>showInputMenu</string>
+					<string>HiddenUsersList</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -770,6 +771,35 @@ Availability: Available in macOS 10.13 and later.</string>
 			<string>Show input menu in login window</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+				<dict>
+			<key>pfm_description</key>
+			<string>Hides users defined in the list from the login window under the Other button</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Users defined are hidden from the login list.</string>
+			<key>pfm_name</key>
+			<string>HiddenUsersList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_format</key>
+					<string>(\p{L}+)</string>
+					<key>pfm_name</key>
+					<string>username</string>
+					<key>pfm_title</key>
+					<string>Username</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>user</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Hidden Users List</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
