@@ -169,10 +169,10 @@
 					</array>
 					<key>EULA</key>
 					<array>
-						<string>EULAText</string>
-						<string>EULAPath</string>
 						<string>EULATitle</string>
 						<string>EULASubTitle</string>
+						<string>EULAText</string>
+						<string>EULAPath</string>
 					</array>
 					<key>UserInput</key>
 					<array>
@@ -459,44 +459,6 @@
 				<key>pfm_app_min</key>
 				<string>1.2</string>
 				<key>pfm_description</key>
-				<string>Text to present in the EULA window.</string>
-				<key>pfm_name</key>
-				<string>EULAText</string>
-				<key>pfm_range_max</key>
-				<integer>2</integer>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_app_min</key>
-				<string>1.2</string>
-				<key>pfm_default</key>
-				<string>/var/db/NoMADLogin/</string>
-				<key>pfm_description</key>
-				<string>Path to save acceptance records to.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_present</key>
-								<false/>
-								<key>pfm_target</key>
-								<string>EULAText</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_name</key>
-				<string>EULAPath</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_app_min</key>
-				<string>1.2</string>
-				<key>pfm_description</key>
 				<string>Text for the large title in the EULA window.</string>
 				<key>pfm_exclude</key>
 				<array>
@@ -541,6 +503,45 @@
 				<key>pfm_type</key>
 				<string>string</string>
 			</dict>
+			<dict>
+				<key>pfm_app_min</key>
+				<string>1.2</string>
+				<key>pfm_description</key>
+				<string>Text to present in the EULA window.</string>
+				<key>pfm_name</key>
+				<string>EULAText</string>
+				<key>pfm_range_max</key>
+				<integer>2</integer>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_app_min</key>
+				<string>1.2</string>
+				<key>pfm_default</key>
+				<string>/var/db/NoMADLogin/</string>
+				<key>pfm_description</key>
+				<string>Path to save acceptance records to.</string>
+				<key>pfm_exclude</key>
+				<array>
+					<dict>
+						<key>pfm_target_conditions</key>
+						<array>
+							<dict>
+								<key>pfm_present</key>
+								<false/>
+								<key>pfm_target</key>
+								<string>EULAText</string>
+							</dict>
+						</array>
+					</dict>
+				</array>
+				<key>pfm_name</key>
+				<string>EULAPath</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			
 			
 			<!-- *** CreateUser *** -->
 			
@@ -954,6 +955,6 @@
 		<key>pfm_unique</key>
 		<true/>
 		<key>pfm_version</key>
-		<integer>5</integer>
+		<integer>6</integer>
 	</dict>
 </plist>
