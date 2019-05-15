@@ -163,6 +163,7 @@ OneLogin.</string>
 				<string>GoogleID</string>
 				<string>IBMCI</string>
 				<string>OneLogin</string>
+				<string>PingFederate</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -170,6 +171,7 @@ OneLogin.</string>
 				<string>Google Identity</string>
 				<string>IBM Cloud Identity</string>
 				<string>OneLogin</string>
+				<string>PingFederate</string>
 			</array>
 		</dict>
 		<dict>
@@ -195,53 +197,6 @@ OneLogin.</string>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>9fcc52c7-ee36-4889-8517-lkjslkjoe23</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>OIDCROPGID</string>
-			<key>pfm_description_reference</key>
-			<string>The Client ID of the added app in you IdP used for authenticating the user's password via a resource owner password grant (ROPG) workflow. This value should match the OIDCClientID key.
-Note: Google ID does not support ROPG workflows.</string>
-			<key>pfm_description</key>
-			<string>The Client ID of the added app in you IdP used for authenticating the user's password via a resource owner password grant (ROPG) workflow. This value should match the OIDCClientID key.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>9fcc52c7-ee36-4889-8517-lkjslkjoe23</string>
-			<key>pfm_conditionals</key>
-			<array>
-				<dict>
-					<key>pfm_require</key>
-					<string>always</string>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_n_range_list</key>
-							<array>
-								<string>GoogleID</string>
-							</array>
-							<key>pfm_target</key>
-							<string>OIDCProvider</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_range_list</key>
-							<array>
-								<string>GoogleID</string>
-							</array>
-							<key>pfm_target</key>
-							<string>OIDCProvider</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>pfm_allowed_file_types</key>
@@ -278,6 +233,7 @@ Note: Google ID does not support ROPG workflows.</string>
 					<string>DenyLocalExcluded</string>
 					<string>Migrate</string>
 					<string>MigrateUsersHide</string>
+					<string>OIDCROPGID</string>
 					<string>OIDCNewPassword</string>
 					<string>OIDCAdmin</string>
 					<string>OIDCAdminAttribute</string>
@@ -311,10 +267,8 @@ Note: Google ID does not support ROPG workflows.</string>
 				</array>
 				<key>RunScript</key>
 				<array>
-					<!--
 					<string>ScriptPath</string>
 					<string>ScriptArgs</string>
-						-->
 				</array>
 				<key>DeMobilize</key>
 				<array>
@@ -420,6 +374,53 @@ Note: For every successful network authentication of a user, the user’s record
 					<string>Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>OIDCROPGID</string>
+			<key>pfm_description_reference</key>
+			<string>The Client ID of the added app in you IdP used for authenticating the user's password via a resource owner password grant (ROPG) workflow. This value should match the OIDCClientID key.
+Note: Google ID does not support ROPG workflows.</string>
+			<key>pfm_description</key>
+			<string>The Client ID of the added app in you IdP used for authenticating the user's password via a resource owner password grant (ROPG) workflow. This value should match the OIDCClientID key.</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>9fcc52c7-ee36-4889-8517-lkjslkjoe23</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always-nested</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>GoogleID</string>
+							</array>
+							<key>pfm_target</key>
+							<string>OIDCProvider</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>GoogleID</string>
+							</array>
+							<key>pfm_target</key>
+							<string>OIDCProvider</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -626,7 +627,11 @@ Note: Supported file types include PDF and HTML.</string>
 			<string>Supported file types include PDF and HTML.</string>
 		</dict>
 		
+		
+		
 		<!-- EULA -->
+		
+		
 		
 		<dict>
 			<key>pfm_description</key>
@@ -679,18 +684,24 @@ Note: Supported file types include PDF and HTML.</string>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Text used for the EULA.</string>
+			<key>pfm_description</key>
+			<string>Text used for the EULA. (Use three asterisks to create a line break in the text.)</string>
 			<key>pfm_name</key>
 			<string>EULAText</string>
 			<key>pfm_range_max</key>
 			<integer>2</integer>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_note</key>
+			<string>You must include the JamfConnectLogin:EULA mechanism (which you can do with authchanger) to display the contents of EULAText.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>/usr/local/shared/EULA.txt</string>
+			<string>/usr/local/shared/</string>
 			<key>pfm_description_reference</key>
-			<string>Specifies the path where the end user's license agreement record (EULA) is stored.</string>
+			<string>Specifies the path to a folder where the end user's license agreement record (EULA) is stored.</string>
+			<key>pfm_description</key>
+			<string>Specifies the path to where the end user's license agreement record (EULA) is stored.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -709,6 +720,8 @@ Note: Supported file types include PDF and HTML.</string>
 			<string>EULAPath</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_note</key>
+			<string>The user _securityagent must have write access to this folder.</string>
 		</dict>
 		
 		<!-- Create User -->
@@ -797,7 +810,64 @@ Note: Supported file types include PDF and HTML.</string>
 			</array>
 		</dict>
 		
+		
+		
+		<!-- RunScript -->
+		
+		
+		
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>Specifies the path to the script or other executable run by the RunScript mechanism.</string>
+			<key>pfm_name</key>
+			<string>ScriptPath</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/bin/login</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>The arguments used with a specified script run by the RunScript mechanism
+Note: The ScriptPath key must bey specified.</string>
+			<key>pfm_description</key>
+			<string>The arguments used with a specified script run by the RunScript mechanism</string>
+			<key>pfm_name</key>
+			<string>ScriptArgs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Arguments</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_value_empty</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ScriptPath</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		
+		
+		
 		<!-- DeMobilize -->
+		
+		
 		
 		<dict>
 			<key>pfm_description_reference</key>
