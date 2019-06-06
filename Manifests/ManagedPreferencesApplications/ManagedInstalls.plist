@@ -16,7 +16,7 @@
 	<data>
 	</data>
 	<key>pfm_last_modified</key>
-	<date>2018-12-15T16:06:00Z</date>
+	<date>2019-06-05T09:54:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -199,6 +199,7 @@
 					<string>IgnoreSystemProxies</string>
 					<string>PackageURL</string>
 					<string>CatalogURL</string>
+					<string>LicenseInfoURL</string>
 					<string>IconURL</string>
 					<string>ClientResourceURL</string>
 					<string>ClientResourcesFilename</string>
@@ -230,6 +231,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Defines the name of your LocalOnlyManifest. Setting this activates the feature. Unsetting it means Munki will remove the file on the next run.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#localonlymanifest</string>
 			<key>pfm_name</key>
 			<string>LocalOnlyManifest</string>
 			<key>pfm_type</key>
@@ -240,6 +243,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Munki will not automatically install or remove items.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#suppressautoinstall</string>
 			<key>pfm_name</key>
 			<string>SuppressAutoInstall</string>
 			<key>pfm_type</key>
@@ -250,6 +255,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Munki will not install items while idle at the loginwindow except for those marked for unattended_install or unattended_uninstall.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#suppressloginwindowinstall</string>
 			<key>pfm_name</key>
 			<string>SuppressLoginwindowInstall</string>
 			<key>pfm_type</key>
@@ -260,6 +267,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Install updates from an Apple Software Update server, in addition to "regular" Munki updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#installapplesoftwareupdates</string>
 			<key>pfm_name</key>
 			<string>InstallAppleSoftwareUpdates</string>
 			<key>pfm_type</key>
@@ -316,6 +325,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Managed Software Center will never notify the user of available updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#suppressusernotification</string>
 			<key>pfm_name</key>
 			<string>SuppressUserNotification</string>
 			<key>pfm_type</key>
@@ -336,6 +347,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Managed Software Center will require a logout for all installs or removals.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#installrequireslogout</string>
 			<key>pfm_name</key>
 			<string>InstallRequiresLogout</string>
 			<key>pfm_type</key>
@@ -346,6 +359,8 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>Managed Software Center will display detail for scheduled removals.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#showremovaldetail</string>
 			<key>pfm_name</key>
 			<string>ShowRemovalDetail</string>
 			<key>pfm_type</key>
@@ -410,6 +425,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Defines whether Munki will follow all, some or no redirects from the web server. (none = The default behaviour. No redirects are followed. https = Only redirects to URLs using HTTPS are followed. all = Redirects to both HTTP and HTTPS URLs are followed.)</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#followhttpredirects</string>
 			<key>pfm_name</key>
 			<string>FollowHTTPRedirects</string>
 			<key>pfm_range_list</key>
@@ -424,6 +441,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>This key provides the ability to specify custom HTTP headers to be sent with all curl() HTTP requests.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#additionalhttpheaders</string>
 			<key>pfm_name</key>
 			<string>AdditionalHttpHeaders</string>
 			<key>pfm_subkeys</key>
@@ -511,10 +530,24 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>URL for Munki to query a webserver to determine if there are available seats for licensed software (or any software you wish to make available via optional_installs, yet control the number of deployed copies).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/License-Seat-Tracking</string>
+			<key>pfm_name</key>
+			<string>LicenseInfoURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>http://mwa:8444/licenses/available/</string>
+		</dict>
+		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>2.8.0</string>
 			<key>pfm_description</key>
 			<string>Catalog URL for Apple Software Updates. If undefined or empty, Munki will use the same catalog that the OS uses.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#softwareupdateserverurl</string>
 			<key>pfm_macos_deprecated</key>
 			<string>10.11</string>
 			<key>pfm_name</key>
@@ -587,6 +620,8 @@
 			<string>/Library/Managed Installs/Logs/ManagedSoftwareUpdate.log</string>
 			<key>pfm_description</key>
 			<string>Primary log is written to this file. Other logs are written into the same directory as this file.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#logfile</string>
 			<key>pfm_name</key>
 			<string>LogFile</string>
 			<key>pfm_type</key>
@@ -707,6 +742,6 @@ SecretKey for S3 bucket.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>
