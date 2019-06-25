@@ -321,13 +321,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string></string>
+			<string>Location of a PKCS#12 certificate to be used for sync authentication.</string>
 			<key>pfm_description_reference</key>
 			<string>If set, this contains the location of a PKCS#12 certificate to be used for sync authentication.</string>
 			<key>pfm_name</key>
 			<string>ClientAuthCertificateFile</string>
 			<key>pfm_title</key>
-			<string>Client Certificate</string>
+			<string>Client Certificate File Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -350,6 +350,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>If set, this is the Common Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
 			<key>pfm_name</key>
 			<string>ClientAuthCertificateCN</string>
+			<key>pfm_note</key>
+			<string>The corresponding private key must also be in the keychain.</string>
 			<key>pfm_title</key>
 			<string>Client Certificate Common Name</string>
 			<key>pfm_type</key>
@@ -357,11 +359,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string></string>
+			<string>The Issuer Name of a certificate in the System keychain to be used for sync authentication.</string>
 			<key>pfm_description_reference</key>
 			<string>If set, this is the Issuer Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
 			<key>pfm_name</key>
 			<string>ClientAuthCertificateIssuerCN</string>
+			<key>pfm_note</key>
+			<string>The corresponding private key must also be in the keychain.</string>
 			<key>pfm_title</key>
 			<string>Client Certificate Issuer Common Name</string>
 			<key>pfm_type</key>
@@ -373,11 +377,13 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>public.x509-certificate</string>
 			</array>
 			<key>pfm_description</key>
-			<string>X.509 certificate (.pem) for inclusion on device</string>
+			<string>X.509 certificate (.pem) for inclusion on device. A valid PEM containing one or more certificates to be used for certificate pinning.</string>
 			<key>pfm_description_reference</key>
 			<string>If set, this is valid PEM containing one or more certificates to be used for certificate pinning. To comply with ATS the certificate chain must also be trusted in the keychain.</string>
 			<key>pfm_name</key>
 			<string>ServerAuthRootsData</string>
+			<key>pfm_note</key>
+			<string>To comply with ATS (https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57) the certificate chain must also be trusted in the keychain.</string>
 			<key>pfm_title</key>
 			<string></string>
 			<key>pfm_type</key>
@@ -544,7 +550,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string></string>
+			<string>Appends the MachineID to the end of each log line if enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>If YES, this appends the MachineID to the end of each log line. Defaults to NO.</string>
 			<key>pfm_name</key>
