@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if (($( sw_vers -productVersion | awk -F. '{ print $2 }' ) < 14)); then
+	printf "%s\n" "This script requires macOS 10.14 or higher to create correct hashes for the icons..."
+	exit 1
+fi
+
 shopt -s nullglob
 
 # Get the current script path and verify it is located at the root of the ProfileManifests repository
