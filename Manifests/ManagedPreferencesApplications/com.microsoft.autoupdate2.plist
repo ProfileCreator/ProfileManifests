@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-03-06T22:41:50Z</date>
+	<date>2019-07-24T21:19:44Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -112,57 +112,25 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>3.3.0</string>
+			<string>4.1.3</string>
 			<key>pfm_default</key>
-			<string>Production</string>
+			<string>RequiredDataOnly</string>
 			<key>pfm_description</key>
-			<string>Set the update channel that is used to check for updates.</string>
+			<string>Enable this option to suppress the Required Data Notice from appearing for users.</string>
 			<key>pfm_name</key>
-			<string>ChannelName</string>
+			<string>AcknowledgedDataCollectionPolicy</string>
+			<key>pfm_title</key>
+			<string>Acknowledged Data Collection Policy</string>
+			<key>pfm_type</key>
+			<string>string</string>
 			<key>pfm_range_list</key>
 			<array>
-				<string>Production</string>
-				<string>External</string>
-				<string>InsiderFast</string>
-				<string>Custom</string>
+				<string>RequiredDataOnly</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>Production</string>
-				<string>Office Insider Slow: External</string>
-				<string>Office Insider Fast: InsiderFast</string>
-				<string>Custom</string>
+				<string>RequiredDataOnly</string>
 			</array>
-			<key>pfm_title</key>
-			<string>Channel Update Name</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.6.0</string>
-			<key>pfm_default</key>
-			<string>AutomaticCheck</string>
-			<key>pfm_description</key>
-			<string>Control how updates are checked for.</string>
-			<key>pfm_name</key>
-			<string>HowToCheck</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>Manual</string>
-				<string>AutomaticCheck</string>
-				<string>AutomaticDownload</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>No auto updates or checks: Manual</string>
-				<string>Automatically check for updates: AutomaticCheck</string>
-				<string>Automatically check for and install updates: AutomaticDownload</string>
-			</array>
-			<key>pfm_title</key>
-			<string>How to check for updates</string>
-			<key>pfm_type</key>
-			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -695,8 +663,104 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>3.3.0</string>
+			<key>pfm_default</key>
+			<string>Production</string>
 			<key>pfm_description</key>
-			<string>Force Microsoft AutoUpdate to pull collateral using a custom server. This is good when enterprise wants to have strict control on which version of Office applications get installed. This requires "ChannelName" to be set to "Custom". Ensure that a trailing slash is used when specifying the value as this is mandatory.</string>
+			<string>Set the update channel that is used to check for updates.</string>
+			<key>pfm_name</key>
+			<string>ChannelName</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Production</string>
+				<string>External</string>
+				<string>InsiderFast</string>
+				<string>Custom</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Production</string>
+				<string>Office Insider Slow: External</string>
+				<string>Office Insider Fast: InsiderFast</string>
+				<string>Custom</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Channel Update Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.0.0</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enable this option to set the "Join the Office Insider Program..." checkbox to unavailable.</string>
+			<key>pfm_name</key>
+			<string>DisableInsiderCheckbox</string>
+			<key>pfm_title</key>
+			<string>Disable Insider Checkbox</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8.0</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enabled extended logging for Microsoft AutoUpdate operations. Writes logs to /Library/Logs/Microsoft/autoupdate.log.</string>
+			<key>pfm_name</key>
+			<string>ExtendedLogging</string>
+			<key>pfm_title</key>
+			<string>Enable extended logging</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+			<dict>
+			<key>pfm_app_min</key>
+			<string>3.18.0</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Disable this option to make the "Check for Updates" button in Microsoft AutoUpdate unavailable.</string>
+			<key>pfm_name</key>
+			<string>EnableCheckForUpdatesButton</string>
+			<key>pfm_title</key>
+			<string>Enable Check for Updates Button</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.6.0</string>
+			<key>pfm_default</key>
+			<string>AutomaticCheck</string>
+			<key>pfm_description</key>
+			<string>Control how updates are checked for and handled.</string>
+			<key>pfm_name</key>
+			<string>HowToCheck</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Manual</string>
+				<string>AutomaticCheck</string>
+				<string>AutomaticDownload</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>No auto updates or checks: Manual</string>
+				<string>Automatically check for updates: AutomaticCheck</string>
+				<string>Automatically check for and install updates: AutomaticDownload</string>
+			</array>
+			<key>pfm_title</key>
+			<string>How to check for updates</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.3.0</string>
+			<key>pfm_description</key>
+			<string>Force Microsoft AutoUpdate to pull collateral using a custom server. This is good when enterprise wants to have strict control on which version of Office applications get installed. Ensure that a trailing slash is used when specifying the value as this is mandatory. This requires "ChannelName" to be set to "Custom".</string>
 			<key>pfm_name</key>
 			<string>ManifestServer</string>
 			<key>pfm_title</key>
@@ -708,9 +772,37 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>3.0.0</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
+			<key>pfm_name</key>
+			<string>SendAllTelemetryEnabled</string>
+			<key>pfm_title</key>
+			<string>Send all telemetry</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.0.0</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable this option to trigger the MAU Daemon when other Office applications are launched.</string>
+			<key>pfm_name</key>
+			<string>StartDaemonOnAppLaunch</string>
+			<key>pfm_title</key>
+			<string>Start Daemon on App Launch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>3.3.0</string>
 			<key>pfm_description</key>
-			<string>Force Microsoft AutoUpdate to pull update binaries from a custom server. This is good when internet bandwidth is limited. This requires "ChannelName" to be set to "Custom". Ensure that a trailing slash is used when specifying the value as this is mandatory.</string>
+			<string>Force Microsoft AutoUpdate to pull update binaries from a custom server. This is good when internet bandwidth is limited. Ensure that a trailing slash is used when specifying the value as this is mandatory.</string>
 			<key>pfm_name</key>
 			<string>UpdateCache</string>
 			<key>pfm_title</key>
@@ -736,76 +828,6 @@
 			<key>pfm_value_unit</key>
 			<string>Minutes</string>
 		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.8.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Enabled extended logging for Microsoft AutoUpdate operations. Writes logs to /Library/Logs/Microsoft/autoupdate.log.</string>
-			<key>pfm_name</key>
-			<string>ExtendedLogging</string>
-			<key>pfm_title</key>
-			<string>Enable extended logging</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
-			<key>pfm_name</key>
-			<string>SendAllTelemetryEnabled</string>
-			<key>pfm_title</key>
-			<string>Send all telemetry</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Enable this option to set the "Join the Office Insider Program..." checkbox to unavailable.</string>
-			<key>pfm_name</key>
-			<string>DisableInsiderCheckbox</string>
-			<key>pfm_title</key>
-			<string>Disable Insider Checkbox</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.18.0</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Disable this option to make the "Check for Updates" button in Microsoft AutoUpdate unavailable.</string>
-			<key>pfm_name</key>
-			<string>EnableCheckForUpdatesButton</string>
-			<key>pfm_title</key>
-			<string>Enable Check for Updates Button</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Enable this option to trigger the MAU Daemon when other Office applications are launched.</string>
-			<key>pfm_name</key>
-			<string>StartDaemonOnAppLaunch</string>
-			<key>pfm_title</key>
-			<string>Start Daemon on App Launch</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -817,6 +839,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>8</integer>
+	<integer>9</integer>
 </dict>
 </plist>
