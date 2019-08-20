@@ -6,14 +6,12 @@
 	<string>https://www.office.com</string>
 	<key>pfm_description</key>
 	<string>Microsoft Office 365 Service settings</string>
-	<key>pfm_documentation_url</key>
-	<string>https://docs.google.com/spreadsheets/d/1ESX5td0y0OP3jdzZ-C2SItm-TUi-iA_bcHCBvaoCumw/edit#gid=0</string>
 	<key>pfm_domain</key>
 	<string>com.microsoft.Office365ServiceV2</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-08-14T19:47:00Z</date>
+	<date>2019-08-19T15:37:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -46,7 +44,7 @@
 			<key>pfm_default</key>
 			<string>com.microsoft.Office365ServiceV2</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -63,8 +61,6 @@
 			<string>The type of the payload, a reverse dns string</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
-			<key>pfm_note</key>
-			<string>This preference domain is deprecated as of Office 2019 version 16.24 but is still used by the continuing updates to Office 2016 (versions 16.16.x).</string>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -103,26 +99,22 @@
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
-			<key>pfm_title</key>
-			<string>Payload Organization</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.24</string>
+			<key>pfm_app_max</key>
+			<string>16.23</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
-			<key>pfm_app_max</key>
-			<string>16.23</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C07UZ1X7B/p1565795925296800?thread_ts=1565795743.294700%26cid=C07UZ1X7B</string>
 			<key>pfm_name</key>
 			<string>SendAllTelemetryEnabled</string>
+			<key>pfm_note</key>
+			<string>This entire preference domain is deprecated as of Office 2019 version 16.24 but is still used by the continuing updates to Office 2016 (versions 16.16.x).</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -137,6 +129,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>
