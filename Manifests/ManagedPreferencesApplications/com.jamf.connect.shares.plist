@@ -13,27 +13,13 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-08-14T13:54:00Z</date>
+	<date>2019-08-21T21:21:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
-		<dict>
-			<key>pfm_default</key>
-			<string>Configures Jamf Connect Shares settings</string>
-			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
-			<key>pfm_name</key>
-			<string>PayloadDescription</string>
-			<key>pfm_title</key>
-			<string>Payload Description</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Jamf Connect Shares</string>
@@ -117,11 +103,33 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>Required.</string>
+			<key>pfm_hidden</key>
+			<string>all</string>
 			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
+			<string>Version</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>1</string>
+			</array>
+			<key>pfm_required</key>
+			<string>always</string>
 			<key>pfm_title</key>
-			<string>Payload Organization</string>
+			<string>Jamf Connect Shares PLIST Version</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Jamf Connect Shares settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -154,15 +162,25 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>1.1.0</string>
 			<key>pfm_description</key>
 			<string>This is a dictionary of attributes for scenarios where the user’s home profile should be mounted.</string>
+			<key>pfm_description_reference</key>
+			<string>Determines if a user's home profile should be mounted. This is written as a dictionary of keys including the Groups and Options keys.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.6.1/administrator-guide/Configuring_File_Shares_with_Jamf_Connect_Sync.html</string>
 			<key>pfm_name</key>
 			<string>HomeMount</string>
+			<key>pfm_title</key>
+			<string>Home Mount</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>1.1.0</string>
 					<key>pfm_description</key>
 					<string>Mount the user's home automatically or not.</string>
 					<key>pfm_description_reference</key>
 					<string>If set to true, will automount the user's home</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.jamf.com/jamf-connect/1.6.1/administrator-guide/Configuring_File_Shares_with_Jamf_Connect_Sync.html</string>
 					<key>pfm_name</key>
 					<string>Mount</string>
 					<key>pfm_title</key>
@@ -171,8 +189,14 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>1.1.0</string>
 					<key>pfm_description</key>
-					<string>Only mount the home for members of these AD groups. Enter 'All' to allow all users and groups to mount their home.</string>
+					<string>Specifies which active directory group members should have their home profile mounted.</string>
+					<key>pfm_description_reference</key>
+					<string>Specifies which active directory group members should have their home profile mounted</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.jamf.com/jamf-connect/1.6.1/administrator-guide/Configuring_File_Shares_with_Jamf_Connect_Sync.html</string>
 					<key>pfm_name</key>
 					<string>Groups</string>
 					<key>pfm_subkeys</key>
@@ -192,15 +216,22 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>1.1.0</string>
 					<key>pfm_description</key>
-					<string>Array of optional mount options. Refer to "Options" @ https://docs.jamf.com/jamf-connect/1.0.0/sync/administrator-guide/File_Shares.html for more information.</string>
+					<string>Array of optional mount options. See the Options table in the documentation linked below for more information.</string>
+					<key>pfm_description_reference</key>
+					<string>The following options can be written as an array of strings with the Options key.
+					MNT_RDONLY = Mounts the share as read only
+					MNT_SYNCHRONOUS = Specifies that all input and outputs to the file system should be synchronized on the system
+					MNT_NOEXEC = Prohibits code executions from the share</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.jamf.com/jamf-connect/1.6.1/administrator-guide/Configuring_File_Shares_with_Jamf_Connect_Sync.html</string>
 					<key>pfm_name</key>
 					<string>Options</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<key>pfm_description</key>
-							<string>Array of optional mount options. Refer to "Options" @ https://docs.jamf.com/jamf-connect/1.0.0/sync/administrator-guide/File_Shares.html for more information.</string>
 							<key>pfm_name</key>
 							<string>MountOption</string>
 							<key>pfm_type</key>
@@ -221,6 +252,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>1.1.0</string>
 			<key>pfm_description</key>
 			<string>Array of dictionaries of each share and their settings.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.6.1/administrator-guide/Configuring_File_Shares_with_Jamf_Connect_Sync.html</string>
 			<key>pfm_name</key>
 			<string>Shares</string>
 			<key>pfm_subkeys</key>
@@ -228,6 +261,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<dict>
 					<key>pfm_description</key>
 					<string>Dictionary of shares and their settings.</string>
+					<key>pfm_description_reference</key>
+					<string>Determines a mount point and its associated attributes. This is written as an array of dictionaries.</string>
 					<key>pfm_name</key>
 					<string>ShareDict</string>
 					<key>pfm_subkeys</key>
@@ -235,6 +270,8 @@ A profile can consist of payloads with different version numbers. For example, c
 						<dict>
 							<key>pfm_description</key>
 							<string>Name as it will appear in the Jamf Connect menu item.</string>
+							<key>pfm_description_reference</key>
+							<string>Specifies the name of the share displayed as a menu item in Jamf Connect</string>
 							<key>pfm_name</key>
 							<string>Name</string>
 							<key>pfm_type</key>
@@ -245,6 +282,8 @@ A profile can consist of payloads with different version numbers. For example, c
 							<string>The actual URL of the mount point in the form of "smb://dc1.example.com/Homes".
 
 For the URLs, you can use variable substitution to allow for custom mounts without having to create even more XML. Jamf Connect understands &lt;&lt;domain&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;serial&gt;&gt;, &lt;&lt;shortname&gt;&gt;, &lt;&lt;upn&gt;&gt; and &lt;&lt;email&gt;&gt;</string>
+							<key>pfm_description_reference</key>
+							<string>Specifies the URL of the mount point</string>
 							<key>pfm_name</key>
 							<string>URL</string>
 							<key>pfm_type</key>
@@ -255,6 +294,8 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 						<dict>
 							<key>pfm_description</key>
 							<string>An array of AD groups allowed to mount the share.</string>
+							<key>pfm_description_reference</key>
+							<string>Specifies which active directory group members should have their home profile mounted.</string>
 							<key>pfm_name</key>
 							<string>Groups</string>
 							<key>pfm_subkeys</key>
@@ -272,6 +313,8 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 						<dict>
 							<key>pfm_description</key>
 							<string>Optional local mount point.</string>
+							<key>pfm_description_reference</key>
+							<string>Specifies a local mount point</string>
 							<key>pfm_name</key>
 							<string>LocalMount</string>
 							<key>pfm_type</key>
@@ -279,7 +322,9 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>If enabled, will auto mount share.</string>
+							<string>If enabled, the share is automatically mounted.</string>
+							<key>pfm_description_reference</key>
+							<string>If set to true, the share is automatically mounted</string>
 							<key>pfm_name</key>
 							<string>AutoMount</string>
 							<key>pfm_type</key>
@@ -287,7 +332,9 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>If enabled, will only mount on domain.</string>
+							<string>If enabled, the share is only mounted when the computer is connected to the active directory domain.</string>
+							<key>pfm_description_reference</key>
+							<string>If set to true, the share is only mounted when the computer is connected to the active directory domain.</string>
 							<key>pfm_name</key>
 							<string>ConnectedOnly</string>
 							<key>pfm_type</key>
@@ -295,7 +342,7 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Array of optional mount options. Refer to "Options" @ https://docs.jamf.com/jamf-connect/1.0.0/sync/administrator-guide/File_Shares.html for more information.</string>
+							<string>Array of optional mount options. See the Options table in the documentation linked below for more information.</string>
 							<key>pfm_name</key>
 							<string>Options</string>
 							<key>pfm_subkeys</key>
@@ -317,24 +364,6 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 			</array>
 			<key>pfm_type</key>
 			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Required.</string>
-			<key>pfm_hidden</key>
-			<string>all</string>
-			<key>pfm_name</key>
-			<string>Version</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>1</string>
-			</array>
-			<key>pfm_required</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Jamf Connect Shares PLIST Version</string>
-			<key>pfm_type</key>
-			<string>string</string>
 		</dict>
 	</array>
 	<key>pfm_title</key>
