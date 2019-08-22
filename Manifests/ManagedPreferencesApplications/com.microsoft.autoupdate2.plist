@@ -6,28 +6,14 @@
 	<string>https://www.office.com</string>
 	<key>pfm_description</key>
 	<string>Microsoft AutoUpdate settings</string>
-	<key>pfm_documentation_url</key>
-	<string>https://docs.google.com/spreadsheets/d/1ESX5td0y0OP3jdzZ-C2SItm-TUi-iA_bcHCBvaoCumw/edit#gid=0</string>
 	<key>pfm_domain</key>
 	<string>com.microsoft.autoupdate2</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-08-11T22:45:44Z</date>
+	<date>2019-08-22T15:41:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
-		<dict>
-			<key>pfm_default</key>
-			<string>Configures Microsoft AutoUpdate settings</string>
-			<key>pfm_description</key>
-			<string>Description of the payload</string>
-			<key>pfm_name</key>
-			<string>PayloadDescription</string>
-			<key>pfm_title</key>
-			<string>Payload Description</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Microsoft AutoUpdate</string>
@@ -101,12 +87,48 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>Configures Microsoft AutoUpdate settings</string>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>Description of the payload</string>
 			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
+			<string>PayloadDescription</string>
 			<key>pfm_title</key>
-			<string>Payload Organization</string>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>General</string>
+				<string>Applications</string>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
+			<dict>
+				<key>General</key>
+				<array>
+					<string>AcknowledgedDataCollectionPolicy</string>
+					<string>ChannelName</string>
+					<string>DisableInsiderCheckbox</string>
+					<string>EnableCheckForUpdatesButton</string>
+					<string>ExtendedLogging</string>
+					<string>HowToCheck</string>
+					<string>ManifestServer</string>
+					<string>SendAllTelemetryEnabled</string>
+					<string>StartDaemonOnAppLaunch</string>
+					<string>UpdateCache</string>
+					<string>UpdateCheckFrequency</string>
+				</array>
+				<key>Applications</key>
+				<array>
+					<string>Applications</string>
+				</array>
+			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -117,6 +139,8 @@
 			<string>RequiredDataOnly</string>
 			<key>pfm_description</key>
 			<string>The first time Version 4.12 or later of Microsoft AutoUpdate is launched, users will see a Required Data Notice dialog which provides them with information about what data from MAU is sent to Microsoft. If you don't want your users to see this Required Data Notice dialog for Microsoft AutoUpdate, you can set the following preference. Regardless of which value you set, the dialog won't be shown to your users. If you let your users see this dialog, then when the user chooses OK, the value RequiredDataOnly is used and the dialog is not shown to the user again.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployoffice/privacy/mac-privacy-preferences#preference-setting-for-the-required-data-notice-dialog-for-microsoft-autoupdate</string>
 			<key>pfm_name</key>
 			<string>AcknowledgedDataCollectionPolicy</string>
 			<key>pfm_title</key>
@@ -136,13 +160,363 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>3.0.0</string>
+			<string>3.3</string>
+			<key>pfm_default</key>
+			<string>Production</string>
 			<key>pfm_description</key>
-			<string>Register applications that Microsoft AutoUpdate should manage updates for. If this is not managed MAU might have issues finding updates for applications.</string>
+			<string>Set the update channel that is used to check for updates.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls which audience and update channel to use for retrieving product updates. By default, users are placed in the ‘production’ channel which receives the highestquality updates around the middle of each month. Through the UI, users can join the Insider Slow (Exeternal) and Insider Fast (InsiderFast) program to receive more frequent updates at slightly lower quality. IT administrators can also set a Custom channel when deploying an internal MAU server.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_38.pdf</string>
+			<key>pfm_name</key>
+			<string>ChannelName</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Production</string>
+				<string>External</string>
+				<string>InsiderFast</string>
+				<string>Custom</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Production</string>
+				<string>Office Insider Slow: "External"</string>
+				<string>Office Insider Fast: "InsiderFast"</string>
+				<string>Custom</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Channel Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.4</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set this option to disable the "Join the Office Insider Program..." checkbox.</string>
+			<key>pfm_description_reference</key>			
+			<string>Controls whether the user can change the Insider opt- in. If the value is set to TRUE, the user interface is disabled for the user.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_38.pdf</string>
+			<key>pfm_name</key>
+			<string>DisableInsiderCheckbox</string>
+			<key>pfm_title</key>
+			<string>Disable Insider Checkbox</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.18</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Disable this option to make the "Check for Updates" button in unavailable.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C8J5E5VPW/p1525938524000340</string>
+			<key>pfm_name</key>
+			<string>EnableCheckForUpdatesButton</string>
+			<key>pfm_title</key>
+			<string>Enable Check for Updates Button</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enabled extended logging for Microsoft AutoUpdate operations.
+Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_38.pdf</string>
+			<key>pfm_name</key>
+			<string>ExtendedLogging</string>
+			<key>pfm_title</key>
+			<string>Enable Extended Logging</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8</string>
+			<key>pfm_default</key>
+			<string>AutomaticCheck</string>
+			<key>pfm_description</key>
+			<string>Control how updates are checked for and handled.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls whether updates are detected automatically (default) or manually, and if update packages should be downloaded and installed automatically.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_38.pdf</string>
+			<key>pfm_name</key>
+			<string>HowToCheck</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Manual</string>
+				<string>AutomaticCheck</string>
+				<string>AutomaticDownload</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>No auto updates or checks: "Manual"</string>
+				<string>Automatically check for updates: "AutomaticCheck"</string>
+				<string>Automatically check for and install updates: "AutomaticDownload"</string>
+			</array>
+			<key>pfm_title</key>
+			<string>How to Check for Updates</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8</string>
+			<key>pfm_description</key>
+			<string>Force Microsoft AutoUpdate to pull collateral using a custom server. This is good when enterprise wants to have strict control on which version of Office applications get installed. Ensure that a trailing slash is used when specifying the value as this is mandatory. This requires "ChannelName" to be set to "Custom".</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_CachingServer.pdf</string>
+			<key>pfm_name</key>
+			<string>ManifestServer</string>
+			<key>pfm_title</key>
+			<string>Manifest Server</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://updates.example.com/folder/</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>4.12</string>
+			<key>pfm_app_max</key>
+			<string>4.11</string>
+			<key>pfm_app_min</key>
+			<string>3.0</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details. Replaced by "AcknowledgedDataCollectionPolicy" in MAU 4.12.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/16.28-Privacy-Consent.key</string>
+			<key>pfm_name</key>
+			<string>SendAllTelemetryEnabled</string>
+			<key>pfm_title</key>
+			<string>Send Telemetry Data</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable this option to trigger the MAU Daemon when other Office applications are launched.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls whether the ‘Microsoft AU Daemon’ should be launched when an Office application is launched. If this value is set to 0, updates will not be detected, regardless of the ‘HowToCheck’ preference, and users will need to use the Help -> Check for Updates menu option to see if updates are available.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_38.pdf</string>
+			<key>pfm_name</key>
+			<string>StartDaemonOnAppLaunch</string>
+			<key>pfm_title</key>
+			<string>Start Daemon on App Launch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.8</string>
+			<key>pfm_description</key>
+			<string>Force Microsoft AutoUpdate to pull update binaries from a custom server. This is good when internet bandwidth is limited. Ensure that a trailing slash is used when specifying the value as this is mandatory.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/MAU_CachingServer.pdf</string>
+			<key>pfm_name</key>
+			<string>UpdateCache</string>
+			<key>pfm_title</key>
+			<string>Update Cache Server</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://updates.example.com/folder/</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.9.1</string>
+			<key>pfm_description</key>
+			<string>Change how often the Microsoft AutoUpdate daemon will look for updates. The default is 720 minutes (12 hrs). By reducing this value MAU will look for updates sooner.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C07UZ1X7B/p1493835630209456</string>
+			<key>pfm_name</key>
+			<string>UpdateCheckFrequency</string>
+			<key>pfm_title</key>
+			<string>Update Check Frequency</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<integer>720</integer>
+			<key>pfm_value_unit</key>
+			<string>Minutes</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Register applications that Microsoft AutoUpdate should update. If this is not managed MAU might have issues finding updates for applications that a user has never opened. Language Code IDs are legacy and always "1033".</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/pbowden-msft/Payloads</string>
 			<key>pfm_name</key>
 			<string>Applications</string>
 			<key>pfm_subkeys</key>
 			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app.</string>
+					<key>pfm_name</key>
+					<string>/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>MSau04</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>MSau03</string>
+								<string>MSau04</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>AutoUpdate &lt;= 4.6</string>
+								<string>AutoUpdate =&gt; 4.7</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Microsoft AutoUpdate</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/Microsoft Defender ATP.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Microsoft Defender ATP.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>WDAV00</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>WDAV00</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Microsoft Defender ATP</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/Microsoft Edge.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Microsoft Edge.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>EDGE01</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>EDGE01</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Microsoft Edge</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
 				<dict>
 					<key>pfm_description</key>
 					<string>Register /Applications/Microsoft Excel.app.</string>
@@ -152,7 +526,7 @@
 					<array>
 						<dict>
 							<key>pfm_default</key>
-							<string>XCEL15</string>
+							<string>XCEL2019</string>
 							<key>pfm_name</key>
 							<string>Application ID</string>
 							<key>pfm_range_list</key>
@@ -168,7 +542,7 @@
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Excel Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -179,10 +553,14 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Excel Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
@@ -201,7 +579,7 @@
 					<array>
 						<dict>
 							<key>pfm_default</key>
-							<string>ONMC15</string>
+							<string>ONMC2019</string>
 							<key>pfm_name</key>
 							<string>Application ID</string>
 							<key>pfm_range_list</key>
@@ -217,7 +595,7 @@
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>OneNote Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -228,10 +606,14 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>OneNote Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
@@ -250,7 +632,7 @@
 					<array>
 						<dict>
 							<key>pfm_default</key>
-							<string>OPIM15</string>
+							<string>OPIM2019</string>
 							<key>pfm_name</key>
 							<string>Application ID</string>
 							<key>pfm_range_list</key>
@@ -266,7 +648,7 @@
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Outlook Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -277,10 +659,14 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Outlook Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
@@ -299,7 +685,7 @@
 					<array>
 						<dict>
 							<key>pfm_default</key>
-							<string>PPT315</string>
+							<string>PPT32019</string>
 							<key>pfm_name</key>
 							<string>Application ID</string>
 							<key>pfm_range_list</key>
@@ -315,7 +701,7 @@
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>PowerPoint Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -326,16 +712,118 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>PowerPoint Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
 					<string>Microsoft PowerPoint</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/Microsoft Remote Desktop.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Microsoft Remote Desktop.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>MSRD10</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>MSRD10</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Microsoft Remote Desktop</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/Microsoft Teams.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Microsoft Teams.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>TEAM01</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>TEAM01</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Microsoft Teams</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -348,7 +836,7 @@
 					<array>
 						<dict>
 							<key>pfm_default</key>
-							<string>MSWD15</string>
+							<string>MSWD2019</string>
 							<key>pfm_name</key>
 							<string>Application ID</string>
 							<key>pfm_range_list</key>
@@ -364,7 +852,7 @@
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Word Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -375,16 +863,118 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Word Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
 					<string>Microsoft Word</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/Company Portal.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Company Portal.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>IMCP01</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>IMCP01</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Company Portal</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Register /Applications/OneDrive.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/OneDrive.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>ONDR18</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>ONDR18</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>OneDrive</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -403,17 +993,11 @@
 							<key>pfm_range_list</key>
 							<array>
 								<string>MSFB16</string>
-								<string>MSFB2019</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>2016 Volume License</string>
-								<string>2019 Volume License/Office 365</string>
 							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>Skype for Business Application ID</string>
+							<string>Application ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -424,235 +1008,20 @@
 							<string>all</string>
 							<key>pfm_name</key>
 							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Skype for Business Language Code ID</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Microsoft Skype for Business</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>Register /Applications/Microsoft Remote Desktop.app.</string>
-					<key>pfm_name</key>
-					<string>/Applications/Microsoft Remote Desktop.app</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>MSRD10</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Application ID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Microsoft Remote Desktop Application ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_default</key>
-							<integer>1033</integer>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Microsoft Remote Desktop Language Code ID</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Microsoft Remote Desktop</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>Register /Applications/Company Portal.app.</string>
-					<key>pfm_name</key>
-					<string>/Applications/Company Portal.app</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>IMCP01</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Application ID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Company Portal Application ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_default</key>
-							<integer>1033</integer>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Company Portal Language Code ID</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Company Portal</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_app_min</key>
-					<string>4.70</string>
-					<key>pfm_description</key>
-					<string>Register /Applications/Microsoft Teams.app.</string>
-					<key>pfm_name</key>
-					<string>/Applications/Microsoft Teams.app</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>TEAM01</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Application ID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Microsoft Teams Application ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_default</key>
-							<integer>1033</integer>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Microsoft Teams Language Code ID</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Microsoft Teams</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_app_min</key>
-					<string>4.70</string>
-					<key>pfm_description</key>
-					<string>Register /Applications/OneDrive.app.</string>
-					<key>pfm_name</key>
-					<string>/Applications/OneDrive.app</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>ONDR18</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Application ID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>OneDrive Application ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_default</key>
-							<integer>1033</integer>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>OneDrive Language Code ID</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>OneDrive</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>Register /Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app.</string>
-					<key>pfm_name</key>
-					<string>/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>MSau03</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Application ID</string>
 							<key>pfm_range_list</key>
 							<array>
-								<string>MSau03</string>
-								<string>MSau04</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>AutoUpdate 4.6 and below</string>
-								<string>AutoUpdate 4.7 and above</string>
+								<integer>1033</integer>
 							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
-							<string>AutoUpdate Application ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_default</key>
-							<integer>1033</integer>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>LCID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>AutoUpdate Language Code ID</string>
+							<string>Language Code ID</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Microsoft AutoUpdate</string>
+					<string>Skype for Business</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -661,174 +1030,6 @@
 			<string>Applications</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.3.0</string>
-			<key>pfm_default</key>
-			<string>Production</string>
-			<key>pfm_description</key>
-			<string>Set the update channel that is used to check for updates.</string>
-			<key>pfm_name</key>
-			<string>ChannelName</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>Production</string>
-				<string>External</string>
-				<string>InsiderFast</string>
-				<string>Custom</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Production</string>
-				<string>Office Insider Slow: External</string>
-				<string>Office Insider Fast: InsiderFast</string>
-				<string>Custom</string>
-			</array>
-			<key>pfm_title</key>
-			<string>Channel Update Name</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Enable this option to set the "Join the Office Insider Program..." checkbox to unavailable.</string>
-			<key>pfm_name</key>
-			<string>DisableInsiderCheckbox</string>
-			<key>pfm_title</key>
-			<string>Disable Insider Checkbox</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.8.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Enabled extended logging for Microsoft AutoUpdate operations. Writes logs to /Library/Logs/Microsoft/autoupdate.log.</string>
-			<key>pfm_name</key>
-			<string>ExtendedLogging</string>
-			<key>pfm_title</key>
-			<string>Enable extended logging</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-			<dict>
-			<key>pfm_app_min</key>
-			<string>3.18.0</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Disable this option to make the "Check for Updates" button in Microsoft AutoUpdate unavailable.</string>
-			<key>pfm_name</key>
-			<string>EnableCheckForUpdatesButton</string>
-			<key>pfm_title</key>
-			<string>Enable Check for Updates Button</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.6.0</string>
-			<key>pfm_default</key>
-			<string>AutomaticCheck</string>
-			<key>pfm_description</key>
-			<string>Control how updates are checked for and handled.</string>
-			<key>pfm_name</key>
-			<string>HowToCheck</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>Manual</string>
-				<string>AutomaticCheck</string>
-				<string>AutomaticDownload</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>No auto updates or checks: Manual</string>
-				<string>Automatically check for updates: AutomaticCheck</string>
-				<string>Automatically check for and install updates: AutomaticDownload</string>
-			</array>
-			<key>pfm_title</key>
-			<string>How to check for updates</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.3.0</string>
-			<key>pfm_description</key>
-			<string>Force Microsoft AutoUpdate to pull collateral using a custom server. This is good when enterprise wants to have strict control on which version of Office applications get installed. Ensure that a trailing slash is used when specifying the value as this is mandatory. This requires "ChannelName" to be set to "Custom".</string>
-			<key>pfm_name</key>
-			<string>ManifestServer</string>
-			<key>pfm_title</key>
-			<string>Manifest Server</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>https://updates.example.com/folder/</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
-			<key>pfm_name</key>
-			<string>SendAllTelemetryEnabled</string>
-			<key>pfm_title</key>
-			<string>Send all telemetry</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Enable this option to trigger the MAU Daemon when other Office applications are launched.</string>
-			<key>pfm_name</key>
-			<string>StartDaemonOnAppLaunch</string>
-			<key>pfm_title</key>
-			<string>Start Daemon on App Launch</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.3.0</string>
-			<key>pfm_description</key>
-			<string>Force Microsoft AutoUpdate to pull update binaries from a custom server. This is good when internet bandwidth is limited. Ensure that a trailing slash is used when specifying the value as this is mandatory.</string>
-			<key>pfm_name</key>
-			<string>UpdateCache</string>
-			<key>pfm_title</key>
-			<string>Update Cache Server</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>https://updates.example.com/folder/</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>3.0.0</string>
-			<key>pfm_description</key>
-			<string>Change how often the Microsoft AutoUpdate daemon will look for updates. The default is 720 minutes (12 hrs). By reducing this value MAU will look for updates sooner.</string>
-			<key>pfm_name</key>
-			<string>UpdateCheckFrequency</string>
-			<key>pfm_title</key>
-			<string>Update check frequency</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_value_placeholder</key>
-			<integer>720</integer>
-			<key>pfm_value_unit</key>
-			<string>Minutes</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -841,6 +1042,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>10</integer>
+	<integer>11</integer>
 </dict>
 </plist>
