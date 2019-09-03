@@ -190,14 +190,24 @@
 			<string>DenyLocal</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description_reference</key>
-			<string>Used with DenyLocal to force authentication to Okta first, but then fallback to local auth if Okta is unavailable.</string>
-			<key>pfm_name</key>
-			<string>LocalFallback</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>DenyLocal</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -215,6 +225,32 @@
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>DenyLocal</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>Used with DenyLocal to force authentication to Okta first, but then fallback to local auth if Okta is unavailable.</string>
+			<key>pfm_name</key>
+			<string>LocalFallback</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -350,6 +386,24 @@
 			<string>EnableFDERecoveryKey</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>EnableFDE</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -371,6 +425,9 @@
 			<key>pfm_value_placeholder</key>
 			<string>localadmin</string>
 		</dict>
+		
+		<!-- Script -->
+		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Path to the script or other executable.</string>
@@ -397,7 +454,26 @@
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_value_empty</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ScriptPath</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
+		
+		<!-- DeMobilize -->
+		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines if mobile accounts should be Bool false demobilized.</string>
@@ -416,6 +492,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>

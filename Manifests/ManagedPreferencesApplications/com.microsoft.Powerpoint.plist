@@ -6,14 +6,12 @@
 	<string>https://www.office.com</string>
 	<key>pfm_description</key>
 	<string>Microsoft PowerPoint settings</string>
-	<key>pfm_documentation_url</key>
-	<string>https://docs.google.com/spreadsheets/d/1ESX5td0y0OP3jdzZ-C2SItm-TUi-iA_bcHCBvaoCumw/edit#gid=0</string>
 	<key>pfm_domain</key>
 	<string>com.microsoft.Powerpoint</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-09-19T18:41:54Z</date>
+	<date>2019-08-19T14:10:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -46,7 +44,7 @@
 			<key>pfm_default</key>
 			<string>com.microsoft.Powerpoint</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -101,20 +99,104 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>16.20</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>Disable macOS Dark Mode settings for application.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C07UZ1X7B/p1544660345485200</string>
 			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
+			<string>NSRequiresAquaSystemAppearance</string>
 			<key>pfm_title</key>
-			<string>Payload Organization</string>
+			<string>Disable Dark Mode</string>
 			<key>pfm_type</key>
-			<string>string</string>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.17</string>
+			<key>pfm_app_max</key>
+			<string>16.16.x</string>
+			<key>pfm_app_min</key>
+			<string>15.x</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Controls the original "What's New" dialog and Office 365 activation prompt on first launch. Replaced by 'OfficeAutoSignIn' in the main Office profile starting in version 16.17 and should not be used for Office 2019.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls the original "What's New" dialog and Office 365 activation prompt on first launch. Replaced by OfficeAutoSignIn starting in version 16.17.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://derflounder.wordpress.com/2016/01/17/suppressing-office-2016s-first-run-dialog-windows/</string>
+			<key>pfm_name</key>
+			<string>kSubUIAppCompletedFirstRunSetup1507</string>
+			<key>pfm_title</key>
+			<string>First Run Setup Completed</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>This key when set to false will deactivate the ability for users to use the "Smile" feature to send feedback to Microsoft.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.google.com/spreadsheets/d/1ESX5td0y0OP3jdzZ-C2SItm-TUi-iA_bcHCBvaoCumw/</string>
+			<key>pfm_name</key>
+			<string>SendASmileEnabled</string>
+			<key>pfm_title</key>
+			<string>Send A Smile Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.28</string>
+			<key>pfm_app_max</key>
+			<string>16.27</string>
+			<key>pfm_app_min</key>
+			<string>15.x</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to FALSE to send minimal heartbeat data, no application usage, and no environment details.</string>
+			<key>pfm_description_reference</key>
+			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployoffice/deploy-office-365-proplus-in-gcc-high-dod#turn-off-sending-telemetry-data-to-microsoft-from-office-for-mac</string>
+			<key>pfm_name</key>
+			<string>SendAllTelemetryEnabled</string>
+			<key>pfm_title</key>
+			<string>Send Telemetry Data</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.28</string>
+			<key>pfm_app_max</key>
+			<string>16.27</string>
+			<key>pfm_app_min</key>
+			<string>15.x</string>
+			<key>pfm_description</key>
+			<string>Sends crash reports even if telemetry is disabled. Will only be evaluated if 'Send Telemetry Data' is FALSE.</string>
+			<key>pfm_description_reference</key>
+			<string>This will stop your client devices sending us usage telemetry and asking questions to your users, but if the app crashes, we'll still invoke our Error Reporting dialog and get the call-stack back here so we can see if you're running into problems. The issue here is that if you don't enable crash reporting, we are completely blind as to whether folks out there are having problems or not. Relevant for those who disable telemetry through the SendAllTelemetryEnabled key.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C07UZ1X7B/p1536706447000100</string>
+			<key>pfm_name</key>
+			<string>SendCrashReportsEvenWithTelemetryDisabled</string>
+			<key>pfm_title</key>
+			<string>Send Crash Reports even with Telemetry Disabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>15.27.0</string>
+			<string>16.13</string>
 			<key>pfm_description</key>
-			<string>Prevent user from signing in to any O365 service.</string>
+			<string>Prevent users from signing in to any O365 service. This has the added effect of making sure users store no data online via microsoft servers.</string>
 			<key>pfm_description_reference</key>
 			<string>This will prevent user from signing in to any O365 service. This has the added effect of making sure users store no data online via microsoft servers.
 
@@ -123,6 +205,8 @@
             1 - prevent institutional accounts - only MSA (personal) accounts
             2 - prevent MSA (personal) accounts - only institution accounts
             4 - no accounts allowed to sign in</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.google.com/spreadsheets/d/1ESX5td0y0OP3jdzZ-C2SItm-TUi-iA_bcHCBvaoCumw/</string>
 			<key>pfm_name</key>
 			<string>SignInOptions</string>
 			<key>pfm_range_list</key>
@@ -139,135 +223,58 @@
 				<string>Only institution accounts</string>
 				<string>No accounts allowed</string>
 			</array>
+			<key>pfm_title</key>
+			<string>Sign In Options</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Disable the "Smile" feature.</string>
-			<key>pfm_description_reference</key>
-			<string>This key when set to false will deactivate the ability for users to use the "Smile" feature.</string>
-			<key>pfm_name</key>
-			<string>SendASmileEnabled</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
-			<key>pfm_description_reference</key>
-			<string>Set to false to send minimal heartbeat data, no application usage, and no environment details.</string>
-			<key>pfm_name</key>
-			<string>SendAllTelemetryEnabled</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
 			<key>pfm_app_min</key>
 			<string>16.13.1</string>
 			<key>pfm_description</key>
-			<string>Disable the "Connected Services" screen when updating from pre-16.13. (MSA-based accounts).</string>
+			<string>Disable the "Connected Services" dialog for MSA-based (personal) accounts.</string>
 			<key>pfm_description_reference</key>
 			<string>MSA-based Key to suppress a screen on update from pre-16.13 called "Connected Services" with an Accept button on it. If you wish to suppress this new dialog for MSA-based accounts set this key to TRUE.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.slack.com/archives/C07UZ1X7B/p1527191452000462</string>
 			<key>pfm_name</key>
 			<string>kFRETelemetryConsentKey</string>
+			<key>pfm_title</key>
+			<string>Suppress 'Connected Services' dialog</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_app_min</key>
-			<string>16.13.1</string>
+			<key>pfm_app_deprecated</key>
+			<string>16.28</string>
+			<key>pfm_app_max</key>
+			<string>16.27 ONLY</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Disable the "Connected Services" screen when updating from pre-16.13. (OrgID accounts).</string>
-			<key>pfm_description_reference</key>
-			<string>OrgID-based Key to suppress a screen on update from pre-16.13 called "Connected Services" with an OK button on it. If you wish to suppress this new dialog for OrgID users set this key to TRUE.</string>
+			<string>Suppresses a temporary Privacy and Services Update dialog in 16.27 ONLY. (Was previously used for a similar purpose in 16.13.1 but the key was recycled.)</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/16.28-Privacy-Consent.key</string>
 			<key>pfm_name</key>
 			<string>kFREEnterpriseTelemetryInfoKey</string>
+			<key>pfm_title</key>
+			<string>Suppress Privacy and Services dialog</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Disable the "What's New" dialog and Office 365 activation prompt on first launch.</string>
-			<key>pfm_description_reference</key>
-			<string>Controls the original "What's New" dialog and Office 365 activation prompt on first launch.</string>
-			<key>pfm_name</key>
-			<string>kSubUIAppCompletedFirstRunSetup1507</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>15.32</string>
-			<key>pfm_description</key>
-			<string>Array of sequential ints to disable the "What's New" dialog on first lauch after upgrades.</string>
-			<key>pfm_description_reference</key>
-			<string>Controls the dynamic "What's New" dialog on first lauch after upgrades. An array of sequential ints. This may change due to MS Bug VSO #1476177.</string>
-			<key>pfm_name</key>
-			<string>OUIWhatsNewShownItemIds</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_description</key>
-					<string>Int</string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>OUIWhatsNewShownItemId</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-				</dict>
-			</array>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.28</string>
+			<key>pfm_app_max</key>
+			<string>16.27</string>
 			<key>pfm_app_min</key>
 			<string>16.17</string>
 			<key>pfm_description</key>
-			<string>Disable the "Use Intelligent Services?" pop-up dialog when updating from pre-16.17.</string>
-			<key>pfm_description_reference</key>
-			<string>Users who are activated with O365 will see a new "Use Intelligent Services?" pop-up dialog in Word, Excel &amp; PowerPoint after updating to 16.17. The net effect of doing this will enable Researcher (Word), Translate (Word, Excel, PowerPoint), Smart Lookup (Word, PowerPoint), and QuickStarter (PowerPoint). Set to TRUE to auto-accept. Requires "kFREIntelligenceServicesConsentV2Key" as well.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_n_range_list</key>
-							<array>
-								<true/>
-							</array>
-							<key>pfm_target</key>
-							<string>kFREIntelligenceServicesConsentV2Key</string>
-						</dict>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>kFREIntelligenceServicesConsentV2Key</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-			<key>pfm_name</key>
-			<string>PII_And_Intelligent_Services_Preference</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>16.17</string>
-			<key>pfm_description</key>
-			<string>Disable the "Use Intelligent Services?" pop-up dialog when updating from pre-16.17.</string>
+			<string>Suppress the "Use Intelligent Services?" pop-up dialog and auto-accept the terms in 16.17 through 16.27.</string>
 			<key>pfm_description_reference</key>
 			<string>Users who are activated with O365 will see a new "Use Intelligent Services?" pop-up dialog in Word, Excel &amp; PowerPoint after updating to 16.17. The net effect of doing this will enable Researcher (Word), Translate (Word, Excel, PowerPoint), Smart Lookup (Word, PowerPoint), and QuickStarter (PowerPoint). Set to TRUE to auto-accept. Requires "PII_And_Intelligent_Services_Preference" as well.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/16.28-Privacy-Consent.key</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -292,18 +299,50 @@
 			</array>
 			<key>pfm_name</key>
 			<string>kFREIntelligenceServicesConsentV2Key</string>
+			<key>pfm_title</key>
+			<string>Suppress 'Use Intelligent Services' dialog (1/2)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>16.28</string>
+			<key>pfm_app_max</key>
+			<string>16.27</string>
 			<key>pfm_app_min</key>
-			<string></string>
+			<string>16.17</string>
 			<key>pfm_description</key>
-			<string>Sends crash reports even if telemetry is disabled.</string>
+			<string>Suppress the "Use Intelligent Services?" pop-up dialog and auto-accept the terms in 16.17 through 16.27.</string>
 			<key>pfm_description_reference</key>
-			<string>This will stop your client devices sending us usage telemetry and asking questions to your users, but if the app crashes, we'll still invoke our Error Reporting dialog and get the call-stack back here so we can see if you're running into problems. The issue here is that if you don't enable crash reporting, we are completely blind as to whether folks out there are having problems or not. Relevant for those who disable telemetry through the SendAllTelemetryEnabled key.</string>
+			<string>Users who are activated with O365 will see a new "Use Intelligent Services?" pop-up dialog in Word, Excel &amp; PowerPoint after updating to 16.17. The net effect of doing this will enable Researcher (Word), Translate (Word, Excel, PowerPoint), Smart Lookup (Word, PowerPoint), and QuickStarter (PowerPoint). Set to TRUE to auto-accept. Requires "kFREIntelligenceServicesConsentV2Key" as well.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://macadmins.software/docs/16.28-Privacy-Consent.key</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>kFREIntelligenceServicesConsentV2Key</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>kFREIntelligenceServicesConsentV2Key</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
-			<string>SendCrashReportsEvenWithTelemetryDisabled</string>
+			<string>PII_And_Intelligent_Services_Preference</string>
+			<key>pfm_title</key>
+			<string>Suppress 'Use Intelligent Services' dialog (2/2)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -318,6 +357,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
