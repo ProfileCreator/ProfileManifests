@@ -1,304 +1,292 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>pfm_app_url</key>
-	<string>https://apple.com/logic-pro/</string>
-	<key>pfm_description</key>
-	<string>Logic Pro X settings</string>
-	<key>pfm_documentation_url</key>
-	<string></string>
-	<key>pfm_domain</key>
-	<string>com.apple.logic10</string>
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-	<key>pfm_last_modified</key>
-	<date>2019-09-04T17:00:00Z</date>
-	<key>pfm_platforms</key>
-	<array>
-		<string>macOS</string>
-	</array>
-	<key>pfm_subkeys</key>
-	<array>
-		<dict>
-			<key>pfm_default</key>
-			<string>Configures Logic Pro X configuration preferences</string>
-			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
-			<key>pfm_name</key>
-			<string>PayloadDescription</string>
-			<key>pfm_title</key>
-			<string>Payload Description</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<string>Logic Pro X</string>
-			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
-			<key>pfm_name</key>
-			<string>PayloadDisplayName</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Payload Display Name</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<string>com.apple.logic10</string>
-			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
-			<key>pfm_name</key>
-			<string>PayloadIdentifier</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Payload Identifier</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<string>com.apple.logic10</string>
-			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
-			<key>pfm_name</key>
-			<string>PayloadType</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Payload Type</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
-			<key>pfm_format</key>
-			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			<key>pfm_name</key>
-			<string>PayloadUUID</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Payload UUID</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<integer>1</integer>
-			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
-			<key>pfm_name</key>
-			<string>PayloadVersion</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Payload Version</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
-			<key>pfm_title</key>
-			<string>Payload Organization</string>
-			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Suppresses the popup to download additonal sound content on launch. Yes, in fact, 'Download' is spelled 'Dowload' in the preference key.</string>
-			<key>pfm_name</key>
-			<string>DontShowAdditionalContentDowload</string>
-			<key>pfm_title</key>
-			<string>Don't Show Additional Content Download</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables destructive audio editing, and advanced configuration options for audio editing experts.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_ExpertAudio</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: Audio</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Allows experts to create new, and edit any functional detail of existing control surface systems.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_ExpertCS</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: Control Surfaces</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables advanced editing functionality, including: aliases, track reassignment, historic tuning scales, and the Tempo Interpreter.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_ExpertEditing</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: Advanced Editing</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Allows signal flow control and real-time processing of MIDI input and output streams in the Environment.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_ExpertMIDI</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: MIDI</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables the full feature set of the Score window for notation experts.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_ExpertScore</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: Score</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Enables all features for surround audio productions, and requires a surround speaker setup for monitoring.</string>
-			<key>pfm_name</key>
-			<string>FeatureAvailable_Surround</string>
-			<key>pfm_title</key>
-			<string>Enable Additional Option: Surround</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Suppresses the What's New window on launch. Correct value for Logic Pro 10.4.3 is 7.</string>
-			<key>pfm_name</key>
-			<string>RecentWhatsNewPanelVersion</string>
-			<key>pfm_title</key>
-			<string>RecentWhatsNewPanelVersion</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Configures whether Show Advanced Tools is enabled.</string>
-			<key>pfm_name</key>
-			<string>userLevel</string>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
-				<integer>10</integer>
-			</array>
-			<key>pfm_title</key>
-			<string>Enable Show Advanced Tools</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_type_input</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Configures Logic's startup behaviour.</string>
-			<key>pfm_name</key>
-			<string>startupAction</string>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
+	<dict>
+		<key>pfm_app_url</key>
+		<string>https://apple.com/logic-pro/</string>
+		<key>pfm_description</key>
+		<string>Logic Pro X settings</string>
+		<key>pfm_domain</key>
+		<string>com.apple.logic10</string>
+		<key>pfm_format_version</key>
+		<integer>1</integer>
+		<key>pfm_last_modified</key>
+		<date>2019-09-05T19:00:00Z</date>
+		<key>pfm_platforms</key>
+		<array>
+			<string>macOS</string>
+		</array>
+		<key>pfm_subkeys</key>
+		<array>
+			<dict>
+				<key>pfm_default</key>
+				<string>Configures Logic Pro X configuration preferences</string>
+				<key>pfm_description</key>
+				<string>Description of the payload.</string>
+				<key>pfm_description_reference</key>
+				<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+				<key>pfm_name</key>
+				<string>PayloadDescription</string>
+				<key>pfm_title</key>
+				<string>Payload Description</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>Logic Pro X</string>
+				<key>pfm_description</key>
+				<string>Name of the payload.</string>
+				<key>pfm_description_reference</key>
+				<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+				<key>pfm_name</key>
+				<string>PayloadDisplayName</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Display Name</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>com.apple.logic10</string>
+				<key>pfm_description</key>
+				<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+				<key>pfm_description_reference</key>
+				<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+				<key>pfm_name</key>
+				<string>PayloadIdentifier</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Identifier</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<string>com.apple.logic10</string>
+				<key>pfm_description</key>
+				<string>The type of the payload, a reverse dns string.</string>
+				<key>pfm_description_reference</key>
+				<string>The payload type.</string>
+				<key>pfm_name</key>
+				<string>PayloadType</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Type</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<key>pfm_description_reference</key>
+				<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+				<key>pfm_format</key>
+				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+				<key>pfm_name</key>
+				<string>PayloadUUID</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload UUID</string>
+				<key>pfm_type</key>
+				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
 				<integer>1</integer>
-				<integer>2</integer>
-				<integer>3</integer>
-				<integer>4</integer>
-				<integer>5</integer>
-				<integer>6</integer>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Do Nothing</string>
-				<string>Open Most Recent Project</string>
-				<string>Open Existing Project</string>
-				<string>Select a Template</string>
-				<string>Create New Empty Project</string>
-				<string>Create New Project Using Default Template</string>
-				<string>Ask</string>
-			</array>
-			<key>pfm_title</key>
-			<string>startupAction</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<integer>99</integer>
-			<key>pfm_description</key>
-			<string>So long as the integer value of this preference is set equal or higher to the value produced in the user-level plist after launching the app and acknowledging the "What's New" prompt, this will prevent the "What's New" prompt from appearing.</string>
-			<key>pfm_name</key>
-			<string>RecentWhatsNewPanelVersion</string>
-			<key>pfm_note</key>
-			<string>As of Logic Pro X 10.4.1, this integer value was 6. So, a value of 6 or above would suppress the prompt.</string>
-			<key>pfm_title</key>
-			<string>Suppress What's New Prompt</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-        <dict>
-            <key>pfm_description</key>
-            <string>Set to 0 to disable Quick Help Mode overlays.</string>
-            <key>pfm_default</key>
-            <string>1</string>
-            <key>pfm_name</key>
-            <string>QuickHelpMode</string>
-            <key>pfm_range_list</key>
-            <array>
-                <integer>0</integer>
-                <integer>1</integer>
-            </array>
-            <key>pfm_range_list_titles</key>
-            <array>
-                <string>0: Quick Help Mode disabled</string>
-                <string>1: Quick Help Mode enabled</string>
-            </array>
-            <key>pfm_title</key>
-            <string>Quick Help Mode</string>
-            <key>pfm_type</key>
-            <string>integer</string>
-        </dict>
-	</array>
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-		<string>user</string>
-	</array>
-	<key>pfm_title</key>
-	<string>Logic Pro X</string>
-	<key>pfm_unique</key>
-	<false/>
-	<key>pfm_version</key>
-	<integer>4</integer>
-</dict>
+				<key>pfm_description</key>
+				<string>The version of the whole configuration profile.</string>
+				<key>pfm_description_reference</key>
+				<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+				<key>pfm_name</key>
+				<string>PayloadVersion</string>
+				<key>pfm_require</key>
+				<string>always</string>
+				<key>pfm_title</key>
+				<string>Payload Version</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Suppresses the popup to download additonal sound content on launch. Yes, in fact, 'Download' is spelled 'Dowload' in the preference key.</string>
+				<key>pfm_name</key>
+				<string>DontShowAdditionalContentDowload</string>
+				<key>pfm_title</key>
+				<string>Don't Show Additional Content Download</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Enables destructive audio editing, and advanced configuration options for audio editing experts.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_ExpertAudio</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: Audio</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Allows experts to create new, and edit any functional detail of existing control surface systems.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_ExpertCS</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: Control Surfaces</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Enables advanced editing functionality, including: aliases, track reassignment, historic tuning scales, and the Tempo Interpreter.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_ExpertEditing</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: Advanced Editing</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Allows signal flow control and real-time processing of MIDI input and output streams in the Environment.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_ExpertMIDI</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: MIDI</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Enables the full feature set of the Score window for notation experts.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_ExpertScore</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: Score</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Enables all features for surround audio productions, and requires a surround speaker setup for monitoring.</string>
+				<key>pfm_name</key>
+				<string>FeatureAvailable_Surround</string>
+				<key>pfm_title</key>
+				<string>Enable Additional Option: Surround</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Suppresses the What's New window on launch. Correct value for Logic Pro 10.4.3 is 7.</string>
+				<key>pfm_name</key>
+				<string>RecentWhatsNewPanelVersion</string>
+				<key>pfm_title</key>
+				<string>Recent Whats New Panel Version</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Configures whether Show Advanced Tools is enabled.</string>
+				<key>pfm_name</key>
+				<string>userLevel</string>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>10</integer>
+				</array>
+				<key>pfm_title</key>
+				<string>Enable Show Advanced Tools</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+				<key>pfm_type_input</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Configures Logic's startup behaviour.</string>
+				<key>pfm_name</key>
+				<string>startupAction</string>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+					<integer>3</integer>
+					<integer>4</integer>
+					<integer>5</integer>
+					<integer>6</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>Do Nothing</string>
+					<string>Open Most Recent Project</string>
+					<string>Open Existing Project</string>
+					<string>Select a Template</string>
+					<string>Create New Empty Project</string>
+					<string>Create New Project Using Default Template</string>
+					<string>Ask</string>
+				</array>
+				<key>pfm_title</key>
+				<string>Startup Action</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<integer>99</integer>
+				<key>pfm_description</key>
+				<string>So long as the integer value of this preference is set equal or higher to the value produced in the user-level plist after launching the app and acknowledging the "What's New" prompt, this will prevent the "What's New" prompt from appearing.</string>
+				<key>pfm_name</key>
+				<string>RecentWhatsNewPanelVersion</string>
+				<key>pfm_note</key>
+				<string>As of Logic Pro X 10.4.1, this integer value was 6. So, a value of 6 or above would suppress the prompt.</string>
+				<key>pfm_title</key>
+				<string>Suppress What's New Prompt</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+			<dict>
+				<key>pfm_description</key>
+				<string>Set to 0 to disable Quick Help Mode overlays.</string>
+				<key>pfm_default</key>
+				<string>1</string>
+				<key>pfm_name</key>
+				<string>QuickHelpMode</string>
+				<key>pfm_range_list</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+				</array>
+				<key>pfm_range_list_titles</key>
+				<array>
+					<string>0: Quick Help Mode disabled</string>
+					<string>1: Quick Help Mode enabled</string>
+				</array>
+				<key>pfm_title</key>
+				<string>Quick Help Mode</string>
+				<key>pfm_type</key>
+				<string>integer</string>
+			</dict>
+		</array>
+		<key>pfm_targets</key>
+		<array>
+			<string>system</string>
+			<string>user</string>
+		</array>
+		<key>pfm_title</key>
+		<string>Logic Pro X</string>
+		<key>pfm_unique</key>
+		<false/>
+		<key>pfm_version</key>
+		<integer>4</integer>
+	</dict>
 </plist>
