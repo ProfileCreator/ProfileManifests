@@ -1511,18 +1511,101 @@
 				<string>boolean</string>
 			</dict>
 			<dict>
-				<key>pfm_default</key>
-				<true/>
+				<key>pfm_app_min</key>
+				<string>68</string>
 				<key>pfm_description</key>
-				<string>If this preference is set to true, all data is cleared when Firefox is closed. This includes Browsing &amp; Download History, Cookies, Active Logins, Cache, Form &amp; Search History, Site Preferences and Offline Website Data.</string>
+				<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
 				<key>pfm_description_reference</key>
-				<string>If this preference is set to true, all data is cleared when Firefox is closed. This includes Browsing &amp; Download History, Cookies, Active Logins, Cache, Form &amp; Search History, Site Preferences and Offline Website Data.</string>
+				<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
 				<key>pfm_name</key>
 				<string>SanitizeOnShutdown</string>
 				<key>pfm_title</key>
-				<string>Sanitize On Shutdown</string>
+				<string>Sanitize On Shutdown (Selective)</string>
 				<key>pfm_type</key>
-				<string>Boolean</string>
+				<string>Dictionary</string>
+				<key>pfm_subkeys</key>
+				<array>
+					<dict>
+						<key>pfm_name</key>
+						<string>Cache</string>
+						<key>pfm_title</key>
+						<string>Cache</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>Cookies</string>
+						<key>pfm_title</key>
+						<string>Cookies</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>Downloads</string>
+						<key>pfm_title</key>
+						<string>Downloads</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>FormData</string>
+						<key>pfm_title</key>
+						<string>FormData</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>History</string>
+						<key>pfm_title</key>
+						<string>History</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>Sessions</string>
+						<key>pfm_title</key>
+						<string>Sessions</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>SiteSettings</string>
+						<key>pfm_title</key>
+						<string>SiteSettings</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>pfm_name</key>
+						<string>OfflineApps</string>
+						<key>pfm_title</key>
+						<string>OfflineApps</string>
+						<key>pfm_type</key>
+						<string>Boolean</string>
+						<key>pfm_default</key>
+						<false/>
+					</dict>
+				</array>
 			</dict>
 			<dict>
 				<key>pfm_default</key>
@@ -3243,7 +3326,7 @@
 						<key>pfm_type</key>
 						<string>String</string>
 						<key>pfm_default</key>
-						<string></string>
+						<string/>
 						<key>pfm_description</key>
 						<string>See https://support.mozilla.org/en-US/kb/dom-events-changes-introduced-firefox-66</string>
 					</dict>
@@ -3257,7 +3340,7 @@
 						<key>pfm_type</key>
 						<string>String</string>
 						<key>pfm_default</key>
-						<string></string>
+						<string/>
 						<key>pfm_description</key>
 						<string>See https://support.mozilla.org/en-US/kb/dom-events-changes-introduced-firefox-66</string>
 					</dict>
