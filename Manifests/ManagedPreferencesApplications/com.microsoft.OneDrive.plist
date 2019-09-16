@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-09-14T04:47:17Z</date>
+	<date>2019-09-16T10:40:32Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -115,20 +115,20 @@
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Disable personal accounts</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Prevents users from adding or syncing personal accounts.</string>
-			<key>pfm_description_reference</key>
-			<string>Blocks users from signing in and syncing files in personal OneDrive accounts. If this key is set after a user has set up sync with a personal account, the user will be signed out.</string>
 			<key>pfm_description_extended</key>
 			<string>When set to true, this parameter prevents users from adding or syncing personal accounts.</string>
+			<key>pfm_description_reference</key>
+			<string>Blocks users from signing in and syncing files in personal OneDrive accounts. If this key is set after a user has set up sync with a personal account, the user will be signed out.</string>
 			<key>pfm_name</key>
 			<string>DisablePersonalSync</string>
+			<key>pfm_title</key>
+			<string>Disable personal accounts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -137,173 +137,173 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>OneDrive folder default location.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the default location of the OneDrive folder for each organization.</string>
 			<key>pfm_description_extended</key>
 			<string>TenantID (String): TenantID determines which accounts the default folder location setting should apply to. 
 DefaultFolderPath (String): DefaultFolder specifies the default folder location. 
 Mac App Store: The path must already exist when users set up the sync client. 
 Standalone: The path will be created on users' computers if it doesn't already exist. Only with the Standalone sync client can you prevent users from changing the location.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies the default location of the OneDrive folder for each organization.</string>
 			<key>pfm_name</key>
 			<string>Tenants</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_app_min</key>
 					<string></string>
-					<key>pfm_title</key>
-					<string>TenantID</string>
 					<key>pfm_description</key>
 					<string>A globally unique identifier (GUID) that is different than your tenant name or domain.</string>
 					<key>pfm_description_reference</key>
 					<string>Your Office 365 tenant ID is a globally unique identifier (GUID) that is different than your tenant name or domain.</string>
 					<key>pfm_name</key>
 					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>TenantID</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string></string>
-					<key>pfm_hidden</key>
-					<string>container</string>
-					<key>pfm_title</key>
-					<string>DefaultFolderDict</string>
 					<key>pfm_description</key>
 					<string></string>
 					<key>pfm_description_reference</key>
 					<string></string>
+					<key>pfm_hidden</key>
+					<string>container</string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_app_min</key>
 							<string></string>
-							<key>pfm_title</key>
-							<string>Folder Path</string>
 							<key>pfm_description</key>
 							<string></string>
 							<key>pfm_description_reference</key>
 							<string></string>
 							<key>pfm_name</key>
 							<string>DefaultFolder</string>
+							<key>pfm_title</key>
+							<string>Folder Path</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
+					<key>pfm_title</key>
+					<string>DefaultFolderDict</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Automatic upload bandwidth percentage</string>
 			<key>pfm_description</key>
 			<string>Percentage of local upload bandwidth that the sync client can use.</string>
-			<key>pfm_description_reference</key>
-			<string>Enables the sync client to automatically set the amount of bandwidth used based on available bandwidth for uploading files.</string>
 			<key>pfm_description_extended</key>
 			<string>Determines the percentage of local upload bandwidth that the sync client can use. Accepted values are from 1 through 99.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables the sync client to automatically set the amount of bandwidth used based on available bandwidth for uploading files.</string>
 			<key>pfm_name</key>
 			<string>AutomaticUploadBandwidthPercentage</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>1</integer>
 			<key>pfm_range_max</key>
 			<integer>99</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Automatic upload bandwidth percentage</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Maximum upload throughput</string>
 			<key>pfm_description</key>
 			<string>Upload throughput in KB/sec that the sync client can use.</string>
-			<key>pfm_description_reference</key>
-			<string>Sets the maximum upload throughput rate in kilobytes (KB)/sec for computers running the OneDrive sync client.</string>
 			<key>pfm_description_extended</key>
 			<string>Determines the upload throughput in KB/sec that the sync client can use. The minimum rate is 50 KB/sec and the maximum rate is 100,000 KB/sec.</string>
+			<key>pfm_description_reference</key>
+			<string>Sets the maximum upload throughput rate in kilobytes (KB)/sec for computers running the OneDrive sync client.</string>
 			<key>pfm_name</key>
 			<string>UploadBandwidthLimited</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>50</integer>
 			<key>pfm_range_max</key>
 			<integer>100000</integer>
+			<key>pfm_range_min</key>
+			<integer>50</integer>
+			<key>pfm_title</key>
+			<string>Maximum upload throughput</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Maximum download throughput</string>
 			<key>pfm_description</key>
 			<string>Download throughput in KB/sec that the sync client can use.</string>
-			<key>pfm_description_reference</key>
-			<string>Sets the maximum download throughput rate in kilobytes (KB)/sec for computers running the OneDrive sync client.</string>
 			<key>pfm_description_extended</key>
 			<string>Determines the download throughput in KB/sec that the sync client can use. The minimum rate is 50 KB/sec and the maximum rate is 100,000 KB/sec.</string>
+			<key>pfm_description_reference</key>
+			<string>Sets the maximum download throughput rate in kilobytes (KB)/sec for computers running the OneDrive sync client.</string>
 			<key>pfm_name</key>
 			<string>DownloadBandwidthLimited</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>50</integer>
 			<key>pfm_range_max</key>
 			<integer>100000</integer>
+			<key>pfm_range_min</key>
+			<integer>50</integer>
+			<key>pfm_title</key>
+			<string>Maximum download throughput</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Hide Dock Icon</string>
 			<key>pfm_description</key>
 			<string>Hides the OneDrive dock icon even when the application is running.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies whether a dock icon for OneDrive is shown.</string>
 			<key>pfm_description_extended</key>
 			<string>When set to true, this parameter hides the OneDrive dock icon even when the application is running.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies whether a dock icon for OneDrive is shown.</string>
 			<key>pfm_name</key>
 			<string>HideDockIcon</string>
+			<key>pfm_title</key>
+			<string>Hide Dock Icon</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Open at login</string>
 			<key>pfm_description</key>
 			<string>Automatically start OneDrive when the user logs in.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the SharePoint Server 2019 Public Preview on-premises URL that the OneDrive sync client should try to authenticate and sync against.</string>
 			<key>pfm_description_extended</key>
 			<string>When set to true, OneDrive will start automatically when the user logs in on the Mac.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies the SharePoint Server 2019 Public Preview on-premises URL that the OneDrive sync client should try to authenticate and sync against.</string>
 			<key>pfm_name</key>
 			<string>OpenAtLogin</string>
+			<key>pfm_title</key>
+			<string>Open at login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint Server Front Door URL</string>
 			<key>pfm_description</key>
+			<string>The URL of the on-premises SharePoint Server.</string>
+			<key>pfm_description_extended</key>
 			<string>The URL of the on-premises SharePoint Server.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the SharePoint Server 2019 Public Preview on-premises URL that the OneDrive sync client should try to authenticate and sync against.</string>
-			<key>pfm_description_extended</key>
-			<string>The URL of the on-premises SharePoint Server.</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremFrontDoorUrl</string>
+			<key>pfm_title</key>
+			<string>SharePoint Server Front Door URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -312,20 +312,20 @@ Standalone: The path will be created on users' computers if it doesn't already e
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint Server Tenant Name</string>
 			<key>pfm_description</key>
 			<string>The name that will be used when creating a folder to sync the on-premises SharePoint Server files.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the name of the folder created for syncing the SharePoint Server 2019 Public Preview files specified in the Front Door URL.</string>
 			<key>pfm_description_extended</key>
 			<string>The name that will be used when creating a folder to sync the on-premises SharePoint Server files. If specified, the folder names will take the form of:
 OneDrive – TenantName 
 TenantName
 If not specified, the folder names will use the first segment of the FrontDoorURL as the Tenant Name.
 Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies the name of the folder created for syncing the SharePoint Server 2019 Public Preview files specified in the Front Door URL.</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremTenantName</string>
+			<key>pfm_title</key>
+			<string>SharePoint Server Tenant Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -334,19 +334,15 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint OnPrem Prioritization</string>
 			<key>pfm_description</key>
 			<string>Determines whether or not the client should set up sync for SharePoint Server or SharePoint Online first during the first-run scenario.</string>
-			<key>pfm_description_reference</key>
-			<string>For hybrid scenarios where the email is the same for both SharePoint Server on-premises and SharePoint Online, determines whether or not the client should set up sync for SharePoint Server or SharePoint Online first during the first-run scenario.</string>
 			<key>pfm_description_extended</key>
 			<string>This parameter determines which service to attempt to authenticate against for setting up sync.
 1 indicates OneDrive should setup SharePoint Server on-premises first, followed by SharePoint Online.</string>
+			<key>pfm_description_reference</key>
+			<string>For hybrid scenarios where the email is the same for both SharePoint Server on-premises and SharePoint Online, determines whether or not the client should set up sync for SharePoint Server or SharePoint Online first during the first-run scenario.</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremPrioritzationPolicy</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_range_list</key>
 			<array>
 				<integer>0</integer>
@@ -357,6 +353,10 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 				<string>SharePoint Online</string>
 				<string>SharePoint Server</string>
 			</array>
+			<key>pfm_title</key>
+			<string>SharePoint OnPrem Prioritization</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -469,6 +469,6 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>

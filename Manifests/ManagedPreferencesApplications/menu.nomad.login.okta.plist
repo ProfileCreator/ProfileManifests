@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-07-26T12:46:11Z</date>
+	<date>2019-09-16T10:40:33Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -114,7 +114,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
@@ -151,6 +150,10 @@
 				<array>
 					<string>CreateAdminUser</string>
 				</array>
+				<key>DeMobilize</key>
+				<array>
+					<string>DemobilizeUsers</string>
+				</array>
 				<key>EnableFDE</key>
 				<array>
 					<string>EnableFDE</string>
@@ -163,15 +166,10 @@
 					<string>ScriptPath</string>
 					<string>ScriptArgs</string>
 				</array>
-				<key>DeMobilize</key>
-				<array>
-					<string>DemobilizeUsers</string>
-				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>The Okta domain you want to authenticate against.</string>
@@ -187,10 +185,6 @@
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines if all users must authenticate to Okta. When using this setting no local authentication is done.</string>
-			<key>pfm_name</key>
-			<string>DenyLocal</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -209,14 +203,34 @@
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>DenyLocal</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>List of local users that are excluded from the DenyLocal flag.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>DenyLocal</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>DenyLocalExcluded</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -226,24 +240,8 @@
 					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_range_list</key>
-							<array>
-								<false/>
-							</array>
-							<key>pfm_target</key>
-							<string>DenyLocal</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -266,8 +264,6 @@
 			<string>List of local accounts to exclude from the migration pull-down menu.</string>
 			<key>pfm_name</key>
 			<string>MigrateUsersHide</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -277,6 +273,8 @@
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -339,14 +337,14 @@
 			<string>ILKOasdf3829fga</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>nomadoauth://oauth-callback/okta</string>
 			<key>pfm_description_reference</key>
 			<string>The URI to use for SAML redirects.</string>
 			<key>pfm_name</key>
 			<string>OIDCRedirectURI</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>nomadoauth://oauth-callback/okta</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -358,9 +356,6 @@
 			<key>pfm_value_placeholder</key>
 			<string>0oa0grdsrhdsre54gn3y9O 0h4</string>
 		</dict>
-		
-		<!-- Create User -->
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines if new users are local admins or not.</string>
@@ -369,9 +364,6 @@
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		<!-- EnableFDE -->
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines if this mechanism will enable FileVault if all requirements are met.</string>
@@ -383,10 +375,6 @@
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Will write out the resulting personal recovery key to /var/db/ NoMADFDESetup.plist</string>
-			<key>pfm_name</key>
-			<string>EnableFDERecoveryKey</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -405,6 +393,10 @@
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>EnableFDERecoveryKey</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -426,9 +418,6 @@
 			<key>pfm_value_placeholder</key>
 			<string>localadmin</string>
 		</dict>
-		
-		<!-- Script -->
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Path to the script or other executable.</string>
@@ -442,10 +431,24 @@
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Augments to be used with the script.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ScriptPath</string>
+							<key>pfm_value_empty</key>
+							<true/>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ScriptArgs</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -455,26 +458,9 @@
 					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_value_empty</key>
-							<true/>
-							<key>pfm_target</key>
-							<string>ScriptPath</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
-		
-		<!-- DeMobilize -->
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines if mobile accounts should be Bool false demobilized.</string>
@@ -493,6 +479,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>

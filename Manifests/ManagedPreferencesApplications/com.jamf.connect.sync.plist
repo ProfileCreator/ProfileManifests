@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:49Z</date>
+	<date>2019-09-16T10:40:32Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -114,36 +114,23 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		
-		<!-- Custom Keys -->
-		
-		
-		
 		<dict>
 			<key>pfm_default</key>
 			<string>yourcompany.okta.com</string>
+			<key>pfm_description</key>
+			<string>Specifies your Okta authentication domain.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies your Okta authentication domain
 Note: A Preceding "https:" is not required.</string>
-			<key>pfm_description</key>
-			<string>Specifies your Okta authentication domain.</string>
-			<key>pfm_require</key>
-			<true/>
 			<key>pfm_name</key>
 			<string>AuthServer</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_note</key>
 			<string>A Preceding "https:" is not required.</string>
+			<key>pfm_require</key>
+			<true/>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Segmented Control -->
-		
-		
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
@@ -162,37 +149,20 @@ Note: A Preceding "https:" is not required.</string>
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Certificates</key>
+				<array>
+					<string>GetCertificateAutomatically</string>
+					<string>X509CA</string>
+					<string>Template</string>
+					<string>ExportableKey</string>
+					<string>WifiNetworks</string>
+				</array>
 				<key>General</key>
 				<array>
 					<string>LicenseFile</string>
 					<string>PeriodicUpdateTime</string>
 					<string>SignInCommand</string>
 					<string>DontShowWelcome</string>
-				</array>
-				<key>Password Sync</key>
-				<array>
-					<string>UseKeychain</string>
-					<string>LocalPasswordSync</string>
-					<string>LocalPasswordSyncOnMatchOnly</string>
-					<string>LocalPasswordSyncMessage</string>
-					<string>PasswordCheckUpdateTime</string>
-					<string>KeychainItems</string>
-					<string>KeychainItemsInternet</string>
-					<string>KeychainItemsDebug</string>
-				</array>
-				<key>Password Change</key>
-				<array>
-					<string>PFC_SegmentedControl_Password</string>
-					<string>ChangePasswordTimer</string>
-					<string>ChangePasswordOrder</string>
-					<string>ExpirationWarningDays</string>
-					<string>PasswordExpirationMenu</string>
-					<string>PasswordExpirationMenuDays</string>
-					<string>ADExpirationShow</string>
-					<string>WarnOnPasswordExpiration</string>
-					<string>PasswordChangeCommand</string>
-					<string>PasswordPolicy</string>
-					<string>MessagePasswordChangePolicy</string>
 				</array>
 				<key>Kerberos/AD</key>
 				<array>
@@ -231,6 +201,31 @@ Note: A Preceding "https:" is not required.</string>
 					<string>MenuLockScreen</string>
 					<string>MenuGetHelp</string>
 				</array>
+				<key>Password Change</key>
+				<array>
+					<string>PFC_SegmentedControl_Password</string>
+					<string>ChangePasswordTimer</string>
+					<string>ChangePasswordOrder</string>
+					<string>ExpirationWarningDays</string>
+					<string>PasswordExpirationMenu</string>
+					<string>PasswordExpirationMenuDays</string>
+					<string>ADExpirationShow</string>
+					<string>WarnOnPasswordExpiration</string>
+					<string>PasswordChangeCommand</string>
+					<string>PasswordPolicy</string>
+					<string>MessagePasswordChangePolicy</string>
+				</array>
+				<key>Password Sync</key>
+				<array>
+					<string>UseKeychain</string>
+					<string>LocalPasswordSync</string>
+					<string>LocalPasswordSyncOnMatchOnly</string>
+					<string>LocalPasswordSyncMessage</string>
+					<string>PasswordCheckUpdateTime</string>
+					<string>KeychainItems</string>
+					<string>KeychainItemsInternet</string>
+					<string>KeychainItemsDebug</string>
+				</array>
 				<key>SignIn Window</key>
 				<array>
 					<string>CenterSignIn</string>
@@ -248,25 +243,10 @@ Note: A Preceding "https:" is not required.</string>
 					<string>CheckSafariExtension</string>
 					<string>MessagePluginDisabled</string>
 				</array>
-				<key>Certificates</key>
-				<array>
-					<string>GetCertificateAutomatically</string>
-					<string>X509CA</string>
-					<string>Template</string>
-					<string>ExportableKey</string>
-					<string>WifiNetworks</string>
-				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- General -->
-		
-		
-		
 		<dict>
 			<key>pfm_allowed_file_types</key>
 			<array>
@@ -309,13 +289,6 @@ Note: A Preceding "https:" is not required.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		
-		
-		<!-- Password Sync -->
-		
-		
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Determines whether the Okta password is stored in the user’s Keychain.</string>
@@ -353,15 +326,11 @@ Note: A Preceding "https:" is not required.</string>
 		<dict>
 			<key>pfm_default</key>
 			<integer>15</integer>
+			<key>pfm_description</key>
+			<string>Specifies the interval, in minutes, that Jamf Connect Sync checks the local password for synchronization. If unspecified, Jamf Connect Sync will check every 15 minutes by default.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the interval, in minutes, that Jamf Connect Sync checks the local password for synchronization. If unspecified, Jamf Connect Sync will check every 15 minutes by default.
 Note: To use PasswordCheckUpdateTime, the LocalPasswordSync key must be set to true.</string>
-			<key>pfm_description</key>
-			<string>Specifies the interval, in minutes, that Jamf Connect Sync checks the local password for synchronization. If unspecified, Jamf Connect Sync will check every 15 minutes by default.</string>
-			<key>pfm_name</key>
-			<string>PasswordCheckUpdateTime</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -380,13 +349,35 @@ Note: To use PasswordCheckUpdateTime, the LocalPasswordSync key must be set to t
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>PasswordCheckUpdateTime</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Determines which keychain items Jamf Connect Sync should synchronize with the local password.</string>
 			<key>pfm_description_reference</key>
 			<string>Determines what keychain items are updated when the user's local password is updated
 Note: To use the KeychainItems key, the UseKeychain key must be set to true.</string>
-			<key>pfm_description</key>
-			<string>Determines which keychain items Jamf Connect Sync should synchronize with the local password.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>UseKeychain</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>KeychainItems</string>
 			<key>pfm_subkeys</key>
@@ -412,58 +403,15 @@ Note: To use the KeychainItems key, the UseKeychain key must be set to true.</st
 					<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_range_list</key>
-							<array>
-								<false/>
-							</array>
-							<key>pfm_target</key>
-							<string>UseKeychain</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Determines which internet accounts Jamf Connect Sync should synchronize with the local password.</string>
 			<key>pfm_description_reference</key>
 			<string>Determines which internet accounts Jamf Connect Sync should synchronize with the local password.
 Note: To use the KeyChainItemsInternet key, the UseKeychain and LocalPasswordSync keys must be set to true.</string>
-			<key>pfm_description</key>
-			<string>Determines which internet accounts Jamf Connect Sync should synchronize with the local password.</string>
-			<key>pfm_name</key>
-			<string>KeychainItemsInternet</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_name</key>
-					<string>{{key}}</string>
-					<key>pfm_title</key>
-					<string>Keychain Item</string>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>Exchange</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
-					<key>pfm_title</key>
-					<string>Account</string>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
-				</dict>
-			</array>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -492,6 +440,31 @@ Note: To use the KeyChainItemsInternet key, the UseKeychain and LocalPasswordSyn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>KeychainItemsInternet</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Keychain Item</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>Exchange</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Account</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>&lt;&lt;shortname&gt;&gt;@&lt;&lt;domain&gt;&gt;.onmicrosoft.com</string>
+				</dict>
+			</array>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
@@ -505,13 +478,6 @@ Note: To use the KeyChainItemsInternet key, the UseKeychain and LocalPasswordSyn
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		
-		
-		<!-- Password Change -->
-		
-		
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Displays the password expiration date beneath the user's name in the menu bar.</string>
@@ -551,17 +517,11 @@ Note: To use the KeyChainItemsInternet key, the UseKeychain and LocalPasswordSyn
 		<dict>
 			<key>pfm_default</key>
 			<integer>15</integer>
+			<key>pfm_description</key>
+			<string>An integer, in days remaining, before the password expiration countdown is displayed in the menu bar.</string>
 			<key>pfm_description_reference</key>
 			<string>An integer, in days remaining, before the password expiration countdown is displayed in the menu bar
 Note: To use the PasswordExpirationMenuDays key, the PasswordExpirationMenu key must be set to true.</string>
-			<key>pfm_description</key>
-			<string>An integer, in days remaining, before the password expiration countdown is displayed in the menu bar.</string>
-			<key>pfm_name</key>
-			<string>PasswordExpirationMenuDays</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_value_unit</key>
-			<string>days</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -580,6 +540,12 @@ Note: To use the PasswordExpirationMenuDays key, the PasswordExpirationMenu key 
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>PasswordExpirationMenuDays</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -594,11 +560,11 @@ Note: To use the PasswordExpirationMenuDays key, the PasswordExpirationMenu key 
 			<string>minutes</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Determines the order and setting for the password change menu. If unspecified, Okta is used by default for password changes. If Kerberos is enabled, Jamf Connect Sync will use Kerberos to authenticate to your Active Directory domain, and then authenticate to Okta.</string>
 			<key>pfm_description_reference</key>
 			<string>Determines the order and setting for the password change menu. If unspecified, Okta is used by default for password changes. If Kerberos is enabled, Jamf Connect Sync will use Kerberos to authenticate to your Active Directory domain, and then authenticate to Okta.
 Note: This key is an array of dictionaries.</string>
-			<key>pfm_description</key>
-			<string>Determines the order and setting for the password change menu. If unspecified, Okta is used by default for password changes. If Kerberos is enabled, Jamf Connect Sync will use Kerberos to authenticate to your Active Directory domain, and then authenticate to Okta.</string>
 			<key>pfm_name</key>
 			<string>ChangePasswordOrder</string>
 			<key>pfm_subkeys</key>
@@ -607,18 +573,18 @@ Note: This key is an array of dictionaries.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<key>pfm_title</key>
-							<string></string>
 							<key>pfm_name</key>
 							<string>{{key}}</string>
+							<key>pfm_title</key>
+							<string></string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
-							<key>pfm_title</key>
-							<string></string>
 							<key>pfm_name</key>
 							<string>{{value}}</string>
+							<key>pfm_title</key>
+							<string></string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -735,13 +701,6 @@ Note: This key is an array of dictionaries.</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Kerberos/AD -->
-		
-		
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Specifies the Kerberos realm used to get Kerberos tickets.</string>
@@ -823,35 +782,21 @@ Note: This key is an array of dictionaries.</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		
-		
-		
-		<!-- Menu -->
-		
-		
-		
 		<dict>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/images/icon.png</string>
+			<key>pfm_description</key>
+			<string>Path to the menu bar icon image.</string>
 			<key>pfm_description_reference</key>
 			<string>Path to the menu bar icon image
 Note: A 16x16 pixel image is recommended.</string>
-			<key>pfm_description</key>
-			<string>Path to the menu bar icon image.</string>
 			<key>pfm_name</key>
 			<string>MenuIcon</string>
 			<key>pfm_note</key>
 			<string>A 16x16 pixel image is recommended.</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/images/icon.png</string>
 		</dict>
-		
-		
-		
-		<!-- Menu - Segmented Control -->
-		
-		
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_Menu</string>
@@ -899,13 +844,6 @@ Note: A 16x16 pixel image is recommended.</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Menu - Menu Items -->
-		
-		
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Hides the About menu item.</string>
@@ -947,17 +885,17 @@ Note: A 16x16 pixel image is recommended.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Hides the Lock Screen menu item.</string>
 			<key>pfm_description_reference</key>
 			<string>Hides the Lock Screen menu item
 Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Connect Sync.</string>
-			<key>pfm_description</key>
-			<string>Hides the Lock Screen menu item.</string>
 			<key>pfm_name</key>
 			<string>HideLockScreen</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_note</key>
 			<string>On macOS 10.14 or later, the Lock Screen menu item is hidden by default.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -983,22 +921,11 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		
-		
-		<!-- Menu - Menu Titles -->
-		
-		
-		
 		<dict>
 			<key>pfm_default</key>
 			<string>This app</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the About item.</string>
-			<key>pfm_name</key>
-			<string>MenuAbout</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1015,16 +942,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuAbout</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Quick Actions</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Actions item.</string>
-			<key>pfm_name</key>
-			<string>MenuActions</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1041,16 +968,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuActions</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Change network password</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Change Password item.</string>
-			<key>pfm_name</key>
-			<string>MenuChangePassword</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1067,16 +994,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuChangePassword</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>File ticket</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Get Help item.</string>
-			<key>pfm_name</key>
-			<string>MenuGetHelp</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1093,16 +1020,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuGetHelp</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Get Apps</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Get Software item.</string>
-			<key>pfm_name</key>
-			<string>MenuGetSoftware</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1119,16 +1046,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuGetSoftware</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Screen Lock</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Lock Screen item.</string>
-			<key>pfm_name</key>
-			<string>MenuLockScreen</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1145,16 +1072,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuLockScreen</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Settings</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Preferences item.</string>
-			<key>pfm_name</key>
-			<string>MenuPreferences</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1171,16 +1098,16 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuPreferences</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Login</string>
 			<key>pfm_description_reference</key>
 			<string>Menu item text for the Sign In item.</string>
-			<key>pfm_name</key>
-			<string>MenuSignIn</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1197,14 +1124,11 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MenuSignIn</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Menu - Actions -->
-		
-		
-		
 		<dict>
 			<key>pfm_default</key>
 			<integer>15</integer>
@@ -1218,11 +1142,11 @@ Note: On macOS 10.14 or later, the Lock Screen is hidden by default in Jamf Conn
 			<string>minutes</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Determines which GetHelp type is used.</string>
 			<key>pfm_description_reference</key>
 			<string>Determines which GetHelp type is used.
 Note: Bomgar, URL and App are supported.</string>
-			<key>pfm_description</key>
-			<string>Determines which GetHelp type is used.</string>
 			<key>pfm_name</key>
 			<string>GetHelpType</string>
 			<key>pfm_range_list</key>
@@ -1235,56 +1159,11 @@ Note: Bomgar, URL and App are supported.</string>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Specifies the URL or path for GetHelpType. &lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are supported as substitutions.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the URL or path for GetHelpType. &lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are supported as substitutions
 Note: The GetHelpType key must be specified.</string>
-			<key>pfm_description</key>
-			<string>Specifies the URL or path for GetHelpType. &lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are supported as substitutions.</string>
-			<key>pfm_name</key>
-			<string>GetHelpOptions</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/Applications/Google Chrome.app</string>
-			<key>pfm_substitution_variables</key>
-			<dict>
-				<key>&lt;&lt;serial&gt;&gt;</key>
-				<dict>
-					<key>pfm_description</key>
-					<string>Serial Number of the device.</string>
-					<key>pfm_value_placeholder</key>
-					<string>C02LL3M2FH01</string>
-					<key>pfm_substitution_source</key>
-					<string>local</string>
-				</dict>
-				<key>&lt;&lt;fullname&gt;&gt;</key>
-				<dict>
-					<key>pfm_description</key>
-					<string>Full Name of the current user.</string>
-					<key>pfm_value_placeholder</key>
-					<string>John Doe</string>
-					<key>pfm_substitution_source</key>
-					<string>local</string>
-				</dict>
-				<key>&lt;&lt;shortname&gt;&gt;</key>
-				<dict>
-					<key>pfm_description</key>
-					<string>Shortname of the current user.</string>
-					<key>pfm_value_placeholder</key>
-					<string>johndoe</string>
-					<key>pfm_substitution_source</key>
-					<string>local</string>
-				</dict>
-				<key>&lt;&lt;domain&gt;&gt;</key>
-				<dict>
-					<key>pfm_description</key>
-					<string>AD Domain.</string>
-					<key>pfm_value_placeholder</key>
-					<string>example.com</string>
-					<key>pfm_substitution_source</key>
-					<string>local</string>
-				</dict>
-			</dict>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1299,6 +1178,51 @@ Note: The GetHelpType key must be specified.</string>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>GetHelpOptions</string>
+			<key>pfm_substitution_variables</key>
+			<dict>
+				<key>&lt;&lt;domain&gt;&gt;</key>
+				<dict>
+					<key>pfm_description</key>
+					<string>AD Domain.</string>
+					<key>pfm_substitution_source</key>
+					<string>local</string>
+					<key>pfm_value_placeholder</key>
+					<string>example.com</string>
+				</dict>
+				<key>&lt;&lt;fullname&gt;&gt;</key>
+				<dict>
+					<key>pfm_description</key>
+					<string>Full Name of the current user.</string>
+					<key>pfm_substitution_source</key>
+					<string>local</string>
+					<key>pfm_value_placeholder</key>
+					<string>John Doe</string>
+				</dict>
+				<key>&lt;&lt;serial&gt;&gt;</key>
+				<dict>
+					<key>pfm_description</key>
+					<string>Serial Number of the device.</string>
+					<key>pfm_substitution_source</key>
+					<string>local</string>
+					<key>pfm_value_placeholder</key>
+					<string>C02LL3M2FH01</string>
+				</dict>
+				<key>&lt;&lt;shortname&gt;&gt;</key>
+				<dict>
+					<key>pfm_description</key>
+					<string>Shortname of the current user.</string>
+					<key>pfm_substitution_source</key>
+					<string>local</string>
+					<key>pfm_value_placeholder</key>
+					<string>johndoe</string>
+				</dict>
+			</dict>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/Applications/Google Chrome.app</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -1310,25 +1234,18 @@ Note: The GetHelpType key must be specified.</string>
 			<key>pfm_value_placeholder</key>
 			<string>/Applications/Your.app</string>
 		</dict>
-		
-		
-		
-		<!-- SignIn Window-->
-		
-		
-		
 		<dict>
+			<key>pfm_description</key>
+			<string>Displays the Sign In window on launch.</string>
 			<key>pfm_description_reference</key>
 			<string>Displays the Sign In window on launch
 Note: If the the user has a password in the keychain, the sign in window will not launch.</string>
-			<key>pfm_description</key>
-			<string>Displays the Sign In window on launch.</string>
 			<key>pfm_name</key>
 			<string>UseKeychainPrompt</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_note</key>
 			<string>If the the user has a password in the keychain, the sign in window will not launch.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -1357,18 +1274,15 @@ Note: If the the user has a password in the keychain, the sign in window will no
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
-			<string>Specifies the path to image file used as a logo.
-Note: A 342 x 90 pixel image is recommended.</string>
-			<key>pfm_description_reference</key>
 			<string>Specifies the path to image file used as a logo.</string>
 			<key>pfm_name</key>
 			<string>SignInLogo</string>
+			<key>pfm_note</key>
+			<string>A 342 x 90 pixel image is recommended.</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>/usr/local/logo.png</string>
-			<key>pfm_note</key>
-			<string>A 342 x 90 pixel image is recommended.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1400,13 +1314,6 @@ Note: A 342 x 90 pixel image is recommended.</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Web Extensions -->
-		
-		
-		
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -1430,15 +1337,11 @@ Note: A 342 x 90 pixel image is recommended.</string>
 		<dict>
 			<key>pfm_default</key>
 			<string>Please enable the plugin in Safari.</string>
+			<key>pfm_description</key>
+			<string>Text displayed to users when the Safari plugin is not enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>Text displayed to users when the Safari plugin is not enabled
 Note: The CheckSafariExtension key must be set to true.</string>
-			<key>pfm_description</key>
-			<string>Text displayed to users when the Safari plugin is not enabled.</string>
-			<key>pfm_name</key>
-			<string>MessagePluginDisabled</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1457,14 +1360,11 @@ Note: The CheckSafariExtension key must be set to true.</string>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>MessagePluginDisabled</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
-		
-		
-		
-		<!-- Certificates -->
-		
-		
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Enables Jamf Connect Sync to get a certificate from a Windows web certificate authority (CA) automatically on login.</string>
@@ -1518,15 +1418,12 @@ Note: The CheckSafariExtension key must be set to true.</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		
-		
-		
 	</array>
 	<key>pfm_title</key>
 	<string>Jamf Connect Sync</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
