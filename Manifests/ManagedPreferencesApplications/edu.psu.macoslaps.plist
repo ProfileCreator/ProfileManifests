@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-09-16T10:40:33Z</date>
+	<date>2019-05-23T14:52:49Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -129,37 +129,40 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+				
+		<!-- General -->
+		
 		<dict>
-			<key>pfm_default</key>
-			<string>admin</string>
 			<key>pfm_description_reference</key>
 			<string>Local Administrator Account.</string>
 			<key>pfm_name</key>
 			<string>LocalAdminAccount</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_default</key>
+			<string>admin</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>60</integer>
 			<key>pfm_description_reference</key>
 			<string>Expiration date of random password.</string>
 			<key>pfm_name</key>
 			<string>DaysTillExpiration</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_default</key>
+			<integer>60</integer>
 			<key>pfm_value_unit</key>
 			<string>days</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>12</integer>
 			<key>pfm_description_reference</key>
 			<string>Length of randomly generated password.</string>
 			<key>pfm_name</key>
 			<string>PasswordLength</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_default</key>
+			<integer>12</integer>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -184,6 +187,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Exclude any character set you'd like by specificying a string in an array.</string>
 			<key>pfm_name</key>
 			<string>ExclusionSets</string>
+			<key>pfm_type</key>
+			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -193,8 +198,6 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_type</key>
-			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -211,10 +214,10 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Use this key if you are LAPS Admin is a FileVault user. The script will read this key in if there isn't a keyhcain entry in System keychain for macOSLAPS. Once this has been completed, the keychain entry will then be used.</string>
 			<key>pfm_name</key>
 			<string>FirstPass</string>
-			<key>pfm_note</key>
-			<string>macOSLAPS must know at least one password via config profile before we can start the keychain process. Settings this key before running it for the first time when it is your temporary admin password is the best method.</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_note</key>
+			<string>macOSLAPS must know at least one password via config profile before we can start the keychain process. Settings this key before running it for the first time when it is your temporary admin password is the best method.</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -227,6 +230,6 @@ A profile can consist of payloads with different version numbers. For example, c
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>
