@@ -22,7 +22,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-06-26T23:15:44Z</date>
+	<date>2019-10-02T23:15:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -154,11 +154,10 @@
 					<string>General_SegmentedControl</string>
 					<string>AppUpdateURL</string>
 					<string>Authentication</string>
-					<string>BlockAboutAddons</string>
 					<string>BlockAboutConfig</string>
 					<string>BlockAboutProfiles</string>
 					<string>BlockAboutSupport</string>
-					<string>Bookmarks</string>
+					<string>DefaultDownloadDirectory</string>
 					<string>DisableAppUpdate</string>
 					<string>DisableBuiltinPDFViewer</string>
 					<string>DisableDeveloperTools</string>
@@ -174,19 +173,31 @@
 					<string>DisableProfileRefresh</string>
 					<string>DisableSafeMode</string>
 					<string>DisableSetDesktopBackground</string>
-					<string>DisableSystemAddonUpdate</string>
-					<string>DisplayBookmarksToolbar</string>
 					<string>DontCheckDefaultBrowser</string>
-					<string>Extensions</string>
-					<string>ExtensionUpdate</string>
+					<string>FirefoxHome</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
-					<string>NoDefaultBookmarks</string>
+					<string>LinkLocalFiles</string>
+					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
-					<string>RequestedLocales</string>
+					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
+					<!--Bookmarks Pane -->
+					<string>Bookmarks</string>
+					<string>DisplayBookmarksToolbar</string>
+					<string>NoDefaultBookmarks</string>
+					<!--Extensions/Addons Pane -->
+					<string>Extensions</string>
+					<string>ExtensionUpdate</string>
+					<string>BlockAboutAddons</string>
+					<string>DisableSystemAddonUpdate</string>
+					<!--Locales Pane -->
+					<string>RequestedLocales</string>
+					<!--Other Preferences Pane -->
+					<string>Preferences</string>
+					<string>SupportMenu</string>
 				</array>
 				<key>Network</key>
 				<array>
@@ -231,6 +242,7 @@
 				<string>Add-ons</string>
 				<string>Bookmarks</string>
 				<string>Languages</string>
+				<string>Other Preferences</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
@@ -256,6 +268,7 @@
 					<string>BlockAboutConfig</string>
 					<string>BlockAboutProfiles</string>
 					<string>BlockAboutSupport</string>
+					<string>DefaultDownloadDirectory</string>
 					<string>DisableAppUpdate</string>
 					<string>DisableBuiltinPDFViewer</string>
 					<string>DisableDeveloperTools</string>
@@ -272,16 +285,25 @@
 					<string>DisableSafeMode</string>
 					<string>DisableSetDesktopBackground</string>
 					<string>DontCheckDefaultBrowser</string>
+					<string>FirefoxHome</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
+					<string>LinkLocalFiles</string>
+					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
+					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
 				</array>
 				<key>Languages</key>
 				<array>
 					<string>RequestedLocales</string>
+				</array>
+				<key>Other Preferences</key>
+				<array>
+					<string>Preferences</string>
+					<string>SupportMenu</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -355,9 +377,11 @@
 
 For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server</string>
 			<key>pfm_description_reference</key>
-			<string>This preference is for changing the URL used for application update. E.g. https://www.example.com/update.xml
+			<string>
+					This preference is for changing the URL used for application update. E.g. https://www.example.com/update.xml
 
-For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server</string>
+					For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server
+				</string>
 			<key>pfm_name</key>
 			<string>AppUpdateURL</string>
 			<key>pfm_title</key>
@@ -382,13 +406,15 @@ For more information on setting up your own update server: https://developer.moz
 
 If this preference is disabled or not configured, no websites are permitted to engage in SPNEGO authentication with the browser.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.</string>
+For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.
+						</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, the specified websites are permitted to engage in SPNEGO authentication with the browser. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
 If this preference is disabled or not configured, no websites are permitted to engage in SPNEGO authentication with the browser.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.</string>
+For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.
+						</string>
 					<key>pfm_name</key>
 					<string>SPNEGO</string>
 					<key>pfm_subkeys</key>
@@ -415,13 +441,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 
 If this preference is disabled or not configured, the browser will not delegate user authorization to the server for any websites.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication</string>
+For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication
+						</string>
 					<key>pfm_description_reference</key>
-					<string>Optional. If this preference is enabled, the browser may delegate user authorization to the server for the specified websites. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
+					<string>
+							Optional. If this preference is enabled, the browser may delegate user authorization to the server for the specified websites. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
-If this preference is disabled or not configured, the browser will not delegate user authorization to the server for any websites.
+							If this preference is disabled or not configured, the browser will not delegate user authorization to the server for any websites.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication</string>
+							For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication
+						</string>
 					<key>pfm_name</key>
 					<string>Delegated</string>
 					<key>pfm_subkeys</key>
@@ -448,13 +477,15 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 
 If this policy is disabled or not configured, no websites are trusted to use NTLM authentification.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.</string>
+For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.
+						</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, the specified websites are trusted to use NTLM authentification. Entries in the list are formatted as mydomain.com or https://myotherdomain.com.
 
-If this policy is disabled or not configured, no websites are trusted to use NTLM authentification.
+							If this policy is disabled or not configured, no websites are trusted to use NTLM authentification.
 
-For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.</string>
+							For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication.
+						</string>
 					<key>pfm_name</key>
 					<string>NTLM</string>
 					<key>pfm_subkeys</key>
@@ -655,6 +686,22 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			</array>
 			<key>pfm_type</key>
 			<string>Array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Set the default download directory.</string>
+			<key>pfm_description_reference</key>
+			<string>Set the default download directory.</string>
+			<key>pfm_name</key>
+			<string>DefaultDownloadDirectory</string>
+			<key>pfm_note</key>
+			<string>Please take note the use of the ${home} variable to represent the home directory.</string>
+			<key>pfm_title</key>
+			<string>Default Download Directory</string>
+			<key>pfm_type</key>
+			<string>String</string>
+			<key>pfm_value_placeholder</key>
+			<string>${home}/Downloads</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1025,6 +1072,83 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Customize the Firefox Home page.</string>
+			<key>pfm_description_reference</key>
+			<string>Customize the Firefox Home page.</string>
+			<key>pfm_name</key>
+			<string>FirefoxHome</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Search</string>
+					<key>pfm_title</key>
+					<string>Search</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>TopSites</string>
+					<key>pfm_title</key>
+					<string>TopSites</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Highlights</string>
+					<key>pfm_title</key>
+					<string>Highlights</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Pocket</string>
+					<key>pfm_title</key>
+					<string>Pocket</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Snippets</string>
+					<key>pfm_title</key>
+					<string>Snippets</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Locked</string>
+					<key>pfm_title</key>
+					<string>Locked</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>FirefoxHome</string>
+			<key>pfm_type</key>
+			<string>Dictionary</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>This preference sets the default homepage value and the default start page. It can also be used to lock the homepage or add additional homepages.</string>
 			<key>pfm_description_reference</key>
@@ -1103,6 +1227,36 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Enable linking to local files by origin.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable linking to local files by origin.</string>
+			<key>pfm_name</key>
+			<string>LinkLocalFiles</string>
+			<key>pfm_title</key>
+			<string>Link Local files</string>
+			<key>pfm_type</key>
+			<string>Array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enable or disable the New Tab page.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable or disable the New Tab page.</string>
+			<key>pfm_name</key>
+			<string>NewTabPage</string>
+			<key>pfm_title</key>
+			<string>New Tab Page</string>
+			<key>pfm_type</key>
+			<string>Boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
@@ -1145,6 +1299,22 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>String</string>
 			<key>pfm_value_placeholder</key>
 			<string>http://example.org</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Ask where to save each file before downloading.</string>
+			<key>pfm_description_reference</key>
+			<string>Ask where to save each file before downloading.</string>
+			<key>pfm_name</key>
+			<string>PromptForDownloadLocation</string>
+			<key>pfm_title</key>
+			<string>Prompt for Download Location</string>
+			<key>pfm_type</key>
+			<string>Boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -1380,18 +1550,101 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
+			<key>pfm_app_min</key>
+			<string>68</string>
 			<key>pfm_description</key>
-			<string>If this preference is set to true, all data is cleared when Firefox is closed. This includes Browsing &amp; Download History, Cookies, Active Logins, Cache, Form &amp; Search History, Site Preferences and Offline Website Data.</string>
+			<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
 			<key>pfm_description_reference</key>
-			<string>If this preference is set to true, all data is cleared when Firefox is closed. This includes Browsing &amp; Download History, Cookies, Active Logins, Cache, Form &amp; Search History, Site Preferences and Offline Website Data.</string>
+			<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
 			<key>pfm_name</key>
 			<string>SanitizeOnShutdown</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Cache</string>
+					<key>pfm_title</key>
+					<string>Cache</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Cookies</string>
+					<key>pfm_title</key>
+					<string>Cookies</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Downloads</string>
+					<key>pfm_title</key>
+					<string>Downloads</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>FormData</string>
+					<key>pfm_title</key>
+					<string>FormData</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>History</string>
+					<key>pfm_title</key>
+					<string>History</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>Sessions</string>
+					<key>pfm_title</key>
+					<string>Sessions</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>SiteSettings</string>
+					<key>pfm_title</key>
+					<string>SiteSettings</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_name</key>
+					<string>OfflineApps</string>
+					<key>pfm_title</key>
+					<string>OfflineApps</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+			</array>
 			<key>pfm_title</key>
-			<string>Sanitize On Shutdown</string>
+			<string>Sanitize On Shutdown (Selective)</string>
 			<key>pfm_type</key>
-			<string>Boolean</string>
+			<string>Dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -2677,17 +2930,21 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This preference can be used to install certificates or to read (import) certificates from the system certificate store on macOS (keychain). Certificates can be located in the following locations:
-        /Library/Application Support/Mozilla/Certificates
-        ~/Library/Application Support/Mozilla/Certificates
+			<string>This preference can be used to install certificates or to read (import) certificates from the system certificate store on macOS (keychain).
 
-In Firefox 65, you can specify a fully qualified path.</string>
+Certificates can be located in the following locations:
+    /Library/Application Support/Mozilla/Certificates
+    ~/Library/Application Support/Mozilla/Certificates
+
+In Firefox 65, you can specify a fully qualified path.
+				</string>
 			<key>pfm_description_reference</key>
 			<string>This preference can be used to install certificates or to read (import) certificates from the system certificate store on macOS (keychain). Certificates can be located in the following locations:
-        /Library/Application Support/Mozilla/Certificates
-        ~/Library/Application Support/Mozilla/Certificates
+/Library/Application Support/Mozilla/Certificates
+~/Library/Application Support/Mozilla/Certificates
 
-In Firefox 65, you can specify a fully qualified path.</string>
+In Firefox 65, you can specify a fully qualified path.
+				</string>
 			<key>pfm_name</key>
 			<string>Certificates</string>
 			<key>pfm_subkeys</key>
@@ -2710,13 +2967,15 @@ In Firefox 65, you can specify a fully qualified path.</string>
 
 If this preference is disabled or not configured, Firefox will not install additional certificates.
 
-Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.</string>
+Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.
+						</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, Firefox will install the listed certificates. It will look in /Library/Application Support/Mozilla/Certificates and ~/Library/Application Support/Mozilla/Certificates.
 
 If this preference is disabled or not configured, Firefox will not install additional certificates.
 
-Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.</string>
+Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.
+						</string>
 					<key>pfm_name</key>
 					<string>Install</string>
 					<key>pfm_subkeys</key>
@@ -2903,6 +3162,390 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Set and lock certain preferences.</string>
+			<key>pfm_description_reference</key>
+			<string>Set and lock certain preferences.</string>
+			<key>pfm_name</key>
+			<string>Preferences</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, Firefox doesn't automatically install update.</string>
+					<key>pfm_name</key>
+					<string>app.update.auto</string>
+					<key>pfm_title</key>
+					<string>app.update.auto</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, don't store cache on the hard drive.</string>
+					<key>pfm_name</key>
+					<string>browser.cache.disk.enable</string>
+					<key>pfm_title</key>
+					<string>browser.cache.disk.enable</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<string>Profile temporary directory</string>
+					<key>pfm_description</key>
+					<string>If set, changes the location of the disk cache.</string>
+					<key>pfm_name</key>
+					<string>browser.cache.disk.parent_directory</string>
+					<key>pfm_title</key>
+					<string>browser.cache.disk.parent_directory</string>
+					<key>pfm_type</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, single words are sent to DNS, not directly to search.</string>
+					<key>pfm_name</key>
+					<string>browser.fixup.dns_first_for_single_words</string>
+					<key>pfm_title</key>
+					<string>browser.fixup.dns_first_for_single_words</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, updates for search engines are not checked.</string>
+					<key>pfm_name</key>
+					<string>browser.search.update</string>
+					<key>pfm_title</key>
+					<string>browser.search.update</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, there is no warning when the browser is closed.</string>
+					<key>pfm_name</key>
+					<string>browser.tabs.warnOnClose</string>
+					<key>pfm_title</key>
+					<string>browser.tabs.warnOnClose</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, bookmarks aren't suggested when typing in the URL bar.</string>
+					<key>pfm_name</key>
+					<string>browser.urlbar.suggest.bookmark</string>
+					<key>pfm_title</key>
+					<string>browser.urlbar.suggest.bookmark</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, history isn't suggested when typing in the URL bar.</string>
+					<key>pfm_name</key>
+					<string>browser.urlbar.suggest.history</string>
+					<key>pfm_title</key>
+					<string>browser.urlbar.suggest.history</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, open tabs aren't suggested when typing in the URL bar.</string>
+					<key>pfm_name</key>
+					<string>browser.urlbar.suggest.openpage</string>
+					<key>pfm_title</key>
+					<string>browser.urlbar.suggest.openpage</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, don't show the privacy policy tab on first run.</string>
+					<key>pfm_name</key>
+					<string>datareporting.policy.dataSubmissionPolicyBypassNotification</string>
+					<key>pfm_title</key>
+					<string>datareporting.policy.dataSubmissionPolicyBypassNotification</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, web pages can focus and activate windows.</string>
+					<key>pfm_name</key>
+					<string>dom.disable_window_flip</string>
+					<key>pfm_title</key>
+					<string>dom.disable_window_flip</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, web pages can't move or resize windows.</string>
+					<key>pfm_name</key>
+					<string>dom.disable_window_move_resize</string>
+					<key>pfm_title</key>
+					<string>dom.disable_window_move_resize</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, web pages can't override context menus.</string>
+					<key>pfm_name</key>
+					<string>dom.event.contextmenu.enabled</string>
+					<key>pfm_title</key>
+					<string>dom.event.contextmenu.enabled</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<string></string>
+					<key>pfm_description</key>
+					<string>See https://support.mozilla.org/en-US/kb/dom-events-changes-introduced-firefox-66</string>
+					<key>pfm_name</key>
+					<string>dom.keyboardevent.keypress.hack.dispatch_non_printable_keys.addl</string>
+					<key>pfm_title</key>
+					<string>dom.keyboardevent.keypress.hack.dispatch_non_printable_keys.addl</string>
+					<key>pfm_type</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<string></string>
+					<key>pfm_description</key>
+					<string>See https://support.mozilla.org/en-US/kb/dom-events-changes-introduced-firefox-66</string>
+					<key>pfm_name</key>
+					<string>dom.keyboardevent.keypress.hack.use_legacy_keycode_and_charcode.addl</string>
+					<key>pfm_title</key>
+					<string>dom.keyboardevent.keypress.hack.use_legacy_keycode_and_charcode.addl</string>
+					<key>pfm_type</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If false, the Recommendations tab is not displayed in the Add-ons Manager.</string>
+					<key>pfm_name</key>
+					<string>extensions.getAddons.showPane</string>
+					<key>pfm_title</key>
+					<string>extensions.getAddons.showPane</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, the OpenH264 plugin is not downloaded.</string>
+					<key>pfm_name</key>
+					<string>media.gmp-gmpopenh264.enabled</string>
+					<key>pfm_title</key>
+					<string>media.gmp-gmpopenh264.enabled</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, the Widevine plugin is not downloaded.</string>
+					<key>pfm_name</key>
+					<string>media.gmp-widevinecdm.enabled</string>
+					<key>pfm_title</key>
+					<string>media.gmp-widevinecdm.enabled</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, IPv6 DNS lokoups are disabled.</string>
+					<key>pfm_name</key>
+					<string>network.dns.disableIPv6</string>
+					<key>pfm_title</key>
+					<string>network.dns.disableIPv6</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, display the punycode version of internationalized domain names.</string>
+					<key>pfm_name</key>
+					<string>network.IDN_show_punycode</string>
+					<key>pfm_title</key>
+					<string>network.IDN_show_punycode</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, history is not enabled.</string>
+					<key>pfm_name</key>
+					<string>places.history.enabled</string>
+					<key>pfm_title</key>
+					<string>places.history.enabled</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<string>Ask Every Time</string>
+					<key>pfm_description</key>
+					<string>If set to "Select Automatically", Firefox automatically chooses the default personal certificate. Other possible option is "Ask Every Time".</string>
+					<key>pfm_name</key>
+					<string>security.default_personal_cert</string>
+					<key>pfm_title</key>
+					<string>security.default_personal_cert</string>
+					<key>pfm_type</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, SSL errors cannot be sent to Mozilla.</string>
+					<key>pfm_name</key>
+					<string>security.ssl.errorReporting.enabled</string>
+					<key>pfm_title</key>
+					<string>security.ssl.errorReporting.enabled</string>
+					<key>pfm_type</key>
+					<string>Boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Preferences</string>
+			<key>pfm_type</key>
+			<string>Dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68.0.1</string>
+			<key>pfm_description</key>
+			<string>Adds a menuitem to the help menu for specifying support information.</string>
+			<key>pfm_description_reference</key>
+			<string>Adds a menuitem to the help menu for specifying support information.</string>
+			<key>pfm_name</key>
+			<string>SupportMenu</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>Title</string>
+					<key>pfm_title</key>
+					<string>Title</string>
+					<key>pfm_type</key>
+					<string>String</string>
+					<key>pfm_value_placeholder</key>
+					<string>Support</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>URL</string>
+					<key>pfm_title</key>
+					<string>URL</string>
+					<key>pfm_type</key>
+					<string>String</string>
+					<key>pfm_value_placeholder</key>
+					<string>https://example.com/support</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>AccessKey</string>
+					<key>pfm_title</key>
+					<string>AccessKey</string>
+					<key>pfm_type</key>
+					<string>String</string>
+					<key>pfm_value_placeholder</key>
+					<string>S</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Support Menu</string>
+			<key>pfm_type</key>
+			<string>Dictionary</string>
+		</dict>
 	</array>
 	<key>pfm_supervised</key>
 	<false/>
@@ -2918,6 +3561,6 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
