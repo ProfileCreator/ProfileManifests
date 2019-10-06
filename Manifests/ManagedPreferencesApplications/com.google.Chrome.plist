@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-12-23T00:09:00Z</date>
+	<date>2019-09-24T01:09:00Z</date>
 	<key>pfm_name</key>
 	<string>Google_Chrome</string>
 	<key>pfm_platforms</key>
@@ -223,7 +223,7 @@
 				<array>
 					<string>PFC_SegmentedControl_ContentSettings</string>
 					<string>AlwaysOpenPdfExternally</string>
-					<string>DefaultMediaStreamSetting</string>
+					<string>AutoSelectCertificateForUrls</string>
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
 					<string>AutoplayAllowed</string>
@@ -235,6 +235,7 @@
 					<string>DefaultCookiesSetting</string>
 					<string>DefaultImagesSetting</string>
 					<string>DefaultJavaScriptSetting</string>
+					<string>DefaultMediaStreamSetting</string>
 					<string>DefaultNotificationsSetting</string>
 					<string>DefaultPluginsSetting</string>
 					<string>DefaultPopupsSetting</string>
@@ -273,7 +274,6 @@
 					<string>AuthNegotiateDelegateWhitelist</string>
 					<string>AuthSchemes</string>
 					<string>AuthServerWhitelist</string>
-					<string>AutoSelectCertificateForUrls</string>
 					<string>BrowserAddPersonEnabled</string>
 					<string>BrowserGuestModeEnabled</string>
 					<string>BrowserNetworkTimeQueriesEnabled</string>
@@ -2152,8 +2152,7 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<string>PFC_SegmentedControl_ContentSettings</string>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>Audio</string>
-				<string>Autoplay</string>
+				<string>General</string>
 				<string>Cookies</string>
 				<string>Images</string>
 				<string>JavaScript</string>
@@ -2168,14 +2167,12 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>Audio</key>
+				<key>General</key>
 				<array>
+					<string>AutoSelectCertificateForUrls</string>
 					<string>DefaultMediaStreamSetting</string>
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
-				</array>
-				<key>Autoplay</key>
-				<array>
 					<string>AutoplayAllowed</string>
 					<string>AutoplayWhitelist</string>
 				</array>
@@ -2996,6 +2993,37 @@ If this policy is left not set or disabled the PDF plugin will be used to open P
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>15</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
+
+The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+
+If this policy is left not set, no auto-selection will be done for any site.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://dev.chromium.org/administrators/policy-list-3#AutoSelectCertificateForUrls</string>
+			<key>pfm_name</key>
+			<string>AutoSelectCertificateForUrls</string>
+			<key>pfm_note</key>
+			<string>The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>{"pattern":"https://www.example.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Automatically select client certificates for these sites</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>25</string>
 			<key>pfm_app_min</key>
@@ -3311,7 +3339,6 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				</array>
 				<key>Certificates</key>
 				<array>
-					<string>AutoSelectCertificateForUrls</string>
 					<string>CertificateTransparencyEnforcementDisabledForCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForLegacyCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForUrls</string>
@@ -4804,37 +4831,6 @@ If you leave this policy not set Google Chrome will try to detect if a server is
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>*example.com,foobar.com,*baz</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>15</string>
-			<key>pfm_description</key>
-			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
-
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
-
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
-
-If this policy is left not set, no auto-selection will be done for any site.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://dev.chromium.org/administrators/policy-list-3#AutoSelectCertificateForUrls</string>
-			<key>pfm_name</key>
-			<string>AutoSelectCertificateForUrls</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>{"pattern":"https://www.example.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Automatically select client certificates for these sites</string>
-			<key>pfm_type</key>
-			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
