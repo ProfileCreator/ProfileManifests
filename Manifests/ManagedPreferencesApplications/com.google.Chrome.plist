@@ -279,6 +279,12 @@
 				</array>
 				<key>Extensions</key>
 				<array>
+					<string>ExtensionAllowedTypes</string>
+					<string>ExtensionInstallBlacklist</string>
+					<string>ExtensionInstallForcelist</string>
+					<string>ExtensionInstallSources</string>
+					<string>ExtensionInstallWhitelist</string>
+					<string>ExtensionSettings</string>
 				</array>
 				<key>Google Cast</key>
 				<array>
@@ -344,12 +350,6 @@
 					<string>EnableOnlineRevocationChecks</string>
 					<string>EnableSha1ForLocalAnchors</string>
 					<string>EnableSymantecLegacyInfrastructure</string>
-					<string>ExtensionAllowedTypes</string>
-					<string>ExtensionInstallSources</string>
-					<string>ExtensionSettings</string>
-					<string>ExtensionInstallForcelist</string>
-					<string>ExtensionInstallBlacklist</string>
-					<string>ExtensionInstallWhitelist</string>
 					<string>ForceBrowserSignin</string>
 					<string>Http09OnNonDefaultPortsEnabled</string>
 					<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
@@ -3141,15 +3141,6 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 					<string>DownloadDirectory</string>
 					<string>PromptForDownloadLocation</string>
 				</array>
-				<key>Extensions</key>
-				<array>
-					<string>ExtensionAllowedTypes</string>
-					<string>ExtensionInstallSources</string>
-					<string>ExtensionSettings</string>
-					<string>ExtensionInstallForcelist</string>
-					<string>ExtensionInstallBlacklist</string>
-					<string>ExtensionInstallWhitelist</string>
-				</array>
 				<key>History</key>
 				<array>
 					<string>AllowDeletingBrowserHistory</string>
@@ -3317,456 +3308,6 @@ If this setting is disabled or not set, browsing history is saved.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>8</string>
-			<key>pfm_description</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
-
-A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
-
-If this policy is left not set the user can install any extension in Google Chrome.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlacklist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallBlacklist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>extension_id</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>8</string>
-			<key>pfm_description</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.
-
-A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the whitelist.
-
-By default, all extensions are whitelisted, but if all extensions have been blacklisted by policy, the whitelist can be used to override that policy.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallWhitelist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallWhitelist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>extension_id</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension IDs to exempt from the blacklist</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>25</string>
-			<key>pfm_description</key>
-			<string>Controls which app/extension types are allowed to be installed and limits runtime access.</string>
-			<key>pfm_description_reference</key>
-			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
-
-This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
-
-Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
-
-If this setting is configured, extensions/apps which have a type that is not on the list will not be installed.
-
-If this settings is left not-configured, no restrictions on the acceptable extension/app types are enforced.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionAllowedTypes</string>
-			<key>pfm_name</key>
-			<string>ExtensionAllowedTypes</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_range_list</key>
-					<array>
-						<string>extension</string>
-						<string>hosted_app</string>
-						<string>legacy_packaged_app</string>
-						<string>platform_app</string>
-						<string>theme</string>
-						<string>user_script</string>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Extension</string>
-						<string>Hosted App</string>
-						<string>Legacy Packaged App</string>
-						<string>Platform App</string>
-						<string>Theme</string>
-						<string>User Script</string>
-					</array>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_unique</key>
-					<true/>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Types of extensions/apps that are allowed to be installed</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Specifies a list of apps and extensions that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user. All permissions requested by the apps/extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the app/extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are not available to apps/extensions that are not force-installed.)</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies a list of apps and extensions that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user. All permissions requested by the apps/extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the app/extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are not available to apps/extensions that are not force-installed.)
-
-This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Google Chrome.
-
-For Windows instances that are not joined to a Microsoft® Active Directory® domain, forced installation is limited to apps and extensions listed in the Chrome Web Store.
-
-Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
-
-Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
-
-For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
-
-If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallForcelist</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallForcelist</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>extension_id</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension/App IDs and update URLs to be silently installed</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>21</string>
-			<key>pfm_description</key>
-			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.
-
-Starting in Google Chrome 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Google Chrome would offer to install the file after a few warnings. After Google Chrome 21, such files must be downloaded and dragged onto the Google Chrome settings page. This setting allows specific URLs to have the old, easier installation flow.
-
-Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
-
-ExtensionInstallBlacklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallSources</string>
-			<key>pfm_name</key>
-			<string>ExtensionInstallSources</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>https://corp.mycompany.com/*</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>URL patterns to allow extension, app, and user script installs from</string>
-			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>62</string>
-			<key>pfm_description</key>
-			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
-			<key>pfm_description_reference</key>
-			<string>Configures extension management settings for Google Chrome.
-
-This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
-
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID "*", which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
-
-For a full description of possible settings and structure of this policy please visit https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionSettings</string>
-			<key>pfm_name</key>
-			<string>ExtensionSettings</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>{{key}}</string>
-					<key>pfm_title</key>
-					<string>Extension ID</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
-					<key>pfm_hidden</key>
-					<string>container</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a string indicating the installation mode for the extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>installation_mode</string>
-							<key>pfm_range_list</key>
-							<array>
-								<string>allowed</string>
-								<string>blocked</string>
-								<string>force_installed</string>
-								<string>normal_installed</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>Allowed</string>
-								<string>Blocked</string>
-								<string>Force Installed</string>
-								<string>Normal Installed</string>
-							</array>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a string indicating where Chrome can download a force_installed or normal_installed extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>update_url</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings indicating the blocked API permissions for the extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>blocked_permissions</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_documentation_url</key>
-									<string>https://developer.chrome.com/extensions/declare_permissions</string>
-									<key>pfm_range_list</key>
-									<array>
-										<string>activeTab</string>
-										<string>alarms</string>
-										<string>background</string>
-										<string>bookmarks</string>
-										<string>browsingData</string>
-										<string>certificateProvider</string>
-										<string>clipboardRead</string>
-										<string>clipboardWrite</string>
-										<string>contentSettings</string>
-										<string>contextMenus</string>
-										<string>cookies</string>
-										<string>debugger</string>
-										<string>declarativeContent</string>
-										<string>declarativeNetRequest</string>
-										<string>declarativeWebRequest</string>
-										<string>desktopCapture</string>
-										<string>displaySource</string>
-										<string>dns</string>
-										<string>documentScan</string>
-										<string>downloads</string>
-										<string>enterprise.deviceAttributes</string>
-										<string>enterprise.hardwarePlatform</string>
-										<string>enterprise.platformKeys</string>
-										<string>experimental</string>
-										<string>fileBrowserHandler</string>
-										<string>fileSystemProvider</string>
-										<string>fontSettings</string>
-										<string>gcm</string>
-										<string>geolocation</string>
-										<string>history</string>
-										<string>identity</string>
-										<string>idle</string>
-										<string>idltest</string>
-										<string>management</string>
-										<string>nativeMessaging</string>
-										<string>networking.config</string>
-										<string>notifications</string>
-										<string>pageCapture</string>
-										<string>platformKeys</string>
-										<string>power</string>
-										<string>printerProvider</string>
-										<string>privacy</string>
-										<string>processes</string>
-										<string>proxy</string>
-										<string>sessions</string>
-										<string>signedInDevices</string>
-										<string>storage</string>
-										<string>system.cpu</string>
-										<string>system.display</string>
-										<string>system.memory</string>
-										<string>system.storage</string>
-										<string>tabCapture</string>
-										<string>tabs</string>
-										<string>topSites</string>
-										<string>tts</string>
-										<string>ttsEngine</string>
-										<string>unlimitedStorage</string>
-										<string>vpnProvider</string>
-										<string>wallpaper</string>
-										<string>webNavigation</string>
-										<string>webRequest</string>
-										<string>webRequestBlocking</string>
-									</array>
-									<key>pfm_type</key>
-									<string>string</string>
-									<key>pfm_value_unique</key>
-									<true/>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a version string.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>minimum_version_required</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Each item in this list is an extension-style match pattern.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>install_sources</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>allowed_types</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_range_list</key>
-									<array>
-										<string>extension</string>
-										<string>theme</string>
-										<string>user_script</string>
-										<string>hosted_app</string>
-										<string>legacy_packaged_app</string>
-										<string>platform_app</string>
-									</array>
-									<key>pfm_type</key>
-									<string>string</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>blocked_install_message</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings representing hosts whose webpages the extension will be blocked from modifying.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>runtime_blocked_hosts</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-									<key>pfm_value_placeholder</key>
-									<string>*://*.example.com</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in "runtime_blocked_hosts".</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>runtime_allowed_hosts</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_type</key>
-									<string>string</string>
-									<key>pfm_value_placeholder</key>
-									<string>*://*.example.com</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-					</array>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Extension management settings</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
 			<string>12</string>
 			<key>pfm_description</key>
 			<string>If you enable this setting, outdated plugins are used as normal plugins.</string>
@@ -3805,7 +3346,7 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<key>pfm_value_placeholder</key>
 			<string>ex. 37185d02-e055-11e7-80c1-9a214cf093ae</string>
 		</dict>
-				<!-- START ContentSettings/DefaultSearchProvider -->
+		<!-- START ContentSettings/DefaultSearchProvider -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>24</string>
@@ -4113,7 +3654,459 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 			<key>pfm_value_placeholder</key>
 			<string>q={searchTerms},ie=utf-8,oe=utf-8</string>
 		</dict>
-		<!-- END ContentSettings/DefaultSearchProvider -->	
+		<!-- END ContentSettings/DefaultSearchProvider -->
+		<!-- START ContentSettings/Extensions -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>25</string>
+			<key>pfm_description</key>
+			<string>Controls which app/extension types are allowed to be installed and limits runtime access.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
+
+This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
+
+Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
+
+If this setting is configured, extensions/apps which have a type that is not on the list will not be installed.
+
+If this settings is left not-configured, no restrictions on the acceptable extension/app types are enforced.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionAllowedTypes</string>
+			<key>pfm_name</key>
+			<string>ExtensionAllowedTypes</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_range_list</key>
+					<array>
+						<string>extension</string>
+						<string>hosted_app</string>
+						<string>legacy_packaged_app</string>
+						<string>platform_app</string>
+						<string>theme</string>
+						<string>user_script</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Extension</string>
+						<string>Hosted App</string>
+						<string>Legacy Packaged App</string>
+						<string>Platform App</string>
+						<string>Theme</string>
+						<string>User Script</string>
+					</array>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_unique</key>
+					<true/>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Types of extensions/apps that are allowed to be installed</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>21</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.
+
+Starting in Google Chrome 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Google Chrome would offer to install the file after a few warnings. After Google Chrome 21, such files must be downloaded and dragged onto the Google Chrome settings page. This setting allows specific URLs to have the old, easier installation flow.
+
+Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
+
+ExtensionInstallBlacklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallSources</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallSources</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>https://corp.mycompany.com/*</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>URL patterns to allow extension, app, and user script installs from</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>8</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
+
+A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
+
+If this policy is left not set the user can install any extension in Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlacklist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallBlacklist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>8</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions are not subject to the blacklist.
+
+A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the whitelist.
+
+By default, all extensions are whitelisted, but if all extensions have been blacklisted by policy, the whitelist can be used to override that policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallWhitelist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallWhitelist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension IDs to exempt from the blacklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Specifies a list of apps and extensions that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user. All permissions requested by the apps/extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the app/extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are not available to apps/extensions that are not force-installed.)</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies a list of apps and extensions that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user. All permissions requested by the apps/extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the app/extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are not available to apps/extensions that are not force-installed.)
+
+This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Google Chrome.
+
+For Windows instances that are not joined to a Microsoft® Active Directory® domain, forced installation is limited to apps and extensions listed in the Chrome Web Store.
+
+Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
+
+Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
+
+For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
+
+If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallForcelist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallForcelist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension/App IDs and update URLs to be silently installed</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>62</string>
+			<key>pfm_description</key>
+			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
+			<key>pfm_description_reference</key>
+			<string>Configures extension management settings for Google Chrome.
+
+This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
+
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID "*", which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
+
+For a full description of possible settings and structure of this policy please visit https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionSettings</string>
+			<key>pfm_name</key>
+			<string>ExtensionSettings</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Extension ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating the installation mode for the extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>installation_mode</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>allowed</string>
+								<string>blocked</string>
+								<string>force_installed</string>
+								<string>normal_installed</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Allowed</string>
+								<string>Blocked</string>
+								<string>Force Installed</string>
+								<string>Normal Installed</string>
+							</array>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating where Chrome can download a force_installed or normal_installed extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>update_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings indicating the blocked API permissions for the extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>blocked_permissions</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_documentation_url</key>
+									<string>https://developer.chrome.com/extensions/declare_permissions</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>activeTab</string>
+										<string>alarms</string>
+										<string>background</string>
+										<string>bookmarks</string>
+										<string>browsingData</string>
+										<string>certificateProvider</string>
+										<string>clipboardRead</string>
+										<string>clipboardWrite</string>
+										<string>contentSettings</string>
+										<string>contextMenus</string>
+										<string>cookies</string>
+										<string>debugger</string>
+										<string>declarativeContent</string>
+										<string>declarativeNetRequest</string>
+										<string>declarativeWebRequest</string>
+										<string>desktopCapture</string>
+										<string>displaySource</string>
+										<string>dns</string>
+										<string>documentScan</string>
+										<string>downloads</string>
+										<string>enterprise.deviceAttributes</string>
+										<string>enterprise.hardwarePlatform</string>
+										<string>enterprise.platformKeys</string>
+										<string>experimental</string>
+										<string>fileBrowserHandler</string>
+										<string>fileSystemProvider</string>
+										<string>fontSettings</string>
+										<string>gcm</string>
+										<string>geolocation</string>
+										<string>history</string>
+										<string>identity</string>
+										<string>idle</string>
+										<string>idltest</string>
+										<string>management</string>
+										<string>nativeMessaging</string>
+										<string>networking.config</string>
+										<string>notifications</string>
+										<string>pageCapture</string>
+										<string>platformKeys</string>
+										<string>power</string>
+										<string>printerProvider</string>
+										<string>privacy</string>
+										<string>processes</string>
+										<string>proxy</string>
+										<string>sessions</string>
+										<string>signedInDevices</string>
+										<string>storage</string>
+										<string>system.cpu</string>
+										<string>system.display</string>
+										<string>system.memory</string>
+										<string>system.storage</string>
+										<string>tabCapture</string>
+										<string>tabs</string>
+										<string>topSites</string>
+										<string>tts</string>
+										<string>ttsEngine</string>
+										<string>unlimitedStorage</string>
+										<string>vpnProvider</string>
+										<string>wallpaper</string>
+										<string>webNavigation</string>
+										<string>webRequest</string>
+										<string>webRequestBlocking</string>
+									</array>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_unique</key>
+									<true/>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a version string.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>minimum_version_required</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Each item in this list is an extension-style match pattern.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>install_sources</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>allowed_types</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<string>extension</string>
+										<string>theme</string>
+										<string>user_script</string>
+										<string>hosted_app</string>
+										<string>legacy_packaged_app</string>
+										<string>platform_app</string>
+									</array>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>blocked_install_message</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings representing hosts whose webpages the extension will be blocked from modifying.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>runtime_blocked_hosts</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>*://*.example.com</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in "runtime_blocked_hosts".</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>runtime_allowed_hosts</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>*://*.example.com</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension management settings</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<!-- END ContentSettings/Extensions -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
