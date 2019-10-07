@@ -4394,7 +4394,7 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_name</key>
 			<string>BrowserSwitcherExternalGreylistUrl</string>
 			<key>pfm_note</key>
-			<string>When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+			<string>When this policy is set to a valid URL, Google Chrome downloads the grey list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
 
 For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
 			<key>pfm_title</key>
@@ -4403,6 +4403,34 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>http://example.com/greylist.xml</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>72</string>
+			<key>pfm_description</key>
+			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.
+
+When this policy is left unset, or not set to a valid URL, Google Chrome does not use it as a source of rules for switching browsers.
+
+When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlList policy.
+
+For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherExternalSitelistUrl</string>
+			<key>pfm_name</key>
+			<string>BrowserSwitcherExternalSitelistUrl</string>
+			<key>pfm_note</key>
+			<string>When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+
+For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
+			<key>pfm_title</key>
+			<string>Browser Switcher External Sitelist URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>http://example.com/sitelist.xml</string>
 		</dict>
 		<!-- END ContentSettings/LegacyBrowserSupport -->
 		<dict>
