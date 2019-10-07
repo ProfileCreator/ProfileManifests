@@ -176,7 +176,6 @@
 					<string>DefaultPrinterSelection</string>
 					<string>DisablePrintPreview</string>
 					<string>EditBookmarksEnabled</string>
-					<string>EnableMediaRouter</string>
 					<string>ForceGoogleSafeSearch</string>
 					<string>HomepageIsNewTabPage</string>
 					<string>HomepageLocation</string>
@@ -212,7 +211,6 @@
 					<string>RestoreOnStartupURLs</string>
 					<string>SearchSuggestEnabled</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
-					<string>ShowCastIconInToolbar</string>
 					<string>ShowHomeButton</string>
 					<string>SpellcheckEnabled</string>
 					<string>SpellcheckLanguage</string>
@@ -289,6 +287,8 @@
 				</array>
 				<key>Google Cast</key>
 				<array>
+					<string>EnableMediaRouter</string>
+					<string>ShowCastIconInToolbar</string>
 				</array>
 				<key>HTTP Authentication</key>
 				<array>
@@ -590,12 +590,6 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 				<array>
 					<string>CloudPrintSubmitEnabled</string>
 					<string>CloudPrintProxyEnabled</string>
-				</array>
-				<key>Google Cast</key>
-				<array>
-					<string>EnableMediaRouter</string>
-					<string>MediaRouterCastAllowAllIPs</string>
-					<string>ShowCastIconInToolbar</string>
 				</array>
 				<key>Import</key>
 				<array>
@@ -1356,24 +1350,7 @@ If this setting is disabled, users cannot print to Google Cloud Print from the G
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>52</string>
-			<key>pfm_description</key>
-			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.</string>
-			<key>pfm_description_reference</key>
-			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.
-
-If this policy set to false, Google Cast will be disabled.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableMediaRouter</string>
-			<key>pfm_name</key>
-			<string>EnableMediaRouter</string>
-			<key>pfm_title</key>
-			<string>Enable Google Cast</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
+		
 		<dict>
 			<key>pfm_app_min</key>
 			<string>39</string>
@@ -1859,26 +1836,6 @@ If this policy is left not set, or if it is set to an empty string, the remote a
 			<string>12400-12409</string>
 			<key>pfm_value_unit</key>
 			<string>port range</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>58</string>
-			<key>pfm_description</key>
-			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.</string>
-			<key>pfm_description_reference</key>
-			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.
-
-If this policy is set to false or is not set, users will be able to pin or remove the icon via its contextual menu.
-
-If the policy "EnableMediaRouter" is set to false, then this policy's value would have no effect, and the toolbar icon would not be shown.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowCastIconInToolbar</string>
-			<key>pfm_name</key>
-			<string>ShowCastIconInToolbar</string>
-			<key>pfm_title</key>
-			<string>Show the Google Cast toolbar icon</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -4136,6 +4093,46 @@ Starting in Google Chrome 78, this policy will be ignored and treated as disable
 			<string>boolean</string>
 		</dict>
 		<!-- END ContentSettings/Extensions -->
+		<!-- START ContentSettings/GoogleCast -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>52</string>
+			<key>pfm_description</key>
+			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.</string>
+			<key>pfm_description_reference</key>
+			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.
+
+If this policy set to false, Google Cast will be disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableMediaRouter</string>
+			<key>pfm_name</key>
+			<string>EnableMediaRouter</string>
+			<key>pfm_title</key>
+			<string>Enable Google Cast</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>58</string>
+			<key>pfm_description</key>
+			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.</string>
+			<key>pfm_description_reference</key>
+			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.
+
+If this policy is set to false or is not set, users will be able to pin or remove the icon via its contextual menu.
+
+If the policy "EnableMediaRouter" is set to false, then this policy's value would have no effect, and the toolbar icon would not be shown.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowCastIconInToolbar</string>
+			<key>pfm_name</key>
+			<string>ShowCastIconInToolbar</string>
+			<key>pfm_title</key>
+			<string>Show the Google Cast toolbar icon</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<!-- END ContentSettings/GoogleCast -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
