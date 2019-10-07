@@ -4374,6 +4374,36 @@ When this policy is set to a number, Chrome shows a message for that many millis
 			<key>pfm_value_unit</key>
 			<string>milliseconds</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>77</string>
+			<key>pfm_description</key>
+			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.
+
+The rules in this XML file apply in the same way as BrowserSwitcherUrlGreylist. That is, these rules prevent Google Chrome from opening the alternative browser, and also prevent the alternative browser from opening Google Chrome.
+
+When this policy is left unset, or not set to a valid URL, Google Chrome does not use it as a source of rules that don't trigger a browser switch.
+
+When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+
+For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherExternalGreylistUrl</string>
+			<key>pfm_name</key>
+			<string>BrowserSwitcherExternalGreylistUrl</string>
+			<key>pfm_note</key>
+			<string>When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+
+For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
+			<key>pfm_title</key>
+			<string>Browser Switcher External Greylist URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>http://example.com/greylist.xml</string>
+		</dict>
 		<!-- END ContentSettings/LegacyBrowserSupport -->
 		<dict>
 			<key>pfm_app_min</key>
