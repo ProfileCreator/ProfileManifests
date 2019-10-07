@@ -292,6 +292,12 @@
 				</array>
 				<key>HTTP Authentication</key>
 				<array>
+					<string>AllowCrossOriginAuthPrompt</string>
+					<string>AuthNegotiateDelegateWhitelist</string>
+					<string>AuthSchemes</string>
+					<string>AuthServerWhitelist</string>
+					<string>DisableAuthNegotiateCnameLookup</string>
+					<string>EnableAuthNegotiatePort</string>
 				</array>
 				<key>Legacy Browser Support</key>
 				<array>
@@ -327,13 +333,9 @@
 					<string>UrlKeyedAnonymizedDataCollectionEnabled</string>
 					<string>PFC_SegmentedControl_Security</string>
 					<string>AdsSettingForIntrusiveAdsSites</string>
-					<string>AllowCrossOriginAuthPrompt</string>
 					<string>AllowDeletingBrowserHistory</string>
 					<string>AllowedDomainsForApps</string>
 					<string>AllowOutdatedPlugins</string>
-					<string>AuthNegotiateDelegateWhitelist</string>
-					<string>AuthSchemes</string>
-					<string>AuthServerWhitelist</string>
 					<string>BrowserAddPersonEnabled</string>
 					<string>BrowserGuestModeEnabled</string>
 					<string>BrowserNetworkTimeQueriesEnabled</string>
@@ -343,11 +345,9 @@
 					<string>CertificateTransparencyEnforcementDisabledForLegacyCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForUrls</string>
 					<string>DefaultDownloadDirectory</string>
-					<string>DisableAuthNegotiateCnameLookup</string>
 					<string>DisableSafeBrowsingProceedAnyway</string>
 					<string>DownloadDirectory</string>
 					<string>DownloadRestrictions</string>
-					<string>EnableAuthNegotiatePort</string>
 					<string>EnableOnlineRevocationChecks</string>
 					<string>EnableSha1ForLocalAnchors</string>
 					<string>EnableSymantecLegacyInfrastructure</string>
@@ -552,7 +552,6 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 				<string>Autofill</string>
 				<string>Bookmarks</string>
 				<string>Cloud Print</string>
-				<string>Google Cast</string>
 				<string>Import</string>
 				<string>On Startup</string>
 				<string>Printing</string>
@@ -3064,7 +3063,6 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				<string>Downloads</string>
 				<string>Extensions</string>
 				<string>History</string>
-				<string>HTTP Auth</string>
 				<string>Login / User</string>
 				<string>Messaging</string>
 				<string>Networking</string>
@@ -3103,13 +3101,6 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 				<array>
 					<string>AllowDeletingBrowserHistory</string>
 					<string>SavingBrowserHistoryDisabled</string>
-				</array>
-				<key>HTTP Auth</key>
-				<array>
-					<string>AllowCrossOriginAuthPrompt</string>
-					<string>AuthNegotiateDelegateWhitelist</string>
-					<string>AuthSchemes</string>
-					<string>AuthServerWhitelist</string>
 				</array>
 				<key>Login / User</key>
 				<array>
@@ -4133,6 +4124,132 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<string>boolean</string>
 		</dict>
 		<!-- END ContentSettings/GoogleCast -->
+		<!-- START ContentSettings/HTTPAuthentication -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>13</string>
+			<key>pfm_description</key>
+			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.
+
+Typically this is disabled as a phishing defense. If this policy is not set, this is disabled and third-party sub-content will not be allowed to pop up a HTTP Basic Auth dialog box.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowCrossOriginAuthPrompt</string>
+			<key>pfm_name</key>
+			<string>AllowCrossOriginAuthPrompt</string>
+			<key>pfm_title</key>
+			<string>Cross-origin HTTP Basic Auth prompts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Servers that Google Chrome may delegate to.</string>
+			<key>pfm_description_reference</key>
+			<string>Servers that Google Chrome may delegate to.
+
+Separate multiple server names with commas. Wildcards (*) are allowed.
+
+If you leave this policy not set Google Chrome will not delegate user credentials even if a server is detected as Intranet.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthNegotiateDelegateWhitelist</string>
+			<key>pfm_name</key>
+			<string>AuthNegotiateDelegateWhitelist</string>
+			<key>pfm_title</key>
+			<string>Kerberos delegation server whitelist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>foobar.example.com</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Specifies which HTTP authentication schemes are supported by Google Chrome. Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies which HTTP authentication schemes are supported by Google Chrome.
+
+Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.
+
+If this policy is left not set, all four schemes will be used.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthSchemes</string>
+			<key>pfm_name</key>
+			<string>AuthSchemes</string>
+			<key>pfm_title</key>
+			<string>Supported authentication schemes</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>basic,digest,ntlm,negotiate</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.
+
+Separate multiple server names with commas. Wildcards (*) are allowed.
+
+If you leave this policy not set Google Chrome will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerWhitelist</string>
+			<key>pfm_name</key>
+			<string>AuthServerWhitelist</string>
+			<key>pfm_title</key>
+			<string>Authentication server whitelist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>*example.com,foobar.com,*baz</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.
+
+If you enable this setting, CNAME lookup will be skipped and the server name will be used as entered.
+
+If you disable this setting or leave it not set, the canonical name of the server will be determined via CNAME lookup.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DisableAuthNegotiateCnameLookup</string>
+			<key>pfm_name</key>
+			<string>DisableAuthNegotiateCnameLookup</string>
+			<key>pfm_title</key>
+			<string>Disable CNAME lookup when negotiating Kerberos authentication</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>9</string>
+			<key>pfm_description</key>
+			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.
+
+If you enable this setting, and a non-standard port (i.e., a port other than 80 or 443) is entered, it will be included in the generated Kerberos SPN.
+
+If you disable this setting or leave it not set, the generated Kerberos SPN will not include a port in any case.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableAuthNegotiatePort</string>
+			<key>pfm_name</key>
+			<string>EnableAuthNegotiatePort</string>
+			<key>pfm_title</key>
+			<string>Include non-standard port in Kerberos SPN</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<!-- END ContentSettings/HTTPAuthentication -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
@@ -4232,26 +4349,6 @@ If this policy is left not set, the users will be able to change whether the bui
 			<string>BuiltInDnsClientEnabled</string>
 			<key>pfm_title</key>
 			<string>Use built-in DNS client</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.
-
-If you enable this setting, CNAME lookup will be skipped and the server name will be used as entered.
-
-If you disable this setting or leave it not set, the canonical name of the server will be determined via CNAME lookup.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DisableAuthNegotiateCnameLookup</string>
-			<key>pfm_name</key>
-			<string>DisableAuthNegotiateCnameLookup</string>
-			<key>pfm_title</key>
-			<string>Disable CNAME lookup when negotiating Kerberos authentication</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -4372,26 +4469,6 @@ If the policy is not configured, the user will be able to change this setting.</
 			<string>PromptForDownloadLocation</string>
 			<key>pfm_title</key>
 			<string>Ask where to save each file before downloading</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.
-
-If you enable this setting, and a non-standard port (i.e., a port other than 80 or 443) is entered, it will be included in the generated Kerberos SPN.
-
-If you disable this setting or leave it not set, the generated Kerberos SPN will not include a port in any case.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableAuthNegotiatePort</string>
-			<key>pfm_name</key>
-			<string>EnableAuthNegotiatePort</string>
-			<key>pfm_title</key>
-			<string>Include non-standard port in Kerberos SPN</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -4809,90 +4886,6 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>port range</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>13</string>
-			<key>pfm_description</key>
-			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.</string>
-			<key>pfm_description_reference</key>
-			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.
-
-Typically this is disabled as a phishing defense. If this policy is not set, this is disabled and third-party sub-content will not be allowed to pop up a HTTP Basic Auth dialog box.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowCrossOriginAuthPrompt</string>
-			<key>pfm_name</key>
-			<string>AllowCrossOriginAuthPrompt</string>
-			<key>pfm_title</key>
-			<string>Cross-origin HTTP Basic Auth prompts</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Servers that Google Chrome may delegate to.</string>
-			<key>pfm_description_reference</key>
-			<string>Servers that Google Chrome may delegate to.
-
-Separate multiple server names with commas. Wildcards (*) are allowed.
-
-If you leave this policy not set Google Chrome will not delegate user credentials even if a server is detected as Intranet.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthNegotiateDelegateWhitelist</string>
-			<key>pfm_name</key>
-			<string>AuthNegotiateDelegateWhitelist</string>
-			<key>pfm_title</key>
-			<string>Kerberos delegation server whitelist</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>foobar.example.com</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Specifies which HTTP authentication schemes are supported by Google Chrome. Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies which HTTP authentication schemes are supported by Google Chrome.
-
-Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.
-
-If this policy is left not set, all four schemes will be used.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthSchemes</string>
-			<key>pfm_name</key>
-			<string>AuthSchemes</string>
-			<key>pfm_title</key>
-			<string>Supported authentication schemes</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>basic,digest,ntlm,negotiate</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>9</string>
-			<key>pfm_description</key>
-			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.
-
-Separate multiple server names with commas. Wildcards (*) are allowed.
-
-If you leave this policy not set Google Chrome will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Google Chrome.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerWhitelist</string>
-			<key>pfm_name</key>
-			<string>AuthServerWhitelist</string>
-			<key>pfm_title</key>
-			<string>Authentication server whitelist</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>*example.com,foobar.com,*baz</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
