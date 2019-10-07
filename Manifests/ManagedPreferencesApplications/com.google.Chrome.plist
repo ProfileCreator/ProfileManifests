@@ -4400,6 +4400,45 @@ When this policy is set to false, Chrome will close the tab after switching to a
 			<key>pfm_app_min</key>
 			<string>71</string>
 			<key>pfm_description</key>
+			<string>This policy controls the list of websites to open in an alternative browser.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls the list of websites to open in an alternative browser.
+
+Note that elements can also be added to this list through the BrowserSwitcherUseIeSitelist and BrowserSwitcherExternalSitelistUrl policies.
+
+When this policy is left unset, no websites are added to the list.
+
+When this policy is set, each item is treated as a rule for something to open in an alternative browser. Google Chrome uses those rules when choosing if a URL should open in an alternative browser.
+
+When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Google Chrome when the rules do not match.
+
+If rules contradict eachother, Google Chrome uses the most specific rule.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherUrlGreylist</string>
+			<key>pfm_name</key>
+			<string>BrowserSwitcherUrlList</string>
+			<key>pfm_note</key>
+			<string>When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Google Chrome when the rules do not match.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_format</key>
+					<string>^https?://.*$</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>http://google.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Browser Switcher URL List</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>71</string>
+			<key>pfm_description</key>
 			<string>This policy controls the list of websites that will never cause a browser switch.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls the list of websites that will never cause a browser switch.
