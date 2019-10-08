@@ -7,12 +7,13 @@ fi
 
 shopt -s nullglob
 
-# Get the current script path and verify it is located at the root of the ProfileManifests repository
-repository_path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-if ! /usr/bin/grep -q "^[[:space:]]url[[:space:]].*ProfileManifests.git$" "${repository_path}/.git/config"; then
-	printf "%s\n" "This script must be located in the ProfileManifests repository root directory."
+# Verify the script is running inside the ProfileManifests repository and get the repository root path
+repository_path=$( git rev-parse --show-toplevel 2> /dev/null )
+if !( [[ $? -eq 0 ]] && [[ $(git remote -v) == *"ProfileManifests.git"* ]] ); then
+	printf "%s\n" "This script must be ran inside the ProfileManifests repository."
 	exit 1
 fi
+cd $repository_path
 
 # Set the path to the index file
 index_path="${repository_path}/Icons/index"
