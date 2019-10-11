@@ -8,7 +8,7 @@ fi
 # Verify the script is running inside the ProfileManifests repository and get the repository root path
 repository_path=$( git rev-parse --show-toplevel 2> /dev/null )
 if !( [[ $? -eq 0 ]] && [[ $(git remote -v) == *"ProfileManifests.git"* ]] ); then
-	printf "%s\n" "This script must be ran inside the ProfileManifests repository."
+	printf "%s\n" "This script must be run inside the ProfileManifests repository."
 	exit 1
 fi
 cd $repository_path
