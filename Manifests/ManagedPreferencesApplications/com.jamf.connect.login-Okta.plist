@@ -10,6 +10,8 @@
 	<array>
 		<string>system</string>
 	</array>
+	<key>pfm_last_modified</key>
+	<date>2019-10-10T09:37:17Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -22,14 +24,10 @@
 	<string>Okta</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:48Z</date>
 	<key>pfm_title</key>
 	<string>Jamf Connect Login (Okta)</string>
 	<key>pfm_unique</key>
 	<false/>
-	<key>pfm_version</key>
-	<integer>1</integer>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -144,7 +142,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_description_reference</key>
 			<string>The Okta domain you want to authenticate against.</string>
 			<key>pfm_name</key>
-			<string>AuthServer</string>		
+			<string>AuthServer</string>
 			<key>pfm_require</key>
 			<string>always-nested</string>
 			<key>pfm_type</key>
@@ -172,18 +170,18 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>CheckOkta</string>
+				<string>Check Okta</string>
 				<string>EULA</string>
-				<string>CreateUser</string>
-				<string>EnableFDE</string>
-				<string>RunScript</string>
-				<string>DeMobilize</string>
+				<string>Create User</string>
+				<string>Enable FDE</string>
+				<string>Run Script</string>
+				<string>Demobilize</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>CheckOkta</key>
+				<key>Check Okta</key>
 				<array>
 					<string>AuthServer</string>
 					<string>DenyLocal</string>
@@ -212,22 +210,22 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>EULATitle</string>
 					<string>EULASubTitle</string>
 				</array>
-				<key>CreateUser</key>
+				<key>Create User</key>
 				<array>
 					<string>CreateAdminUser</string>
 				</array>
-				<key>EnableFDE</key>
+				<key>Enable FDE</key>
 				<array>
 					<string>EnableFDE</string>
 					<string>EnableFDERecoveryKey</string>
 					<string>EnableFDERecoveryKeyPath</string>
 				</array>
-				<key>RunScript</key>
+				<key>Run Script</key>
 				<array>
 					<string>ScriptPath</string>
 					<string>ScriptArgs</string>
 				</array>
-				<key>DeMobilize</key>
+				<key>Demobilize</key>
 				<array>
 					<string>DemobilizeUsers</string>
 				</array>
@@ -512,91 +510,65 @@ Note: Supported file types include PDF and HTML.</string>
 		
 		<dict>
 			<key>pfm_description</key>
-			<string>Title of the EULA text.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>EULAText</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<string>Title of the end user license agreement</string>
 			<key>pfm_name</key>
 			<string>EULATitle</string>
+			<key>pfm_title</key>
+			<string>EULA Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_default</key>
-			<string>User Agreement</string>
+			<string>End User License Agreement</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Subtitle of the EULA text.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>EULAText</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<string>Subtitle of the end user license agreement</string>
 			<key>pfm_name</key>
 			<string>EULASubTitle</string>
+			<key>pfm_title</key>
+			<string>EULA Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_default</key>
 			<string>Terms and Conditions</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Text used for the EULA.</string>
 			<key>pfm_description</key>
-			<string>Text used for the EULA. (Use three asterisks to create a line break in the text.)</string>
+			<string>Text used for the end user license agreement (use three asterisks to create a line break in the text)</string>
 			<key>pfm_name</key>
 			<string>EULAText</string>
-			<key>pfm_range_max</key>
-			<integer>2</integer>
+			<key>pfm_title</key>
+			<string>EULA Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_note</key>
 			<string>You must include the JamfConnectLogin:EULA mechanism (which you can do with authchanger) to display the contents of EULAText.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
+			<key>pfm_value_placeholder</key>
 			<string>/usr/local/shared/</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the path to a folder where the end user's license agreement record (EULA) is stored.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>EULAText</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_description</key>
+			<string>The path to a file storing the end user license agreement record</string>
 			<key>pfm_name</key>
 			<string>EULAPath</string>
+			<key>pfm_title</key>
+			<string>EULA Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_note</key>
 			<string>The user _securityagent must have write access to this folder.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		
 		<!-- Create User -->
@@ -753,5 +725,7 @@ Note: The ScriptPath key must bey specified.</string>
 			<string>boolean</string>
 		</dict>
 	</array>
+	<key>pfm_version</key>
+	<integer>2</integer>
 </dict>
 </plist>
