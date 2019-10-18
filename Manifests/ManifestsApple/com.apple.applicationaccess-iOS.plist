@@ -6,6 +6,8 @@
 	<string>iOS Restrictions preferences</string>
 	<key>pfm_description_reference</key>
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
 	<key>pfm_note</key>
 	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_domain</key>
@@ -162,6 +164,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowActivityContinuation</string>
 					<string>allowAppCellularDataModification</string>
 					<string>allowAutoCorrection</string>
+					<string>allowContinuousPathKeyboard</string>
 					<string>allowBluetoothModification</string>
 					<string>allowCellularPlanModification</string>
 					<string>allowDeviceNameModification</string>
@@ -172,6 +175,8 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowEnterpriseAppTrust</string>
 					<string>allowEraseContentAndSettings</string>
 					<string>allowFindMyFriendsModification</string>
+					<string>allowFindMyDevice</string>
+					<string>allowFindMyFriends</string>
 					<string>allowGlobalBackgroundFetchWhenRoaming</string>
 					<string>allowHostPairing</string>
 					<string>allowKeyboardShortcuts</string>
@@ -182,6 +187,8 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowOTAPKIUpdates</string>
 					<string>allowOpenFromManagedToUnmanaged</string>
 					<string>allowOpenFromUnmanagedToManaged</string>
+					<string>allowUnmanagedToReadManagedContacts</string>
+					<string>allowManagedToWriteUnmanagedContacts</string>
 					<string>allowPairedWatch</string>
 					<string>allowPassbookWhileLocked</string>
 					<string>allowPredictiveKeyboard</string>
@@ -202,6 +209,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>forceITunesStorePasswordEntry</string>
 					<string>forceLimitAdTracking</string>
 					<string>forceWatchWristDetection</string>
+					<string>forceWiFiPowerOn</string>
 					<string>forceWiFiWhitelisting</string>
 				</array>
 				<key>AirDrop</key>
@@ -276,6 +284,8 @@ The payload organization for a payload need not match the payload organization i
 					<string>ratingTVShows</string>
 					<string>allowBookstoreErotica</string>
 					<string>allowExplicitContent</string>
+					<string>allowFilesUSBDriveAccess</string>
+					<string>allowFilesNetworkDriveAccess</string>
 				</array>
 				<key>Passwords / Unlock</key>
 				<array>
@@ -1423,6 +1433,38 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow unmanaged apps to read contacts from managed contacts accounts</string>
+			<key>pfm_description_reference</key>
+			<string>If true, unmanaged apps can read from managed contacts accounts. If allowOpenFromManagedToUnmanaged is true, this restriction has no effect. If this restriction is set to true, you must install the payload through MDM. Available in iOS 12 and later. Also available for user enrollment.</string>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>allowUnmanagedToReadManagedContacts</string>
+			<key>pfm_title</key>
+			<string>Allow unmanaged apps to read contacts from managed contacts accounts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow managed apps to write contacts to unmanaged contacts accounts</string>
+			<key>pfm_description_reference</key>
+			<string>If true, managed apps can write contacts to unmanaged contacts accounts. If allowOpenFromManagedToUnmanaged is true, this restriction has no effect. If this restriction is set to true, you must install the payload through MDM. Available in iOS 12 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>allowManagedToWriteUnmanagedContacts</string>
+			<key>pfm_title</key>
+			<string>Allow managed apps to write contacts to unmanaged contacts accounts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
@@ -1533,7 +1575,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
@@ -1544,6 +1586,22 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>forceWatchWristDetection</string>
 			<key>pfm_title</key>
 			<string>Force Apple Watch wrist detection (supervised only)</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Prevents turning Wi-Fi off in Settings, Control Center, or by entering Airplane Mode.</string>
+			<key>pfm_description_reference</key>
+			<string>If true, prevents Wi-Fi from being turned off in Settings or Control Center, even by entering or leaving Airplane Mode. It does not prevent selecting which Wi-Fi network to use. Available in iOS 13.0 and later. Defaults to false.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>forceWiFiPowerOn</string>
+			<key>pfm_title</key>
+			<string>Force Wi-Fi Power On (supervised only)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1622,6 +1680,22 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>allowAutoCorrection</string>
 			<key>pfm_title</key>
 			<string>Allow auto correction (supervised only)</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Permits usage of QuickPath keyboard</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables QuickPath keyboard. Requires a supervised device. Available in iOS 13 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string> 
+			<key>pfm_name</key>
+			<string>allowContinuousPathKeyboard</string>
+			<key>pfm_title</key>
+			<string>Allow continuous path keyboard (supervised only)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2215,6 +2289,22 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allow connecting to and browsing any USB storage device in the Files App</string>
+			<key>pfm_description_reference</key>
+			<string>If false, prevents connecting to any connected USB devices in the Files app. Available in iOS 13.0 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowFilesUSBDriveAccess</string>
+			<key>pfm_title</key>
+			<string>Allow Files USB Drive Access</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
@@ -2328,6 +2418,54 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>integer</string>
 			<key>pfm_value_unit</key>
 			<string>Days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows disabling Find My Device in the Find My app</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables Find My Device in the Find My app. Requires a supervised device. Available in iOS 13 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowFindMyDevice</string>
+			<key>pfm_title</key>
+			<string>Allow Find My Devices</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows disabling Find My Friends in the Find My app</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables Find My Friends in the Find My app. Requires a supervised device. Available in iOS 13 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowFindMyFriends</string>
+			<key>pfm_title</key>
+			<string>Allow Find My Friends</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allows preventing connection to network drives in the Files app</string>
+			<key>pfm_description_reference</key>
+			<string>If false, prevents connecting to network drives in the Files app. Available in iOS 13.0 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowFilesNetworkDriveAccess</string>
+			<key>pfm_title</key>
+			<string>Allow Files Network Drive Access</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
