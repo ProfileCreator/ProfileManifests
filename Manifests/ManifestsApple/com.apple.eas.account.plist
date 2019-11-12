@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-09-17T08:52:32Z</date>
+	<date>2019-11-07T15:29:16Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -302,6 +302,8 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, messages may not be moved out of this email account into another account. Also prevents forwarding or replying from a different account than the message was originated from.</string>
 			<key>pfm_description_reference</key>
@@ -318,6 +320,8 @@ Availability: Available in iOS 5.0 and later.</string>
 			<string>5.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, this account will not be available for sending mail in any app other than the Apple Mail app.</string>
 			<key>pfm_description_reference</key>
@@ -348,6 +352,8 @@ Availability: Available in iOS 5.0 and later.</string>
 			<string>5.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If true, this account supports S/MIME.</string>
 			<key>pfm_description_reference</key>
@@ -368,6 +374,8 @@ Availability: Available only in iOS 5.0 through 9.3.3.</string>
 			<string>9.3.3</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, S/MIME signing is enabled for this account.</string>
 			<key>pfm_description_reference</key>
@@ -398,6 +406,8 @@ Availability: Available only in iOS 5.0 and later.</string>
 			<string>5.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, S/MIME encryption is on by default for this account. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEncryptByDefault instead.</string>
 			<key>pfm_description_reference</key>
@@ -415,20 +425,40 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<string>12.0</string>
 		</dict>
 		<dict>
-			<key>pfm_description</key>
-			<string>The PayloadUUID of the identity certificate used to decrypt messages sent to this account.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The PayloadUUID of the identity certificate used to decrypt messages sent to this account. The public certificate is attached to outgoing mail to allow encrypted mail to be sent to this user. When the user sends encrypted mail, the public certificate is used to encrypt the copy of the mail in their Sent mailbox. Availability: Available only in iOS 5.0 and later.</string>
 			<key>pfm_name</key>
 			<string>SMIMEEncryptionCertificateUUID</string>
 			<key>pfm_title</key>
 			<string>S/MIME Encryption Certificate</string>
+			<key>pfm_description</key>
+			<string>The PayloadUUID of the identity certificate used to decrypt messages sent to this account.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. The PayloadUUID of the identity certificate used to decrypt messages sent to this account. The public certificate is attached to outgoing mail to allow encrypted mail to be sent to this user. When the user sends encrypted mail, the public certificate is used to encrypt the copy of the mail in their Sent mailbox. Availability: Available only in iOS 5.0 and later.</string>
 			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>string</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>SMIMEEnabled</string>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, displays the per-message encryption switch in the Mail Compose UI. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEnableEncryptionPerMessageSwitch instead.</string>
 			<key>pfm_description_reference</key>
@@ -445,6 +475,8 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, the user can toggle S/MIME signing on or off in Settings.</string>
 			<key>pfm_description_reference</key>
@@ -459,6 +491,8 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, the user can select the signing identity.</string>
 			<key>pfm_description_reference</key>
@@ -474,6 +508,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, S/MIME encryption is enabled by default.</string>
 			<key>pfm_description_reference</key>
@@ -488,6 +524,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, the user can toggle the encryption by default setting.</string>
 			<key>pfm_description_reference</key>
@@ -502,6 +540,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, the user can select the S/MIME encryption identity and encryption is enabled.</string>
 			<key>pfm_description_reference</key>
@@ -517,6 +557,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to true, displays the per-message encryption switch in the Mail Compose UI.</string>
 			<key>pfm_description_reference</key>
@@ -531,6 +573,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<string>12.0</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If true, this account is excluded from address Recents syncing.</string>
 			<key>pfm_description_reference</key>
