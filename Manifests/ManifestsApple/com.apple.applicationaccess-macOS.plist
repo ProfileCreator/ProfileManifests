@@ -13,7 +13,7 @@
 		<key>pfm_interaction</key>
 		<string>combined</string>
 		<key>pfm_last_modified</key>
-		<date>2019-09-23T23:53:00Z</date>
+		<date>2019-12-04T23:27:16Z</date>
 		<key>pfm_note</key>
 		<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 		<key>pfm_platforms</key>
@@ -155,6 +155,8 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>allowCamera</string>
 						<string>allowContentCaching</string>
 						<string>allowDefinitionLookup</string>
+						<string>allowFindMyDevice</string>
+						<string>allowFindMyFriends</string>
 						<string>allowiTunesFileSharing</string>
 						<string>allowMusicService</string>
 						<string>allowRemoteScreenObservation</string>
@@ -530,6 +532,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>boolean</string>
 			</dict>
 			<dict>
+				<key>pfm_default</key>
+				<true/>
 				<key>pfm_description</key>
 				<string/>
 				<key>pfm_description_reference</key>
@@ -540,6 +544,34 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>allowDefinitionLookup</string>
 				<key>pfm_title</key>
 				<string>Allow definition lookup</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string/>
+				<key>pfm_macos_min</key>
+				<string>10.15</string>
+				<key>pfm_name</key>
+				<string>allowFindMyDevice</string>
+				<key>pfm_title</key>
+				<string>Allow Find My Devices</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string/>
+				<key>pfm_macos_min</key>
+				<string>10.15</string>
+				<key>pfm_name</key>
+				<string>allowFindMyFriends</string>
+				<key>pfm_title</key>
+				<string>Allow Find My Friends</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -578,6 +610,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>boolean</string>
 			</dict>
 			<dict>
+				<key>pfm_default</key>
+				<false/>
 				<key>pfm_description</key>
 				<string/>
 				<key>pfm_description_reference</key>
@@ -728,6 +762,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>boolean</string>
 			</dict>
 			<dict>
+				<key>pfm_default</key>
+				<false/>
 				<key>pfm_description</key>
 				<string/>
 				<key>pfm_description_reference</key>
@@ -792,6 +828,6 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		<key>pfm_unique</key>
 		<true/>
 		<key>pfm_version</key>
-		<integer>3</integer>
+		<integer>4</integer>
 	</dict>
 </plist>
