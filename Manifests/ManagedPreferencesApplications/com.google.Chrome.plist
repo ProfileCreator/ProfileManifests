@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-09-24T01:09:00Z</date>
+	<date>2019-12-10T11:34:00Z</date>
 	<key>pfm_name</key>
 	<string>Google_Chrome</string>
 	<key>pfm_platforms</key>
@@ -276,6 +276,7 @@
 					<string>CloudPolicyOverridesPlatformPolicy</string>
 					<string>CommandLineFlagSecurityWarningsEnabled</string>
 					<string>ComponentUpdatesEnabled</string>
+					<string>DefaultBrowserSettingEnabled</string>
 					<string>DefaultDownloadDirectory</string>
 					<string>DeveloperToolsAvailability</string>
 					<string>DeveloperToolsDisabled</string>
@@ -3287,6 +3288,28 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<string>ComponentUpdatesEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable component updates in Google Chrome</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>11</string>
+			<key>pfm_description</key>
+			<string>Configures the default browser checks in Google Chrome and prevents users from changing them.</string>
+			<key>pfm_description_reference</key>
+			<string>Configures the default browser checks in Google Chrome and prevents users from changing them.
+
+If you enable this setting, Google Chrome will always check on startup whether it is the default browser and automatically register itself if possible.
+
+If this setting is disabled, Google Chrome will never check if it is the default browser and will disable user controls for setting this option.
+
+If this setting is not set, Google Chrome will allow the user to control whether it is the default browser and whether user notifications should be shown when it isn't.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultBrowserSettingEnabled</string>
+			<key>pfm_name</key>
+			<string>DefaultBrowserSettingEnabled</string>
+			<key>pfm_title</key>
+			<string>Set Google Chrome as Default Browser</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
