@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-11-07T15:29:16Z</date>
+	<date>2019-12-30T16:27:43Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>tvOS</string>
@@ -31,8 +31,6 @@
 	<string>Restrictions (tvOS)</string>
 	<key>pfm_unique</key>
 	<true/>
-	<key>pfm_version</key>
-	<integer>1</integer>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -221,6 +219,88 @@ The payload organization for a payload need not match the payload organization i
 			<string>11.0</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If enabled, cannot use the whitelist to restrict app usage.</string>
+			<key>pfm_description_reference</key>
+			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value com.apple.webapp to blacklist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later. </string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>whitelistedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_tvos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>blacklistedAppBundleIDs</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>iOS / tvOS Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.apple.tv</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Restrict App Usage - Blacklist (supervised only)</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If enabled, cannot use the blacklist to restrict app usage.</string>
+			<key>pfm_description_reference</key>
+			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value com.apple.webapp to whitelist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>blacklistedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_tvos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>whitelistedAppBundleIDs</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>iOS / tvOS Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.apple.tv</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Restrict App Usage - Whitelist (supervised only)</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -617,5 +697,7 @@ The payload organization for a payload need not match the payload organization i
 			<string>Days</string>
 		</dict>
 	</array>
+	<key>pfm_version</key>
+	<integer>2</integer>
 </dict>
 </plist>
