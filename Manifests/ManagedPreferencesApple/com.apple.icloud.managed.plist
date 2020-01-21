@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Login Items settings</string>
+	<string>iCloud Find My settings</string>
 	<key>pfm_domain</key>
-	<string>com.apple.loginitems.managed</string>
+	<string>com.apple.icloud.managed</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_interaction</key>
-	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-01-09T16:00:00Z</date>
+	<date>2020-01-17T09:34:00Z</date>
+  <key>pfm_macos_min</key>
+  <string>10.15</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -20,7 +20,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures Login Items settings</string>
+			<string>Configures iCloud Find My settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
 			<key>pfm_name</key>
@@ -32,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Login Items</string>
+			<string>iCloud Find My</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
 			<key>pfm_name</key>
@@ -46,7 +46,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.loginitems.managed</string>
+			<string>com.apple.icloud.managed</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_name</key>
@@ -60,7 +60,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.loginitems.managed</string>
+			<string>com.apple.icloud.managed</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string</string>
 			<key>pfm_name</key>
@@ -114,93 +114,24 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Automatically launch these items at login.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://github.com/ProfileCreator/ProfileCreator/wiki/Login-Items</string>
+			<string></string>
 			<key>pfm_name</key>
-			<string>AutoLaunchedApplicationDictionary-managed</string>
+			<string>DisableFMMiCloudSetting</string>
 			<key>pfm_note</key>
-			<string>For each individual item, you should only supply a Path (for local apps and items) or a URL (for remote resources). The `AuthenticateAsLoginUserShortName` should only be used when supplying a URL.
-
-When exporting a profile, you will need to manually remove the extraneous keys from the profile. This is a limitation with ProfileCreator. Click the documentation link above this note for more information.</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_description</key>
-					<string>Automatically Launched Login Item</string>
-					<key>pfm_name</key>
-					<string>AutoLaunchedApplicationItem</string>
-					<key>pfm_require</key>
-					<string>always</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<false/>
-							<key>pfm_description</key>
-							<string>If true, hide this item in the Users &amp; Groups login items list.</string>
-							<key>pfm_name</key>
-							<string>Hide</string>
-							<key>pfm_title</key>
-							<string>Hide</string>
-							<key>pfm_type</key>
-							<string>boolean</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Path to the item's location.</string>
-							<key>pfm_name</key>
-							<string>Path</string>
-							<key>pfm_title</key>
-							<string>Path</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>/Applications/Safari.app</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>URL to mount in the form scheme://mount.point/Share</string>
-							<key>pfm_format</key>
-							<string>^(afp|nfs|smb)\:\/\/.*</string>
-							<key>pfm_name</key>
-							<string>URL</string>
-							<key>pfm_title</key>
-							<string>URL</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>afp://192.168.10.10/Volume</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Authenticate to the URL with the current users short name. Required if URL is specified, but not for Path</string>
-							<key>pfm_name</key>
-							<string>AuthenticateAsLoginUserShortName</string>
-							<key>pfm_title</key>
-							<string>Authenticate with short name</string>
-							<key>pfm_type</key>
-							<string>boolean</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Login Item</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-			</array>
+			<string>Should be used in conjunction with the 'allowFindMyDevice' key in the com.apple.applicationaccess (Restrictions) payload.</string>
 			<key>pfm_title</key>
-			<string>Automatically launched items</string>
+			<string>Disable Find My iCloud Setting</string>
 			<key>pfm_type</key>
-			<string>array</string>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
+		<string>system</string>
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Login Items</string>
+	<string>iCloud Find My</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>

@@ -17,7 +17,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-11-21T11:11:00Z</date>
+	<date>2020-01-17T12:58:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -174,6 +174,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowEnablingRestrictions</string>
 					<string>allowEnterpriseAppTrust</string>
 					<string>allowEraseContentAndSettings</string>
+					<string>allowESIMModification</string>
 					<string>allowFindMyFriendsModification</string>
 					<string>allowFindMyDevice</string>
 					<string>allowFindMyFriends</string>
@@ -204,6 +205,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowVoiceDialing</string>
 					<string>allowWallpaperModification</string>
 					<string>forceAuthenticationBeforeAutoFill</string>
+					<string>forceAutomaticDateAndTime</string>
 					<string>forceClassroomUnpromptedScreenObservation</string>
 					<string>forceEncryptedBackup</string>
 					<string>forceITunesStorePasswordEntry</string>
@@ -928,6 +930,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>Optional. When false, disables removal of apps from iOS device. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_name</key>
 			<string>allowAppRemoval</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow removing apps</string>
 			<key>pfm_type</key>
@@ -946,6 +950,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowSystemAppRemoval</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow removing system apps</string>
 			<key>pfm_type</key>
@@ -1155,6 +1161,24 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If true, enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>forceAutomaticDateAndTime</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Force automatic date and time</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
@@ -1272,8 +1296,28 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowCellularPlanModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying celluar plan settings (supervised only)</string>
+			<string>Allow modifying celluar plan settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables modifications to the eSIM setting. Requires a supervised device. Available in iOS 12.1 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>12.1</string>
+			<key>pfm_name</key>
+			<string>allowESIMModification</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow modifying eSIM settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1288,8 +1332,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowFindMyFriendsModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying Find My Friends settings (supervised only)</string>
+			<string>Allow modifying Find My Friends settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1304,8 +1350,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.3</string>
 			<key>pfm_name</key>
 			<string>allowNotificationsModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying notification settings (supervised only)</string>
+			<string>Allow modifying notification settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1320,8 +1368,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowPasscodeModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying passcode (supervised only)</string>
+			<string>Allow modifying passcode</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1336,8 +1386,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowFingerprintModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying Touch ID / Face ID (supervised only)</string>
+			<string>Allow modifying Touch ID / Face ID</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1352,8 +1404,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEnablingRestrictions</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying restrictions (supervised only)</string>
+			<string>Allow Screen Time</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1368,8 +1422,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowWallpaperModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying Wallpaper (supervised only)</string>
+			<string>Allow modifying Wallpaper</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1384,8 +1440,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.4.1</string>
 			<key>pfm_name</key>
 			<string>allowUSBRestrictedMode</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow USB accessories while device is locked (supervised only)</string>
+			<string>Allow USB accessories while device is locked</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1400,8 +1458,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowHostPairing</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow pairing with non-Configurator hosts (supervised only)</string>
+			<string>Allow pairing with non-Configurator hosts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1480,8 +1540,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowAirDrop</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow AirDrop (supervised only)</string>
+			<string>Allow AirDrop</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1542,8 +1604,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.3.2</string>
 			<key>pfm_name</key>
 			<string>allowDiagnosticSubmissionModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying diagnostic settings (supervised only)</string>
+			<string>Allow modifying diagnostic settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1558,8 +1622,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>forceAuthenticationBeforeAutoFill</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Require Touch ID / Face ID authentication before Autofill (supervised only)</string>
+			<string>Require Touch ID / Face ID authentication before Autofill</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1574,8 +1640,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowPairedWatch</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow pairing with Apple Watch (supervised only)</string>
+			<string>Allow pairing with Apple Watch</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1590,8 +1658,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.2</string>
 			<key>pfm_name</key>
 			<string>forceWatchWristDetection</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Force Apple Watch wrist detection (supervised only)</string>
+			<string>Force Apple Watch wrist detection</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1606,8 +1676,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>13.0</string>
 			<key>pfm_name</key>
 			<string>forceWiFiPowerOn</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Force Wi-Fi Power On (supervised only)</string>
+			<string>Force Wi-Fi Power On</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1622,8 +1694,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>10.3</string> 
 			<key>pfm_name</key>
 			<string>forceWiFiWhitelisting</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Join only Wi-Fi networks installed by a Wi-Fi payload (supervised only)</string>
+			<string>Join only Wi-Fi networks installed by a Wi-Fi payload</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1638,8 +1712,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string> 
 			<key>pfm_name</key>
 			<string>allowProximitySetupToNewDevice</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow setting up new nearby iOS devices (supervised only)</string>
+			<string>Allow setting up new nearby iOS devices</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1654,8 +1730,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.1.3</string> 
 			<key>pfm_name</key>
 			<string>allowPredictiveKeyboard</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow predictive keyboard (supervised only)</string>
+			<string>Allow predictive keyboard</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1670,8 +1748,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string> 
 			<key>pfm_name</key>
 			<string>allowKeyboardShortcuts</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow keyboard shortcuts (supervised only)</string>
+			<string>Allow keyboard shortcuts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1686,8 +1766,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.1.3</string> 
 			<key>pfm_name</key>
 			<string>allowAutoCorrection</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow auto correction (supervised only)</string>
+			<string>Allow auto correction</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1702,8 +1784,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>13.0</string> 
 			<key>pfm_name</key>
 			<string>allowContinuousPathKeyboard</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow continuous path keyboard (supervised only)</string>
+			<string>Allow continuous path keyboard</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1718,8 +1802,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.1.3</string> 
 			<key>pfm_name</key>
 			<string>allowSpellCheck</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow spell check (supervised only)</string>
+			<string>Allow spell check</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1734,8 +1820,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>10.3</string> 
 			<key>pfm_name</key>
 			<string>allowDictation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow dictation (supervised only)</string>
+			<string>Allow dictation</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1830,8 +1918,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowAirPrintCredentialsStorage</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow storage of AirPrint credentials in Keychain (supervised only)</string>
+			<string>Allow storage of AirPrint credentials in Keychain</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1860,8 +1950,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowGameCenter</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow Game Center (supervised only)</string>
+			<string>Allow Game Center</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1876,8 +1968,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowAddingGameCenterFriends</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow adding Game Center friends (supervised only)</string>
+			<string>Allow adding Game Center friends</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1892,8 +1986,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowMultiplayerGaming</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow multiplayer gaming (supervised only)</string>
+			<string>Allow multiplayer gaming</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1906,8 +2002,10 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>Optional. When false, the Safari web browser application is disabled and its icon removed from the Home screen. This also prevents users from opening web clips. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_name</key>
 			<string>allowSafari</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow use of Safari (supervised only)</string>
+			<string>Allow use of Safari</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2027,8 +2125,10 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowDeviceNameModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying device name (supervised only)</string>
+			<string>Allow modifying device name</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2066,8 +2166,10 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 					<string>com.apple.tv</string>
 				</dict>
 			</array>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Restrict App Usage - Blacklist (supervised only)</string>
+			<string>Restrict App Usage - Blacklist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2105,8 +2207,10 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 					<string>com.apple.tv</string>
 				</dict>
 			</array>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Restrict App Usage - Whitelist (supervised only)</string>
+			<string>Restrict App Usage - Whitelist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2293,8 +2397,10 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>allowExplicitContent</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow playback of explicit music, podcasts, and iTunes U (supervised only)</string>
+			<string>Allow playback of explicit music, podcasts, and iTunes U</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -2308,9 +2414,11 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description_reference</key>
 			<string>If false, prevents connecting to any connected USB devices in the Files app. Available in iOS 13.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>13.0</string>
+			<string>13.1</string>
 			<key>pfm_name</key>
 			<string>allowFilesUSBDriveAccess</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Files USB Drive Access</string>
 			<key>pfm_type</key>
@@ -2360,8 +2468,10 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>12.0</string>
 			<key>pfm_name</key>
 			<string>allowPasswordProximityRequests</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
-			<string>Allow proximity based password sharing requests (supervised only)</string>
+			<string>Allow proximity based password sharing requests</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2462,6 +2572,8 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>13.0</string>
 			<key>pfm_name</key>
 			<string>allowFindMyFriends</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Find My Friends</string>
 			<key>pfm_type</key>
@@ -2478,6 +2590,8 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>13.0</string>
 			<key>pfm_name</key>
 			<string>allowFilesNetworkDriveAccess</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Files Network Drive Access</string>
 			<key>pfm_type</key>
@@ -2494,6 +2608,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
