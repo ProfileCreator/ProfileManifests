@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-01-20T14:03:00Z</date>
+	<date>2020-01-27T16:53:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -1314,8 +1314,6 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>RegisteredProtocolDictionary</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -1343,6 +1341,8 @@ The protocol handlers registered by policy are merged with the ones registered b
 							<string>ex. https://mail.google.com/mail/?extsrc=mailto&amp;url=%s</string>
 						</dict>
 					</array>
+					<key>pfm_title</key>
+					<string>RegisteredProtocolDictionary</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -1370,9 +1370,7 @@ URL patterns in this policy should not clash with the ones configured via WebUsb
 			<key>pfm_name</key>
 			<string>WebUsbAllowDevicesForUrls</string>
 			<key>pfm_note</key>
-			<string>Microsoft's doc example XML indicate this dictionary lives within an array, which ProfileCreator cannot handle. If you use this preference in your exported file, you'll likely need to add surrounding array tags.
-
-Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</string>
+			<string>Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -5160,60 +5158,67 @@ If the DefaultSearchProviderSearchURL policy is set, this policy (ManagedSearchE
 			<key>pfm_name</key>
 			<string>ManagedSearchEngines</string>
 			<key>pfm_note</key>
-			<string>Microsoft's doc example XML indicate this dictionary lives within an array, so that you can include multiple which ProfileCreator cannot handle. If you use this preference in your exported file, you'll likely need to add surrounding array tags and add more managed search engine dictionaries.
-
-You can list up to 10 search engines. Not all keys in the preference dictionary are required.</string>
+			<string>You can list up to 10 search engines. Not all keys in the preference dictionary are required.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>is_default</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>is_default</string>
+							<key>pfm_title</key>
+							<string>Default?</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>keyword</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>search_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>suggest_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>image_search_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>encoding</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
 					<key>pfm_title</key>
-					<string>Default?</string>
+					<string>Search engine</string>
 					<key>pfm_type</key>
-					<string>boolean</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>name</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>keyword</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>search_url</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>suggest_url</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>image_search_url</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>encoding</string>
-					<key>pfm_type</key>
-					<string>string</string>
+					<string>dictionary</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>Managed search engines</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -7984,52 +7989,61 @@ For help with determining the SHA-256 hash, see https://docs.microsoft.com/power
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>default_logo</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_name</key>
-							<string>hash</string>
+							<string>default_logo</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>hash</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_format</key>
+									<string>^.*\.[png|svg]</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Default Logo</string>
 							<key>pfm_type</key>
-							<string>string</string>
+							<string>dictionary</string>
 						</dict>
 						<dict>
-							<key>pfm_format</key>
-							<string>^.*\.[png|svg]</string>
 							<key>pfm_name</key>
-							<string>url</string>
+							<string>light_logo</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>hash</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_format</key>
+									<string>^.*\.[png|svg]</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Light Logo</string>
 							<key>pfm_type</key>
-							<string>string</string>
+							<string>dictionary</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Default Logo</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>light_logo</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_name</key>
-							<string>hash</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_format</key>
-							<string>^.*\.[png|svg]</string>
-							<key>pfm_name</key>
-							<string>url</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Light Logo</string>
+					<string>NewTabPageCompanyLogoDictionary</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -8037,7 +8051,7 @@ For help with determining the SHA-256 hash, see https://docs.microsoft.com/power
 			<key>pfm_title</key>
 			<string>New Tab Page Company Logo</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -8102,39 +8116,46 @@ If the policy is set as recommended, pinned tiles will remain in the list but th
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagemanagedquicklinks</string>
 			<key>pfm_name</key>
 			<string>NewTabPageManagedQuickLinks</string>
-			<key>pfm_note</key>
-			<string>Microsoft's doc example XML indicate this dictionary lives within an array, so that you can include multiple which ProfileCreator cannot handle. If you use this preference in your exported file, you'll likely need to add surrounding array tags and add more quick link dictionaries.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>url</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>url</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>title</string>
+							<key>pfm_title</key>
+							<string>Title</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>pinned</string>
+							<key>pfm_title</key>
+							<string>Pinned</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+					</array>
 					<key>pfm_title</key>
-					<string>URL</string>
+					<string>Links</string>
 					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>title</string>
-					<key>pfm_title</key>
-					<string>Title</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>pinned</string>
-					<key>pfm_title</key>
-					<string>Pinned</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
+					<string>dictionary</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>New Tab page managed quick links</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
