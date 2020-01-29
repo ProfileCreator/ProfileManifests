@@ -639,20 +639,6 @@ The payload organization for a payload need not match the payload organization i
 			<string>If set to true, delays user visibility of Software Updates.</string>
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>enforcedSoftwareUpdateDelay</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
 			<key>pfm_title</key>
@@ -677,11 +663,9 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_range_list</key>
+							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
 							<key>pfm_target</key>
 							<string>forceDelayedSoftwareUpdates</string>
@@ -691,6 +675,8 @@ The payload organization for a payload need not match the payload organization i
 			</array>
 			<key>pfm_name</key>
 			<string>enforcedSoftwareUpdateDelay</string>
+			<key>pfm_tvos_min</key>
+			<string>12.2</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_range_max</key>
