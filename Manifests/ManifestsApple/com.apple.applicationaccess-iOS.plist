@@ -17,7 +17,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-01-17T12:58:00Z</date>
+	<date>2020-02-04T19:42:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -192,6 +192,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowManagedToWriteUnmanagedContacts</string>
 					<string>allowPairedWatch</string>
 					<string>allowPassbookWhileLocked</string>
+					<string>allowPersonalHotspotModification</string>
 					<string>allowPredictiveKeyboard</string>
 					<string>allowProximitySetupToNewDevice</string>
 					<string>allowRemoteScreenObservation</string>
@@ -303,6 +304,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowAssistant</string>
 					<string>allowAssistantWhileLocked</string>
 					<string>allowAssistantUserGeneratedContent</string>
+					<string>allowSiriServerLogging</string>
 					<string>allowSpotlightInternetResults</string>
 					<string>forceAssistantProfanityFilter</string>
 				</array>
@@ -850,6 +852,24 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>boolean</string>
 			<key>pfm_supervised</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allow server-side logging of Siri commands</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/10.11.0/jamf-pro/release-notes/What's_New.html</string>
+			<key>pfm_ios_min</key>
+			<string>12.2</string>
+			<key>pfm_name</key>
+			<string>allowSiriServerLogging</string>
+			<key>pfm_title</key>
+			<string>Allow server-side logging of Siri commands</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1847,6 +1867,24 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string>Allow modifying Personal Hotspot settings</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables modifications of the personal hotspot setting. Requires a supervised device. Available in iOS 12.2 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>12.2</string> 
+			<key>pfm_name</key>
+			<string>allowPersonalHotspotModification</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Personal Hotspot modification</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. If false, prevents Control Center from appearing on the Lock screen. Availability: Available in iOS 7 and later.</string>
@@ -2016,6 +2054,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>If Allow use of Safari is set to 'false', this will override this preference.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, Safari auto-fill is disabled. Defaults to true.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>safariAllowAutoFill</string>
 			<key>pfm_title</key>
@@ -2500,6 +2540,8 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Defer Software Updates</string>
 			<key>pfm_type</key>
@@ -2608,6 +2650,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
