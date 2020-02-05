@@ -2522,6 +2522,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<dict>
 				<key>Locked</key>
@@ -2530,14 +2532,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<true/>
 			</dict>
 			<key>pfm_description</key>
-			<string>This preference affects tracking protection. If this preference is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
+			<string>Configure tracking protection. If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference affects tracking protection. If this preference is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#enabletrackingprotection</string>
 			<key>pfm_name</key>
 			<string>EnableTrackingProtection</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2550,6 +2556,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2558,6 +2566,34 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>Optional. If this is true, Tracking Protection preferences cannot be changed.</string>
 					<key>pfm_name</key>
 					<string>Locked</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If Cryptomining is set to true, cryptomining scripts on websites are blocked.</string>
+					<key>pfm_description_reference</key>
+					<string>If Cryptomining is set to true, cryptomining scripts on websites are blocked.</string>
+					<key>pfm_name</key>
+					<string>Cryptomining</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68.2</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If Fingerprinting is set to true, fingerprinting scripts on websites are blocked.</string>
+					<key>pfm_description_reference</key>
+					<string>If Fingerprinting is set to true, fingerprinting scripts on websites are blocked.</string>
+					<key>pfm_name</key>
+					<string>Fingerprinting</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
