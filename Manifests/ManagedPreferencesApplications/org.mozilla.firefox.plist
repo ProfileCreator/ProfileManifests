@@ -2207,24 +2207,34 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference controls various settings related to cookies.</string>
+			<string>Configure cookie preferences.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference controls various settings related to cookies.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#cookies</string>
 			<key>pfm_name</key>
 			<string>Cookies</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>Domains where cookies are always allowed.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Domains where cookies are always allowed.</string>
 					<key>pfm_name</key>
 					<string>Allow</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
 							<key>pfm_name</key>
 							<string>URL</string>
 							<key>pfm_title</key>
@@ -2241,15 +2251,21 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>Domains where cookies are always blocked.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Domains where cookies are always blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
 							<key>pfm_name</key>
 							<string>URL</string>
 							<key>pfm_title</key>
@@ -2266,6 +2282,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
@@ -2278,6 +2296,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>This sets the default value for "Accept third-party cookies".</string>
 					<key>pfm_description_reference</key>
@@ -2300,6 +2320,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2312,6 +2334,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>63</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2324,6 +2348,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
