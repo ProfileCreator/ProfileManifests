@@ -1114,17 +1114,23 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>${home}/Downloads</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference controls the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs. For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
+			<string>Control the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference controls the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs. For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#extensions</string>
 			<key>pfm_name</key>
 			<string>Extensions</string>
+			<key>pfm_note</key>
+			<string>For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension URLs or paths that will be installed when Firefox is started. Anytime this list is changed, the extensions will be reinstalled. If this preference is disabled or not configured, no extensions are installed. Example of valid entries are: "https://addons.mozilla.org/firefox/downloads/somefile.xpi" or "//path/to/xpi"</string>
+					<string>A list of URLs or native paths for extensions to be installed.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension URLs or paths that will be installed when Firefox is started. Anytime this list is changed, the extensions will be reinstalled. If this preference is disabled or not configured, no extensions are installed. Example of valid entries are: "https://addons.mozilla.org/firefox/downloads/somefile.xpi" or "//path/to/xpi"</string>
 					<key>pfm_name</key>
@@ -1149,7 +1155,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
+					<string>A list of extension IDs that should be uninstalled if found.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
 					<key>pfm_name</key>
@@ -1174,7 +1180,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that the user will be unable to uninstall or disable. If this preference is disabled or not configured, no extensions are locked</string>
+					<string>A list of extension IDs that the user cannot disable or uninstall.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that the user will be unable to uninstall or disable. If this preference is disabled or not configured, no extensions are locked</string>
 					<key>pfm_name</key>
