@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-12-10T17:48:00Z</date>
+	<date>2020-02-06T08:12:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -250,6 +250,7 @@
 					<string>AllowFileSelectionDialogs</string>
 					<string>AllowOutdatedPlugins</string>
 					<string>AllowPopupsDuringPageUnload</string>
+					<string>AllowSyncXHRInPageDismissal</string>
 					<string>AllowedDomainsForApps</string>
 					<string>AlternateErrorPagesEnabled</string>
 					<string>AlwaysOpenPdfExternally</string>
@@ -2720,7 +2721,7 @@ If this setting is not set, users will be asked for permission to run outdated p
 		</dict>
 		<dict>
 			<key>pfm_deprecated</key>
-			<string>82</string>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
 			<key>pfm_description</key>
@@ -2732,13 +2733,39 @@ When the policy is set to enabled, pages are allowed to show popups while they a
 
 When the policy is set to disabled or not set, pages are not allowed to show popups while they are being unloaded, as per the spec (https://html.spec.whatwg.org/#apis-for-creating-and-navigating-browsing-contexts-by-name).
 
-This policy will be removed in Chrome 82.</string>
+This policy will be removed in Chrome 88.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowPopupsDuringPageUnload</string>
 			<key>pfm_name</key>
 			<string>AllowPopupsDuringPageUnload</string>
 			<key>pfm_title</key>
 			<string>Allow a page to show popups during its unloading</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_deprecated</key>
+			<string>88</string>
+			<key>pfm_app_min</key>
+			<string>78</string>
+			<key>pfm_description</key>
+			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.
+
+When the policy is set to enabled, pages are allowed to send synchronous XHR requests during page dismissal.
+
+When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
+
+This policy will be removed in Chrome 88.
+
+See https://www.chromestatus.com/feature/4664843055398912 .</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowSyncXHRInPageDismissal</string>
+			<key>pfm_name</key>
+			<string>AllowSyncXHRInPageDismissal</string>
+			<key>pfm_title</key>
+			<string>Allows a page to perform synchronous XHR requests during page dismissal.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
