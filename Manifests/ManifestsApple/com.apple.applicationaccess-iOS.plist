@@ -2522,20 +2522,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>enforcedSoftwareUpdateDelay</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
 			<key>pfm_ios_min</key>
 			<string>11.3</string>
 			<key>pfm_name</key>
@@ -2560,11 +2546,9 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_range_list</key>
+							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
 							<key>pfm_target</key>
 							<string>forceDelayedSoftwareUpdates</string>
