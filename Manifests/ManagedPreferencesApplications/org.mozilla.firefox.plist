@@ -2749,10 +2749,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference sets the behavior of Flash on the specified domains as well as the default behavior.</string>
+			<string>Configure the default Flash plugin policy as well as origins for which Flash is allowed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets the behavior of Flash on the specified domains as well as the default behavior.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#flashplugin</string>
 			<key>pfm_name</key>
 			<string>FlashPlugin</string>
 			<key>pfm_subkeys</key>
@@ -2767,6 +2771,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Allowed Domains</string>
 							<key>pfm_type</key>
@@ -2790,6 +2796,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Blocked Domains</string>
 							<key>pfm_type</key>
