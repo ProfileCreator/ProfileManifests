@@ -2024,6 +2024,167 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>60</string>
+			<key>pfm_default</key>
+			<string>separate</string>
+			<key>pfm_description</key>
+			<string>Set whether or not search bar is displayed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines-this-policy-is-only-available-on-the-esr</string>
+			<key>pfm_name</key>
+			<string>SearchEngines</string>
+			<key>pfm_note</key>
+			<string>This policy is only available on the ESR.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Set the default search engine. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--default</string>
+					<key>pfm_name</key>
+					<string>Default</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Prevent installing search engines from webpages. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--preventinstalls</string>
+					<key>pfm_name</key>
+					<string>PreventInstalls</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Hide built-in search engines. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--remove</string>
+					<key>pfm_name</key>
+					<string>Remove</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Hidden Search Engines</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
+					<key>pfm_description</key>
+					<string>Add new search engines. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--add</string>
+					<key>pfm_name</key>
+					<string>Add</string>
+					<key>pfm_note</key>
+					<string>You can only include up to 5 search engines and Name &amp; URL are required.</string>
+					<key>pfm_repetition_max</key>
+					<integer>5</integer>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>Name of the search engine</string>
+									<key>pfm_name</key>
+									<string>Name</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_name</key>
+									<string>URLTemplate</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.org/q={searchTerms}</string>
+								</dict>
+								<dict>
+									<key>pfm_name</key>
+									<string>Method</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>GET</string>
+										<string>POST</string>
+									</array>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>URL for the icon to use</string>
+									<key>pfm_name</key>
+									<string>IconURL</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>keyword to use for the engine</string>
+									<key>pfm_name</key>
+									<string>Alias</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Description of the search engine.</string>
+									<key>pfm_name</key>
+									<string>Description</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>POST data as name value pairs separated by '&amp;'</string>
+									<key>pfm_name</key>
+									<string>PostData</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>name=value&amp;q={searchTerms}</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Search suggestions URL with {searchTerms} to substitute for the search term.</string>
+									<key>pfm_name</key>
+									<string>SuggestURLTemplate</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.org/suggestions/q={searchTerms}</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Search Engines</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Add Search Engines</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Search Engines</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>63</string>
 			<key>pfm_description</key>
 			<string>Configure DNS over HTTPS.</string>
