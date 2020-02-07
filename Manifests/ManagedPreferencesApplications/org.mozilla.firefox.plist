@@ -3796,10 +3796,14 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference blocks websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each. You cannot have entries in Exceptions without entries in Block.</string>
+			<string>Block websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference blocks websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each. You cannot have entries in Exceptions without entries in Block.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#websitefilter</string>
 			<key>pfm_name</key>
 			<string>WebsiteFilter</string>
 			<key>pfm_subkeys</key>
@@ -3811,6 +3815,8 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>Required. If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
+					<key>pfm_repetition_max</key>
+					<integer>1000</integer>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_subkeys</key>
@@ -3838,9 +3844,13 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
 					<key>pfm_name</key>
 					<string>Exceptions</string>
+					<key>pfm_repetition_max</key>
+					<integer>1000</integer>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Exceptions</string>
 							<key>pfm_title</key>
