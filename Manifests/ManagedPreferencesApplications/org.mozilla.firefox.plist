@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>pfm_app_min</key>
-	<string>64.0</string>
 	<key>pfm_app_url</key>
 	<string>https://www.mozilla.org/firefox</string>
 	<key>pfm_description</key>
@@ -22,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-01-29T15:30:11Z</date>
+	<date>2020-02-06T20:25:11Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -122,16 +120,24 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>63</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>macOS defaults takes precedence over JSON policies (an alternative method to manage Firefox preferences). This preference must be set to true in macOS defaults in order to manage Firefox preferences through macOS defaults (configuration profile, plist, etc.). Once this value is set to true, JSON policies set through a policies.json config file (e.g. /Applications/Firefox.app/Contents/Resources/distribution/policies.json) are disabled even if no other policies are set in macOS defaults (this configuration profile).</string>
+			<string>Enable policy support on macOS.</string>
 			<key>pfm_description_reference</key>
 			<string>macOS defaults takes precedence over JSON policies (an alternative method to manage Firefox preferences). This preference must be set to true in macOS defaults in order to manage Firefox preferences through macOS defaults (configuration profile, plist, etc.). Once this value is set to true, JSON policies set through a policies.json config file (e.g. /Applications/Firefox.app/Contents/Resources/distribution/policies.json) are disabled even if no other policies are set in macOS defaults (this configuration profile).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#enterprisepoliciesenabled</string>
 			<key>pfm_name</key>
 			<string>EnterprisePoliciesEnabled</string>
+			<key>pfm_note</key>
+			<string>macOS defaults takes precedence over JSON policies (an alternative method to manage Firefox preferences). This preference must be set to true in macOS defaults in order to manage Firefox preferences through macOS defaults (configuration profile, plist, etc.). Once this value is set to true, JSON policies set through a policies.json config file (e.g. /Applications/Firefox.app/Contents/Resources/distribution/policies.json) are disabled even if no other policies are set in macOS defaults (this configuration profile).</string>
 			<key>pfm_required</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Enable Enterprise Policies</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -167,6 +173,7 @@
 					<string>DisableFirefoxStudies</string>
 					<string>DisableForgetButton</string>
 					<string>DisableMasterPasswordCreation</string>
+					<string>DisplayMenuBar</string>
 					<string>DisablePocket</string>
 					<string>DisablePrivateBrowsing</string>
 					<string>DisableProfileImport</string>
@@ -174,22 +181,26 @@
 					<string>DisableSafeMode</string>
 					<string>DisableSetDesktopBackground</string>
 					<string>DontCheckDefaultBrowser</string>
+					<string>DownloadDirectory</string>
 					<string>FirefoxHome</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
-					<string>LinkLocalFiles</string>
+					<string>LocalFileLinks</string>
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
+					<string>SearchEngines</string>
+					<string>SearchSuggestEnabled</string>
 					<!--Bookmarks Pane -->
 					<string>Bookmarks</string>
 					<string>DisplayBookmarksToolbar</string>
 					<string>NoDefaultBookmarks</string>
 					<!--Extensions/Addons Pane -->
 					<string>Extensions</string>
+					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
 					<string>BlockAboutAddons</string>
 					<string>DisableSystemAddonUpdate</string>
@@ -212,11 +223,14 @@
 					<string>Privacy_SegmentedControl</string>
 					<string>Cookies</string>
 					<string>DisableFormHistory</string>
+					<string>DisablePasswordReveal</string>
 					<string>DisableTelemetry</string>
 					<string>EnableTrackingProtection</string>
 					<string>FlashPlugin</string>
 					<string>InstallAddonsPermission</string>
 					<string>OfferToSaveLogins</string>
+					<string>OfferToSaveLoginsDefault</string>
+					<string>PasswordManagerEnabled</string>
 					<string>Permissions</string>
 					<string>PopupBlocking</string>
 				</array>
@@ -251,6 +265,7 @@
 				<key>Add-ons</key>
 				<array>
 					<string>Extensions</string>
+					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
 					<string>BlockAboutAddons</string>
 					<string>DisableSystemAddonUpdate</string>
@@ -284,17 +299,21 @@
 					<string>DisableProfileRefresh</string>
 					<string>DisableSafeMode</string>
 					<string>DisableSetDesktopBackground</string>
+					<string>DisplayMenuBar</string>
 					<string>DontCheckDefaultBrowser</string>
+					<string>DownloadDirectory</string>
 					<string>FirefoxHome</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
-					<string>LinkLocalFiles</string>
+					<string>LocalFileLinks</string>
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
+					<string>SearchEngines</string>
+					<string>SearchSuggestEnabled</string>
 				</array>
 				<key>Languages</key>
 				<array>
@@ -329,9 +348,12 @@
 				<key>General</key>
 				<array>
 					<string>DisableFormHistory</string>
+					<string>DisablePasswordReveal</string>
 					<string>DisableTelemetry</string>
 					<string>EnableTrackingProtection</string>
 					<string>OfferToSaveLogins</string>
+					<string>OfferToSaveLoginsDefault</string>
+					<string>PasswordManagerEnabled</string>
 				</array>
 				<key>Permissions</key>
 				<array>
@@ -372,18 +394,20 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>62</string>
 			<key>pfm_description</key>
+			<string>Change the URL for application update.</string>
+			<key>pfm_description_reference</key>
 			<string>This preference is for changing the URL used for application update. E.g. https://www.example.com/update.xml
 
 For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server</string>
-			<key>pfm_description_reference</key>
-			<string>
-					This preference is for changing the URL used for application update. E.g. https://www.example.com/update.xml
-
-					For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server
-				</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#AppUpdateURL</string>
 			<key>pfm_name</key>
 			<string>AppUpdateURL</string>
+			<key>pfm_note</key>
+			<string>For more information on setting up your own update server: https://developer.mozilla.org/docs/Mozilla/Setting_up_an_update_server</string>
 			<key>pfm_title</key>
 			<string>Application Update URL</string>
 			<key>pfm_type</key>
@@ -392,12 +416,18 @@ For more information on setting up your own update server: https://developer.moz
 			<string>https://www.yoursite.com/update.xml</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference is for configuring sites that support integrated authentication. See https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication for more information.</string>
+			<string>Configure sites that support integrated authentication.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference is for configuring sites that support integrated authentication. See https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication for more information.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#Authentication</string>
 			<key>pfm_name</key>
 			<string>Authentication</string>
+			<key>pfm_note</key>
+			<string>See https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication for more information.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -544,12 +574,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to about:addons.</string>
+			<string>Block access to the Add-ons Manager (about:addons).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to about:addons.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#blockaboutaddons</string>
 			<key>pfm_name</key>
 			<string>BlockAboutAddons</string>
 			<key>pfm_title</key>
@@ -558,12 +592,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to about:config.</string>
+			<string>Block access to about:config.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to about:config.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#blockaboutconfig</string>
 			<key>pfm_name</key>
 			<string>BlockAboutConfig</string>
 			<key>pfm_title</key>
@@ -572,12 +610,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to about:profiles.</string>
+			<string>Block access to About Profiles (about:profiles).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to about:profiles.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#blockaboutprofiles</string>
 			<key>pfm_name</key>
 			<string>BlockAboutProfiles</string>
 			<key>pfm_title</key>
@@ -586,12 +628,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to about:support.</string>
+			<string>Block access to Troubleshooting Information (about:support).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to about:support.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#blockaboutsupport</string>
 			<key>pfm_name</key>
 			<string>BlockAboutSupport</string>
 			<key>pfm_title</key>
@@ -600,10 +646,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference allows you to specify bookmarks. You can have any number of bookmarks. Placement can be specified as either toolbar or menu. If a folder is specified, it is automatically created and bookmarks with the same folder name are grouped together. No nesting of folders allowed.</string>
+			<string>Add bookmarks in either the bookmarks toolbar or menu.</string>
 			<key>pfm_description_reference</key>
-			<string>This preference allows you to specify bookmarks. You can have any number of bookmarks. Placement can be specified as either toolbar or menu. If a folder is specified, it is automatically created and bookmarks with the same folder name are grouped together. No nesting of folders allowed.</string>
+			<string>Add bookmarks in either the bookmarks toolbar or menu. Only Title and URL are required. If Placement is not specified, the bookmark will be placed on the toolbar. If Folder is specified, it is automatically created and bookmarks with the same folder name are grouped together.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#bookmarks</string>
 			<key>pfm_name</key>
 			<string>Bookmarks</string>
 			<key>pfm_subkeys</key>
@@ -615,11 +665,25 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<array>
 						<dict>
 							<key>pfm_description</key>
+							<string>Bookmark Title</string>
+							<key>pfm_name</key>
+							<string>Title</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>Example Title</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
 							<string>Full URL to be bookmarked (e.g. https://www.example.org/)</string>
 							<key>pfm_description_reference</key>
 							<string>Full URL to be bookmarked (e.g. https://www.example.org/)</string>
 							<key>pfm_name</key>
 							<string>URL</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
@@ -669,16 +733,6 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<key>pfm_value_placeholder</key>
 							<string>ExampleFolder</string>
 						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Bookmark Title</string>
-							<key>pfm_name</key>
-							<string>Title</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>Example Title</string>
-						</dict>
 					</array>
 					<key>pfm_type</key>
 					<string>dictionary</string>
@@ -688,14 +742,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
 			<key>pfm_description</key>
 			<string>Set the default download directory.</string>
 			<key>pfm_description_reference</key>
 			<string>Set the default download directory.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#defaultdownloaddirectory</string>
 			<key>pfm_name</key>
 			<string>DefaultDownloadDirectory</string>
 			<key>pfm_note</key>
-			<string>Please take note the use of the ${home} variable to represent the home directory.</string>
+			<string>You can use ${home} for the native home directory.</string>
 			<key>pfm_title</key>
 			<string>Default Download Directory</string>
 			<key>pfm_type</key>
@@ -704,12 +762,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>${home}/Downloads</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference turns off application updates.</string>
+			<string>Turn off application updates.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference turns off application updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableappupdate</string>
 			<key>pfm_name</key>
 			<string>DisableAppUpdate</string>
 			<key>pfm_title</key>
@@ -718,12 +780,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables the built in PDF viewer. PDF files are downloaded and sent externally.</string>
+			<string>Disable the built in PDF viewer. PDF files are downloaded and sent externally.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables the built in PDF viewer. PDF files are downloaded and sent externally.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablebuiltinpdfviewer</string>
 			<key>pfm_name</key>
 			<string>DisableBuiltinPDFViewer</string>
 			<key>pfm_title</key>
@@ -732,12 +798,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to all developer tools.</string>
+			<string>Remove access to all developer tools.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to all developer tools.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disabledevelopertools</string>
 			<key>pfm_name</key>
 			<string>DisableDeveloperTools</string>
 			<key>pfm_title</key>
@@ -746,12 +816,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables the menus for reporting sites (Submit Feedback, Report Deceptive Site).</string>
+			<string>Disable the menus for reporting sites (Submit Feedback, Report Deceptive Site).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables the menus for reporting sites (Submit Feedback, Report Deceptive Site).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablefeedbackcommands</string>
 			<key>pfm_name</key>
 			<string>DisableFeedbackCommands</string>
 			<key>pfm_title</key>
@@ -760,12 +834,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables Sync.</string>
+			<string>Disable Firefox Accounts integration (Sync).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables Sync.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablefirefoxaccounts</string>
 			<key>pfm_name</key>
 			<string>DisableFirefoxAccounts</string>
 			<key>pfm_title</key>
@@ -774,12 +852,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to Firefox Screenshots.</string>
+			<string>Remove access to Firefox Screenshots.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to Firefox Screenshots.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablefirefoxscreenshots</string>
 			<key>pfm_name</key>
 			<string>DisableFirefoxScreenshots</string>
 			<key>pfm_title</key>
@@ -788,12 +870,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables Firefox studies (Shield).</string>
+			<string>Disable Firefox studies (Shield).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables Firefox studies (Shield).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablefirefoxstudies</string>
 			<key>pfm_name</key>
 			<string>DisableFirefoxStudies</string>
 			<key>pfm_title</key>
@@ -802,12 +888,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables the "Forget" button.</string>
+			<string>Disable the "Forget" button.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables the "Forget" button.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableforgetbutton</string>
 			<key>pfm_name</key>
 			<string>DisableForgetButton</string>
 			<key>pfm_title</key>
@@ -816,12 +906,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If this preference is set to true, the master password functionality is removed.</string>
+			<string>Remove the master password functionality.</string>
 			<key>pfm_description_reference</key>
 			<string>If this preference is set to true, the master password functionality is removed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablemasterpasswordcreation</string>
 			<key>pfm_name</key>
 			<string>DisableMasterPasswordCreation</string>
 			<key>pfm_title</key>
@@ -830,26 +924,36 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference turns off Pocket.</string>
+			<string>Remove Pocket in the Firefox UI.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference turns off Pocket.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablepocket</string>
 			<key>pfm_name</key>
 			<string>DisablePocket</string>
+			<key>pfm_note</key>
+			<string>This does not remove it from the new tab page.</string>
 			<key>pfm_title</key>
 			<string>Disable Pocket</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference removes access to private browsing.</string>
+			<string>Remove access to private browsing.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes access to private browsing.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableprivatebrowsing</string>
 			<key>pfm_name</key>
 			<string>DisablePrivateBrowsing</string>
 			<key>pfm_title</key>
@@ -858,12 +962,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables the "Import data from another browser" option in the bookmarks window.</string>
+			<string>Disables the "Import data from another browser" option in the bookmarks window.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables the "Import data from another browser" option in the bookmarks window.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableprofileimport</string>
 			<key>pfm_name</key>
 			<string>DisableProfileImport</string>
 			<key>pfm_title</key>
@@ -872,12 +980,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference disables the Refresh Firefox button on about:support and support.mozilla.org.</string>
+			<string>Disable the Refresh Firefox button on about:support and support.mozilla.org, as well as the prompt that displays offering to refresh Firefox when you haven't used it in a while.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables the Refresh Firefox button on about:support and support.mozilla.org.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableprofilerefresh</string>
 			<key>pfm_name</key>
 			<string>DisableProfileRefresh</string>
 			<key>pfm_title</key>
@@ -886,12 +998,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This policy disables safe mode.</string>
+			<string>Disable safe mode within the browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy disables safe mode.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablesafemode</string>
 			<key>pfm_name</key>
 			<string>DisableSafeMode</string>
 			<key>pfm_title</key>
@@ -900,12 +1016,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string>This preference removes the "Set As Desktop Background..." menu item when right clicking on an image.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference removes the "Set As Desktop Background..." menu item when right clicking on an image.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablesetdesktopbackground</string>
 			<key>pfm_name</key>
 			<string>DisableSetDesktopBackground</string>
 			<key>pfm_title</key>
@@ -914,12 +1034,32 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference prevents system add-ons from being updated or installed.</string>
+			<string>Set the initial state of the menubar. A user can still hide it and it will stay hidden.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#displaymenubar</string>
+			<key>pfm_name</key>
+			<string>DisplayMenuBar</string>
+			<key>pfm_title</key>
+			<string>Display Menu Bar</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Prevent system add-ons from being installed or update.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference prevents system add-ons from being updated or installed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablesystemaddonupdate</string>
 			<key>pfm_name</key>
 			<string>DisableSystemAddonUpdate</string>
 			<key>pfm_title</key>
@@ -928,12 +1068,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference turns on the bookmarks toolbar by default. A user can still turn it off, and it will stay off.</string>
+			<string>Set the initial state of the bookmarks toolbar. A user can still hide it and it will stay hidden.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference turns on the bookmarks toolbar by default. A user can still turn it off, and it will stay off.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#displaybookmarkstoolbar</string>
 			<key>pfm_name</key>
 			<string>DisplayBookmarksToolbar</string>
 			<key>pfm_title</key>
@@ -942,12 +1086,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference stops Firefox from checking if it is the default browser at startup.</string>
+			<string>Don't check if Firefox is the default browser at startup.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference stops Firefox from checking if it is the default browser at startup.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#dontcheckdefaultbrowser</string>
 			<key>pfm_name</key>
 			<string>DontCheckDefaultBrowser</string>
 			<key>pfm_title</key>
@@ -956,17 +1104,43 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
 			<key>pfm_description</key>
-			<string>This preference controls the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs. For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
+			<string>Set and lock the download directory.</string>
+			<key>pfm_description_reference</key>
+			<string>Set and lock the download directory.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#downloaddirectory</string>
+			<key>pfm_name</key>
+			<string>DownloadDirectory</string>
+			<key>pfm_note</key>
+			<string>You can use ${home} for the native home directory.</string>
+			<key>pfm_title</key>
+			<string>Download Directory</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>${home}/Downloads</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
+			<key>pfm_description</key>
+			<string>Control the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference controls the installation, uninstallation and locking of extensions. Locked extensions cannot be disabled or uninstalled. For Install, you specify a list of URLs or paths. For Uninstall and Locked, you specify extension IDs. For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#extensions</string>
 			<key>pfm_name</key>
 			<string>Extensions</string>
+			<key>pfm_note</key>
+			<string>For more on determining extension IDs: http://kb.mozillazine.org/Determine_extension_ID</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension URLs or paths that will be installed when Firefox is started. Anytime this list is changed, the extensions will be reinstalled. If this preference is disabled or not configured, no extensions are installed. Example of valid entries are: "https://addons.mozilla.org/firefox/downloads/somefile.xpi" or "//path/to/xpi"</string>
+					<string>A list of URLs or native paths for extensions to be installed.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension URLs or paths that will be installed when Firefox is started. Anytime this list is changed, the extensions will be reinstalled. If this preference is disabled or not configured, no extensions are installed. Example of valid entries are: "https://addons.mozilla.org/firefox/downloads/somefile.xpi" or "//path/to/xpi"</string>
 					<key>pfm_name</key>
@@ -991,7 +1165,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
+					<string>A list of extension IDs that should be uninstalled if found.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
 					<key>pfm_name</key>
@@ -1016,7 +1190,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that the user will be unable to uninstall or disable. If this preference is disabled or not configured, no extensions are locked</string>
+					<string>A list of extension IDs that the user cannot disable or uninstall.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that the user will be unable to uninstall or disable. If this preference is disabled or not configured, no extensions are locked</string>
 					<key>pfm_name</key>
@@ -1045,11 +1219,140 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>69</string>
+			<key>pfm_description</key>
+			<string>Manage all aspects of extensions.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#extensionsettings</string>
+			<key>pfm_name</key>
+			<string>ExtensionSettings</string>
+			<key>pfm_note</key>
+			<string>This policy is based heavily on the Chrome policy of the same name.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Extension ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating the installation mode for the extension.</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>installation_mode</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>allowed</string>
+								<string>blocked</string>
+								<string>force_installed</string>
+								<string>normal_installed</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Allowed (default behavior)</string>
+								<string>Blocked</string>
+								<string>Force Installed</string>
+								<string>Normal Installed</string>
+							</array>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Maps to a string indicating where Firefox can download a force_installed or normal_installed extension. If installing from the addons.mozilla.org, use the following URL (substituting SHORT_NAME from the URL on AMO), https://addons.mozilla.org/firefox/downloads/latest/SHORT_NAME/latest.xpi. If installing from the local file system, use a file:/// URL. Languages packs are available from https://releases.mozilla.org/pub/firefox/releases/VERSION/PLATFORM/xpi/LANGUAGE.xpi.</string>
+							<key>pfm_description_reference</key>
+							<string>Maps to a URL indicating where Firefox can download a force_installed or normal_installed extension. If installing from the addons.mozilla.org, use the following URL (substituting SHORT_NAME from the URL on AMO), https://addons.mozilla.org/firefox/downloads/latest/SHORT_NAME/latest.xpi. If installing from the local file system, use a file:/// URL. Languages packs are available from https://releases.mozilla.org/pub/firefox/releases/VERSION/PLATFORM/xpi/LANGUAGE.xpi.</string>
+							<key>pfm_name</key>
+							<string>install_url</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Each item in this list is an extension-style match pattern.</string>
+							<key>pfm_description_reference</key>
+							<string>Each item in this list is an extension-style match pattern. Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.xpi file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns. This setting can be used only for the default configuration.</string>
+							<key>pfm_name</key>
+							<string>install_sources</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This setting whitelists the allowed types of extension/apps that can be installed in Firefox.</string>
+							<key>pfm_description_reference</key>
+							<string>This setting whitelists the allowed types of extension/apps that can be installed in Firefox. The value is a list of strings, each of which should be one of the following: "extension", "theme", "dictionary", "langpack" This setting can be used only for the default configuration.</string>
+							<key>pfm_name</key>
+							<string>allowed_types</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<string>extension</string>
+										<string>theme</string>
+										<string>dictionary</string>
+										<string>langpack</string>
+									</array>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension.</string>
+							<key>pfm_description_reference</key>
+							<string>This maps to a string specifying the error message to display to users if they're blocked from installing an extension. This setting allows you to append text to the generic error message displayed when the extension is blocked. This could be be used to direct users to your help desk, explain why a particular extension is blocked, or something else.</string>
+							<key>pfm_name</key>
+							<string>blocked_install_message</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>67</string>
 			<key>pfm_description_reference</key>
-			<string>This policy enables or disables extension updates by setting and locking the preference extensions.update.enabled</string>
+			<string>Control extension updates.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://github.com/mozilla/policy-templates#extensionupdate</string>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#extensionupdate</string>
 			<key>pfm_name</key>
 			<string>ExtensionUpdate</string>
 			<key>pfm_title</key>
@@ -1058,12 +1361,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>This preference disables hardware acceleration by locking the preference layers.acceleration.disabled to true.</string>
+			<string>Control hardware acceleration.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference disables hardware acceleration by locking the preference layers.acceleration.disabled to true.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#hardwareacceleration</string>
 			<key>pfm_name</key>
 			<string>HardwareAcceleration</string>
 			<key>pfm_title</key>
@@ -1078,6 +1385,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Customize the Firefox Home page.</string>
 			<key>pfm_description_reference</key>
 			<string>Customize the Firefox Home page.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#firefoxhome</string>
 			<key>pfm_name</key>
 			<string>FirefoxHome</string>
 			<key>pfm_subkeys</key>
@@ -1149,10 +1458,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference sets the default homepage value and the default start page. It can also be used to lock the homepage or add additional homepages.</string>
+			<string>Configure the default homepage and how Firefox starts.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets the default homepage value and the default start page. It can also be used to lock the homepage or add additional homepages.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#homepage</string>
 			<key>pfm_name</key>
 			<string>Homepage</string>
 			<key>pfm_subkeys</key>
@@ -1205,8 +1518,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 						<string>homepage</string>
 						<string>previous-session</string>
 					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>None</string>
+						<string>Homepage</string>
+						<string>Previous Session</string>
+					</array>
 					<key>pfm_title</key>
-					<string>StartPage</string>
+					<string>Start Page</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1214,7 +1533,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Optional. If this is true, Homepage preferences cannot be changed.</string>
+					<string>If true, prevents the user from changing homepage preferences.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this is true, Homepage preferences cannot be changed.</string>
 					<key>pfm_name</key>
@@ -1233,10 +1552,12 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Enable linking to local files by origin</string>
 			<key>pfm_description_reference</key>
 			<string>Enable linking to local files by origin.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#localfilelinks</string>
 			<key>pfm_name</key>
-			<string>LinkLocalFiles</string>
+			<string>LocalFileLinks</string>
 			<key>pfm_title</key>
-			<string>Link Local Files</string>
+			<string>Local File Links</string>
 			<key>pfm_type</key>
 			<string>array</string>
 			<key>pfm_subkeys</key>
@@ -1256,6 +1577,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Enable or disable the New Tab page.</string>
 			<key>pfm_description_reference</key>
 			<string>Enable or disable the New Tab page.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#newtabpage</string>
 			<key>pfm_name</key>
 			<string>NewTabPage</string>
 			<key>pfm_title</key>
@@ -1264,26 +1587,34 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference prevents the default bookmarks or the Smart Bookmarks (Most Visited, Recent Tags) from being created. Note: this preference is only effective if used before the first run of the profile.</string>
+			<string>Disable the creation of default bookmarks.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference prevents the default bookmarks or the Smart Bookmarks (Most Visited, Recent Tags) from being created. Note: this preference is only effective if used before the first run of the profile.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#nodefaultbookmarks</string>
 			<key>pfm_name</key>
 			<string>NoDefaultBookmarks</string>
+			<key>pfm_note</key>
+			<string>This policy is only effective if the user profile has not been created yet.</string>
 			<key>pfm_title</key>
 			<string>No Default Bookmarks</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string></string>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference allows you to override the first run page. If you leave the URL blank, the first run page will not be displayed. E.g. https://www.example.com</string>
+			<string>Override the first run page. If the value is blank, no first run page is displayed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference allows you to override the first run page. If you leave the URL blank, the first run page will not be displayed. E.g. https://www.example.com</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#overridefirstrunpage</string>
 			<key>pfm_name</key>
 			<string>OverrideFirstRunPage</string>
 			<key>pfm_title</key>
@@ -1294,10 +1625,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>https://www.example.com</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference allows you to override the upgrade page. If you leave the URL blank, the upgrade page will not be displayed.</string>
+			<string>Override the upgrade page. If the value is blank, no upgrade page is displayed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference allows you to override the upgrade page. If you leave the URL blank, the upgrade page will not be displayed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#overridepostupdatepage</string>
 			<key>pfm_name</key>
 			<string>OverridePostUpdatePage</string>
 			<key>pfm_title</key>
@@ -1316,6 +1651,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Ask where to save each file before downloading.</string>
 			<key>pfm_description_reference</key>
 			<string>Ask where to save each file before downloading.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates#promptfordownloadlocation</string>
 			<key>pfm_name</key>
 			<string>PromptForDownloadLocation</string>
 			<key>pfm_title</key>
@@ -1324,12 +1661,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>64</string>
 			<key>pfm_description</key>
-			<string>This preference sets the list of requested locales for the application in order of preference. It will cause the corresponding language pack to become active.</string>
+			<string>Set the the list of requested locales for the application in order of preference. It will cause the corresponding language pack to become active.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets the list of requested locales for the application in order of preference. It will cause the corresponding language pack to become active.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#requestedlocales</string>
 			<key>pfm_name</key>
 			<string>RequestedLocales</string>
+			<key>pfm_note</key>
+			<string>For Firefox 68, this can now be a string so that you can specify an empty value.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -1563,6 +1906,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
 			<key>pfm_description_reference</key>
 			<string>Clear data on shutdown. Choose from Cache, Cookies, Download History, Form &amp; Search History, Browsing History, Active Logins, Site Preferences and Offline Website Data.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#sanitizeonshutdown-selective</string>
 			<key>pfm_name</key>
 			<string>SanitizeOnShutdown</string>
 			<key>pfm_subkeys</key>
@@ -1654,12 +1999,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<string>separate</string>
 			<key>pfm_description</key>
-			<string>This preference can be used to determine if the search bar is separate or combined with the URL bar.</string>
+			<string>Set whether or not search bar is displayed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference can be used to determine if the search bar is separate or combined with the URL bar.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchbar</string>
 			<key>pfm_name</key>
 			<string>SearchBar</string>
 			<key>pfm_range_list</key>
@@ -1667,16 +2016,200 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<string>separate</string>
 				<string>unified</string>
 			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Separate</string>
+				<string>Unified</string>
+			</array>
 			<key>pfm_title</key>
 			<string>Search Bar</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
+			<key>pfm_default</key>
+			<string>separate</string>
 			<key>pfm_description</key>
-			<string>This preference configures DNS over HTTPS.</string>
+			<string>Set whether or not search bar is displayed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines-this-policy-is-only-available-on-the-esr</string>
+			<key>pfm_name</key>
+			<string>SearchEngines</string>
+			<key>pfm_note</key>
+			<string>This policy is only available on the ESR.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Set the default search engine. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--default</string>
+					<key>pfm_name</key>
+					<string>Default</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Prevent installing search engines from webpages. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--preventinstalls</string>
+					<key>pfm_name</key>
+					<string>PreventInstalls</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Hide built-in search engines. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--remove</string>
+					<key>pfm_name</key>
+					<string>Remove</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Hidden Search Engines</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
+					<key>pfm_description</key>
+					<string>Add new search engines. This policy is only available on the ESR.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchengines--add</string>
+					<key>pfm_name</key>
+					<string>Add</string>
+					<key>pfm_note</key>
+					<string>You can only include up to 5 search engines and Name &amp; URL are required.</string>
+					<key>pfm_repetition_max</key>
+					<integer>5</integer>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>Name of the search engine</string>
+									<key>pfm_name</key>
+									<string>Name</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_name</key>
+									<string>URLTemplate</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.org/q={searchTerms}</string>
+								</dict>
+								<dict>
+									<key>pfm_name</key>
+									<string>Method</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>GET</string>
+										<string>POST</string>
+									</array>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>URL for the icon to use</string>
+									<key>pfm_name</key>
+									<string>IconURL</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>keyword to use for the engine</string>
+									<key>pfm_name</key>
+									<string>Alias</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Description of the search engine.</string>
+									<key>pfm_name</key>
+									<string>Description</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>POST data as name value pairs separated by '&amp;'</string>
+									<key>pfm_name</key>
+									<string>PostData</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>name=value&amp;q={searchTerms}</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Search suggestions URL with {searchTerms} to substitute for the search term.</string>
+									<key>pfm_name</key>
+									<string>SuggestURLTemplate</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.org/suggestions/q={searchTerms}</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Search Engines</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Add Search Engines</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Search Engines</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Enable search suggestions.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#searchsuggestenabled</string>
+			<key>pfm_name</key>
+			<string>SearchSuggestEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable Search Suggest</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>63</string>
+			<key>pfm_description</key>
+			<string>Configure DNS over HTTPS.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference configures DNS over HTTPS.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#dnsoverhttps</string>
 			<key>pfm_name</key>
 			<string>DNSOverHTTPS</string>
 			<key>pfm_subkeys</key>
@@ -1728,12 +2261,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference allows you to specify proxy settings. These settings correspond to the connection settings in Firefox preferences. To specify ports, append them to the hostnames with a colon (:). If Locked is set to true, the values cannot be changed by the user.</string>
+			<string>Configure proxy settings. These settings correspond to the connection settings in Firefox preferences. To specify ports, append them to the hostnames with a colon (:).</string>
 			<key>pfm_description_reference</key>
 			<string>This preference allows you to specify proxy settings. These settings correspond to the connection settings in Firefox preferences. To specify ports, append them to the hostnames with a colon (:). If Locked is set to true, the values cannot be changed by the user.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#proxy</string>
 			<key>pfm_name</key>
 			<string>Proxy</string>
+			<key>pfm_note</key>
+			<string>If Locked is set to true, the values cannot be changed by the user.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2090,7 +2629,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<key>pfm_description_reference</key>
 			<string>This policy allows you to set the minimum TLS version.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://github.com/mozilla/policy-templates#sslversionmin</string>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#sslversionmin</string>
 			<key>pfm_name</key>
 			<string>SSLVersionMin</string>
 			<key>pfm_range_list</key>
@@ -2118,7 +2657,7 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<key>pfm_description_reference</key>
 			<string>This policy allows you to set the maximum TLS version.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://github.com/mozilla/policy-templates#sslversionmax</string>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#sslversionmax</string>
 			<key>pfm_name</key>
 			<string>SSLVersionMax</string>
 			<key>pfm_range_list</key>
@@ -2143,10 +2682,12 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		<dict>
 			<key>pfm_app_min</key>
 			<string>67</string>
+			<key>pfm_description</key>
+			<string>Enable or disable network prediction (DNS prefetching).</string>
 			<key>pfm_description_reference</key>
 			<string>This policy enables or disables network prediction (DNS prefetching) by setting and locking the preferences network.dns.disablePrefetch and network.dns.disablePrefetchFromHTTPS.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://github.com/mozilla/policy-templates#networkprediction</string>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#networkprediction</string>
 			<key>pfm_name</key>
 			<string>NetworkPrediction</string>
 			<key>pfm_title</key>
@@ -2155,24 +2696,34 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference controls various settings related to cookies.</string>
+			<string>Configure cookie preferences.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference controls various settings related to cookies.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#cookies</string>
 			<key>pfm_name</key>
 			<string>Cookies</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>Domains where cookies are always allowed.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Domains where cookies are always allowed.</string>
 					<key>pfm_name</key>
 					<string>Allow</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
 							<key>pfm_name</key>
 							<string>URL</string>
 							<key>pfm_title</key>
@@ -2189,15 +2740,21 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>Domains where cookies are always blocked.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Domains where cookies are always blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
 							<key>pfm_name</key>
 							<string>URL</string>
 							<key>pfm_title</key>
@@ -2214,6 +2771,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
@@ -2226,6 +2785,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_description</key>
 					<string>This sets the default value for "Accept third-party cookies".</string>
 					<key>pfm_description_reference</key>
@@ -2248,6 +2809,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2260,6 +2823,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>63</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2272,6 +2837,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2288,12 +2855,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference turns off the browser.formfill.enable preferences.</string>
+			<string>Turn off saving information on web forms and the search bar.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference turns off the browser.formfill.enable preferences.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disableformhistory</string>
 			<key>pfm_name</key>
 			<string>DisableFormHistory</string>
 			<key>pfm_title</key>
@@ -2302,20 +2873,44 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>71</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This preference prevents the upload of telemetry data. Mozilla recommends that you do not disable telemetry. Information collected through telemetry helps Mozilla build a better product for businesses like yours.</string>
+			<string>Do not allow passwords to be shown in saved logins</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablepasswordreveal</string>
+			<key>pfm_name</key>
+			<string>DisablePasswordReveal</string>
+			<key>pfm_title</key>
+			<string>Disable Password Reveal</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Prevent the upload of telemetry data.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference prevents the upload of telemetry data. Mozilla recommends that you do not disable telemetry. Information collected through telemetry helps Mozilla build a better product for businesses like yours.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disabletelemetry</string>
 			<key>pfm_name</key>
 			<string>DisableTelemetry</string>
+			<key>pfm_note</key>
+			<string>Mozilla recommends that you do not disable telemetry. Information collected through telemetry helps build a better product for businesses like yours.</string>
 			<key>pfm_title</key>
 			<string>Disable Telemetry</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<dict>
 				<key>Locked</key>
@@ -2324,14 +2919,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 				<true/>
 			</dict>
 			<key>pfm_description</key>
-			<string>This preference affects tracking protection. If this preference is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
+			<string>Configure tracking protection. If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference affects tracking protection. If this preference is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#enabletrackingprotection</string>
 			<key>pfm_name</key>
 			<string>EnableTrackingProtection</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2344,6 +2943,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>60</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -2355,6 +2956,34 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If Cryptomining is set to true, cryptomining scripts on websites are blocked.</string>
+					<key>pfm_description_reference</key>
+					<string>If Cryptomining is set to true, cryptomining scripts on websites are blocked.</string>
+					<key>pfm_name</key>
+					<string>Cryptomining</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68.2</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If Fingerprinting is set to true, fingerprinting scripts on websites are blocked.</string>
+					<key>pfm_description_reference</key>
+					<string>If Fingerprinting is set to true, fingerprinting scripts on websites are blocked.</string>
+					<key>pfm_name</key>
+					<string>Fingerprinting</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>Enable Tracking Protection</string>
@@ -2362,10 +2991,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference sets the behavior of Flash on the specified domains as well as the default behavior.</string>
+			<string>Configure the default Flash plugin policy as well as origins for which Flash is allowed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets the behavior of Flash on the specified domains as well as the default behavior.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#flashplugin</string>
 			<key>pfm_name</key>
 			<string>FlashPlugin</string>
 			<key>pfm_subkeys</key>
@@ -2380,6 +3013,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Allowed Domains</string>
 							<key>pfm_type</key>
@@ -2403,6 +3038,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Blocked Domains</string>
 							<key>pfm_type</key>
@@ -2447,12 +3084,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference sets domains that can install extensions as well as the default behavior. If default behavior value is set to false, add-ons cannot be installed by the user.</string>
+			<string>Configure the default extension install policy as well as origins for extension installs are allowed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets domains that can install extensions as well as the default behavior. If default behavior value is set to false, add-ons cannot be installed by the user.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#installaddonspermission</string>
 			<key>pfm_name</key>
 			<string>InstallAddonsPermission</string>
+			<key>pfm_note</key>
+			<string>This policy does not override turning off all extension installs.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2497,12 +3140,16 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>This preference sets the signon.rememberSignons preference. It determines whether or not Firefox offers to save passwords. It can either be enabled or disabled.</string>
+			<string>Control whether or not Firefox offers to save passwords.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets the signon.rememberSignons preference. It determines whether or not Firefox offers to save passwords. It can either be enabled or disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#offertosavelogins</string>
 			<key>pfm_name</key>
 			<string>OfferToSaveLogins</string>
 			<key>pfm_title</key>
@@ -2511,10 +3158,50 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>70</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>This preference allows you to change the permissions associated with camera, microphone, location, and notifications.</string>
+			<string>Sets the default value of signon.rememberSignons without locking it.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#offertosaveloginsdefault</string>
+			<key>pfm_name</key>
+			<string>OfferToSaveLoginsDefault</string>
+			<key>pfm_title</key>
+			<string>Offer To Save Logins Default</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>70</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Remove access to the password manager via preferences and blocks about:logins on Firefox 70.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#passwordmanagerenabled</string>
+			<key>pfm_name</key>
+			<string>PasswordManagerEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable Password Manager</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>62</string>
+			<key>pfm_description</key>
+			<string>Set permissions associated with camera, microphone, location, and notifications.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference allows you to change the permissions associated with camera, microphone, location, and notifications.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#permissions</string>
 			<key>pfm_hidden</key>
 			<string>container</string>
 			<key>pfm_name</key>
@@ -2874,10 +3561,14 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference sets domains for which pop-up windows are allowed. It also sets the default pop-up preference.</string>
+			<string>Configure the default pop-up window policy as well as origins for which pop-up windows are allowed.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference sets domains for which pop-up windows are allowed. It also sets the default pop-up preference.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#popupblocking</string>
 			<key>pfm_name</key>
 			<string>PopupBlocking</string>
 			<key>pfm_subkeys</key>
@@ -2937,52 +3628,58 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This preference can be used to install certificates or to read (import) certificates from the system certificate store on macOS (keychain).
-
-Certificates can be located in the following locations:
-    /Library/Application Support/Mozilla/Certificates
-    ~/Library/Application Support/Mozilla/Certificates
-
-In Firefox 65, you can specify a fully qualified path.
-				</string>
+			<string>Trust certificates that have been added to the operating system certificate store by a user or administrator in the macOS Keychain.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference can be used to install certificates or to read (import) certificates from the system certificate store on macOS (keychain). Certificates can be located in the following locations:
 /Library/Application Support/Mozilla/Certificates
 ~/Library/Application Support/Mozilla/Certificates
 
-In Firefox 65, you can specify a fully qualified path.
-				</string>
+In Firefox 65, you can specify a fully qualified path.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#certificates</string>
 			<key>pfm_name</key>
 			<string>Certificates</string>
+			<key>pfm_note</key>
+			<string>Certificates can be located in the following locations:
+/Library/Application Support/Mozilla/Certificates
+~/Library/Application Support/Mozilla/Certificates</string>
+			<key>pfm_note</key>
+			<string>See https://support.mozilla.org/kb/setting-certificate-authorities-firefox for more detail.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>63</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
 					<string>If this preference is enabled, Firefox will read certificates from the macOS keychain. If this preference is disabled or not configured, Firefox will not read certificates from the macOS keychain.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, Firefox will read certificates from the macOS keychain. If this preference is disabled or not configured, Firefox will not read certificates from the macOS keychain.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#certificates--importenterpriseroots</string>
 					<key>pfm_name</key>
 					<string>ImportEnterpriseRoots</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>64</string>
 					<key>pfm_description</key>
 					<string>If this preference is enabled, Firefox will install the listed certificates. It will look in /Library/Application Support/Mozilla/Certificates and ~/Library/Application Support/Mozilla/Certificates.
 
 If this preference is disabled or not configured, Firefox will not install additional certificates.
 
-Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.
-						</string>
+Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. If this preference is enabled, Firefox will install the listed certificates. It will look in /Library/Application Support/Mozilla/Certificates and ~/Library/Application Support/Mozilla/Certificates.
 
 If this preference is disabled or not configured, Firefox will not install additional certificates.
 
-Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.
-						</string>
+Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Company/cer1.der). If Firefox does not find something at your fully qualified path, it will search the default directories.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#certificates--install</string>
 					<key>pfm_name</key>
 					<string>Install</string>
 					<key>pfm_subkeys</key>
@@ -3006,10 +3703,14 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference prevents the user from bypassing security in certain cases.</string>
+			<string>Prevent the user from bypassing security in certain cases.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference prevents the user from bypassing security in certain cases.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablesecuritybypass</string>
 			<key>pfm_name</key>
 			<string>DisableSecurityBypass</string>
 			<key>pfm_subkeys</key>
@@ -3045,15 +3746,19 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>64</string>
 			<key>pfm_default</key>
 			<dict>
 				<key>NAME_OF_DEVICE</key>
 				<string>PATH_TO_LIBRARY_FOR_DEVICE</string>
 			</dict>
 			<key>pfm_description</key>
-			<string>This preference allows you to add PKCS #11 Modules</string>
+			<string>Install PKCS #11 modules.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference allows you to add PKCS #11 Modules</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#securitydevices</string>
 			<key>pfm_name</key>
 			<string>SecurityDevices</string>
 			<key>pfm_subkeys</key>
@@ -3091,10 +3796,14 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>60</string>
 			<key>pfm_description</key>
-			<string>This preference blocks websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each. You cannot have entries in Exceptions without entries in Block.</string>
+			<string>Block websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference blocks websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each. You cannot have entries in Exceptions without entries in Block.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#websitefilter</string>
 			<key>pfm_name</key>
 			<string>WebsiteFilter</string>
 			<key>pfm_subkeys</key>
@@ -3106,6 +3815,8 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>Required. If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
+					<key>pfm_repetition_max</key>
+					<integer>1000</integer>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_subkeys</key>
@@ -3133,9 +3844,13 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>Optional. If this preference is enabled, you can specify a list of extension IDs that will be uninstalled. Anytime this list is changed, the extensions will be uninstalled. If this preference is disabled or not configured, no extensions are uninstalled.</string>
 					<key>pfm_name</key>
 					<string>Exceptions</string>
+					<key>pfm_repetition_max</key>
+					<integer>1000</integer>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*</string>
 							<key>pfm_name</key>
 							<string>Exceptions</string>
 							<key>pfm_title</key>
@@ -3158,6 +3873,8 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 		<dict>
 			<key>pfm_app_min</key>
 			<string>67</string>
+			<key>pfm_description</key>
+			<string>Enable or disable the detection of captive portals.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy enables or disables captive portal support by setting and locking the preference network.captive-portal-service.enabled.</string>
 			<key>pfm_documentation_url</key>
@@ -3174,10 +3891,36 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>Set and lock certain preferences.</string>
 			<key>pfm_description_reference</key>
 			<string>Set and lock certain preferences.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#preferences</string>
 			<key>pfm_name</key>
 			<string>Preferences</string>
 			<key>pfm_subkeys</key>
 			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If set to 1, platform accessibility is disabled.</string>
+					<key>pfm_name</key>
+					<string>accessibility.force_disabled</string>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Not Disabled</string>
+						<string>Disabled</string>
+					</array>
+					<key>pfm_title</key>
+					<string>accessibility.force_disabled</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>68</string>
@@ -3189,6 +3932,46 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>app.update.auto</string>
 					<key>pfm_title</key>
 					<string>app.update.auto</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, bookmarks are exported on shutdown.</string>
+					<key>pfm_name</key>
+					<string>browser.bookmarks.autoExportHTML</string>
+					<key>pfm_title</key>
+					<string>browser.bookmarks.autoExportHTML</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_description</key>
+					<string> If set, the name of the file where bookmarks are exported and imported.</string>
+					<key>pfm_name</key>
+					<string>browser.bookmarks.file</string>
+					<key>pfm_title</key>
+					<string>browser.bookmarks.file</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, bookmarks are restored to their defaults.</string>
+					<key>pfm_name</key>
+					<string>browser.bookmarks.restore_default_bookmarks</string>
+					<key>pfm_title</key>
+					<string>browser.bookmarks.restore_default_bookmarks</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -3215,6 +3998,8 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>If set, changes the location of the disk cache.</string>
 					<key>pfm_name</key>
 					<string>browser.cache.disk.parent_directory</string>
+					<key>pfm_note</key>
+					<string>Firefox policy documentation indicates this policy doesn't work, but is being worked on.</string>
 					<key>pfm_title</key>
 					<string>browser.cache.disk.parent_directory</string>
 					<key>pfm_type</key>
@@ -3236,6 +4021,67 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_description</key>
+					<string>If set, a list of URLs to use as the default top sites on the new tab page.</string>
+					<key>pfm_name</key>
+					<string>browser.newtabpage.activity-stream.default.sites</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Sites</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>browser.newtabpage.activity-stream.default.sites</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_description</key>
+					<string>If true, bookmarks are always imported on startup.</string>
+					<key>pfm_name</key>
+					<string>browser.places.importBookmarksHTML</string>
+					<key>pfm_title</key>
+					<string>browser.places.importBookmarksHTML</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, malware protection is not enabled (Not recommended)</string>
+					<key>pfm_name</key>
+					<string>browser.safebrowsing.malware.enabled</string>
+					<key>pfm_title</key>
+					<string>browser.safebrowsing.malware.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, phishing protection is not enabled (Not recommended)</string>
+					<key>pfm_name</key>
+					<string>browser.safebrowsing.phishing.enabled</string>
+					<key>pfm_title</key>
+					<string>browser.safebrowsing.phishing.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>68</string>
 					<key>pfm_default</key>
 					<true/>
@@ -3250,6 +4096,20 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string> If true, a notification isn't shown if startup is slow.</string>
+					<key>pfm_name</key>
+					<string>browser.slowStartup.notificationDisabled</string>
+					<key>pfm_title</key>
+					<string>browser.slowStartup.notificationDisabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>68</string>
 					<key>pfm_default</key>
 					<true/>
@@ -3259,6 +4119,20 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>browser.tabs.warnOnClose</string>
 					<key>pfm_title</key>
 					<string>browser.tabs.warnOnClose</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, tab previews are shown in the Windows taskbar.</string>
+					<key>pfm_name</key>
+					<string>browser.taskbar.previews.enable</string>
+					<key>pfm_title</key>
+					<string>browser.taskbar.previews.enable</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -3315,6 +4189,20 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>datareporting.policy.dataSubmissionPolicyBypassNotification</string>
 					<key>pfm_title</key>
 					<string>datareporting.policy.dataSubmissionPolicyBypassNotification</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, web page can close windows.</string>
+					<key>pfm_name</key>
+					<string>dom.allow_scripts_to_close_windows</string>
+					<key>pfm_title</key>
+					<string>dom.allow_scripts_to_close_windows</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -3390,6 +4278,20 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, the extensions blocklist is not used (Not recommended)</string>
+					<key>pfm_name</key>
+					<string>extensions.blocklist.enabled</string>
+					<key>pfm_title</key>
+					<string>extensions.blocklist.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>68</string>
 					<key>pfm_default</key>
 					<false/>
@@ -3399,6 +4301,60 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>extensions.getAddons.showPane</string>
 					<key>pfm_title</key>
 					<string>extensions.getAddons.showPane</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, recommendations are not shown on the Extensions tab in the Add-ons Manager.</string>
+					<key>pfm_name</key>
+					<string>extensions.htmlaboutaddons.recommendations.enabled</string>
+					<key>pfm_title</key>
+					<string>extensions.htmlaboutaddons.recommendations.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, the geolocation API is disabled.</string>
+					<key>pfm_name</key>
+					<string>geo.enabled</string>
+					<key>pfm_title</key>
+					<string>geo.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_description</key>
+					<string>If set, preferred language for web pages.</string>
+					<key>pfm_name</key>
+					<string>intl.accept_languages</string>
+					<key>pfm_title</key>
+					<string>intl.accept_languages</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, Encrypted Media Extensions are not enabled.</string>
+					<key>pfm_name</key>
+					<string>media.eme.enabled</string>
+					<key>pfm_title</key>
+					<string>media.eme.enabled</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -3429,6 +4385,41 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>media.gmp-widevinecdm.enabled</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, WebRTC is disabled</string>
+					<key>pfm_name</key>
+					<string>media.peerconnection.enabled</string>
+					<key>pfm_title</key>
+					<string>media.peerconnection.enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_description</key>
+					<string>If set, a list of domains for which mDNS hostname obfuscation is disabled.</string>
+					<key>pfm_name</key>
+					<string>media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Whitelisted Domains</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+					<key>pfm_type</key>
+					<string>array</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
@@ -3474,6 +4465,20 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, print settings are not saved between jobs.</string>
+					<key>pfm_name</key>
+					<string>print.save_print_settings</string>
+					<key>pfm_title</key>
+					<string>print.save_print_settings</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>68</string>
 					<key>pfm_default</key>
 					<string>Ask Every Time</string>
@@ -3481,10 +4486,43 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<string>If set to "Select Automatically", Firefox automatically chooses the default personal certificate. Other possible option is "Ask Every Time".</string>
 					<key>pfm_name</key>
 					<string>security.default_personal_cert</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>Ask Every Time</string>
+						<string>Select Automatically</string>
+					</array>
 					<key>pfm_title</key>
 					<string>security.default_personal_cert</string>
 					<key>pfm_type</key>
 					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>70</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, mixed active content (HTTP and HTTPS) is not blocked.</string>
+					<key>pfm_name</key>
+					<string>security.mixed_content.block_active_content</string>
+					<key>pfm_title</key>
+					<string>security.mixed_content.block_active_content</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If true, client certificates are loaded from the operating system certificate store.</string>
+					<key>pfm_name</key>
+					<string>security.osclientcerts.autoload</string>
+					<key>pfm_title</key>
+					<string>security.osclientcerts.autoload</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
@@ -3500,6 +4538,32 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If false, the TLS 1.3 downgrade check is disabled.</string>
+					<key>pfm_name</key>
+					<string>security.tls.hello_downgrade_check</string>
+					<key>pfm_title</key>
+					<string>security.tls.hello_downgrade_check</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>72</string>
+					<key>pfm_description</key>
+					<string>If set, overrides the GTK theme for widgets.</string>
+					<key>pfm_name</key>
+					<string>widget.content.gtk-theme-override</string>
+					<key>pfm_title</key>
+					<string>widget.content.gtk-theme-override</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>Preferences</string>
@@ -3513,6 +4577,8 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 			<string>Adds a menuitem to the help menu for specifying support information.</string>
 			<key>pfm_description_reference</key>
 			<string>Adds a menuitem to the help menu for specifying support information.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#supportmenu</string>
 			<key>pfm_name</key>
 			<string>SupportMenu</string>
 			<key>pfm_subkeys</key>
@@ -3568,6 +4634,6 @@ Starting in Firefox 65, you can specify a fully qualified path (e.g. /Library/Co
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>6</integer>
 </dict>
 </plist>
