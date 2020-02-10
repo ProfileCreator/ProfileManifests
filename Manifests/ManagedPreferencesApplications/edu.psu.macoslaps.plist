@@ -127,9 +127,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-				
-		<!-- General -->
-		
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Local Administrator Account.</string>
@@ -145,6 +142,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>admin</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>60</integer>
 			<key>pfm_description_reference</key>
 			<string>Expiration date of random password.</string>
 			<key>pfm_documentation_url</key>
@@ -155,12 +154,12 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Days Till Password Expiration</string>
 			<key>pfm_type</key>
 			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>60</integer>
 			<key>pfm_value_unit</key>
 			<string>days</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>12</integer>
 			<key>pfm_description_reference</key>
 			<string>Length of randomly generated password.</string>
 			<key>pfm_documentation_url</key>
@@ -171,10 +170,12 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Password Length</string>
 			<key>pfm_type</key>
 			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>12</integer>
+			<key>pfm_value_unit</key>
+			<string>characters</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description_reference</key>
 			<string>Remove the local admin keychains after password change. This is recommended</string>
 			<key>pfm_documentation_url</key>
@@ -209,19 +210,31 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/joshua-d-miller/macOSLAPS#requirements</string>
 			<key>pfm_name</key>
 			<string>ExclusionSets</string>
-			<key>pfm_title</key>
-			<string>Exclusion Sets</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_range_list</key>
+					<array>
+						<string>letters</string>
+						<string>numbers</string>
+						<string>symbols</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Letters</string>
+						<string>Numbers</string>
+						<string>Symbols</string>
+					</array>
 					<key>pfm_title</key>
 					<string>Character Set</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Exclusion Sets</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -244,12 +257,12 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/joshua-d-miller/macOSLAPS#requirements</string>
 			<key>pfm_name</key>
 			<string>FirstPass</string>
+			<key>pfm_note</key>
+			<string>macOSLAPS must know at least one password via config profile before we can start the keychain process. Setting this key before running it for the first time when it is your temporary admin password is the best method.</string>
 			<key>pfm_title</key>
 			<string>First Password</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_note</key>
-			<string>macOSLAPS must know at least one password via config profile before we can start the keychain process. Setting this key before running it for the first time when it is your temporary admin password is the best method.</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
