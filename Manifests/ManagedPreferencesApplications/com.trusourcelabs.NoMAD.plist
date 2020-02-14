@@ -275,7 +275,6 @@
 			<array>
 				<string>Open Directory</string>
 			</array>
-			<key>
 			<key>pfm_title</key>
 			<string>LDAP Type</string>
 			<key>pfm_type</key>
@@ -459,10 +458,26 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_description</key>
-			<string>Update the user's Chrome settings to allow for Kerberos auth with the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of “nomad.test” will result in *nomad.test being set.</string>
+			<key>pfm_description_reference</key>
+			<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth for the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of "nomad.test" will result in *nomad.test being set. Multiple domains are supported, separate them by ","</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ConfigureChrome</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ConfigureChromeDomain</string>
+			<key>pfm_title</key>
+			<string>Configure Chrome Domain</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
