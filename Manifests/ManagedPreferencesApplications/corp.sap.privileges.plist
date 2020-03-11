@@ -132,6 +132,22 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
+			<key>pfm_description</key>
+			<string>Sets a fixed timeout for the Dock tile&apos;s Toggle Privileges command. After this time, the admin rights are removed and set back to standard user rights. A value of 0 disables the timeout and allows the user to permanently toggle privileges.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>DockToggleTimeout</string>
+			<key>pfm_title</key>
+			<string>Dock Toggle Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0.5</string>
 			<key>pfm_default</key>
 			<string>admin</string>
 			<key>pfm_description</key>
@@ -159,19 +175,181 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.0.5</string>
+			<string>1.5.0</string>
 			<key>pfm_description</key>
-			<string>Sets a fixed timeout for the Dock tile&apos;s Toggle Privileges command. After this time, the admin rights are removed and set back to standard user rights. A value of 0 disables the timeout and allows the user to permanently toggle privileges.</string>
+			<string>Limits the usage of Privileges.app to the given user group.</string>
 			<key>pfm_description_reference</key>
 			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
 			<key>pfm_name</key>
-			<string>DockToggleTimeout</string>
+			<string>LimitToGroup</string>
 			<key>pfm_title</key>
-			<string>Dock Toggle Timeout</string>
+			<string>Limit to Group</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Group</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.0</string>
+			<key>pfm_description</key>
+			<string>Limits the usage of Privileges.app to the given user account. If used with a client management system that supports variables in configuration profiles, variables like $USERNAME may be used here.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>LimitToUser</string>
+			<key>pfm_title</key>
+			<string>Limit to User</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>User</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.0</string>
+			<key>pfm_description</key>
+			<string>If ReasonRequired is set to true, the user must provide a reason for needing admin rights. If using ReasonRequired, then the ReasonMinLength key must also be set. If setting ReasonRequired, the Toggle Privileges option is automatically disabled.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>ReasonRequired</string>
+			<key>pfm_title</key>
+			<string>Reason Required</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_default</key>
+            <false/>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.0</string>
+			<key>pfm_description</key>
+			<string>The minimum number of characters the user has to enter as the reason for becoming an admin. If not set, the value defaults to 10. The text field is limited to amaximum of 100 characters, so values greater than 100 have no effect.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>ReasonMinLength</string>
+			<key>pfm_title</key>
+			<string>Reason Minimum Length</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_placeholder</key>
 			<string>10</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.0</string>
+			<key>pfm_description</key>
+			<string>A dictionary array containing the relevant server information. Please see https://tools.ietf.org/html/rfc5424#section-6.1 for further information on the options used in the SyslogOptions key.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>RemoteLogging</string>
+			<key>pfm_title</key>
+			<string>Remote Logging</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+			<key>pfm_subkeys</key>
+				<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>ServerType</string>
+					<key>pfm_description</key>
+					<string>The type of the logging server. This is a string value. As of now, syslog is the only supported value. Others may be supported in future releases.</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>syslog</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>ServerAddress</string>
+					<key>pfm_description</key>
+					<string>The address of the logging server. This will usually be an IP address, unless the syslog server is set up to respond using a DNS hostname.</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>IP_ADDRESS or HOSTNAME</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>ServerPort</string>
+					<key>pfm_description</key>
+					<string>This is an integer specifying the port of the logging server. By default, port 514 is used.</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_placeholder</key>
+					<string>514</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>EnableTCP</string>
+					<key>pfm_description</key>
+					<string>This is a boolean value. If set to true, the log messages are sent via TCP instead of UDP. By default, messages are sent via UDP.</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+					<key>pfm_default</key>
+            		<false/>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>SyslogOptions</string>
+					<key>pfm_description</key>
+					<string>A dictionary array containing the relevant server information</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+					<key>pfm_subkeys</key>
+						<array>
+							<dict>
+								<key>pfm_name</key>
+								<string>LogFacility</string>
+								<key>pfm_description</key>
+								<string>An integer specifying the syslog facility. If not specified, defaults to 4 (security).</string>
+								<key>pfm_type</key>
+								<string>integer</string>
+								<key>pfm_value_placeholder</key>
+								<string>4</string>
+							</dict>
+							<dict>
+								<key>pfm_name</key>
+								<string>LogSeverity</string>
+								<key>pfm_description</key>
+								<string>an integer specifying the syslog severity. If not specified, defaults to 6 (informational).</string>
+								<key>pfm_type</key>
+								<string>integer</string>
+								<key>pfm_value_placeholder</key>
+								<string>6</string>
+							</dict>
+							<dict>
+								<key>pfm_name</key>
+								<string>MaximumMessageSize</string>
+								<key>pfm_description</key>
+								<string>an integer specifying the maximum size of the  syslog message (header + event message) If not specified, the value defaults to 480 which is the minimum maximum message size a syslog server must support. If the syslog message is larger than the specified maximum, the message will be truncated at the end.</string>
+								<key>pfm_type</key>
+								<string>integer</string>
+								<key>pfm_value_placeholder</key>
+								<string>480</string>
+							</dict>
+						</array>
+				</dict>
+			</array>
+			</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.0</string>
+			<key>pfm_description</key>
+			<string>Description: Requires authentication before using Privileges.app. If set to true, the logged-in user is prompted to authenticate via Touch ID or by entering their account password. If setting RequireAuthentication, the Toggle Privileges option is automatically disabled.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>RequireAuthentication</string>
+			<key>pfm_title</key>
+			<string>Require Authentication</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_default</key>
+            <false/>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
