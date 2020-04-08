@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-12-10T17:48:00Z</date>
+	<date>2020-04-08T20:22:48Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -177,6 +177,8 @@
 					<string>ImagesBlockedForUrls</string>
 					<string>JavaScriptAllowedForUrls</string>
 					<string>JavaScriptBlockedForUrls</string>
+					<string>LegacySameSiteCookieBehaviorEnabled</string>
+					<string>LegacySameSiteCookieBehaviorEnabledForDomainList</string>
 					<string>NotificationsAllowedForUrls</string>
 					<string>NotificationsBlockedForUrls</string>
 					<string>PluginsAllowedForUrls</string>
@@ -250,6 +252,7 @@
 					<string>AllowFileSelectionDialogs</string>
 					<string>AllowOutdatedPlugins</string>
 					<string>AllowPopupsDuringPageUnload</string>
+					<string>AllowSyncXHRInPageDismissal</string>
 					<string>AllowedDomainsForApps</string>
 					<string>AlternateErrorPagesEnabled</string>
 					<string>AlwaysOpenPdfExternally</string>
@@ -765,7 +768,7 @@ If this policy is left not set, '3' will be used, and the user will be able to c
 			<string>Control use of the WebUSB API</string>
 			<key>pfm_type</key>
 			<string>integer</string>
-		</dict>	
+		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>11</string>
@@ -875,6 +878,72 @@ If this policy is left not set the global default value will be used for all sit
 			</array>
 			<key>pfm_title</key>
 			<string>Block JavaScript on these sites</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Allows you to revert all cookies to legacy SameSite behavior.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
+
+When this policy is not set, the default SameSite behavior for cookies that don't specify a SameSite attribute will depend on the user's personal configuration for the SameSite-by-default feature, which may be set by a field trial or by enabling or disabling the flag same-site-by-default-cookies flag.
+
+1 = Revert to legacy SameSite behavior for cookies on all sites
+2 = Use SameSite-by-default behavior for cookies on all sites</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LegacySameSiteCookieBehaviorEnabled</string>
+			<key>pfm_name</key>
+			<string>LegacySameSiteCookieBehaviorEnabled</string>
+			<key>pfm_note</key>
+			<string>See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Revert to legacy SameSite behavior for cookies on all sites</string>
+				<string>Use SameSite-by-default behavior for cookies on all sites</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable legacy SameSite cookie behavior</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Cookies set for domains matching these patterns will revert to legacy SameSite behavior. For cookies on domains not covered by the patterns specified here, or for all cookies if this policy is not set, the global default value will be used either from the LegacySameSiteCookieBehaviorEnabled policy, if it is set, or the user's personal configuration otherwise.</string>
+			<key>pfm_description_reference</key>
+			<string>Cookies set for domains matching these patterns will revert to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
+
+For cookies on domains not covered by the patterns specified here, or for all cookies if this policy is not set, the global default value will be used either from the LegacySameSiteCookieBehaviorEnabled policy, if it is set, or the user's personal configuration otherwise.
+
+Note that patterns you list here are treated as domains, not URLs, so you should not specify a scheme or port.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LegacySameSiteCookieBehaviorEnabledForDomainList</string>
+			<key>pfm_name</key>
+			<string>LegacySameSiteCookieBehaviorEnabledForDomainList</string>
+			<key>pfm_note</key>
+			<string>See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Domains</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>[*.]example.edu</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable legacy SameSite cookie behavior for list of domains</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2115,6 +2184,8 @@ For a full description of possible settings and structure of this policy please 
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
@@ -2143,6 +2214,8 @@ Starting in Google Chrome 78, this policy will be ignored and treated as disable
 		<dict>
 			<key>pfm_app_min</key>
 			<string>52</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.</string>
 			<key>pfm_description_reference</key>
@@ -2161,6 +2234,8 @@ If this policy set to false, Google Cast will be disabled.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>58</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.</string>
 			<key>pfm_description_reference</key>
@@ -2183,6 +2258,8 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 		<dict>
 			<key>pfm_app_min</key>
 			<string>13</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.</string>
 			<key>pfm_description_reference</key>
@@ -2267,6 +2344,8 @@ If you leave this policy not set Google Chrome will try to detect if a server is
 		<dict>
 			<key>pfm_app_min</key>
 			<string>9</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.</string>
 			<key>pfm_description_reference</key>
@@ -2287,6 +2366,8 @@ If you disable this setting or leave it not set, the canonical name of the serve
 		<dict>
 			<key>pfm_app_min</key>
 			<string>9</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.</string>
 			<key>pfm_description_reference</key>
@@ -2309,6 +2390,8 @@ If you disable this setting or leave it not set, the generated Kerberos SPN will
 		<dict>
 			<key>pfm_app_min</key>
 			<string>73</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy controls whether to enable Legacy Browser Support. When this policy is set to true, Chrome will attempt to launch some URLs in an alternate browser.</string>
 			<key>pfm_description_reference</key>
@@ -2423,6 +2506,8 @@ When this policy is set to a number, Chrome shows a message for that many millis
 		<dict>
 			<key>pfm_app_min</key>
 			<string>74</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy controls whether to close Chrome completely when the last tab would switch to another browser.</string>
 			<key>pfm_description_reference</key>
@@ -2585,6 +2670,8 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 		<dict>
 			<key>pfm_app_min</key>
 			<string>65</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows you to set whether sites with abusive experiences should be prevented from opening new windows or tabs.</string>
 			<key>pfm_description_reference</key>
@@ -2639,6 +2726,8 @@ If this policy is left not set, 2 will be used.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>57</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables deleting browser history and download history in Google Chrome and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -2679,6 +2768,8 @@ If this policy is set to False, users will not be able to play the dinosaur east
 		<dict>
 			<key>pfm_app_min</key>
 			<string>12</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows access to local files on the machine by allowing Google Chrome to display file selection dialogs.</string>
 			<key>pfm_description_reference</key>
@@ -2720,9 +2811,11 @@ If this setting is not set, users will be asked for permission to run outdated p
 		</dict>
 		<dict>
 			<key>pfm_deprecated</key>
-			<string>82</string>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may show popups during its unloading.</string>
 			<key>pfm_description_reference</key>
@@ -2732,13 +2825,41 @@ When the policy is set to enabled, pages are allowed to show popups while they a
 
 When the policy is set to disabled or not set, pages are not allowed to show popups while they are being unloaded, as per the spec (https://html.spec.whatwg.org/#apis-for-creating-and-navigating-browsing-contexts-by-name).
 
-This policy will be removed in Chrome 82.</string>
+This policy will be removed in Chrome 88.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowPopupsDuringPageUnload</string>
 			<key>pfm_name</key>
 			<string>AllowPopupsDuringPageUnload</string>
 			<key>pfm_title</key>
 			<string>Allow a page to show popups during its unloading</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_deprecated</key>
+			<string>88</string>
+			<key>pfm_app_min</key>
+			<string>78</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.
+
+When the policy is set to enabled, pages are allowed to send synchronous XHR requests during page dismissal.
+
+When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
+
+This policy will be removed in Chrome 88.
+
+See https://www.chromestatus.com/feature/4664843055398912 .</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowSyncXHRInPageDismissal</string>
+			<key>pfm_name</key>
+			<string>AllowSyncXHRInPageDismissal</string>
+			<key>pfm_title</key>
+			<string>Allows a page to perform synchronous XHR requests during page dismissal.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2805,6 +2926,8 @@ If this policy is left not set, this will be enabled but the user will be able t
 		<dict>
 			<key>pfm_app_min</key>
 			<string>55</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables the internal PDF viewer in Google Chrome. Instead it treats it as download and allows the user to open PDF files with the default application.</string>
 			<key>pfm_description_reference</key>
@@ -2823,6 +2946,8 @@ If this policy is left not set or disabled the PDF plugin will be used to open P
 		<dict>
 			<key>pfm_app_min</key>
 			<string>25</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If enabled or not configured (default), the user will be prompted for audio capture access except for URLs configured in the AudioCaptureAllowedUrls list which will be granted access without prompting.</string>
 			<key>pfm_description_reference</key>
@@ -2872,6 +2997,8 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
@@ -2898,6 +3025,8 @@ If you enable this setting or do not set a value, AutoFill will remain under the
 		<dict>
 			<key>pfm_app_min</key>
 			<string>69</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
@@ -2918,6 +3047,8 @@ If this setting is enabled or has no value, the user will be able to control Aut
 		<dict>
 			<key>pfm_app_min</key>
 			<string>63</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
@@ -2960,6 +3091,8 @@ If this setting is left not set the user can decide to use this function or not.
 		<dict>
 			<key>pfm_app_min</key>
 			<string>39</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or not configured, Google Chrome will allow Add Person from the user manager.</string>
 			<key>pfm_description_reference</key>
@@ -2978,6 +3111,8 @@ If this policy is set to false, Google Chrome will not allow creation of new pro
 		<dict>
 			<key>pfm_app_min</key>
 			<string>38</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or not configured, Google Chrome will enable guest logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
@@ -2996,6 +3131,8 @@ If this policy is set to false, Google Chrome will not allow guest profiles to b
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this policy is set to enabled, Google Chrome will enforce guest sessions and prevents profile logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
@@ -3014,6 +3151,8 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 		<dict>
 			<key>pfm_app_min</key>
 			<string>60</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Setting this policy to false stops Google Chrome from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
 			<key>pfm_description_reference</key>
@@ -3212,6 +3351,8 @@ The value of this policy is an Enrollment token that can be retrieved from the G
 		<dict>
 			<key>pfm_app_min</key>
 			<string>72</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Chrome launch process if failed.</string>
 			<key>pfm_description_reference</key>
@@ -3232,6 +3373,8 @@ This policy is used by machine scope cloud policy enrollment on desktop and can 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>75</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If the policy is set to true, cloud policy takes precedence if it conflicts with platform policy. If the policy is set to false or not configured, platform policy takes precedence if it conflicts with cloud policy.</string>
 			<key>pfm_description_reference</key>
@@ -3252,6 +3395,8 @@ This policy is only available as a mandatory machine platform policy and it only
 		<dict>
 			<key>pfm_app_min</key>
 			<string>76</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If disabled, prevents security warnings from appearing when Chrome is launched with some potentially dangerous command-line flags.</string>
 			<key>pfm_description_reference</key>
@@ -3274,6 +3419,8 @@ On Windows, this policy is only available on instances that are joined to a Micr
 		<dict>
 			<key>pfm_app_min</key>
 			<string>54</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables component updates for all components in Google Chrome when not set or set to True.</string>
 			<key>pfm_description_reference</key>
@@ -3377,6 +3524,8 @@ If this policy is set to 'DeveloperToolsDisallowed' (value 2), the Developer Too
 		<dict>
 			<key>pfm_app_min</key>
 			<string>9</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Enabling this setting prevents web pages from accessing the graphics processing unit (GPU). Specifically, web pages can not access the WebGL API and plugins can not use the Pepper 3D API.</string>
 			<key>pfm_description_reference</key>
@@ -3397,6 +3546,8 @@ If HardwareAccelerationModeEnabled is set to false, Disable3DAPIs is ignored and
 		<dict>
 			<key>pfm_app_min</key>
 			<string>22</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>The Safe Browsing service shows a warning page when users navigate to sites that are flagged as potentially malicious. Enabling this setting prevents users from proceeding anyway from the warning page to the malicious site.</string>
 			<key>pfm_description_reference</key>
@@ -3417,6 +3568,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 		<dict>
 			<key>pfm_app_min</key>
 			<string>22</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If enabled, screenshots cannot be taken using keyboard shortcuts or extension APIs.</string>
 			<key>pfm_description_reference</key>
@@ -3673,6 +3826,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 		<dict>
 			<key>pfm_app_min</key>
 			<string>12</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If you enable this setting, bookmarks can be added, removed or modified. This is the default also when this policy is not set.</string>
 			<key>pfm_description_reference</key>
@@ -3722,6 +3877,8 @@ While the policy itself is supported on the above platforms, the feature it is e
 		<dict>
 			<key>pfm_app_min</key>
 			<string>19</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Google Chrome version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.</string>
 			<key>pfm_description_reference</key>
@@ -3766,11 +3923,20 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<key>pfm_title</key>
 			<string>Enabled Plugins</string>
 			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>array</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>71</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>When this policy is set to enabled, extensions installed by enterprise policy are allowed to use the Enterprise Hardware Platform API.</string>
 			<key>pfm_description_reference</key>
@@ -3787,6 +3953,8 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
@@ -3811,6 +3979,8 @@ If this policy is set to false or not configured, user can use the browser witho
 		<dict>
 			<key>pfm_app_min</key>
 			<string>32</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to enabled this policy forces the profile to be switched to ephemeral mode. If this policy is specified as an OS policy (e.g. GPO on Windows) it will apply to every profile on the system; if the policy is set as a Cloud policy it will apply only to a profile signed in with a managed account.</string>
 			<key>pfm_description_reference</key>
@@ -3833,6 +4003,8 @@ If the policy is set to disabled or left not set signing in leads to regular pro
 		<dict>
 			<key>pfm_app_min</key>
 			<string>41</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Forces queries in Google Web Search to be done with SafeSearch set to active and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -3852,6 +4024,8 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 		</dict>
 		<dict>
 			<!-- Documentation does not have an explicit version listed for deprecation -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>30</string>
 			<key>pfm_app_min</key>
@@ -3914,6 +4088,8 @@ If this setting is set to Off or no value is set, Restricted Mode on YouTube is 
 		</dict>
 		<dict>
 			<!-- Documentation does not have an explicit version listed for deprecation -->
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>45</string>
 			<key>pfm_app_min</key>
@@ -3942,6 +4118,8 @@ If this setting is disabled or no value is set, Restricted Mode on YouTube is no
 		<dict>
 			<key>pfm_app_min</key>
 			<string>46</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is blacklisted.</string>
 			<key>pfm_description_reference</key>
@@ -3960,6 +4138,8 @@ If this policy is set to false, hardware acceleration will be disabled.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>26</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Google Chrome OS app launcher.</string>
 			<key>pfm_description_reference</key>
@@ -3978,6 +4158,8 @@ When this policy is set to false or is not configured, the icons are visible.</s
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
@@ -4024,6 +4206,8 @@ If it is not set, the user may be asked whether to import, or importing may happ
 		<dict>
 			<key>pfm_app_min</key>
 			<string>15</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy forces bookmarks to be imported from the current default browser if enabled. If enabled, this policy also affects the import dialog.</string>
 			<key>pfm_description_reference</key>
@@ -4123,6 +4307,8 @@ If it is not set, the user may be asked whether to import, or importing may happ
 		</dict>
 		<dict>
 			<!-- Documentation does not have an explicit version listed for deprecation -->
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
@@ -4205,6 +4391,8 @@ NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android
 		</dict>
 		<dict>
 			<!-- Documentation does not have an explicit version listed for deprecation -->
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
@@ -4609,6 +4797,8 @@ If a policy is not in the list, in case there is any conflict between sources, s
 		<dict>
 			<key>pfm_app_min</key>
 			<string>69</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Google Chrome.</string>
 			<key>pfm_description_reference</key>
@@ -4772,6 +4962,8 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 		<dict>
 			<key>pfm_app_min</key>
 			<string>43</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or not set usage of QUIC protocol in Google Chrome is allowed.
 If this policy is set to false usage of QUIC protocol is disallowed.</string>
@@ -4866,6 +5058,8 @@ If this policy is left not set or blank, then any user can sign in to Google Chr
 		<dict>
 			<key>pfm_app_min</key>
 			<string>63</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this setting, all Flash content embedded on websites that have been set to allow Flash in content settings -- either by the user or by enterprise policy -- will be run, including content from other origins or small content.</string>
 			<key>pfm_description_reference</key>
@@ -4886,6 +5080,8 @@ If this setting is disabled or not set, Flash content from other origins or smal
 		<dict>
 			<key>pfm_app_min</key>
 			<string>44</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Chrome shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
 Setting this policy to false disallows users to click through any warning page.</string>
@@ -4971,6 +5167,8 @@ When this policy is set to "Filter top level sites for adult content", sites cla
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -5060,6 +5258,8 @@ If this policy is configured then the user can't change it, and the apps shortcu
 		<dict>
 			<key>pfm_app_min</key>
 			<string>75</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable support for Signed HTTP Exchange (SXG).</string>
 			<key>pfm_description_reference</key>
@@ -5201,6 +5401,8 @@ This policy should not be enabled when RoamingProfileSupportEnabled policy is se
 		<dict>
 			<key>pfm_app_min</key>
 			<string>52</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If set to false, the 'End process' button is disabled in the Task Manager.</string>
 			<key>pfm_description_reference</key>
@@ -5374,6 +5576,8 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Google.</string>
 			<key>pfm_description_reference</key>
@@ -5416,6 +5620,8 @@ If this policy is left not set the default profile path will be used and the use
 		<dict>
 			<key>pfm_app_min</key>
 			<string>25</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If enabled or not configured (default), the user will be prompted for
 video capture access except for URLs configured in the
@@ -5472,6 +5678,8 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>35</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.</string>
 			<key>pfm_description_reference</key>
@@ -5552,6 +5760,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_min</key>
 			<string>65</string>
 			<key>pfm_description</key>
@@ -5729,6 +5939,8 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 		<dict>
 			<key>pfm_app_min</key>
 			<string>17</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Google Chrome to act as a proxy between Google Cloud Print and legacy printers connected to the machine.</string>
 			<key>pfm_description_reference</key>
@@ -5749,6 +5961,8 @@ If this setting is disabled, users cannot enable the proxy, and the machine will
 		<dict>
 			<key>pfm_app_min</key>
 			<string>17</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Google Chrome to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Google Chrome.  It does not prevent users from submitting print jobs on web sites.</string>
 			<key>pfm_description_reference</key>
@@ -5815,6 +6029,8 @@ Regular expression patterns must follow the JavaScript RegExp syntax and matches
 		<dict>
 			<key>pfm_app_min</key>
 			<string>18</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Show the system print dialog instead of print preview.</string>
 			<key>pfm_description_reference</key>
@@ -5857,6 +6073,8 @@ If the policy is set to true, 'Headers and footers' is selected in the print pre
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables printing in Google Chrome and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -5877,6 +6095,8 @@ If this setting is disabled, users cannot print from Google Chrome. Printing is 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>61</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Causes Google Chrome to use the system default printer as the default choice in Print Preview instead of the most recently used printer.</string>
 			<key>pfm_description_reference</key>
@@ -6076,6 +6296,8 @@ Leaving this policy not set will allow the users to choose the proxy settings on
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this setting is enabled or not configured, then users can opt to pair clients and hosts at connection time, eliminating the need to enter a PIN every time.</string>
 			<key>pfm_description_reference</key>
@@ -6094,6 +6316,8 @@ If this setting is disabled, then this feature will not be available.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>35</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this setting is enabled, then gnubby authentication requests will be proxied across a remote host connection.</string>
 			<key>pfm_description_reference</key>
@@ -6112,6 +6336,8 @@ If this setting is disabled or not configured, gnubby authentication requests wi
 		<dict>
 			<key>pfm_app_min</key>
 			<string>36</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables usage of relay servers when remote clients are trying to establish a connection to this machine.</string>
 			<key>pfm_description_reference</key>
@@ -6252,6 +6478,8 @@ See also RemoteAccessHostClientDomainList.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>14</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Enables usage of STUN servers when remote clients are trying to establish a connection to this machine.</string>
 			<key>pfm_description_reference</key>
@@ -6274,6 +6502,8 @@ If this policy is left not set the setting will be enabled.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>25</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this setting is enabled, then the remote access host compares the name of the local user (that the host is associated with) and the name of the Google account registered as the host owner (i.e. "johndoe" if the host is owned by "johndoe@example.com" Google account).  The remote access host will not start if the name of the host owner is different from the name of the local user that the host is associated with.  RemoteAccessHostMatchUsername policy should be used together with RemoteAccessHostDomain to also enforce that the Google account of the host owner is associated with a specific domain (i.e. "example.com").</string>
 			<key>pfm_description_reference</key>
@@ -6292,6 +6522,8 @@ If this setting is disabled or not set, then the remote access host can be assoc
 		<dict>
 			<key>pfm_app_min</key>
 			<string>23</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Enables curtaining of remote access hosts while a connection is in progress.</string>
 			<key>pfm_description_reference</key>
@@ -6605,6 +6837,8 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_app_deprecated</key>
 			<string></string>
 			<key>pfm_app_min</key>
@@ -6861,6 +7095,8 @@ URL patterns in this policy should not clash with ones configured via WebUsbAskF
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>68</string>
 			<key>pfm_app_min</key>
@@ -6897,6 +7133,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>3</integer>
+	<integer>5</integer>
 </dict>
 </plist>
