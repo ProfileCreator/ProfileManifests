@@ -1016,6 +1016,42 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<key>pfm_value_unit</key>
 			<string>bytes per second</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<real>.20</real>
+			<key>pfm_description_reference</key>
+			<string>The percentage of attenuation added to the upload time. Clamped minimum is 0% attenuation. Values too large will exceed the ImportTimeout and cause failures.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ImportTimeout</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>ImportRateAttenuation</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>1</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Import Rate Attenuation</string>
+			<key>pfm_type</key>
+			<string>real</string>
+			<key>pfm_value_unit</key>
+			<string>percent</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
