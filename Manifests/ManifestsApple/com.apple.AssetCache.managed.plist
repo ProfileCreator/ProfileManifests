@@ -898,6 +898,28 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>5</integer>
+			<key>pfm_description_reference</key>
+			<string>How often the content cache saves changes to its on-disk database. Raising the interval increases the risk of losing cached content after a power failure. The maximum is 3600 seconds (1 hour). An interval of 0 means always update the database immediately, with no delay, which decreases performance.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>DatabaseUpdateInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Cache Database Update Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
