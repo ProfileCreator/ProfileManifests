@@ -1187,6 +1187,34 @@ Requests that are too deep (forwarding chain is too long) are forced to the orig
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>60</integer>
+			<key>pfm_description_reference</key>
+			<string>How often, in seconds, to add a row of metrics to the metrics database in /Library/Application Support/Apple/AssetCache/Metrics/Metrics.db.
+
+- If the value is &gt; 1, metrics are added at the top of each interval. For example, at 60 seconds, metrics are added at the top of each minute.
+- Flushing the cache flushes out the current row of metrics (if any).
+- No metrics are added while content caching is idle.
+
+Clamped between 1-60 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MetricsInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>60</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Metrics Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
