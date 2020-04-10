@@ -1153,6 +1153,24 @@ Note that ListenRanges could be automatically generated from LocalSubnetsOnly, a
 			<key>pfm_value_unit</key>
 			<string>clients</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>8</integer>
+			<key>pfm_description_reference</key>
+			<string>The maximum number of times, for a single request, that a child content cache will forward the request to a parent content cache.
+
+Requests that are too deep (forwarding chain is too long) are forced to the origin rather than to a parent.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MaxParentDepth</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Parent Depth</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
