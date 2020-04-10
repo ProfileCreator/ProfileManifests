@@ -867,6 +867,26 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>days</string>
 		</dict>
 		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportMaxRate</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportMinRate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description_reference</key>
@@ -959,6 +979,42 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
 			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description_reference</key>
+			<string>The maximum number of bytes per second at which the content cache receives data from each client. A value of 0 indicates an unlimited number of bytes per second.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ImportMaxRate</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Import Rate</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes per second</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>2000</integer>
+			<key>pfm_description_reference</key>
+			<string>The minimum number of bytes per second that clients must sustain while importing (uploading) content. The content cache stops imports that transfer data slower than this rate. The minimum rate is 100 bytes per second.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ImportMinRate</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Min Import Rate</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes per second</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
