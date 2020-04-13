@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-02-06T10:00:00Z</date>
+	<date>2020-04-12T16:30:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -209,6 +209,7 @@
 				</array>
 				<key>Extensions</key>
 				<array>
+					<string>BlockExternalExtensions</string>
 					<string>ExtensionAllowInsecureUpdates</string>
 					<string>ExtensionAllowedTypes</string>
 					<string>ExtensionInstallBlacklist</string>
@@ -247,6 +248,7 @@
 				<array>
 					<string>AbusiveExperienceInterventionEnforce</string>
 					<string>AdsSettingForIntrusiveAdsSites</string>
+					<string>AdvancedProtectionDeepScanningEnabled</string>
 					<string>AllowDeletingBrowserHistory</string>
 					<string>AllowDinosaurEasterEgg</string>
 					<string>AllowFileSelectionDialogs</string>
@@ -256,6 +258,7 @@
 					<string>AllowedDomainsForApps</string>
 					<string>AlternateErrorPagesEnabled</string>
 					<string>AlwaysOpenPdfExternally</string>
+					<string>AmbientAuthenticationInPrivateModesEnabled</string>
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
 					<string>AutoFillEnabled</string>
@@ -289,6 +292,7 @@
 					<string>DisabledSchemes</string>
 					<string>DiskCacheDir</string>
 					<string>DiskCacheSize</string>
+					<string>DNSInterceptionChecksEnabled</string>
 					<string>DownloadDirectory</string>
 					<string>DownloadRestrictions</string>
 					<string>EditBookmarksEnabled</string>
@@ -299,9 +303,11 @@
 					<string>ForceBrowserSignin</string>
 					<string>ForceEphemeralProfiles</string>
 					<string>ForceGoogleSafeSearch</string>
+					<string>ForceLegacyDefaultReferrerPolicy</string>
 					<string>ForceSafeSearch</string>
 					<string>ForceYouTubeRestrict</string>
 					<string>ForceYouTubeSafetyMode</string>
+					<string>GloballyScopeHTTPAuthCacheEnabled</string>
 					<string>HardwareAccelerationModeEnabled</string>
 					<string>HideWebStoreIcon</string>
 					<string>Http09OnNonDefaultPortsEnabled</string>
@@ -315,6 +321,7 @@
 					<string>IncognitoModeAvailability</string>
 					<string>IsolateOrigins</string>
 					<string>JavascriptEnabled</string>
+					<string>LocalDiscoveryEnabled</string>
 					<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
 					<string>ManagedBookmarks</string>
 					<string>MaxConnectionsPerProxy</string>
@@ -322,7 +329,9 @@
 					<string>MediaRouterCastAllowAllIPs</string>
 					<string>MetricsReportingEnabled</string>
 					<string>NetworkPredictionOptions</string>
+					<string>NTPCustomBackgroundEnabled</string>
 					<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
+					<string>PaymentMethodQueryEnabled</string>
 					<string>PolicyDictionaryMultipleSourceMergeList</string>
 					<string>PolicyListMultipleSourceMergeList</string>
 					<string>PromotionalTabsEnabled</string>
@@ -339,12 +348,14 @@
 					<string>SavingBrowserHistoryDisabled</string>
 					<string>SearchSuggestEnabled</string>
 					<string>SecurityKeyPermitAttestation</string>
+					<string>ScreenCaptureAllowed</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
 					<string>SitePerProcess</string>
 					<string>SpellCheckServiceEnabled</string>
 					<string>SpellcheckEnabled</string>
+					<string>StricterMixedContentTreatmentEnabled</string>
 					<string>SuppressUnsupportedOSWarning</string>
 					<string>SyncDisabled</string>
 					<string>TaskManagerEndProcessEnabled</string>
@@ -359,6 +370,7 @@
 					<string>VideoCaptureAllowedUrls</string>
 					<string>WPADQuickCheckEnabled</string>
 					<string>WebAppInstallForceList</string>
+					<string>WebComponentsV0Enabled</string>
 					<string>WebDriverOverridesIncompatiblePolicies</string>
 					<string>WebRtcEventLogCollectionAllowed</string>
 					<string>WebRtcUdpPortRange</string>
@@ -380,7 +392,10 @@
 					<string>DefaultPrinterSelection</string>
 					<string>DisablePrintPreview</string>
 					<string>PrintHeaderFooter</string>
+					<string>PrinterTypeDenyList</string>
 					<string>PrintPreviewUseSystemDefaultPrinter</string>
+					<string>PrintingAllowedBackgroundGraphicsModes</string>
+					<string>PrintingBackgroundGraphicsDefault</string>
 					<string>PrintingEnabled</string>
 				</array>
 				<key>Proxy Server</key>
@@ -2184,6 +2199,28 @@ For a full description of possible settings and structure of this policy please 
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Blocks external extensions from being installed.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls external extensions installation.
+
+Enabling this setting blocks external extensions from being installed.
+
+Disabling this setting or leaving it unset allows external extensions to be installed.
+
+External extensions and their installation are documented at https://developer.chrome.com/apps/external_extensions.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BlockExternalExtensions</string>
+			<key>pfm_name</key>
+			<string>BlockExternalExtensions</string>
+			<key>pfm_title</key>
+			<string>Block external extensions</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
@@ -2707,6 +2744,22 @@ If this policy is left not set, 2 will be used.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>This policy controls whether users enrolled in the Advanced Protection program are allowed to send their downloads to Google for malware scanning. If set to True or not set, enrolled users will be be prompted to send their files to Google for deep scanning. If the user selects 'Scan', their download will be sent to Google. If set to False, users will not be prompted and their downloads will not be sent to Google.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls whether users enrolled in the Advanced Protection program are allowed to send their downloads to Google for malware scanning. If set to True or not set, enrolled users will be be prompted to send their files to Google for deep scanning. If the user selects 'Scan', their download will be sent to Google. If set to False, users will not be prompted and their downloads will not be sent to Google.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AdvancedProtectionDeepScanningEnabled</string>
+			<key>pfm_name</key>
+			<string>AdvancedProtectionDeepScanningEnabled</string>
+			<key>pfm_title</key>
+			<string>Advanced Protection Deep Scanning</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>57</string>
 			<key>pfm_description</key>
 			<string>Enables deleting browser history and download history in Google Chrome and prevents users from changing this setting.</string>
@@ -2914,6 +2967,55 @@ If this policy is left not set or disabled the PDF plugin will be used to open P
 			<string>Always Open PDF files externally</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Google Chrome.</string>
+			<key>pfm_description_reference</key>
+			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Google Chrome.
+
+Ambient Authentication is http authentication with default credentials if explicit credentials are not provided via NTLM/Kerberos/Negotiate challenge/response schemes.
+
+Setting the RegularOnly (value 0), allows ambient authentication for Regular sessions only. Incognito and Guest sessions wouldn't be allowed to ambiently authenticate.
+
+Setting the IncognitoAndRegular (value 1), allows ambient authentication for Incognito and Regular sessions. Guest sessions wouldn't be allowed to ambiently authenticate.
+
+Setting the GuestAndRegular (value 2), allows ambient authentication for Guest and Regular sessions. Incognito sessions wouldn't be allowed to ambiently authenticate.
+
+Setting the All (value 3), allows ambient authentication for all sessions.
+
+Note that, ambient authentication is always allowed on regular profiles.
+
+If the policy is left not set, then the Incognito and Guest sessions will not be able to ambiently authenticate in the future releases of Google Chrome, as they will be disallowed.
+
+0 = Enable ambient authentication in regular sessions only.
+1 = Enable ambient authentication in incognito and regular sessions.
+2 = Enable ambient authentication in guest and regular sessions.
+3 = Enable ambient authentication in regular, incognito and guest sessions.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AmbientAuthenticationInPrivateModesEnabled</string>
+			<key>pfm_name</key>
+			<string>AmbientAuthenticationInPrivateModesEnabled</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Enable in regular sessions only</string>
+				<string>Enable in incognito and regular sessions</string>
+				<string>Enable in guest and regular sessions</string>
+				<string>Enable in regular, incognito and guest sessions</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Ambient Authentication</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -3693,6 +3795,26 @@ If this policy is not set the default size will be used and the user will be abl
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>This policy configures a local switch that can be used to disable DNS interception checks. The checks attempt to discover whether the browser is behind a proxy that redirects unknown host names.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy configures a local switch that can be used to disable DNS interception checks. The checks attempt to discover whether the browser is behind a proxy that redirects unknown host names.
+
+This detection may not be necessary in an enterprise environment where the network configuration is known, since it causes some amount of DNS and HTTP traffic on start-up and each DNS configuration change.
+
+When this policy is not set, or is enabled, the DNS interception checks are performed. When explicitly disabled, they're not.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DNSInterceptionChecksEnabled</string>
+			<key>pfm_name</key>
+			<string>DNSInterceptionChecksEnabled</string>
+			<key>pfm_title</key>
+			<string>DNS Interception Checks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>11</string>
 			<key>pfm_description</key>
 			<string>Configures the directory that Google Chrome will use for downloading files. If you set this policy, Google Chrome will use the provided directory regardless whether the user has specified one or enabled the flag to be prompted for download location every time. If this policy is left not set the default download directory will be used and the user will be able to change it.
@@ -3967,6 +4089,56 @@ If you disable this setting or do not set a value, SafeSearch in Google Search a
 			<string>ForceSafeSearch</string>
 			<key>pfm_title</key>
 			<string>Force SafeSearch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>82</string>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This enterprise policy is for short-term adaptation and will be removed in M82.</string>
+			<key>pfm_description_reference</key>
+			<string>This enterprise policy is for short-term adaptation and will be removed in M82.
+
+Chrome's default referrer policy is being strengthened from its current value of no-referrer-when-downgrade to the more secure strict-origin-when-cross-origin through a gradual rollout targeting M80 stable.
+
+Before the rollout, this enterprise policy will have no effect. After the rollout, when this enterprise policy is enabled, Chrome's default referrer policy will be set to its pre-M80 value of no-referrer-when-downgrade.
+
+This enterprise policy is disabled by default.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ForceLegacyDefaultReferrerPolicy</string>
+			<key>pfm_name</key>
+			<string>ForceLegacyDefaultReferrerPolicy</string>
+			<key>pfm_title</key>
+			<string>Force Legacy Default Referrer</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>This policy configures a single global per profile cache with HTTP server authentication credentials.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy configures a single global per profile cache with HTTP server authentication credentials.
+
+If this policy is unset or disabled, the browser will use the default behavior of cross-site auth, which as of version 80, will be to scope HTTP server authentication credentials by top-level site, so if two sites use resources from the same authenticating domain, credentials will need to be provided independently in the context of both sites. Cached proxy credentials will be reused across sites.
+
+If the policy is enabled, HTTP auth credentials entered in the context of one site will automatically be used in the context of another.
+
+Enabling this policy leaves sites open to some types of cross-site attacks, and allows users to be tracked across sites even without cookies by adding entries to the HTTP auth cache using credentials embedded in URLs.
+
+This policy is intended to give enterprises depending on the legacy behavior a chance to update their login procedures, and will be removed in the future.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=GloballyScopeHTTPAuthCacheEnabled</string>
+			<key>pfm_name</key>
+			<string>GloballyScopeHTTPAuthCacheEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable globally scoped HTTP auth cache</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -4326,6 +4498,22 @@ If this setting is enabled or not set, web pages can use JavaScript but the user
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Google Chrome OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Google Chrome OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LocalDiscoveryEnabled</string>
+			<key>pfm_name</key>
+			<string>LocalDiscoveryEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable chrome://devices</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>72</string>
 			<key>pfm_app_min</key>
@@ -4588,6 +4776,24 @@ If this policy is left not set, network prediction will be enabled but the user 
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Allow users to customize the background on the New Tab page</string>
+			<key>pfm_description_reference</key>
+			<string>If the policy is set to false, the New Tab page won't allow users to customize the background. Any existing custom background will be permanently removed even if the policy is set to true later.
+
+If the policy is set to true or unset, users can customize the background on the New Tab page.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NTPCustomBackgroundEnabled</string>
+			<key>pfm_name</key>
+			<string>NTPCustomBackgroundEnabled</string>
+			<key>pfm_title</key>
+			<string>Allow New Tab page background customization</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>69</string>
 			<key>pfm_description</key>
 			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
@@ -4616,6 +4822,26 @@ For more information on secure contexts, see https://www.w3.org/TR/secure-contex
 			<string>Origins or hostname patterns to be treated as secure context.</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Allows you to set whether websites are allowed to check if the user has payment methods saved.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to set whether websites are allowed to check if the user has payment methods saved.
+
+If this policy is set to disabled, websites that use PaymentRequest.canMakePayment or PaymentRequest.hasEnrolledInstrument API will be informed that no payment methods are available.
+
+If the setting is enabled or not set then websites are allowed to check if the user has payment methods saved.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PaymentMethodQueryEnabled</string>
+			<key>pfm_name</key>
+			<string>PaymentMethodQueryEnabled</string>
+			<key>pfm_title</key>
+			<string>Payment Method Query</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5134,6 +5360,24 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.</string>
+			<key>pfm_description_reference</key>
+			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.
+
+When this policy is disabled, any calls to screen-share APIs will fail with an error.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ScreenCaptureAllowed</string>
+			<key>pfm_name</key>
+			<string>ScreenCaptureAllowed</string>
+			<key>pfm_title</key>
+			<string>Screen Capture</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>37</string>
 			<key>pfm_description</key>
 			<string>Enables or disables the apps shortcut in the bookmark bar.</string>
@@ -5250,6 +5494,24 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<string>SpellcheckEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable spellcheck</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Google Chrome 84.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Google Chrome 84.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=StricterMixedContentTreatmentEnabled</string>
+			<key>pfm_name</key>
+			<string>StricterMixedContentTreatmentEnabled</string>
+			<key>pfm_title</key>
+			<string>Stricter Mixed Content Treatment</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -5647,6 +5909,30 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.</string>
+			<key>pfm_description_reference</key>
+			<string>The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
+
+If this policy is set to True, the Web Components v0 features will be enabled for all sites.
+
+If this policy is set to False or not set, the Web Components v0 features will be disabled by default, starting in M80.
+
+This policy will be removed after Chrome 84.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebComponentsV0Enabled</string>
+			<key>pfm_name</key>
+			<string>WebComponentsV0Enabled</string>
+			<key>pfm_title</key>
+			<string>Re-enable Web Components v0 API until M84</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>65</string>
 			<key>pfm_description</key>
@@ -5948,6 +6234,126 @@ If the policy is set to true, 'Headers and footers' is selected in the print pre
 			<string>Print Headers &amp; Footers</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>The printers of types placed on the deny list will be disabled from being discovered or having their capabilities fetched.</string>
+			<key>pfm_description_reference</key>
+			<string>The printers of types placed on the deny list will be disabled from being discovered or having their capabilities fetched.
+
+Placing all printer types on the deny list effectively disables printing, as there would be no available destinations to send a document for printing.
+
+Including cloud on the deny list has the same effect as setting the CloudPrintSubmitEnabled policy to false. In order to keep Google Cloud Print destinations discoverable, the CloudPrintSubmitEnabled policy must be set to true and cloud must not be on the deny list.
+
+If the policy is not set, or is set to an empty list, all printer types will be available for discovery.
+
+Extension printers are also known as print provider destinations, and include any destination that belongs to a Google Chrome extension.
+
+Local printers are also known as native printing destinations, and include destinations available to the local machine and shared network printers.
+
+privet = Zeroconf-based (mDNS + DNS-SD) protocol destinations
+extension = Extension-based destinations
+pdf = The 'Save as PDF' destination
+local = Local printer destinations
+cloud = Google Cloud Print and 'Save to Google Drive' destinations</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PrinterTypeDenyList</string>
+			<key>pfm_name</key>
+			<string>PrinterTypeDenyList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_range_list</key>
+					<array>
+						<string>privet</string>
+						<string>extension</string>
+						<string>pdf</string>
+						<string>local</string>
+						<string>cloud</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Zeroconf-based (mDNS + DNS-SD) protocol destinations</string>
+						<string>Extension-based destinations</string>
+						<string>The 'Save as PDF' destination</string>
+						<string>Local printer destinations</string>
+						<string>Google Cloud Print and 'Save to Google Drive' destinations</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Printer Type</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_unique</key>
+					<true/>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Printer Type Deny List</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Restricts background graphics printing mode. Unset policy is treated as no restriction.</string>
+			<key>pfm_description_reference</key>
+			<string>Restricts background graphics printing mode. Unset policy is treated as no restriction.
+
+any = Allow printing both with and without background graphcis
+enabled = Allow printing only with background graphics
+disabled = Allow printing only without background graphics</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PrintingAllowedBackgroundGraphicsModes</string>
+			<key>pfm_name</key>
+			<string>PrintingAllowedBackgroundGraphicsModes</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>any</string>
+				<string>enabled</string>
+				<string>disabled</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Allow printing both with and without background graphics</string>
+				<string>Allow printing only with background graphics</string>
+				<string>Allow printing only without background graphics</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Background graphics printing mode</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>80</string>
+			<key>pfm_description</key>
+			<string>Overrides default background graphics printing mode.</string>
+			<key>pfm_description_reference</key>
+			<string>Overrides default background graphics printing mode.
+
+enabled = Enable background graphics printing mode by default
+disabled = Disable background graphics printing mode by default</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PrintingBackgroundGraphicsDefault</string>
+			<key>pfm_name</key>
+			<string>PrintingBackgroundGraphicsDefault</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>enabled</string>
+				<string>disabled</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Enabled</string>
+				<string>Disabled</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Default background graphics printing mode</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -6992,6 +7398,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>6</integer>
 </dict>
 </plist>
