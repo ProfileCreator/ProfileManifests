@@ -6,6 +6,8 @@
 		<string>macOS Restrictions preferences</string>
 		<key>pfm_description_reference</key>
 		<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
+		<key>pfm_documentation_url</key>
+		<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
 		<key>pfm_domain</key>
 		<string>com.apple.applicationaccess</string>
 		<key>pfm_format_version</key>
@@ -13,7 +15,7 @@
 		<key>pfm_interaction</key>
 		<string>combined</string>
 		<key>pfm_last_modified</key>
-		<date>2020-01-29T15:27:09Z</date>
+		<date>2020-04-13T17:11:00Z</date>
 		<key>pfm_note</key>
 		<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 		<key>pfm_platforms</key>
@@ -206,6 +208,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.14</string>
 				<key>pfm_name</key>
 				<string>allowPasswordAutoFill</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow password AutoFill</string>
 				<key>pfm_type</key>
@@ -302,6 +306,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.12</string>
 				<key>pfm_name</key>
 				<string>allowMusicService</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow Apple Music</string>
 				<key>pfm_type</key>
@@ -382,6 +388,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.11</string>
 				<key>pfm_name</key>
 				<string>allowCloudDocumentSync</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow iCloud Drive</string>
 				<key>pfm_type</key>
@@ -510,6 +518,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.11</string>
 				<key>pfm_name</key>
 				<string>allowSpotlightInternetResults</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow Siri Suggestions</string>
 				<key>pfm_type</key>
@@ -542,6 +552,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.11.2</string>
 				<key>pfm_name</key>
 				<string>allowDefinitionLookup</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow definition lookup</string>
 				<key>pfm_type</key>
@@ -590,6 +602,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>10.14</string>
 				<key>pfm_name</key>
 				<string>allowPasswordSharing</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow password sharing</string>
 				<key>pfm_type</key>
@@ -608,6 +622,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>allowAirPrintiBeaconDiscovery</string>
 				<key>pfm_note</key>
 				<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow discovery of AirPrint printers using iBeacons</string>
 				<key>pfm_type</key>
@@ -626,6 +642,8 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>forceAirPrintTrustedTLSRequirement</string>
 				<key>pfm_note</key>
 				<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Disallow AirPrint to destinations with untrusted certificates</string>
 				<key>pfm_type</key>
@@ -700,6 +718,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.14.4</string>
 				<key>pfm_name</key>
 				<string>forceClassroomUnpromptedScreenObservation</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow Classroom app to perform AirPlay and View Screen without prompting</string>
 				<key>pfm_type</key>
@@ -716,6 +736,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.14.4</string>
 				<key>pfm_name</key>
 				<string>forceClassroomUnpromptedAppAndDeviceLock</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow Clasroom to lock to an app and lock the device without prompting</string>
 				<key>pfm_type</key>
@@ -732,6 +754,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.14.4</string>
 				<key>pfm_name</key>
 				<string>forceClassroomAutomaticallyJoinClasses</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Automatically join Classroom classes without prompting</string>
 				<key>pfm_type</key>
@@ -748,6 +772,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.14.4</string>
 				<key>pfm_name</key>
 				<string>forceClassroomRequestPermissionToLeaveClasses</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Require teacher permission to leave Classroom app unmanaged classes</string>
 				<key>pfm_type</key>
@@ -764,6 +790,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.14</string>
 				<key>pfm_name</key>
 				<string>allowPasswordProximityRequests</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Allow proximity based password sharing requests</string>
 				<key>pfm_type</key>
@@ -780,6 +808,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<string>10.13.4</string>
 				<key>pfm_name</key>
 				<string>forceDelayedSoftwareUpdates</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Defer Software Updates</string>
 				<key>pfm_type</key>
@@ -816,12 +846,14 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<integer>90</integer>
 				<key>pfm_range_min</key>
 				<integer>1</integer>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_title</key>
 				<string>Deferred Software Updates Delay</string>
 				<key>pfm_type</key>
 				<string>integer</string>
 				<key>pfm_value_unit</key>
-				<string>Days</string>
+				<string>days</string>
 			</dict>
 		</array>
 		<key>pfm_targets</key>

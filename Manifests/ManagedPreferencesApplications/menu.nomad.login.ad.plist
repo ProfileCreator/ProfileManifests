@@ -17,7 +17,7 @@
 		<string>macOS</string>
 	</array>
 	<key>pfm_last_modified</key>
-	<date>2020-04-07T21:27:06Z</date>
+	<date>2020-04-13T20:48:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -118,7 +118,7 @@
 			<key>pfm_app_min</key>
 			<string>1.0</string>
 			<key>pfm_description</key>
-			<string>Defines the AD domain you’re working with.</string>
+			<string>Defines the AD domain you're working with.</string>
 			<key>pfm_name</key>
 			<string>ADDomain</string>
 			<key>pfm_title</key>
@@ -138,6 +138,7 @@
 				<string>CreateUser</string>
 				<string>UserInput</string>
 				<string>EnableFDE</string>
+				<string>Design</string>
 				<string>SecureToken</string>
 				<string>RunScript</string>
 				<string>Notify</string>
@@ -155,24 +156,25 @@
 					<string>DenyLoginUnlessGroupMember</string>
 					<string>RecursiveGroupLookup</string>
 					<string>PasswordOverwriteSilent</string>
-					<string>LoginScreen</string>
+					<string>PasswordOverwriteOptional</string>
+					<string>LocalFallback</string>
 					<string>LDAPOverSSL</string>
-					<string>AdditionalADDomains</string>
 					<string>LDAPServers</string>
-					<string>UsernameFieldPlaceholder</string>
+					<string>AdditionalADDomains</string>
+					<string>AdditionalADDomainList</string>
+					<string>NTtoADDomainMappings</string>
+					<string>AliasNTName</string>
+					<string>AliasUPN</string>
+					<string>IgnoreSites</string>
+					<string>Migrate</string>
 					<string>MigrateUsersHide</string>
-					<string>LoginLogo</string>
-					<string>LoginLogoData</string>
-					<string>LoginLogoAlpha</string>
-					<string>BackgroundImage</string>
-					<string>BackgroundImageAlpha</string>
-					<string>AllowNetworkSelection</string>
 				</array>
 				<key>CreateUser</key>
 				<array>
 					<string>CreateAdminUser</string>
 					<string>CreateAdminIfGroupMember</string>
 					<string>UseCNForFullName</string>
+					<string>UseCNForFullNameFallback</string>
 					<string>UserProfileImage</string>
 					<string>DemobilizeUsers</string>
 					<string>DemobilizeSaveAltSecurityIdentities</string>
@@ -200,6 +202,21 @@
 					<string>EnableFDERecoveryKeyPath</string>
 					<string>EnableFDERekey</string>
 				</array>
+				<key>Design</key>
+				<array>
+					<string>UsernameFieldPlaceholder</string>
+					<string>LoginScreen</string>
+					<string>LoginLogo</string>
+					<string>LoginLogoData</string>
+					<string>LoginLogoAlpha</string>
+					<string>BackgroundImage</string>
+					<string>BackgroundImageData</string>
+					<string>BackgroundImageAlpha</string>
+					<string>AllowNetworkSelection</string>			
+					<string>DefaultSystemInformation</string>
+					<string>PowerControlDisabled</string>
+					<string>MessagePasswordSync</string>					
+				</array>		
 				<key>SecureToken</key>
 				<array>
 					<string>ManageSecureTokens</string>
@@ -216,6 +233,7 @@
 				<array>
 					<string>ScriptPath</string>
 					<string>ScriptArgs</string>
+					<string>UIDTool</string>
 				</array>
 				<key>Notify</key>
 				<array>
@@ -227,6 +245,7 @@
 					<string>KeychainAddNoMAD</string>
 					<string>LastUser</string>
 					<string>KeychainReset</string>
+					<string>CustomNoMADLocation</string>
 				</array>
 				<key>GuestUser</key>
 				<array>
@@ -235,7 +254,6 @@
 					<string>GuestUserAccountPasswordPath</string>
 					<string>GuestUserFirst</string>
 					<string>GuestUserLast</string>
-					<string></string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -313,6 +331,16 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>If yes, migrate users</string>
+			<key>pfm_name</key>
+			<string>Migrate</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
 			<key>pfm_description_reference</key>
 			<string>List of names of users that should be hidden from user migration candidates during selection</string>
 			<key>pfm_name</key>
@@ -345,15 +373,46 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.1.0</string>
-			<key>pfm_description</key>
-			<string>If set to yes, a macOS-style loginscreen will be presented instead of the NoMAD Login loginwindow style.</string>
+			<string>1.4</string>
+			<key>pfm_description_reference</key>
+			<string>When DenyLocal and PasswordOverwriteOptional are enabled and the user does not have a secure token NoLo will prompt the user overwrite the users password to the new password.</string>
 			<key>pfm_name</key>
-			<string>LoginScreen</string>
-			<key>pfm_title</key>
-			<string>macOS Style Login Window</string>
+			<string>PasswordOverwriteOptional</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_title</key>
+			<string>Password Overwrite Optional</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_description_reference</key>
+			<string>When enabled, login fallbacks to local auth if the network is not available.</string>
+			<key>pfm_name</key>
+			<string>LocalFallback</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_title</key>
+			<string>Local Fallback</string>
+		</dict>
+		<dict>		
+ 			<key>pfm_app_min</key>		
+ 			<string>1.3</string>		
+ 			<key>pfm_description</key>		
+ 			<string>List of LDAP servers that you would like to use for AD authentication instead of using SRV record lookup.</string>		
+ 			<key>pfm_name</key>		
+ 			<string>LDAPServers</string>		
+ 			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>Server</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -396,179 +455,114 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.3</string>
+			<string>1.4</string>
 			<key>pfm_description</key>
-			<string>List of LDAP servers that you would like to use for AD authentication instead of using SRV record lookup.</string>
+			<string>List of LDAP servers to display in the pulldown menu in the Login Window. Users can select a domain from the menu and then only enter the shortname in the text field.</string>
 			<key>pfm_name</key>
-			<string>LDAPServers</string>
+			<string>AdditionalADDomainList</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_name</key>
-					<string>Server</string>
+					<string>Domain</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>LDAP Servers</string>
+			<string>Domain Dropdown List</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.2</string>
+			<string>1.4</string>
 			<key>pfm_description</key>
-			<string>Placeholder text to show in the username textfield.</string>
+			<string>Maps NT to AD Domains. e.g. NOMAD: nomad.menu, would allow a user to sign in as “NOMAD\user” and that would be converted to “user@nomad.menu” before authenticating to AD.</string>
 			<key>pfm_name</key>
-			<string>UsernameFieldPlaceholder</string>
-			<key>pfm_title</key>
-			<string>Username Field Placeholder</string>
+			<string>NTtoADDomainMappings</string>
 			<key>pfm_type</key>
-			<string>string</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>1.1.0</string>
-			<key>pfm_description</key>
-			<string>Path to the logo to display on the login screen. If set to NONE, no logo will be shown.</string>
-			<key>pfm_name</key>
-			<string>LoginLogo</string>
-			<key>pfm_title</key>
-			<string>Login Logo</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/icons/logo.png</string>
-		</dict>
-		<dict>
-			<key>pfm_allowed_file_types</key>
+			<string>dictionary</string>
+			<key>pfm_hidden</key>
+			<string>container</string>
+			<key>pfm_subkeys</key>
 			<array>
-				<string>public.image</string>
+				<dict>
+					<key>pfm_name</key>
+					<string>TextFields</string>
+					<key>pfm_title</key>
+					<string>NT to AD Domain Mappings</string>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfm_range_max</key>
+					<integer>5</integer>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>TextField</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>NT Name</string>
+									<key>pfm_name</key>
+									<string>ntname</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_title</key>
+									<string>AD Domain</string>
+									<key>pfm_name</key>
+									<string>addomain</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
 			</array>
-			<key>pfm_app_min</key>
-			<string>1.2</string>
-			<key>pfm_description</key>
-			<string>Logo to display on the login screen.</string>
-			<key>pfm_name</key>
-			<string>LoginLogoData</string>
-			<key>pfm_title</key>
-			<string>Login Logo Data</string>
-			<key>pfm_type</key>
-			<string>data</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>1.3</string>
-			<key>pfm_default</key>
-			<integer>8</integer>
-			<key>pfm_description</key>
-			<string>Alpha value of the logo image.</string>
-			<key>pfm_name</key>
-			<string>LoginLogoAlpha</string>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-				<integer>2</integer>
-				<integer>3</integer>
-				<integer>4</integer>
-				<integer>5</integer>
-				<integer>6</integer>
-				<integer>7</integer>
-				<integer>8</integer>
-				<integer>9</integer>
-				<integer>10</integer>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>0%</string>
-				<string>10%</string>
-				<string>20%</string>
-				<string>30%</string>
-				<string>40%</string>
-				<string>50%</string>
-				<string>60%</string>
-				<string>70%</string>
-				<string>80%</string>
-				<string>90%</string>
-				<string>100%</string>
-			</array>
-			<key>pfm_title</key>
-			<string>Login Logo Alpha</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>1.1.0</string>
-			<key>pfm_description</key>
-			<string>Path to the background image to be used.</string>
-			<key>pfm_name</key>
-			<string>BackgroundImage</string>
-			<key>pfm_title</key>
-			<string>Login Window Background Image</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/icons/background.png</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>1.3</string>
-			<key>pfm_default</key>
-			<integer>8</integer>
-			<key>pfm_description</key>
-			<string>Alpha value of the background image.</string>
-			<key>pfm_name</key>
-			<string>BackgroundImageAlpha</string>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-				<integer>2</integer>
-				<integer>3</integer>
-				<integer>4</integer>
-				<integer>5</integer>
-				<integer>6</integer>
-				<integer>7</integer>
-				<integer>8</integer>
-				<integer>9</integer>
-				<integer>10</integer>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>0%</string>
-				<string>10%</string>
-				<string>20%</string>
-				<string>30%</string>
-				<string>40%</string>
-				<string>50%</string>
-				<string>60%</string>
-				<string>70%</string>
-				<string>80%</string>
-				<string>90%</string>
-				<string>100%</string>
-			</array>
-			<key>pfm_title</key>
-			<string>Login Window Background Image Alpha</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.4</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>If yes, if the network selection is shown</string>
+			<key>pfm_description_reference</key>
+			<string>If enabled, the user's NT style name is added as an alias to the local account during account creation.</string>
 			<key>pfm_name</key>
-			<string>AllowNetworkSelection</string>
+			<string>AliasNTName</string>
 			<key>pfm_title</key>
-			<string>Show Network Selection</string>
+			<string>Alias NT Name</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>	
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description_reference</key>
+			<string>If enabled, the user's UserPrincipalName is added as an alias to the local account during account creation.</string>
+			<key>pfm_name</key>
+			<string>AliasUPN</string>
+			<key>pfm_title</key>
+			<string>Alias User Principal Name</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_description_reference</key>
+			<string>Ignore sites in AD. This is a compatibility measure for AD installs that have issues with sites</string>
+			<key>pfm_name</key>
+			<string>IgnoreSites</string>
+			<key>pfm_title</key>
+			<string>Ignore Sites</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>	
 
 		<!-- *** EULA *** -->
 
@@ -713,6 +707,18 @@
 			<string>UseCNForFullName</string>
 			<key>pfm_title</key>
 			<string>Use User Common Name for Full Name</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>Uses the CN as the fullname on the account when the givenName and sn fields are blank</string>
+			<key>pfm_name</key>
+			<string>UseCNForFullNameFallback</string>
+			<key>pfm_title</key>
+			<string>Use User Common Name for Full Name Fallback</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1022,6 +1028,227 @@
 			<string>boolean</string>
 		</dict>
 
+		<!-- *** Design *** -->
+
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+			<key>pfm_description</key>
+			<string>If set to yes, a macOS-style loginscreen will be presented instead of the NoMAD Login loginwindow style.</string>
+			<key>pfm_name</key>
+			<string>LoginScreen</string>
+			<key>pfm_title</key>
+			<string>macOS Style Login Window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.2</string>
+			<key>pfm_description</key>
+			<string>Placeholder text to show in the username textfield.</string>
+			<key>pfm_name</key>
+			<string>UsernameFieldPlaceholder</string>
+			<key>pfm_title</key>
+			<string>Username Field Placeholder</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+			<key>pfm_description</key>
+			<string>Path to the logo to display on the login screen. If set to NONE, no logo will be shown.</string>
+			<key>pfm_name</key>
+			<string>LoginLogo</string>
+			<key>pfm_title</key>
+			<string>Login Logo</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/icons/logo.png</string>
+		</dict>
+		<dict>
+			<key>pfm_allowed_file_types</key>
+			<array>
+				<string>public.image</string>
+			</array>
+			<key>pfm_app_min</key>
+			<string>1.2</string>
+			<key>pfm_description</key>
+			<string>Logo to display on the login screen.</string>
+			<key>pfm_name</key>
+			<string>LoginLogoData</string>
+			<key>pfm_title</key>
+			<string>Login Logo Data</string>
+			<key>pfm_type</key>
+			<string>data</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_default</key>
+			<integer>8</integer>
+			<key>pfm_description</key>
+			<string>Alpha value of the logo image.</string>
+			<key>pfm_name</key>
+			<string>LoginLogoAlpha</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+				<integer>8</integer>
+				<integer>9</integer>
+				<integer>10</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>0%</string>
+				<string>10%</string>
+				<string>20%</string>
+				<string>30%</string>
+				<string>40%</string>
+				<string>50%</string>
+				<string>60%</string>
+				<string>70%</string>
+				<string>80%</string>
+				<string>90%</string>
+				<string>100%</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Login Logo Alpha</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1.0</string>
+			<key>pfm_description</key>
+			<string>Path to the background image to be used.</string>
+			<key>pfm_name</key>
+			<string>BackgroundImage</string>
+			<key>pfm_title</key>
+			<string>Login Window Background Image</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/icons/background.png</string>
+		</dict>
+		<dict>
+			<key>pfm_allowed_file_types</key>
+			<array>
+				<string>public.image</string>
+			</array>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_description</key>
+			<string>Background to display on the login screen.</string>
+			<key>pfm_name</key>
+			<string>BackgroundImageData</string>
+			<key>pfm_title</key>
+			<string>Background Image Data</string>
+			<key>pfm_type</key>
+			<string>data</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_default</key>
+			<integer>8</integer>
+			<key>pfm_description</key>
+			<string>Alpha value of the background image.</string>
+			<key>pfm_name</key>
+			<string>BackgroundImageAlpha</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+				<integer>8</integer>
+				<integer>9</integer>
+				<integer>10</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>0%</string>
+				<string>10%</string>
+				<string>20%</string>
+				<string>30%</string>
+				<string>40%</string>
+				<string>50%</string>
+				<string>60%</string>
+				<string>70%</string>
+				<string>80%</string>
+				<string>90%</string>
+				<string>100%</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Login Window Background Image Alpha</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If enabled, the network selection button is shown</string>
+			<key>pfm_name</key>
+			<string>AllowNetworkSelection</string>
+			<key>pfm_title</key>
+			<string>Show Network Selection</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>Defines which system information should be showed on login window, by default</string>
+			<key>pfm_name</key>
+			<string>DefaultSystemInformation</string>
+			<key>pfm_title</key>
+			<string>Default System Information</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>None</string>
+				<string>Serial</string>
+				<string>MAC</string>
+				<string>Hostname</string>
+				<string>ComputerName</string>
+				<string>SystemVersion</string>
+				<string>IP</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3.1</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If set to yes, hides the shutdown and restart buttons</string>
+			<key>pfm_name</key>
+			<string>PowerControlDisabled</string>
+			<key>pfm_title</key>
+			<string>Hide Shutdown and Restart</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+				
 		<!-- *** SecureToken *** -->
 
 		<dict>
@@ -1176,6 +1403,18 @@
 			<key>pfm_value_placeholder</key>
 			<string>_nomadlogin</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>Message to show when the password needs to sync</string>
+			<key>pfm_name</key>
+			<string>MessagePasswordSync</string>
+			<key>pfm_title</key>
+			<string>Password Sync Message</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 
 		<!-- *** RunScript *** -->
 
@@ -1209,6 +1448,18 @@
 					<string>string</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>String to determine the path of an executable that is run when a new user is created. It is expected to return the UID that the user should be created with. It passes in the new users username as the first argument, default is to use the built in functionality</string>
+			<key>pfm_name</key>
+			<string>UIDTool</string>
+			<key>pfm_title</key>
+			<string>UID Tool</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		
 		<!-- *** Notify *** -->
@@ -1265,6 +1516,18 @@
 			<string>Add NoMAD to Keychain</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.4</string>
+			<key>pfm_description</key>
+			<string>If defined it specifies the custom location of the application to be given access to the keychain item.</string>
+			<key>pfm_name</key>
+			<string>CustomNoMADLocation</string>
+			<key>pfm_title</key>
+			<string>Custom NoMAD Location</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -1373,6 +1636,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>9</integer>
+	<integer>12</integer>
 </dict>
 </plist>
