@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-03-24T19:10:00Z</date>
+	<date>2020-04-09T12:37:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -378,7 +378,6 @@
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
 					<string>SitePerProcess</string>
-					<string>SpellCheckServiceEnabled</string>
 					<string>SpellcheckEnabled</string>
 					<string>SuppressUnsupportedOSWarning</string>
 					<string>SyncDisabled</string>
@@ -1507,6 +1506,8 @@ Note that if Google Chrome is running and this policy changes, it will be applie
 		<dict>
 			<key>pfm_app_min</key>
 			<string>79</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If you enable this setting or the setting is unconfigured, the list of available templates will be downloaded in the background from a Microsoft service every 24 hours.</string>
 			<key>pfm_description_reference</key>
@@ -2406,6 +2407,8 @@ Starting in Google Chrome 78, this policy will be ignored and treated as disable
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or is not set, Google Cast will be enabled, and users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.</string>
 			<key>pfm_description_reference</key>
@@ -2424,6 +2427,8 @@ If this policy set to false, Google Cast will be disabled.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true, the Cast toolbar icon will always be shown on the toolbar or the overflow menu, and users will not be able to remove it.</string>
 			<key>pfm_description_reference</key>
@@ -2446,6 +2451,8 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Controls whether third-party sub-content on a page is allowed to pop-up an HTTP Basic Auth dialog box.</string>
 			<key>pfm_description_reference</key>
@@ -2531,6 +2538,8 @@ If you leave this policy not set Google Chrome will try to detect if a server is
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Specifies whether the generated Kerberos SPN is based on the canonical DNS name or the original name entered.</string>
 			<key>pfm_description_reference</key>
@@ -2551,6 +2560,8 @@ If you disable this setting or leave it not set, the canonical name of the serve
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Specifies whether the generated Kerberos SPN should include a non-standard port.</string>
 			<key>pfm_description_reference</key>
@@ -2573,6 +2584,8 @@ If you disable this setting or leave it not set, the generated Kerberos SPN will
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If you don't configure this policy, NTLMv2 is enabled by default.</string>
 			<key>pfm_description_reference</key>
@@ -2919,6 +2932,8 @@ If this policy is left not set, 2 will be used.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables deleting browser history and download history in Microsoft Edge and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -2959,6 +2974,8 @@ If this policy is set to False, users will not be able to play the dinosaur east
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows access to local files on the machine by allowing Microsoft Edge to display file selection dialogs.</string>
 			<key>pfm_description_reference</key>
@@ -3003,6 +3020,8 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>82</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may show popups during its unloading.</string>
 			<key>pfm_description_reference</key>
@@ -3025,6 +3044,8 @@ This policy will be removed in Chrome 82.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>79</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy lets you specify that a page can send synchronous XHR requests during page dismissal.</string>
 			<key>pfm_description_reference</key>
@@ -3132,6 +3153,8 @@ If this policy is left not set, this will be enabled but the user will be able t
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables the internal PDF viewer in Microsoft Edge. Instead it treats it as download and allows the user to open PDF files with the default application.</string>
 			<key>pfm_description_reference</key>
@@ -3174,6 +3197,8 @@ If you disable or don't configure this setting, Microsoft Edge uses either the u
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If enabled or not configured (default), the user will be prompted for audio capture access except for URLs configured in the AudioCaptureAllowedUrls list which will be granted access without prompting.</string>
 			<key>pfm_description_reference</key>
@@ -3283,6 +3308,8 @@ If you enable this setting or do not set a value, AutoFill will remain under the
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Microsoft Edge's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
@@ -3303,6 +3330,8 @@ If this setting is enabled or has no value, the user will be able to control Aut
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables Microsoft Edge's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
@@ -3335,7 +3364,7 @@ If you enable or disable this setting, users cannot change or override it in Goo
 If this setting is left not set the user can decide to use this function or not.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#favoritesbarenabled</string>
-			<!-- In Chrome this isBookmark BarEnabled -->
+			<!-- In Chrome this is BookmarkBarEnabled -->
 			<key>pfm_name</key>
 			<string>FavoritesBarEnabled</string>
 			<key>pfm_title</key>
@@ -3346,6 +3375,8 @@ If this setting is left not set the user can decide to use this function or not.
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable profile creation from the Identity flyout menu or the Settings page</string>
 			<key>pfm_description_reference</key>
@@ -3365,6 +3396,8 @@ If this policy is set to false, Google Chrome will not allow creation of new pro
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable the option to allow the use of guest profiles in Microsoft Edge. In a guest profile, the browser doesn't import browsing data from existing profiles, and it deletes browsing data when all guest profiles are closed.</string>
 			<key>pfm_description_reference</key>
@@ -3401,6 +3434,8 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If set to false, prevents Microsoft Edge from occasionally sending queries to a browser network time service to retrieve an accurate timestamp.</string>
 			<key>pfm_description_reference</key>
@@ -3579,6 +3614,8 @@ If this policy is not set, any certificate that is required to be disclosed via 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.</string>
 			<key>pfm_description_reference</key>
@@ -3661,6 +3698,8 @@ This policy is only available as a mandatory machine platform policy and it only
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If disabled, prevents security warnings from appearing when Edge is launched with some potentially dangerous command-line flags.</string>
 			<key>pfm_description_reference</key>
@@ -3683,6 +3722,8 @@ On Windows, this policy is only available on instances that are joined to a Micr
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables component updates for all components in Microsoft Edge when not set or set to True.</string>
 			<key>pfm_description_reference</key>
@@ -3727,6 +3768,8 @@ If you don't configure this policy, users can choose whether to send these reque
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.</string>
 			<key>pfm_description_reference</key>
@@ -3765,6 +3808,8 @@ If you disable or don't configure this policy, the default link for the Help men
 		<dict>
 			<key>pfm_app_min</key>
 			<string>80</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy configures a local switch that can be used to disable DNS interception checks. These checks attempt to discover whether the browser is behind a proxy that redirects unknown host names.</string>
 			<key>pfm_description_reference</key>
@@ -3868,6 +3913,8 @@ If this policy is set to 'DeveloperToolsDisallowed' (value 2), the Developer Too
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Enabling this setting prevents web pages from accessing the graphics processing unit (GPU). Specifically, web pages can not access the WebGL API and plugins can not use the Pepper 3D API.</string>
 			<key>pfm_description_reference</key>
@@ -3908,6 +3955,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If enabled, screenshots cannot be taken using keyboard shortcuts or extension APIs.</string>
 			<key>pfm_description_reference</key>
@@ -4161,6 +4210,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 		<dict>
 		  <key>pfm_app_min</key>
 		  <string>78</string>
+		  <key>pfm_default</key>
+		  <true/>
 		  <key>pfm_description</key>
 		  <string>Lets you allow users to access the Collections feature, where they can collect, organize, share, and export content more efficiently and with Office integration.</string>
 		  <key>pfm_description_reference</key>
@@ -4179,6 +4230,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If you enable this setting, favorites can be added, removed or modified. This is the default also when this policy is not set.</string>
 			<key>pfm_description_reference</key>
@@ -4255,6 +4308,8 @@ If you don't configure this policy, the list of Domain Actions will continue to 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Google Chrome version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.</string>
 			<key>pfm_description_reference</key>
@@ -4303,6 +4358,8 @@ If this policy is left not set the user can disable any plugin installed on the 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>When this policy is set to enabled, extensions installed by enterprise policy are allowed to use the Enterprise Hardware Platform API.</string>
 			<key>pfm_description_reference</key>
@@ -4367,6 +4424,8 @@ If you don't configure this policy, on an unmanaged device the behavior is the s
 		<dict>
 			<key>pfm_app_min</key>
 			<string>79</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you set to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.</string>
 			<key>pfm_description_reference</key>
@@ -4409,6 +4468,8 @@ If this policy is set to false or not configured, user can use the browser witho
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set to enabled this policy forces the profile to be switched to ephemeral mode. If this policy is specified as an OS policy (e.g. GPO on Windows) it will apply to every profile on the system; if the policy is set as a Cloud policy it will apply only to a profile signed in with a managed account.</string>
 			<key>pfm_description_reference</key>
@@ -4463,6 +4524,8 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Forces queries in Google Web Search to be done with SafeSearch set to active and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -4596,6 +4659,8 @@ If this setting is disabled or no value is set, Restricted Mode on YouTube is no
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allow full screen mode</string>
 			<key>pfm_description_reference</key>
@@ -4614,6 +4679,8 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this policy, the top auto-suggest result in the address bar suggestion list will navigate to intranet sites if the text entered in the address bar is a single word without punctuation.</string>
 			<key>pfm_description_reference</key>
@@ -4663,6 +4730,8 @@ Popular, single-word search terms will require manual selection of search sugges
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is blacklisted.</string>
 			<key>pfm_description_reference</key>
@@ -4681,6 +4750,8 @@ If this policy is set to false, hardware acceleration will be disabled.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>80</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this policy, the First-run experience and the splash screen will not be shown to users when they run Microsoft Edge for the first time.</string>
 			<key>pfm_description_reference</key>
@@ -4785,6 +4856,8 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy forces bookmarks to be imported from the current default browser if enabled. If enabled, this policy also affects the import dialog.</string>
 			<key>pfm_description_reference</key>
@@ -5345,6 +5418,8 @@ This policy is not available on Windows instances that are not joined to a Micro
 		<dict>
 			<key>pfm_app_min</key>
 			<string>81</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables the display of relevant MSB suggestions in omnibox when user types a search string in the addressbar</string>
 			<key>pfm_description_reference</key>
@@ -5363,6 +5438,8 @@ If you disable this policy, users can't see business results in Microsoft Edge o
 		<dict>
 			<key>pfm_app_min</key>
 			<string>80</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows you to set whether websites can check if the user has payment methods saved.</string>
 			<key>pfm_description_reference</key>
@@ -5381,6 +5458,8 @@ If you enable this policy or don't set this policy, websites can check if the us
 		<dict>
 			<key>pfm_app_min</key>
 			<string>80</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.</string>
 			<key>pfm_description_reference</key>
@@ -5399,6 +5478,8 @@ If you disable this policy, users can't change or override the setting. If this 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Lets you configure whether to turn on Proactive Authentication.</string>
 			<key>pfm_description_reference</key>
@@ -5570,6 +5651,8 @@ If a policy is not in the list, in case there is any conflict between sources, s
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Microsoft Edge.</string>
 			<key>pfm_description_reference</key>
@@ -5724,6 +5807,8 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>QUIC is a transport layer network protocol that can improve performance of web applications that currently use TCP.</string>
 			<key>pfm_description_reference</key>
@@ -5837,6 +5922,8 @@ If this policy is left not set or blank, then any user can sign in to Google Chr
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this setting, all Flash content embedded on websites that have been set to allow Flash in content settings -- either by the user or by enterprise policy -- will be run, including content from other origins or small content.</string>
 			<key>pfm_description_reference</key>
@@ -5857,6 +5944,8 @@ If this setting is disabled or not set, Flash content from other origins or smal
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Edge shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
 Setting this policy to false disallows users to click through any warning page.</string>
@@ -5942,6 +6031,8 @@ When this policy is set to "Filter top level sites for adult content", sites cla
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables saving browser history in Microsft Edge and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -6029,6 +6120,8 @@ This policy controls sending info about websites visited. If this policy is not 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Specifies whether to include a shortcut to Office.com in the favorites bar. For users signed into Microsoft Edge the shortcut takes users to their Microsoft Office apps and docs.</string>
 			<key>pfm_description_reference</key>
@@ -6067,6 +6160,8 @@ If this policy is configured then the user can't change it, and the apps shortcu
 		<dict>
 			<key>pfm_app_min</key>
 			<string>78</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable support for Signed HTTP Exchange (SXG).</string>
 			<key>pfm_description_reference</key>
@@ -6187,6 +6282,8 @@ This policy should not be enabled when RoamingProfileSupportEnabled policy is se
 		<dict>
 			<key>pfm_app_min</key>
 			<string>79</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.</string>
 			<key>pfm_description_reference</key>
@@ -6207,6 +6304,8 @@ If you disable this policy, no tabs will be frozen.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If set to false, the 'End process' button is disabled in the Task Manager.</string>
 			<key>pfm_description_reference</key>
@@ -6440,6 +6539,8 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Microsoft.</string>
 			<key>pfm_description_reference</key>
@@ -6482,6 +6583,8 @@ If this policy is left not set the default profile path will be used and the use
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>If enabled or not configured (default), the user will be prompted for
 video capture access except for URLs configured in the VideoCaptureAllowedUrls list which will be granted access without prompting.</string>
@@ -6537,6 +6640,8 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Allows you to turn off WPAD (Web Proxy Auto-Discovery) optimization in Microsoft Edge</string>
 			<key>pfm_description_reference</key>
@@ -6621,6 +6726,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 			<string>84</string>
 			<key>pfm_app_min</key>
 			<string>80</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Re-enable Web Components v0 API until M84.</string>
 			<key>pfm_description_reference</key>
@@ -6637,6 +6744,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 			<string>83</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy allows users of the WebDriver feature to override policies which can interfere with its operation. This policy is deprecated. It is currently supported but will become obsolete in a future release.</string>
 			<key>pfm_description_reference</key>
@@ -7011,6 +7120,8 @@ If the policy is set to true, 'Headers and footers' is selected in the print pre
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enables printing in Microsoft Edge and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
@@ -7031,6 +7142,8 @@ If this setting is disabled, users cannot print from Google Chrome. Printing is 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If you enable this policy, Microsoft Edge opens the system print dialog instead of the built-in print preview when a user prints a page.</string>
 			<key>pfm_description_reference</key>
@@ -7047,6 +7160,8 @@ If this setting is disabled, users cannot print from Google Chrome. Printing is 
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Causes Microsoft Edge to use the system default printer as the default choice in Print Preview instead of the most recently used printer.</string>
 			<key>pfm_description_reference</key>
@@ -7274,6 +7389,8 @@ This policy is available only on Windows instances that are joined to a Microsof
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.</string>
 			<key>pfm_description_reference</key>
@@ -7296,6 +7413,8 @@ This policy is available only on Windows instances that are joined to a Microsof
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.</string>
 			<key>pfm_description_reference</key>
@@ -7349,6 +7468,8 @@ This policy is available only on Windows instances that are joined to a Microsof
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Force Microsoft Defender SmartScreen checks on downloads from trusted sources</string>
 			<key>pfm_description_reference</key>
@@ -8104,6 +8225,8 @@ The 'default_logo' is required and will be used when there's no background image
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Hides the default top sites from the new tab page in Microsoft Edge.</string>
 			<key>pfm_description_reference</key>
