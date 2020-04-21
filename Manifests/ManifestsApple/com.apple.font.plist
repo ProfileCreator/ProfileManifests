@@ -4,6 +4,8 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Use this section to define Font settings.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/font</string>
 	<key>pfm_domain</key>
 	<string>com.apple.font</string>
 	<key>pfm_format_version</key>
@@ -11,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-12-27T17:26:39Z</date>
+	<date>2020-04-15T00:45:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -114,12 +116,16 @@
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string></string>
 			<key>pfm_description</key>
-			<string>The user-visible name for the font. This field is replaced by the actual name of the font after installation</string>
+			<string>The user-visible name for the font. This field is replaced by the actual name of the font after installation.</string>
+			<key>pfm_description_reference</key>
+			<string>The user-visible name for the font. This field is replaced by the actual name of the font after installation. Each payload must contain exactly one font file in trueType (.ttf) or OpenType (.otf) format. Collection formats (.ttc or .otc) are not supported.
+
+Fonts are identified by their embedded PostScript names. Two fonts with the same PostScript name are considered to be the same font even if their contents differ. Installing two different fonts with the same PostScript name isn't supported, and the resulting behavior is undefined.</string>
 			<key>pfm_name</key>
 			<string>Name</string>
+			<key>pfm_note</key>
+			<string>Each payload must contain exactly one font file in trueType (.ttf) or OpenType (.otf) format. Installing two different fonts with the same PostScript name isn't supported, and the resulting behavior is undefined.</string>
 			<key>pfm_title</key>
 			<string>Font Name</string>
 			<key>pfm_type</key>
@@ -135,6 +141,8 @@
 			<string>Font file (.otf or .ttf) for inclusion on device</string>
 			<key>pfm_name</key>
 			<string>Font</string>
+			<key>pfm_note</key>
+			<string>Collection formats (.ttc or .otc) are not supported.</string>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
