@@ -380,6 +380,7 @@
 					<string>SigninAllowed</string>
 					<string>SitePerProcess</string>
 					<string>SpellcheckEnabled</string>
+					<string>StricterMixedContentTreatmentEnabled</string>
 					<string>SuppressUnsupportedOSWarning</string>
 					<string>SyncDisabled</string>
 					<string>SyncTypesListDisabled</string>
@@ -6262,6 +6263,32 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<string>SpellcheckEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable spellcheck</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Enable stricter treatment for mixed content.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy is deprecated because it's only intended to be a short-term mechanism to give enterprises more time to update their web content if and when it's found to be incompatible with stricter mixed content treatment. It won't work in Microsoft Edge as soon as version 84.
+
+This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser.
+
+If you set this policy to true or not set, audio and video mixed content will be automatically upgraded to HTTPS (that is, the URL will be rewritten as HTTPS, without a fallback if the resource isn’t available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content.
+
+If you set the policy to false, auto upgrades will be disabled for audio and video, and no warning will be shown for images.
+
+This policy does not affect other types of mixed content other than audio, video, and images.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#strictermixedcontenttreatmentenabled</string>
+			<key>pfm_name</key>
+			<string>StricterMixedContentTreatmentEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable stricter mixed content treatment</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
