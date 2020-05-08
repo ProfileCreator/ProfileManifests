@@ -280,6 +280,7 @@
 					<string>BrowserGuestModeEnforced</string>
 					<string>BrowserNetworkTimeQueriesEnabled</string>
 					<string>BrowserSignin</string>
+					<string>BuiltinCertificateVerifierEnabled</string>
 					<string>BuiltInDnsClientEnabled</string>
 					<string>CertificateTransparencyEnforcementDisabledForCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForLegacyCas</string>
@@ -3497,6 +3498,26 @@ If this policy is not set then the user can decide if they want to enable the br
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>87</string>
+			<key>pfm_app_min</key>
+			<string>83</string>
+			<key>pfm_description</key>
+			<string>Determines whether the built-in certificate verifier will be used to verify server certificates.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy is deprecated because it's intended to serve only as a short-term mechanism to give enterprises more time to update their environments and report issues if they are found to be incompatible with the built-in certificate verifier.
+
+This policy is scheduled to be removed in Microsoft Edge for Mac OS X version 87, when support for the legacy certificate verifier on Mac OS X is planned to be removed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#builtincertificateverifierenabled</string>
+			<key>pfm_name</key>
+			<string>BuiltinCertificateVerifierEnabled</string>
+			<key>pfm_title</key>
+			<string>Use built-in certificate verifier</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
@@ -6329,7 +6350,7 @@ Users will not be able to override the disabled data types.</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Disable synchronization of data with Google</string>
+			<string>Disable synchronization of selected data types</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
