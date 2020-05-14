@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-04-09T12:37:44Z</date>
+	<date>2020-05-06T13:45:58Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -1560,15 +1560,17 @@ If this policy is left not set, 'AskNotifications' will be used and the user wil
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to set a list of url patterns that specify sites which are allowed to display notifications.</string>
+			<string>Allows you to create a list of url patterns to specify sites that are allowed to display notifications.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to set a list of url patterns that specify sites which are allowed to display notifications.
+			<string>Allows you to create a list of url patterns to specify sites that are allowed to display notifications.
 
-If this policy is left not set the global default value will be used for all sites either from the 'DefaultNotificationsSetting' policy if it is set, or the user's personal configuration otherwise.</string>
+If you don’t set this policy, the global default value will be used for all sites. This default value will be from the `DefaultNotificationsSetting` policy if it’s set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#notificationsallowedforurls</string>
 			<key>pfm_name</key>
 			<string>NotificationsAllowedForUrls</string>
+			<key>pfm_note</key>
+			<string>For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -1587,15 +1589,17 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to set a list of url patterns that specify sites which are not allowed to display notifications.</string>
+			<string>Allows you to create a list of url patterns to specify sites that are not allowed to display notifications.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to set a list of url patterns that specify sites which are not allowed to display notifications.
+			<string>Allows you to create a list of url patterns to specify sites that are not allowed to display notifications.
 
-If this policy is left not set the global default value will be used for all sites either from the 'DefaultNotificationsSetting' policy if it is set, or the user's personal configuration otherwise.</string>
+If you don’t set this policy, the global default value will be used for all sites. This default value will be from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy if it’s set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#notificationsblockedforurls</string>
 			<key>pfm_name</key>
 			<string>NotificationsBlockedForUrls</string>
+			<key>pfm_note</key>
+			<string>For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -5401,11 +5405,7 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_description</key>
 			<string>Enables anonymous reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.
-
-If this setting is enabled, anonymous reporting of usage and crash-related data is sent to Google.  If it is disabled, this information is not sent to Google.  In both cases, users cannot change or override the setting. If this policy is left not set, the setting will be what the user chose upon installation / first run.
-
-This policy is not available on Windows instances that are not joined to a Microsoft® Active Directory® domain.  (For Chrome OS, see DeviceMetricsReportingEnabled.)</string>
+			<string>On Windows 7, 8, and macOS, this policy controls sending usage and crash-related data. If you don't configure this policy, Microsoft Edge will default to the user's preference.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#metricsreportingenabled</string>
 			<key>pfm_name</key>
@@ -5859,17 +5859,19 @@ The user's session is restored following the relaunch.</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.</string>
+			<string>Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched to apply a pending update.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to set the time period, in milliseconds, over which users are notified that Google Chrome must be relaunched or that a Google Chrome OS device must be restarted to apply a pending update.
+			<string>Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched to apply a pending update.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Google Chrome OS devices, a restart notification appears in the system tray when an upgrade is detected. This notification changes color once half of the notification period passes, and again once the full notification period has passed. For Google Chrome browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy for browsers follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. 
 
-If not set, the default period of 345600000 milliseconds (four days) is used for Google Chrome OS devices and 604800000 milliseconds (one week) for browsers.</string>
+If not set, the default period of 604800000 milliseconds (one week) is used.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#relaunchnotificationperiod</string>
 			<key>pfm_name</key>
 			<string>RelaunchNotificationPeriod</string>
+			<key>pfm_note</key>
+			<string>If not set, the default period of 604800000 milliseconds (one week) is used.</string>
 			<key>pfm_title</key>
 			<string>Update time period</string>
 			<key>pfm_type</key>
@@ -7891,9 +7893,9 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only). Fingerprint of password will be captured on these URLs and used for password reuse detection.</string>
+			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the salted hashes of passwords and use it for password reuse detection.</string>
 			<key>pfm_description_reference</key>
-			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only). Fingerprint of password will be captured on these URLs and used for password reuse detection.
+			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the salted hashes of passwords and use it for password reuse detection.
 In order for Google Chrome to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
 
 If this setting is enabled, then password protection service will capture fingerprint of password on these URLs for password reuse detection purpose.

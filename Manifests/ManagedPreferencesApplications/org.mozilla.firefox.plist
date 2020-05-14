@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-04-13T18:47:00Z</date>
+	<date>2020-05-06T12:52:57Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -213,6 +213,7 @@
 				</array>
 				<key>Network</key>
 				<array>
+					<string>DisabledCiphers</string>
 					<string>DNSOverHTTPS</string>
 					<string>NetworkPrediction</string>
 					<string>Proxy</string>
@@ -2296,6 +2297,95 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>76</string>
+			<key>pfm_description</key>
+			<string>Disable specific cryptographic ciphers. When set to 'true', disables the use of the cipher.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disabledciphers</string>
+			<key>pfm_name</key>
+			<string>DisabledCiphers</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_DHE_RSA_WITH_AES_128_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_DHE_RSA_WITH_AES_256_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_RSA_WITH_AES_128_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_RSA_WITH_AES_256_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>76</string>
+					<key>pfm_name</key>
+					<string>TLS_RSA_WITH_3DES_EDE_CBC_SHA</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Disabled Ciphers</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>63</string>
 			<key>pfm_description</key>
 			<string>Configure DNS over HTTPS.</string>
@@ -3340,6 +3430,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to the camera is always allowed for the domains indicated. If this preference is disabled or not configured, the default camera preference is followed.</string>
 							<key>pfm_description_reference</key>
@@ -3361,6 +3453,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to the camera is blocked for the domains indicated. If this preference is disabled or not configured, access to the camera is not blocked by default.</string>
 							<key>pfm_description_reference</key>
@@ -3382,6 +3476,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<true/>
 							<key>pfm_description</key>
@@ -3396,6 +3492,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>boolean</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
@@ -3423,6 +3521,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to the microphone is always allowed for the domains indicated. If this preference is disabled or not configured, the default microphone preference is followed.</string>
 							<key>pfm_description_reference</key>
@@ -3444,6 +3544,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to the microphone is blocked for the domains indicated. If this preference is disabled or not configured, access to the microphone is not blocked by default.</string>
 							<key>pfm_description_reference</key>
@@ -3465,6 +3567,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<true/>
 							<key>pfm_description</key>
@@ -3479,6 +3583,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>boolean</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
@@ -3506,6 +3612,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to location is always allowed for the domains indicated. If this preference is disabled or not configured, the default location preference is followed.</string>
 							<key>pfm_description_reference</key>
@@ -3527,6 +3635,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, access to location is blocked for the domains indicated. If this preference is disabled or not configured, access to location is not blocked by default.</string>
 							<key>pfm_description_reference</key>
@@ -3548,6 +3658,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<true/>
 							<key>pfm_description</key>
@@ -3562,6 +3674,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>boolean</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
@@ -3589,6 +3703,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, notifications can always be sent for the domains indicated. If this preference is disabled or not configured, the default nofication preference is followed.</string>
 							<key>pfm_description_reference</key>
@@ -3610,6 +3726,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, notifications are always blocked for the domains indicated. If this preference is disabled or not configured, notifications are not blocked by default.</string>
 							<key>pfm_description_reference</key>
@@ -3631,6 +3749,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<true/>
 							<key>pfm_description</key>
@@ -3645,6 +3765,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>boolean</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>62</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
@@ -3672,6 +3794,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>74</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, autoplay can always be enabled for the domains indicated. If this preference is disabled or not configured, the default autoplay preference is followed.</string>
 							<key>pfm_description_reference</key>
@@ -3693,6 +3817,8 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>74</string>
 							<key>pfm_description</key>
 							<string>If this preference is enabled, autoplay are always blocked for the domains indicated. If this preference is disabled or not configured, autoplay is not blocked by default.</string>
 							<key>pfm_description_reference</key>
@@ -3714,20 +3840,32 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 							<string>array</string>
 						</dict>
 						<dict>
-							<key>pfm_default</key>
-							<true/>
+							<key>pfm_app_min</key>
+							<string>76</string>
 							<key>pfm_description</key>
-							<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to autoplay. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to autoplay.</string>
-							<key>pfm_description_reference</key>
-							<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to autoplay. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to autoplay.</string>
+							<string>Configures the default Autoplay behavior.</string>
 							<key>pfm_name</key>
-							<string>BlockNewRequests</string>
+							<string>Default</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>allow-audio-video</string>
+								<string>block-audio</string>
+								<string>block-audio-video</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Allow Audio &amp; Video</string>
+								<string>Block Audio</string>
+								<string>Block Audio &amp; Video</string>
+							</array>
 							<key>pfm_title</key>
-							<string>Block New Requests</string>
+							<string>Default Autoplay Behavior</string>
 							<key>pfm_type</key>
-							<string>boolean</string>
+							<string>string</string>
 						</dict>
 						<dict>
+							<key>pfm_app_min</key>
+							<string>76</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
@@ -4892,6 +5030,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>7</integer>
+	<integer>8</integer>
 </dict>
 </plist>
