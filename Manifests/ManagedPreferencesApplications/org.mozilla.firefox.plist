@@ -267,11 +267,12 @@
 			<dict>
 				<key>Add-ons</key>
 				<array>
+					<string>BlockAboutAddons</string>
+					<string>DisableSystemAddonUpdate</string>
+					<string>EncryptedMediaExtensions</string>
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
-					<string>BlockAboutAddons</string>
-					<string>DisableSystemAddonUpdate</string>
 				</array>
 				<key>Bookmarks</key>
 				<array>
@@ -1435,6 +1436,47 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Extension Update</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>77</string>
+			<key>pfm_description_reference</key>
+			<string>Enable or disable Encrypted Media Extensions and optionally lock it.
+
+If Enabled is set to false, encrypted media extensions (like Widevine) are not downloaded by Firefox unless the user consents to installing them.
+
+If Locked is set to true and Enabled is set to false, Firefox will not download encrypted media extensions (like Widevine) or ask the user to install them.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+			<key>pfm_name</key>
+			<string>EncryptedMediaExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+					<key>pfm_name</key>
+					<string>Enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+					<key>pfm_name</key>
+					<string>Locked</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Encrypted Media Extensions</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
