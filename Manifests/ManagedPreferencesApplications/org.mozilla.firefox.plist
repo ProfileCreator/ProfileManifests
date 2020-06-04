@@ -190,6 +190,7 @@
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
+					<string>PDFjs</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -200,11 +201,12 @@
 					<string>DisplayBookmarksToolbar</string>
 					<string>NoDefaultBookmarks</string>
 					<!--Extensions/Addons Pane -->
+					<string>BlockAboutAddons</string>
+					<string>DisableSystemAddonUpdate</string>
+					<string>EncryptedMediaExtensions</string>
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
-					<string>BlockAboutAddons</string>
-					<string>DisableSystemAddonUpdate</string>
 					<!--Locales Pane -->
 					<string>RequestedLocales</string>
 					<!--Other Preferences Pane -->
@@ -314,6 +316,7 @@
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
+					<string>PDFjs</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -873,6 +876,43 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Disable Built-in PDF Viewer</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>77</string>
+			<key>pfm_description_reference</key>
+			<string>Disable or configure PDF.js, the built-in PDF viewer.
+
+If Enabled is set to false, the built-in PDF viewer is disabled.
+
+If EnablePermissions is set to true, the built-in PDF viewer will honor document permissions like preventing the copying of text.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#pdfjs</string>
+			<key>pfm_name</key>
+			<string>PDFjs</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_name</key>
+					<string>Enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_name</key>
+					<string>EnablePermissions</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>PDF.js</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
