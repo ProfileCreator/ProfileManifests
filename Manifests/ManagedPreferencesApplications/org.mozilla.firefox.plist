@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-05-06T12:52:57Z</date>
+	<date>2020-06-04T23:43:30Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -190,6 +190,7 @@
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
+					<string>PDFjs</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -200,11 +201,12 @@
 					<string>DisplayBookmarksToolbar</string>
 					<string>NoDefaultBookmarks</string>
 					<!--Extensions/Addons Pane -->
+					<string>BlockAboutAddons</string>
+					<string>DisableSystemAddonUpdate</string>
+					<string>EncryptedMediaExtensions</string>
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
-					<string>BlockAboutAddons</string>
-					<string>DisableSystemAddonUpdate</string>
 					<!--Locales Pane -->
 					<string>RequestedLocales</string>
 					<!--Other Preferences Pane -->
@@ -267,11 +269,12 @@
 			<dict>
 				<key>Add-ons</key>
 				<array>
+					<string>BlockAboutAddons</string>
+					<string>DisableSystemAddonUpdate</string>
+					<string>EncryptedMediaExtensions</string>
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
-					<string>BlockAboutAddons</string>
-					<string>DisableSystemAddonUpdate</string>
 				</array>
 				<key>Bookmarks</key>
 				<array>
@@ -313,6 +316,7 @@
 					<string>NewTabPage</string>
 					<string>OverrideFirstRunPage</string>
 					<string>OverridePostUpdatePage</string>
+					<string>PDFjs</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -645,6 +649,18 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>Enables integrated authentication in prviate browsing</string>
+					<key>pfm_name</key>
+					<string>PrivateBrowsing</string>
+					<key>pfm_title</key>
+					<string>Private Browsing</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
 			</array>
 			<key>pfm_type</key>
 			<string>dictionary</string>
@@ -868,10 +884,51 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablebuiltinpdfviewer</string>
 			<key>pfm_name</key>
 			<string>DisableBuiltinPDFViewer</string>
+			<key>pfm_note</key>
+			<string>This setting can also be managed with the PDFjs preference, which has more granular options. Use one or the other.</string>
 			<key>pfm_title</key>
 			<string>Disable Built-in PDF Viewer</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>77</string>
+			<key>pfm_description</key>
+			<string>Disable or configure PDF.js, the built-in PDF viewer.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#pdfjs</string>
+			<key>pfm_name</key>
+			<string>PDFjs</string>
+			<key>pfm_note</key>
+			<string>This builds on the older DisableBuiltinPDFViewer preference. Use one or the other.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>If Enabled is set to false, the built-in PDF viewer is disabled.</string>
+					<key>pfm_name</key>
+					<string>Enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>If EnablePermissions is set to true, the built-in PDF viewer will honor document permissions like preventing the copying of text.</string>
+					<key>pfm_name</key>
+					<string>EnablePermissions</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>PDF.js</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -1435,6 +1492,47 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Extension Update</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>77</string>
+			<key>pfm_description</key>
+			<string>Enable or disable Encrypted Media Extensions and optionally lock it.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+			<key>pfm_name</key>
+			<string>EncryptedMediaExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>If Enabled is set to false, encrypted media extensions (like Widevine) are not downloaded by Firefox unless the user consents to installing them.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+					<key>pfm_name</key>
+					<string>Enabled</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>If Locked is set to true and Enabled is set to false, Firefox will not download encrypted media extensions (like Widevine) or ask the user to install them.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/README.md#encryptedmediaextensions</string>
+					<key>pfm_name</key>
+					<string>Locked</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Encrypted Media Extensions</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5030,6 +5128,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>8</integer>
+	<integer>9</integer>
 </dict>
 </plist>

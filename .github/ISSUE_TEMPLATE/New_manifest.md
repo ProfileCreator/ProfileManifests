@@ -1,7 +1,7 @@
 ---
 name: New Manifest / Payload
 about: Request a new or missing payload to be added
-labels: ":memo:new manifest"
+labels: ":memo: new manifest"
 
 ---
 

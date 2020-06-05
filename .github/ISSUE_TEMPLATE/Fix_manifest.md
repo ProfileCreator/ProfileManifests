@@ -1,7 +1,7 @@
 ---
 name: Fix Manifest / Payload
 about: Request a manifest / payload to be fixed, or report an error
-labels: ":warning:fix manifest"
+labels: ":warning: fix manifest"
 
 ---
 
