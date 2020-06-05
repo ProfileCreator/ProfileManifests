@@ -1,7 +1,7 @@
 ---
 name: Update Manifest / Payload
 about: Request an update to an existing manifest / payload
-labels: ":hammer_and_wrench:update manifest"
+labels: ":hammer_and_wrench: update manifest"
 
 ---
 
