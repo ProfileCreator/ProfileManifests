@@ -3,398 +3,482 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Use this section to define managed email and web domains.</string>
-	<key>pfm_title</key>
-	<string>Web Content Filter</string>
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-	<key>pfm_version</key>
-	<integer>1</integer>
+	<string>Web Content Filter settings</string>
+	<key>pfm_description_reference</key>
+	<string>URLs are matched by using string-based root matching. A URL matches a whitelist, blacklist, or permitted list pattern if the exact characters of the pattern appear as the root of the URL. For example, if test.com/a is blacklisted, then test.com, test.com/b, and test.com/c/d/e will all be blocked. Matching also discards subdomain prefixes, so if test.com/a is blacklisted, m.test.com is also blocked.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/webcontentfilter</string>
 	<key>pfm_domain</key>
 	<string>com.apple.webcontent-filter</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_last_modified</key>
+	<date>2020-06-05T13:06:35Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.15</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
+		<string>macOS</string>
 	</array>
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
-	<key>pfm_last_modified</key>
-	<date>2019-04-30T15:24:00Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
+			<key>pfm_default</key>
+			<string>Adds a Web Content Filter</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
 			<string>Payload Description</string>
-			<key>pfm_description</key>
-			<string>Description of the payload</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>Configures content filtering settings</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PayloadDisplayName</string>
-			<key>pfm_title</key>
-			<string>Payload Display Name</string>
-			<key>pfm_description</key>
-			<string>Name of the payload</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_default</key>
 			<string>Web Content Filter</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.webcontent-filter</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Identifier</string>
-			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.webcontent-filter</string>
-			<key>pfm_require</key>
-			<string>always</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.webcontent-filter</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Type</string>
-			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>com.apple.webcontent-filter</string>
-			<key>pfm_require</key>
-			<string>always</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PayloadUUID</string>
-			<key>pfm_title</key>
-			<string>Payload UUID</string>
-			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_default</key>
 			<string></string>
-			<key>pfm_require</key>
-			<string>always</string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>PayloadVersion</string>
-			<key>pfm_title</key>
-			<string>Payload Version</string>
-			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>1</integer>
+			<string>PayloadUUID</string>
 			<key>pfm_require</key>
 			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
 			<string>Payload Organization</string>
-			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>FilterType</string>
-			<key>pfm_title</key>
-			<string>Filter Type</string>
-			<key>pfm_description</key>
-			<string>Type of filter, built-in or plug-in</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_default</key>
 			<string>BuiltIn</string>
-			<key>pfm_require</key>
-			<string>always</string>
+			<key>pfm_description_reference</key>
+			<string>The type of filter, built-in or plug-in.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>BuiltIn</string>
-				<string>Plug-In</string>
+				<string>Plugin</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>Built-In</string>
 				<string>Plug-In</string>
 			</array>
+			<key>pfm_name</key>
+			<string>FilterType</string>
+			<key>pfm_title</key>
+			<string>Filter Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>firewall</string>
+			<key>pfm_description_reference</key>
+			<string>This value is used to derive the relative order of content filters. Filters with a grade of firewall see network traffic before filters with a grade of inspector. The order of filters within a grade is undefined.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>firewall</string>
+				<string>inspector</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Firewall</string>
+				<string>Inspector</string>
+			</array>
+			<key>pfm_name</key>
+			<string>FilterGrade</string>
+			<key>pfm_title</key>
+			<string>Filter Grade</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it is basically looking for adult language.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>BuiltIn</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>AutoFilterEnabled</string>
 			<key>pfm_title</key>
 			<string>Limit adult content automatically</string>
 			<key>pfm_description</key>
-			<string>Optional. If true, automatic filtering is enabled. This function evaluates each web page as it is
-				loaded and attempts to identify and block content not suitable for children.
-				The search algorithm is complex and may vary from release to release, but it is basically looking for
-				adult language, i.e. swearing and sexually explicit language. The default value is true.</string>
+			<string>Optional. If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children.
+
+The search algorithm is complex and may vary from release to release, but it is basically looking for adult language, i.e. swearing and sexually explicit language. The default value is true.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>An array or URLs that are accessible whether or not the automatic filter allows access. This array is use only when AutoFilterEnabled is true. Otherwise, this field is ignored.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
 								<string>BuiltIn</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>AutoFilterEnabled</string>
 						</dict>
 					</array>
 				</dict>
-			</array>
-			<key>pfm_default</key>
-			<true/>
-		</dict>
-		<dict>
+			</array>			
 			<key>pfm_name</key>
 			<string>PermittedURLs</string>
-			<key>pfm_title</key>
-			<string>PermittedURLs</string>
-			<key>pfm_description</key>
-			<string>Each entry contains a URL that is accessible whether the automatic filter allows access or not. Used only when AutoFilterEnabled is true. Otherwise, this field is ignored.</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>PermittedURLItems</string>
-					<key>pfm_title</key>
-					<string>Permitted url items</string>
-					<key>pfm_type</key>
-					<string>string</string>
 					<key>pfm_format</key>
 					<string>^https?://.*$</string>
+					<key>pfm_title</key>
+					<string>Permitted URL</string>
+					<key>pfm_type</key>
+					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Permitted URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>If true, enables the filtering of WebKit traffic.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>BuiltIn</string>
+								<string>Plugin</string>
 							</array>
-						</dict>
-						<dict>
 							<key>pfm_target</key>
-							<string>AutoFilterEnabled</string>
-							<key>pfm_range_list</key>
-							<array>
-								<false/>
-							</array>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>FilterBrowsers</string>
+			<key>pfm_title</key>
+			<string>Filter WebKit Traffic</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>WhitelistedBookmarks</string>
-			<key>pfm_title</key>
-			<string>White list</string>
 			<key>pfm_description</key>
 			<string>If present, these URLs are added to the browser’s bookmarks, and the user is not allowed to visit any sites other than these. The number of these URLs should be limited to about 500.</string>
-			<key>pfm_type</key>
-			<string>array</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>BuiltIn</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AutoFilterEnabled</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_repetition_max</key>
 			<integer>500</integer>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_title</key>
-					<string>Whitelisted Bookmarks Item</string>
-					<key>pfm_name</key>
-					<string>WhitelistedBookmarksItem</string>
-					<key>pfm_description</key>
-					<string>Whitelisted Bookmarks Item</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<key>pfm_title</key>
-							<string>URL</string>
-							<key>pfm_name</key>
-							<string>URL</string>
-							<key>pfm_description</key>
-							<string>URL of the whitelisted bookmark.</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_format</key>
 							<string>^https?:\/\/.*$</string>
-						</dict>
-						<dict>
-							<key>pfm_title</key>
-							<string>Title</string>
-							<key>pfm_name</key>
-							<string>Title</string>
 							<key>pfm_description</key>
-							<string>The title of the bookmark.</string>
-							<key>pfm_type</key>
-							<string>string</string>
+							<string>URL of the whitelisted bookmark.</string>
+							<key>pfm_name</key>
+							<string>URL</string>
 							<key>pfm_require</key>
 							<string>always</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The title of the bookmark.</string>
+							<key>pfm_name</key>
+							<string>Title</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Title</string>
+							<key>pfm_type</key>
+							<string>string</string>
 						</dict>
 					</array>
+					<key>pfm_title</key>
+					<string>Whitelisted Bookmarks Dictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>WhitelistedBookmarks</string>
+			<key>pfm_title</key>
+			<string>Whitelisted Bookmarks</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it is basically looking for adult language.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
 								<string>BuiltIn</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 						<dict>
-							<key>pfm_target</key>
-							<string>AutoFilterEnabled</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
+							<key>pfm_target</key>
+							<string>AutoFilterEnabled</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
 			<string>BlacklistedURLs</string>
-			<key>pfm_title</key>
-			<string>BlacklistedURLs</string>
-			<key>pfm_description</key>
-			<string>Each entry contains a URL that will not be accessible.</string>
 			<key>pfm_repetition_max</key>
 			<integer>500</integer>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>BlacklistedURLItems</string>
 					<key>pfm_title</key>
-					<string>Blacklisted url items</string>
+					<string>Blacklisted URL</string>
 					<key>pfm_type</key>
 					<string>string</string>
-					<key>pfm_format</key>
-					<string>^https?:\/\/.*$</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
-							<key>pfm_n_range_list</key>
-							<array>
-								<string>BuiltIn</string>
-							</array>
-						</dict>
-						<dict>
-							<key>pfm_target</key>
-							<string>AutoFilterEnabled</string>
-							<key>pfm_range_list</key>
-							<array>
-								<false/>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_title</key>
+			<string>Blacklisted URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>UserDefinedName</string>
-			<key>pfm_title</key>
-			<string>UserDefinedName</string>
 			<key>pfm_description</key>
 			<string>A string which will be displayed for this filtering configuration.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>UserDefinedName</string>
+			<key>pfm_title</key>
+			<string>Filter Configuration Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>PluginBundleID</string>
-			<key>pfm_title</key>
-			<string>PluginBundleID</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>The Bundle ID of the plugin that provides filtering service.</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>PluginBundleID</string>
+			<key>pfm_title</key>
+			<string>Plug-In Bundle ID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Plugin</string>
 							</array>
 						</dict>
 					</array>
@@ -402,254 +486,514 @@
 			</array>
 		</dict>
 		<dict>
+			<key>pfm_description_reference</key>
+			<string>The server address, which may be IP address, hostname, or URL.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ServerAddress</string>
 			<key>pfm_title</key>
-			<string>ServerAddress</string>
-			<key>pfm_description</key>
-			<string> Server address (may be IP address, hostname, or URL).</string>
+			<string>Server Address</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>A user name for the service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
 			<string>UserName</string>
 			<key>pfm_title</key>
 			<string>Username</string>
-			<key>pfm_description</key>
-			<string>A username for the service.</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>A password for the service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
 			<string>Password</string>
-			<key>pfm_title</key>
-			<string>Password</string>
-			<key>pfm_description</key>
-			<string>A password for the service.</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>The UUID of the certificate payload within the same profile used to authenticate the user.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<dict>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
 			<string>PayloadCertificateUUID</string>
 			<key>pfm_title</key>
 			<string>Certificate UUID</string>
-			<key>pfm_description</key>
-			<string>UUID of the certificate payload containing an identity used as the client credential</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_format</key>
-			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
-							<key>pfm_n_range_list</key>
-							<array>
-								<string>Plug-In</string>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>Organization</string>
-			<key>pfm_title</key>
-			<string>Organization</string>
 			<key>pfm_description</key>
 			<string>An Organization string that will be passed to the 3rd party plugin.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>Organization</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
-							<key>pfm_n_range_list</key>
-							<array>
-								<string>Plug-In</string>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>FilterBrowsers</string>
-			<key>pfm_title</key>
-			<string>Filter Browsers</string>
-			<key>pfm_description</key>
-			<string>Enables the filtering of WebKit traffic</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_default</key>
-			<integer>1</integer>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Disable filtering</string>
-				<string>Enable filtering</string>
-			</array>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>If true, enables the filtering of socket traffic.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<string>Plugin</string>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
 			<string>FilterSockets</string>
+			<key>pfm_note</key>
+			<string>Either FilterPackets or FilterSockets must be true for the filter to have any effect.</string>
 			<key>pfm_title</key>
-			<string>Filter Sockets</string>
-			<key>pfm_description</key>
-			<string>Enables the filtering of socket traffic</string>
+			<string>Enable Socket Filtering</string>
 			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_default</key>
-			<integer>1</integer>
-			<key>pfm_range_list</key>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Disable filtering</string>
-				<string>Enable filtering</string>
-			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
-							<key>pfm_n_range_list</key>
-							<array>
-								<string>Plug-In</string>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<string>boolean</string>
 		</dict>
 		<dict>
-		    <key>pfm_name</key>
-		    <string>VendorConfig</string>
-		    <key>pfm_title</key>
-		    <string>Vendor Config</string>
-		    <key>pfm_description</key>
-		    <string>Custom key/value pairs for the filtering service plugin</string>
-		    <key>pfm_type</key>
-		    <string>array</string>
-		    <key>pfm_subkeys</key>
-		    <array>
-		        <dict>
-		            <key>pfm_title</key>
-		            <string>Filtering Service Custom Dictionary</string>
-		            <key>pfm_name</key>
-		            <string>FilteringServiceCustomDictionary</string>
-		            <key>pfm_description</key>
-		            <string>The custom key/value pairs for the filtering service</string>
-		            <key>pfm_type</key>
-		            <string>dictionary</string>
-		        </dict>
-		    </array>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterSockets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_description</key>
+			<string>The bundle identifier string of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running.</string>
+			<key>pfm_description_reference</key>
+			<string>The bundle identifier string of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running. This field is required if FilterSockets is set to 1.
+
+Available in macOS 10.15 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_target</key>
-							<string>FilterType</string>
 							<key>pfm_n_range_list</key>
 							<array>
-								<string>Plug-In</string>
+								<true/>
 							</array>
+							<key>pfm_target</key>
+							<string>FilterSockets</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>FilterDataProviderBundleIdentifier</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Filter Data Provider System Extension Bundle ID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterSockets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_description</key>
+			<string>The designated requirement string that is embedded in the code signature of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running.</string>
+			<key>pfm_description_reference</key>
+			<string>The designated requirement string that is embedded in the code signature of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running. This field is required if FilterSockets is set to 1.
+
+Available in macOS 10.15 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterSockets</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>FilterDataProviderDesignatedRequirement</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Filter Data Provider Designated Requirement</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to 1, enables the filtering of network packets.
+
+Either FilterPackets or FilterSockets must be true for the filter to have any effect.
+
+Can be used when FilterType is Plugin.
+
+Available in macOS 10.15 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>FilterPackets</string>
+			<key>pfm_note</key>
+			<string>Either FilterPackets or FilterSockets must be true for the filter to have any effect.</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_title</key>
+			<string>Enable Packet Filtering</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterPackets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_description</key>
+			<string>The bundle identifier string of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running.</string>
+			<key>pfm_description_reference</key>
+			<string>The bundle identifier string of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
+
+Available in macOS 10.15 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterPackets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>FilterPacketProviderBundleIdentifier</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Filter Packet Provider Bundle ID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterPackets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_description</key>
+			<string>The designated requirement string that is embedded in the code signature of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running.</string>
+			<key>pfm_description_reference</key>
+			<string>The designated requirement string that is embedded in the code signature of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
+
+Available in macOS 10.15 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterPackets</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>FilterPacketProviderDesignatedRequirement</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Filter Packet Provider Designated Requirement</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Custom key/value pairs for the filtering service plugin</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>Plugin</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>VendorConfig</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Vendor Custom Key Name</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Vendor Custom Key Value</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Vendor Configuration</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 	</array>
+	<key>pfm_supervised</key>
+	<true/>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Web Content Filter</string>
+	<key>pfm_unique</key>
+	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
