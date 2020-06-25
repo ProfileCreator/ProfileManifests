@@ -7,7 +7,7 @@
 	<key>pfm_description</key>
 	<string>Brave Browser Managed Settings</string>
 	<key>pfm_documentation_url</key>
-	<string>https://cloud.google.com/docs/chrome-enterprise/policies/</string>
+	<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 	<key>pfm_domain</key>
 	<string>com.brave.Browser</string>
 	<key>pfm_format_version</key>
@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-04-14T09:48:00Z</date>
+	<date>2020-06-25T13:50:27Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -374,6 +374,7 @@
 					<string>WebDriverOverridesIncompatiblePolicies</string>
 					<string>WebRtcEventLogCollectionAllowed</string>
 					<string>WebRtcUdpPortRange</string>
+					<string>TorDisabled</string>
 				</array>
 				<key>Native Messaging</key>
 				<array>
@@ -1074,7 +1075,7 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_app_min</key>
 			<string>15</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.</string>
+			<string>Allows you to specify a list of url patterns that specify sites for which Brave Browser should automatically select a client certificate, if the site requests a certificate.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
 
@@ -1221,78 +1222,11 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- <dict>
-			<key>pfm_app_min</key>
-			<string>74</string>
-			<key>pfm_description</key>
-			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs.</string>
-			<key>pfm_description_reference</key>
-			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
-
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
-
-If this policy is left not set, the global default value will be used for all sites either from the 'DefaultWebUsbGuardSetting' policy if it is set, or the user's personal configuration otherwise.
-
-URL patterns in this policy should not clash with the ones configured via WebUsbBlockedForUrls. If there is a clash, this policy will take precedence over WebUsbBlockedForUrls and WebUsbAskForUrls.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebUsbAllowDevicesForUrls</string>
-			<key>pfm_name</key>
-			<string>WebUsbAllowDevicesForUrls</string>
-			<key>pfm_note</key>
-			<string>Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</string>
-			<key>pfm_subkeys</key>
-			<array>
-				<dict>
-					<key>pfm_name</key>
-					<string>urls</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_format</key>
-							<string>https?://.*</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>URLs</string>
-					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>devices</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_name</key>
-							<string>product_id</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-						<dict>
-							<key>pfm_name</key>
-							<string>vendor_id</string>
-							<key>pfm_type</key>
-							<string>integer</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Devices</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Automatically grant permission to these sites to connect to USB devices with the given vendor and product IDs</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
-		</dict> -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
-			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Google Chrome.</string>
+			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Google Chrome.
 
@@ -1432,7 +1366,6 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- START ContentSettings/DefaultSearchProvider -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>24</string>
@@ -1740,8 +1673,6 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 			<key>pfm_value_placeholder</key>
 			<string>q={searchTerms},ie=utf-8,oe=utf-8</string>
 		</dict>
-		<!-- END ContentSettings/DefaultSearchProvider -->
-		<!-- START ContentSettings/Extensions -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>25</string>
@@ -1929,7 +1860,7 @@ If this policy is left not set, no apps or extensions are installed automaticall
 			<key>pfm_app_min</key>
 			<string>62</string>
 			<key>pfm_description</key>
-			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
+			<string>Configures extension management settings for Brave Browser. A default configuration can be set for the special ID "*"</string>
 			<key>pfm_description_reference</key>
 			<string>Configures extension management settings for Google Chrome.
 
@@ -1961,10 +1892,10 @@ For a full description of possible settings and structure of this policy please 
 					<string></string>
 					<key>pfm_description_reference</key>
 					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
 					<key>pfm_hidden</key>
 					<string>container</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -1993,7 +1924,7 @@ For a full description of possible settings and structure of this policy please 
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Maps to a string indicating where Chrome can download a force_installed or normal_installed extension.</string>
+							<string>Maps to a string indicating where Brave Browser can download a force_installed or normal_installed extension.</string>
 							<key>pfm_description_reference</key>
 							<string></string>
 							<key>pfm_name</key>
@@ -2116,7 +2047,7 @@ For a full description of possible settings and structure of this policy please 
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
+							<string>This setting whitelists the allowed types of extension/apps that can be installed in Brave Browser.</string>
 							<key>pfm_description_reference</key>
 							<string></string>
 							<key>pfm_name</key>
@@ -2223,12 +2154,12 @@ External extensions and their installation are documented at https://developer.c
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
 			<string>73</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow insecure algorithms in integrity checks on extension updates and installs.</string>
 			<key>pfm_description_reference</key>
@@ -2242,14 +2173,12 @@ Starting in Google Chrome 78, this policy will be ignored and treated as disable
 			<key>pfm_name</key>
 			<string>ExtensionAllowInsecureUpdates</string>
 			<key>pfm_note</key>
-			<string>This will default to the enabled behavior when unset. Starting in Google Chrome 76, this will default to the disabled behavior when unset. Starting in Google Chrome 78, this policy will be ignored and treated as disabled.</string>
+			<string>This will default to the enabled behavior when unset. Starting in Chromium 76, this will default to the disabled behavior when unset. Starting in Chromium 78, this policy will be ignored and treated as disabled.</string>
 			<key>pfm_title</key>
 			<string>Allow insecure extension updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ContentSettings/Extensions -->
-		<!-- START ContentSettings/GoogleCast -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>52</string>
@@ -2292,8 +2221,6 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ContentSettings/GoogleCast -->
-		<!-- START ContentSettings/HTTPAuthentication -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>13</string>
@@ -2318,7 +2245,7 @@ Typically this is disabled as a phishing defense. If this policy is not set, thi
 			<key>pfm_app_min</key>
 			<string>9</string>
 			<key>pfm_description</key>
-			<string>Servers that Google Chrome may delegate to.</string>
+			<string>Servers that Brave Browser may delegate to.</string>
 			<key>pfm_description_reference</key>
 			<string>Servers that Google Chrome may delegate to.
 
@@ -2340,7 +2267,7 @@ If you leave this policy not set Google Chrome will not delegate user credential
 			<key>pfm_app_min</key>
 			<string>9</string>
 			<key>pfm_description</key>
-			<string>Specifies which HTTP authentication schemes are supported by Google Chrome. Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.</string>
+			<string>Specifies which HTTP authentication schemes are supported by Brave Browser. Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies which HTTP authentication schemes are supported by Google Chrome.
 
@@ -2362,7 +2289,7 @@ If this policy is left not set, all four schemes will be used.</string>
 			<key>pfm_app_min</key>
 			<string>9</string>
 			<key>pfm_description</key>
-			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
+			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Brave Browser receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.
 
@@ -2424,15 +2351,13 @@ If you disable this setting or leave it not set, the generated Kerberos SPN will
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END HTTPAuthentication -->
-		<!-- START ContentSettings/LegacyBrowserSupport -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>73</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>This policy controls whether to enable Legacy Browser Support. When this policy is set to true, Chrome will attempt to launch some URLs in an alternate browser.</string>
+			<string>This policy controls whether to enable Legacy Browser Support. When this policy is set to true, Brave Browser will attempt to launch some URLs in an alternate browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls whether to enable Legacy Browser Support.
 
@@ -2524,7 +2449,7 @@ When this policy is set to a file path, that file is used as an executable file.
 			<key>pfm_app_min</key>
 			<string>74</string>
 			<key>pfm_description</key>
-			<string>This policy controls how long to wait before launching an alternative browser, in milliseconds. When this policy is set to a number, Chrome shows a message for that many milliseconds, and then opens the alternative browser.</string>
+			<string>This policy controls how long to wait before launching an alternative browser, in milliseconds. When this policy is set to a number, Brave Browser shows a message for that many milliseconds, and then opens the alternative browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls how long to wait before launching an alternative browser, in milliseconds.
 
@@ -2548,7 +2473,7 @@ When this policy is set to a number, Chrome shows a message for that many millis
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This policy controls whether to close Chrome completely when the last tab would switch to another browser.</string>
+			<string>This policy controls whether to close Brave Browser completely when the last tab would switch to another browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls whether to close Chrome completely when the last tab would switch to another browser.
 
@@ -2560,9 +2485,9 @@ When this policy is set to false, Chrome will close the tab after switching to a
 			<key>pfm_name</key>
 			<string>BrowserSwitcherKeepLastChromeTab</string>
 			<key>pfm_note</key>
-			<string>When this policy is left unset, or is set to true, Chrome will keep at least one tab open, after switching to an alternate browser. When this policy is set to false, Chrome will close the tab after switching to an alternate browser, even if it was the last tab. This will cause Chrome to exit completely.</string>
+			<string>When this policy is left unset, or is set to true, Brave Browser will keep at least one tab open, after switching to an alternate browser. When this policy is set to false, Brave Browser will close the tab after switching to an alternate browser, even if it was the last tab. This will cause Brave Browser to exit completely.</string>
 			<key>pfm_title</key>
-			<string>Keep Chrome open when the last tab switches to another browser</string>
+			<string>Keep Brave Browser open when the last tab switches to another browser</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2588,7 +2513,7 @@ If rules contradict eachother, Google Chrome uses the most specific rule.</strin
 			<key>pfm_name</key>
 			<string>BrowserSwitcherUrlList</string>
 			<key>pfm_note</key>
-			<string>When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Google Chrome when the rules do not match.</string>
+			<string>When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Brave Browser when the rules do not match.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2625,7 +2550,7 @@ Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the
 			<key>pfm_name</key>
 			<string>BrowserSwitcherUrlGreylist</string>
 			<key>pfm_note</key>
-			<string>Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the Internet Explorer add-in is present and enabled, it also controls whether Internet Explorer should open these URLs in Google Chrome.</string>
+			<string>Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the Internet Explorer add-in is present and enabled, it also controls whether Internet Explorer should open these URLs in Brave Browser.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2664,7 +2589,7 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_name</key>
 			<string>BrowserSwitcherExternalGreylistUrl</string>
 			<key>pfm_note</key>
-			<string>When this policy is set to a valid URL, Google Chrome downloads the grey list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+			<string>When this policy is set to a valid URL, Brave Browser downloads the grey list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
 
 For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
 			<key>pfm_title</key>
@@ -2694,7 +2619,7 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_name</key>
 			<string>BrowserSwitcherExternalSitelistUrl</string>
 			<key>pfm_note</key>
-			<string>When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+			<string>When this policy is set to a valid URL, Brave Browser downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
 
 For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
 			<key>pfm_title</key>
@@ -2704,8 +2629,6 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_value_placeholder</key>
 			<string>http://example.com/sitelist.xml</string>
 		</dict>
-		<!-- END ContentSettings/LegacyBrowserSupport -->
-		<!-- START ContentSettings/Misc -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>65</string>
@@ -2786,7 +2709,7 @@ If this policy is left not set, 2 will be used.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables deleting browser history and download history in Google Chrome and prevents users from changing this setting.</string>
+			<string>Enables deleting browser history and download history in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables deleting browser history and download history in Google Chrome and prevents users from changing this setting.
 
@@ -2828,7 +2751,7 @@ If this policy is set to False, users will not be able to play the dinosaur east
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Allows access to local files on the machine by allowing Google Chrome to display file selection dialogs.</string>
+			<string>Allows access to local files on the machine by allowing Brave Browser to display file selection dialogs.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows access to local files on the machine by allowing Google Chrome to display file selection dialogs.
 
@@ -2867,12 +2790,12 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_deprecated</key>
-			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
 			<key>pfm_default</key>
 			<false/>
+			<key>pfm_deprecated</key>
+			<string>88</string>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may show popups during its unloading.</string>
 			<key>pfm_description_reference</key>
@@ -2893,12 +2816,12 @@ This policy will be removed in Chrome 88.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_deprecated</key>
-			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>78</string>
 			<key>pfm_default</key>
 			<false/>
+			<key>pfm_deprecated</key>
+			<string>88</string>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.</string>
 			<key>pfm_description_reference</key>
@@ -2924,7 +2847,7 @@ See https://www.chromestatus.com/feature/4664843055398912 .</string>
 			<key>pfm_app_min</key>
 			<string>51</string>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome's restricted log in feature in G Suite and prevents users from changing this setting.</string>
+			<string>Enables Brave Browser's restricted log in feature in G Suite and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's restricted log in feature in G Suite and prevents users from changing this setting.
 
@@ -2960,7 +2883,7 @@ Users cannot change or override this setting.</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Enables the use of alternate error pages that are built into Google Chrome (such as 'page not found') and prevents users from changing this setting.</string>
+			<string>Enables the use of alternate error pages that are built into Brave Browser (such as 'page not found') and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables the use of alternate error pages that are built into Google Chrome (such as 'page not found') and prevents users from changing this setting.
 
@@ -2986,7 +2909,7 @@ If this policy is left not set, this will be enabled but the user will be able t
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Disables the internal PDF viewer in Google Chrome. Instead it treats it as download and allows the user to open PDF files with the default application.</string>
+			<string>Disables the internal PDF viewer in Brave Browser. Instead it treats it as download and allows the user to open PDF files with the default application.</string>
 			<key>pfm_description_reference</key>
 			<string>Disables the internal PDF viewer in Google Chrome. Instead it treats it as download and allows the user to open PDF files with the default application.
 
@@ -3004,7 +2927,7 @@ If this policy is left not set or disabled the PDF plugin will be used to open P
 			<key>pfm_app_min</key>
 			<string>80</string>
 			<key>pfm_description</key>
-			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Google Chrome.</string>
+			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Google Chrome.
 
@@ -3103,12 +3026,12 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable AutoFill. This policy is deprecated in M70, please use AutofillAddressEnabled and AutofillCreditCardEnabled instead.</string>
 			<key>pfm_description_reference</key>
@@ -3134,7 +3057,7 @@ If you enable this setting or do not set a value, AutoFill will remain under the
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.</string>
+			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.
 
@@ -3156,7 +3079,7 @@ If this setting is enabled or has no value, the user will be able to control Aut
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.</string>
+			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.
 
@@ -3176,7 +3099,7 @@ If this setting is enabled or has no value, the user will be able to control Aut
 			<key>pfm_app_min</key>
 			<string>12</string>
 			<key>pfm_description</key>
-			<string>If you enable this setting, Google Chrome will show a bookmark bar.</string>
+			<string>If you enable this setting, Brave Browser will show a bookmark bar.</string>
 			<key>pfm_description_reference</key>
 			<string>If you enable this setting, Google Chrome will show a bookmark bar.
 
@@ -3200,7 +3123,7 @@ If this setting is left not set the user can decide to use this function or not.
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If this policy is set to true or not configured, Google Chrome will allow Add Person from the user manager.</string>
+			<string>If this policy is set to true or not configured, Brave Browser will allow Add Person from the user manager.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to true or not configured, Google Chrome will allow Add Person from the user manager.
 
@@ -3220,7 +3143,7 @@ If this policy is set to false, Google Chrome will not allow creation of new pro
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If this policy is set to true or not configured, Google Chrome will enable guest logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.</string>
+			<string>If this policy is set to true or not configured, Brave Browser will enable guest logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to true or not configured, Google Chrome will enable guest logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.
 
@@ -3240,7 +3163,7 @@ If this policy is set to false, Google Chrome will not allow guest profiles to b
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If this policy is set to enabled, Google Chrome will enforce guest sessions and prevents profile logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.</string>
+			<string>If this policy is set to enabled, Brave Browser will enforce guest sessions and prevents profile logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to enabled, Google Chrome will enforce guest sessions and prevents profile logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.
 
@@ -3260,7 +3183,7 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Setting this policy to false stops Google Chrome from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
+			<string>Setting this policy to false stops Brave Browser from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
 			<key>pfm_description_reference</key>
 			<string>Setting this policy to false stops Google Chrome from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
 			<key>pfm_documentation_url</key>
@@ -3276,7 +3199,7 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 			<key>pfm_app_min</key>
 			<string>70</string>
 			<key>pfm_description</key>
-			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Google Chrome with their account and use account related services like Chrome sync.</string>
+			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Brave Browser with their account and use account related services like Brave Browser sync.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Google Chrome with their account and use account related services like Chrome sync.
 
@@ -3316,7 +3239,7 @@ If this policy is not set then the user can decide if they want to enable the br
 			<key>pfm_app_min</key>
 			<string>25</string>
 			<key>pfm_description</key>
-			<string>Controls whether the built-in DNS client is used in Google Chrome.</string>
+			<string>Controls whether the built-in DNS client is used in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Controls whether the built-in DNS client is used in Google Chrome.
 
@@ -3438,7 +3361,7 @@ If this policy is not set, any certificate that is required to be disclosed via 
 			<key>pfm_app_min</key>
 			<string>72</string>
 			<key>pfm_description</key>
-			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.</string>
+			<string>If this policy is set, Brave Browser will try to register itself and apply associated cloud policy for all profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.
 
@@ -3460,7 +3383,7 @@ The value of this policy is an Enrollment token that can be retrieved from the G
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Chrome launch process if failed.</string>
+			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Brave Browser launch process if failed.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Chrome launch process if failed.
 
@@ -3504,7 +3427,7 @@ This policy is only available as a mandatory machine platform policy and it only
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If disabled, prevents security warnings from appearing when Chrome is launched with some potentially dangerous command-line flags.</string>
+			<string>If disabled, prevents security warnings from appearing when Brave Browser is launched with some potentially dangerous command-line flags.</string>
 			<key>pfm_description_reference</key>
 			<string>If disabled, prevents security warnings from appearing when Chrome is launched with some potentially dangerous command-line flags.
 
@@ -3528,7 +3451,7 @@ On Windows, this policy is only available on instances that are joined to a Micr
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables component updates for all components in Google Chrome when not set or set to True.</string>
+			<string>Enables component updates for all components in Brave Browser when not set or set to True.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables component updates for all components in Google Chrome when not set or set to True.
 
@@ -3540,7 +3463,7 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_name</key>
 			<string>ComponentUpdatesEnabled</string>
 			<key>pfm_title</key>
-			<string>Enable component updates in Google Chrome</string>
+			<string>Enable component updates in Brave Browser</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -3548,7 +3471,7 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_app_min</key>
 			<string>11</string>
 			<key>pfm_description</key>
-			<string>Configures the default browser checks in Google Chrome and prevents users from changing them.</string>
+			<string>Configures the default browser checks in Brave Browser and prevents users from changing them.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the default browser checks in Google Chrome and prevents users from changing them.
 
@@ -3562,7 +3485,7 @@ If this setting is not set, Google Chrome will allow the user to control whether
 			<key>pfm_name</key>
 			<string>DefaultBrowserSettingEnabled</string>
 			<key>pfm_title</key>
-			<string>Set Google Chrome as Default Browser</string>
+			<string>Set Brave Browser as Default Browser</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -3570,7 +3493,7 @@ If this setting is not set, Google Chrome will allow the user to control whether
 			<key>pfm_app_min</key>
 			<string>64</string>
 			<key>pfm_description</key>
-			<string>Configures the default directory that Google Chrome will use for downloading files. This policy is not mandatory, so the user will be able to change the directory.
+			<string>Configures the default directory that Brave Browser will use for downloading files. This policy is not mandatory, so the user will be able to change the directory.
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
@@ -3692,7 +3615,6 @@ If disabled or not specified, taking screenshots is allowed.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>10</string>
 			<key>pfm_app_min</key>
@@ -3700,7 +3622,7 @@ If disabled or not specified, taking screenshots is allowed.</string>
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that are disabled in Google Chrome and prevents users from changing this setting.</string>
+Specifies a list of plugins that are disabled in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
@@ -3730,7 +3652,6 @@ If this policy is left not set the user can use any plugin installed on the syst
 			<string>array</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>12</string>
 			<key>pfm_app_min</key>
@@ -3738,7 +3659,7 @@ If this policy is left not set the user can use any plugin installed on the syst
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that user can enable or disable in Google Chrome.</string>
+Specifies a list of plugins that user can enable or disable in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
@@ -3770,7 +3691,6 @@ If this policy is left not set any plugin that matches the patterns in the 'Disa
 			<string>array</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>13</string>
 			<key>pfm_app_min</key>
@@ -3778,7 +3698,7 @@ If this policy is left not set any plugin that matches the patterns in the 'Disa
 			<key>pfm_description</key>
 			<string>This policy is deprecated, please use URLBlacklist instead.
 
-Disables the listed protocol schemes in Google Chrome.</string>
+Disables the listed protocol schemes in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, please use URLBlacklist instead.
 
@@ -3809,7 +3729,7 @@ If this policy is left not set or the list is empty all schemes will be accessib
 			<key>pfm_app_min</key>
 			<string>13</string>
 			<key>pfm_description</key>
-			<string>Configures the directory that Google Chrome will use for storing cached files on the disk. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Google Chrome manages its contents</string>
+			<string>Configures the directory that Brave Browser will use for storing cached files on the disk. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Brave Browser manages its contents</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the directory that Google Chrome will use for storing cached files on the disk.
 
@@ -3833,7 +3753,7 @@ If this policy is left not set the default cache directory will be used and the 
 			<key>pfm_app_min</key>
 			<string>17</string>
 			<key>pfm_description</key>
-			<string>Configures the cache size that Google Chrome will use for storing cached files on the disk. The value specified in this policy is not a hard boundary but rather a suggestion to the caching system, any value below a few megabytes is too small and will be rounded up to a sane minimum. If the value of this policy is 0, the default cache size will be used but the user will not be able to change it.</string>
+			<string>Configures the cache size that Brave Browser will use for storing cached files on the disk. The value specified in this policy is not a hard boundary but rather a suggestion to the caching system, any value below a few megabytes is too small and will be rounded up to a sane minimum. If the value of this policy is 0, the default cache size will be used but the user will not be able to change it.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the cache size that Google Chrome will use for storing cached files on the disk.
 
@@ -3881,7 +3801,7 @@ When this policy is not set, or is enabled, the DNS interception checks are perf
 			<key>pfm_app_min</key>
 			<string>11</string>
 			<key>pfm_description</key>
-			<string>Configures the directory that Google Chrome will use for downloading files. If you set this policy, Google Chrome will use the provided directory regardless whether the user has specified one or enabled the flag to be prompted for download location every time. If this policy is left not set the default download directory will be used and the user will be able to change it.
+			<string>Configures the directory that Brave Browser will use for downloading files. If you set this policy, Brave Browser will use the provided directory regardless whether the user has specified one or enabled the flag to be prompted for download location every time. If this policy is left not set the default download directory will be used and the user will be able to change it.
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
@@ -3907,7 +3827,7 @@ If this policy is left not set the default download directory will be used and t
 			<key>pfm_app_min</key>
 			<string>61</string>
 			<key>pfm_description</key>
-			<string>Configures the type of downloads that Google Chrome will completely block, without letting users override the security decision.</string>
+			<string>Configures the type of downloads that Brave Browser will completely block, without letting users override the security decision.</string>
 			<key>pfm_description_reference</key>
 			<string>0 - No special restrictions
 1 - Block dangerous downloads
@@ -4008,7 +3928,7 @@ While the policy itself is supported on the above platforms, the feature it is e
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Google Chrome version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.</string>
+			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Chromium version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.</string>
 			<key>pfm_description_reference</key>
 			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Google Chrome version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.
 
@@ -4023,7 +3943,6 @@ If the policy is not set, or is set to false, then Google Chrome will not perfor
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
@@ -4031,7 +3950,7 @@ If the policy is not set, or is set to false, then Google Chrome will not perfor
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that are enabled in Google Chrome and prevents users from changing this setting.</string>
+Specifies a list of plugins that are enabled in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
@@ -4048,10 +3967,6 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnabledPlugins</string>
 			<key>pfm_name</key>
 			<string>EnabledPlugins</string>
-			<key>pfm_title</key>
-			<string>Enabled Plugins</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -4059,6 +3974,10 @@ If this policy is left not set the user can disable any plugin installed on the 
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Enabled Plugins</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -4081,14 +4000,14 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
 			<string>66</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>If this policy is set to true, user has to sign in to Google Chrome with their profile before using the browser. And the default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article. This policy is deprecated, consider using BrowserSignin instead.</string>
+			<string>If this policy is set to true, user has to sign in to Brave Browser with their profile before using the browser. And the default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article. This policy is deprecated, consider using BrowserSignin instead.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, consider using BrowserSignin instead.
 
@@ -4100,7 +4019,7 @@ If this policy is set to false or not configured, user can use the browser witho
 			<key>pfm_name</key>
 			<string>ForceBrowserSignin</string>
 			<key>pfm_title</key>
-			<string>Enable force sign in for Google Chrome</string>
+			<string>Enable force sign in for Brave Browser</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -4151,13 +4070,12 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>30</string>
 			<key>pfm_app_min</key>
 			<string>25</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated, please use ForceGoogleSafeSearch and ForceYouTubeRestrict instead. This policy is ignored if either the ForceGoogleSafeSearch, the ForceYouTubeRestrict or the (deprecated) ForceYouTubeSafetyMode policies are set.</string>
 			<key>pfm_description_reference</key>
@@ -4267,13 +4185,12 @@ If this setting is set to Off or no value is set, Restricted Mode on YouTube is 
 			<string>integer</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>45</string>
 			<key>pfm_app_min</key>
 			<string>41</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Consider using ForceYouTubeRestrict, which overrides this policy and allows more fine-grained tuning.
 
@@ -4321,7 +4238,7 @@ If this policy is set to false, hardware acceleration will be disabled.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Google Chrome OS app launcher.</string>
+			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Brave Browser OS app launcher.</string>
 			<key>pfm_description_reference</key>
 			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Google Chrome OS app launcher.
 
@@ -4338,12 +4255,12 @@ When this policy is set to false or is not configured, the icons are visible.</s
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
 			<string>54</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy enables HTTP/0.9 on ports other than 80 for HTTP and 443 for HTTPS.</string>
 			<key>pfm_description_reference</key>
@@ -4486,15 +4403,14 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
 			<string>11</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
-			<string>This policy is deprecated. Please, use IncognitoModeAvailability instead. Enables Incognito mode in Google Chrome.
+			<string>This policy is deprecated. Please, use IncognitoModeAvailability instead. Enables Incognito mode in Brave Browser.
 
 If this setting is enabled or not configured, users can open web pages in incognito mode.</string>
 			<key>pfm_description_reference</key>
@@ -4518,7 +4434,7 @@ If this policy is left not set, this will be enabled and the user will be able t
 			<key>pfm_app_min</key>
 			<string>14</string>
 			<key>pfm_description</key>
-			<string>Specifies whether the user may open pages in Incognito mode in Google Chrome.</string>
+			<string>Specifies whether the user may open pages in Incognito mode in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>0 - Incognito mode available
 1 - Incognito mode disabled
@@ -4555,7 +4471,7 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 			<key>pfm_app_min</key>
 			<string>63</string>
 			<key>pfm_description</key>
-			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
+			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
 			<key>pfm_description_reference</key>
 			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
 
@@ -4570,17 +4486,16 @@ NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android
 			<string>string</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated, please use DefaultJavaScriptSetting instead.
 
-Can be used to disabled JavaScript in Google Chrome.</string>
+Can be used to disabled JavaScript in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, please use DefaultJavaScriptSetting instead.
 
@@ -4602,7 +4517,7 @@ If this setting is enabled or not set, web pages can use JavaScript but the user
 			<key>pfm_app_min</key>
 			<string>81</string>
 			<key>pfm_description</key>
-			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Google Chrome OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
+			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Brave Browser OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Google Chrome OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
 			<key>pfm_documentation_url</key>
@@ -4651,8 +4566,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks</string>
 			<key>pfm_name</key>
 			<string>ManagedBookmarks</string>
-			<key>pfm_title</key>
-			<string>Managed Bookmarks</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -4682,54 +4595,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
-						<!--
-						<dict>
-							<key>pfm_description</key>
-							<string>Folder contents</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>children</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_description</key>
-									<string></string>
-									<key>pfm_name</key>
-									<string>ManagedBookmark</string>
-									<key>pfm_subkeys</key>
-									<array>
-										<dict>
-											<key>pfm_description</key>
-											<string>Name of the bookmark.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
-											<key>pfm_name</key>
-											<string>name</string>
-											<key>pfm_type</key>
-											<string>string</string>
-										</dict>
-										<dict>
-											<key>pfm_description</key>
-											<string>URL for the bookmark.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
-											<key>pfm_name</key>
-											<string>url</string>
-											<key>pfm_type</key>
-											<string>string</string>
-										</dict>
-									</array>
-									<key>pfm_title</key>
-									<string></string>
-									<key>pfm_type</key>
-									<string>dictionary</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict>
-							-->
 					</array>
 					<key>pfm_title</key>
 					<string></string>
@@ -4737,6 +4602,8 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Managed Bookmarks</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -4820,7 +4687,7 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.</string>
+			<string>Enables anonymous reporting of usage and crash-related data about Brave Browser to Google and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.
 
@@ -4841,7 +4708,7 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>38</string>
 			<key>pfm_description</key>
 			<string>(Deprecated in 50, removed in 52. After 52, if value 1 is set, it will be treated as 0 - predict network actions on any network connection.)
-Enables network prediction in Google Chrome and prevents users from changing this setting.</string>
+Enables network prediction in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>0 - Predict network actions on any network connection
 1 - Predict network actions on any network that is not cellular.
@@ -4952,7 +4819,7 @@ If the setting is enabled or not set then websites are allowed to check if the u
 			<key>pfm_app_min</key>
 			<string>76</string>
 			<key>pfm_description</key>
-			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level. Entered strings must match a Chrome policy / key name that uses a dictionary for its data type.</string>
+			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level. Entered strings must match a Brave Browser policy / key name that uses a dictionary for its data type.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level.
 
@@ -4999,7 +4866,7 @@ If a policy is not in the list, in case there is any conflict between sources, s
 			<key>pfm_app_min</key>
 			<string>75</string>
 			<key>pfm_description</key>
-			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level. Entered strings must match a Chrome policy / key name that use an array (list) of strings for its data type.</string>
+			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level. Entered strings must match a Brave Browser policy / key name that use an array (list) of strings for its data type.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows the selected policies to be merged when they come from different sources, with the same scopes and level.
 
@@ -5038,7 +4905,7 @@ If a policy is not in the list, in case there is any conflict between sources, s
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Google Chrome.</string>
+			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Google Chrome.
 
@@ -5080,9 +4947,9 @@ If the policy is not configured, the user will be able to change this setting.</
 			<key>pfm_app_min</key>
 			<string>18</string>
 			<key>pfm_description</key>
-			<string>Configures the proxy settings for Google Chrome. These proxy settings will be available for ARC-apps too.
+			<string>Configures the proxy settings for Brave Browser. These proxy settings will be available for ARC-apps too.
 
-If you enable this setting, Google Chrome and ARC-apps ignore all proxy-related options specified from the command line.</string>
+If you enable this setting, Brave Browser and ARC-apps ignore all proxy-related options specified from the command line.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the proxy settings for Google Chrome. These proxy settings will be available for ARC-apps too.
 
@@ -5127,8 +4994,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyMode field allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyMode</string>
 							<key>pfm_range_list</key>
@@ -5151,8 +5016,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>string</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyPacUrl field is a URL to a proxy .pac file.</string> -->
 							<key>pfm_format</key>
 							<string>^https?://.*.pac$</string>
 							<key>pfm_name</key>
@@ -5163,8 +5026,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>https://internal.site/example.pac</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyServer field is a URL of the proxy server.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyServer</string>
 							<key>pfm_type</key>
@@ -5173,8 +5034,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>123.123.123.123:8080</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyBypassList field is a list of proxy hosts that Google Chrome will bypass.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyBypassList</string>
 							<key>pfm_subkeys</key>
@@ -5203,7 +5062,7 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If this policy is set to true or not set usage of QUIC protocol in Google Chrome is allowed.
+			<string>If this policy is set to true or not set usage of QUIC protocol in Brave Browser is allowed.
 If this policy is set to false usage of QUIC protocol is disallowed.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to true or not set usage of QUIC protocol in Google Chrome is allowed.
@@ -5221,7 +5080,7 @@ If this policy is set to false usage of QUIC protocol is disallowed.</string>
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
-			<string>Notify users that Google Chrome must be relaunched to apply a pending update.</string>
+			<string>Notify users that Brave Browser must be relaunched to apply a pending update.</string>
 			<key>pfm_description_reference</key>
 			<string>1 - Show a recurring prompt to the user indicating that a relaunch is recommended
 2 - Show a recurring prompt to the user indicating that a relaunch is required
@@ -5253,7 +5112,7 @@ The user's session is restored following the relaunch.</string>
 			<key>pfm_app_min</key>
 			<string>67</string>
 			<key>pfm_description</key>
-			<string>Allows you to set the time period, in milliseconds, over which users are notified that Google Chrome must be relaunched or that a Google Chrome OS device must be restarted to apply a pending update.</string>
+			<string>Allows you to set the time period, in milliseconds, over which users are notified that Brave Browser must be relaunched or that a Brave Browser OS device must be restarted to apply a pending update.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to set the time period, in milliseconds, over which users are notified that Google Chrome must be relaunched or that a Google Chrome OS device must be restarted to apply a pending update.
 
@@ -5275,7 +5134,7 @@ If not set, the default period of 345600000 milliseconds (four days) is used for
 			<key>pfm_app_min</key>
 			<string>21</string>
 			<key>pfm_description</key>
-			<string>Contains a regular expression which is used to determine which users can sign in to Google Chrome.</string>
+			<string>Contains a regular expression which is used to determine which users can sign in to Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Contains a regular expression which is used to determine which users can sign in to Google Chrome.
 
@@ -5287,7 +5146,7 @@ If this policy is left not set or blank, then any user can sign in to Google Chr
 			<key>pfm_name</key>
 			<string>RestrictSigninToPattern</string>
 			<key>pfm_title</key>
-			<string>Restrict which users are allowed to sign in to Google Chrome</string>
+			<string>Restrict which users are allowed to sign in to Brave Browser</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -5321,7 +5180,7 @@ If this setting is disabled or not set, Flash content from other origins or smal
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Chrome shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
+			<string>Brave Browser shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
 Setting this policy to false disallows users to click through any warning page.</string>
 			<key>pfm_description_reference</key>
 			<string>Chrome shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
@@ -5339,7 +5198,7 @@ Setting this policy to false disallows users to click through any warning page.<
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
-			<string>If this policy is not configured then Google Chrome uses a default minimum version which is TLS 1.0.</string>
+			<string>If this policy is not configured then Brave Browser uses a default minimum version which is TLS 1.0.</string>
 			<key>pfm_description_reference</key>
 			<string>tls1 - TLS 1.0
 tls1.1 - TLS 1.1
@@ -5408,7 +5267,7 @@ When this policy is set to "Filter top level sites for adult content", sites cla
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.</string>
+			<string>Disables saving browser history in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.
 
@@ -5428,7 +5287,7 @@ If this setting is disabled or not set, browsing history is saved.</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Enables search suggestions in Google Chrome's omnibox and prevents users from changing this setting.</string>
+			<string>Enables search suggestions in Brave Browser's omnibox and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables search suggestions in Google Chrome's omnibox and prevents users from changing this setting.
 
@@ -5452,7 +5311,7 @@ If this policy is left not set, this will be enabled but the user will be able t
 			<key>pfm_app_min</key>
 			<string>65</string>
 			<key>pfm_description</key>
-			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chrome 65+ when sites request attestation of Security Keys.</string>
+			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chromium 65+ when sites request attestation of Security Keys.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chrome 65+ when sites request attestation of Security Keys.
 
@@ -5536,7 +5395,6 @@ If this policy is set to Disabled, Signed HTTP Exchanges cannot be loaded.</stri
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>30</string>
 			<key>pfm_app_min</key>
@@ -5544,7 +5402,7 @@ If this policy is set to Disabled, Signed HTTP Exchanges cannot be loaded.</stri
 			<key>pfm_description</key>
 			<string>This policy is deprecated, consider using BrowserSignin instead.
 
-Allows the user to sign in to Google Chrome.</string>
+Allows the user to sign in to Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, consider using BrowserSignin instead.
 
@@ -5564,7 +5422,7 @@ If you set this policy, you can configure whether a user is allowed to sign in t
 			<key>pfm_app_min</key>
 			<string>63</string>
 			<key>pfm_description</key>
-			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
+			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
 			<key>pfm_description_reference</key>
 			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
 
@@ -5582,7 +5440,7 @@ NOTE: This policy does not apply on Android. To enable SitePerProcess on Android
 			<key>pfm_app_min</key>
 			<string>22</string>
 			<key>pfm_description</key>
-			<string>Google Chrome can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.</string>
+			<string>Brave Browser can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.</string>
 			<key>pfm_description_reference</key>
 			<string>Google Chrome can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.
 
@@ -5624,7 +5482,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Google Chrome 84.</string>
+			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Chromium 84.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Google Chrome 84.</string>
 			<key>pfm_documentation_url</key>
@@ -5640,7 +5498,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_app_min</key>
 			<string>49</string>
 			<key>pfm_description</key>
-			<string>Suppresses the warning that appears when Google Chrome is running on a computer or operating system that is no longer supported.</string>
+			<string>Suppresses the warning that appears when Brave Browser is running on a computer or operating system that is no longer supported.</string>
 			<key>pfm_description_reference</key>
 			<string>Suppresses the warning that appears when Google Chrome is running on a computer or operating system that is no longer supported.</string>
 			<key>pfm_documentation_url</key>
@@ -5656,7 +5514,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Disables data synchronization in Google Chrome using Google-hosted synchronization services and prevents users from changing this setting.</string>
+			<string>Disables data synchronization in Brave Browser using Google-hosted synchronization services and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Disables data synchronization in Google Chrome using Google-hosted synchronization services and prevents users from changing this setting.
 
@@ -5700,7 +5558,7 @@ If set to true or not configured, the user can end processes in the Task Manager
 			<key>pfm_app_min</key>
 			<string>12</string>
 			<key>pfm_description</key>
-			<string>Enables the integrated Google Translate service on Google Chrome.</string>
+			<string>Enables the integrated Google Translate service on Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables the integrated Google Translate service on Google Chrome.
 
@@ -5831,7 +5689,7 @@ For more information on secure contexts, see https://www.w3.org/TR/secure-contex
 			<key>pfm_app_min</key>
 			<string>69</string>
 			<key>pfm_description</key>
-			<string>Enable URL-keyed anonymized data collection in Google Chrome and prevents users from changing this setting.</string>
+			<string>Enable URL-keyed anonymized data collection in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enable URL-keyed anonymized data collection in Google Chrome and prevents users from changing this setting.
 
@@ -5861,7 +5719,7 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 			<key>pfm_description_reference</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Google.
 
-If the policy is unset or set to true, users can send feedback to Google via Menu->Help->Report an Issue or key combination.</string>
+If the policy is unset or set to true, users can send feedback to Google via Menu-&gt;Help-&gt;Report an Issue or key combination.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=UserFeedbackAllowed</string>
 			<key>pfm_name</key>
@@ -5875,7 +5733,7 @@ If the policy is unset or set to true, users can send feedback to Google via Men
 			<key>pfm_app_min</key>
 			<string>11</string>
 			<key>pfm_description</key>
-			<string>Configures the directory that Google Chrome will use for storing user data. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
+			<string>Configures the directory that Brave Browser will use for storing user data. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the directory that Google Chrome will use for storing user data.
 
@@ -5959,7 +5817,7 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.</string>
+			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.
 
@@ -6064,10 +5922,10 @@ This policy will be removed after Chrome 84.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_min</key>
 			<string>65</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy allows users of the WebDriver feature to override policies which can interfere with its operation.</string>
 			<key>pfm_description_reference</key>
@@ -6089,7 +5947,7 @@ If the policy is enabled, WebDriver will be able to override incomaptible polici
 			<key>pfm_app_min</key>
 			<string>70</string>
 			<key>pfm_description</key>
-			<string>If the policy is set to true, Google Chrome is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.</string>
+			<string>If the policy is set to true, Brave Browser is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.</string>
 			<key>pfm_description_reference</key>
 			<string>If the policy is set to true, Google Chrome is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.
 
@@ -6133,8 +5991,6 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<key>pfm_value_placeholder</key>
 			<string>port range (ex. 10000-11999)</string>
 		</dict>
-		<!-- END ContentSettings/Misc -->
-		<!-- START NativeMessaging -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>34</string>
@@ -6215,13 +6071,11 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- END NativeMessaging -->
-		<!-- START PasswordManager -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>If this setting is enabled, users can have Google Chrome memorize passwords and provide them automatically the next time they log in to a site.</string>
+			<string>If this setting is enabled, users can have Brave Browser memorize passwords and provide them automatically the next time they log in to a site.</string>
 			<key>pfm_description_reference</key>
 			<string>If this setting is enabled, users can have Google Chrome memorize passwords and provide them automatically the next time they log in to a site.
 
@@ -6238,15 +6092,13 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END PasswordManager -->
-		<!-- START Printing -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>17</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome to act as a proxy between Google Cloud Print and legacy printers connected to the machine.</string>
+			<string>Enables Brave Browser to act as a proxy between Google Cloud Print and legacy printers connected to the machine.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome to act as a proxy between Google Cloud Print and legacy printers connected to the machine.
 
@@ -6268,7 +6120,7 @@ If this setting is disabled, users cannot enable the proxy, and the machine will
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Google Chrome.  It does not prevent users from submitting print jobs on web sites.</string>
+			<string>Enables Brave Browser to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Brave Browser.  It does not prevent users from submitting print jobs on web sites.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Google Chrome.  It does not prevent users from submitting print jobs on web sites.
 
@@ -6288,7 +6140,7 @@ If this setting is disabled, users cannot print to Google Cloud Print from the G
 			<key>pfm_app_min</key>
 			<string>48</string>
 			<key>pfm_description</key>
-			<string>Overrides Google Chrome default printer selection rules.</string>
+			<string>Overrides Brave Browser default printer selection rules.</string>
 			<key>pfm_description_reference</key>
 			<string>Overrides Google Chrome default printer selection rules.
 
@@ -6500,7 +6352,7 @@ disabled = Disable background graphics printing mode by default</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables printing in Google Chrome and prevents users from changing this setting.</string>
+			<string>Enables printing in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables printing in Google Chrome and prevents users from changing this setting.
 
@@ -6522,7 +6374,7 @@ If this setting is disabled, users cannot print from Google Chrome. Printing is 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Causes Google Chrome to use the system default printer as the default choice in Print Preview instead of the most recently used printer.</string>
+			<string>Causes Brave Browser to use the system default printer as the default choice in Print Preview instead of the most recently used printer.</string>
 			<key>pfm_description_reference</key>
 			<string>Causes Google Chrome to use the system default printer as the default choice in Print Preview instead of the most recently used printer.
 
@@ -6538,13 +6390,11 @@ If you enable this setting, Print Preview will use the OS system default printer
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END Printing -->
-		<!-- START ProxyServer -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Google Chrome will bypass any proxy for the list of hosts given here.</string>
+			<string>Brave Browser will bypass any proxy for the list of hosts given here.</string>
 			<key>pfm_description_reference</key>
 			<string>Google Chrome will bypass any proxy for the list of hosts given here.
 
@@ -6569,7 +6419,7 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<key>pfm_app_min</key>
 			<string>10</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.</string>
+			<string>Allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.</string>
 			<key>pfm_description_reference</key>
 			<string>direct - Never use a proxy
 auto_detect - Auto detect proxy settings
@@ -6662,7 +6512,6 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<string>string</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>10</string>
 			<key>pfm_app_min</key>
@@ -6670,7 +6519,7 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<key>pfm_description</key>
 			<string>This policy is deprecated, use ProxyMode instead.
 
-Allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.</string>
+Allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, use ProxyMode instead.
 
@@ -6715,8 +6564,6 @@ Leaving this policy not set will allow the users to choose the proxy settings on
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
-		<!-- END ProxyServer -->
-		<!-- START RemoteAccess -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
@@ -7073,15 +6920,12 @@ If this policy is left not set, or if it is set to an empty string, the remote a
 			<key>pfm_value_unit</key>
 			<string>port range</string>
 		</dict>
-		<!-- END RemoteAccess -->
-		<!-- START SafeBrowsing -->
-		<!-- Documentation does not have an explicit version listed for deprecation -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>69</string>
 			<key>pfm_description</key>
 			<string>Configure the change password URL (HTTP and HTTPS schemes only). Password protection service will send users to this URL to change their password after seeing a warning in the browser.
-In order for Google Chrome to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
+In order for Brave Browser to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
 			<key>pfm_description_reference</key>
 			<string>Configure the change password URL (HTTP and HTTPS schemes only). Password protection service will send users to this URL to change their password after seeing a warning in the browser.
 In order for Google Chrome to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
@@ -7105,7 +6949,7 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>69</string>
 			<key>pfm_description</key>
 			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only). Fingerprint of password will be captured on these URLs and used for password reuse detection.
-In order for Google Chrome to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
+In order for Brave Browser to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
 			<key>pfm_description_reference</key>
 			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only). Fingerprint of password will be captured on these URLs and used for password reuse detection.
 In order for Google Chrome to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
@@ -7173,7 +7017,7 @@ If this policy is left unset, password protection service will only protect Goog
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome's Safe Browsing feature and prevents users from changing this setting.</string>
+			<string>Enables Brave Browser's Safe Browsing feature and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's Safe Browsing feature and prevents users from changing this setting.
 
@@ -7201,7 +7045,7 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
-			<string>Enables Google Chrome's Safe Browsing Extended Reporting and prevents users from changing this setting.</string>
+			<string>Enables Brave Browser's Safe Browsing Extended Reporting and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Enables Google Chrome's Safe Browsing Extended Reporting and prevents users from changing this setting.
 
@@ -7261,12 +7105,12 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string></string>
 			<key>pfm_app_min</key>
 			<string>44</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This setting is deprecated, use SafeBrowsingExtendedReportingEnabled instead. Enabling or disabling SafeBrowsingExtendedReportingEnabled is equivalent to setting SafeBrowsingExtendedReportingOptInAllowed to False.</string>
 			<key>pfm_description_reference</key>
@@ -7284,13 +7128,11 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END SafeBrowsing -->
-		<!-- START StartupHomepageNewTabPage -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Configures the type of the default home page in Google Chrome and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.</string>
+			<string>Configures the type of the default home page in Brave Browser and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the type of the default home page in Google Chrome and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.
 
@@ -7317,7 +7159,7 @@ to a Microsoft® Active Directory® domain.</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Configures the default home page URL in Google Chrome and prevents users from changing it.</string>
+			<string>Configures the default home page URL in Brave Browser and prevents users from changing it.</string>
 			<key>pfm_description_reference</key>
 			<string>Configures the default home page URL in Google Chrome and prevents users from changing it.
 
@@ -7443,7 +7285,7 @@ to a Microsoft® Active Directory® domain.</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Shows the Home button on Google Chrome's toolbar.</string>
+			<string>Shows the Home button on Brave Browser's toolbar.</string>
 			<key>pfm_description_reference</key>
 			<string>Shows the Home button on Google Chrome's toolbar.
 
@@ -7463,7 +7305,6 @@ Leaving this policy not set will allow the user to choose whether to show the ho
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END StartupHomepageNewTabPage -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>68</string>
@@ -7519,12 +7360,12 @@ URL patterns in this policy should not clash with ones configured via WebUsbAskF
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>68</string>
 			<key>pfm_app_min</key>
 			<string>9</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables the Developer Tools and the JavaScript console. This policy is deprecated in M68, please use DeveloperToolsAvailability instead.</string>
 			<key>pfm_description_reference</key>
@@ -7545,6 +7386,26 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Control where Developer Tools can be used</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_name</key>
+			<string>TorDisabled</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Tor Enabled</string>
+				<string>Tor Disabled</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable Tor</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
