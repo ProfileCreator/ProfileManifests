@@ -5,6 +5,7 @@ import os
 import subprocess
 import sys
 import plistlib
+import re
 
 chrome_manifest_domain = "com.google.Chrome"
 brave_manifest_domain = "com.brave.Browser"
@@ -92,12 +93,25 @@ def replace_in_keys_recursively( keys: list ):
         # Replace in titles
         if "pfm_title" in key:
             key[ "pfm_title" ] = key[ "pfm_title" ].replace( "Google Chrome", "Brave Browser" )
+            key[ "pfm_title" ] = key[ "pfm_title" ].replace( "Chrome", "Brave Browser" )
 
         # Replace in descriptions
         if "pfm_description" in key:
+            key[ "pfm_description" ] = re.sub( r"Google Chrome( version \d+)", r"Chromium\1", key[ "pfm_description" ] )
+            key[ "pfm_description" ] = re.sub( r"Google Chrome( \d+)", r"Chromium\1", key[ "pfm_description" ] )
+            key[ "pfm_description" ] = re.sub( r"Chrome( \d+)", r"Chromium\1", key[ "pfm_description" ] )
             key[ "pfm_description" ] = key[ "pfm_description" ].replace( "Google Chrome", "Brave Browser" )
+            key[ "pfm_description" ] = re.sub( r"Chrome(?! Web Store)", r"Brave Browser", key[ "pfm_description" ] )
 
-        # When subkeys are encountered, it should be recursed into
+        # Replace in notes
+        if "pfm_note" in key:
+            key[ "pfm_note" ] = re.sub( r"Google Chrome( version \d+)", r"Chromium\1", key[ "pfm_note" ] )
+            key[ "pfm_note" ] = re.sub( r"Google Chrome( \d+)", r"Chromium\1", key[ "pfm_note" ] )
+            key[ "pfm_note" ] = re.sub( r"Chrome( \d+)", r"Chromium\1", key[ "pfm_note" ] )
+            key[ "pfm_note" ] = key[ "pfm_note" ].replace( "Google Chrome", "Brave Browser" )
+            key[ "pfm_note" ] = re.sub( r"Chrome(?! Web Store)", r"Brave Browser", key[ "pfm_note" ] )
+
+        # When subkeys are encountered, they should be recursed into
         if "pfm_subkeys" in key:
             replace_in_keys_recursively( key[ "pfm_subkeys" ] )
 
