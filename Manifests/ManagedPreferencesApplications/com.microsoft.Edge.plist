@@ -416,6 +416,7 @@
 				<key>Password Manager</key>
 				<array>
 					<string>PasswordManagerEnabled</string>
+					<string>PasswordMonitorAllowed</string>
 				</array>
 				<key>Printing</key>
 				<array>
@@ -7107,6 +7108,26 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<string>PasswordManagerEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable saving passwords to the password manager</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>Allow Microsoft Edge to monitor user passwords.</string>
+			<key>pfm_description_reference</key>
+			<string>If you enable this policy and a user consents to enabling the policy, the user will get alerted if any of their passwords stored in Microsoft Edge are found to be unsafe. Microsoft Edge will show an alert and this information will also be available in Settings > Passwords > Password Monitor.
+
+If you disable this policy, users will not be asked for permission to enable this feature and will not be alerted. Their passwords will not be scanned.
+
+If you disable this policy, users can't change or override the policy. However, if you enable or don't configure the policy, users can turn this feature on or off.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#passwordmonitorallowed</string>
+			<key>pfm_name</key>
+			<string>PasswordMonitorAllowed</string>
+			<key>pfm_title</key>
+			<string>Allow Password Monitor</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
