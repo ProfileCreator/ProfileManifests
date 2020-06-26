@@ -213,6 +213,7 @@
 					<string>DefaultSearchProviderSuggestURLPostParams</string>
 					<string>DefaultSearchProviderSuggestURL</string>
 					<string>ManagedSearchEngines</string>
+					<string>NewTabPageSearchBox</string>
 				</array>
 				<key>Extensions</key>
 				<array>
@@ -5370,6 +5371,39 @@ If the DefaultSearchProviderSearchURL policy is set, this policy (ManagedSearchE
 			<string>Managed search engines</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>Configure the new tab page search box experience. You can configure the new tab page search box to use "Search box (Recommended)" or "Address bar" to search on new tabs.</string>
+			<key>pfm_description_reference</key>
+			<string>You can configure the new tab page search box to use "Search box (Recommended)" or "Address bar" to search on new tabs. This policy only works if you set the search engine to a value other than Bing by setting the following two policies: DefaultSearchProviderEnabled and DefaultSearchProviderSearchURL.
+
+If you disable or don't configure this policy and:
+
+- If the address bar default search engine is Bing, the new tab page uses the search box to search on new tabs.
+- If the address bar default search engine is not Bing, users are offered an additional choice (use "Address bar") when searching on new tabs.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagesearchbox</string>
+			<key>pfm_name</key>
+			<string>NewTabPageSearchBox</string>
+			<key>pfm_note</key>
+			<string>This policy only works if you set the search engine to a value other than Bing by setting the following two policies: DefaultSearchProviderEnabled and DefaultSearchProviderSearchURL.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>bing</string>
+				<string>redirect</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Search box</string>
+				<string>Address bar</string>
+			</array>
+			<key>pfm_title</key>
+			<string>New Tab Page Search Box</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
