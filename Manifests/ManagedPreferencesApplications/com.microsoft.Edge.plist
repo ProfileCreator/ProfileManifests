@@ -272,6 +272,8 @@
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
 					<string>AutoImportAtFirstRun</string>
+					<string>AutoOpenAllowedForURLs</string>
+					<string>AutoOpenFileTypes</string>
 					<string>AutoFillEnabled</string>
 					<string>AutofillAddressEnabled</string>
 					<string>AutofillCreditCardEnabled</string>
@@ -3313,6 +3315,80 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<string>Automatically import browser data and settings at first run</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>URLs where AutoOpenFileTypes can apply. If you set URLs in this policy, files will only automatically open by policy if the URL is part of this set and the file type is listed in AutoOpenFileTypes. If either condition is false, the download won't automatically open by policy.</string>
+			<key>pfm_description_reference</key>
+			<string>A list of URLs to which AutoOpenFileTypes will apply to. This policy has no impact on automatically open values set by users via the download shelf ... &gt; "Always open files of this type" menu entry.
+
+If you set URLs in this policy, files will only automatically open by policy if the URL is part of this set and the file type is listed in AutoOpenFileTypes. If either condition is false, the download won't automatically open by policy.
+
+If you don't set this policy, all downloads where the file type is in AutoOpenFileTypes will automatically open.
+
+A URL pattern has to be formatted according to https://go.microsoft.com/fwlink/?linkid=2095322.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#autoopenallowedforurls</string>
+			<key>pfm_name</key>
+			<string>AutoOpenAllowedForURLs</string>
+			<key>pfm_note</key>
+			<string>A URL pattern has to be formatted according to https://go.microsoft.com/fwlink/?linkid=2095322.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>URLs</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>https://example.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed URLs for Auto Open</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>List of file types that should be automatically opened on download. Note: The leading separator should not be included when listing the file type, so list "txt" instead of ".txt".</string>
+			<key>pfm_description_reference</key>
+			<string>This policy sets a list of file types that should be automatically opened on download. Note: The leading separator should not be included when listing the file type, so list "txt" instead of ".txt".
+
+By default, these file types will be automatically opened on all URLs. You can use the AutoOpenAllowedForURLs policy to restrict the URLs for which these file types will be automatically opened on.
+
+Files with types that should be automatically opened will still be subject to the enabled Microsoft Defender SmartScreen checks and won't be opened if they fail those checks.
+
+File types that a user has already specified to automatically be opened will continue to do so when downloaded. The user will continue to be able to specify other file types to be automatically opened.
+
+If you don't set this policy, only file types that a user has already specified to automatically be opened will do so when downloaded.
+
+For this policy to apply on Windows devices, the device must either be joined to a Microsoft Active Directory domain, or be a Windows 10 Pro or Enterprise instance that is enrolled for device management.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#autoopenfiletypes</string>
+			<key>pfm_name</key>
+			<string>AutoOpenFileTypes</string>
+			<key>pfm_note</key>
+			<string>By default, these file types will be automatically opened on all URLs. You can use the AutoOpenAllowedForURLs policy to restrict the URLs for which these file types will be automatically opened on.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>File Types</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>txt</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Auto Open File Types</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<!-- <dict>
 			<key>pfm_app_deprecated</key>
