@@ -6,6 +6,7 @@ import subprocess
 import sys
 import plistlib
 import re
+import datetime
 
 chrome_manifest_domain = "com.google.Chrome"
 brave_manifest_domain = "com.brave.Browser"
@@ -83,6 +84,9 @@ def main():
                 for specific_key in domain_specific_keys:
                     if "pfm_name" in specific_key:
                         misc_segment.append( specific_key[ "pfm_name" ] )
+
+    # Update last modification time
+    manifest[ "pfm_last_modified" ] = datetime.datetime.utcnow()
 
     # Write-out
     brave_manifest_path = os.path.join( repository_root_path, manifests_subfolder, brave_manifest_domain + ".plist" )
