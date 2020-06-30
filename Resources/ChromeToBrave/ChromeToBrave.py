@@ -12,6 +12,10 @@ brave_manifest_domain = "com.brave.Browser"
 manifests_subfolder = os.path.join( "Manifests", "ManagedPreferencesApplications" )
 
 def main():
+    # Work from the script's own folder
+    script_folder_path = os.path.dirname( os.path.realpath( __file__ ) )
+    os.chdir( script_folder_path )
+
     # Get path to repository root
     popen_args = [ "git", "rev-parse", "--show-toplevel" ]
     repository_root_process: subprocess.Popen = subprocess.Popen( popen_args, stdout = subprocess.PIPE, stderr = subprocess.STDOUT )
@@ -57,7 +61,7 @@ def main():
     manifest[ "pfm_subkeys" ] = replace_in_keys_recursively( subkeys )
 
     # Add domain specific keys
-    domain_specific_keys_path = os.path.join( os.path.dirname( os.path.realpath( __file__ ) ), brave_manifest_domain + "-specific.plist" )
+    domain_specific_keys_path = os.path.join( script_folder_path, brave_manifest_domain + "-specific.plist" )
     domain_specific_keys = None
     try:
         domain_specific_keys_file = open( domain_specific_keys_path, 'rb' )
@@ -86,7 +90,7 @@ def main():
     plistlib.dump( manifest, brave_manifest_file )
     brave_manifest_file.close()
 
-    print( "Done." )
+    print( "Brave manifest successfully created at " + brave_manifest_path + "." )
 
 def replace_in_keys_recursively( keys: list ):
     for key in keys:
