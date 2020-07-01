@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-06-04T23:43:30Z</date>
+	<date>2020-07-01T19:53:07Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -184,6 +184,7 @@
 					<string>DontCheckDefaultBrowser</string>
 					<string>DownloadDirectory</string>
 					<string>FirefoxHome</string>
+					<string>Handlers</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
 					<string>LocalFileLinks</string>
@@ -310,6 +311,7 @@
 					<string>DontCheckDefaultBrowser</string>
 					<string>DownloadDirectory</string>
 					<string>FirefoxHome</string>
+					<string>Handlers</string>
 					<string>HardwareAcceleration</string>
 					<string>Homepage</string>
 					<string>LocalFileLinks</string>
@@ -2392,6 +2394,315 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<string>Enable Search Suggest</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>78</string>
+			<key>pfm_description</key>
+			<string>Configure default application handlers. This policy is based on the internal format of handlers.json. You can configure handlers based on a mime type (mimeTypes), a file's extension (extensions), or a protocol (schemes).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#handlers</string>
+			<key>pfm_name</key>
+			<string>Handlers</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>78</string>
+					<key>pfm_description</key>
+					<string>Specify MIME types. More info here: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types</string>
+					<key>pfm_name</key>
+					<string>mimeTypes</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{key}}</string>
+							<key>pfm_description</key>
+							<string>https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types</string>
+							<key>pfm_title</key>
+							<string>MIME Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>application/pdf</string>
+						</dict>
+						<dict>
+							<key>pfm_hidden</key>
+							<string>container</string>
+							<key>pfm_name</key>
+							<string>{{value}}</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>78</string>
+									<key>pfm_description</key>
+									<string>Can be either saveToDisk, useHelperApp, useSystemDefault.</string>
+									<key>pfm_name</key>
+									<string>action</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>saveToDisk</string>
+										<string>useHelperApp</string>
+										<string>useSystemDefault</string>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Save to Disk</string>
+										<string>Use Helper App</string>
+										<string>Use System Default</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Action</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>78</string>
+									<key>pfm_description</key>
+									<string>If true, the user is asked if what they want to do with the file. If false, the action is taken without user intervention.</string>
+									<key>pfm_name</key>
+									<string>ask</string>
+									<key>pfm_title</key>
+									<string>Ask</string>
+									<key>pfm_type</key>
+									<string>boolean</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>MIME Types</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>78</string>
+					<key>pfm_name</key>
+					<string>schemes</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>Can be either saveToDisk, useHelperApp, useSystemDefault.</string>
+							<key>pfm_name</key>
+							<string>action</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>saveToDisk</string>
+								<string>useHelperApp</string>
+								<string>useSystemDefault</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Save to Disk</string>
+								<string>Use Helper App</string>
+								<string>Use System Default</string>
+							</array>
+							<key>pfm_title</key>
+							<string>Action</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>If true, the user is asked if what they want to do with the file. If false, the action is taken without user intervention.</string>
+							<key>pfm_name</key>
+							<string>ask</string>
+							<key>pfm_title</key>
+							<string>Ask</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>An array of handlers with the first one being the default. If you don't want to have a default handler, use an empty object for the first handler. Choose between path or uriTemplate.</string>
+							<key>pfm_name</key>
+							<string>handlers</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>The display name of the handler (might not be used).</string>
+											<key>pfm_name</key>
+											<string>name</string>
+											<key>pfm_title</key>
+											<string>Name</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>The native path to the executable to be used.</string>
+											<key>pfm_name</key>
+											<string>path</string>
+											<key>pfm_title</key>
+											<string>Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.</string>
+											<key>pfm_name</key>
+											<string>uriTemplate</string>
+											<key>pfm_title</key>
+											<string>URI Template</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>MIME Type</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Handlers</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Schemes</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>78</string>
+					<key>pfm_name</key>
+					<string>extensions</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>Can be either saveToDisk, useHelperApp, useSystemDefault.</string>
+							<key>pfm_name</key>
+							<string>action</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>saveToDisk</string>
+								<string>useHelperApp</string>
+								<string>useSystemDefault</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Save to Disk</string>
+								<string>Use Helper App</string>
+								<string>Use System Default</string>
+							</array>
+							<key>pfm_title</key>
+							<string>Action</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>If true, the user is asked if what they want to do with the file. If false, the action is taken without user intervention.</string>
+							<key>pfm_name</key>
+							<string>ask</string>
+							<key>pfm_title</key>
+							<string>Ask</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>78</string>
+							<key>pfm_description</key>
+							<string>An array of handlers with the first one being the default. If you don't want to have a default handler, use an empty object for the first handler. Choose between path or uriTemplate.</string>
+							<key>pfm_name</key>
+							<string>handlers</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>The display name of the handler (might not be used).</string>
+											<key>pfm_name</key>
+											<string>name</string>
+											<key>pfm_title</key>
+											<string>Name</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>The native path to the executable to be used.</string>
+											<key>pfm_name</key>
+											<string>path</string>
+											<key>pfm_title</key>
+											<string>Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_app_min</key>
+											<string>78</string>
+											<key>pfm_description</key>
+											<string>A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.</string>
+											<key>pfm_name</key>
+											<string>uriTemplate</string>
+											<key>pfm_title</key>
+											<string>URI Template</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Handlers</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Extensions</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5128,6 +5439,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>9</integer>
+	<integer>10</integer>
 </dict>
 </plist>
