@@ -317,6 +317,7 @@
 					<string>DisabledSchemes</string>
 					<string>DiskCacheDir</string>
 					<string>DiskCacheSize</string>
+					<string>DnsOverHttpsMode</string>
 					<string>DownloadDirectory</string>
 					<string>DownloadRestrictions</string>
 					<string>EditBookmarksEnabled</string>
@@ -4556,6 +4557,40 @@ If this policy is not set the default size will be used and the user will be abl
 			<string>104857600</string>
 			<key>pfm_value_unit</key>
 			<string>bytes</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Controls the mode of DNS-over-HTTPS</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to set a list of url patterns that specify sites which are allowed to ask the user to grant them access to a USB device.
+
+If this policy is left not set the global default value will be used for all sites either from the 'DefaultWebUsbGuardSetting' policy if it is set, or the user's personal configuration otherwise.
+
+URL patterns in this policy should not clash with ones configured via WebUsbBlockedForUrls. It is unspecified which of the two policies takes precedence if a URL matches with both.
+
+For detailed information on valid url patterns, please see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DnsOverHttpsMode</string>
+			<key>pfm_name</key>
+			<string>DnsOverHttpsMode</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>off</string>
+				<string>automatic</string>
+				<string>secure</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Disable DNS-over-HTTPS</string>
+				<string>Enable DNS-over-HTTPS with insecure fallback</string>
+				<string>Enable DNS-over-HTTPS without insecure fallback</string>
+			</array>
+			<key>pfm_title</key>
+			<string>DNS-over-HTTPS mode</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
