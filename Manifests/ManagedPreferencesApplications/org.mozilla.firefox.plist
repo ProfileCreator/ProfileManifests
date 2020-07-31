@@ -195,6 +195,7 @@
 					<string>OverridePostUpdatePage</string>
 					<string>PDFjs</string>
 					<string>PictureInPicture</string>
+					<string>PrimaryPassword</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -323,6 +324,7 @@
 					<string>OverridePostUpdatePage</string>
 					<string>PDFjs</string>
 					<string>PictureInPicture</string>
+					<string>PrimaryPassword</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -1050,15 +1052,31 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Remove the master password functionality.</string>
-			<key>pfm_description_reference</key>
-			<string>If this preference is set to true, the master password functionality is removed.</string>
+			<string>Remove the master password functionality. If this preference is set to true, the master password functionality is removed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablemasterpasswordcreation</string>
 			<key>pfm_name</key>
 			<string>DisableMasterPasswordCreation</string>
+			<key>pfm_note</key>
+			<string>If this value is true, it works the same as PrimaryPassword (when set to false) and removes the primary password functionality.</string>
 			<key>pfm_title</key>
 			<string>Disable Master Password Creation</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Require or prevent using a primary (formerly master) password. If this value is true, a primary password is required.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#primarypassword</string>
+			<key>pfm_name</key>
+			<string>PrimaryPassword</string>
+			<key>pfm_note</key>
+			<string>If this value is false, it works the same as DisableMasterPasswordCreation (when set to true) and removes the primary password functionality.</string>
+			<key>pfm_title</key>
+			<string>Enable Primary Password</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
