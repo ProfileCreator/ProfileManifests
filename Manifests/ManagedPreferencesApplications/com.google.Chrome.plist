@@ -336,6 +336,7 @@
 					<string>ForceYouTubeRestrict</string>
 					<string>ForceYouTubeSafetyMode</string>
 					<string>GloballyScopeHTTPAuthCacheEnabled</string>
+					<string>HSTSPolicyBypassList</string>
 					<string>HardwareAccelerationModeEnabled</string>
 					<string>HideWebStoreIcon</string>
 					<string>Http09OnNonDefaultPortsEnabled</string>
@@ -347,6 +348,7 @@
 					<string>ImportSearchEngine</string>
 					<string>IncognitoEnabled</string>
 					<string>IncognitoModeAvailability</string>
+					<string>IntensiveWakeUpThrottlingEnabled</string>
 					<string>IsolateOrigins</string>
 					<string>JavascriptEnabled</string>
 					<string>LocalDiscoveryEnabled</string>
@@ -5034,6 +5036,33 @@ This policy is intended to give enterprises depending on the legacy behavior a c
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>List of names that will bypass the HSTS policy check. Hostnames specified in this list will be exempt from the HSTS policy check that could potentially upgrade requests from http to https.</string>
+			<key>pfm_description_reference</key>
+			<string>Hostnames specified in this list will be exempt from the HSTS policy check that could potentially upgrade requests from http to https. Only single-label hostnames are allowed in this policy. Hostnames must be canonicalized: any IDNs must be converted to their A-label format, and all ASCII letters must be lowercase. This policy only applies to the specific hostnames specified; it does not apply to subdomains of the names specified.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=HSTSPolicyBypassList</string>
+			<key>pfm_name</key>
+			<string>HSTSPolicyBypassList</string>
+			<key>pfm_note</key>
+			<string>Only single-label hostnames are allowed in this policy. Hostnames must be canonicalized: any IDNs must be converted to their A-label format, and all ASCII letters must be lowercase. This policy only applies to the specific hostnames specified; it does not apply to subdomains of the names specified.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Hostname</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>HSTS Policy Bypass List</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>55</string>
 			<key>pfm_description</key>
 			<string>Enforces a minimum Restricted Mode on YouTube and prevents users from picking a less restricted mode.</string>
@@ -5353,6 +5382,34 @@ If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 			<string>Incognito mode availability</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>When enabled, the IntensiveWakeUpThrottling feature causes JavaScript timers in background tabs to be aggressively throttled and coalesced, running no more than once per minute after a page has been backgrounded for 5 minutes or more.</string>
+			<key>pfm_description_reference</key>
+			<string>When enabled the IntensiveWakeUpThrottling feature causes Javascript timers in background tabs to be aggressively throttled and coalesced, running no more than once per minute after a page has been backgrounded for 5 minutes or more.
+
+This is a web standards compliant feature, but it may break functionality on some websites by causing certain actions to be delayed by up to a minute. However, it results in significant CPU and battery savings when enabled. See https://bit.ly/30b1XR4 for more details.
+
+If this policy is set to enabled then the feature will be force enabled, and users will not be able to override this.
+
+If this policy is set to disabled then the feature will be force disabled, and users will not be able to override this.
+
+If this policy is left unset then the feature will be controlled by its own internal logic, which can be manually configured by users.
+
+Note that the policy is applied per renderer process, with the most recent value of the policy setting in force when a renderer process starts. A full restart is required to ensure that all loaded tabs receive a consistent policy setting. It is harmless for processes to be running with different values of this policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=IntensiveWakeUpThrottlingEnabled</string>
+			<key>pfm_name</key>
+			<string>IntensiveWakeUpThrottlingEnabled</string>
+			<key>pfm_note</key>
+			<string>This is a web standards compliant feature, but it may break functionality on some websites by causing certain actions to be delayed by up to a minute. However, it results in significant CPU and battery savings when enabled. See https://bit.ly/30b1XR4 for more details.</string>
+			<key>pfm_title</key>
+			<string>Enable Intensive Wake Up Throttling</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
