@@ -378,9 +378,9 @@
 					<string>SSLVersionMin</string>
 					<string>SafeSitesFilterBehavior</string>
 					<string>SavingBrowserHistoryDisabled</string>
+					<string>ScreenCaptureAllowed</string>
 					<string>SearchSuggestEnabled</string>
 					<string>SecurityKeyPermitAttestation</string>
-					<string>ScreenCaptureAllowed</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
@@ -6344,6 +6344,26 @@ If this setting is disabled or not set, browsing history is saved.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.</string>
+			<key>pfm_description_reference</key>
+			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.
+
+When this policy is disabled, any calls to screen-share APIs will fail with an error.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ScreenCaptureAllowed</string>
+			<key>pfm_name</key>
+			<string>ScreenCaptureAllowed</string>
+			<key>pfm_title</key>
+			<string>Screen Capture</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
 			<string>Enables search suggestions in Google Chrome's omnibox and prevents users from changing this setting.</string>
@@ -6390,26 +6410,6 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 			<string>URLs/domains automatically permitted direct Security Key attestation</string>
 			<key>pfm_type</key>
 			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>81</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.</string>
-			<key>pfm_description_reference</key>
-			<string>If enabled or not configured (default), a Web page can use screen-share APIs (e.g., getDisplayMedia() or the Desktop Capture extension API) to prompt the user to select a tab, window or desktop to capture.
-
-When this policy is disabled, any calls to screen-share APIs will fail with an error.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ScreenCaptureAllowed</string>
-			<key>pfm_name</key>
-			<string>ScreenCaptureAllowed</string>
-			<key>pfm_title</key>
-			<string>Screen Capture</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
