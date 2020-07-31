@@ -290,6 +290,7 @@
 					<string>BrowserNetworkTimeQueriesEnabled</string>
 					<string>BrowserSignin</string>
 					<string>BuiltInDnsClientEnabled</string>
+					<string>BuiltinCertificateVerifierEnabled</string>
 					<string>CertificateTransparencyEnforcementDisabledForCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForLegacyCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForUrls</string>
@@ -3812,6 +3813,32 @@ If this policy is left not set, the users will be able to change whether the bui
 			<string>BuiltInDnsClientEnabled</string>
 			<key>pfm_title</key>
 			<string>Use built-in DNS client</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>87</string>
+			<key>pfm_app_min</key>
+			<string>83</string>
+			<key>pfm_description</key>
+			<string>Determines whether the built-in certificate verifier will be used to verify server certificates. When this setting is enabled, Google Chrome will perform verification of server certificates using the built-in certificate verifier. When this setting is disabled, Google Chrome will perform verification of server certificates using the legacy certificate verifier provided by the platform. When this setting is not set, the built-in or the legacy certificate verifier may be used.</string>
+			<key>pfm_description_reference</key>
+			<string>When this setting is enabled, Google Chrome will perform verification of server certificates using the built-in certificate verifier. When this setting is disabled, Google Chrome will perform verification of server certificates using the legacy certificate verifier provided by the platform. When this setting is not set, the built-in or the legacy certificate verifier may be used.
+
+This policy is planned to be removed in Google Chrome OS version 81, when support for the legacy certificate verifier on Google Chrome OS is planned to be removed.
+
+This policy is planned to be removed in Google Chrome for Linux version 83, when support for the legacy certificate verifier on Linux is planned to be removed.
+
+This policy is planned to be removed in Google Chrome for Mac OS X version 87, when support for the legacy certificate verifier on Mac OS X is planned to be removed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BuiltinCertificateVerifierEnabled</string>
+			<key>pfm_name</key>
+			<string>BuiltinCertificateVerifierEnabled</string>
+			<key>pfm_note</key>
+			<string>This policy is planned to be removed in Google Chrome for Mac OS X version 87, when support for the legacy certificate verifier on Mac OS X is planned to be removed.</string>
+			<key>pfm_title</key>
+			<string>Use built-in certificate verifier</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
