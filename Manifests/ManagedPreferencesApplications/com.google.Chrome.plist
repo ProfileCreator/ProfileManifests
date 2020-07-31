@@ -135,6 +135,7 @@
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
 			<array>
+				<string>Cloud Reporting</string>
 				<string>Content Settings</string>
 				<string>Default Search Provider</string>
 				<string>Extensions</string>
@@ -154,6 +155,10 @@
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Cloud Reporting</key>
+				<array>
+					<string>CloudReportingEnabled</string>
+				</array>
 				<key>Content Settings</key>
 				<array>
 					<string>PFC_SegmentedControl_ContentSettings</string>
@@ -447,6 +452,30 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<!-- START Cloud Reporting -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>72</string>
+			<key>pfm_description</key>
+			<string>This policy controls Google Chrome cloud reporting which uploads information about the browser operation to Google Admin console. When this policy is left unset or set to False, there is no data collected or uploaded. When this policy is set to True, the data is collected and uploaded to Google Admin console.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls Google Chrome cloud reporting which uploads information about the browser operation to Google Admin console.
+
+When this policy is left unset or set to False, there is no data collected or uploaded. When this policy is set to True, the data is collected and uploaded to Google Admin console.
+
+For Google Chrome, this policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken. For Google Chrome OS, this policy is always effective.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CloudReportingEnabled</string>
+			<key>pfm_name</key>
+			<string>CloudReportingEnabled</string>
+			<key>pfm_note</key>
+			<string>For Google Chrome, this policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken.</string>
+			<key>pfm_title</key>
+			<string>Enable Cloud Reporting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<!-- END Cloud Report -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>10</string>
