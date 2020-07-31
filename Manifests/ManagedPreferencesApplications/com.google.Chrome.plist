@@ -306,6 +306,7 @@
 					<string>DNSInterceptionChecksEnabled</string>
 					<string>DefaultBrowserSettingEnabled</string>
 					<string>DefaultDownloadDirectory</string>
+					<string>DefaultSearchProviderContextMenuAccessAllowed</string>
 					<string>DeveloperToolsAvailability</string>
 					<string>DeveloperToolsDisabled</string>
 					<string>Disable3DAPIs</string>
@@ -4268,6 +4269,30 @@ See https://www.chromium.org/administrators/policy-list-3/user-data-directory-va
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>/Users/${user_name}/Downloads</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allow default search provider context menu search access.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables the use of a default search provider on the context menu.
+
+If you set this policy to disabled the search context menu item that relies on your default search provider will not be available.
+
+If this policy is set to enabled or not set, the context menu item for your default search provider will be available.
+
+The policy value is only appled when the DefaultSearchProviderEnabled policy is enabled, and is not applicable otherwise.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderContextMenuAccessAllowed</string>
+			<key>pfm_name</key>
+			<string>DefaultSearchProviderContextMenuAccessAllowed</string>
+			<key>pfm_title</key>
+			<string>Enable default search provider on context menu</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
