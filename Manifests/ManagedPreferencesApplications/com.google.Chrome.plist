@@ -323,6 +323,7 @@
 					<string>DownloadRestrictions</string>
 					<string>EditBookmarksEnabled</string>
 					<string>EnableDeprecatedWebPlatformFeatures</string>
+					<string>EnableExperimentalPolicies</string>
 					<string>EnableOnlineRevocationChecks</string>
 					<string>EnabledPlugins</string>
 					<string>EnterpriseHardwarePlatformAPIEnabled</string>
@@ -4741,6 +4742,43 @@ While the policy itself is supported on the above platforms, the feature it is e
 			</array>
 			<key>pfm_title</key>
 			<string>Enable deprecated web platform features for a limited time</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_description</key>
+			<string>Allows Google Chrome to load experimental policies.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows Google Chrome to load experimental policies.
+
+WARNING: Experimental policies are unsupported and subject to change or be removed without notice in future version of the browser!
+
+An experimental policy may not be finished or still have known or unknown defects. It may be changed or even removed without any notification. By enabling experimental policies, you could lose browser data or compromise your security or privacy.
+
+If a policy is not in the list and it's not officially released, its value will be ignored on Beta and Stable channel.
+
+If a policy is in the list and it's not officially released, its value will be applied.
+
+This policy has no effect on already released policies.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableExperimentalPolicies</string>
+			<key>pfm_name</key>
+			<string>EnableExperimentalPolicies</string>\
+			<key>pfm_note</key>
+			<string>WARNING: Experimental policies are unsupported and subject to change or be removed without notice in future version of the browser! If a policy is in the list and it's not officially released, its value will be applied. This policy has no effect on already released policies.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Preference Key Name</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable experimental policies</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
