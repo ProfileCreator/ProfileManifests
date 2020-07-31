@@ -362,6 +362,7 @@
 					<string>NetworkPredictionOptions</string>
 					<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
 					<string>PaymentMethodQueryEnabled</string>
+					<string>PolicyAtomicGroupsEnabled</string>
 					<string>PolicyDictionaryMultipleSourceMergeList</string>
 					<string>PolicyListMultipleSourceMergeList</string>
 					<string>PromotionalTabsEnabled</string>
@@ -5805,6 +5806,30 @@ If the setting is enabled or not set then websites are allowed to check if the u
 			<string>PaymentMethodQueryEnabled</string>
 			<key>pfm_title</key>
 			<string>Payment Method Query</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>78</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enables the concept of policy atomic groups.</string>
+			<key>pfm_description_reference</key>
+			<string>If this policy is enabled, policies coming from the an atomic group that do not share the source with the highest priority from that group will be ignored.
+
+If this policy is disabled, no policy will be ignored because of its source. Policies will be ignored only if there is a conflict and the policy does not have the highest priority.
+
+If this policy ist set from a cloud source, it cannot target a specific user.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PolicyAtomicGroupsEnabled</string>
+			<key>pfm_name</key>
+			<string>PolicyAtomicGroupsEnabled</string>
+			<key>pfm_note</key>
+			<string>If this policy ist set from a cloud source, it cannot target a specific user.</string>
+			<key>pfm_title</key>
+			<string>Enable Policy Atomic Groups</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
