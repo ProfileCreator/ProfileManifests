@@ -274,6 +274,7 @@
 					<string>AppCacheForceEnabled</string>
 					<string>AudioCaptureAllowed</string>
 					<string>AudioCaptureAllowedUrls</string>
+					<string>AudioSandboxEnabled</string>
 					<string>AutoFillEnabled</string>
 					<string>AutofillAddressEnabled</string>
 					<string>AutofillCreditCardEnabled</string>
@@ -3388,6 +3389,24 @@ This policy affects all types of audio inputs and not only the built-in micropho
 			<string>AudioCaptureAllowed</string>
 			<key>pfm_title</key>
 			<string>Allow or deny audio capture</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Allow the audio sandbox to run. If this policy is enabled, the audio process will run sandboxed. If this policy is disabled, the audio process will run unsandboxed and the WebRTC audio-processing module will run in the renderer process. This leaves users open to security risks related to running the audio subsystem unsandboxed.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls the audio process sandbox. If this policy is enabled, the audio process will run sandboxed. If this policy is disabled, the audio process will run unsandboxed and the WebRTC audio-processing module will run in the renderer process. This leaves users open to security risks related to running the audio subsystem unsandboxed. If this policy is not set, the default configuration for the audio sandbox will be used, which may differ per platform. This policy is intended to give enterprises flexibility to disable the audio sandbox if they use security software setups that interfere with the sandbox.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AudioSandboxEnabled</string>
+			<key>pfm_name</key>
+			<string>AudioSandboxEnabled</string>
+			<key>pfm_note</key>
+			<string>This policy is intended to give enterprises flexibility to disable the audio sandbox if they use security software setups that interfere with the sandbox.</string>
+			<key>pfm_title</key>
+			<string>Enable the audio sandbox</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
