@@ -302,6 +302,7 @@
 					<string>CommandLineFlagSecurityWarningsEnabled</string>
 					<string>ComponentUpdatesEnabled</string>
 					<string>CorsLegacyModeEnabled</string>
+					<string>CorsMitigationList</string>
 					<string>DefaultBrowserSettingEnabled</string>
 					<string>DefaultDownloadDirectory</string>
 					<string>DeveloperToolsAvailability</string>
@@ -4155,9 +4156,48 @@ Note that this policy was announced to be removed in Google Chrome version 82, b
 			<key>pfm_note</key>
 			<string>For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.</string>
 			<key>pfm_title</key>
-			<string>Enable CORS legacy mode</string>
+			<string>Enable Cross-Origin Resource Sharing legacy mode</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable CORS check mitigations in the new CORS implementation, allowing Extensions to keep compatible behavior, and allowing Google Chrome to send specified headers without CORS checks.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable CORS check mitigations in the new CORS implementation, allowing Extensions to keep compatible behavior, and allowing Google Chrome to send specified headers without CORS checks.
+
+If this list is set to empty, Google Chrome tries to run Extensions in compatible manners, and does not introduce API changes for Google Chrome 79 as explained at https://developer.chrome.com/extensions/webRequest.
+
+If this list is set to have HTTP request header names, CORS inspection will ignore the listed headers in addition to enable the mitigation for Extensions.
+
+If this list is not set, both mitigations explained above are not applied.
+
+For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.
+
+Note that this policy was announced to be removed in Google Chrome version 82, but the plan was changed to be removed in version 84.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CorsMitigationList</string>
+			<key>pfm_name</key>
+			<string>CorsMitigationList</string>
+			<key>pfm_note</key>
+			<string>For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Cross-Origin Resource Sharing mitigation list</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
