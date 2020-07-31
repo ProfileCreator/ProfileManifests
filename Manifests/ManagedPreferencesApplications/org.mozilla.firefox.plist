@@ -3434,9 +3434,7 @@ The configuration for each extension is another dictionary that can contain the 
 					<key>pfm_app_min</key>
 					<string>60</string>
 					<key>pfm_description</key>
-					<string>Domains where cookies are always allowed.</string>
-					<key>pfm_description_reference</key>
-					<string>Optional. Domains where cookies are always allowed.</string>
+					<string>A list of origins (not domains) where cookies are always allowed.</string>
 					<key>pfm_name</key>
 					<string>Allow</string>
 					<key>pfm_note</key>
@@ -3463,11 +3461,38 @@ The configuration for each extension is another dictionary that can contain the 
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>79</string>
+					<key>pfm_description</key>
+					<string>A list of origins (not domains) where cookies are only allowed for the current session.</string>
+					<key>pfm_name</key>
+					<string>AllowSession</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
+							<key>pfm_name</key>
+							<string>URL</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>https://www.example.org/</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Allow Session</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>60</string>
 					<key>pfm_description</key>
-					<string>Domains where cookies are always blocked.</string>
-					<key>pfm_description_reference</key>
-					<string>Optional. Domains where cookies are always blocked.</string>
+					<string>A list of origins (not domains) where cookies are always blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
 					<key>pfm_note</key>
