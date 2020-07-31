@@ -318,6 +318,7 @@
 					<string>DiskCacheDir</string>
 					<string>DiskCacheSize</string>
 					<string>DnsOverHttpsMode</string>
+					<string>DnsOverHttpsTemplates</string>
 					<string>DownloadDirectory</string>
 					<string>DownloadRestrictions</string>
 					<string>EditBookmarksEnabled</string>
@@ -4587,6 +4588,32 @@ For detailed information on valid url patterns, please see https://cloud.google.
 				<string>Enable DNS-over-HTTPS with insecure fallback</string>
 				<string>Enable DNS-over-HTTPS without insecure fallback</string>
 			</array>
+			<key>pfm_title</key>
+			<string>DNS-over-HTTPS mode</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Specify URI template of desired DNS-over-HTTPS resolver. To specify multiple DNS-over-HTTPS resolvers, separate the corresponding URI templates with spaces.</string>
+			<key>pfm_description_reference</key>
+			<string>The URI template of the desired DNS-over-HTTPS resolver. To specify multiple DNS-over-HTTPS resolvers, separate the corresponding URI templates with spaces.
+
+If the DnsOverHttpsMode is set to "secure" then this policy must be set and not empty.
+
+If the DnsOverHttpsMode is set to "automatic" and this policy is set then the URI templates specified will be used; if this policy is unset then hardcoded mappings will be used to attempt to upgrade the user's current DNS resolver to a DoH resolver operated by the same provider.
+
+If the URI template contains a dns variable, requests to the resolver will use GET; otherwise requests will use POST.
+
+Incorrectly formatted templates will be ignored.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DnsOverHttpsTemplates</string>
+			<key>pfm_name</key>
+			<string>DnsOverHttpsTemplates</string>
+			<key>pfm_note</key>
+			<string>Incorrectly formatted templates will be ignored.</string>
 			<key>pfm_title</key>
 			<string>DNS-over-HTTPS mode</string>
 			<key>pfm_type</key>
