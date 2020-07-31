@@ -301,6 +301,7 @@
 					<string>CloudPolicyOverridesPlatformPolicy</string>
 					<string>CommandLineFlagSecurityWarningsEnabled</string>
 					<string>ComponentUpdatesEnabled</string>
+					<string>CorsLegacyModeEnabled</string>
 					<string>DefaultBrowserSettingEnabled</string>
 					<string>DefaultDownloadDirectory</string>
 					<string>DeveloperToolsAvailability</string>
@@ -4123,6 +4124,38 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<string>ComponentUpdatesEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable component updates in Google Chrome</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Use the legacy CORS implementation rather than new CORS.</string>
+			<key>pfm_description_reference</key>
+			<string>Use the legacy CORS implementation rather than new CORS.
+
+If this setting is set to True, the legacy implementation is used that should be compatible with previous versions.
+
+If this setting is set to False, or is not set, the new implementation is used that might cause enterprise specific compatibility issues potentially.
+
+This policy will be removed after a couple of milestones.
+
+For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.
+
+Note that this policy was announced to be removed in Google Chrome version 82, but the plan was changed to be removed in version 84.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CorsLegacyModeEnabled</string>
+			<key>pfm_name</key>
+			<string>CorsLegacyModeEnabled</string>
+			<key>pfm_note</key>
+			<string>For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.</string>
+			<key>pfm_title</key>
+			<string>Enable CORS legacy mode</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
