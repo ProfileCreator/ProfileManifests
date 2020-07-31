@@ -382,6 +382,7 @@
 					<string>ScrollToTextFragmentEnabled</string>
 					<string>SearchSuggestEnabled</string>
 					<string>SecurityKeyPermitAttestation</string>
+					<string>SharedClipboardEnabled</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
@@ -6433,6 +6434,36 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 			<string>URLs/domains automatically permitted direct Security Key attestation</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enables the Shared Clipboard feature which allows users to send text between Chrome Desktops and an Android device when Sync is enabled and the user is Signed-in.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable the Shared Clipboard feature which allows users to send text between Chrome Desktops and an Android device when Sync is enabled and the user is Signed-in.
+
+If this policy is set to true, the capability of sending text, cross device, for chrome user is enabled.
+
+If this policy is set to false, the capability of sending text, cross device, for chrome user is disabled.
+
+If you set this policy, users cannot change or override it.
+
+If this policy is left unset, the shared clipboard feature is enabled by default.
+
+It is up to the admins to set policies in all platforms they care about. It's recommended to set this policy to one value in all platforms.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SharedClipboardEnabled</string>
+			<key>pfm_name</key>
+			<string>SharedClipboardEnabled</string>
+			<key>pfm_note</key>
+			<string>It is up to the admins to set policies in all platforms they care about. It's recommended to set this policy to one value in all platforms.</string>
+			<key>pfm_title</key>
+			<string>Enable Shared Clipboard</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
