@@ -395,6 +395,7 @@
 					<string>SyncTypesListDisabled</string>
 					<string>TLS13HardeningForLocalAnchorsEnabled</string>
 					<string>TaskManagerEndProcessEnabled</string>
+					<string>TotalMemoryLimitMb</string>
 					<string>TranslateEnabled</string>
 					<string>URLBlacklist</string>
 					<string>URLWhitelist</string>
@@ -6752,6 +6753,30 @@ If set to true or not configured, the user can end processes in the Task Manager
 			<string>Enable ending processes in Task Manager</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Configures the amount of memory that a single Google Chrome instance can use before tabs start being discarded (I.E. the memory used by the tab will be freed and the tab will have to be reloaded when switched to) to save memory.</string>
+			<key>pfm_description_reference</key>
+			<string>Configures the amount of memory that a single Google Chrome instance can use before tabs start being discarded (I.E. the memory used by the tab will be freed and the tab will have to be reloaded when switched to) to save memory.
+
+If the policy is set, browser will begin to discard tabs to save memory once the limitation is exceeded. However, there is no guarantee that the browser is always running under the limit. Any value under 1024 will be rounded up to 1024.
+
+If this policy is not set, the browser will only begin attempts to save memory once it has detected that the amount of physical memory on its machine is low.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=TotalMemoryLimitMb</string>
+			<key>pfm_name</key>
+			<string>TotalMemoryLimitMb</string>
+			<key>pfm_range_min</key>
+			<integer>1024</integer>
+			<key>pfm_title</key>
+			<string>Total Memory Limit</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>MB</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
