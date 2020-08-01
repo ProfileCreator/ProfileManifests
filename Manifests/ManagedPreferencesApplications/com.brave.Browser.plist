@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-08-01T20:27:54Z</date>
+	<date>2020-08-01T21:13:38Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -499,11 +499,11 @@
 			<key>pfm_description</key>
 			<string>Enables Brave Browser cloud reporting. When this policy is left unset or set to False, there is no data collected or uploaded. When this policy is set to True, the data is collected and uploaded to Google Admin console.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls Google Chrome cloud reporting which uploads information about the browser operation to Google Admin console.
+			<string>This policy controls Brave Browser cloud reporting which uploads information about the browser operation to Google Admin console.
 
 When this policy is left unset or set to False, there is no data collected or uploaded. When this policy is set to True, the data is collected and uploaded to Google Admin console.
 
-For Google Chrome, this policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken. For Google Chrome OS, this policy is always effective.</string>
+For Brave Browser, this policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken. For Brave Browser OS, this policy is always effective.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CloudReportingEnabled</string>
 			<key>pfm_name</key>
@@ -521,13 +521,13 @@ For Google Chrome, this policy is only effective when the machine is enrolled wi
 			<key>pfm_description</key>
 			<string>Enables Brave Browser extension installation requests. When the policy CloudReportingEnabled is left unset or set to disabled, this policy will be ignored, extension installation requests are not created or uploaded. When this policy is left unset or set to disabled, extension installation requests are not created or uploaded. When this policy is set to enabled, extension installation requests are created and uploaded to Google Admin console.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls Google Chrome extension installation requests which allows users to send the requests to the Google Admin console for approval.
+			<string>This policy controls Brave Browser extension installation requests which allows users to send the requests to the Google Admin console for approval.
 
 When the policy CloudReportingEnabled is left unset or set to disabled, this policy will be ignored, extension installation requests are not created or uploaded. When this policy is left unset or set to disabled, extension installation requests are not created or uploaded. When this policy is set to enabled, extension installation requests are created and uploaded to Google Admin console.
 
 Extension installation requests are created when users try to install an extension that is not whitelisted by ExtesionInstallWhitelist or ExtensionSettings.
 
-This policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken for Google Chrome. This policy is always effective for Google Chrome OS.</string>
+This policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken for Brave Browser. This policy is always effective for Brave Browser OS.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CloudExtensionRequestEnabled</string>
 			<key>pfm_name</key>
@@ -553,7 +553,7 @@ When the policy CloudReportingEnabled is left unset or set to disabled, this pol
 
 When this policy is left unset or set to True, Safe Browsing data are gathered. When this policy is set to False, Safe Browsing data are not gathered.
 
-This policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken for Google Chrome. This policy is always effective for Google Chrome OS.</string>
+This policy is only effective when the machine is enrolled with CloudManagementEnrollmentToken for Brave Browser. This policy is always effective for Brave Browser OS.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ReportSafeBrowsingData</string>
 			<key>pfm_name</key>
@@ -574,7 +574,7 @@ This policy is only effective when the machine is enrolled with CloudManagementE
 4 - Keep cookies for the duration of the session
 Allows you to set whether websites are allowed to set local data. Setting local data can be either allowed for all websites or denied for all websites.
 
-If this policy is set to 'Keep cookies for the duration of the session' then cookies will be cleared when the session closes. Note that if Google Chrome is running in 'background mode', the session may not close when the last window is closed. Please see the 'BackgroundModeEnabled' policy for more information about configuring this behavior.
+If this policy is set to 'Keep cookies for the duration of the session' then cookies will be cleared when the session closes. Note that if Brave Browser is running in 'background mode', the session may not close when the last window is closed. Please see the 'BackgroundModeEnabled' policy for more information about configuring this behavior.
 
 If this policy is left not set, 'AllowCookies' will be used and the user will be able to change it.</string>
 			<key>pfm_documentation_url</key>
@@ -686,7 +686,7 @@ See also policies 'CookiesAllowedForUrls' and 'CookiesSessionOnlyForUrls'. Note 
 
 For URLs not covered by the patterns specified here, or for all URLs if this policy is not set, the global default value will be used either from the 'DefaultCookiesSetting' policy, if it is set, or the user's personal configuration otherwise.
 
-Note that if Google Chrome is running in 'background mode', the session may not be closed when the last browser window is closed, but will instead stay active until the browser exits. Please see the 'BackgroundModeEnabled' policy for more information about configuring this behavior.
+Note that if Brave Browser is running in 'background mode', the session may not be closed when the last browser window is closed, but will instead stay active until the browser exits. Please see the 'BackgroundModeEnabled' policy for more information about configuring this behavior.
 
 See also policies 'CookiesAllowedForUrls' and 'CookiesBlockedForUrls'. Note that there must be no conflicting URL patterns between these three policies - it is unspecified which policy takes precedence.
 
@@ -1396,7 +1396,7 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_description</key>
 			<string>Allows you to specify a list of url patterns that specify sites for which Brave Browser should automatically select a client certificate, if the site requests a certificate.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
+			<string>Allows you to specify a list of url patterns that specify sites for which Brave Browser should automatically select a client certificate, if the site requests a certificate.
 
 The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
 
@@ -1547,13 +1547,13 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<key>pfm_description</key>
 			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Google Chrome.
+			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Brave Browser.
 
-If the policy is set to True, Google Chrome is allowed to autoplay media.
-If the policy is set to False, Google Chrome is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
-By default, Google Chrome is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
+If the policy is set to True, Brave Browser is allowed to autoplay media.
+If the policy is set to False, Brave Browser is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
+By default, Brave Browser is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
 
-Note that if Google Chrome is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
+Note that if Brave Browser is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoplayAllowed</string>
 			<key>pfm_name</key>
@@ -1571,7 +1571,7 @@ Note that if Google Chrome is running and this policy changes, it will be applie
 			<key>pfm_description_reference</key>
 			<string>Controls the whitelist of URL patterns that autoplay will always be enabled on.
 
-If autoplay is enabled then videos can play automatically (without user consent) with audio content in Google Chrome.
+If autoplay is enabled then videos can play automatically (without user consent) with audio content in Brave Browser.
 
 A URL pattern has to be formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.
 
@@ -1579,7 +1579,7 @@ If the AutoplayAllowed policy is set to True then this policy will have no effec
 
 If the AutoplayAllowed policy is set to False then any URL patterns set in this policy will still be allowed to play.
 
-Note that if Google Chrome is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
+Note that if Brave Browser is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoplayWhitelist</string>
 			<key>pfm_name</key>
@@ -1641,7 +1641,7 @@ You can specify the default search provider to be used by setting the rest of th
 
 If you disable this setting, no search is performed when the user enters non-URL text in the omnibox.
 
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override this setting in Brave Browser.
 
 If this policy is left not set, the default search provider is enabled, and the user will be able to set the search provider list.
 
@@ -1913,7 +1913,7 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 			<key>pfm_description_reference</key>
 			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
 
-This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
+This setting white-lists the allowed types of extension/apps that can be installed in Brave Browser and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Brave Browser extensions documentation for more information on these types.
 
 Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
 
@@ -1970,7 +1970,7 @@ If this settings is left not-configured, no restrictions on the acceptable exten
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which URLs are allowed to install extensions, apps, and themes.
 
-Starting in Google Chrome 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Google Chrome would offer to install the file after a few warnings. After Google Chrome 21, such files must be downloaded and dragged onto the Google Chrome settings page. This setting allows specific URLs to have the old, easier installation flow.
+Starting in Chromium 21, it is more difficult to install extensions, apps, and user scripts from outside the Chrome Web Store. Previously, users could click on a link to a *.crx file, and Brave Browser would offer to install the file after a few warnings. After Chromium 21, such files must be downloaded and dragged onto the Brave Browser settings page. This setting allows specific URLs to have the old, easier installation flow.
 
 Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
 
@@ -2003,7 +2003,7 @@ ExtensionInstallBlacklist takes precedence over this policy. That is, an extensi
 
 A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
 
-If this policy is left not set the user can install any extension in Google Chrome.</string>
+If this policy is left not set the user can install any extension in Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlacklist</string>
 			<key>pfm_name</key>
@@ -2059,17 +2059,17 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<key>pfm_description_reference</key>
 			<string>Specifies a list of apps and extensions that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user. All permissions requested by the apps/extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the app/extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are not available to apps/extensions that are not force-installed.)
 
-This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Google Chrome.
+This policy takes precedence over a potentially conflicting ExtensionInstallBlacklist policy. If an app or extension that previously had been force-installed is removed from this list, it is automatically uninstalled by Brave Browser.
 
 For Windows instances that are not joined to a Microsoft® Active Directory® domain, forced installation is limited to apps and extensions listed in the Chrome Web Store.
 
 Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
+Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Brave Browser versions up to and including 67.
 
-For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
+For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Brave Browser Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
 
-If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
+If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallForcelist</string>
 			<key>pfm_name</key>
@@ -2094,7 +2094,7 @@ If this policy is left not set, no apps or extensions are installed automaticall
 			<key>pfm_description</key>
 			<string>Configures extension management settings for Brave Browser. A default configuration can be set for the special ID "*"</string>
 			<key>pfm_description_reference</key>
-			<string>Configures extension management settings for Google Chrome.
+			<string>Configures extension management settings for Brave Browser.
 
 This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
 
@@ -2395,11 +2395,11 @@ External extensions and their installation are documented at https://developer.c
 			<key>pfm_description</key>
 			<string>Allow insecure algorithms in integrity checks on extension updates and installs.</string>
 			<key>pfm_description_reference</key>
-			<string>Google Chrome provides for the secure update and installation of extensions. However, the content of some extensions hosted outside of the Chrome Web Store may only be protected by insecure signing or hashing algorithms such as SHA1. When this policy is disabled, fresh installation of and updates to such extensions will not be permitted by Chrome (until the extension developers rebuild the extension with stronger algorithms). When this policy is enabled, installation and updates for such extensions will be permitted.
+			<string>Brave Browser provides for the secure update and installation of extensions. However, the content of some extensions hosted outside of the Chrome Web Store may only be protected by insecure signing or hashing algorithms such as SHA1. When this policy is disabled, fresh installation of and updates to such extensions will not be permitted by Brave Browser (until the extension developers rebuild the extension with stronger algorithms). When this policy is enabled, installation and updates for such extensions will be permitted.
 
-This will default to the enabled behavior when unset. Starting in Google Chrome 76, this will default to the disabled behavior when unset.
+This will default to the enabled behavior when unset. Starting in Chromium 76, this will default to the disabled behavior when unset.
 
-Starting in Google Chrome 78, this policy will be ignored and treated as disabled.</string>
+Starting in Chromium 78, this policy will be ignored and treated as disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionAllowInsecureUpdates</string>
 			<key>pfm_name</key>
@@ -2483,7 +2483,7 @@ Typically this is disabled as a phishing defense. If this policy is not set, thi
 			<key>pfm_description_reference</key>
 			<string>Controls whether approval by KDC policy is respected to decide whether to delegate Kerberos tickets.
 
-If this policy is true, HTTP authentication respects approval by KDC policy, i.e. Chrome only delegates credentials if the KDC sets OK-AS-DELEGATE on a service ticket. Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateWhitelist' policy.
+If this policy is true, HTTP authentication respects approval by KDC policy, i.e. Brave Browser only delegates credentials if the KDC sets OK-AS-DELEGATE on a service ticket. Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateWhitelist' policy.
 
 If this policy is not set or set to false, KDC policy is ignored on supported platforms and 'AuthNegotiateDelegateWhitelist' policy only is respected.
 
@@ -2505,11 +2505,11 @@ On Windows KDC policy is always respected.</string>
 			<key>pfm_description</key>
 			<string>Servers that Brave Browser may delegate to.</string>
 			<key>pfm_description_reference</key>
-			<string>Servers that Google Chrome may delegate to.
+			<string>Servers that Brave Browser may delegate to.
 
 Separate multiple server names with commas. Wildcards (*) are allowed.
 
-If you leave this policy not set Google Chrome will not delegate user credentials even if a server is detected as Intranet.</string>
+If you leave this policy not set Brave Browser will not delegate user credentials even if a server is detected as Intranet.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthNegotiateDelegateWhitelist</string>
 			<key>pfm_name</key>
@@ -2527,7 +2527,7 @@ If you leave this policy not set Google Chrome will not delegate user credential
 			<key>pfm_description</key>
 			<string>Specifies which HTTP authentication schemes are supported by Brave Browser. Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.</string>
 			<key>pfm_description_reference</key>
-			<string>Specifies which HTTP authentication schemes are supported by Google Chrome.
+			<string>Specifies which HTTP authentication schemes are supported by Brave Browser.
 
 Possible values are 'basic', 'digest', 'ntlm' and 'negotiate'. Separate multiple values with commas.
 
@@ -2549,11 +2549,11 @@ If this policy is left not set, all four schemes will be used.</string>
 			<key>pfm_description</key>
 			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Brave Browser receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
 			<key>pfm_description_reference</key>
-			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.
+			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Brave Browser receives an authentication challenge from a proxy or from a server which is in this permitted list.
 
 Separate multiple server names with commas. Wildcards (*) are allowed.
 
-If you leave this policy not set Google Chrome will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Google Chrome.</string>
+If you leave this policy not set Brave Browser will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerWhitelist</string>
 			<key>pfm_name</key>
@@ -2643,11 +2643,11 @@ If this policy is not set, the default is true and NTLMv2 is enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls whether to enable Legacy Browser Support.
 
-When this policy is left unset, or is set to false, Chrome will not attempt to launch designated URLs in an alternate browser.
+When this policy is left unset, or is set to false, Brave Browser will not attempt to launch designated URLs in an alternate browser.
 
-When this policy is set to true, Chrome will attempt to launch some URLs in an alternate browser (such as Internet Explorer). This feature is configured using the policies in the Legacy Browser support group.
+When this policy is set to true, Brave Browser will attempt to launch some URLs in an alternate browser (such as Internet Explorer). This feature is configured using the policies in the Legacy Browser support group.
 
-This feature is a replacement for the 'Legacy Browser Support' extension. Configuration from the extension will carry over to this feature, but it is strongly advised to use the Chrome policies instead. This ensures better compatibility in the future.</string>
+This feature is a replacement for the 'Legacy Browser Support' extension. Configuration from the extension will carry over to this feature, but it is strongly advised to use the Brave Browser policies instead. This ensures better compatibility in the future.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherEnabled</string>
 			<key>pfm_name</key>
@@ -2737,7 +2737,7 @@ When this policy is set to a file path, that file is used as an executable file.
 
 When this policy is left unset, or set to 0, navigating to a designated URL immediately opens it in an alternative browser.
 
-When this policy is set to a number, Chrome shows a message for that many milliseconds, and then opens the alternative browser.</string>
+When this policy is set to a number, Brave Browser shows a message for that many milliseconds, and then opens the alternative browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherDelay</string>
 			<key>pfm_name</key>
@@ -2757,11 +2757,11 @@ When this policy is set to a number, Chrome shows a message for that many millis
 			<key>pfm_description</key>
 			<string>This policy controls whether to close Brave Browser completely when the last tab would switch to another browser.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls whether to close Chrome completely when the last tab would switch to another browser.
+			<string>This policy controls whether to close Brave Browser completely when the last tab would switch to another browser.
 
-When this policy is left unset, or is set to true, Chrome will keep at least one tab open, after switching to an alternate browser.
+When this policy is left unset, or is set to true, Brave Browser will keep at least one tab open, after switching to an alternate browser.
 
-When this policy is set to false, Chrome will close the tab after switching to an alternate browser, even if it was the last tab. This will cause Chrome to exit completely.</string>
+When this policy is set to false, Brave Browser will close the tab after switching to an alternate browser, even if it was the last tab. This will cause Brave Browser to exit completely.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherKeepLastChromeTab</string>
 			<key>pfm_name</key>
@@ -2785,11 +2785,11 @@ Note that elements can also be added to this list through the BrowserSwitcherUse
 
 When this policy is left unset, no websites are added to the list.
 
-When this policy is set, each item is treated as a rule for something to open in an alternative browser. Google Chrome uses those rules when choosing if a URL should open in an alternative browser.
+When this policy is set, each item is treated as a rule for something to open in an alternative browser. Brave Browser uses those rules when choosing if a URL should open in an alternative browser.
 
-When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Google Chrome when the rules do not match.
+When the Internet Explorer add-in is present and enabled, Internet Explorer switches back to Brave Browser when the rules do not match.
 
-If rules contradict eachother, Google Chrome uses the most specific rule.</string>
+If rules contradict eachother, Brave Browser uses the most specific rule.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherUrlGreylist</string>
 			<key>pfm_name</key>
@@ -2826,7 +2826,7 @@ When this policy is left unset, no websites are added to the list.
 
 When this policy is set, each item is treated as a rule, similar to the BrowserSwitcherUrlList policy. However, the logic is reversed: rules that match will not open an alternative browser.
 
-Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the Internet Explorer add-in is present and enabled, it also controls whether Internet Explorer should open these URLs in Google Chrome.</string>
+Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the Internet Explorer add-in is present and enabled, it also controls whether Internet Explorer should open these URLs in Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserSwitcherUrlGreylist</string>
 			<key>pfm_name</key>
@@ -2857,11 +2857,11 @@ Unlike BrowserSwitcherUrlList, rules apply to both directions. That is, when the
 			<key>pfm_description_reference</key>
 			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.
 
-The rules in this XML file apply in the same way as BrowserSwitcherUrlGreylist. That is, these rules prevent Google Chrome from opening the alternative browser, and also prevent the alternative browser from opening Google Chrome.
+The rules in this XML file apply in the same way as BrowserSwitcherUrlGreylist. That is, these rules prevent Brave Browser from opening the alternative browser, and also prevent the alternative browser from opening Brave Browser.
 
-When this policy is left unset, or not set to a valid URL, Google Chrome does not use it as a source of rules that don't trigger a browser switch.
+When this policy is left unset, or not set to a valid URL, Brave Browser does not use it as a source of rules that don't trigger a browser switch.
 
-When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
+When this policy is set to a valid URL, Brave Browser downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlGreylist policy.
 
 For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
 			<key>pfm_documentation_url</key>
@@ -2889,9 +2889,9 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_description_reference</key>
 			<string>This policy is a URL, that points to an XML file in the same format as Internet Explorer's SiteList policy. This loads rules from an XML file, without sharing those rules with Internet Explorer.
 
-When this policy is left unset, or not set to a valid URL, Google Chrome does not use it as a source of rules for switching browsers.
+When this policy is left unset, or not set to a valid URL, Brave Browser does not use it as a source of rules for switching browsers.
 
-When this policy is set to a valid URL, Google Chrome downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlList policy.
+When this policy is set to a valid URL, Brave Browser downloads the site list from that URL, and applies the rules as if they had been configured with the BrowserSwitcherUrlList policy.
 
 For more information on Internet Explorer's SiteList policy: https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/what-is-enterprise-mode</string>
 			<key>pfm_documentation_url</key>
@@ -3041,7 +3041,7 @@ This policy controls whether users enrolled in the Advanced Protection program a
 			<key>pfm_description</key>
 			<string>Enables deleting browser history and download history in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables deleting browser history and download history in Google Chrome and prevents users from changing this setting.
+			<string>Enables deleting browser history and download history in Brave Browser and prevents users from changing this setting.
 
 Note that even with this policy disabled, the browsing and download history are not guaranteed to be retained: users may be able to edit or delete the history database files directly, and the browser itself may expire or archive any or all history items at any time.
 
@@ -3065,7 +3065,7 @@ If this setting is disabled, browsing and download history cannot be deleted.</s
 			<key>pfm_description_reference</key>
 			<string>Allow users to play dinosaur easter egg game when device is offline.
 
-If this policy is set to False, users will not be able to play the dinosaur easter egg game when device is offline. If this setting is set to True, users are allowed to play the dinosaur game. If this policy is not set, users are not allowed to play the dinosaur easter egg game on enrolled Chrome OS, but are allowed to play it under other circumstances.</string>
+If this policy is set to False, users will not be able to play the dinosaur easter egg game when device is offline. If this setting is set to True, users are allowed to play the dinosaur game. If this policy is not set, users are not allowed to play the dinosaur easter egg game on enrolled Brave Browser OS, but are allowed to play it under other circumstances.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowDinosaurEasterEgg</string>
 			<key>pfm_name</key>
@@ -3083,7 +3083,7 @@ If this policy is set to False, users will not be able to play the dinosaur east
 			<key>pfm_description</key>
 			<string>Allows access to local files on the machine by allowing Brave Browser to display file selection dialogs.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows access to local files on the machine by allowing Google Chrome to display file selection dialogs.
+			<string>Allows access to local files on the machine by allowing Brave Browser to display file selection dialogs.
 
 If you enable this setting, users can open file selection dialogs as normal.
 
@@ -3135,7 +3135,7 @@ When the policy is set to enabled, pages are allowed to show popups while they a
 
 When the policy is set to disabled or not set, pages are not allowed to show popups while they are being unloaded, as per the spec (https://html.spec.whatwg.org/#apis-for-creating-and-navigating-browsing-contexts-by-name).
 
-This policy will be removed in Chrome 88.</string>
+This policy will be removed in Chromium 88.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowPopupsDuringPageUnload</string>
 			<key>pfm_name</key>
@@ -3161,7 +3161,7 @@ When the policy is set to enabled, pages are allowed to send synchronous XHR req
 
 When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
 
-This policy will be removed in Chrome 88.
+This policy will be removed in Chromium 88.
 
 See https://www.chromestatus.com/feature/4664843055398912 .</string>
 			<key>pfm_documentation_url</key>
@@ -3179,7 +3179,7 @@ See https://www.chromestatus.com/feature/4664843055398912 .</string>
 			<key>pfm_description</key>
 			<string>Enables Brave Browser's restricted log in feature in G Suite and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome's restricted log in feature in G Suite and prevents users from changing this setting.
+			<string>Enables Brave Browser's restricted log in feature in G Suite and prevents users from changing this setting.
 
 If you define this setting, the user will only be able to access Google
 Apps using accounts from the specified domains (note that this does not
@@ -3215,13 +3215,13 @@ Users cannot change or override this setting.</string>
 			<key>pfm_description</key>
 			<string>Enables the use of alternate error pages that are built into Brave Browser (such as 'page not found') and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables the use of alternate error pages that are built into Google Chrome (such as 'page not found') and prevents users from changing this setting.
+			<string>Enables the use of alternate error pages that are built into Brave Browser (such as 'page not found') and prevents users from changing this setting.
 
 If you enable this setting, alternate error pages are used.
 
 If you disable this setting, alternate error pages are never used.
 
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override this setting in Brave Browser.
 
 If this policy is left not set, this will be enabled but the user will be able to change it.</string>
 			<key>pfm_documentation_url</key>
@@ -3241,7 +3241,7 @@ If this policy is left not set, this will be enabled but the user will be able t
 			<key>pfm_description</key>
 			<string>Disables the internal PDF viewer in Brave Browser. Instead it treats it as download and allows the user to open PDF files with the default application.</string>
 			<key>pfm_description_reference</key>
-			<string>Disables the internal PDF viewer in Google Chrome. Instead it treats it as download and allows the user to open PDF files with the default application.
+			<string>Disables the internal PDF viewer in Brave Browser. Instead it treats it as download and allows the user to open PDF files with the default application.
 
 If this policy is left not set or disabled the PDF plugin will be used to open PDF files unless the user disables it.</string>
 			<key>pfm_documentation_url</key>
@@ -3259,7 +3259,7 @@ If this policy is left not set or disabled the PDF plugin will be used to open P
 			<key>pfm_description</key>
 			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Google Chrome.
+			<string>Configuring this policy will allow/disallow ambient authenticaiton for Incognito and Guest profiles in Brave Browser.
 
 Ambient Authentication is http authentication with default credentials if explicit credentials are not provided via NTLM/Kerberos/Negotiate challenge/response schemes.
 
@@ -3273,7 +3273,7 @@ Setting the All (value 3), allows ambient authentication for all sessions.
 
 Note that, ambient authentication is always allowed on regular profiles.
 
-If the policy is left not set, then the Incognito and Guest sessions will not be able to ambiently authenticate in the future releases of Google Chrome, as they will be disallowed.
+If the policy is left not set, then the Incognito and Guest sessions will not be able to ambiently authenticate in the future releases of Brave Browser, as they will be disallowed.
 
 0 = Enable ambient authentication in regular sessions only.
 1 = Enable ambient authentication in incognito and regular sessions.
@@ -3308,9 +3308,9 @@ If the policy is left not set, then the Incognito and Guest sessions will not be
 			<key>pfm_description</key>
 			<string>Allows the AppCache feature to be re-enabled even if it is off by default.</string>
 			<key>pfm_description_reference</key>
-			<string>If set to true, this will force AppCache to be enabled, even when AppCache in Chrome is not available by default.
+			<string>If set to true, this will force AppCache to be enabled, even when AppCache in Brave Browser is not available by default.
 
-If unset or set to false, AppCache will follow Chrome's defaults.</string>
+If unset or set to false, AppCache will follow Brave Browser's defaults.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AppCacheForceEnabled</string>
 			<key>pfm_name</key>
@@ -3403,7 +3403,7 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated in M70, please use AutofillAddressEnabled and AutofillCreditCardEnabled instead.
 
-Enables Google Chrome's AutoFill feature and allows users to auto complete web forms using previously stored information such as address or credit card information.
+Enables Brave Browser's AutoFill feature and allows users to auto complete web forms using previously stored information such as address or credit card information.
 
 If you disable this setting, AutoFill will be inaccessible to users.
 
@@ -3565,7 +3565,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 			<key>pfm_description</key>
 			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.
+			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete address information in web forms using previously stored information.
 
 If this setting is disabled, Autofill will never suggest, or fill address information, nor will it save additional address information that the user might submit while browsing the web.
 
@@ -3587,7 +3587,7 @@ If this setting is enabled or has no value, the user will be able to control Aut
 			<key>pfm_description</key>
 			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.
+			<string>Enables Brave Browser's AutoFill feature and allows users to auto complete credit card information in web forms using previously stored information.
 
 If this setting is disabled, Autofill will never suggest, or fill credit card information, nor will it save additional credit card information that the user might submit while browsing the web.
 
@@ -3607,11 +3607,11 @@ If this setting is enabled or has no value, the user will be able to control Aut
 			<key>pfm_description</key>
 			<string>If you enable this setting, Brave Browser will show a bookmark bar.</string>
 			<key>pfm_description_reference</key>
-			<string>If you enable this setting, Google Chrome will show a bookmark bar.
+			<string>If you enable this setting, Brave Browser will show a bookmark bar.
 
 If you disable this setting, users will never see the bookmark bar.
 
-If you enable or disable this setting, users cannot change or override it in Google Chrome.
+If you enable or disable this setting, users cannot change or override it in Brave Browser.
 
 If this setting is left not set the user can decide to use this function or not.</string>
 			<key>pfm_documentation_url</key>
@@ -3631,9 +3631,9 @@ If this setting is left not set the user can decide to use this function or not.
 			<key>pfm_description</key>
 			<string>If this policy is set to true or not configured, Brave Browser will allow Add Person from the user manager.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set to true or not configured, Google Chrome will allow Add Person from the user manager.
+			<string>If this policy is set to true or not configured, Brave Browser will allow Add Person from the user manager.
 
-If this policy is set to false, Google Chrome will not allow creation of new profiles from the user manager.</string>
+If this policy is set to false, Brave Browser will not allow creation of new profiles from the user manager.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserAddPersonEnabled</string>
 			<key>pfm_name</key>
@@ -3651,9 +3651,9 @@ If this policy is set to false, Google Chrome will not allow creation of new pro
 			<key>pfm_description</key>
 			<string>If this policy is set to true or not configured, Brave Browser will enable guest logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set to true or not configured, Google Chrome will enable guest logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.
+			<string>If this policy is set to true or not configured, Brave Browser will enable guest logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.
 
-If this policy is set to false, Google Chrome will not allow guest profiles to be started.</string>
+If this policy is set to false, Brave Browser will not allow guest profiles to be started.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserGuestModeEnabled</string>
 			<key>pfm_name</key>
@@ -3671,9 +3671,9 @@ If this policy is set to false, Google Chrome will not allow guest profiles to b
 			<key>pfm_description</key>
 			<string>If this policy is set to enabled, Brave Browser will enforce guest sessions and prevents profile logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set to enabled, Google Chrome will enforce guest sessions and prevents profile logins. Guest logins are Google Chrome profiles where all windows are in incognito mode.
+			<string>If this policy is set to enabled, Brave Browser will enforce guest sessions and prevents profile logins. Guest logins are Brave Browser profiles where all windows are in incognito mode.
 
-If this policy is set to disabled or not set or browser guest mode is disabled by BrowserGuestModeEnabled policy, Google Chrome will allow using new and existing profiles.</string>
+If this policy is set to disabled or not set or browser guest mode is disabled by BrowserGuestModeEnabled policy, Brave Browser will allow using new and existing profiles.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserGuestModeEnforced</string>
 			<key>pfm_name</key>
@@ -3691,7 +3691,7 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 			<key>pfm_description</key>
 			<string>Setting this policy to false stops Brave Browser from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
 			<key>pfm_description_reference</key>
-			<string>Setting this policy to false stops Google Chrome from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
+			<string>Setting this policy to false stops Brave Browser from occasionally sending queries to a Google server to retrieve an accurate timestamp. These queries will be enabled if this policy is set to True or is not set.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BrowserNetworkTimeQueriesEnabled</string>
 			<key>pfm_name</key>
@@ -3707,13 +3707,13 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 			<key>pfm_description</key>
 			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Brave Browser with their account and use account related services like Brave Browser sync.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Google Chrome with their account and use account related services like Chrome sync.
+			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Brave Browser with their account and use account related services like Brave Browser sync.
 
-If the policy is set to "Disable browser sign-in" then the user can not sign in to the browser and use account based services. In this case browser level features like Chrome sync can not be used and will be unavailable. If the user was signed in and the policy is set "Disabled" they will be signed out the next time they run Chrome but their local profile data like bookmarks, passwords etc. will stay preserved. The user will still be able to sign into and use Google web services like Gmail.
+If the policy is set to "Disable browser sign-in" then the user can not sign in to the browser and use account based services. In this case browser level features like Brave Browser sync can not be used and will be unavailable. If the user was signed in and the policy is set "Disabled" they will be signed out the next time they run Brave Browser but their local profile data like bookmarks, passwords etc. will stay preserved. The user will still be able to sign into and use Google web services like Gmail.
 
-If the policy is set to "Enable browser sign-in," then the user is allowed to sign in to the browser and is automatically signed in to the browser when signed in to Google web services like Gmail. Being signed in to the browser means the user's account information will be kept by the browser. However, it does not mean that Chrome sync will be turned on per default; the user must separately opt-in to use this feature. Enabling this policy will prevent the user from turning off the setting that allows browser sign-in. To control the availability of Chrome sync, use the "SyncDisabled" policy.
+If the policy is set to "Enable browser sign-in," then the user is allowed to sign in to the browser and is automatically signed in to the browser when signed in to Google web services like Gmail. Being signed in to the browser means the user's account information will be kept by the browser. However, it does not mean that Brave Browser sync will be turned on per default; the user must separately opt-in to use this feature. Enabling this policy will prevent the user from turning off the setting that allows browser sign-in. To control the availability of Brave Browser sync, use the "SyncDisabled" policy.
 
-If the policy is set to "Force browser sign-in" the user is presented with an account selection dialog and has to choose and sign in to an account to use the browser. This ensures that for managed accounts the policies associated with the account are applied and enforced. By default this turns on Chrome sync for the account, except for the case when sync was disabled by the domain admin or via the "SyncDisabled" policy. The default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article: https://support.google.com/chrome/a/answer/7572556.
+If the policy is set to "Force browser sign-in" the user is presented with an account selection dialog and has to choose and sign in to an account to use the browser. This ensures that for managed accounts the policies associated with the account are applied and enforced. By default this turns on Brave Browser sync for the account, except for the case when sync was disabled by the domain admin or via the "SyncDisabled" policy. The default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article: https://support.google.com/chrome/a/answer/7572556.
 
 If this policy is not set then the user can decide if they want to enable the browser sign in option and use it as they see fit.
 
@@ -3747,7 +3747,7 @@ If this policy is not set then the user can decide if they want to enable the br
 			<key>pfm_description</key>
 			<string>Controls whether the built-in DNS client is used in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Controls whether the built-in DNS client is used in Google Chrome.
+			<string>Controls whether the built-in DNS client is used in Brave Browser.
 
 If this policy is set to true, the built-in DNS client will be used, if available.
 
@@ -3771,13 +3771,13 @@ If this policy is left not set, the users will be able to change whether the bui
 			<key>pfm_description</key>
 			<string>Determines whether the built-in certificate verifier will be used to verify server certificates. When this setting is enabled, Brave Browser will perform verification of server certificates using the built-in certificate verifier. When this setting is disabled, Brave Browser will perform verification of server certificates using the legacy certificate verifier provided by the platform. When this setting is not set, the built-in or the legacy certificate verifier may be used.</string>
 			<key>pfm_description_reference</key>
-			<string>When this setting is enabled, Google Chrome will perform verification of server certificates using the built-in certificate verifier. When this setting is disabled, Google Chrome will perform verification of server certificates using the legacy certificate verifier provided by the platform. When this setting is not set, the built-in or the legacy certificate verifier may be used.
+			<string>When this setting is enabled, Brave Browser will perform verification of server certificates using the built-in certificate verifier. When this setting is disabled, Brave Browser will perform verification of server certificates using the legacy certificate verifier provided by the platform. When this setting is not set, the built-in or the legacy certificate verifier may be used.
 
-This policy is planned to be removed in Google Chrome OS version 81, when support for the legacy certificate verifier on Google Chrome OS is planned to be removed.
+This policy is planned to be removed in Brave Browser OS version 81, when support for the legacy certificate verifier on Brave Browser OS is planned to be removed.
 
-This policy is planned to be removed in Google Chrome for Linux version 83, when support for the legacy certificate verifier on Linux is planned to be removed.
+This policy is planned to be removed in Brave Browser for Linux version 83, when support for the legacy certificate verifier on Linux is planned to be removed.
 
-This policy is planned to be removed in Google Chrome for Mac OS X version 87, when support for the legacy certificate verifier on Mac OS X is planned to be removed.</string>
+This policy is planned to be removed in Brave Browser for Mac OS X version 87, when support for the legacy certificate verifier on Mac OS X is planned to be removed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=BuiltinCertificateVerifierEnabled</string>
 			<key>pfm_name</key>
@@ -3835,7 +3835,7 @@ If this policy is not set, any certificate that is required to be disclosed via 
 
 This policy allows disabling Certificate Transparency disclosure requirements for certificate chains that contain certificates with one of the specified subjectPublicKeyInfo hashes. This allows certificates that would otherwise be untrusted, because they were not properly publicly disclosed, to continue to be used for Enterprise hosts.
 
-In order for Certificate Transparency enforcement to be disabled when this policy is set, the hash must be of a subjectPublicKeyInfo appearing in a CA certificate that is recognized as a Legacy Certificate Authority (CA). A Legacy CA is a CA that has been publicly trusted by default one or more operating systems supported by Google Chrome, but is not trusted by the Android Open Source Project or Google Chrome OS.
+In order for Certificate Transparency enforcement to be disabled when this policy is set, the hash must be of a subjectPublicKeyInfo appearing in a CA certificate that is recognized as a Legacy Certificate Authority (CA). A Legacy CA is a CA that has been publicly trusted by default one or more operating systems supported by Brave Browser, but is not trusted by the Android Open Source Project or Brave Browser OS.
 
 A subjectPublicKeyInfo hash is specified by concatenating the hash algorithm name, the "/" character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is "sha256".
 
@@ -3897,15 +3897,15 @@ If this policy is not set, any certificate that is required to be disclosed via 
 			<key>pfm_description</key>
 			<string>Determine the availability of variations.</string>
 			<key>pfm_description_reference</key>
-			<string>Configuring this policy allows to specify which variations are allowed to be applied in Google Chrome.
+			<string>Configuring this policy allows to specify which variations are allowed to be applied in Brave Browser.
 
-Variations provide a means for offering modifications to Google Chrome without shipping a new version of the browser by selectively enabling or disabling already existing features. See https://support.google.com/chrome/a?p=Manage_the_Chrome_variations_framework for more information.
+Variations provide a means for offering modifications to Brave Browser without shipping a new version of the browser by selectively enabling or disabling already existing features. See https://support.google.com/chrome/a?p=Manage_the_Brave Browser_variations_framework for more information.
 
 Setting the VariationsEnabled (value 0), or leaving the policy not set allows all variations to be applied to the browser.
 
-Setting the CriticalFixesOnly (value 1), allows only variations considered critical security or stability fixes to be applied to Google Chrome.
+Setting the CriticalFixesOnly (value 1), allows only variations considered critical security or stability fixes to be applied to Brave Browser.
 
-Setting the VariationsDisabled (value 2), prevent all variations from being applied to the browser. Please note that this mode can potentially prevent the Google Chrome developers from providing critical security fixes in a timely manner and is thus not recommended.
+Setting the VariationsDisabled (value 2), prevent all variations from being applied to the browser. Please note that this mode can potentially prevent the Brave Browser developers from providing critical security fixes in a timely manner and is thus not recommended.
 
 0 = Enable all variations
 1 = Enable variations concerning critical fixes only
@@ -3941,11 +3941,11 @@ Setting the VariationsDisabled (value 2), prevent all variations from being appl
 			<key>pfm_description</key>
 			<string>Enable the Click to Call Feature.</string>
 			<key>pfm_description_reference</key>
-			<string>Enable the Click to Call feature which allows users to send phone numbers from Chrome Desktops to an Android device when the user is Signed-in. For more information, see help center article: https://support.google.com/chrome/answer/9430554?hl=en.
+			<string>Enable the Click to Call feature which allows users to send phone numbers from Brave Browser Desktops to an Android device when the user is Signed-in. For more information, see help center article: https://support.google.com/chrome/answer/9430554?hl=en.
 
-If this policy is set to enabled, the capability of sending phone numbers to Android devices will be enabled for the Chrome user.
+If this policy is set to enabled, the capability of sending phone numbers to Android devices will be enabled for the Brave Browser user.
 
-If this policy is set to disabled, the capability of sending phone numbers to Android devices will be disabled for the Chrome user.
+If this policy is set to disabled, the capability of sending phone numbers to Android devices will be disabled for the Brave Browser user.
 
 If you set this policy, users cannot change or override it.
 
@@ -3967,7 +3967,7 @@ If this policy is left unset, the Click to Call feature is enabled by default.</
 			<key>pfm_description</key>
 			<string>If this policy is set, Brave Browser will try to register itself and apply associated cloud policy for all profiles.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set, Google Chrome will try to register itself and apply associated cloud policy for all profiles.
+			<string>If this policy is set, Brave Browser will try to register itself and apply associated cloud policy for all profiles.
 
 The value of this policy is an Enrollment token that can be retrieved from the Google Admin console.</string>
 			<key>pfm_documentation_url</key>
@@ -3989,9 +3989,9 @@ The value of this policy is an Enrollment token that can be retrieved from the G
 			<key>pfm_description</key>
 			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Brave Browser launch process if failed.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Chrome launch process if failed.
+			<string>If this policy is set to True, cloud management enrollment is mandatory and blocks Brave Browser launch process if failed.
 
-If this policy is left unset or set to False, cloud management enrollment is optional and does not blocks Chrome launch process if failed.
+If this policy is left unset or set to False, cloud management enrollment is optional and does not blocks Brave Browser launch process if failed.
 
 This policy is used by machine scope cloud policy enrollment on desktop and can be set by Registry or GPO on Windows, plist on Mac and JSON policy file on Linux.</string>
 			<key>pfm_documentation_url</key>
@@ -4033,9 +4033,9 @@ This policy is only available as a mandatory machine platform policy and it only
 			<key>pfm_description</key>
 			<string>If disabled, prevents security warnings from appearing when Brave Browser is launched with some potentially dangerous command-line flags.</string>
 			<key>pfm_description_reference</key>
-			<string>If disabled, prevents security warnings from appearing when Chrome is launched with some potentially dangerous command-line flags.
+			<string>If disabled, prevents security warnings from appearing when Brave Browser is launched with some potentially dangerous command-line flags.
 
-If enabled or unset, security warnings are displayed when some command-line flags are used to launch Chrome.
+If enabled or unset, security warnings are displayed when some command-line flags are used to launch Brave Browser.
 
 On Windows, this policy is only available on instances that are joined to a Microsoft® Active Directory® domain or Windows 10 Pro or Enterprise instances that are enrolled for device management..</string>
 			<key>pfm_documentation_url</key>
@@ -4057,7 +4057,7 @@ On Windows, this policy is only available on instances that are joined to a Micr
 			<key>pfm_description</key>
 			<string>Enables component updates for all components in Brave Browser when not set or set to True.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables component updates for all components in Google Chrome when not set or set to True.
+			<string>Enables component updates for all components in Brave Browser when not set or set to True.
 
 If set to False, updates to components are disabled. However, some components are exempt from this policy: updates to any component that does not contain executable code, or does not significantly alter the behavior of the browser, or is critical for its security will not be disabled.
 Examples of such components include the certificate revocation lists and Safe Browsing data.
@@ -4091,7 +4091,7 @@ This policy will be removed after a couple of milestones.
 
 For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.
 
-Note that this policy was announced to be removed in Google Chrome version 82, but the plan was changed to be removed in version 84.</string>
+Note that this policy was announced to be removed in Chromium version 82, but the plan was changed to be removed in version 84.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CorsLegacyModeEnabled</string>
 			<key>pfm_name</key>
@@ -4113,9 +4113,9 @@ Note that this policy was announced to be removed in Google Chrome version 82, b
 			<key>pfm_description</key>
 			<string>Enable CORS check mitigations in the new CORS implementation, allowing Extensions to keep compatible behavior, and allowing Brave Browser to send specified headers without CORS checks.</string>
 			<key>pfm_description_reference</key>
-			<string>Enable CORS check mitigations in the new CORS implementation, allowing Extensions to keep compatible behavior, and allowing Google Chrome to send specified headers without CORS checks.
+			<string>Enable CORS check mitigations in the new CORS implementation, allowing Extensions to keep compatible behavior, and allowing Brave Browser to send specified headers without CORS checks.
 
-If this list is set to empty, Google Chrome tries to run Extensions in compatible manners, and does not introduce API changes for Google Chrome 79 as explained at https://developer.chrome.com/extensions/webRequest.
+If this list is set to empty, Brave Browser tries to run Extensions in compatible manners, and does not introduce API changes for Chromium 79 as explained at https://developer.chrome.com/extensions/webRequest.
 
 If this list is set to have HTTP request header names, CORS inspection will ignore the listed headers in addition to enable the mitigation for Extensions.
 
@@ -4123,7 +4123,7 @@ If this list is not set, both mitigations explained above are not applied.
 
 For details on CORS, visit: https://www.chromestatus.com/feature/5768642492891136.
 
-Note that this policy was announced to be removed in Google Chrome version 82, but the plan was changed to be removed in version 84.</string>
+Note that this policy was announced to be removed in Chromium version 82, but the plan was changed to be removed in version 84.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CorsMitigationList</string>
 			<key>pfm_name</key>
@@ -4170,13 +4170,13 @@ When this policy is not set, or is enabled, the DNS interception checks are perf
 			<key>pfm_description</key>
 			<string>Configures the default browser checks in Brave Browser and prevents users from changing them.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the default browser checks in Google Chrome and prevents users from changing them.
+			<string>Configures the default browser checks in Brave Browser and prevents users from changing them.
 
-If you enable this setting, Google Chrome will always check on startup whether it is the default browser and automatically register itself if possible.
+If you enable this setting, Brave Browser will always check on startup whether it is the default browser and automatically register itself if possible.
 
-If this setting is disabled, Google Chrome will never check if it is the default browser and will disable user controls for setting this option.
+If this setting is disabled, Brave Browser will never check if it is the default browser and will disable user controls for setting this option.
 
-If this setting is not set, Google Chrome will allow the user to control whether it is the default browser and whether user notifications should be shown when it isn't.</string>
+If this setting is not set, Brave Browser will allow the user to control whether it is the default browser and whether user notifications should be shown when it isn't.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultBrowserSettingEnabled</string>
 			<key>pfm_name</key>
@@ -4194,11 +4194,11 @@ If this setting is not set, Google Chrome will allow the user to control whether
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the default directory that Google Chrome will use for downloading files.
+			<string>Configures the default directory that Brave Browser will use for downloading files.
 
-If you set this policy, it will change the default directory that Google Chrome downloads files to. This policy is not mandatory, so the user will be able to change the directory.
+If you set this policy, it will change the default directory that Brave Browser downloads files to. This policy is not mandatory, so the user will be able to change the directory.
 
-If you do not set this policy, Google Chrome will use its usual default directory (platform-specific).
+If you do not set this policy, Brave Browser will use its usual default directory (platform-specific).
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_documentation_url</key>
@@ -4347,11 +4347,11 @@ Specifies a list of plugins that are disabled in Brave Browser and prevents user
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that are disabled in Google Chrome and prevents users from changing this setting.
+Specifies a list of plugins that are disabled in Brave Browser and prevents users from changing this setting.
 
 The wildcard characters '*' and '?' can be used to match sequences of arbitrary characters. '*' matches an arbitrary number of characters while '?' specifies an optional single character, i.e. matches zero or one characters. The escape character is '\', so to match actual '*', '?', or '\' characters, you can put a '\' in front of them.
 
-If you enable this setting, the specified list of plugins is never used in Google Chrome. The plugins are marked as disabled in 'about:plugins' and users cannot enable them.
+If you enable this setting, the specified list of plugins is never used in Brave Browser. The plugins are marked as disabled in 'about:plugins' and users cannot enable them.
 
 Note that this policy can be overridden by EnabledPlugins and DisabledPluginsExceptions.
 
@@ -4384,11 +4384,11 @@ Specifies a list of plugins that user can enable or disable in Brave Browser.</s
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that user can enable or disable in Google Chrome.
+Specifies a list of plugins that user can enable or disable in Brave Browser.
 
 The wildcard characters '*' and '?' can be used to match sequences of arbitrary characters. '*' matches an arbitrary number of characters while '?' specifies an optional single character, i.e. matches zero or one characters. The escape character is '\', so to match actual '*', '?', or '\' characters, you can put a '\' in front of them.
 
-If you enable this setting, the specified list of plugins can be used in Google Chrome. Users can enable or disable them in 'about:plugins', even if the plugin also matches a pattern in DisabledPlugins. Users can also enable and disable plugins that don't match any patterns in DisabledPlugins, DisabledPluginsExceptions and EnabledPlugins.
+If you enable this setting, the specified list of plugins can be used in Brave Browser. Users can enable or disable them in 'about:plugins', even if the plugin also matches a pattern in DisabledPlugins. Users can also enable and disable plugins that don't match any patterns in DisabledPlugins, DisabledPluginsExceptions and EnabledPlugins.
 
 This policy is meant to allow for strict plugin blacklisting where the 'DisabledPlugins' list contains wildcarded entries like disable all plugins '*' or disable all Java plugins '*Java*' but the administrator wishes to enable some particular version like 'IcedTea Java 2.3'. This particular versions can be specified in this policy.
 
@@ -4423,11 +4423,11 @@ Disables the listed protocol schemes in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, please use URLBlacklist instead.
 
-Disables the listed protocol schemes in Google Chrome.
+Disables the listed protocol schemes in Brave Browser.
 
 URLs using a scheme from this list will not load and can not be navigated to.
 
-If this policy is left not set or the list is empty all schemes will be accessible in Google Chrome.</string>
+If this policy is left not set or the list is empty all schemes will be accessible in Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DisabledSchemes</string>
 			<key>pfm_name</key>
@@ -4452,9 +4452,9 @@ If this policy is left not set or the list is empty all schemes will be accessib
 			<key>pfm_description</key>
 			<string>Configures the directory that Brave Browser will use for storing cached files on the disk. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Brave Browser manages its contents</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the directory that Google Chrome will use for storing cached files on the disk.
+			<string>Configures the directory that Brave Browser will use for storing cached files on the disk.
 
-If you set this policy, Google Chrome will use the provided directory regardless whether the user has specified the '--disk-cache-dir' flag or not. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Google Chrome manages its contents.
+If you set this policy, Brave Browser will use the provided directory regardless whether the user has specified the '--disk-cache-dir' flag or not. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Brave Browser manages its contents.
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.
 
@@ -4476,9 +4476,9 @@ If this policy is left not set the default cache directory will be used and the 
 			<key>pfm_description</key>
 			<string>Configures the cache size that Brave Browser will use for storing cached files on the disk. The value specified in this policy is not a hard boundary but rather a suggestion to the caching system, any value below a few megabytes is too small and will be rounded up to a sane minimum. If the value of this policy is 0, the default cache size will be used but the user will not be able to change it.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the cache size that Google Chrome will use for storing cached files on the disk.
+			<string>Configures the cache size that Brave Browser will use for storing cached files on the disk.
 
-If you set this policy, Google Chrome will use the provided cache size regardless whether the user has specified the '--disk-cache-size' flag or not. The value specified in this policy is not a hard boundary but rather a suggestion to the caching system, any value below a few megabytes is too small and will be rounded up to a sane minimum.
+If you set this policy, Brave Browser will use the provided cache size regardless whether the user has specified the '--disk-cache-size' flag or not. The value specified in this policy is not a hard boundary but rather a suggestion to the caching system, any value below a few megabytes is too small and will be rounded up to a sane minimum.
 
 If the value of this policy is 0, the default cache size will be used but the user will not be able to change it.
 
@@ -4564,9 +4564,9 @@ Incorrectly formatted templates will be ignored.</string>
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the directory that Google Chrome will use for downloading files.
+			<string>Configures the directory that Brave Browser will use for downloading files.
 
-If you set this policy, Google Chrome will use the provided directory regardless whether the user has specified one or enabled the flag to be prompted for download location every time.
+If you set this policy, Brave Browser will use the provided directory regardless whether the user has specified one or enabled the flag to be prompted for download location every time.
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.
 
@@ -4592,9 +4592,9 @@ If this policy is left not set the default download directory will be used and t
 1 - Block dangerous downloads
 2 - Block potentially dangerous downloads
 3 - Block all downloads
-Configures the type of downloads that Google Chrome will completely block, without letting users override the security decision.
+Configures the type of downloads that Brave Browser will completely block, without letting users override the security decision.
 
-If you set this policy, Google Chrome will prevent certain types of downloads, and won't let user bypass the security warnings.
+If you set this policy, Brave Browser will prevent certain types of downloads, and won't let user bypass the security warnings.
 
 When the 'Block dangerous downloads' option is chosen, all downloads are allowed, except for those that carry Safe Browsing warnings.
 
@@ -4687,7 +4687,7 @@ While the policy itself is supported on the above platforms, the feature it is e
 			<key>pfm_description</key>
 			<string>Allows Brave Browser to load experimental policies.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows Google Chrome to load experimental policies.
+			<string>Allows Brave Browser to load experimental policies.
 
 WARNING: Experimental policies are unsupported and subject to change or be removed without notice in future version of the browser!
 
@@ -4726,9 +4726,9 @@ This policy has no effect on already released policies.</string>
 			<key>pfm_description</key>
 			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Chromium version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.</string>
 			<key>pfm_description_reference</key>
-			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Google Chrome version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.
+			<string>In light of the fact that soft-fail, online revocation checks provide no effective security benefit, they are disabled by default in Chromium version 19 and later. By setting this policy to true, the previous behavior is restored and online OCSP/CRL checks will be performed.
 
-If the policy is not set, or is set to false, then Google Chrome will not perform online revocation checks in Google Chrome 19 and later.</string>
+If the policy is not set, or is set to false, then Brave Browser will not perform online revocation checks in Chromium 19 and later.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnableOnlineRevocationChecks</string>
 			<key>pfm_name</key>
@@ -4750,11 +4750,11 @@ Specifies a list of plugins that are enabled in Brave Browser and prevents users
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated. Please use the DefaultPluginsSetting to control the avalability of the Flash plugin and AlwaysOpenPdfExternally to control whether the integrated PDF viewer should be used for opening PDF files.
 
-Specifies a list of plugins that are enabled in Google Chrome and prevents users from changing this setting.
+Specifies a list of plugins that are enabled in Brave Browser and prevents users from changing this setting.
 
 The wildcard characters '*' and '?' can be used to match sequences of arbitrary characters. '*' matches an arbitrary number of characters while '?' specifies an optional single character, i.e. matches zero or one characters. The escape character is '\', so to match actual '*', '?', or '\' characters, you can put a '\' in front of them.
 
-The specified list of plugins is always used in Google Chrome if they are installed. The plugins are marked as enabled in 'about:plugins' and users cannot disable them.
+The specified list of plugins is always used in Brave Browser if they are installed. The plugins are marked as enabled in 'about:plugins' and users cannot disable them.
 
 Note that this policy overrides both DisabledPlugins and DisabledPluginsExceptions.
 
@@ -4829,9 +4829,9 @@ If this policy is set to False, the "Always allow" checkbox is not displayed and
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, consider using BrowserSignin instead.
 
-If this policy is set to true, user has to sign in to Google Chrome with their profile before using the browser. And the default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article.
+If this policy is set to true, user has to sign in to Brave Browser with their profile before using the browser. And the default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article.
 
-If this policy is set to false or not configured, user can use the browser without sign in to Google Chrome.</string>
+If this policy is set to false or not configured, user can use the browser without sign in to Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ForceBrowserSignin</string>
 			<key>pfm_name</key>
@@ -4925,9 +4925,9 @@ If you disable this setting or do not set a value, SafeSearch in Google Search a
 			<key>pfm_description_reference</key>
 			<string>This enterprise policy is for short-term adaptation and will be removed in M82.
 
-Chrome's default referrer policy is being strengthened from its current value of no-referrer-when-downgrade to the more secure strict-origin-when-cross-origin through a gradual rollout targeting M80 stable.
+Brave Browser's default referrer policy is being strengthened from its current value of no-referrer-when-downgrade to the more secure strict-origin-when-cross-origin through a gradual rollout targeting M80 stable.
 
-Before the rollout, this enterprise policy will have no effect. After the rollout, when this enterprise policy is enabled, Chrome's default referrer policy will be set to its pre-M80 value of no-referrer-when-downgrade.
+Before the rollout, this enterprise policy will have no effect. After the rollout, when this enterprise policy is enabled, Brave Browser's default referrer policy will be set to its pre-M80 value of no-referrer-when-downgrade.
 
 This enterprise policy is disabled by default.</string>
 			<key>pfm_documentation_url</key>
@@ -5007,7 +5007,7 @@ If this setting is set to Strict, Strict Restricted Mode on YouTube is always ac
 
 If this setting is set to Moderate, the user may only pick Moderate Restricted Mode and Strict Restricted Mode on YouTube, but cannot disable Restricted Mode.
 
-If this setting is set to Off or no value is set, Restricted Mode on YouTube is not enforced by Google Chrome. External policies such as YouTube policies might still enforce Restricted Mode, though.</string>
+If this setting is set to Off or no value is set, Restricted Mode on YouTube is not enforced by Brave Browser. External policies such as YouTube policies might still enforce Restricted Mode, though.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ForceYouTubeRestrict</string>
 			<key>pfm_name</key>
@@ -5047,7 +5047,7 @@ Forces YouTube Moderate Restricted Mode and prevents users from changing this se
 
 If this setting is enabled, Restricted Mode on YouTube is always enforced to be at least Moderate.
 
-If this setting is disabled or no value is set, Restricted Mode on YouTube is not enforced by Google Chrome. External policies such as YouTube policies might still enforce Restricted Mode, though.</string>
+If this setting is disabled or no value is set, Restricted Mode on YouTube is not enforced by Brave Browser. External policies such as YouTube policies might still enforce Restricted Mode, though.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ForceYouTubeSafetyMode</string>
 			<key>pfm_name</key>
@@ -5085,7 +5085,7 @@ If this policy is set to false, hardware acceleration will be disabled.</string>
 			<key>pfm_description</key>
 			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Brave Browser OS app launcher.</string>
 			<key>pfm_description_reference</key>
-			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Google Chrome OS app launcher.
+			<string>Hide the Chrome Web Store app and footer link from the New Tab Page and Brave Browser OS app launcher.
 
 When this policy is set to true, the icons are hidden.
 
@@ -5259,7 +5259,7 @@ If it is not set, the user may be asked whether to import, or importing may happ
 
 If this setting is enabled or not configured, users can open web pages in incognito mode.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy is deprecated. Please, use IncognitoModeAvailability instead. Enables Incognito mode in Google Chrome.
+			<string>This policy is deprecated. Please, use IncognitoModeAvailability instead. Enables Incognito mode in Brave Browser.
 
 If this setting is enabled or not configured, users can open web pages in incognito mode.
 
@@ -5284,7 +5284,7 @@ If this policy is left not set, this will be enabled and the user will be able t
 			<string>0 - Incognito mode available
 1 - Incognito mode disabled
 2 - Incognito mode forced
-Specifies whether the user may open pages in Incognito mode in Google Chrome.
+Specifies whether the user may open pages in Incognito mode in Brave Browser.
 
 If 'Enabled' is selected or the policy is left unset, pages may be opened in Incognito mode.
 
@@ -5346,7 +5346,7 @@ Note that the policy is applied per renderer process, with the most recent value
 			<key>pfm_description</key>
 			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
 			<key>pfm_description_reference</key>
-			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
+			<string>If the policy is enabled, each of the named origins in a comma-separated list will run in its own process. This will also isolate origins named by subdomains; e.g. specifying https://example.com/ will also cause https://foo.example.com/ to be isolated as part of the https://example.com/ site. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable IsolateOrigins manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenIsolateOrigins device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
 
 NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android, use the IsolateOriginsAndroid policy setting.</string>
 			<key>pfm_documentation_url</key>
@@ -5372,7 +5372,7 @@ Can be used to disabled JavaScript in Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, please use DefaultJavaScriptSetting instead.
 
-Can be used to disabled JavaScript in Google Chrome.
+Can be used to disabled JavaScript in Brave Browser.
 
 If this setting is disabled, web pages cannot use JavaScript and the user cannot change that setting.
 
@@ -5392,7 +5392,7 @@ If this setting is enabled or not set, web pages can use JavaScript but the user
 			<key>pfm_description</key>
 			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Brave Browser OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Google Chrome OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
+			<string>This policy controls access to controllable features in the local discovery UI (chrome://devices) which shows discoverable devices near the user as well as cloud devices registered to them. On all operating systems except for Brave Browser OS, the local discovery UI also allows users to add classic printers connected to their computers to Google Cloud Print.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LocalDiscoveryEnabled</string>
 			<key>pfm_name</key>
@@ -5430,7 +5430,7 @@ If this setting is enabled or not set, web pages can use JavaScript but the user
 			<key>pfm_description_reference</key>
 			<string>Configures a list of managed bookmarks.
 
-The policy consists of a list of bookmarks whereas each bookmark is a dictionary containing the keys "name" and "url" which hold the bookmark's name and its target. A subfolder may be configured by defining a bookmark without an "url" key but with an additional "children" key which itself contains a list of bookmarks as defined above (some of which may be folders again). Google Chrome amends incomplete URLs as if they were submitted via the Omnibox, for example "google.com" becomes "https://google.com/".
+The policy consists of a list of bookmarks whereas each bookmark is a dictionary containing the keys "name" and "url" which hold the bookmark's name and its target. A subfolder may be configured by defining a bookmark without an "url" key but with an additional "children" key which itself contains a list of bookmarks as defined above (some of which may be folders again). Brave Browser amends incomplete URLs as if they were submitted via the Omnibox, for example "google.com" becomes "https://google.com/".
 
 These bookmarks are placed in a folder that can't be modified by the user (but the user can choose to hide it from the bookmark bar). By default the folder name is "Managed bookmarks" but it can be customized by adding to the list of bookmarks a dictionary containing the key "toplevel_name" with the desired folder name as the value.
 
@@ -5518,7 +5518,7 @@ If this policy is left not set the default value will be used which is 32.</stri
 
 Setting this policy overrides the default value of 5000 milliseconds. Valid values for this policy are in the range from 1000 (1 second) to 300000 (5 minutes). Any values not in this range will be clamped to the respective boundary.
 
-Leaving this policy not set will make Google Chrome use the default value of 5000 milliseconds.</string>
+Leaving this policy not set will make Brave Browser use the default value of 5000 milliseconds.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=MaxInvalidationFetchDelay</string>
 			<key>pfm_name</key>
@@ -5562,11 +5562,11 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_description</key>
 			<string>Enables anonymous reporting of usage and crash-related data about Brave Browser to Google and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables anonymous reporting of usage and crash-related data about Google Chrome to Google and prevents users from changing this setting.
+			<string>Enables anonymous reporting of usage and crash-related data about Brave Browser to Google and prevents users from changing this setting.
 
 If this setting is enabled, anonymous reporting of usage and crash-related data is sent to Google.  If it is disabled, this information is not sent to Google.  In both cases, users cannot change or override the setting. If this policy is left not set, the setting will be what the user chose upon installation / first run.
 
-This policy is not available on Windows instances that are not joined to a Microsoft® Active Directory® domain.  (For Chrome OS, see DeviceMetricsReportingEnabled.)</string>
+This policy is not available on Windows instances that are not joined to a Microsoft® Active Directory® domain.  (For Brave Browser OS, see DeviceMetricsReportingEnabled.)</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=MetricsReportingEnabled</string>
 			<key>pfm_name</key>
@@ -5607,11 +5607,11 @@ Enables network prediction in Brave Browser and prevents users from changing thi
 1 - Predict network actions on any network that is not cellular.
 (Deprecated in 50, removed in 52. After 52, if value 1 is set, it will be treated as 0 - predict network actions on any network connection.)
 2 - Do not predict network actions on any network connection
-Enables network prediction in Google Chrome and prevents users from changing this setting.
+Enables network prediction in Brave Browser and prevents users from changing this setting.
 
 This controls DNS prefetching, TCP and SSL preconnection and prerendering of web pages.
 
-If you set this policy, users cannot change or override this setting in Google Chrome.
+If you set this policy, users cannot change or override this setting in Brave Browser.
 
 If this policy is left not set, network prediction will be enabled but the user will be able to change it.</string>
 			<key>pfm_documentation_url</key>
@@ -5808,7 +5808,7 @@ If a policy is not in the list, in case there is any conflict between sources, s
 
 Setting this policy overrides the default value of 3 hours. Valid values for this policy are in the range from 1800000 (30 minutes) to 86400000 (1 day). Any values not in this range will be clamped to the respective boundary. If the platform supports policy notifications, the refresh delay will be set to 24 hours because it is expected that policy notifications will force a refresh automatically whenever policy changes.
 
-Leaving this policy not set will make Google Chrome use the default value of 3 hours.
+Leaving this policy not set will make Brave Browser use the default value of 3 hours.
 
 Note that if the platform supports policy notifications, the refresh delay will be set to 24 hours (ignoring all defaults and the value of this policy) because it is expected that policy notifications will force a refresh automatically whenever policy changes, making more frequent refreshes unnecessary.</string>
 			<key>pfm_documentation_url</key>
@@ -5836,13 +5836,13 @@ Note that if the platform supports policy notifications, the refresh delay will 
 			<key>pfm_description</key>
 			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Google Chrome.
+			<string>Allows you to control the presentation of full-tab promotional and/or educational content in Brave Browser.
 
-If not configured or enabled (set to true), Google Chrome may show full-tab content to users to provide product information.
+If not configured or enabled (set to true), Brave Browser may show full-tab content to users to provide product information.
 
-If disabled (set to false), Google Chrome will not show full-tab content to users to provide product information.
+If disabled (set to false), Brave Browser will not show full-tab content to users to provide product information.
 
-This setting controls the presentation of the welcome pages that help users sign into Google Chrome, choose it as their default browser, or otherwise inform them of product features.</string>
+This setting controls the presentation of the welcome pages that help users sign into Brave Browser, choose it as their default browser, or otherwise inform them of product features.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PromotionalTabsEnabled</string>
 			<key>pfm_name</key>
@@ -5880,23 +5880,23 @@ If the policy is not configured, the user will be able to change this setting.</
 
 If you enable this setting, Brave Browser and ARC-apps ignore all proxy-related options specified from the command line.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the proxy settings for Google Chrome. These proxy settings will be available for ARC-apps too.
+			<string>Configures the proxy settings for Brave Browser. These proxy settings will be available for ARC-apps too.
 
-If you enable this setting, Google Chrome and ARC-apps ignore all proxy-related options specified from the command line.
+If you enable this setting, Brave Browser and ARC-apps ignore all proxy-related options specified from the command line.
 
 Leaving this policy not set will allow the users to choose the proxy settings on their own.
 
 If the ProxySettings policy is set, it will override any of the individual policies ProxyMode, ProxyPacUrl, ProxyServer, ProxyBypassList and ProxyServerMode.
 
-The ProxyMode field allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.
+The ProxyMode field allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.
 
 The ProxyPacUrl field is a URL to a proxy .pac file.
 
 The ProxyServer field is a URL of the proxy server.
 
-The ProxyBypassList field is a list of proxy hosts that Google Chrome will bypass.
+The ProxyBypassList field is a list of proxy hosts that Brave Browser will bypass.
 
-The ProxyServerMode field is deprecated in favor of the field 'ProxyMode'. It allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.
+The ProxyServerMode field is deprecated in favor of the field 'ProxyMode'. It allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.
 
 If you choose the value 'direct' as 'ProxyMode', a proxy will never be used and all other fields will be ignored.
 
@@ -5994,7 +5994,7 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 			<string>If this policy is set to true or not set usage of QUIC protocol in Brave Browser is allowed.
 If this policy is set to false usage of QUIC protocol is disallowed.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set to true or not set usage of QUIC protocol in Google Chrome is allowed.
+			<string>If this policy is set to true or not set usage of QUIC protocol in Brave Browser is allowed.
 If this policy is set to false usage of QUIC protocol is disallowed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=QuicAllowed</string>
@@ -6013,9 +6013,9 @@ If this policy is set to false usage of QUIC protocol is disallowed.</string>
 			<key>pfm_description_reference</key>
 			<string>1 - Show a recurring prompt to the user indicating that a relaunch is recommended
 2 - Show a recurring prompt to the user indicating that a relaunch is required
-Notify users that Google Chrome must be relaunched to apply a pending update.
+Notify users that Brave Browser must be relaunched to apply a pending update.
 
-This policy setting enables notifications to inform the user that a browser relaunch is recommended or required. If not set, Google Chrome indicates to the user that a relaunch is needed via subtle changes to its menu. If set to 'Recommended', a recurring warning will be shown to the user that a relaunch is recommended. The user can dismiss this warning to defer the relaunch. If set to 'Required', a recurring warning will be shown to the user indicating that a browser relaunch will be forced once the notification period passes. This period is seven days by default, and may be configured via the RelaunchNotificationPeriod policy setting.
+This policy setting enables notifications to inform the user that a browser relaunch is recommended or required. If not set, Brave Browser indicates to the user that a relaunch is needed via subtle changes to its menu. If set to 'Recommended', a recurring warning will be shown to the user that a relaunch is recommended. The user can dismiss this warning to defer the relaunch. If set to 'Required', a recurring warning will be shown to the user indicating that a browser relaunch will be forced once the notification period passes. This period is seven days by default, and may be configured via the RelaunchNotificationPeriod policy setting.
 
 The user's session is restored following the relaunch.</string>
 			<key>pfm_documentation_url</key>
@@ -6043,11 +6043,11 @@ The user's session is restored following the relaunch.</string>
 			<key>pfm_description</key>
 			<string>Allows you to set the time period, in milliseconds, over which users are notified that Brave Browser must be relaunched or that a Brave Browser OS device must be restarted to apply a pending update.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to set the time period, in milliseconds, over which users are notified that Google Chrome must be relaunched or that a Google Chrome OS device must be restarted to apply a pending update.
+			<string>Allows you to set the time period, in milliseconds, over which users are notified that Brave Browser must be relaunched or that a Brave Browser OS device must be restarted to apply a pending update.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Google Chrome OS devices, a restart notification appears in the system tray when an upgrade is detected. This notification changes color once half of the notification period passes, and again once the full notification period has passed. For Google Chrome browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy for browsers follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Brave Browser OS devices, a restart notification appears in the system tray when an upgrade is detected. This notification changes color once half of the notification period passes, and again once the full notification period has passed. For Brave Browser browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy for browsers follow this same schedule.
 
-If not set, the default period of 345600000 milliseconds (four days) is used for Google Chrome OS devices and 604800000 milliseconds (one week) for browsers.</string>
+If not set, the default period of 345600000 milliseconds (four days) is used for Brave Browser OS devices and 604800000 milliseconds (one week) for browsers.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RelaunchNotificationPeriod</string>
 			<key>pfm_name</key>
@@ -6065,11 +6065,11 @@ If not set, the default period of 345600000 milliseconds (four days) is used for
 			<key>pfm_description</key>
 			<string>Contains a regular expression which is used to determine which users can sign in to Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Contains a regular expression which is used to determine which users can sign in to Google Chrome.
+			<string>Contains a regular expression which is used to determine which users can sign in to Brave Browser.
 
 An appropriate error is displayed if a user tries to log in with a username that does not match this pattern.
 
-If this policy is left not set or blank, then any user can sign in to Google Chrome.</string>
+If this policy is left not set or blank, then any user can sign in to Brave Browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RestrictSigninToPattern</string>
 			<key>pfm_name</key>
@@ -6112,7 +6112,7 @@ If this setting is disabled or not set, Flash content from other origins or smal
 			<string>Brave Browser shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
 Setting this policy to false disallows users to click through any warning page.</string>
 			<key>pfm_description_reference</key>
-			<string>Chrome shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
+			<string>Brave Browser shows a warning page when users navigate to sites that have SSL errors. By default or when this policy is set to true, users are allowed to click through these warning pages.
 Setting this policy to false disallows users to click through any warning page.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SSLErrorOverrideAllowed</string>
@@ -6132,9 +6132,9 @@ Setting this policy to false disallows users to click through any warning page.<
 			<string>tls1 - TLS 1.0
 tls1.1 - TLS 1.1
 tls1.2 - TLS 1.2
-If this policy is not configured then Google Chrome uses a default minimum version which is TLS 1.0.
+If this policy is not configured then Brave Browser uses a default minimum version which is TLS 1.0.
 
-Otherwise it may be set to one of the following values: "tls1", "tls1.1" or "tls1.2". When set, Google Chrome will not use SSL/TLS versions less than the specified version. An unrecognized value will be ignored.</string>
+Otherwise it may be set to one of the following values: "tls1", "tls1.1" or "tls1.2". When set, Brave Browser will not use SSL/TLS versions less than the specified version. An unrecognized value will be ignored.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SSLVersionMin</string>
 			<key>pfm_name</key>
@@ -6198,7 +6198,7 @@ When this policy is set to "Filter top level sites for adult content", sites cla
 			<key>pfm_description</key>
 			<string>Disables saving browser history in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Disables saving browser history in Google Chrome and prevents users from changing this setting.
+			<string>Disables saving browser history in Brave Browser and prevents users from changing this setting.
 
 If this setting is enabled, browsing history is not saved. This setting also disables tab syncing.
 
@@ -6260,13 +6260,13 @@ If you disable this policy, web page scrolling to specific text fragments via UR
 			<key>pfm_description</key>
 			<string>Enables search suggestions in Brave Browser's omnibox and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables search suggestions in Google Chrome's omnibox and prevents users from changing this setting.
+			<string>Enables search suggestions in Brave Browser's omnibox and prevents users from changing this setting.
 
 If you enable this setting, search suggestions are used.
 
 If you disable this setting, search suggestions are never used.
 
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override this setting in Brave Browser.
 
 If this policy is left not set, this will be enabled but the user will be able to change it.</string>
 			<key>pfm_documentation_url</key>
@@ -6284,7 +6284,7 @@ If this policy is left not set, this will be enabled but the user will be able t
 			<key>pfm_description</key>
 			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chromium 65+ when sites request attestation of Security Keys.</string>
 			<key>pfm_description_reference</key>
-			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chrome 65+ when sites request attestation of Security Keys.
+			<string>Specifies URLs and domains for which no prompt will be shown when attestation certificates from Security Keys are requested. Additionally, a signal will be sent to the Security Key indicating that individual attestation may be used. Without this, users will be prompted in Chromium 65+ when sites request attestation of Security Keys.
 
 URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains (like example.com) only match as webauthn RP IDs. Thus, to cover both U2F and webauthn APIs for a given site, both the appID URL and domain would need to be listed.</string>
 			<key>pfm_documentation_url</key>
@@ -6311,7 +6311,7 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 			<key>pfm_description</key>
 			<string>Enables the Shared Clipboard feature which allows users to send text between Brave Browser Desktops and an Android device when Sync is enabled and the user is Signed-in.</string>
 			<key>pfm_description_reference</key>
-			<string>Enable the Shared Clipboard feature which allows users to send text between Chrome Desktops and an Android device when Sync is enabled and the user is Signed-in.
+			<string>Enable the Shared Clipboard feature which allows users to send text between Brave Browser Desktops and an Android device when Sync is enabled and the user is Signed-in.
 
 If this policy is set to true, the capability of sending text, cross device, for chrome user is enabled.
 
@@ -6363,7 +6363,7 @@ If this policy is configured then the user can't change it, and the apps shortcu
 			<key>pfm_description_reference</key>
 			<string>Enable support for Signed HTTP Exchange (SXG).
 
-If this policy is unset or set to Enabled, Google Chrome will accept web contents served as Signed HTTP Exchanges.
+If this policy is unset or set to Enabled, Brave Browser will accept web contents served as Signed HTTP Exchanges.
 
 If this policy is set to Disabled, Signed HTTP Exchanges cannot be loaded.</string>
 			<key>pfm_documentation_url</key>
@@ -6387,9 +6387,9 @@ Allows the user to sign in to Brave Browser.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, consider using BrowserSignin instead.
 
-Allows the user to sign in to Google Chrome.
+Allows the user to sign in to Brave Browser.
 
-If you set this policy, you can configure whether a user is allowed to sign in to Google Chrome. Setting this policy to 'False' will prevent apps and extensions that use the chrome.identity API from functioning, so you may want to use SyncDisabled instead.</string>
+If you set this policy, you can configure whether a user is allowed to sign in to Brave Browser. Setting this policy to 'False' will prevent apps and extensions that use the chrome.identity API from functioning, so you may want to use SyncDisabled instead.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SigninAllowed</string>
 			<key>pfm_name</key>
@@ -6405,7 +6405,7 @@ If you set this policy, you can configure whether a user is allowed to sign in t
 			<key>pfm_description</key>
 			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.</string>
 			<key>pfm_description_reference</key>
-			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Google Chrome OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
+			<string>You might want to look at the IsolateOrigins policy setting to get the best of both worlds, isolation and limited impact for users, by using IsolateOrigins with a list of the sites you want to isolate. This setting, SitePerProcess, isolates all sites. If the policy is enabled, each site will run in its own process. If the policy is disabled, no explicit Site Isolation will happen and field trials of IsolateOrigins and SitePerProcess will be disabled. Users will still be able to enable SitePerProcess manually. If the policy is not configured, the user will be able to change this setting. On Brave Browser OS, it is recommended to also set the DeviceLoginScreenSitePerProcess device policy to the same value. If the values specified by the two policies don't match, a delay may be incurred when entering a user session while the value specified by user policy is being applied.
 
 NOTE: This policy does not apply on Android. To enable SitePerProcess on Android, use the SitePerProcessAndroid policy setting.</string>
 			<key>pfm_documentation_url</key>
@@ -6423,7 +6423,7 @@ NOTE: This policy does not apply on Android. To enable SitePerProcess on Android
 			<key>pfm_description</key>
 			<string>Brave Browser can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.</string>
 			<key>pfm_description_reference</key>
-			<string>Google Chrome can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.
+			<string>Brave Browser can use a Google web service to help resolve spelling errors. If this setting is enabled, then this service is always used. If this setting is disabled, then this service is never used.
 
 Spell checking can still be performed using a downloaded dictionary; this policy only controls the usage of the online service.
 
@@ -6465,7 +6465,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_description</key>
 			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Chromium 84.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Google Chrome 84.</string>
+			<string>This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser. If the policy is set to true or unset, audio and video mixed content will be autoupgraded to HTTPS (i.e. the URL will be rewritten as HTTPS, without a fallback if the resource is not available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content. If the policy is set to false, autoupgrades will be disabled for audio and video, and no warning will be shown for images. This policy does not affect other types of mixed content other than audio, video, and images. This policy will no longer take effect starting in Chromium 84.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=StricterMixedContentTreatmentEnabled</string>
 			<key>pfm_name</key>
@@ -6481,7 +6481,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_description</key>
 			<string>Suppresses the warning that appears when Brave Browser is running on a computer or operating system that is no longer supported.</string>
 			<key>pfm_description_reference</key>
-			<string>Suppresses the warning that appears when Google Chrome is running on a computer or operating system that is no longer supported.</string>
+			<string>Suppresses the warning that appears when Brave Browser is running on a computer or operating system that is no longer supported.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SuppressUnsupportedOSWarning</string>
 			<key>pfm_name</key>
@@ -6497,9 +6497,9 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 			<key>pfm_description</key>
 			<string>Disables data synchronization in Brave Browser using Google-hosted synchronization services and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Disables data synchronization in Google Chrome using Google-hosted synchronization services and prevents users from changing this setting.
+			<string>Disables data synchronization in Brave Browser using Google-hosted synchronization services and prevents users from changing this setting.
 
-If you enable this setting, users cannot change or override this setting in Google Chrome.
+If you enable this setting, users cannot change or override this setting in Brave Browser.
 
 If this policy is left not set Google Sync will be available for the user to choose whether to use it or not.
 
@@ -6582,11 +6582,11 @@ The current data types for this policy are: "bookmarks", "preferences", "passwor
 			<key>pfm_description_reference</key>
 			<string>This policy controls a security feature in TLS 1.3 which protects connections against downgrade attacks. It is backwards-compatible and will not affect connections to compliant TLS 1.2 servers or proxies. However, older versions of some TLS-intercepting proxies have an implementation flaw which causes them to be incompatible.
 
-If this policy is set to True or not set, Google Chrome will enable these security protections for all connections.
+If this policy is set to True or not set, Brave Browser will enable these security protections for all connections.
 
-If this policy is set to False, Google Chrome will disable these security protections for connections authenticated with locally-installed CA certificates. These protections are always enabled for connections authenticated with publicly-trusted CA certificates.
+If this policy is set to False, Brave Browser will disable these security protections for connections authenticated with locally-installed CA certificates. These protections are always enabled for connections authenticated with publicly-trusted CA certificates.
 
-The default value for this policy was changed in Google Chrome 81 from false to true. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED. Administrators who need more time to upgrade affected proxies may use this policy to temporarily disable this security feature. This policy will be removed after version 85.</string>
+The default value for this policy was changed in Chromium 81 from false to true. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED. Administrators who need more time to upgrade affected proxies may use this policy to temporarily disable this security feature. This policy will be removed after version 85.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=TLS13HardeningForLocalAnchorsEnabled</string>
 			<key>pfm_name</key>
@@ -6624,7 +6624,7 @@ If set to true or not configured, the user can end processes in the Task Manager
 			<key>pfm_description</key>
 			<string>Configures the amount of memory that a single Brave Browser instance can use before tabs start being discarded (I.E. the memory used by the tab will be freed and the tab will have to be reloaded when switched to) to save memory. The minimum allowed value is 1024.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the amount of memory that a single Google Chrome instance can use before tabs start being discarded (I.E. the memory used by the tab will be freed and the tab will have to be reloaded when switched to) to save memory.
+			<string>Configures the amount of memory that a single Brave Browser instance can use before tabs start being discarded (I.E. the memory used by the tab will be freed and the tab will have to be reloaded when switched to) to save memory.
 
 If the policy is set, browser will begin to discard tabs to save memory once the limitation is exceeded. However, there is no guarantee that the browser is always running under the limit. Any value under 1024 will be rounded up to 1024.
 
@@ -6648,13 +6648,13 @@ If this policy is not set, the browser will only begin attempts to save memory o
 			<key>pfm_description</key>
 			<string>Enables the integrated Google Translate service on Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables the integrated Google Translate service on Google Chrome.
+			<string>Enables the integrated Google Translate service on Brave Browser.
 
-If you enable this setting, Google Chrome will offer translation functionality to the user by showing an integrated translate toolbar (when appropriate) and a translate option on the right-click context menu.
+If you enable this setting, Brave Browser will offer translation functionality to the user by showing an integrated translate toolbar (when appropriate) and a translate option on the right-click context menu.
 
 If you disable this setting, all built-in translate features will be disabled.
 
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override this setting in Brave Browser.
 
 If this setting is left not set the user can decide to use this function or not.</string>
 			<key>pfm_documentation_url</key>
@@ -6779,7 +6779,7 @@ For more information on secure contexts, see https://www.w3.org/TR/secure-contex
 			<key>pfm_description</key>
 			<string>Enable URL-keyed anonymized data collection in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enable URL-keyed anonymized data collection in Google Chrome and prevents users from changing this setting.
+			<string>Enable URL-keyed anonymized data collection in Brave Browser and prevents users from changing this setting.
 
 URL-keyed anonymized data collection sends URLs of pages the user visits to Google to make searches and browsing better.
 
@@ -6845,9 +6845,9 @@ If the policy is unset or set to true, users can send feedback to Google via Men
 			<key>pfm_description</key>
 			<string>Configures the directory that Brave Browser will use for storing user data. See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the directory that Google Chrome will use for storing user data.
+			<string>Configures the directory that Brave Browser will use for storing user data.
 
-If you set this policy, Google Chrome will use the provided directory regardless whether the user has specified the '--user-data-dir' flag or not. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Google Chrome manages its contents.
+If you set this policy, Brave Browser will use the provided directory regardless whether the user has specified the '--user-data-dir' flag or not. To avoid data loss or other unexpected errors this policy should not be set to a volume's root directory or to a directory used for other purposes, because Brave Browser manages its contents.
 
 See https://www.chromium.org/administrators/policy-list-3/user-data-directory-variables for a list of variables that can be used.
 
@@ -6871,7 +6871,7 @@ If this policy is left not set the default profile path will be used and the use
 			<key>pfm_description</key>
 			<string>Limits the number of user data snapshots retained for use in case of emergency rollback. If this policy is not set, the default value of 3 is used. If the policy is set to 0, no snapshots will be taken.</string>
 			<key>pfm_description_reference</key>
-			<string>Following each major version update, Chrome will create a snapshot of certain portions of the user's browsing data for use in case of a later emergency version rollback. If an emergency rollback is performed to a version for which a user has a corresponding snapshot, the data in the snapshot is restored. This allows users to retain such settings as bookmarks and autofill data.
+			<string>Following each major version update, Brave Browser will create a snapshot of certain portions of the user's browsing data for use in case of a later emergency version rollback. If an emergency rollback is performed to a version for which a user has a corresponding snapshot, the data in the snapshot is restored. This allows users to retain such settings as bookmarks and autofill data.
 
 If this policy is not set, the default value of 3 is used
 
@@ -6953,9 +6953,9 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<key>pfm_description</key>
 			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Google Chrome.
+			<string>Allows to turn off WPAD (Web Proxy Auto-Discovery) optimization in Brave Browser.
 
-If this policy is set to false, WPAD optimization is disabled causing Google Chrome to wait longer for DNS-based WPAD servers.  If the policy is not set or is enabled, WPAD optimization is enabled.
+If this policy is set to false, WPAD optimization is disabled causing Brave Browser to wait longer for DNS-based WPAD servers.  If the policy is not set or is enabled, WPAD optimization is enabled.
 
 Independent of whether or how this policy is set, the WPAD optimization setting cannot be changed by users.</string>
 			<key>pfm_documentation_url</key>
@@ -6975,7 +6975,7 @@ Independent of whether or how this policy is set, the WPAD optimization setting 
 			<key>pfm_description_reference</key>
 			<string>Specifies a list of websites that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user.
 
-Each list item of the policy is an object with a mandatory member: "url" and two optional members: "default_launch_container" and "create_desktop_shortcut". "url" should be the URL of the web app to install, "launch_container" should be either "window" or "tab" to indicate how the Web App will be opened once installed, and "create_desktop_shortcut" should be true if a desktop shortcut should be created on Linux and Windows. If "default_launch_container" is omitted, the app will open in a tab by default. Regardless of the value of "default_launch_container", users are able to change which container the app will open in. If "create_desktop_shortcuts" is omitted, no desktop shortcuts will be created. See PinnedLauncherApps policy for pinning apps to the ChromeOS shelf.</string>
+Each list item of the policy is an object with a mandatory member: "url" and two optional members: "default_launch_container" and "create_desktop_shortcut". "url" should be the URL of the web app to install, "launch_container" should be either "window" or "tab" to indicate how the Web App will be opened once installed, and "create_desktop_shortcut" should be true if a desktop shortcut should be created on Linux and Windows. If "default_launch_container" is omitted, the app will open in a tab by default. Regardless of the value of "default_launch_container", users are able to change which container the app will open in. If "create_desktop_shortcuts" is omitted, no desktop shortcuts will be created. See PinnedLauncherApps policy for pinning apps to the Brave BrowserOS shelf.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebAppInstallForceList</string>
 			<key>pfm_name</key>
@@ -7045,7 +7045,7 @@ If this policy is set to True, the Web Components v0 features will be enabled fo
 
 If this policy is set to False or not set, the Web Components v0 features will be disabled by default, starting in M80.
 
-This policy will be removed after Chrome 84.</string>
+This policy will be removed after Chromium 84.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebComponentsV0Enabled</string>
 			<key>pfm_name</key>
@@ -7089,17 +7089,17 @@ If the policy is enabled, WebDriver will be able to override incomaptible polici
 			<key>pfm_description</key>
 			<string>If the policy is set to true, Brave Browser is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.</string>
 			<key>pfm_description_reference</key>
-			<string>If the policy is set to true, Google Chrome is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.
+			<string>If the policy is set to true, Brave Browser is allowed to collect WebRTC event logs from Google services (e.g. Google Meet), and upload those logs to Google.
 
-If the policy is set to false, Google Chrome may not collect nor upload such logs.
+If the policy is set to false, Brave Browser may not collect nor upload such logs.
 
-If the policy is unset, up to and including M76, Google Chrome may not collect nor upload such logs.
+If the policy is unset, up to and including M76, Brave Browser may not collect nor upload such logs.
 
-If the policy is unset, since M77, Google Chrome may collect or upload such logs by default if the browser profile is considered managed, i.e. if the profile receives cloud or machine level policies, and is not a child, ephemeral, login, or incognito profile.
+If the policy is unset, since M77, Brave Browser may collect or upload such logs by default if the browser profile is considered managed, i.e. if the profile receives cloud or machine level policies, and is not a child, ephemeral, login, or incognito profile.
 
-These logs contain diagnostic information helpful when debugging issues with audio or video calls in Chrome, such as the time and size of sent and received RTP packets, feedback about congestion on the network, and metadata about time and quality of audio and video frames. These logs do not contain audio or video contents from the call.
+These logs contain diagnostic information helpful when debugging issues with audio or video calls in Brave Browser, such as the time and size of sent and received RTP packets, feedback about congestion on the network, and metadata about time and quality of audio and video frames. These logs do not contain audio or video contents from the call.
 
-This data collection by Chrome can only be triggered by Google's web services, such as Google Hangouts or Google Meet.
+This data collection by Brave Browser can only be triggered by Google's web services, such as Google Hangouts or Google Meet.
 
 Google may associate these logs, by means of a session ID, with other logs collected by the Google service itself; this is intended to make debugging easier.</string>
 			<key>pfm_documentation_url</key>
@@ -7170,7 +7170,7 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 
 A blacklist value of '*' means all native messaging hosts are blacklisted unless they are explicitly listed in the whitelist.
 
-If this policy is left not set Google Chrome will load all installed native messaging hosts.</string>
+If this policy is left not set Brave Browser will load all installed native messaging hosts.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingBlacklist</string>
 			<key>pfm_name</key>
@@ -7197,11 +7197,11 @@ If this policy is left not set Google Chrome will load all installed native mess
 			<key>pfm_description_reference</key>
 			<string>Enables user-level installation of Native Messaging hosts.
 
-If this setting is enabled then Google Chrome allows usage of Native Messaging hosts installed on user level.
+If this setting is enabled then Brave Browser allows usage of Native Messaging hosts installed on user level.
 
-If this setting is disabled then Google Chrome will only use Native Messaging hosts installed on system level.
+If this setting is disabled then Brave Browser will only use Native Messaging hosts installed on system level.
 
-If this setting is left not set Google Chrome will allow usage of user-level Native Messaging hosts.</string>
+If this setting is left not set Brave Browser will allow usage of user-level Native Messaging hosts.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingUserLevelHosts</string>
 			<key>pfm_name</key>
@@ -7246,11 +7246,11 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 			<key>pfm_description</key>
 			<string>This policy can be used to force enable or force disable credential leak checking in Brave Browser.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy can be used to force enable or force disable credential leak checking in Google Chrome.
+			<string>This policy can be used to force enable or force disable credential leak checking in Brave Browser.
 
 Note that even if this policy is set to True, the behavior will not trigger if Safe Browsing is disabled (either by policy or by the user). In order to force Safe Browsing on, use the SafeBrowsingEnabled policy.
 
-If this policy is enabled or disabled, users cannot change or override it in Google Chrome. If this policy is unset, credential leak checking is allowed (but can be turned off by the user).</string>
+If this policy is enabled or disabled, users cannot change or override it in Brave Browser. If this policy is unset, credential leak checking is allowed (but can be turned off by the user).</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PasswordLeakDetectionEnabled</string>
 			<key>pfm_name</key>
@@ -7268,12 +7268,12 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<key>pfm_description</key>
 			<string>If this setting is enabled, users can have Brave Browser memorize passwords and provide them automatically the next time they log in to a site.</string>
 			<key>pfm_description_reference</key>
-			<string>If this setting is enabled, users can have Google Chrome memorize passwords and provide them automatically the next time they log in to a site.
+			<string>If this setting is enabled, users can have Brave Browser memorize passwords and provide them automatically the next time they log in to a site.
 
 If this settings is disabled, users cannot save new passwords but they
 may still use passwords that have been saved previously.
 
-If this policy is enabled or disabled, users cannot change or override it in Google Chrome. If this policy is unset, password saving is allowed (but can be turned off by the user).</string>
+If this policy is enabled or disabled, users cannot change or override it in Brave Browser. If this policy is unset, password saving is allowed (but can be turned off by the user).</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PasswordManagerEnabled</string>
 			<key>pfm_name</key>
@@ -7291,7 +7291,7 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<key>pfm_description</key>
 			<string>Enables Brave Browser to act as a proxy between Google Cloud Print and legacy printers connected to the machine.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome to act as a proxy between Google Cloud Print and legacy printers connected to the machine.
+			<string>Enables Brave Browser to act as a proxy between Google Cloud Print and legacy printers connected to the machine.
 
 If this setting is enabled or not configured, users can enable the cloud print proxy by authentication with their Google account.
 
@@ -7313,11 +7313,11 @@ If this setting is disabled, users cannot enable the proxy, and the machine will
 			<key>pfm_description</key>
 			<string>Enables Brave Browser to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Brave Browser.  It does not prevent users from submitting print jobs on web sites.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Google Chrome.  It does not prevent users from submitting print jobs on web sites.
+			<string>Enables Brave Browser to submit documents to Google Cloud Print for printing.  NOTE: This only affects Google Cloud Print support in Brave Browser.  It does not prevent users from submitting print jobs on web sites.
 
-If this setting is enabled or not configured, users can print to Google Cloud Print from the Google Chrome print dialog.
+If this setting is enabled or not configured, users can print to Google Cloud Print from the Brave Browser print dialog.
 
-If this setting is disabled, users cannot print to Google Cloud Print from the Google Chrome print dialog</string>
+If this setting is disabled, users cannot print to Google Cloud Print from the Brave Browser print dialog</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CloudPrintSubmitEnabled</string>
 			<key>pfm_name</key>
@@ -7333,11 +7333,11 @@ If this setting is disabled, users cannot print to Google Cloud Print from the G
 			<key>pfm_description</key>
 			<string>Overrides Brave Browser default printer selection rules.</string>
 			<key>pfm_description_reference</key>
-			<string>Overrides Google Chrome default printer selection rules.
+			<string>Overrides Brave Browser default printer selection rules.
 
-This policy determines the rules for selecting the default printer in Google Chrome which happens the first time the print function is used with a profile.
+This policy determines the rules for selecting the default printer in Brave Browser which happens the first time the print function is used with a profile.
 
-When this policy is set, Google Chrome will attempt to find a printer matching all of the specified attributes, and select it as default printer. The first printer found matching the policy is selected, in case of non-unique match any matching printer can be selected, depending on the order printers are discovered.
+When this policy is set, Brave Browser will attempt to find a printer matching all of the specified attributes, and select it as default printer. The first printer found matching the policy is selected, in case of non-unique match any matching printer can be selected, depending on the order printers are discovered.
 
 If this policy is not set or matching printer is not found within the timeout, the printer defaults to built-in PDF printer or no printer selected, when PDF printer is not available.
 
@@ -7383,7 +7383,7 @@ Regular expression patterns must follow the JavaScript RegExp syntax and matches
 			<key>pfm_description_reference</key>
 			<string>Show the system print dialog instead of print preview.
 
-When this setting is enabled, Google Chrome will open the system print dialog instead of the built-in print preview when a user requests a page to be printed.
+When this setting is enabled, Brave Browser will open the system print dialog instead of the built-in print preview when a user requests a page to be printed.
 
 If this policy is not set or is set to false, print commands trigger the print preview screen.</string>
 			<key>pfm_documentation_url</key>
@@ -7431,7 +7431,7 @@ Including cloud on the deny list has the same effect as setting the CloudPrintSu
 
 If the policy is not set, or is set to an empty list, all printer types will be available for discovery.
 
-Extension printers are also known as print provider destinations, and include any destination that belongs to a Google Chrome extension.
+Extension printers are also known as print provider destinations, and include any destination that belongs to a Brave Browser extension.
 
 Local printers are also known as native printing destinations, and include destinations available to the local machine and shared network printers.
 
@@ -7545,11 +7545,11 @@ disabled = Disable background graphics printing mode by default</string>
 			<key>pfm_description</key>
 			<string>Enables printing in Brave Browser and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables printing in Google Chrome and prevents users from changing this setting.
+			<string>Enables printing in Brave Browser and prevents users from changing this setting.
 
 If this setting is enabled or not configured, users can print.
 
-If this setting is disabled, users cannot print from Google Chrome. Printing is disabled in the wrench menu, extensions, JavaScript applications, etc. It is still possible to print from plugins that bypass Google Chrome while printing. For example, certain Flash applications have the print option in their context menu, which is not covered by this policy.</string>
+If this setting is disabled, users cannot print from Brave Browser. Printing is disabled in the wrench menu, extensions, JavaScript applications, etc. It is still possible to print from plugins that bypass Brave Browser while printing. For example, certain Flash applications have the print option in their context menu, which is not covered by this policy.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PrintingEnabled</string>
 			<key>pfm_name</key>
@@ -7567,7 +7567,7 @@ If this setting is disabled, users cannot print from Google Chrome. Printing is 
 			<key>pfm_description</key>
 			<string>Causes Brave Browser to use the system default printer as the default choice in Print Preview instead of the most recently used printer.</string>
 			<key>pfm_description_reference</key>
-			<string>Causes Google Chrome to use the system default printer as the default choice in Print Preview instead of the most recently used printer.
+			<string>Causes Brave Browser to use the system default printer as the default choice in Print Preview instead of the most recently used printer.
 
 If you disable this setting or do not set a value, Print Preview will use the most recently used printer as the default destination choice.
 
@@ -7897,7 +7897,7 @@ If the page size is unavailable on the printer chosen by the user this policy is
 			<key>pfm_description</key>
 			<string>Brave Browser will bypass any proxy for the list of hosts given here.</string>
 			<key>pfm_description_reference</key>
-			<string>Google Chrome will bypass any proxy for the list of hosts given here.
+			<string>Brave Browser will bypass any proxy for the list of hosts given here.
 
 This policy only takes effect if you have selected manual proxy settings at 'Choose how to specify proxy server settings'.
 
@@ -7927,7 +7927,7 @@ auto_detect - Auto detect proxy settings
 pac_script - Use a .pac proxy script
 fixed_servers - Use fixed proxy servers
 system - Use system proxy settings
-Allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.
+Allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.
 
 If you choose to never use a proxy server and always connect directly, all other options are ignored.
 
@@ -7942,7 +7942,7 @@ If you choose to use a .pac proxy script, you must specify the URL to the script
 For detailed examples, visit:
 https://www.chromium.org/developers/design-documents/network-settings#TOC-Command-line-options-for-proxy-sett.
 
-If you enable this setting, Google Chrome and ARC-apps ignore all proxy-related options specified from the command line.
+If you enable this setting, Brave Browser and ARC-apps ignore all proxy-related options specified from the command line.
 
 Leaving this policy not set will allow the users to choose the proxy settings on their own.</string>
 			<key>pfm_documentation_url</key>
@@ -8026,7 +8026,7 @@ Allows you to specify the proxy server used by Brave Browser and prevents users 
 			<key>pfm_description_reference</key>
 			<string>This policy is deprecated, use ProxyMode instead.
 
-Allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.
+Allows you to specify the proxy server used by Brave Browser and prevents users from changing proxy settings.
 
 This policy only takes effect if the ProxySettings policy has not been specified.
 
@@ -8038,7 +8038,7 @@ If you choose manual proxy settings, you can specify further options in 'Address
 
 For detailed examples, visit: https://www.chromium.org/developers/design-documents/network-settings#TOC-Command-line-options-for-proxy-sett.
 
-If you enable this setting, Google Chrome ignores all proxy-related options specified from the command line.
+If you enable this setting, Brave Browser ignores all proxy-related options specified from the command line.
 
 Leaving this policy not set will allow the users to choose the proxy settings on their own.
 
@@ -8451,7 +8451,7 @@ If this policy is left not set, or if it is set to an empty string, the remote a
 In order for Brave Browser to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
 			<key>pfm_description_reference</key>
 			<string>Configure the change password URL (HTTP and HTTPS schemes only). Password protection service will send users to this URL to change their password after seeing a warning in the browser.
-In order for Google Chrome to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
+In order for Brave Browser to correctly capture the new password fingerprint on this change password page, please make sure your change password page follows the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
 
 If this setting is enabled, then password protection service will send users to this URL to change their password after seeing a warning in the browser.
 If this setting is disabled or not set, then password protection service will send users to https://myaccounts.google.com to change their password.
@@ -8475,7 +8475,7 @@ This policy is not available on Windows instances that are not joined to a Micro
 In order for Brave Browser to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.</string>
 			<key>pfm_description_reference</key>
 			<string>Configure the list of enterprise login URLs (HTTP and HTTPS schemes only). Fingerprint of password will be captured on these URLs and used for password reuse detection.
-In order for Google Chrome to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
+In order for Brave Browser to correctly capture password fingerprints, please make sure your login pages follow the guidelines on https://www.chromium.org/developers/design-documents/create-amazing-password-forms.
 
 If this setting is enabled, then password protection service will capture fingerprint of password on these URLs for password reuse detection purpose.
 If this setting is disabled or not set, then password protection service will only capture password fingerprint on https://accounts.google.com.
@@ -8544,13 +8544,13 @@ If this policy is left unset, password protection service will only protect Goog
 			<key>pfm_description</key>
 			<string>Enables Brave Browser's Safe Browsing feature and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome's Safe Browsing feature and prevents users from changing this setting.
+			<string>Enables Brave Browser's Safe Browsing feature and prevents users from changing this setting.
 
 If you enable this setting, Safe Browsing is always active.
 
 If you disable this setting, Safe Browsing is never active.
 
-If you enable or disable this setting, users cannot change or override the "Enable phishing and malware protection" setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override the "Enable phishing and malware protection" setting in Brave Browser.
 
 If this policy is left not set, this will be enabled but the user will be able to change it.
 
@@ -8572,7 +8572,7 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<key>pfm_description</key>
 			<string>Enables Brave Browser's Safe Browsing Extended Reporting and prevents users from changing this setting.</string>
 			<key>pfm_description_reference</key>
-			<string>Enables Google Chrome's Safe Browsing Extended Reporting and prevents users from changing this setting.
+			<string>Enables Brave Browser's Safe Browsing Extended Reporting and prevents users from changing this setting.
 
 Extended Reporting sends some system information and page content to Google servers to help detect dangerous apps and sites.
 
@@ -8602,7 +8602,7 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_description</key>
 			<string>Allows you to control whether Brave Browser's Safe Browsing feature is enabled and the mode it operates in. Safe Browsing 'enhanced' mode provides better security, but requires sharing more browsing information with Google.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to control whether Google Chrome's Safe Browsing feature is enabled and the mode it operates in.
+			<string>Allows you to control whether Brave Browser's Safe Browsing feature is enabled and the mode it operates in.
 
 If this policy is set to 'NoProtection' (value 0), Safe Browsing is never active.
 
@@ -8610,7 +8610,7 @@ If this policy is set to 'StandardProtection' (value 1, which is the default), S
 
 If this policy is set to 'EnhancedProtection' (value 2), Safe Browsing is always active in the enhanced mode, which provides better security, but requires sharing more browsing information with Google.
 
-If you set this policy as mandatory, users cannot change or override the Safe Browsing setting in Google Chrome.
+If you set this policy as mandatory, users cannot change or override the Safe Browsing setting in Brave Browser.
 
 If this policy is left not set, Safe Browsing will operate in Standard Protection mode but users can change this setting.
 
@@ -8707,13 +8707,13 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_description</key>
 			<string>Configures the type of the default home page in Brave Browser and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the type of the default home page in Google Chrome and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.
+			<string>Configures the type of the default home page in Brave Browser and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page.
 
 If you enable this setting, the New Tab Page is always used for the home page, and the home page URL location is ignored.
 
 If you disable this setting, the user's homepage will never be the New Tab Page, unless its URL is set to 'chrome://newtab'.
 
-If you enable or disable this setting, users cannot change their homepage type in Google Chrome.
+If you enable or disable this setting, users cannot change their homepage type in Brave Browser.
 
 Leaving this policy not set will allow the user to choose whether the new tab page is their home page on their own.
 
@@ -8734,13 +8734,13 @@ to a Microsoft® Active Directory® domain.</string>
 			<key>pfm_description</key>
 			<string>Configures the default home page URL in Brave Browser and prevents users from changing it.</string>
 			<key>pfm_description_reference</key>
-			<string>Configures the default home page URL in Google Chrome and prevents users from changing it.
+			<string>Configures the default home page URL in Brave Browser and prevents users from changing it.
 
 The home page is the page opened by the Home button. The pages that open on startup are controlled by the RestoreOnStartup policies.
 
 The home page type can either be set to a URL you specify here or set to the New Tab Page. If you select the New Tab Page, then this policy does not take effect.
 
-If you enable this setting, users cannot change their home page URL in Google Chrome, but they can still choose the New Tab Page as their home page.
+If you enable this setting, users cannot change their home page URL in Brave Browser, but they can still choose the New Tab Page as their home page.
 
 Leaving this policy not set will allow the user to choose their home page on their own if HomepageIsNewTabPage is not set too.
 
@@ -8790,16 +8790,16 @@ This policy is not available on Windows instances that are not joined to a Micro
 4 - Open a list of URLs
 Allows you to specify the behavior on startup.
 
-If you choose 'Open New Tab Page' the New Tab Page will always be opened when you start Google Chrome.
+If you choose 'Open New Tab Page' the New Tab Page will always be opened when you start Brave Browser.
 
-If you choose 'Restore the last session', the URLs that were open last time Google Chrome was closed will be reopened and the browsing session will be restored as it was left.
+If you choose 'Restore the last session', the URLs that were open last time Brave Browser was closed will be reopened and the browsing session will be restored as it was left.
 Choosing this option disables some settings that rely on sessions or that perform actions on exit (such as Clear browsing data on exit or session-only cookies).
 
-If you choose 'Open a list of URLs', the list of 'URLs to open on startup' will be opened when a user starts Google Chrome.
+If you choose 'Open a list of URLs', the list of 'URLs to open on startup' will be opened when a user starts Brave Browser.
 
-If you enable this setting, users cannot change or override it in Google Chrome.
+If you enable this setting, users cannot change or override it in Brave Browser.
 
-Disabling this setting is equivalent to leaving it not configured. The user will still be able to change it in Google Chrome.
+Disabling this setting is equivalent to leaving it not configured. The user will still be able to change it in Brave Browser.
 
 This policy is not available on Windows instances that are not joined
 to a Microsoft® Active Directory® domain.</string>
@@ -8860,13 +8860,13 @@ to a Microsoft® Active Directory® domain.</string>
 			<key>pfm_description</key>
 			<string>Shows the Home button on Brave Browser's toolbar.</string>
 			<key>pfm_description_reference</key>
-			<string>Shows the Home button on Google Chrome's toolbar.
+			<string>Shows the Home button on Brave Browser's toolbar.
 
 If you enable this setting, the Home button is always shown.
 
 If you disable this setting, the Home button is never shown.
 
-If you enable or disable this setting, users cannot change or override this setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override this setting in Brave Browser.
 
 Leaving this policy not set will allow the user to choose whether to show the home button.</string>
 			<key>pfm_documentation_url</key>
