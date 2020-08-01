@@ -423,6 +423,7 @@
 				</array>
 				<key>Password Manager</key>
 				<array>
+					<string>PasswordLeakDetectionEnabled</string>
 					<string>PasswordManagerEnabled</string>
 				</array>
 				<key>Printing</key>
@@ -7383,6 +7384,28 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 		</dict>
 		<!-- END NativeMessaging -->
 		<!-- START PasswordManager -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>This policy can be used to force enable or force disable credential leak checking in Google Chrome.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy can be used to force enable or force disable credential leak checking in Google Chrome.
+
+Note that even if this policy is set to True, the behavior will not trigger if Safe Browsing is disabled (either by policy or by the user). In order to force Safe Browsing on, use the SafeBrowsingEnabled policy.
+
+If this policy is enabled or disabled, users cannot change or override it in Google Chrome. If this policy is unset, credential leak checking is allowed (but can be turned off by the user).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PasswordLeakDetectionEnabled</string>
+			<key>pfm_name</key>
+			<string>PasswordLeakDetectionEnabled</string>
+			<key>pfm_note</key>
+			<string>Note that even if this policy is set to True, the behavior will not trigger if Safe Browsing is disabled (either by policy or by the user).</string>
+			<key>pfm_title</key>
+			<string>Enable password leak detection</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
