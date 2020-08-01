@@ -403,6 +403,7 @@
 					<string>UrlKeyedAnonymizedDataCollectionEnabled</string>
 					<string>UserAgentClientHintsEnabled</string>
 					<string>UserDataDir</string>
+					<string>UserDataSnapshotRetentionLimit</string>
 					<string>UserFeedbackAllowed</string>
 					<string>VideoCaptureAllowed</string>
 					<string>VideoCaptureAllowedUrls</string>
@@ -6999,6 +7000,30 @@ If this policy is left not set the default profile path will be used and the use
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>${users}/${user_name}/Chrome</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>83</string>
+			<key>pfm_default</key>
+			<integer>3</integer>
+			<key>pfm_description</key>
+			<string>Limits the number of user data snapshots retained for use in case of emergency rollback. If this policy is not set, the default value of 3 is used. If the policy is set to 0, no snapshots will be taken.</string>
+			<kewy>pfm_description_reference</key>
+			<string>Following each major version update, Chrome will create a snapshot of certain portions of the user's browsing data for use in case of a later emergency version rollback. If an emergency rollback is performed to a version for which a user has a corresponding snapshot, the data in the snapshot is restored. This allows users to retain such settings as bookmarks and autofill data.
+
+If this policy is not set, the default value of 3 is used
+
+If the policy is set, old snapshots are deleted as needed to respect the limit. If the policy is set to 0, no snapshots will be taken</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=UserDataSnapshotRetentionLimit</string>
+			<key>pfm_name</key>
+			<string>UserDataSnapshotRetentionLimit</string>
+			<key>pfm_note</key>
+			<string>Following each major version update, Chrome will create a snapshot of certain portions of the user's browsing data for use in case of a later emergency version rollback. If an emergency rollback is performed to a version for which a user has a corresponding snapshot, the data in the snapshot is restored. This allows users to retain such settings as bookmarks and autofill data.</string>
+			<key>pfm_title</key>
+			<string>User data snapshot retention limit</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
