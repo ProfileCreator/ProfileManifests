@@ -8,16 +8,9 @@ import plistlib
 import re
 import datetime
 
-keys_to_replace = [
-    "pfm_app_url",
-    "pfm_description",
-    "pfm_domain",
-    "pfm_title",
-    "pfm_documentation_url",
-]
+brave_domain = "com.brave.Browser"
+chrome_domain = "com.google.Chrome"
 manifest_replacements = {
-    "brave_domain": "com.brave.Browser",
-    "chrome_domain": "com.google.Chrome",
     "pfm_app_url": "https://brave.com/",
     "pfm_description": "Brave Browser Managed Settings",
     "pfm_domain": "com.brave.Browser",
@@ -41,7 +34,7 @@ def main():
         exit( 1 )
 
     repository_root_path = stdout.decode( sys.stdout.encoding ).strip()
-    chrome_manifest_path = os.path.join( repository_root_path, manifests_subfolder, manifest_replacements[ "chrome_domain" ] + ".plist" )
+    chrome_manifest_path = os.path.join( repository_root_path, manifests_subfolder, chrome_domain + ".plist" )
 
     # Load the Chrome manifest
     try:
@@ -54,13 +47,8 @@ def main():
     chrome_manifest_file.close()
 
     # Root replacements
-    try:
-        for subkey in keys_to_replace:
-            manifest[ subkey ] = manifest_replacements[ subkey ]
-    except Exception as error:
-        print(f"Key {subkey} not present in 'manifest_replacements' dictionary")
-        print(f"This was likely forgotten ...")
-        exit( 3 )
+    for subkey in manifest_replacements:
+        manifest[ subkey ] = manifest_replacements[ subkey ]
 
     subkeys = manifest[ "pfm_subkeys" ]
 
@@ -77,14 +65,14 @@ def main():
         { 
             "name": "PayloadIdentifier",
             "property": "pfm_default",
-            "old_string": manifest_replacements[ "chrome_domain" ],
-            "new_string": manifest_replacements[ "brave_domain" ],
+            "old_string": chrome_domain,
+            "new_string": brave_domain,
         },
         {
             "name": "PayloadType",
             "property": "pfm_default",
-            "old_string": manifest_replacements[ "chrome_domain" ],
-            "new_string": manifest_replacements[ "brave_domain" ],
+            "old_string": chrome_domain,
+            "new_string": brave_domain,
         },
     ]
     for known_top_subkey in known_top_subkeys:
@@ -94,7 +82,7 @@ def main():
     manifest[ "pfm_subkeys" ] = replace_in_keys_recursively( subkeys )
 
     # Add domain specific keys
-    domain_specific_keys_path = os.path.join( script_folder_path, manifest_replacements[ "brave_domain" ] + "-specific.plist" )
+    domain_specific_keys_path = os.path.join( script_folder_path, brave_domain + "-specific.plist" )
     domain_specific_keys = None
     try:
         domain_specific_keys_file = open( domain_specific_keys_path, 'rb' )
@@ -121,7 +109,7 @@ def main():
     manifest[ "pfm_last_modified" ] = datetime.datetime.utcnow()
 
     # Write-out
-    brave_manifest_path = os.path.join( repository_root_path, manifests_subfolder, manifest_replacements[ "brave_domain" ] + ".plist" )
+    brave_manifest_path = os.path.join( repository_root_path, manifests_subfolder, brave_domain + ".plist" )
     brave_manifest_file = open( brave_manifest_path, 'wb' )
     plistlib.dump( manifest, brave_manifest_file )
     brave_manifest_file.close()
