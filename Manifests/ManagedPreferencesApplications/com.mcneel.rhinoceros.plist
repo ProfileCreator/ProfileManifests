@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_app_url</key>
+	<string>https://www.rhino3d.com/mac</string>
+	<key>pfm_description</key>
+	<string>Rhinoceros settings</string>
+	<key>pfm_domain</key>
+	<string>com.mcneel.rhinoceros</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_last_modified</key>
+	<date>2020-08-06T08:52:31Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Rhinoceros settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Rhinoceros</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.mcneel.rhinoceros</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.mcneel.rhinoceros</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Setting this to a non-existent URL will disable the ability for users to manually check for updates. Useful when you intend to use your own software distribution mechanism to deploy updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
+			<key>pfm_name</key>
+			<string>SUFeedURL</string>
+			<key>pfm_title</key>
+			<string>Sparkle Feed URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://127.0.0.1</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls automatic update checks.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUEnableAutomaticChecks</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Update Checks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>86400</integer>
+			<key>pfm_description</key>
+			<string>Controls the automatic update check interval. The default is 1 day (86400 seconds). Setting to 0 disables updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUScheduledCheckInterval</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Check Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls the automatic update install prompt. When enabled, presents users with the option to allow automatic download and install of available updates. If disabled, disallows automatic updates and requires manual installation every time.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAllowsAutomaticUpdates</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Install Prompt</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Controls automatic silent updates. If enabled, users will not be informed about updates and updates will be silently installed when the app quits.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAutomaticallyUpdate</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Silent Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Controls which update versions should be suppressed upon launching Rhinoceros</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_format</key>
+			<string>^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$</string>
+			<key>pfm_name</key>
+			<string>SUSkippedVersion</string>
+			<key>pfm_title</key>
+			<string>Skipped Version Updates</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>9.9.9.9</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Rhinoceros</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
