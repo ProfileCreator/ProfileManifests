@@ -81,7 +81,7 @@ def main():
     # General replacement in keys
     manifest[ "pfm_subkeys" ] = replace_in_keys_recursively( subkeys )
 
-    # Add domain specific keys
+    # Add domain specific keys from com.brave.Browser-specific.plist
     domain_specific_keys_path = os.path.join( script_folder_path, brave_domain + "-specific.plist" )
     domain_specific_keys = None
     try:
@@ -95,15 +95,36 @@ def main():
     if domain_specific_keys is not None:
         subkeys.extend( domain_specific_keys )
 
-        # Add domain specific keys to segmented control under "Misc."
+        # Add domain specific keys to segmented control
         segmented_control_key = next( filter( lambda preference_key: ( "pfm_name" in preference_key and preference_key[ "pfm_name" ] == "PFC_SegmentedControl_0" ), subkeys ), None )
         if segmented_control_key is not None and "pfm_segments" in segmented_control_key:
+            brave_segment_titles = list(domain_specific_keys.keys())
+            chrome_segment_titles = segmented_control_key[ "pfm_range_list_titles" ]
             segments = segmented_control_key[ "pfm_segments" ]
-            if "Misc." in segments:
-                misc_segment = segments[ "Misc." ]
-                for specific_key in domain_specific_keys:
-                    if "pfm_name" in specific_key:
-                        misc_segment.append( specific_key[ "pfm_name" ] )
+            # Add Brave-specific segment titles
+            for title in brave_segment_titles:
+                if title not in chrome_segment_titles:
+                    chrome_segment_titles.append(title)
+                if title in segments:
+                    for specific_key in domain_specific_keys[title]:
+                        print(specific_key)
+
+            # if "Misc." in segments:
+            #     misc_segment = segments[ "Misc." ]
+            #     for specific_key in domain_specific_keys:
+
+            #         if "pfm_name" in specific_key:
+            #             misc_segment.append( specific_key[ "pfm_name" ] )
+            # # Add 'Updates' segment if it doesn't exist
+            # if "Updates" not in segment_titles:
+            #     segment_titles.append("Updates")
+            #     segments[ "Updates" ] = []
+            # # Add 'Updates' keys
+            # if "Updates" in segments:
+            #     update_segment = segments [ "Updates" ]
+            #     for specific_key in domain_specific_keys:
+            #         if "pfm_name" in specific_key:
+            #             update_segment.append( specific_key[ "pfm_name" ] )
 
     # Update last modification time
     manifest[ "pfm_last_modified" ] = datetime.datetime.utcnow()
