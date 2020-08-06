@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-04-14T08:05:28Z</date>
+	<date>2020-08-06T01:12:51Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -243,9 +243,12 @@
 				</array>
 				<key>Updates</key>
 				<array>
-					<string>SUEnableAutomaticChecks</string>
+					<string>SUAllowsAutomaticUpdates</string>
 					<string>SUAutomaticallyUpdate</string>
+					<string>SUEnableAutomaticChecks</string>
 					<string>SUFeedURL</string>
+					<string>SUScheduledCheckInterval</string>
+					<string>SUSendProfileInfo</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -729,60 +732,78 @@ Note that this requires an additional copy of the Clipboard when the application
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_description</key>
-			<string>Automatically download available updates for BBEdit. When combined with SUEnableAutomaticChecks, BBEdit will automatically check and download these updates. Updates are subsequently installed when the user quits the app.</string>
-			<key>pfm_description_reference</key>
-			<string>When set to false, BBEdit will not automatically download software updates.</string>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_target</key>
-							<string>SUEnableAutomaticChecks</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-			<key>pfm_name</key>
-			<string>SUAutomaticallyUpdate</string>
-			<key>pfm_title</key>
-			<string>Automatic Updates</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Automatically check for BBEdit software updates.</string>
-			<key>pfm_description_reference</key>
-			<string>When set to false, AirServer will not automatically check for software updates.</string>
-			<key>pfm_name</key>
-			<string>SUEnableAutomaticChecks</string>
-			<key>pfm_title</key>
-			<string>Automatic Update Checks</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Sparkle update framework key. While automatic update checks can be disabled via the SUEnableAutomaticChecks key, this does not prevent users from manually running a software update check via the GUI. Setting this key to a non-existant local address will prevent users from manually triggering and/or installing updates themselves.</string>
-			<key>pfm_description_reference</key>
-			<string>When set to a non-existant local address, BBEdit will be unable to determine if updates are available.</string>
+			<string>Setting this to a non-existent URL will disable the ability for users to manually check for updates. Useful when you intend to use your own software distribution mechanism to deploy updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
 			<key>pfm_name</key>
 			<string>SUFeedURL</string>
 			<key>pfm_title</key>
-			<string>Software Update Feed URL</string>
+			<string>Sparkle Feed URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>http://127.0.0.1</string>
+			<string>https://127.0.0.1</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls automatic update checks.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUEnableAutomaticChecks</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Update Checks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>86400</integer>
+			<key>pfm_description</key>
+			<string>Controls the automatic update check interval. The default is 1 day (86400 seconds). Setting to 0 disables updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUScheduledCheckInterval</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Check Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls the automatic update install prompt. When enabled, presents users with the option to allow automatic download and install of available updates. If disabled, disallows automatic updates and requires manual installation every time.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAllowsAutomaticUpdates</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Install Prompt</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Controls automatic silent updates. If enabled, users will not be informed about updates and updates will be silently installed when the app quits.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAutomaticallyUpdate</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Silent Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1979,6 +2000,6 @@ If the active document is untitled or was opened from an FTP/SFTP server, or if 
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>
