@@ -321,6 +321,7 @@
 					<string>EnableDeprecatedWebPlatformFeatures</string>
 					<string>EnableDomainActionsDownload</string>
 					<string>EnableOnlineRevocationChecks</string>
+					<string>EnableSha1ForLocalAnchors</string>
 					<string>EnabledPlugins</string>
 					<string>EnterpriseHardwarePlatformAPIEnabled</string>
 					<string>ExperimentationAndConfigurationServiceControl</string>
@@ -4547,6 +4548,32 @@ If the policy is not set, or is set to false, then Google Chrome will not perfor
 			<string>EnableOnlineRevocationChecks</string>
 			<key>pfm_title</key>
 			<string>Whether online OCSP/CRL checks are performed</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>92</string>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow certificates signed using SHA-1 when issued by local trust anchors (deprecated).</string>
+			<key>pfm_description_reference</key>
+			<string>When this setting is enabled, Microsoft Edge allows connections secured by SHA-1 signed certificates so long as the the certificate chains to a locally-installed root certificate and is otherwise valid.
+
+Note that this policy depends on the operating system (OS) certificate verification stack allowing SHA-1 signatures. If an OS update changes the OS handling of SHA-1 certificates, this policy might no longer have effect. Further, this policy is intended as a temporary workaround to give enterprises more time to move away from SHA-1. This policy will be removed in Microsoft Edge 92 releasing in mid 2021.
+
+If you don't set this policy or set it to false, or the SHA-1 certificate chains to a publicly trusted certificate root, then Microsoft Edge won't allow certificates signed by SHA-1.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management, or macOS instances that are that are managed via MDM or joined to a domain via MCX.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#enablesha1forlocalanchors</string>
+			<key>pfm_name</key>
+			<string>EnableSha1ForLocalAnchors</string>
+			<key>pfm_title</key>
+			<string>Enable SHA-1 for Local Anchors</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
