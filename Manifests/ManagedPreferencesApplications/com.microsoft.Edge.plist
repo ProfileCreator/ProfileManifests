@@ -378,6 +378,7 @@
 					<string>RunAllFlashInAllowMode</string>
 					<string>SSLErrorOverrideAllowed</string>
 					<string>SSLVersionMin</string>
+					<string>SaveCookiesOnExit</string>
 					<string>SafeSitesFilterBehavior</string>
 					<string>SavingBrowserHistoryDisabled</string>
 					<string>SearchSuggestEnabled</string>
@@ -3828,8 +3829,6 @@ Use the preceding information when configuring this policy.</string>
 				<dict>
 					<key>pfm_title</key>
 					<string>Blocklist Item</string>
-					<key>pfm_range_list_allow_custom_value</key>
-					<true/>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_value_placeholder</key>
@@ -6336,6 +6335,46 @@ Otherwise it may be set to one of the following values: "tls1", "tls1.1" or "tls
 			<string>Minimum SSL version enabled</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Save cookies when Microsoft Edge closes. When this policy is enabled, the specified set of cookies is exempt from deletion when the browser closes.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is enabled, the specified set of cookies is exempt from deletion when the browser closes. This policy is only effective when:
+
+The 'Cookies and other site data' toggle is configured in Settings/Privacy and services/Clear browsing data on close or
+The policy ClearBrowsingDataOnExit is enabled or
+The policy DefaultCookiesSetting is set to 'Keep cookies for the duration of the session'.
+You can define a list of sites, based on URL patterns, that will have their cookies preserved across sessions.
+
+Note: Users can still edit the cookie site list to add or remove URLs. However, they can't remove URLs that have been added by an Admin.
+
+If you enable this policy, the list of cookies won't be cleared when the browser closes.
+
+If you disable or don't configure this policy, the user's personal configuration is used.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#savecookiesonexit</string>
+			<key>pfm_name</key>
+			<string>SaveCookiesOnExit</string>
+			<key>pfm_note</key>
+			<string>This policy is only effective when the policy ClearBrowsingDataOnExit is enabled OR the policy DefaultCookiesSetting is set to 'Keep cookies for the duration of the session'.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>URL</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>[*.]example.come</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Save Cookies on Exit</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<!-- <dict>
 			<key>pfm_app_min</key>
