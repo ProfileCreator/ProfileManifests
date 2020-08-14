@@ -346,6 +346,8 @@
 					<string>Http09OnNonDefaultPortsEnabled</string>
 					<string>ImportAutofillFormData</string>
 					<string>ImportBrowserSettings</string>
+					<string>ImportCookies</string>
+					<string>ImportExtensions</string>
 					<string>ImportFavorites</string>
 					<string>ImportHistory</string>
 					<string>ImportHomepage</string>
@@ -353,6 +355,7 @@
 					<string>ImportPaymentInfo</string>
 					<string>ImportSavedPasswords</string>
 					<string>ImportSearchEngine</string>
+					<string>ImportShortcuts</string>
 					<string>IncognitoEnabled</string>
 					<string>InPrivateModeAvailability</string>
 					<string>IsolateOrigins</string>
@@ -5236,6 +5239,60 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of cookies.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import Cookies from another browser into Microsoft Edge.
+
+If you disable this policy, Cookies aren't imported on first run.
+
+If you don't configure this policy, Cookies are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Cookies on first run.
+
+Note: This policy currently manages importing Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importcookies</string>
+			<key>pfm_name</key>
+			<string>ImportCookies</string>
+			<key>pfm_note</key>
+			<string>This policy currently only supports importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Allow importing of cookies</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of extensions.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import extensions from another browser into Microsoft Edge.
+
+If you enable this policy, the Extensions check box is automatically selected in the Import browser data dialog box.
+
+If you disable this policy, extensions aren't imported at first run, and users can't import them manually.
+
+If you don't configure this policy, extensions are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports extensions on first run, but users can select or clear the favorites option during manual import.
+
+Note: This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importextensions</string>
+			<key>pfm_name</key>
+			<string>ImportExtensions</string>
+			<key>pfm_note</key>
+			<string>This policy currently only supports importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Allow importing of extensions</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_default</key>
 			<true/>
@@ -5317,7 +5374,7 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 			<key>pfm_name</key>
 			<string>ImportOpenTabs</string>
 			<key>pfm_note</key>
-			<string>This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS)</string>
+			<string>This policy currently only supports importing from Google Chrome</string>
 			<key>pfm_title</key>
 			<string>Allow importing of open tabs</string>
 			<key>pfm_type</key>
@@ -5384,6 +5441,32 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<string>ImportSearchEngine</string>
 			<key>pfm_title</key>
 			<string>Import search engines from default browser on first run</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of shortcuts.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import Shortcuts from another browser into Microsoft Edge.
+
+If you disable this policy, Shortcuts aren't imported on first run.
+
+If you don't configure this policy, Shortcuts are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Shortcuts on first run.
+
+Note: This policy currently manages importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importshortcuts</string>
+			<key>pfm_name</key>
+			<string>ImportShortcuts</string>
+			<key>pfm_note</key>
+			<string>This policy currently manages importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Import shortcuts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -5530,7 +5613,7 @@ These bookmarks are placed in a folder that can't be modified by the user (but t
 Managed bookmarks are not synced to the user account and can't be modified by extensions.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#managedfavorites</string>
-			<!-- In Chromem this is ManagedBookmarks -->
+			<!-- In Chrome this is ManagedBookmarks -->
 			<key>pfm_name</key>
 			<string>ManagedFavorites</string>
 			<key>pfm_title</key>
@@ -5538,27 +5621,24 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
 					<key>pfm_description</key>
 					<string></string>
-					<key>pfm_name</key>
-					<string>ManagedBookmark</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>Name of the bookmark.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
+							<string>Name of the favorite.</string>
 							<key>pfm_name</key>
 							<string>name</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
+							
 							<key>pfm_description</key>
-							<string>URL for the bookmark.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
+							<string>URL for the favorite.</string>
 							<key>pfm_name</key>
 							<string>url</string>
 							<key>pfm_type</key>
@@ -5615,6 +5695,18 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 					</array>
 					<key>pfm_title</key>
 					<string></string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>The top-level managed favorites folder name.</string>
+					<key>pfm_name</key>
+					<string>toplevel_name</string>
+					<key>pfm_title</key>
+					<string>Managed Favorites Folder Name</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
