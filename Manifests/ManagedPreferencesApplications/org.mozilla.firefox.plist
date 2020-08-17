@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-07-01T19:53:07Z</date>
+	<date>2020-07-31T15:54:35Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -195,6 +195,7 @@
 					<string>OverridePostUpdatePage</string>
 					<string>PDFjs</string>
 					<string>PictureInPicture</string>
+					<string>PrimaryPassword</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -323,6 +324,7 @@
 					<string>OverridePostUpdatePage</string>
 					<string>PDFjs</string>
 					<string>PictureInPicture</string>
+					<string>PrimaryPassword</string>
 					<string>PromptForDownloadLocation</string>
 					<string>SanitizeOnShutdown</string>
 					<string>SearchBar</string>
@@ -1050,15 +1052,31 @@ For more information, see https://developer.mozilla.org/en-US/docs/Mozilla/Integ
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Remove the master password functionality.</string>
-			<key>pfm_description_reference</key>
-			<string>If this preference is set to true, the master password functionality is removed.</string>
+			<string>Remove the master password functionality. If this preference is set to true, the master password functionality is removed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#disablemasterpasswordcreation</string>
 			<key>pfm_name</key>
 			<string>DisableMasterPasswordCreation</string>
+			<key>pfm_note</key>
+			<string>If this value is true, it works the same as if PrimaryPassword was false and removes the primary password functionality. If both DisableMasterPasswordCreation and PrimaryPassword are used, DisableMasterPasswordCreation takes precedent.</string>
 			<key>pfm_title</key>
 			<string>Disable Master Password Creation</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>79</string>
+			<key>pfm_description</key>
+			<string>Require or prevent using a primary (formerly master) password. If this value is true, a primary password is required.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/README.md#primarypassword</string>
+			<key>pfm_name</key>
+			<string>PrimaryPassword</string>
+			<key>pfm_note</key>
+			<string>If this value is false, it works the same as if DisableMasterPasswordCreation was true and removes the primary password functionality. If both DisableMasterPasswordCreation and PrimaryPassword are used, DisableMasterPasswordCreation takes precedent.</string>
+			<key>pfm_title</key>
+			<string>Enable Primary Password</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -3416,9 +3434,7 @@ The configuration for each extension is another dictionary that can contain the 
 					<key>pfm_app_min</key>
 					<string>60</string>
 					<key>pfm_description</key>
-					<string>Domains where cookies are always allowed.</string>
-					<key>pfm_description_reference</key>
-					<string>Optional. Domains where cookies are always allowed.</string>
+					<string>A list of origins (not domains) where cookies are always allowed.</string>
 					<key>pfm_name</key>
 					<string>Allow</string>
 					<key>pfm_note</key>
@@ -3445,11 +3461,38 @@ The configuration for each extension is another dictionary that can contain the 
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
+					<string>79</string>
+					<key>pfm_description</key>
+					<string>A list of origins (not domains) where cookies are only allowed for the current session.</string>
+					<key>pfm_name</key>
+					<string>AllowSession</string>
+					<key>pfm_note</key>
+					<string>You must include http or https.</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_format</key>
+							<string>^https?://.*$</string>
+							<key>pfm_name</key>
+							<string>URL</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>https://www.example.org/</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Allow Session</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
 					<string>60</string>
 					<key>pfm_description</key>
-					<string>Domains where cookies are always blocked.</string>
-					<key>pfm_description_reference</key>
-					<string>Optional. Domains where cookies are always blocked.</string>
+					<string>A list of origins (not domains) where cookies are always blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
 					<key>pfm_note</key>
@@ -5294,18 +5337,20 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 					<key>pfm_description</key>
 					<string>If set, a list of domains for which mDNS hostname obfuscation is disabled.</string>
 					<key>pfm_name</key>
-					<string>media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+					<string>media.peerconnection.ice.obfuscate_host_addresses.blocklist</string>
+					<key>pfm_note</key>
+					<string>Prior to v79, this key was media.peerconnection.ice.obfuscate_host_addresses.whitelist.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_title</key>
-							<string>Whitelisted Domains</string>
+							<string>Domains</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+					<string>media.peerconnection.ice.obfuscate_host_addresses.blocklist</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -5522,6 +5567,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>10</integer>
+	<integer>11</integer>
 </dict>
 </plist>
