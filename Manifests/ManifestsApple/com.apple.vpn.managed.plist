@@ -228,6 +228,7 @@
 			</array> -->
 			<key>pfm_note</key>
 			<string>In addition to a custom option, there are several known providers:
+
 - Cisco AnyConnect: com.cisco.anyconnect
 - Cisco Legacy AnyConnect: com.cisco.anyconnect.applevpn.plugin
 - Juniper SSL: net.juniper.sslvpn
@@ -3512,6 +3513,8 @@
 					</array>
 					<key>pfm_name</key>
 					<string>Role</string>
+					<key>pfm_note</key>
+					<string>Due to how this preference is configured, if you happen to enter a VPNSubType value other than net.juniper.sslvpn or net.pulsesecure.PulseSecure.vpnplugin, which does not require this preference, it is still visually added automatically in the GUI. Note that despite this the exclusion rule will prevent the preference from being unnecessarily added to the profile.</string>
 					<key>pfm_title</key>
 					<string>Vendor-Specific Role</string>
 					<key>pfm_type</key>
