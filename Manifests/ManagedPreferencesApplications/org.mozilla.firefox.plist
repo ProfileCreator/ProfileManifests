@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-07-31T15:54:35Z</date>
+	<date>2020-08-26T01:04:17Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -4420,6 +4420,97 @@ The configuration for each extension is another dictionary that can contain the 
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>80</string>
+					<key>pfm_description</key>
+					<string>This preference allows you to change the virtual reality permissions.</string>
+					<key>pfm_name</key>
+					<string>VirtualReality</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>80</string>
+							<key>pfm_description</key>
+							<string>If this preference is enabled, access to virtual reality is always allowed for the domains indicated. If this preference is disabled or not configured, the default virtual reality preference is followed.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. If this preference is enabled, access to the virtual reality is always allowed for the domains indicated. If this preference is disabled or not configured, the default virtual reality preference is followed.</string>
+							<key>pfm_name</key>
+							<string>Allow</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>Allowed Domains</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.com</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>80</string>
+							<key>pfm_description</key>
+							<string>If this preference is enabled, access to virtual reality is blocked for the domains indicated. If this preference is disabled or not configured, access to the virtual reality is not blocked by default.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. If this preference is enabled, access to virtual reality is blocked for the domains indicated. If this preference is disabled or not configured, access to the virtual reality is not blocked by default.</string>
+							<key>pfm_name</key>
+							<string>Block</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>Blocked Domains</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>https://www.example.com</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>80</string>
+							<key>pfm_default</key>
+							<true/>
+							<key>pfm_description</key>
+							<string>If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access virtual reality. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access virtual reality.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. If this preference is enabled, sites that are not in the Allow preference will not be allowed to ask permission to access virtual reality. If this preference is disabled or not configured, any site that is not in the Block preference can ask permission to access virtual reality.</string>
+							<key>pfm_name</key>
+							<string>BlockNewRequests</string>
+							<key>pfm_title</key>
+							<string>Block New Requests</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>80</string>
+							<key>pfm_default</key>
+							<false/>
+							<key>pfm_description</key>
+							<string>If this preference is enabled, virtual reality preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their virtual reality preferences.</string>
+							<key>pfm_description_reference</key>
+							<string>Optional. If this preference is enabled, virtual reality preferences cannot be changed by the user. If this preference is disabled or not configured, the user can change their virtual reality preferences.</string>
+							<key>pfm_name</key>
+							<string>Locked</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Virutal Reality Permissions</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
 			</array>
 			<key>pfm_type</key>
 			<string>dictionary</string>
@@ -5567,6 +5658,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>11</integer>
+	<integer>12</integer>
 </dict>
 </plist>
