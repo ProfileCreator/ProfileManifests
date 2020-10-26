@@ -11,7 +11,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-09-14T23:29:16Z</date>
+	<date>2020-10-26T19:55:02Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -183,8 +183,13 @@
 			<string>https://macadmins.software/docs/MAU_38.pdf</string>
 			<key>pfm_name</key>
 			<string>ChannelName</string>
+			<key>pfm_note</key>
+			<string>As of MAU 4.29, the update channel names have been changed. However, deploying profiles which use the old channel names will continue to be respected by MAU.</string>
 			<key>pfm_range_list</key>
 			<array>
+				<string>Current Channel</string>
+				<string>Current Channel (Preview)</string>
+				<string>Beta Channel</string>
 				<string>Production</string>
 				<string>External</string>
 				<string>InsiderFast</string>
@@ -192,13 +197,16 @@
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>Production</string>
-				<string>Office Insider Slow: "External"</string>
-				<string>Office Insider Fast: "InsiderFast"</string>
-				<string>Custom</string>
+				<string>Current Channel</string>
+				<string>Current Channel (Preview)</string>
+				<string>Beta Channel</string>
+				<string>Production (pre MAU 4.29)</string>
+				<string>Office Insider Slow: "External" (pre MAU 4.29)</string>
+				<string>Office Insider Fast: "InsiderFast" (pre MAU 4.29)</string>
+				<string>Custom (pre MAU 4.29)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Channel Name</string>
+			<string>Update Channel Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -2160,6 +2168,6 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>13</integer>
+	<integer>14</integer>
 </dict>
 </plist>
