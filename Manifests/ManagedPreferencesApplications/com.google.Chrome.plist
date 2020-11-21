@@ -220,6 +220,7 @@
 					<string>BlockExternalExtensions</string>
 					<string>ExtensionAllowInsecureUpdates</string>
 					<string>ExtensionAllowedTypes</string>
+					<string>ExtensionInstallAllowlist</string>
 					<string>ExtensionInstallBlacklist</string>
 					<string>ExtensionInstallBlocklist</string>
 					<string>ExtensionInstallForcelist</string>
@@ -2130,10 +2131,12 @@ If this policy is left not set the user can install any extension in Google Chro
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions are not subject to the denylist.</string>
+			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions are not subject to the blacklist.
 
@@ -2146,6 +2149,37 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<string>ExtensionInstallWhitelist</string>
 			<key>pfm_note</key>
 			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension ID Whitelist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions are not subject to the blocklist.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions are not subject to the blocklist.
+
+A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the allow list.
+
+By default, all extensions are allowed. But, if you prohibited extensions by policy, use the list of allowed extensions to change that policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallAllowlist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallAllowlist</string>
+			<key>pfm_note</key>
+			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allow list can be used to override that policy.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
