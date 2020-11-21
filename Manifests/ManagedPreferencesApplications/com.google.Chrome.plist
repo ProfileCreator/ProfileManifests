@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-08-01T18:59:41Z</date>
+	<date>2020-11-21T16:32:42Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -2068,7 +2068,7 @@ ExtensionInstallBlacklist takes precedence over this policy. That is, an extensi
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if denied, without a way for the user to enable them. Once an extension is disabled due to the denylist being removed, it will automatically get re-enabled. Enter * to deny all extensions.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
 
@@ -2089,7 +2089,7 @@ If this policy is left not set the user can install any extension in Google Chro
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
+			<string>Extension ID Denylist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2097,7 +2097,7 @@ If this policy is left not set the user can install any extension in Google Chro
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
+			<string>Allows you to specify which extensions are not subject to the denylist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions are not subject to the blacklist.
 
@@ -2108,6 +2108,8 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallWhitelist</string>
 			<key>pfm_name</key>
 			<string>ExtensionInstallWhitelist</string>
+			<key>pfm_note</key>
+			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2118,7 +2120,7 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension IDs to exempt from the blacklist</string>
+			<string>Extension ID Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -3199,7 +3201,7 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_deprecated</key>
+			<key>pfm_app_deprecated</key>
 			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
@@ -3225,7 +3227,7 @@ This policy will be removed in Chrome 88.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_deprecated</key>
+			<key>pfm_app_deprecated</key>
 			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>78</string>
@@ -3577,7 +3579,7 @@ If this policy is set, files will only automatically open by policy if the url i
 If this policy isn't set, all downloads where the file type is in AutoOpenFileTypes will automatically open.
 
 A URL pattern has to be formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
-			<key>pfm_documention</key>
+			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoOpenAllowedForURLs</string>
 			<key>pfm_name</key>
 			<string>AutoOpenAllowedForURLs</string>
@@ -3612,7 +3614,7 @@ Files with types that should be automatically opened will still be subject to th
 If this policy isn't set, only file types that a user has already specified to automatically be opened will do so when downloaded.
 
 This policy is available only on Windows instances that are joined to a Microsoft® Active Directory® domain. or Windows 10 Pro or Enterprise instances that enrolled for device management and macOS instances that are that are managed via MDM or joined to a domain via MCX.</string>
-			<key>pfm_documention</key>
+			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoOpenFileTypes</string>
 			<key>pfm_name</key>
 			<string>AutoOpenFileTypes</string>
@@ -6814,7 +6816,7 @@ If this setting is left not set the user can decide to use this function or not.
 			<key>pfm_app_min</key>
 			<string>15</string>
 			<key>pfm_description</key>
-			<string>This policy prevents the user from loading web pages from blacklisted URLs. The blacklist provides a list of URL patterns that specify which URLs will be blacklisted. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<string>This policy prevents the user from loading web pages from denied URLs. The denylist provides a list of URL patterns that specify which URLs will be denied. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy prevents the user from loading web pages from blacklisted URLs. The blacklist provides a list of URL patterns that specify which URLs will be blacklisted.
 
@@ -6839,7 +6841,7 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Block access to a list of URLs</string>
+			<string>URL Denylist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -6847,7 +6849,7 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 			<key>pfm_app_min</key>
 			<string>15</string>
 			<key>pfm_description</key>
-			<string>Allows access to the listed URLs, as exceptions to the URL blacklist. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<string>Allows access to the listed URLs, as exceptions to the URL denylist. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows access to the listed URLs, as exceptions to the URL blacklist.
 
@@ -7310,7 +7312,7 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<key>pfm_app_min</key>
 			<string>34</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts that should not be loaded. A blacklist value of '*' means all native messaging hosts are blacklisted unless they are explicitly listed in the whitelist.</string>
+			<string>Allows you to specify which native messaging hosts that should not be loaded. A denylist value of '*' means all native messaging hosts are denied unless they are explicitly listed in the allowlist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts that should not be loaded.
 
@@ -7331,7 +7333,7 @@ If this policy is left not set Google Chrome will load all installed native mess
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Names of the forbidden native messaging hosts (or * for all)</string>
+			<string>Native Messaging Host Denylist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -7361,7 +7363,7 @@ If this setting is left not set Google Chrome will allow usage of user-level Nat
 			<key>pfm_app_min</key>
 			<string>34</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts are not subject to the blacklist. A blacklist value of * means all native messaging hosts are blacklisted and only native messaging hosts listed in the whitelist will be loaded.</string>
+			<string>Allows you to specify which native messaging hosts are not subject to the denylist. A denylist value of * means all native messaging hosts are denied and only native messaging hosts listed in the allowlist will be loaded.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts are not subject to the blacklist.
 
@@ -7382,7 +7384,7 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Names of the native messaging hosts to exempt from the blacklist</string>
+			<string>Native Messaging Host Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -9136,6 +9138,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>7</integer>
+	<integer>8</integer>
 </dict>
 </plist>

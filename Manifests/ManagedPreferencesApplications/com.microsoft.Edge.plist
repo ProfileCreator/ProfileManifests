@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-07-14T14:40:45Z</date>
+	<date>2020-11-21T16:33:42Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -263,6 +263,7 @@
 					<string>AllowFileSelectionDialogs</string>
 					<string>AllowOutdatedPlugins</string>
 					<string>AllowPopupsDuringPageUnload</string>
+					<string>AllowSurfGame</string>
 					<string>AllowSyncXHRInPageDismissal</string>
 					<string>AllowTrackingForUrls</string>
 					<string>AllowedDomainsForApps</string>
@@ -291,6 +292,8 @@
 					<string>CertificateTransparencyEnforcementDisabledForLegacyCas</string>
 					<string>CertificateTransparencyEnforcementDisabledForUrls</string>
 					<string>ClearBrowsingDataOnExit</string>
+					<string>ClearCachedImagesAndFilesOnExit</string>
+					<string>CollectionsServicesAndExportsBlockList</string>
 					<string>CloudManagementEnrollmentMandatory</string>
 					<string>CloudManagementEnrollmentToken</string>
 					<string>CloudPolicyOverridesPlatformPolicy</string>
@@ -301,9 +304,11 @@
 					<string>CustomHelpLink</string>
 					<string>DNSInterceptionChecksEnabled</string>
 					<string>DefaultBrowserSettingEnabled</string>
+					<string>DefaultSearchProviderContextMenuAccessAllowed</string>
 					<string>DefaultDownloadDirectory</string>
 					<string>DeveloperToolsAvailability</string>
 					<string>DeveloperToolsDisabled</string>
+					<string>DiagnosticData</string>
 					<string>Disable3DAPIs</string>
 					<string>DisableSafeBrowsingProceedAnyway</string>
 					<string>DisableScreenshots</string>
@@ -319,11 +324,13 @@
 					<string>EnableDeprecatedWebPlatformFeatures</string>
 					<string>EnableDomainActionsDownload</string>
 					<string>EnableOnlineRevocationChecks</string>
+					<string>EnableSha1ForLocalAnchors</string>
 					<string>EnabledPlugins</string>
 					<string>EnterpriseHardwarePlatformAPIEnabled</string>
 					<string>ExperimentationAndConfigurationServiceControl</string>
 					<string>ExternalProtocolDialogShowAlwaysOpenCheckbox</string>
 					<string>ForceBingSafeSearch</string>
+					<string>ForceCertificatePromptsOnMultipleMatches</string>
 					<string>ForceBrowserSignin</string>
 					<string>ForceEphemeralProfiles</string>
 					<string>ForceGoogleSafeSearch</string>
@@ -339,6 +346,8 @@
 					<string>Http09OnNonDefaultPortsEnabled</string>
 					<string>ImportAutofillFormData</string>
 					<string>ImportBrowserSettings</string>
+					<string>ImportCookies</string>
+					<string>ImportExtensions</string>
 					<string>ImportFavorites</string>
 					<string>ImportHistory</string>
 					<string>ImportHomepage</string>
@@ -346,6 +355,7 @@
 					<string>ImportPaymentInfo</string>
 					<string>ImportSavedPasswords</string>
 					<string>ImportSearchEngine</string>
+					<string>ImportShortcuts</string>
 					<string>IncognitoEnabled</string>
 					<string>InPrivateModeAvailability</string>
 					<string>IsolateOrigins</string>
@@ -374,6 +384,7 @@
 					<string>RunAllFlashInAllowMode</string>
 					<string>SSLErrorOverrideAllowed</string>
 					<string>SSLVersionMin</string>
+					<string>SaveCookiesOnExit</string>
 					<string>SafeSitesFilterBehavior</string>
 					<string>SavingBrowserHistoryDisabled</string>
 					<string>SearchSuggestEnabled</string>
@@ -390,6 +401,7 @@
 					<string>SyncDisabled</string>
 					<string>TLSCipherSuiteDenyList</string>
 					<string>SyncTypesListDisabled</string>
+					<string>TLS13HardeningForLocalAnchorsEnabled</string>
 					<string>TabFreezingEnabled</string>
 					<string>TaskManagerEndProcessEnabled</string>
 					<string>TotalMemoryLimitMb</string>
@@ -397,6 +409,7 @@
 					<string>TranslateEnabled</string>
 					<string>URLAllowlist</string>
 					<string>URLBlocklist</string>
+					<string>UserAgentClientHintsEnabled</string>
 					<string>UnsafelyTreatInsecureOriginAsSecure</string>
 					<string>UrlKeyedAnonymizedDataCollectionEnabled</string>
 					<string>UserDataDir</string>
@@ -483,6 +496,7 @@
 				<array>
 					<string>HomepageIsNewTabPage</string>
 					<string>HomepageLocation</string>
+					<string>NewTabPageAllowedBackgroundTypes</string>
 					<string>NewTabPageCompanyLogo</string>
 					<string>NewTabPageHideDefaultTopSites</string>
 					<string>NewTabPageLocation</string>
@@ -1482,7 +1496,7 @@ If you don't configure this policy, background mode is initially turned off, and
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
-			<string>Controls the whitelist of URL patterns that autoplay will always be enabled on.</string>
+			<string>Controls the allowlist of URL patterns that autoplay will always be enabled on.</string>
 			<key>pfm_description_reference</key>
 			<string>Controls the whitelist of URL patterns that autoplay will always be enabled on.
 
@@ -1509,7 +1523,7 @@ Note that if Google Chrome is running and this policy changes, it will be applie
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Allow media autoplay on a whitelist of URL patterns</string>
+			<string>Allow media autoplay on a allowlist of URL patterns</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict> -->
@@ -1536,6 +1550,8 @@ If you disable this setting the list of available templates will be downloaded o
 		<dict>
 			<key>pfm_app_min</key>
 			<string>83</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Block all ads on Bing search results.</string>
 			<key>pfm_description_reference</key>
@@ -2058,7 +2074,7 @@ ExtensionInstallBlacklist takes precedence over this policy. That is, an extensi
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if denied, without a way for the user to enable them. Once an extension is disabled due to the denylist being removed, it will automatically get re-enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
 
@@ -2088,7 +2104,7 @@ If this policy is left not set the user can install any extension in Google Chro
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions are not subject to the blacklist.</string>
+			<string>Allows you to specify which extensions are not subject to the denylist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions are not subject to the blacklist.
 
@@ -2100,6 +2116,8 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<!-- In Chrome this is ExtensionInstallWhitelist -->
 			<key>pfm_name</key>
 			<string>ExtensionInstallAllowlist</string>
+			<key>pfm_note</key>
+			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2110,7 +2128,7 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension IDs to exempt from the blacklist</string>
+			<string>Extension ID Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2342,7 +2360,7 @@ For a full description of possible settings and structure of this policy please 
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>This setting whitelists the allowed types of extension/apps that can be installed in Google Chrome.</string>
+							<string>This setting sets the allowed types of extension/apps that can be installed in Google Chrome.</string>
 							<key>pfm_description_reference</key>
 							<string></string>
 							<key>pfm_name</key>
@@ -2530,7 +2548,7 @@ If you leave this policy not set Google Chrome will not delegate user credential
 			<key>pfm_name</key>
 			<string>AuthNegotiateDelegateAllowlist</string>
 			<key>pfm_title</key>
-			<string>Kerberos delegation server whitelist</string>
+			<string>Kerberos delegation server allowlist</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -2562,7 +2580,7 @@ If this policy is left not set, all four schemes will be used.</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Microsoft Edge receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
+			<string>Specifies which servers should be allowed for integrated authentication. Integrated authentication is only enabled when Microsoft Edge receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies which servers should be whitelisted for integrated authentication. Integrated authentication is only enabled when Google Chrome receives an authentication challenge from a proxy or from a server which is in this permitted list.
 
@@ -2575,7 +2593,7 @@ If you leave this policy not set Google Chrome will try to detect if a server is
 			<key>pfm_name</key>
 			<string>AuthServerAllowlist</string>
 			<key>pfm_title</key>
-			<string>Authentication server whitelist</string>
+			<string>Authentication server allowlist</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -3062,7 +3080,7 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>boolean</string>
 		</dict> -->
 		<dict>
-			<key>pfm_deprecated</key>
+			<key>pfm_app_deprecated</key>
 			<string>82</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
@@ -3084,6 +3102,26 @@ This policy will be removed in Chrome 82.</string>
 			<string>AllowPopupsDuringPageUnload</string>
 			<key>pfm_title</key>
 			<string>Allow a page to show popups during its unloading</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>83</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enables or disables the built-in surf game. Game accessible via edge://surf.</string>
+			<key>pfm_description_reference</key>
+			<string>If you disable this policy, users won't be able to play the surf game when the device is offline or if the user navigates to edge://surf.
+
+If you enable or don't configure this policy, users can play the surf game.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#allowsurfgame</string>
+			<key>pfm_name</key>
+			<string>AllowSurfGame</string>
+			<key>pfm_title</key>
+			<string>Allow Surf Game</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -3239,10 +3277,10 @@ If you set this policy to false, or don't set it, AppCache will follow Microsoft
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string>en</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<string>en</string>
 			<key>pfm_description</key>
 			<string>Set application locale</string>
 			<key>pfm_description_reference</key>
@@ -3797,6 +3835,68 @@ If you disable or don't configure this policy, users can configure the Clear bro
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>83</string>
+			<key>pfm_description</key>
+			<string>Clear cached images and files when Microsoft Edge closes.</string>
+			<key>pfm_description_reference</key>
+			<string>Microsoft Edge doesn't clear cached images and files by default when it closes.
+
+If you enable this policy, cached images and files will be deleted each time Microsoft Edge closes.
+
+If you disable this policy, users cannot configure the cached images and files option in edge://settings/clearBrowsingDataOnClose.
+
+If you don't configure this policy, users can choose whether cached images and files are cleared on exit.
+
+If you disable this policy, don't enable the ClearBrowsingDataOnExit policy, because they both deal with deleting data. If you configure both, the ClearBrowsingDataOnExit policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured ClearCachedImagesAndFilesOnExit.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#clearcachedimagesandfilesonexit</string>
+			<key>pfm_name</key>
+			<string>ClearCachedImagesAndFilesOnExit</string>
+			<key>pfm_note</key>
+			<string>If you disable this policy, don't enable the ClearBrowsingDataOnExit policy, because they both deal with deleting data. If you configure both, the ClearBrowsingDataOnExit policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured ClearCachedImagesAndFilesOnExit.</string>
+			<key>pfm_title</key>
+			<string>Clear cached images and files when Edge quits</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Block user access to a specified list of services and export targets in Collections. This includes displaying additional data from Bing and exporting collections to Microsoft products or external partners.</string>
+			<key>pfm_description_reference</key>
+			<string>List specific services and export targets that users can't access in the Collections feature in Microsoft Edge. This includes displaying additional data from Bing and exporting collections to Microsoft products or external partners.
+
+If you enable this policy, services and export targets that match the given list are blocked.
+
+If you don't configure this policy, no restrictions on the acceptable services and export targets are enforced.
+
+Policy options mapping:
+
+pinterest_suggestions (pinterest_suggestions) = Pinterest suggestions
+Use the preceding information when configuring this policy.</string>
+			<key>pfm_documentation_url</key>
+		 	<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#collectionsservicesandexportsblocklist</string>
+			<key>pfm_name</key>
+			<string>CollectionsServicesAndExportsBlockList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Blocklist Item</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>pinterest_suggestions</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Services and Export Collection Blocklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
 		<!-- <dict>
 			<key>pfm_app_min</key>
 			<string>72</string>
@@ -4011,6 +4111,30 @@ If this setting is not set, Google Chrome will allow the user to control whether
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Allow default search provider context menu search access</string>
+			<key>pfm_description_reference</key>
+			<string>Enables the use of a default search provider on the context menu.
+
+If you set this policy to disabled the search context menu item that relies on your default search provider and sidebar search will not be available.
+
+If this policy is set to enabled or not set, the context menu item for your default search provider and sidebar search will be available.
+
+The policy value is only appled when the DefaultSearchProviderEnabled policy is enabled, and is not applicable otherwise.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#defaultsearchprovidercontextmenuaccessallowed</string>
+			<key>pfm_name</key>
+			<string>DefaultSearchProviderContextMenuAccessAllowed</string>
+			<key>pfm_title</key>
+			<string>Allow Default Search Provider on Context Menu</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 		<!-- <dict>
 			<key>pfm_app_min</key>
 			<string>64</string>
@@ -4069,6 +4193,60 @@ If this policy is set to 'DeveloperToolsDisallowed' (value 2), the Developer Too
 			</array>
 			<key>pfm_title</key>
 			<string>Control where Developer Tools can be used</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Send required and optional diagnostic data about browser usage. 'RequiredData' sends required diagnostic data but turns off optional diagnostic data collection. Microsoft Edge will send required diagnostic data to keep Microsoft Edge secure, up to date and performing as expected. 'OptionalData' sends optional diagnostic data includes data about browser usage, websites that are visited, crash reports sent to Microsoft for product and service improvement.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls sending required and optional diagnostic data about browser usage to Microsoft.
+
+Required diagnostic data is collected keep Microsoft Edge secure, up to date and performing as expected.
+
+Optional diagnostic data includes data about how you use the browser, websites you visit and crash reports to Microsoft for product and service improvement.
+
+This policy is not supported on Windows 10 devices. To control this data collection on Windows 10, IT admins must use the Windows diagnostic data group policy. This policy will either be 'Allow Telemetry' or 'Allow Diagnostic Data', depending on the version of Windows. Learn more about Windows 10 diagnostic data collection: https://go.microsoft.com/fwlink/?linkid=2099569
+
+Use one of the following settings to configure this policy:
+
+'Off' turns off required and optional diagnostic data collection. This option is not recommended.
+
+'RequiredData' sends required diagnostic data but turns off optional diagnostic data collection. Microsoft Edge will send required diagnostic data to keep Microsoft Edge secure, up to date and performing as expected.
+
+'OptionalData' sends optional diagnostic data includes data about browser usage, websites that are visited, crash reports sent to Microsoft for product and service improvement.
+
+On Windows 7/macOS, this policy controls sending required and optional data to Microsoft.
+
+If you don't configure this policy or disable it, Microsoft Edge will default to the user's preference.
+
+Policy options mapping:
+
+Off (0) = Off (Not recommended)
+RequiredData (1) = Required data
+OptionalData (2) = Optional data
+
+Use the preceding information when configuring this policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#diagnosticdata</string>
+			<key>pfm_name</key>
+			<string>DiagnosticData</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Off (not recommended)</string>
+				<string>Required data</string>
+				<string>Optional data</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Send Edge Browser Diagnostic Data</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
@@ -4487,6 +4665,32 @@ If the policy is not set, or is set to false, then Google Chrome will not perfor
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>92</string>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow certificates signed using SHA-1 when issued by local trust anchors (deprecated).</string>
+			<key>pfm_description_reference</key>
+			<string>When this setting is enabled, Microsoft Edge allows connections secured by SHA-1 signed certificates so long as the the certificate chains to a locally-installed root certificate and is otherwise valid.
+
+Note that this policy depends on the operating system (OS) certificate verification stack allowing SHA-1 signatures. If an OS update changes the OS handling of SHA-1 certificates, this policy might no longer have effect. Further, this policy is intended as a temporary workaround to give enterprises more time to move away from SHA-1. This policy will be removed in Microsoft Edge 92 releasing in mid 2021.
+
+If you don't set this policy or set it to false, or the SHA-1 certificate chains to a publicly trusted certificate root, then Microsoft Edge won't allow certificates signed by SHA-1.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management, or macOS instances that are that are managed via MDM or joined to a domain via MCX.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#enablesha1forlocalanchors</string>
+			<key>pfm_name</key>
+			<string>EnableSha1ForLocalAnchors</string>
+			<key>pfm_title</key>
+			<string>Enable SHA-1 for Local Anchors</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 		<!-- <dict>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
@@ -4682,6 +4886,28 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 			<string>Force Bing SafeSearch</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Configure whether Microsoft Edge should automatically select a certificate when there are multiple certificate matches for a site configured with "AutoSelectCertificateForUrls" (https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#autoselectcertificateforurls).</string>
+			<key>pfm_description_reference</key>
+			<string>Toggles whether users are prompted to select a certificate if there are multiple certificates available and a site is configured with AutoSelectCertificateForUrls. If you don't configure AutoSelectCertificateForUrls for a site, the user will always be prompted to select a certificate.
+
+If you set this policy to True, Microsoft Edge will prompt a user to select a certificate for sites on the list defined in AutoSelectCertificateForUrls if and only if there is more than one certificate.
+
+If you set this policy to False or don't configure it, Microsoft Edge will automatically select a certificate even if there are multiple matches for a certificate. The user will not be prompted to select a certificate for sites on the list defined in AutoSelectCertificateForUrls.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#tls13hardeningforlocalanchorsenabled</string>
+			<key>pfm_name</key>
+			<string>ForceCertificatePromptsOnMultipleMatches</string>
+			<key>pfm_note</key>
+			<string>If you set this policy to False or don't configure it, Microsoft Edge will automatically select a certificate even if there are multiple matches for a certificate.</string>
+			<key>pfm_title</key>
+			<string>Force Certificate Prompt on Multiple Matches</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -4895,7 +5121,7 @@ Popular, single-word search terms will require manual selection of search sugges
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is blacklisted.</string>
+			<string>If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is on the denylist.</string>
 			<key>pfm_description_reference</key>
 			<string>If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is blacklisted.
 
@@ -5017,6 +5243,60 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of cookies.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import Cookies from another browser into Microsoft Edge.
+
+If you disable this policy, Cookies aren't imported on first run.
+
+If you don't configure this policy, Cookies are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Cookies on first run.
+
+Note: This policy currently manages importing Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importcookies</string>
+			<key>pfm_name</key>
+			<string>ImportCookies</string>
+			<key>pfm_note</key>
+			<string>This policy currently only supports importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Allow importing of cookies</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of extensions.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import extensions from another browser into Microsoft Edge.
+
+If you enable this policy, the Extensions check box is automatically selected in the Import browser data dialog box.
+
+If you disable this policy, extensions aren't imported at first run, and users can't import them manually.
+
+If you don't configure this policy, extensions are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports extensions on first run, but users can select or clear the favorites option during manual import.
+
+Note: This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importextensions</string>
+			<key>pfm_name</key>
+			<string>ImportExtensions</string>
+			<key>pfm_note</key>
+			<string>This policy currently only supports importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Allow importing of extensions</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_default</key>
 			<true/>
@@ -5098,7 +5378,7 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 			<key>pfm_name</key>
 			<string>ImportOpenTabs</string>
 			<key>pfm_note</key>
-			<string>This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS)</string>
+			<string>This policy currently only supports importing from Google Chrome</string>
 			<key>pfm_title</key>
 			<string>Allow importing of open tabs</string>
 			<key>pfm_type</key>
@@ -5165,6 +5445,32 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<string>ImportSearchEngine</string>
 			<key>pfm_title</key>
 			<string>Import search engines from default browser on first run</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Allow importing of shortcuts.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows users to import Shortcuts from another browser into Microsoft Edge.
+
+If you disable this policy, Shortcuts aren't imported on first run.
+
+If you don't configure this policy, Shortcuts are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Shortcuts on first run.
+
+Note: This policy currently manages importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importshortcuts</string>
+			<key>pfm_name</key>
+			<string>ImportShortcuts</string>
+			<key>pfm_note</key>
+			<string>This policy currently manages importing from Google Chrome</string>
+			<key>pfm_title</key>
+			<string>Import shortcuts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -5311,7 +5617,7 @@ These bookmarks are placed in a folder that can't be modified by the user (but t
 Managed bookmarks are not synced to the user account and can't be modified by extensions.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#managedfavorites</string>
-			<!-- In Chromem this is ManagedBookmarks -->
+			<!-- In Chrome this is ManagedBookmarks -->
 			<key>pfm_name</key>
 			<string>ManagedFavorites</string>
 			<key>pfm_title</key>
@@ -5319,27 +5625,24 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
 					<key>pfm_description</key>
 					<string></string>
-					<key>pfm_name</key>
-					<string>ManagedBookmark</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>Name of the bookmark.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
+							<string>Name of the favorite.</string>
 							<key>pfm_name</key>
 							<string>name</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
+							
 							<key>pfm_description</key>
-							<string>URL for the bookmark.</string>
-							<key>pfm_description_reference</key>
-							<string></string>
+							<string>URL for the favorite.</string>
 							<key>pfm_name</key>
 							<string>url</string>
 							<key>pfm_type</key>
@@ -5396,6 +5699,18 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 					</array>
 					<key>pfm_title</key>
 					<string></string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>77</string>
+					<key>pfm_description</key>
+					<string>The top-level managed favorites folder name.</string>
+					<key>pfm_name</key>
+					<string>toplevel_name</string>
+					<key>pfm_title</key>
+					<string>Managed Favorites Folder Name</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -5591,6 +5906,8 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>89</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
@@ -6187,6 +6504,46 @@ Otherwise it may be set to one of the following values: "tls1", "tls1.1" or "tls
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Save cookies when Microsoft Edge closes. When this policy is enabled, the specified set of cookies is exempt from deletion when the browser closes.</string>
+			<key>pfm_description_reference</key>
+			<string>When this policy is enabled, the specified set of cookies is exempt from deletion when the browser closes. This policy is only effective when:
+
+The 'Cookies and other site data' toggle is configured in Settings/Privacy and services/Clear browsing data on close or
+The policy ClearBrowsingDataOnExit is enabled or
+The policy DefaultCookiesSetting is set to 'Keep cookies for the duration of the session'.
+You can define a list of sites, based on URL patterns, that will have their cookies preserved across sessions.
+
+Note: Users can still edit the cookie site list to add or remove URLs. However, they can't remove URLs that have been added by an Admin.
+
+If you enable this policy, the list of cookies won't be cleared when the browser closes.
+
+If you disable or don't configure this policy, the user's personal configuration is used.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#savecookiesonexit</string>
+			<key>pfm_name</key>
+			<string>SaveCookiesOnExit</string>
+			<key>pfm_note</key>
+			<string>This policy is only effective when the policy ClearBrowsingDataOnExit is enabled OR the policy DefaultCookiesSetting is set to 'Keep cookies for the duration of the session'.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>URL</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>[*.]example.come</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Save Cookies on Exit</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
 		<!-- <dict>
 			<key>pfm_app_min</key>
 			<string>69</string>
@@ -6293,6 +6650,8 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>89</string>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
@@ -6548,6 +6907,32 @@ Users will not be able to override the disabled data types.</string>
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
+			<key>pfm_app_min</key>
+			<string>81</string>
+			<key>pfm_description</key>
+			<string>Enable a TLS 1.3 security feature for local trust anchors</string>
+			<key>pfm_description_reference</key>
+			<string>This policy doesn't work because it was only intended to be a short-term mechanism to give enterprises more time to upgrade affected proxies.
+
+This policy controls a security feature in TLS 1.3 that protects connections against downgrade attacks. It is backwards-compatible and will not affect connections to compliant TLS 1.2 servers or proxies. However, older versions of some TLS-intercepting proxies have an implementation flaw which causes them to be incompatible.
+
+If you enable this policy or don't set it, Microsoft Edge will enable these security protections for all connections.
+
+If you disable this policy, Microsoft Edge will disable these security protections for connections authenticated with locally-installed CA certificates. These protections are always enabled for connections authenticated with publicly-trusted CA certificates.
+
+This policy can be used to test for any affected proxies and upgrade them. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#tls13hardeningforlocalanchorsenabled</string>
+			<key>pfm_name</key>
+			<string>TLS13HardeningForLocalAnchorsEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable TLS 1.3 Hardening</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>85</string>
 			<key>pfm_description</key>
@@ -6757,10 +7142,36 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>89</string>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable the User-Agent Client Hints feature.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy is deprecated because it's only intended to be a short-term mechanism to give enterprises more time to update their web content if and when it's found to be incompatible with the User-Agent Client Hints feature. It won't work in Microsoft Edge version 89.
+
+When enabled the User-Agent Client Hints feature sends granular request headers that provide information about the user browser (for example, the browser version) and environment (for example, the system architecture).
+
+This is an additive feature, but the new headers may break some websites that restrict the characters that requests may contain.
+
+If you enable or don't configure this policy, the User-Agent Client Hints feature is enabled. If you disable this policy, this feature is unavailable.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#useragentclienthintsenabled</string>
+			<key>pfm_name</key>
+			<string>UserAgentClientHintsEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable User-Agent Client Hints</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allow access to the listed URLs, as exceptions to the URL block list. Format the URL pattern according to https://go.microsoft.com/fwlink/?linkid=2095322.</string>
+			<string>Allow access to the listed URLs, as exceptions to the URL denylist. Format the URL pattern according to https://go.microsoft.com/fwlink/?linkid=2095322.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows access to the listed URLs, as exceptions to the URL blacklist.
 
@@ -7205,7 +7616,7 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts that should not be loaded. A blacklist value of '*' means all native messaging hosts are blacklisted unless they are explicitly listed in the whitelist.</string>
+			<string>Allows you to specify which native messaging hosts that should not be loaded. A denylist value of '*' means all native messaging hosts are on the denylist unless they are explicitly listed in the allowlist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts that should not be loaded.
 
@@ -7257,7 +7668,7 @@ If this setting is left not set Google Chrome will allow usage of user-level Nat
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts are not subject to the blacklist. A blacklist value of * means all native messaging hosts are blacklisted and only native messaging hosts listed in the whitelist will be loaded.</string>
+			<string>Allows you to specify which native messaging hosts are not subject to the denylist. A denylist value of * means all native messaging hosts are on the denylist and only native messaging hosts listed in the allowlist will be loaded.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts are not subject to the blacklist.
 
@@ -7279,7 +7690,7 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Names of the native messaging hosts to exempt from the blacklist</string>
+			<string>Native Messaging Host Denylist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -8272,7 +8683,7 @@ Allows you to control the triggering of passwore protection warning. Password pr
 You can use 'PasswordProtectionLoginURLs' and 'PasswordProtectionChangePasswordURL' policies to configure which password to protect.
 
 If this policy is set to 'PasswordProtectionWarningOff', no password protection warning will be shown.
-If this policy is set to 'PasswordProtectionWarningOnPasswordReuse', password protection warning will be shown when the user reuses their protected password on a non-whitelisted site.
+If this policy is set to 'PasswordProtectionWarningOnPasswordReuse', password protection warning will be shown when the user reuses their protected password on a non-allowlist site.
 If this policy is set to 'PasswordProtectionWarningOnPhishingReuse', password protection warning will be shown when the user reuses their protected password on a phishing site.
 If this policy is left unset, password protection service will only protect Google passwords but the user will be able to change this setting.</string>
 			<key>pfm_documentation_url</key>
@@ -8464,6 +8875,48 @@ to a Microsoft® Active Directory® domain.</string>
 			<string>Home page URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>85</string>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>Configures the background types allowed for the new tab page layout.</string>
+			<key>pfm_description_reference</key>
+			<string>You can configure which types of background image that are allowed on the new tab page layout in Microsoft Edge.
+
+If you don't configure this policy, all background image types on the new tab page are enabled.
+				
+Policy options mapping:
+				
+DisableImageOfTheDay (1) = Disable daily background image type
+DisableCustomImage (2) = Disable custom background image type			
+DisableAll (3) = Disable all background image types
+				
+Use the preceding information when configuring this policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpageallowedbackgroundtypes</string>
+			<key>pfm_name</key>
+			<string>NewTabPageAllowedBackgroundTypes</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Enable all background images</string>
+				<string>Disable daily background image</string>
+				<string>Disable custom background image</string>
+				<string>Disable all background images</string>
+			</array>
+			<key>pfm_title</key>
+			<string>New Tab Page Allowed Background Types</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_deprecated</key>
@@ -8902,6 +9355,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>7</integer>
+	<integer>9</integer>
 </dict>
 </plist>
