@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-11-21T16:32:38Z</date>
+	<date>2020-11-21T22:14:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -221,7 +221,9 @@
 					<string>BlockExternalExtensions</string>
 					<string>ExtensionAllowInsecureUpdates</string>
 					<string>ExtensionAllowedTypes</string>
+					<string>ExtensionInstallAllowlist</string>
 					<string>ExtensionInstallBlacklist</string>
+					<string>ExtensionInstallBlocklist</string>
 					<string>ExtensionInstallForcelist</string>
 					<string>ExtensionInstallSources</string>
 					<string>ExtensionInstallWhitelist</string>
@@ -235,9 +237,11 @@
 				<key>HTTP Authentication</key>
 				<array>
 					<string>AllowCrossOriginAuthPrompt</string>
+					<string>AuthNegotiateDelegateAllowlist</string>
 					<string>AuthNegotiateDelegateByKdcPolicy</string>
 					<string>AuthNegotiateDelegateWhitelist</string>
 					<string>AuthSchemes</string>
+					<string>AuthServerAllowlist</string>
 					<string>AuthServerWhitelist</string>
 					<string>DisableAuthNegotiateCnameLookup</string>
 					<string>EnableAuthNegotiatePort</string>
@@ -283,6 +287,7 @@
 					<string>AutofillAddressEnabled</string>
 					<string>AutofillCreditCardEnabled</string>
 					<string>AutoplayAllowed</string>
+					<string>AutoplayAllowlist</string>
 					<string>AutoplayWhitelist</string>
 					<string>BlockThirdPartyCookies</string>
 					<string>BookmarkBarEnabled</string>
@@ -399,7 +404,9 @@
 					<string>TaskManagerEndProcessEnabled</string>
 					<string>TotalMemoryLimitMb</string>
 					<string>TranslateEnabled</string>
+					<string>URLAllowlist</string>
 					<string>URLBlacklist</string>
+					<string>URLBlocklist</string>
 					<string>URLWhitelist</string>
 					<string>UnsafelyTreatInsecureOriginAsSecure</string>
 					<string>UrlKeyedAnonymizedDataCollectionEnabled</string>
@@ -420,7 +427,9 @@
 				</array>
 				<key>Native Messaging</key>
 				<array>
+					<string>NativeMessagingAllowlist</string>
 					<string>NativeMessagingBlacklist</string>
+					<string>NativeMessagingBlocklist</string>
 					<string>NativeMessagingUserLevelHosts</string>
 					<string>NativeMessagingWhitelist</string>
 				</array>
@@ -475,6 +484,7 @@
 					<string>PasswordProtectionChangePasswordURL</string>
 					<string>PasswordProtectionLoginURLs</string>
 					<string>PasswordProtectionWarningTrigger</string>
+					<string>SafeBrowsingAllowlistDomains</string>
 					<string>SafeBrowsingEnabled</string>
 					<string>SafeBrowsingExtendedReportingEnabled</string>
 					<string>SafeBrowsingExtendedReportingOptInAllowed</string>
@@ -1559,8 +1569,8 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<string>Allows you to control if videos can play automatically (without user consent) with audio content in Brave Browser.
 
 If the policy is set to True, Brave Browser is allowed to autoplay media.
-If the policy is set to False, Brave Browser is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
-By default, Brave Browser is not allowed to autoplay media. The AutoplayWhitelist policy can be used to override this for certain URL patterns.
+If the policy is set to False, Brave Browser is not allowed to autoplay media. The AutoplayAllowlist policy can be used to override this for certain URL patterns.
+By default, Brave Browser is not allowed to autoplay media. The AutoplayAllowlist policy can be used to override this for certain URL patterns.
 
 Note that if Brave Browser is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
 			<key>pfm_documentation_url</key>
@@ -1573,6 +1583,8 @@ Note that if Brave Browser is running and this policy changes, it will be applie
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>66</string>
 			<key>pfm_description</key>
@@ -1593,6 +1605,8 @@ Note that if Brave Browser is running and this policy changes, it will be applie
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoplayWhitelist</string>
 			<key>pfm_name</key>
 			<string>AutoplayWhitelist</string>
+			<key>pfm_note</key>
+			<string>Use AutoplayAllowlist instead.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -1604,6 +1618,41 @@ Note that if Brave Browser is running and this policy changes, it will be applie
 			</array>
 			<key>pfm_title</key>
 			<string>Allow media autoplay on a whitelist of URL patterns</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Controls the allow list of URL patterns that autoplay will always be enabled on.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls the allow list of URL patterns that autoplay will always be enabled on.
+
+If autoplay is enabled then videos can play automatically (without user consent) with audio content in Brave Browser.
+
+A URL pattern has to be formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.
+
+If the AutoplayAllowed policy is set to True then this policy will have no effect.
+
+If the AutoplayAllowed policy is set to False then any URL patterns set in this policy will still be allowed to play.
+
+Note that if Brave Browser is running and this policy changes, it will be applied only to new opened tabs. Therefore some tabs might still observe the previous behavior.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoplayAllowlist</string>
+			<key>pfm_name</key>
+			<string>AutoplayAllowlist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>[*.]example.edu</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Allow media autoplay on an allow list of URL patterns</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -1983,7 +2032,7 @@ Starting in Chromium 21, it is more difficult to install extensions, apps, and u
 
 Each item in this list is an extension-style match pattern (see https://developer.chrome.com/extensions/match_patterns). Users will be able to easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (i.e. the referrer) must be allowed by these patterns.
 
-ExtensionInstallBlacklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
+ExtensionInstallBlocklist takes precedence over this policy. That is, an extension on the blacklist won't be installed, even if it happens from a site on this list.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallSources</string>
 			<key>pfm_name</key>
@@ -2003,10 +2052,12 @@ ExtensionInstallBlacklist takes precedence over this policy. That is, an extensi
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.</string>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if denied, without a way for the user to enable them. Once an extension is disabled due to the blacklist being removed, it will automatically get re-enabled. Enter * to deny all extensions.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
 
@@ -2017,6 +2068,8 @@ If this policy is left not set the user can install any extension in Brave Brows
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlacklist</string>
 			<key>pfm_name</key>
 			<string>ExtensionInstallBlacklist</string>
+			<key>pfm_note</key>
+			<string>Use ExtensionInstallBlocklist instead.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2027,11 +2080,42 @@ If this policy is left not set the user can install any extension in Brave Brows
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension IDs the user should be prevented from installing (or * for all)</string>
+			<string>Extension ID Blacklist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if denied, without a way for the user to enable them. Once an extension is disabled due to the blocklist being removed, it will automatically get re-enabled. Enter * to deny all extensions.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blacklisted, without a way for the user to enable them. Once an extension disabled due to the blacklist is removed from it, it will automatically get re-enabled.
+
+A blacklist value of '*' means all extensions are blacklisted unless they are explicitly listed in the whitelist.
+
+If this policy is left not set the user can install any extension in Brave Browser.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlocklist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallBlocklist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension ID Blocklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
@@ -2046,6 +2130,8 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallWhitelist</string>
 			<key>pfm_name</key>
 			<string>ExtensionInstallWhitelist</string>
+			<key>pfm_note</key>
+			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2056,7 +2142,38 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension IDs to exempt from the blacklist</string>
+			<string>Extension ID Whitelist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which extensions are not subject to the blocklist.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which extensions are not subject to the blocklist.
+
+A blacklist value of * means all extensions are blacklisted and users can only install extensions listed in the allow list.
+
+By default, all extensions are allowed. But, if you prohibited extensions by policy, use the list of allowed extensions to change that policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallAllowlist</string>
+			<key>pfm_name</key>
+			<string>ExtensionInstallAllowlist</string>
+			<key>pfm_note</key>
+			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allow list can be used to override that policy.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>extension_id</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Extension ID Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -2492,9 +2609,9 @@ Typically this is disabled as a phishing defense. If this policy is not set, thi
 			<key>pfm_description_reference</key>
 			<string>Controls whether approval by KDC policy is respected to decide whether to delegate Kerberos tickets.
 
-If this policy is true, HTTP authentication respects approval by KDC policy, i.e. Brave Browser only delegates credentials if the KDC sets OK-AS-DELEGATE on a service ticket. Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateWhitelist' policy.
+If this policy is true, HTTP authentication respects approval by KDC policy, i.e. Brave Browser only delegates credentials if the KDC sets OK-AS-DELEGATE on a service ticket. Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateAllowlist' policy.
 
-If this policy is not set or set to false, KDC policy is ignored on supported platforms and 'AuthNegotiateDelegateWhitelist' policy only is respected.
+If this policy is not set or set to false, KDC policy is ignored on supported platforms and 'AuthNegotiateDelegateAllowlist' policy only is respected.
 
 On Windows KDC policy is always respected.</string>
 			<key>pfm_documentation_url</key>
@@ -2502,13 +2619,15 @@ On Windows KDC policy is always respected.</string>
 			<key>pfm_name</key>
 			<string>AuthNegotiateDelegateByKdcPolicy</string>
 			<key>pfm_note</key>
-			<string>Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateWhitelist' policy.</string>
+			<string>Please see https://tools.ietf.org/html/rfc5896.html for more information. Service should also match 'AuthNegotiateDelegateAllowlist' policy.</string>
 			<key>pfm_title</key>
 			<string>Kerberos delegation KDC policy</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>9</string>
 			<key>pfm_description</key>
@@ -2523,8 +2642,34 @@ If you leave this policy not set Brave Browser will not delegate user credential
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthNegotiateDelegateWhitelist</string>
 			<key>pfm_name</key>
 			<string>AuthNegotiateDelegateWhitelist</string>
+			<key>pfm_note</key>
+			<string>Use AuthNegotiateDelegateAllowlist instead.</string>
 			<key>pfm_title</key>
 			<string>Kerberos delegation server whitelist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>foobar.example.com</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Servers that Brave Browser may delegate to.</string>
+			<key>pfm_description_reference</key>
+			<string>Servers that Brave Browser may delegate to.
+
+Separate multiple server names with commas. Wildcards (*) are allowed.
+
+If you leave this policy not set Brave Browser will not delegate user credentials even if a server is detected as Intranet.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthNegotiateDelegateAllowlist</string>
+			<key>pfm_name</key>
+			<string>AuthNegotiateDelegateAllowlist</string>
+			<key>pfm_note</key>
+			<string>Use AuthNegotiateDelegateAllowlist instead.</string>
+			<key>pfm_title</key>
+			<string>Kerberos delegation server allowlist</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -2553,6 +2698,8 @@ If this policy is left not set, all four schemes will be used.</string>
 			<string>basic,digest,ntlm,negotiate</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>9</string>
 			<key>pfm_description</key>
@@ -2567,8 +2714,32 @@ If you leave this policy not set Brave Browser will try to detect if a server is
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerWhitelist</string>
 			<key>pfm_name</key>
 			<string>AuthServerWhitelist</string>
+			<key>pfm_note</key>
+			<string>Use AuthServerAllowlist instead.</string>
 			<key>pfm_title</key>
 			<string>Authentication server whitelist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>*example.com,foobar.com,*baz</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Specifies which servers should be allowed for integrated authentication. Integrated authentication is only enabled when Brave Browser receives an authentication challenge from a proxy or from a server which is in this permitted list.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies which servers should be allowed for integrated authentication. Integrated authentication is only enabled when Brave Browser receives an authentication challenge from a proxy or from a server which is in this permitted list.
+
+Separate multiple server names with commas. Wildcards (*) are allowed.
+
+If you leave this policy not set Brave Browser will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Brave Browser.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerAllowlist</string>
+			<key>pfm_name</key>
+			<string>AuthServerAllowlist</string>
+			<key>pfm_title</key>
+			<string>Authentication server allowlist</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -3129,12 +3300,12 @@ If this setting is not set, users will be asked for permission to run outdated p
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>74</string>
 			<key>pfm_default</key>
 			<false/>
-			<key>pfm_app_deprecated</key>
-			<string>88</string>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may show popups during its unloading.</string>
 			<key>pfm_description_reference</key>
@@ -3155,12 +3326,12 @@ This policy will be removed in Chromium 88.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>78</string>
 			<key>pfm_default</key>
 			<false/>
-			<key>pfm_app_deprecated</key>
-			<string>88</string>
 			<key>pfm_description</key>
 			<string>This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.</string>
 			<key>pfm_description_reference</key>
@@ -3462,7 +3633,7 @@ However, origin matching patterns for this policy cannot contain "/path" or "@qu
 							<key>pfm_name</key>
 							<string>allowed_origins</string>
 							<key>pfm_note</key>
-							<string>The origin matching patterns use a similar format to those for the 'URLBlacklist' policy, which are documented at http://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+							<string>The origin matching patterns use a similar format to those for the 'URLBlocklist' policy, which are documented at http://www.chromium.org/administrators/url-blacklist-filter-format.</string>
 							<key>pfm_title</key>
 							<string>Allowed Origins</string>
 							<key>pfm_type</key>
@@ -4426,7 +4597,7 @@ If this policy is left not set any plugin that matches the patterns in the 'Disa
 			<key>pfm_app_min</key>
 			<string>12</string>
 			<key>pfm_description</key>
-			<string>This policy is deprecated, please use URLBlacklist instead.
+			<string>This policy is deprecated, please use URLBlocklist instead.
 
 Disables the listed protocol schemes in Brave Browser.</string>
 			<key>pfm_description_reference</key>
@@ -4660,6 +4831,8 @@ If you disable this setting, bookmarks can not be added, removed or modified. Ex
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>37</string>
 			<key>pfm_description</key>
@@ -6676,10 +6849,12 @@ If this setting is left not set the user can decide to use this function or not.
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>15</string>
 			<key>pfm_description</key>
-			<string>This policy prevents the user from loading web pages from blacklisted URLs. The blacklist provides a list of URL patterns that specify which URLs will be blacklisted. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<string>This policy prevents the user from loading web pages from blacklisted URLs. The denylist provides a list of URL patterns that specify which URLs will be denied. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy prevents the user from loading web pages from blacklisted URLs. The blacklist provides a list of URL patterns that specify which URLs will be blacklisted.
 
@@ -6694,6 +6869,8 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=URLBlacklist</string>
 			<key>pfm_name</key>
 			<string>URLBlacklist</string>
+			<key>pfm_note</key>
+			<string>Use URLBlocklist instead.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -6704,7 +6881,7 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Block access to a list of URLs</string>
+			<string>URL Blacklist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -6712,7 +6889,42 @@ If this policy is not set no URL will be blacklisted in the browser.</string>
 			<key>pfm_app_min</key>
 			<string>15</string>
 			<key>pfm_description</key>
-			<string>Allows access to the listed URLs, as exceptions to the URL blacklist. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<string>This policy prevents the user from loading web pages from blocked URLs. The blocklist provides a list of URL patterns that specify which URLs will be denied. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy prevents the user from loading web pages from blacklisted URLs. The blacklist provides a list of URL patterns that specify which URLs will be blacklisted.
+
+A URL pattern has to be formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.
+
+Exceptions can be defined in the URL whitelist policy. These policies are limited to 1000 entries; subsequent entries will be ignored.
+
+Note that it is not recommended to block internal 'chrome://*' URLs since this may lead to unexpected errors.
+
+If this policy is not set no URL will be blacklisted in the browser.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=URLBlocklist</string>
+			<key>pfm_name</key>
+			<string>URLBlocklist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>example.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>URL Blocklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
+			<key>pfm_app_min</key>
+			<string>15</string>
+			<key>pfm_description</key>
+			<string>Allows access to the listed URLs, as exceptions to the URL denylist. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows access to the listed URLs, as exceptions to the URL blacklist.
 
@@ -6729,6 +6941,45 @@ If this policy is not set there will be no exceptions to the blacklist from the 
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=URLWhitelist</string>
 			<key>pfm_name</key>
 			<string>URLWhitelist</string>
+			<key>pfm_note</key>
+			<string>Use URLAllowlist instead.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>example.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Allow access to a list of URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows access to the listed URLs, as exceptions to the URL block list. A URL pattern is formatted according to https://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows access to the listed URLs, as exceptions to the URL block list.
+
+See the description of the URL block list policy for the format of entries of this list.
+
+This policy can be used to open exceptions to restrictive block list. For example, '*' can be blacklisted to block all requests, and this policy can be used to allow access to a limited list of URLs. It can be used to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+
+The most specific filter will determine if a URL is blocked or allowed. The allow list takes precedence over the block list.
+
+This policy is limited to 1000 entries; subsequent entries will be ignored.
+
+If this policy is not set there will be no exceptions to the blacklist from the 'URLBlacklist' policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=URLAllowlist</string>
+			<key>pfm_name</key>
+			<string>URLAllowlist</string>
+			<key>pfm_note</key>
+			<string>This policy is limited to 1,000 entries.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -7170,10 +7421,12 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<string>port range (ex. 10000-11999)</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>34</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts that should not be loaded. A blacklist value of '*' means all native messaging hosts are blacklisted unless they are explicitly listed in the whitelist.</string>
+			<string>Allows you to specify which native messaging hosts that should not be loaded. A blacklist value of '*' means all native messaging hosts are denied unless they are explicitly listed in the allowlist.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts that should not be loaded.
 
@@ -7184,6 +7437,8 @@ If this policy is left not set Brave Browser will load all installed native mess
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingBlacklist</string>
 			<key>pfm_name</key>
 			<string>NativeMessagingBlacklist</string>
+			<key>pfm_note</key>
+			<string>Use NativeMessagingBlocklist instead.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -7194,7 +7449,36 @@ If this policy is left not set Brave Browser will load all installed native mess
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Names of the forbidden native messaging hosts (or * for all)</string>
+			<string>Native Messaging Host Blacklist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which native messaging hosts that should not be loaded. A block list value of '*' means all native messaging hosts are denied unless they are explicitly listed in the allow list.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which native messaging hosts that should not be loaded.
+
+A blopck list value of '*' means all native messaging hosts are blocked unless they are explicitly listed in the allow list.
+
+If this policy is left not set Brave Browser will load all installed native messaging hosts.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingBlocklist</string>
+			<key>pfm_name</key>
+			<string>NativeMessagingBlocklist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.native.messaging.host.name1</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Native Messaging Host Blocklist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -7221,10 +7505,12 @@ If this setting is left not set Brave Browser will allow usage of user-level Nat
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>34</string>
 			<key>pfm_description</key>
-			<string>Allows you to specify which native messaging hosts are not subject to the blacklist. A blacklist value of * means all native messaging hosts are blacklisted and only native messaging hosts listed in the whitelist will be loaded.</string>
+			<string>Allows you to specify which native messaging hosts are not subject to the blacklist. A blacklist value of * means all native messaging hosts are denied and only native messaging hosts listed in the whitelist will be loaded.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify which native messaging hosts are not subject to the blacklist.
 
@@ -7235,6 +7521,8 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingWhitelist</string>
 			<key>pfm_name</key>
 			<string>NativeMessagingWhitelist</string>
+			<key>pfm_note</key>
+			<string>Use NativeMessagingAllowlist instead.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -7245,7 +7533,36 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Names of the native messaging hosts to exempt from the blacklist</string>
+			<string>Native Messaging Host Whitelist</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Allows you to specify which native messaging hosts are not subject to the block list. A block list value of * means all native messaging hosts are denied and only native messaging hosts listed in the allow list will be loaded.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to specify which native messaging hosts are not subject to the blacklist.
+
+A block list value of * means all native messaging hosts are blocked and only native messaging hosts listed in the allow list will be loaded.
+
+By default, all native messaging hosts are allowed, but if all native messaging hosts have been blocked by policy, the allow list can be used to override that policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NativeMessagingAllowlist</string>
+			<key>pfm_name</key>
+			<string>NativeMessagingAllowlist</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.native.messaging.host.name1</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Native Messaging Host Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -8652,6 +8969,8 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>86</string>
 			<key>pfm_app_min</key>
 			<string>68</string>
 			<key>pfm_description</key>
@@ -8672,6 +8991,43 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SafeBrowsingWhitelistDomains</string>
 			<key>pfm_name</key>
 			<string>SafeBrowsingWhitelistDomains</string>
+			<key>pfm_note</key>
+			<string>Use SafeBrowsingAllowlistDomains instead.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>mydomain.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Configure the list of domains on which Safe Browsing will not trigger warnings.</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>Configure the list of domains which Safe Browsing will trust. This means:
+Safe Browsing will not check for dangerous resources (e.g. phishing, malware, or unwanted software) if their URLs match these domains.
+Safe Browsing's download protection service will not check downloads hosted on these domains.
+Safe Browsing's password protection service will not check for password reuse if the page URL matches these domains.</string>
+			<key>pfm_description_reference</key>
+			<string>Configure the list of domains which Safe Browsing will trust. This means:
+Safe Browsing will not check for dangerous resources (e.g. phishing, malware, or unwanted software) if their URLs match these domains.
+Safe Browsing's download protection service will not check downloads hosted on these domains.
+Safe Browsing's password protection service will not check for password reuse if the page URL matches these domains.
+
+If this setting is enabled, then Safe Browsing will trust these domains.
+If this setting is disabled or not set, then default Safe Browsing protection is applied to all resources.
+This policy is not available on Windows instances that are not joined to a Microsoft® Active Directory® domain.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SafeBrowsingAllowlistDomains</string>
+			<key>pfm_name</key>
+			<string>SafeBrowsingAllowlistDomains</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -9078,6 +9434,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>8</integer>
+	<integer>9</integer>
 </dict>
 </plist>
