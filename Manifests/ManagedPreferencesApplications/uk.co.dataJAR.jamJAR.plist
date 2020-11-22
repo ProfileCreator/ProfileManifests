@@ -122,7 +122,7 @@
 			<key>pfm_default</key>
 			<string>/var/log/</string>
 			<key>pfm_description</key>
-			<string>jamJAR log file storage location.</string>
+			<string>jamJAR log file storage location. Prior to jamJAR 2.0: The log rotates at midnight &amp; appends the date to the old file. As of jamJAR 2.0+: The log rotates every 10MB, not archiving older versions.</string>
 			<key>pfm_description_reference</key>
 			<string>This is the directory in which the jamJAR.log is created, this is created via the jamJAR postflight after every run. The log rotates at midnight &amp; appends the date to the old file.</string>
 			<key>pfm_documentation_url</key>
@@ -258,10 +258,10 @@
 					<array>
 						<dict>
 							<key>pfm_present</key>
-							<true/>
+							<false/>
 							<key>pfm_range_list</key>
 							<array>
-								<true/>
+								<false/>
 							</array>
 							<key>pfm_target</key>
 							<string>datajar_notifier</string>
@@ -344,10 +344,10 @@
 					<array>
 						<dict>
 							<key>pfm_present</key>
-							<true/>
+							<false/>
 							<key>pfm_range_list</key>
 							<array>
-								<true/>
+								<false/>
 							</array>
 							<key>pfm_target</key>
 							<string>datajar_notifier</string>
