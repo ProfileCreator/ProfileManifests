@@ -81,7 +81,7 @@ def main():
     # General replacement in keys
     manifest[ "pfm_subkeys" ] = replace_in_keys_recursively( subkeys )
 
-    # Add domain specific keys
+    # Add domain specific keys from com.brave.Browser-specific.plist
     domain_specific_keys_path = os.path.join( script_folder_path, brave_domain + "-specific.plist" )
     domain_specific_keys = None
     try:
@@ -93,17 +93,35 @@ def main():
         print( "Exception message: " + str( error ) )
 
     if domain_specific_keys is not None:
-        subkeys.extend( domain_specific_keys )
 
-        # Add domain specific keys to segmented control under "Misc."
+        # Add domain specific keys to segmented control
         segmented_control_key = next( filter( lambda preference_key: ( "pfm_name" in preference_key and preference_key[ "pfm_name" ] == "PFC_SegmentedControl_0" ), subkeys ), None )
+
         if segmented_control_key is not None and "pfm_segments" in segmented_control_key:
+
+            # Get keys from domain file
+            brave_segment_titles = list(domain_specific_keys.keys())
+            # Get Chrome keys
+            chrome_segment_titles = segmented_control_key[ "pfm_range_list_titles" ]
+            # Get Chrome existing segments
             segments = segmented_control_key[ "pfm_segments" ]
-            if "Misc." in segments:
-                misc_segment = segments[ "Misc." ]
-                for specific_key in domain_specific_keys:
-                    if "pfm_name" in specific_key:
-                        misc_segment.append( specific_key[ "pfm_name" ] )
+
+            for title in brave_segment_titles:
+                # Add Brave-specific segment titles, if not already present
+                if title not in chrome_segment_titles:
+                    chrome_segment_titles.append( title )
+
+                # Add Brave-specific array for each segment, if not already present
+                if title not in segments:
+                    segments[ title ] = []
+
+                # Add Brave-specific key names to appropriate segment array, if not already present
+                if title in segments:
+                    for key_name in domain_specific_keys[ title ]:
+                        if key_name not in segments[ title ]:
+                            segments[ title ].append(key_name[ "pfm_name" ])
+                            # Add preference dictionary to manifest subkeys
+                            subkeys.append( key_name )
 
     # Update last modification time
     manifest[ "pfm_last_modified" ] = datetime.datetime.utcnow()

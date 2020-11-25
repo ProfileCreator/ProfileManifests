@@ -11,7 +11,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-05-19T16:57:16Z</date>
+	<date>2020-09-14T23:29:16Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -126,6 +126,7 @@
 					<string>ManifestServer</string>
 					<string>SendAllTelemetryEnabled</string>
 					<string>StartDaemonOnAppLaunch</string>
+					<string>IgnoreUIOpenAfterInstall</string>
 					<string>UpdateCache</string>
 					<string>UpdateCheckFrequency</string>
 					<string>UpdateDeadline.DaysBeforeForcedQuit</string>
@@ -333,6 +334,24 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 			<string>StartDaemonOnAppLaunch</string>
 			<key>pfm_title</key>
 			<string>Start Daemon on App Launch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>4.26</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enable this option to prevent MAU UI from launching after install.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls whether the 'Autoupdate UI' should be launched after installation.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/officeupdates/release-history-microsoft-autoupdate#august-2020-release</string>
+			<key>pfm_name</key>
+			<string>IgnoreUIOpenAfterInstall</string>
+			<key>pfm_title</key>
+			<string>Ignore UI Open After Install</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2141,6 +2160,6 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>12</integer>
+	<integer>13</integer>
 </dict>
 </plist>
