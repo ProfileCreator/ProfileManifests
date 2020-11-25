@@ -2,16 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pfm_app_url</key>
+	<string>https://github.com/SAP/macOS-enterprise-privileges</string>
 	<key>pfm_description</key>
 	<string>SAP Privileges app settings</string>
 	<key>pfm_documentation_url</key>
-	<string>https://github.com/SAP/macOS-enterprise-privileges</string>
+	<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
 	<key>pfm_domain</key>
 	<string>corp.sap.privileges</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-03-24T14:45:00Z</date>
+	<date>2019-11-22T03:51:11Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -131,7 +133,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.0.5</string>
+			<string>1.5.0</string>
 			<key>pfm_default</key>
 			<string>admin</string>
 			<key>pfm_description</key>
@@ -159,15 +161,37 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
-			<string>1.0.5</string>
+			<string>1.5.0</string>
 			<key>pfm_description</key>
 			<string>Sets a fixed timeout for the Dock tile&apos;s Toggle Privileges command. After this time, the admin rights are removed and set back to standard user rights. A value of 0 disables the timeout and allows the user to permanently toggle privileges.</string>
 			<key>pfm_description_reference</key>
 			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
 			<key>pfm_name</key>
 			<string>DockToggleTimeout</string>
+			<key>pfm_note</key>
+			<string> If DockToggleMaxTimeout and DockToggleTimeout values have both been set, the value set for DockToggleTimeout will override whatever is set for DockToggleMaxTimeout.</string>
 			<key>pfm_title</key>
 			<string>Dock Toggle Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<string>10</string>
+			<key>pfm_value_unit</key>
+			<string>minutes</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.5.2</string>
+			<key>pfm_description</key>
+			<string>Set a maximum timeout for the Dock tile's Toggle Privileges command. This generally works the same way as the DockToggleTimeout but allows the user to choose every timeout value up to the one specified. If set to 20 min. for example, the user may decide to set it to a value below 20 instead of being forced to use the 20 minute timeout.</string>
+			<key>pfm_description_reference</key>
+			<string>https://github.com/SAP/macOS-enterprise-privileges/tree/master/application_management</string>
+			<key>pfm_name</key>
+			<string>DockToggleMaxTimeout</string>
+			<key>pfm_note</key>
+			<string> If DockToggleMaxTimeout and DockToggleTimeout values have both been set, the value set for DockToggleTimeout will override whatever is set for DockToggleMaxTimeout.</string>
+			<key>pfm_title</key>
+			<string>Dock Toggle Max Timeout</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_placeholder</key>
@@ -547,6 +571,6 @@ A profile can consist of payloads with different version numbers. For example, c
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>

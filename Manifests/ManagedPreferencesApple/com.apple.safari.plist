@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>4</integer>
 	<key>pfm_last_modified</key>
-	<date>2019-08-21T03:12:00Z</date>
+	<date>2020-11-21T21:04:57Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -148,18 +148,18 @@
 			<dict>
 				<key>Advanced</key>
 				<array>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2LoadsImagesAutomatically</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks</string>
-					<string>IncludeDevelopMenu</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2MinimumFontSize</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize</string>
 					<string>DefaultDatabaseQuota</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2ShouldPrintBackgrounds</string>
+					<string>IncludeDevelopMenu</string>
 					<string>PrintHeadersAndFooters</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2LoadsImagesAutomatically</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2MinimumFontSize</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2ShouldPrintBackgrounds</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks</string>
 				</array>
 				<key>AutoFill</key>
 				<array>
@@ -169,11 +169,11 @@
 				</array>
 				<key>Bookmarks</key>
 				<array>
-					<string>BookmarksMenuIncludesBookmarksToolbar</string>
-					<string>BookmarksMenuIncludesAddressBook</string>
-					<string>BookmarksMenuIncludesRendezvous</string>
 					<string>BookmarksCollectionsIncludeAddressBook</string>
 					<string>BookmarksCollectionsIncludeRendezvous</string>
+					<string>BookmarksMenuIncludesAddressBook</string>
+					<string>BookmarksMenuIncludesBookmarksToolbar</string>
+					<string>BookmarksMenuIncludesRendezvous</string>
 				</array>
 				<key>Extensions</key>
 				<array>
@@ -182,18 +182,19 @@
 				</array>
 				<key>General</key>
 				<array>
+					<string>AutoOpenSafeDownloads</string>
+					<string>ConfirmClosingMultiplePages</string>
+					<string>CommandClickMakesTabs</string>
+					<string>DefaultBrowserPromptingState2</string>
+					<string>DidShowWhatsNewInSafari</string>
+					<string>DownloadsClearingPolicy</string>
+					<string>DownloadsPath</string>
+					<string>HistoryAgeInDaysLimit</string>
 					<string>HomePage</string>
 					<string>NewWindowBehavior</string>
 					<string>NewTabBehavior</string>
-					<string>TabCreationPolicy</string>
-					<string>CommandClickMakesTabs</string>
 					<string>OpenNewTabsInFront</string>
-					<string>HistoryAgeInDaysLimit</string>
-					<string>DownloadsPath</string>
-					<string>DownloadsClearingPolicy</string>
-					<string>AutoOpenSafeDownloads</string>
-					<string>ConfirmClosingMultiplePages</string>
-					<string>DefaultBrowserPromptingState2</string>
+					<string>TabCreationPolicy</string>
 				</array>
 				<key>Notifications</key>
 				<array>
@@ -201,21 +202,31 @@
 				</array>
 				<key>Privacy</key>
 				<array>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PrivateBrowsingEnabled</string>
 					<string>BlockStoragePolicy</string>
                     <string>SendDoNotTrackHTTPHeader</string>
+                    <string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PrivateBrowsingEnabled</string>
 				</array>
 				<key>Security</key>
 				<array>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled</string>
-					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically</string>
 					<string>AskBeforeSubmittingInsecureForms</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled</string>
+					<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If enabled, hides any What's New with Safari prompts.</string>
+			<key>pfm_name</key>
+			<string>DidShowWhatsNewInSafari</string>
+			<key>pfm_title</key>
+			<string>Hide What's New in Safari Prompt</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -592,8 +603,6 @@
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>TRUE to enable Java</string>
-			<key>pfm_domain</key>
-			<string>com.apple.Safari</string>
 			<key>pfm_name</key>
 			<string>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled</string>
 			<key>pfm_title</key>
@@ -728,6 +737,8 @@
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>14.0</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
@@ -736,6 +747,8 @@
 			<string>TRUE to include the Develop menu in the menu bar</string>
 			<key>pfm_name</key>
 			<string>IncludeDevelopMenu</string>
+			<key>pfm_note</key>
+			<string>To forcibly show or hide the 'Develop' menu in Safari 14.0+, use the 'ShowDevelopMenu' preference from the Safari Developer payload instead.</string>
 			<key>pfm_title</key>
 			<string>Show Develop menu in menu bar</string>
 			<key>pfm_type</key>
@@ -946,6 +959,6 @@
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>7</integer>
 </dict>
 </plist>
