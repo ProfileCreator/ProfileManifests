@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (($( sw_vers -productVersion | awk -F. '{ print $2 }' ) < 14)); then
+if [[ $( printf "%s\n" "10.14" "$( sw_vers -productVersion )" | sort -V | head -n1 ) != "10.14" ]]; then
 	printf "%s\n" "This script requires macOS 10.14 or higher to create correct hashes for the manifests..."
 	exit 1
 fi
