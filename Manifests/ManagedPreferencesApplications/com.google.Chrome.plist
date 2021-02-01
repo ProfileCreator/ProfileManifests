@@ -399,6 +399,7 @@
 					<string>ShowFullUrlsInAddressBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
+					<string>SigninInterceptionEnabled</string>
 					<string>SitePerProcess</string>
 					<string>SpellCheckServiceEnabled</string>
 					<string>SpellcheckEnabled</string>
@@ -6917,6 +6918,30 @@ If you set this policy, you can configure whether a user is allowed to sign in t
 			<string>SigninAllowed</string>
 			<key>pfm_title</key>
 			<string>Allow sign in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_description</key>
+			<string>This settings enables or disables signin interception. When this policy not set or is set to True, the signin interception dialog triggers when a Google account is added on the web, and the user may benefit from moving this account to another (new or existing) profile. When this is set to False, the signin interception dialog does not trigger.</string>
+			<key>pfm_description_reference</key>
+			<string>This settings enables or disables signin interception.
+
+When this policy not set or is set to True, the signin interception dialog triggers when a Google account is added on the web, and the user may benefit from moving this account to another (new or existing) profile.
+
+When this is set to False, the signin interception dialog does not trigger.
+
+true = Enable signin interception
+false = Disable signin interception
+null = Enable signin interception</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SigninInterceptionEnabled</string>
+			<key>pfm_name</key>
+			<string>SigninInterceptionEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable signin interception</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
