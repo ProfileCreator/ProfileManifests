@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2020-11-25T12:08:06Z</date>
+	<date>2021-02-01T06:01:21Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -242,6 +242,7 @@
 					<string>AuthSchemes</string>
 					<string>AuthServerAllowlist</string>
 					<string>AuthServerWhitelist</string>
+					<string>BasicAuthOverHttpEnabled</string>
 					<string>DisableAuthNegotiateCnameLookup</string>
 					<string>EnableAuthNegotiatePort</string>
 					<string>NtlmV2Enabled</string>
@@ -333,6 +334,7 @@
 					<string>EnableOnlineRevocationChecks</string>
 					<string>EnabledPlugins</string>
 					<string>EnterpriseHardwarePlatformAPIEnabled</string>
+					<string>EnterpriseRealTimeUrlCheckMode</string>
 					<string>ExternalProtocolDialogShowAlwaysOpenCheckbox</string>
 					<string>ForceBrowserSignin</string>
 					<string>ForceEphemeralProfiles</string>
@@ -358,12 +360,15 @@
 					<string>IsolateOrigins</string>
 					<string>JavascriptEnabled</string>
 					<string>LocalDiscoveryEnabled</string>
+					<string>LookalikeWarningAllowlistDomains</string>
 					<string>MachineLevelUserCloudPolicyEnrollmentToken</string>
 					<string>ManagedBookmarks</string>
 					<string>MaxConnectionsPerProxy</string>
 					<string>MaxInvalidationFetchDelay</string>
+					<string>MediaRecommendationsEnabled</string>
 					<string>MediaRouterCastAllowAllIPs</string>
 					<string>MetricsReportingEnabled</string>
+					<string>NTPCardsVisible</string>
 					<string>NTPCustomBackgroundEnabled</string>
 					<string>NetworkPredictionOptions</string>
 					<string>OverrideSecurityRestrictionsOnInsecureOrigin</string>
@@ -372,6 +377,7 @@
 					<string>PolicyDictionaryMultipleSourceMergeList</string>
 					<string>PolicyListMultipleSourceMergeList</string>
 					<string>PolicyRefreshRate</string>
+					<string>ProfilePickerOnStartupAvailability</string>
 					<string>PromotionalTabsEnabled</string>
 					<string>PromptForDownloadLocation</string>
 					<string>ProxySettings</string>
@@ -390,8 +396,10 @@
 					<string>SecurityKeyPermitAttestation</string>
 					<string>SharedClipboardEnabled</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
+					<string>ShowFullUrlsInAddressBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
+					<string>SigninInterceptionEnabled</string>
 					<string>SitePerProcess</string>
 					<string>SpellCheckServiceEnabled</string>
 					<string>SpellcheckEnabled</string>
@@ -400,6 +408,7 @@
 					<string>SyncDisabled</string>
 					<string>SyncTypesListDisabled</string>
 					<string>TLS13HardeningForLocalAnchorsEnabled</string>
+					<string>TargetBlankImpliesNoOpener</string>
 					<string>TaskManagerEndProcessEnabled</string>
 					<string>TotalMemoryLimitMb</string>
 					<string>TranslateEnabled</string>
@@ -419,6 +428,7 @@
 					<string>WebAppInstallForceList</string>
 					<string>WebComponentsV0Enabled</string>
 					<string>WebDriverOverridesIncompatiblePolicies</string>
+					<string>WebRtcAllowLegacyTLSProtocols</string>
 					<string>WebRtcEventLogCollectionAllowed</string>
 					<string>WebRtcLocalIpsAllowedUrls</string>
 					<string>WebRtcUdpPortRange</string>
@@ -2193,7 +2203,7 @@ By default, all extensions are whitelisted, but if all extensions have been blac
 			<key>pfm_name</key>
 			<string>ExtensionInstallWhitelist</string>
 			<key>pfm_note</key>
-			<string>By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
+			<string>Use ExtensionInstallAllowlist instead. By default, all extensions are allowed, but if all extensions have been denied by policy, the allowlist can be used to override that policy.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -2788,6 +2798,27 @@ If you leave this policy not set Google Chrome will try to detect if a server is
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>*example.com,foobar.com,*baz</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_description</key>
+			<string>Setting the policy to Enabled or leaving it unset will allow Basic authentication challenges received over non-secure HTTP. Setting the policy to Disabled forbids non-secure HTTP requests from using the Basic authentication scheme; only secure HTTPS is allowed.</string>
+			<key>pfm_description_reference</key>
+			<string>Setting the policy to Enabled or leaving it unset will allow Basic authentication challenges received over non-secure HTTP.
+
+Setting the policy to Disabled forbids non-secure HTTP requests from using the Basic authentication scheme; only secure HTTPS is allowed.
+
+true = Basic authentication is allowed on HTTP connections
+false = Non-secure HTTP connections are not permitted to use Basic authentication; HTTPS is required</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AuthServerWhitelist</string>
+			<key>pfm_name</key>
+			<string>BasicAuthOverHttpEnabled</string>
+			<key>pfm_title</key>
+			<string>Allow Basic authentication for HTTP</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5053,6 +5084,43 @@ If this policy is left not set the user can disable any plugin installed on the 
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>This policy controls checking URLs in real time to identify unsafe URLs. If this policy is left not set or set to ‘Disabled’, the consumer Safe Browsing checks will be applied. If this policy is set to ‘Enabled’, URLs will be sent to be scanned in real time under enterprise ToS. It will result in Chrome sending URLs to Google Cloud or third parties of your choosing to check them in real time. The consumer version of Safe Browsing real time lookup will be switched off.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls checking URLs in real time to identify unsafe URLs.
+
+If this policy is left not set or set to ‘Disabled’, the consumer Safe Browsing checks will be applied. Consumer Safe Browsing checks can still include real time lookups, depending on the value of the “Make searches and browsing better” setting and the value of the UrlKeyedAnonymizedDataCollectionEnabled policy.
+
+If this policy is set to ‘Enabled’, URLs will be sent to be scanned in real time under enterprise ToS. It will result in Chrome sending URLs to Google Cloud or third parties of your choosing to check them in real time. The consumer version of Safe Browsing real time lookup will be switched off.
+
+This policy can only be set from the Google Admin console.
+
+0 = Real time URL check is disabled.
+1 = Real time check for main frame URLs is enabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnterpriseRealTimeUrlCheckMode</string>
+			<key>pfm_name</key>
+			<string>EnterpriseRealTimeUrlCheckMode</string>
+			<key>pfm_note</key>
+			<string>This policy can only be set from the Google Admin console.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Disabled</string>
+				<string>Enabled</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Check Safe Browsing status of URLs in real time</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>79</string>
 			<key>pfm_default</key>
 			<true/>
@@ -5663,6 +5731,39 @@ If this setting is enabled or not set, web pages can use JavaScript but the user
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>This policy prevents the display of lookalike URL warnings on the sites listed. These warnings are typically shown on sites that Google Chrome believes might be trying to spoof another site the user is familiar with. If the policy is enabled and set to one or more domains, no lookalike warnings pages will be shown when the user visits pages on that domain. If the policy is disabled, not set, or set to an empty list, warnings may appear on any site the user visits.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy prevents the display of lookalike URL warnings on the sites listed. These warnings are typically shown on sites that Google Chrome believes might be trying to spoof another site the user is familiar with.
+
+If the policy is enabled and set to one or more domains, no lookalike warnings pages will be shown when the user visits pages on that domain.
+
+If the policy is disabled, not set, or set to an empty list, warnings may appear on any site the user visits.
+
+A hostname can be allowed with a complete host match, or any domain match. For example, a URL like "https://foo.example.com/bar" may have warnings suppressed if this list includes either "foo.example.com" or "example.com".</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LookalikeWarningAllowlistDomains</string>
+			<key>pfm_name</key>
+			<string>LookalikeWarningAllowlistDomains</string>
+			<key>pfm_note</key>
+			<string>A hostname can be allowed with a complete host match, or any domain match.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Domain</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Suppress lookalike domain warnings on domains</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>72</string>
 			<key>pfm_app_min</key>
@@ -5844,6 +5945,25 @@ Leaving this policy not set will make Google Chrome use the default value of 500
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>87</string>
+			<key>pfm_description</key>
+			<string>By default the browser will show media recommendations that are personalized to the user. Setting this policy to Disabled will result in these recommendations being hidden from the user. Setting this policy to Enabled or leaving it unset will result in the media recommendations being shown to the user.</string>
+			<key>pfm_description_reference</key>
+			<string>By default the browser will show media recommendations that are personalized to the user. Setting this policy to Disabled will result in these recommendations being hidden from the user. Setting this policy to Enabled or leaving it unset will result in the media recommendations being shown to the user.
+
+true = Show media recommendations to the user
+false = Hide media recommendations from the user</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=MediaRecommendationsEnabled</string>
+			<key>pfm_name</key>
+			<string>MediaRecommendationsEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable Media Recommendations</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>67</string>
 			<key>pfm_description</key>
 			<string>If this policy is set to true, Google Cast will connect to Cast devices on all IP addresses, not just RFC1918/RFC4913 private addresses.</string>
@@ -5881,6 +6001,36 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<string>MetricsReportingEnabled</string>
 			<key>pfm_title</key>
 			<string>Enable reporting of usage and crash-related data</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_description</key>
+			<string>This policy controls the visibility of cards on the New Tab Page. Cards surface entry points to launch common user journeys based on the user's browsing behavior.
+
+If the policy is set to Enabled, the New Tab Page will show cards if content is available.
+
+If the policy is set to Disabled, the New Tab Page won't show cards.</string>
+			<key>pfm_description_reference</key>
+			<string>This policy controls the visibility of cards on the New Tab Page. Cards surface entry points to launch common user journeys based on the user's browsing behavior.
+
+If the policy is set to Enabled, the New Tab Page will show cards if content is available.
+
+If the policy is set to Disabled, the New Tab Page won't show cards.
+
+If the policy is not set, the user can control the card visibility. The default is visible.
+
+true = New Tab Page will show cards if content is available
+false = New Tab Page will not show cards
+null = New Tab Page will show cards if content is available, but allow the user to change this setting</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NTPCardsVisible</string>
+			<key>pfm_name</key>
+			<string>NTPCardsVisible</string>
+			<key>pfm_title</key>
+			<string>Show cards on the New Tab Page</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -6135,6 +6285,46 @@ Note that if the platform supports policy notifications, the refresh delay will 
 			<string>integer</string>
 			<key>pfm_value_unit</key>
 			<string>milliseconds</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_description</key>
+			<string>Specifies whether the profile picker is enabled, disabled or forced at the browser startup. By default the profile picker is not shown if the browser starts in guest or incognito mode, a profile directory and/or urls are specified by command line, an app is explicitly requested to open, the browser was launched by a native notification, there is only one profile available or the policy ForceBrowserSignin is set to true.</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies whether the profile picker is enabled, disabled or forced at the browser startup.
+
+By default the profile picker is not shown if the browser starts in guest or incognito mode, a profile directory and/or urls are specified by command line, an app is explicitly requested to open, the browser was launched by a native notification, there is only one profile available or the policy ForceBrowserSignin is set to true.
+
+If 'Enabled' (0) is selected or the policy is left unset, the profile picker will be shown at startup by default, but users will be able to enable/disable it.
+
+If 'Disabled' (1) is selected, the profile picker will never be shown, and users will not be able to change the setting.
+
+If 'Forced' (2) is selected, the profile picker cannot be suppressed by the user. The profile picker will be shown even if there is only one profile available.
+
+0 = Profile picker available at startup
+1 = Profile picker disabled at startup
+2 = Profile picker forced at startup</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ProfilePickerOnStartupAvailability</string>
+			<key>pfm_name</key>
+			<string>ProfilePickerOnStartupAvailability</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Profile picker available at startup</string>
+				<string>Profile picker disabled at startup</string>
+				<string>Profile picker forced at startup</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Profile picker availabily on startup</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -6671,6 +6861,22 @@ If this policy is configured then the user can't change it, and the apps shortcu
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>This feature enables display of the full URL in the address bar. If this policy is set to True, then the full URL will be shown in the address bar, including schemes and subdomains. If this policy is set to False, then the default URL display will apply.</string>
+			<key>pfm_description_reference</key>
+			<string>This feature enables display of the full URL in the address bar. If this policy is set to True, then the full URL will be shown in the address bar, including schemes and subdomains. If this policy is set to False, then the default URL display will apply. If this policy is left unset, then the default URL display will apply and the user will be able to toggle between default and full URL display with a context menu option.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowFullUrlsInAddressBar</string>
+			<key>pfm_name</key>
+			<string>ShowFullUrlsInAddressBar</string>
+			<key>pfm_title</key>
+			<string>Show Full URLs</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>75</string>
 			<key>pfm_default</key>
 			<true/>
@@ -6713,6 +6919,30 @@ If you set this policy, you can configure whether a user is allowed to sign in t
 			<string>SigninAllowed</string>
 			<key>pfm_title</key>
 			<string>Allow sign in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_description</key>
+			<string>This settings enables or disables signin interception. When this policy not set or is set to True, the signin interception dialog triggers when a Google account is added on the web, and the user may benefit from moving this account to another (new or existing) profile. When this is set to False, the signin interception dialog does not trigger.</string>
+			<key>pfm_description_reference</key>
+			<string>This settings enables or disables signin interception.
+
+When this policy not set or is set to True, the signin interception dialog triggers when a Google account is added on the web, and the user may benefit from moving this account to another (new or existing) profile.
+
+When this is set to False, the signin interception dialog does not trigger.
+
+true = Enable signin interception
+false = Disable signin interception
+null = Enable signin interception</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SigninInterceptionEnabled</string>
+			<key>pfm_name</key>
+			<string>SigninInterceptionEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable signin interception</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -6912,6 +7142,34 @@ The default value for this policy was changed in Google Chrome 81 from false to 
 			<string>The default value for this policy was changed in Google Chrome 81 from false to true. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED. Administrators who need more time to upgrade affected proxies may use this policy to temporarily disable this security feature. This policy will be removed after version 85.</string>
 			<key>pfm_title</key>
 			<string>Enable TLS 1.3 hardening for local anchors</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>99</string>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup. Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".</string>
+			<key>pfm_description_reference</key>
+			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup.
+
+Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".
+
+This policy will be removed in Google Chrome version 95.
+
+See https://chromestatus.com/feature/6140064063029248.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=TargetBlankImpliesNoOpener</string>
+			<key>pfm_name</key>
+			<string>TargetBlankImpliesNoOpener</string>
+			<key>pfm_note</key>
+			<string>This policy will be removed in Google Chrome version 95.</string>
+			<key>pfm_title</key>
+			<string>Do not set window.opener for links targeting _blank</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -7193,6 +7451,8 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>84</string>
 			<key>pfm_description</key>
@@ -7475,6 +7735,26 @@ If the policy is enabled, WebDriver will be able to override incomaptible polici
 			<string>This policy was removed in M80, because it is not necessary anymore as WebDriver is now compatible with all existing policies.</string>
 			<key>pfm_title</key>
 			<string>Allow WebDriver to Override Incompatible Policies</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>87</string>
+			<key>pfm_description</key>
+			<string>f enabled, WebRTC peer connections can downgrade to obsolete versions of the TLS/DTLS (DTLS 1.0, TLS 1.0 and TLS 1.1) protocols. When this policy is disabled or not set, these TLS/DTLS versions are disabled.</string>
+			<key>pfm_description_reference</key>
+			<string>f enabled, WebRTC peer connections can downgrade to obsolete versions of the TLS/DTLS (DTLS 1.0, TLS 1.0 and TLS 1.1) protocols. When this policy is disabled or not set, these TLS/DTLS versions are disabled.
+
+	This policy is temporary and will be removed in a future version of Google Chrome.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebRtcAllowLegacyTLSProtocols</string>
+			<key>pfm_name</key>
+			<string>WebRtcAllowLegacyTLSProtocols</string>
+			<key>pfm_note</key>
+			<string>This policy is temporary and will be removed in a future version of Google Chrome.</string>
+			<key>pfm_title</key>
+			<string>Allow legacy TLS/DTLS downgrade in WebRTC</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -9492,6 +9772,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>10</integer>
+	<integer>11</integer>
 </dict>
 </plist>
