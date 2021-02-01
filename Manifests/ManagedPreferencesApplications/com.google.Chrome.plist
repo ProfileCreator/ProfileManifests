@@ -408,6 +408,7 @@
 					<string>SyncDisabled</string>
 					<string>SyncTypesListDisabled</string>
 					<string>TLS13HardeningForLocalAnchorsEnabled</string>
+					<string>TargetBlankImpliesNoOpener</string>
 					<string>TaskManagerEndProcessEnabled</string>
 					<string>TotalMemoryLimitMb</string>
 					<string>TranslateEnabled</string>
@@ -7141,6 +7142,34 @@ The default value for this policy was changed in Google Chrome 81 from false to 
 			<string>The default value for this policy was changed in Google Chrome 81 from false to true. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED. Administrators who need more time to upgrade affected proxies may use this policy to temporarily disable this security feature. This policy will be removed after version 85.</string>
 			<key>pfm_title</key>
 			<string>Enable TLS 1.3 hardening for local anchors</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>99</string>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup. Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".</string>
+			<key>pfm_description_reference</key>
+			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup.
+
+Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".
+
+This policy will be removed in Google Chrome version 95.
+
+See https://chromestatus.com/feature/6140064063029248.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=TargetBlankImpliesNoOpener</string>
+			<key>pfm_name</key>
+			<string>TargetBlankImpliesNoOpener</string>
+			<key>pfm_note</key>
+			<string>This policy will be removed in Google Chrome version 95.</string>
+			<key>pfm_title</key>
+			<string>Do not set window.opener for links targeting _blank</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
