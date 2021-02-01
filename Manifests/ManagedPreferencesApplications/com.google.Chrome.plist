@@ -391,6 +391,7 @@
 					<string>SecurityKeyPermitAttestation</string>
 					<string>SharedClipboardEnabled</string>
 					<string>ShowAppsShortcutInBookmarkBar</string>
+					<string>ShowFullUrlsInAddressBar</string>
 					<string>SignedHTTPExchangeEnabled</string>
 					<string>SigninAllowed</string>
 					<string>SitePerProcess</string>
@@ -6705,6 +6706,22 @@ If this policy is configured then the user can't change it, and the apps shortcu
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>86</string>
+			<key>pfm_description</key>
+			<string>This feature enables display of the full URL in the address bar. If this policy is set to True, then the full URL will be shown in the address bar, including schemes and subdomains. If this policy is set to False, then the default URL display will apply.</string>
+			<key>pfm_description_reference</key>
+			<string>This feature enables display of the full URL in the address bar. If this policy is set to True, then the full URL will be shown in the address bar, including schemes and subdomains. If this policy is set to False, then the default URL display will apply. If this policy is left unset, then the default URL display will apply and the user will be able to toggle between default and full URL display with a context menu option.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowFullUrlsInAddressBar</string>
+			<key>pfm_name</key>
+			<string>ShowFullUrlsInAddressBar</string>
+			<key>pfm_title</key>
+			<string>Show Full URLs</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>75</string>
 			<key>pfm_default</key>
 			<true/>
@@ -7227,6 +7244,8 @@ If this policy is left not set, URL-keyed anonymized data collection will be ena
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>88</string>
 			<key>pfm_app_min</key>
 			<string>84</string>
 			<key>pfm_description</key>
