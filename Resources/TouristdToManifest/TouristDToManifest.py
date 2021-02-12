@@ -247,7 +247,7 @@ def main():
 			HTTP Status code: {}.").format(r.status))
 
 	# Parse json
-	touristd_config = r.json()
+	touristd_config = json.loads( r.data.decode( 'utf-8' ) )
 	# Get tours
 	tours = touristd_config["tours"]
 	#print(tours)
