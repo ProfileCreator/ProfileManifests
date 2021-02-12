@@ -121,7 +121,13 @@ def main():
 		else:
 			model_type = url_model_type.replace( "-", " " ).title()
 
-		new_subkey[ "pfm_title" ] = model_type
+		# Parse title version
+		os_version = tour[ "osVersion" ]
+		os_version_fragments = os_version[ 0 ].split( "\\." )
+		os_version_fragments = list( filter( lambda fragment: ( fragment.isdigit() ), os_version_fragments ) )
+		title_os_version = ".".join( os_version_fragments )
+
+		new_subkey[ "pfm_title" ] = model_type + ": " + title_os_version
 
 		# Add the new subkey to the new subkeys list
 		new_subkeys.append( new_subkey )
