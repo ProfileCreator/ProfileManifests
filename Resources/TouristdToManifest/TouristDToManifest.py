@@ -127,11 +127,11 @@ def main():
 	# Update last modification time
 	manifest["pfm_last_modified"] = datetime.datetime.utcnow()
 
-	# Increment pfm_version by one based on manifest_version 
-	manifest["pfm_version"] = manifest_version + 1
+	# Increment pfm_version by one based on manifest_version
+	if "pfm_version" in manifest and isinstance( manifest[ "pfm_version" ], int ):
+		manifest[ "pfm_version" ] = manifest[ "pfm_version" ] + 1
 
 	# Write-out
-	manifest_path = os.path.join( repo_root_path, manifests_subfolder, domain + ".plist" )
 	manifest_file = open( manifest_path, 'wb' )
 	plistlib.dump( manifest, manifest_file )
 	manifest_file.close()
