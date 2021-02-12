@@ -18,33 +18,16 @@ manifest_version = 5
 domain = "com.apple.touristd"
 touristd_url = "https://help.apple.com/macOS/config.json"
 manifests_subfolder = os.path.join( "Manifests", "ManagedPreferencesApple" )
-# vv need a mechanism for matching model names from the config.json "url" key
-# with the manifest_segment_titles below vv
-manifest_segment_titles = [
-	"iMac",
-	"iMac Pro",
-	"MacBook",
-	"MacBook Air",
-	"MacBook Pro",
-	"Mac Pro",
-	"Mac mini",
-	"macOS",
-]
-manifest_segments = {}
-pref_dict = {}
-
-tour_pref_template = {
-	"pfm_date_allow_past": True,
-	"pfm_description": "",
-	"pfm_name": "",
-	"pfm_title": "",
-	"pfm_type": "date",
-}
 
 path_component_to_title = {
 	"whats-new": "What's New",
-	"mac-basics": "New to Mac",
-	"mac-mini": "Mac mini"
+	"mac-basics": "New to Mac"
+}
+
+product_casing = {
+	"Macbook": "MacBook",
+	"Mini": "mini",
+	"Imac": "iMac"
 }
 
 def main():
@@ -85,10 +68,6 @@ def main():
 	# Get tours
 	tours = touristd_config["tours"]
 
-	# Recursively populate manifest_segments 
-	for segment in manifest_segment_titles:
-		manifest_segments[segment] = []
-
 	# Create a new subkeys list
 	new_subkeys = list()
 
@@ -110,7 +89,7 @@ def main():
 		new_subkey[ "pfm_type" ] = "date"
 		new_subkey[ "pfm_date_allow_past" ] = True
 
-		tour_url = tour[ "url" ]
+		tour_url = tour[ "url" ].rstrip( "/" )
 		new_subkey[ "pfm_description" ] = tour_url
 
 		# Parse title model/type
@@ -120,6 +99,9 @@ def main():
 			model_type = path_component_to_title[ url_model_type ]
 		else:
 			model_type = url_model_type.replace( "-", " " ).title()
+			# Correct product casing
+			for product_casing_key in product_casing:
+				model_type = model_type.replace( product_casing_key, product_casing[ product_casing_key ] )
 
 		# Parse title version
 		os_version = tour[ "osVersion" ]
