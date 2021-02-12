@@ -41,6 +41,10 @@ tour_pref_template = {
 	"pfm_type": "date",
 }
 
+path_component_to_title = {
+	"whats-new": "What's New",
+	"mac-basics": "New to Mac",
+	"mac-mini": "Mac mini"
 }
 
 def main():
@@ -102,9 +106,22 @@ def main():
 		# Create a new subkey
 		new_subkey = dict()
 
-		new_subkey[ "pfm_description" ] = tour[ "url" ]
 		new_subkey[ "pfm_name" ] = "seed-viewed-" + tour[ "id" ]
 		new_subkey[ "pfm_type" ] = "date"
+		new_subkey[ "pfm_date_allow_past" ] = True
+
+		tour_url = tour[ "url" ]
+		new_subkey[ "pfm_description" ] = tour_url
+
+		# Parse title model/type
+		url_model_type = tour_url.split( "/" )[ -1 ]
+
+		if url_model_type in path_component_to_title:
+			model_type = path_component_to_title[ url_model_type ]
+		else:
+			model_type = url_model_type.replace( "-", " " ).title()
+
+		new_subkey[ "pfm_title" ] = model_type
 
 		# Add the new subkey to the new subkeys list
 		new_subkeys.append( new_subkey )
