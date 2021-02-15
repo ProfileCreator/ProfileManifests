@@ -76,8 +76,15 @@ def main():
 		if ( "pfm_name" in subkey ) and ( isinstance( subkey[ "pfm_name" ], str) == True ) and ( subkey[ "pfm_name" ].startswith( "Payload" ) == True ):
 			new_subkeys.append( subkey )
 
-	# Replace old subkeys with new ones
-	manifest[ "pfm_subkeys" ] = new_subkeys
+	# Initialize a manifest segments dictionary
+	manifest_segments = {}
+	# Get the existing segmented control key to serve as template
+	segmented_control_key = next( filter( lambda preference_key: ( "pfm_name" in preference_key and preference_key[ "pfm_name" ] == "PFC_SegmentedControl_0"), manifest[ "pfm_subkeys" ] ), None )
+	if segmented_control_key is not None and "pfm_range_list_titles" in segmented_control_key:
+		for manifest_segment_title in segmented_control_key[ "pfm_range_list_titles" ]:
+			manifest_segments[ manifest_segment_title ] = list()
+
+	new_subkeys.append( segmented_control_key )
 
 	# Write tour preference dictionaries
 	for tour in tours:
@@ -122,20 +129,24 @@ def main():
 		# Add the new subkey to the new subkeys list
 		new_subkeys.append( new_subkey )
 
-	# Add keys to segmented control dictionary
-	segmented_control_key = next( filter( lambda preference_key: ( "pfm_name" in preference_key and preference_key[ "pfm_name" ] == "PFC_SegmentedControl_0" ), new_subkeys ), None )
-	if segmented_control_key is not None and "pfm_segments" in segmented_control_key:
-		segments = segmented_control_key[ "pfm_segments" ]
-		for title in manifest_segment_titles:
-			# Create segment arrays
-			segments[ title ] = []
+		# Add the new subkey to its segment by iterating on a reverse-sorted list, so values like "MacBook Pro" will be caught before "MacBook"
+		subkey_segment_found = False
+		for title in sorted( list( manifest_segments.keys() ), key = str.casefold, reverse = True ):
+			if model_type.startswith( title ):
+				manifest_segments[ title ].append( new_subkey[ "pfm_name" ] )
+				subkey_segment_found = True
+				break
 
-			if title in segments:
-				for key_name in pref_dict:
-					if key_name not in segments[ title ]:
-						segments[ title ].append(key_name[ "pfm_name" ])
-						# Add preference dictionary to manifest subkeys
-						new_subkeys.append( key_name )
+		# Default to macOS segment if not found
+		if subkey_segment_found == False:
+			manifest_segments[ "macOS" ].append( new_subkey[ "pfm_name" ] )
+
+	# Add keys to segmented control dictionary
+	if segmented_control_key is not None:
+		segmented_control_key[ "pfm_segments" ] = manifest_segments
+
+	# Replace old subkeys with new ones
+	manifest[ "pfm_subkeys" ] = new_subkeys
 
 	# Update last modification time
 	manifest["pfm_last_modified"] = datetime.datetime.utcnow()
