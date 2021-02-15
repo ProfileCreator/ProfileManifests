@@ -104,10 +104,18 @@ def main():
 				model_type = model_type.replace( product_casing_key, product_casing[ product_casing_key ] )
 
 		# Parse title version
-		os_version = tour[ "osVersion" ]
-		os_version_fragments = os_version[ 0 ].split( "\\." )
-		os_version_fragments = list( filter( lambda fragment: ( fragment.isdigit() ), os_version_fragments ) )
-		title_os_version = ".".join( os_version_fragments )
+		if "osVersion" in tour:
+			os_version = tour[ "osVersion" ]
+			os_version_fragments = os_version[ 0 ].split( "\\." )
+			if len( os_version_fragments ) > 1:
+				# Version pattern is formatted like 10\\.15\\.[0-9]*
+				os_version_fragments = list( filter( lambda fragment: ( fragment.isdigit() ), os_version_fragments ) )
+				title_os_version = ".".join( os_version_fragments )
+			else:
+				# Version pattern is formatted like 10.15.* / 11.0*
+				os_version_fragments = os_version[ 0 ].rstrip( "*" ).split( "." )
+				os_version_fragments = list( filter( lambda fragment: ( fragment.isdigit() ), os_version_fragments ) )
+				title_os_version = ".".join( os_version_fragments )
 
 		new_subkey[ "pfm_title" ] = model_type + ": " + title_os_version
 
