@@ -317,6 +317,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 			</array>
 			<key>pfm_description</key>
 			<string>Used by the Apple built-in Kerberos extension.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>com.apple.AppSSOKerberos</string>
+							</array>
+							<key>pfm_target</key>
+							<string>ExtensionIdentifier</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -330,6 +346,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<true/>
 					<key>pfm_description</key>
 					<string>If false, passwords are not allowed to be saved to the keychain.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>13.0</string>
 					<key>pfm_macos_min</key>
@@ -346,6 +378,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<true/>
 					<key>pfm_description</key>
 					<string>If false, disables password changes. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -358,6 +406,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				<dict>
 					<key>pfm_description</key>
 					<string>The GSS name of the Kerberos cache to use. Rarely set by an administrator.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>13.0</string>
 					<key>pfm_macos_min</key>
@@ -372,6 +436,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				<dict>
 					<key>pfm_description</key>
 					<string>The PayloadUUID of a PKINIT certificate.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>13.0</string>
 					<key>pfm_macos_min</key>
@@ -386,6 +466,22 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				<dict>
 					<key>pfm_description</key>
 					<string>A list of bundle IDs allowed to access the ticket-granting ticket (TGT).</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>13.0</string>
 					<key>pfm_macos_min</key>
@@ -402,14 +498,30 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<string>always</string>
 					<key>pfm_description</key>
 					<string>This setting affects how the Kerberos Extension credential is used by other processes. Available in macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
 					<string>credentialUseMode</string>
 					<key>pfm_note</key>
 					<string>always - The extension credential will always be used if the SPN matches the Kerberos Extension Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
-whenNotSpecified - The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
-kerberosDefault - The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.</string>
+				whenNotSpecified - The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
+				kerberosDefault - The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>always</string>
@@ -430,6 +542,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The custom user name label used in the Kerberos extension instead of "Username". For example, "Company ID". Available on macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -444,6 +572,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>If true, doesn't prompt the user to setup the Kerberos extension until either the administrator enables it with the app-sso tool or a Kerberos challenge is received. Available in macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -456,6 +600,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The text to be displayed to the user at the bottom of the Kerberos login window. It can be used to display help information or disclaimer text. Available in iOS 14 and later and macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -472,6 +632,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>This property specifies it is the default realm if there is more than one Kerberos extension configuration.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -486,6 +662,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>A custom domain-realm mapping for Kerberos. This is used when the DNS name of hosts do not match the realm name. Most administrators will not need to customize this.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -511,6 +703,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>If true, the Kerberos extension will allow only managed apps to access and use the credential. This is in addition to the credentialBundleIDACL, if it is specified. Available in iOS 14 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_name</key>
@@ -525,6 +733,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<true/>
 					<key>pfm_description</key>
 					<string>If false, the credential is requested on the next matching Kerberos challenge or network state change. If the credential is expired or missing, a new one will be created. Available in macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -537,6 +761,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The principal (aka username) to use. You do not need to include the realm.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -551,6 +791,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>This URL will launch in the user's default web browser when they initiate a password change. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -565,6 +821,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<integer>15</integer>
 					<key>pfm_description</key>
 					<string>The number of days prior to password expiration when a notification of password expiration will be sent to the user. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -577,6 +849,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The number of days that passwords can be used on this domain. For most domains, this can be calculated automatically. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -591,6 +879,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>If true, passwords must meet Active Directory's definition of "complex". Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -603,6 +907,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The number of prior passwords that cannot be re-used on this domain. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -615,6 +935,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The minimum length of passwords on the domain. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -627,6 +963,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The minimum age of passwords before they can be changed on this domain. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -639,6 +991,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The text version of the domain's password requirements. Only for use if pwReqComplexity or pwReqLength aren't specified. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -653,6 +1021,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<integer>900</integer>
 					<key>pfm_description</key>
 					<string>The time, in seconds, required to replicate changes in the Active Directory domain. The Kerberos extension will use this when checking password age after a change. Available in macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -667,6 +1051,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>Require that LDAP connections use TLS. Available in macOS 11 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -681,6 +1081,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>If true, requires the user to provide Touch ID, Face ID or their passcode to access the keychain entry.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -695,6 +1111,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				<dict>
 					<key>pfm_description</key>
 					<string>The name of the Active Directory site the Kerberos extension should use. Most administrators will never need to modify this value, as the Kerberos extension can normally find the site automatically.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -711,6 +1143,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<false/>
 					<key>pfm_description</key>
 					<string>If false, disables password sync. Note that this will not work if the user is logged in with a mobile account. Available in macOS 10.15 and later.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -725,6 +1173,22 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<true/>
 					<key>pfm_description</key>
 					<string>If false, the Kerberos extension doesn't automatically use LDAP and DNS to determine its AD site name.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -736,7 +1200,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Extension Data</string>
+			<string>Kerberos Extension Data</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
