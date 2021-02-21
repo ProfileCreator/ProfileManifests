@@ -533,8 +533,10 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<string>credentialUseMode</string>
 					<key>pfm_note</key>
 					<string>always - The extension credential will always be used if the SPN matches the Kerberos Extension Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
-				whenNotSpecified - The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
-				kerberosDefault - The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.</string>
+
+whenNotSpecified - The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions Hosts array. The credential will not be used if the calling app is not in the credentialBundleIDACL.
+
+kerberosDefault - The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>always</string>
@@ -672,7 +674,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
-				<dict>
+				<!-- Commented out because PC doesn't support custom key names for arrays -->
+				<!-- <dict>
 					<key>pfm_description</key>
 					<string>A custom domain-realm mapping for Kerberos. This is used when the DNS name of hosts do not match the realm name. Most administrators will not need to customize this.</string>
 					<key>pfm_exclude</key>
@@ -700,17 +703,36 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_name</key>
+							<string>{{key}}</string>
 							<key>pfm_title</key>
 							<string>Realm</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{value}}</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>DNS suffix</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Realm</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
 					</array>
 					<key>pfm_title</key>
 					<string>Domain Realm Mapping</string>
 					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
+					<string>dictionary</string>
+				</dict> -->
 				<dict>
 					<key>pfm_default</key>
 					<false/>
