@@ -10,11 +10,6 @@ import plistlib
 import re
 import datetime
 
-#####
-# INCREMENT ME
-manifest_version = 5
-####
-
 domain = "com.apple.touristd"
 touristd_url = "https://help.apple.com/macOS/config.json"
 manifests_subfolder = os.path.join( "Manifests", "ManagedPreferencesApple" )
