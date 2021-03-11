@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (($( sw_vers -productVersion | awk -F. '{ print $2 }' ) < 14)); then
+if [[ $( printf "%s\n" "10.14" "$( sw_vers -productVersion )" | sort -V | head -n1 ) != "10.14" ]]; then
 	printf "%s\n" "This script requires macOS 10.14 or higher to create correct hashes for the manifests..."
 	exit 1
 fi
@@ -55,7 +55,7 @@ for directory_name in "${manifest_directories[@]}"; do
 		fi
 		
 		# Get the file hash
-		file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
+		#file_hash=$( plutil -convert binary1 -o - "${file}" | md5 -q )
 		
 		# Get the value of the pfm_domain key
 		file_domain=$( /usr/libexec/PlistBuddy -c "Print pfm_domain" "${file}" 2>/dev/null )
@@ -96,10 +96,10 @@ for directory_name in "${manifest_directories[@]}"; do
 		fi
 		
 		# Add the file hash
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_path_tmp}"; then
-			printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:hash"
-			exit 1
-		fi
+		#if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_path_tmp}"; then
+		#	printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:hash"
+		#	exit 1
+		#fi
 		
 		# Add the file path
 		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string Manifests/${directory_name}/${file_name}" "${index_path_tmp}"; then
