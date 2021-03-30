@@ -118,7 +118,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Users can approve system extensions not explicitly allowed by configuration profiles.</string>
+			<string>Set this property to false to prevent users from approving system extensions not explicitly allowed by configuration profiles.</string>
 			<key>pfm_name</key>
 			<string>AllowUserOverrides</string>
 			<key>pfm_title</key>
@@ -132,7 +132,7 @@
 			<key>pfm_name</key>
 			<string>AllowedTeamIdentifiers</string>
 			<key>pfm_note</key>
-			<string>Team identifiers cannot be defined in this list and at the same time serve as a keys in the "Allowed System Extensions" property.</string>
+			<string>Team identifiers cannot be defined in this list and at the same time serve as keys in the "Allowed System Extensions" property.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -153,11 +153,23 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Team and bundle identifiers of system extensions that will be allowed.</string>
+			<string>Dictionary of system extensions that will be allowed. Each extension is represented in the dictionary using its team identifier string as key and its bundle identifier string as the associated value.</string>
 			<key>pfm_name</key>
 			<string>AllowedSystemExtensions</string>
+			<key>pfm_note</key>
+			<string>Team identifiers cannot be used as keys in this dictionary and at the same time be defined in the "Allowed Team Identifiers" property.</string>
 			<key>pfm_subkeys</key>
 			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Team Identifier</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>A1B2C3D4E5</string>
+				</dict>
 				<dict>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
@@ -179,6 +191,19 @@
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed System Extensions</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Dictionary of developer teams and their allowed system extension types. Entries use the team identifier as the key and an array of the allowed extension type strings as the associated value.</string>
+			<key>pfm_name</key>
+			<string>AllowedSystemExtensionTypes</string>
+			<key>pfm_subkeys</key>
+			<array>
 				<dict>
 					<key>pfm_name</key>
 					<string>{{key}}</string>
@@ -189,19 +214,6 @@
 					<key>pfm_value_placeholder</key>
 					<string>A1B2C3D4E5</string>
 				</dict>
-			</array>
-			<key>pfm_title</key>
-			<string>Allowed System Extensions</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Team identifiers and lists of system extention types that will be allowed for each identifier.</string>
-			<key>pfm_name</key>
-			<string>AllowedSystemExtensionTypes</string>
-			<key>pfm_subkeys</key>
-			<array>
 				<dict>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
@@ -226,16 +238,6 @@
 					<string>System Extension Types</string>
 					<key>pfm_type</key>
 					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>{{key}}</string>
-					<key>pfm_title</key>
-					<string>Team Identifier</string>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_value_placeholder</key>
-					<string>A1B2C3D4E5</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
