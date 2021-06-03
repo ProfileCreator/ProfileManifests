@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_app_url</key>
+	<string>https://github.com/macadmins/nudge</string>
+	<key>pfm_description</key>
+	<string>Nudge settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://github.com/macadmins/nudge/wiki/Preferences</string>
+	<key>pfm_domain</key>
+	<string>com.github.macadmins.Nudge</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_macos_min</key>
+	<string>11.0</string>
+	<key>pfm_last_modified</key>
+	<date>2021-02-22T06:55:52Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Nudge settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Nudge</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.github.macadmins.Nudge</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.github.macadmins.Nudge</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Optional Features</string>
+				<string>OS Version Reqs</string>
+				<string>UX</string>
+				<string>UI</string>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
+			<dict>
+				<key>OS Version Reqs</key>
+				<array>
+					<string>osVersionRequirements</string>
+				</array>
+				<key>Optional Features</key>
+				<array>
+					<string>attemptToFetchMajorUpgrade</string>
+					<string>asyncronousSoftwareUpdate</string>
+					<string>enforceMinorUpdates</string>
+				</array>
+				<key>UI</key>
+				<array>
+					<string>forceScreenShotIcon</string>
+					<string>iconDarkPath</string>
+					<string>iconLightPath</string>
+					<string>screenShotDarkPath</string>
+					<string>screenShotLightPath</string>
+					<string>simpleMode</string>
+					<string>updateElements</string>
+					<string>userInterface</string>
+				</array>
+				<key>UX</key>
+				<array>
+					<string>allowedDeferrals</string>
+					<string>allowedDeferralsUntilForcedSecondaryQuitButton</string>
+					<string>approachingRefreshCycle</string>
+					<string>approachingWindowTime</string>
+					<string>elapsedRefreshCycle</string>
+					<string>imminentRefeshCycle</string>
+					<string>imminentWindowTime</string>
+					<string>initialRefreshCycle</string>
+					<string>maxRandomDelayInSeconds</string>
+					<string>noTimers</string>
+					<string>nudgeRefreshCycle</string>
+					<string>randomDelay</string>
+					<string>userExperience</string>
+				</array>
+			</dict>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<!-- Optional Features -->
+		<!-- <dict>
+			<key>pfm_app_min</key>
+			<string></string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>When a major upgrade is required, Nudge will attempt to download it through the softwareupdate binary.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#attempttofetchmajorupgrade---type-boolean-default-value-false-required-no</string>
+			<key>pfm_name</key>
+			<string>attemptToFetchMajorUpgrade</string>
+			<key>pfm_title</key>
+			<string>Attempt to Fetch Major Upgrade</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict> -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When enabled Nudge will wait for Software Update to finish downloading (if any) updates before showing the UI.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#asyncronoussoftwareupdate---type-boolean-default-value-true-required-no</string>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>asyncronousSoftwareUpdate</string>
+			<key>pfm_title</key>
+			<string>Asyncronous Software Update</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When enabled, Nudge will enforce minor updates. This should likely never be disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#enforceminorupdates---type-boolean-default-value-true-required-no</string>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>enforceMinorUpdates</string>
+			<key>pfm_title</key>
+			<string>Enforce Minor Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<!-- OS Version Requirements -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_description</key>
+			<string>The required components necessary to enforce an Operating System version through Nudge.
+
+Specify one array to enforce a single Operating System version across all machines or specify multiple arrays for specific enforcements.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#osversionrequirements---type-array-default-value-</string>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>osVersionRequirements</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>osVersionRequirements Dictionary</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>1.0</string>
+							<key>pfm_description</key>
+							<string>A list of arrays, enabling localization of the More Info button URL path. Please see the aboutUpdateURLs wiki article for more information.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#aboutupdateurls---type-array-default-value--required-no</string>
+							<key>pfm_macos_min</key>
+							<string>11.0</string>
+							<key>pfm_name</key>
+							<string>aboutUpdateURLs</string>
+							<key>pfm_note</key>
+							<string>If this value is not passed, the more_info button will be hidden.</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>aboutUpdateURLs dictionary</string>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_macos_min</key>
+											<string>11.0</string>
+											<key>pfm_name</key>
+											<string>_language</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_macos_min</key>
+											<string>11.0</string>
+											<key>pfm_name</key>
+											<string>aboutUpdateURL</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>1.0</string>
+							<key>pfm_description</key>
+							<string>The app path for a major upgrade.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#majorupgradeapppath---type-string-default-value--required-no</string>
+							<key>pfm_macos_min</key>
+							<string>11.0</string>
+							<key>pfm_name</key>
+							<string>majorUpgradeAppPath</string>
+							<key>pfm_title</key>
+							<string>Major macOS Upgrade App Path</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>/Applications/Install macOS Big Sur.app</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>1.0</string>
+							<key>pfm_description</key>
+							<string>The required installation date for Nudge to enforce the required operating system version.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#requiredinstallationdate---type-string-default-value--required-yes</string>
+							<key>pfm_macos_min</key>
+							<string>11.0</string>
+							<key>pfm_name</key>
+							<string>requiredInstallationDate</string>
+							<key>pfm_title</key>
+							<string>Required Installation Date</string>
+							<key>pfm_type</key>
+							<string>date</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>1.0</string>
+							<key>pfm_description</key>
+							<string>The required minimum operating system version. </string>
+							<key>pfm_documentation_url</key>
+							<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#requiredminimumosversion---type-string-default-value--required-yes</string>
+							<key>pfm_macos_min</key>
+							<string>11.0</string>
+							<key>pfm_name</key>
+							<string>requiredMinimumOSVersion</string>
+							<key>pfm_note</key>
+							<string>When passing versions such as 11.2.0 it will be normalized to 11.2. It is recommended to leave the trailing zero off from the version number.</string>
+							<key>pfm_title</key>
+							<string>Required Minimum OS Version</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>1.0</string>
+							<key>pfm_description</key>
+							<string>The versions of macOS that require a security update. You can specify single version or multiple versions.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://github.com/macadmins/nudge/wiki/osVersionRequirements#targetedosversions---type-array-default-value-</string>
+							<key>pfm_macos_min</key>
+							<string>11.0</string>
+							<key>pfm_name</key>
+							<string>targetedOSVersions</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_tile</key>
+									<string>OS Version</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Targeted OS Versions</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>OS Version Requirements</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<!-- UX -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>userExperience</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>This will disable ALL functionality related to the User Experience preference domain.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#notimers---type-boolean-default-value-false</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>noTimers</string>
+					<key>pfm_title</key>
+					<string>No Timers</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>1000000</integer>
+					<key>pfm_description</key>
+					<string>The amount of times a user can defer Nudge (change it from the currently active window) in the current user session before the "aggressive user experience" is enabled.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#alloweddeferrals---type-integer-default-value-1000000</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>allowedDeferrals</string>
+					<key>pfm_note</key>
+					<string>The deferral count is only tied to the active Nudge session. If a user closes out of Nudge and the LaunchAgent re-triggers, the deferral count will restart.</string>
+					<key>pfm_title</key>
+					<string>Allowed Deferrals</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>deferrals</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>14</integer>
+					<key>pfm_description</key>
+					<string>The amount of times a user can defer Nudge (change it from the currently active window) in the current user session before the both quit buttons need to be actioned.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#alloweddeferralsuntilforcedsecondaryquitbutton---type-integer-default-value-14</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>allowedDeferralsUntilForcedSecondaryQuitButton</string>
+					<key>pfm_note</key>
+					<string>The deferral count is only tied to the active Nudge session. If a user closes out of Nudge and the LaunchAgent re-triggers, the deferral count will restart.</string>
+					<key>pfm_title</key>
+					<string>Allowed Deferrals until Forced Secondary Quit Button</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>deferrals</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>6000</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in seconds Nudge will use as a timer to refresh the user interface if it is not the currently active window.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#approachingrefreshcycle---type-integer-default-value-6000</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>approachingRefreshCycle</string>
+					<key>pfm_note</key>
+					<string>This key is directly tied to its partner key approachingWindowTime to know when to trigger this timer.</string>
+					<key>pfm_title</key>
+					<string>Approaching Refresh Cycle</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>72</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in hours Nudge will use to determine that the requiredInstallationDate is "approaching".</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#approachingwindowtime---type-integer-default-value-72</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>approachingWindowTime</string>
+					<key>pfm_note</key>
+					<string>This key is directly tied to its partner key approachingWindowTime to know when to trigger this timer.</string>
+					<key>pfm_title</key>
+					<string>Approaching Window Time</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>hours</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>6000</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in seconds Nudge will use as a timer to refresh the user interface if it is not the currently active window. This key is triggered once the requiredInstallationDate has expired.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#elapsedrefreshcycle---type-integer-default-value-6000</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>elapsedRefreshCycle</string>
+					<key>pfm_title</key>
+					<string>Elapsed Refresh Cycle</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>600</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in seconds Nudge will use as a timer to refresh the user interface if it is not the currently active window.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#imminentrefeshcycle---type-integer-default-value-600</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>imminentRefeshCycle</string>
+					<key>pfm_title</key>
+					<string>Imminent Refresh Cycle</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>25</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in hours Nudge will use to determine that the requiredInstallationDate is "imminent".</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#imminentwindowtime---type-integer-default-value-24</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>imminentWindowTime</string>
+					<key>pfm_title</key>
+					<string>Imminent Window Time</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>hours</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>18000</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in seconds Nudge will use as a timer to refresh the user interface if it is not the currently active window. This key is triggered for all Nudge launches until the approachingWindowTime has been passed.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#initialrefreshcycle---type-integer-default-value-18000</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>initialRefreshCycle</string>
+					<key>pfm_title</key>
+					<string>Initial Refresh Cycle</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>1200</integer>
+					<key>pfm_description</key>
+					<string>The maximum amount of delay Nudge will utilize before launching the UI. This is useful if you do not want your users to all receive the Nudge prompt at the exact time of the LaunchAgent.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#maxrandomdelayinseconds---type-integer-default-value-1200</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<false/>
+									</array>
+									<key>pfm_target</key>
+									<string>userExperience.randomDelay</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>maxRandomDelayInSeconds</string>
+					<key>pfm_note</key>
+					<string>This functionality only applies when also enabling randomDelay.</string>
+					<key>pfm_title</key>
+					<string>Max Random Delay</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<integer>60</integer>
+					<key>pfm_description</key>
+					<string>The amount of time in seconds Nudge will use as its core timer to refresh all the core code paths.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#nudgerefreshcycle---type-integer-default-value-60</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<false/>
+									</array>
+									<key>pfm_target</key>
+									<string>userExperience.randomDelay</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>nudgeRefreshCycle</string>
+					<key>pfm_note</key>
+					<string>This functionality only applies when also enabling randomDelay.</string>
+					<key>pfm_title</key>
+					<string>Nudge Refresh Cycle</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_value_unit</key>
+					<string>seconds</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>Enables an initial delay Nudge before launching the UI. This is useful if you do not want your users to all receive the Nudge prompt at the exact time of the LaunchAgent.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userExperience#nudgerefreshcycle---type-integer-default-value-60</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>randomDelay</string>
+					<key>pfm_title</key>
+					<string>Random Delay</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>User Experience</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<!-- UI -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.0</string>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>userInterface</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>Enables Nudge to launch in the simplified user experience.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#simplemode---type-boolean-default-value-false</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>simpleMode</string>
+					<key>pfm_title</key>
+					<string>Simple Mode</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>Force the built-in ScreenShot icon to render in the UI if a ScreenShot path is not passed.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#forcescreenshoticon---type-boolean-default-value-false</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>forceScreenShotIcon</string>
+					<key>pfm_title</key>
+					<string>Force Screen Shot Icon</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_description</key>
+					<string>A path to a local jpg, png, icns that contains the icon for dark mode. This will replace the Apple logo on the left side of Nudge.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#icondarkpath---type-string-default-value-</string>
+					<key>pfm_format</key>
+					<string>^.*\.(icns|jpg|png)</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>iconDarkPath</string>
+					<key>pfm_title</key>
+					<string>Dark Icon Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_description</key>
+					<string>A path to a local jpg, png, icns that contains the icon for light mode. This will replace the Apple logo on the left side of Nudge.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#iconlightpath---type-string-default-value-</string>
+					<key>pfm_format</key>
+					<string>^.*\.(icns|jpg|png)</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>iconLightPath</string>
+					<key>pfm_title</key>
+					<string>Light Icon Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_description</key>
+					<string>A path to a local jpg, png, icns that contains the screen shot for dark mode. This will replace the Big Sur logo on the lower right side of Nudge.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#screenshotdarkpath---type-string-default-value-</string>
+					<key>pfm_format</key>
+					<string>^.*\.(icns|jpg|png)</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>screenShotDarkPath</string>
+					<key>pfm_title</key>
+					<string>Dark Screen Shot Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_description</key>
+					<string>A path to a local jpg, png, icns that contains the screen shot for light mode. This will replace the Big Sur logo on the lower right side of Nudge.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/userInterface#screenshotlightpath---type-string-default-value-</string>
+					<key>pfm_format</key>
+					<string>^.*\.(icns|jpg|png)</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>screenShotLightPath</string>
+					<key>pfm_title</key>
+					<string>Light Screen Shot Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0</string>
+					<key>pfm_description</key>
+					<string>A path to a local jpg, png, icns that contains the screen shot for light mode. This will replace the Big Sur logo on the lower right side of Nudge.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/updateElements</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>updateElements</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>updateElements Dictionary</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>The targeted language locale for the user interface.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#_language---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>_language</string>
+									<key>pfm_note</key>
+									<string>For a list of locales, please run the following command in Terminal: /usr/bin/locale -a</string>
+									<key>pfm_title</key>
+									<string>Language</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the informationButton, also known as the 'More Info' button.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#informationbuttontext---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>informationButtonText</string>
+									<key>pfm_title</key>
+									<string>Information Button Text</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the mainContentHeader. This is the 'Your device will restart during this update' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#maincontentheader---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>mainContentHeader</string>
+									<key>pfm_title</key>
+									<string>Main Content Header</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the mainContentSubHeader. This is the 'Updates can take around 30 minutes to complete' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#maincontentsubheader---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>mainContentSubHeader</string>
+									<key>pfm_title</key>
+									<string>Main Content Sub Header</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the mainContentText. This is the 'A fully up-to-date device is required to ensure that IT can your accurately protect your device.\n\nIf you do not update your device, you may lose access to some items necessary for your day-to-day tasks.\n\nTo begin the update, simply click on the button below and follow the provided steps.' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#maincontenttext---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>mainContentText</string>
+									<key>pfm_note</key>
+									<string>The python version of Nudge required three paragraphs. With the Swift version, this is no longer necessary. Simply pass two newlines (\n\n) to start a new paragraph. You can have as many or as few as you want, with the only limitation being window space.</string>
+									<key>pfm_title</key>
+									<string>Main Content Text</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the mainContentNote. This is the 'Important Notes' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#maincontentnote---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>mainContentNote</string>
+									<key>pfm_title</key>
+									<string>Main Content Note</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the mainHeader. This is the 'Your device requires a security update' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#mainheader---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>mainHeader</string>
+									<key>pfm_title</key>
+									<string>Main Header</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the actionButton, also known as the 'Update Device' button.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#actionbuttontext---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>actionButtonText</string>
+									<key>pfm_title</key>
+									<string>Action Button Text</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the primaryQuitButton, also known as the 'Later' button.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#primaryquitbuttontext---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>primaryQuitButtonText</string>
+									<key>pfm_title</key>
+									<string>Primary Quit Button Text</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the secondaryQuitButton, also known as the 'I understand' button.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#secondaryquitbuttontext---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>secondaryQuitButtonText</string>
+									<key>pfm_title</key>
+									<string>Secondary Quit Button Text</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_app_min</key>
+									<string>1.0</string>
+									<key>pfm_description</key>
+									<string>Modifies the subHeader. This is the 'A friendly reminder from your local IT team' text.</string>
+									<key>pfm_documentation_url</key>
+									<string>https://github.com/macadmins/nudge/wiki/updateElements#subheader---type-string-default-value-</string>
+									<key>pfm_macos_min</key>
+									<string>11.0</string>
+									<key>pfm_name</key>
+									<string>subHeader</string>
+									<key>pfm_title</key>
+									<string>Sub Header</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Update Elements</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>User Interface</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Nudge</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>
