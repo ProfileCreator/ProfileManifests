@@ -133,6 +133,8 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>List of team identifiers that define which validly signed system extensions will be allowed to load.</string>
+			<key>pfm_format</key>
+			<string>^[A-Z0-9]{10}$</string>
 			<key>pfm_name</key>
 			<string>AllowedTeamIdentifiers</string>
 			<key>pfm_note</key>
@@ -165,6 +167,8 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_format</key>
+					<string>^[A-Z0-9]{10}$</string>
 					<key>pfm_name</key>
 					<string>{{key}}</string>
 					<key>pfm_title</key>
@@ -209,6 +213,8 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_format</key>
+					<string>^[A-Z0-9]{10}$</string>
 					<key>pfm_name</key>
 					<string>{{key}}</string>
 					<key>pfm_title</key>
@@ -231,6 +237,12 @@
 								<string>DriverExtension</string>
 								<string>NetworkExtension</string>
 								<string>EndpointSecurityExtension</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Driver</string>
+								<string>Network</string>
+								<string>Endpoint Security</string>
 							</array>
 							<key>pfm_title</key>
 							<string>System Extension Type</string>
