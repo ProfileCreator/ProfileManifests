@@ -1,18 +1,19 @@
 #!/bin/bash
 
-if (($( sw_vers -productVersion | awk -F. '{ print $2 }' ) < 14)); then
+if [[ $( printf "%s\n" "10.14" "$( sw_vers -productVersion )" | sort -V | head -n1 ) != "10.14" ]]; then
 	printf "%s\n" "This script requires macOS 10.14 or higher to create correct hashes for the icons..."
 	exit 1
 fi
 
 shopt -s nullglob
 
-# Get the current script path and verify it is located at the root of the ProfileManifests repository
-repository_path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-if ! /usr/bin/grep -q "^[[:space:]]url[[:space:]].*ProfileManifests.git$" "${repository_path}/.git/config"; then
-	printf "%s\n" "This script must be located in the ProfileManifests repository root directory."
+# Verify the script is running inside the ProfileManifests repository and get the repository root path
+repository_path=$( git rev-parse --show-toplevel 2> /dev/null )
+if !( [[ $? -eq 0 ]] && [[ $(git remote -v) == *"ProfileManifests.git"* ]] ); then
+	printf "%s\n" "This script must be run inside the ProfileManifests repository."
 	exit 1
 fi
+cd $repository_path
 
 # Set the path to the index file
 index_path="${repository_path}/Icons/index"

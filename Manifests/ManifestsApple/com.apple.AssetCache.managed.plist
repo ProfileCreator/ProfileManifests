@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:49Z</date>
+	<date>2020-04-15T21:05:00Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.13.4</string>
 	<key>pfm_platforms</key>
@@ -136,7 +136,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Users can’t turn off the content caching service.</string>
+			<string>Users can't turn off the content caching service.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to true, automatically activate the Content Cache when possible and prevent disabling of the Content Cache. Default is false.
 Availability: Available in macOS 10.13.4 and later.</string>
@@ -144,37 +144,6 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>AutoActivation</string>
 			<key>pfm_title</key>
 			<string>Automatically activate content caching</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If set to true, caches the userʼs iCloud data. Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. Default is true. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.
-Availability: Available in macOS 10.13.4 and later.</string>
-			<key>pfm_name</key>
-			<string>AllowPersonalCaching</string>
-			<key>pfm_title</key>
-			<string>Caches the user’s iCloud data, such as photos and documents</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If set to true, caches non-iCloud content, such as apps and software updates. Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. Default is true.
-At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.
-Availability: Available in macOS 10.13.4 and later.</string>
-			<key>pfm_name</key>
-			<string>AllowSharedCaching</string>
-			<key>pfm_title</key>
-			<string>Cache non-iCloud content, such as apps and software updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -192,6 +161,81 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>Maximum Cache Size</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>PersonalCacheLimit</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true. Data includes documents and photos, among others.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If set to true, caches the userʼs iCloud data. Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. Default is true. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.
+Availability: Available in macOS 10.13.4 and later.</string>
+			<key>pfm_name</key>
+			<string>AllowPersonalCaching</string>
+			<key>pfm_title</key>
+			<string>Allow Personal iCloud Data Caching</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description_reference</key>
+			<string>Limit how much disk space the content cache uses for cached iCloud data, in bytes. The PersonalCacheLimit must not exceed CacheLimit.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PersonalCacheLimit</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Personal Cache Size</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true. Data includes apps and software updates.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If set to true, caches non-iCloud content, such as apps and software updates. Clients may take some time (hours, days) to react to changes to this setting; it does not have an immediate effect. Default is true.
+At least one of the AllowPersonalCaching or AllowSharedCaching keys must be true.
+Availability: Available in macOS 10.13.4 and later.</string>
+			<key>pfm_name</key>
+			<string>AllowSharedCaching</string>
+			<key>pfm_title</key>
+			<string>Allow non-iCloud Data Caching</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Requires you to allow sharing the computer's Internet connection and cached content with iOS devices connected using USB.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15.4</string>
+			<key>pfm_name</key>
+			<string>AutoEnableTetheredCaching</string>
+			<key>pfm_title</key>
+			<string>Automatically activate Internet connection sharing</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -213,8 +257,10 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>/Library/Application Support/Apple/AssetCache/Data</string>
 			<key>pfm_description</key>
-			<string>The path to the directory used to store cached content. Changing this setting manually does not automatically move cached content from the old to the new location. The path must be, or end with, /Library/Application Support/Apple/AssetCache/Data.</string>
+			<string>The path to the directory used to store cached content. Changing this setting manually doesn't automatically move cached content from the old to the new location. To move content automatically, use Content Caching preferences. You can also set this value in Content Caching preferences.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. The path to the directory used to store Cached Content. Changing this setting manually does not automatically move cached content from the old to the new location. To move content automatically, use the Sharing preferenceʼs Content Caching pane.
 The value must be, or end with, /Library/Application Support/Apple/AssetCache/Data. A directory (and its intermediates) will be created for the given DataPath if it does not already exist. The directory will be owned by _assetcache:_assetcache and have mode 0750. Its immediate parent directory (.../Library/Application Support/Apple/AssetCache) will be owned by _assetcache:_assetcache and have mode 0755.
@@ -226,8 +272,6 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>Data Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/Library/Application Support/Apple/AssetCache/Data</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -410,6 +454,675 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>AgeForLowSpaceAlert</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Automatically remove content from the cache when the system needs disk space for other apps.</string>
+			<key>pfm_name</key>
+			<string>AllowCacheDelete</string>
+			<key>pfm_title</key>
+			<string>Allow Cache Delete</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Display Content Caching alerts as notifications.</string>
+			<key>pfm_name</key>
+			<string>DisplayAlerts</string>
+			<key>pfm_title</key>
+			<string>Display Content Caching Alerts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Prevent the computer from sleeping while caching is on.</string>
+			<key>pfm_name</key>
+			<string>KeepAwake</string>
+			<key>pfm_title</key>
+			<string>Keep Awake for Content Caching</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description_reference</key>
+			<string>When content is purged from the content cache because it's low on disk space, and the purged content was added to the content cache less than this many days ago, you receive a low space alert.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>AgeForLowSpaceAlert</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Low Space Alert</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportMaxRate</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportMinRate</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportRateAttenuation</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>ImportTimeout</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>Allow import (upload) requests.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>AllowImports</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Allow Imports</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>Allow portable computers that have only Wi-Fi network connections to run content caching.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>AllowWirelessPortable</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Allow Laptop Wireless Caching</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>5</integer>
+			<key>pfm_description_reference</key>
+			<string>How often the content cache saves changes to its on-disk database. Raising the interval increases the risk of losing cached content after a power failure. The maximum is 3600 seconds (1 hour). An interval of 0 means always update the database immediately, with no delay, which decreases performance.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>DatabaseUpdateInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Cache Database Update Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>8000</integer>
+			<key>pfm_description_reference</key>
+			<string>The minimum number of bytes per second clients must sustain while downloading content from the content cache. The content cache stops downloads that transfer data slower than this rate. Clamped minimum is 1000 bytes per second.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>DownloadMinRate</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>1000</integer>
+			<key>pfm_title</key>
+			<string>Minimum Download Rate</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes per second</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>180</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow a download to a client to sit idle before giving up. Clamped minimum is 10 seconds.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>DownloadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>10</integer>
+			<key>pfm_title</key>
+			<string>Download Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description_reference</key>
+			<string>The maximum number of bytes per second at which the content cache receives data from each client. A value of 0 indicates an unlimited number of bytes per second.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ImportMaxRate</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Import Rate</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes per second</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>2000</integer>
+			<key>pfm_description_reference</key>
+			<string>The minimum number of bytes per second that clients must sustain while importing (uploading) content. The content cache stops imports that transfer data slower than this rate. The minimum rate is 100 bytes per second.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ImportMinRate</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Min Import Rate</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes per second</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<real>.20</real>
+			<key>pfm_description_reference</key>
+			<string>The percentage of attenuation added to the upload time. Clamped minimum is 0% attenuation. Values too large will exceed the ImportTimeout and cause failures.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ImportTimeout</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>ImportRateAttenuation</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>1</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Import Rate Attenuation</string>
+			<key>pfm_type</key>
+			<string>real</string>
+			<key>pfm_value_decimal_places</key>
+			<integer>2</integer>
+			<key>pfm_value_unit</key>
+			<string>percent</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>300</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow an import (upload) from a client to sit idle before giving up. The minimum is 10 seconds.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ImportRateAttenuation</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>ImportTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>10</integer>
+			<key>pfm_title</key>
+			<string>Import Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Listen on all interfaces</string>
+			<key>pfm_description_reference</key>
+			<string>The BSD name of a network interface to be used by the content cache.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>Interface</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Listen on all interfaces</string>
+				<string>en0</string>
+				<string>en1</string>
+				<string>en2</string>
+			</array>
+			<key>pfm_range_list_allow_custom_value</key>
+			<true/>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>Indicates whether content caching registers with the union of the ListenRanges, PeerListenRanges, and Parents keys, or only with the ListenRanges key.
+
+Note that ListenRanges could be automatically generated from LocalSubnetsOnly, and PeerListenRanges could be automatically generated from PeerLocalSubnetsOnly.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ListenWithPeersAndParents</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Listen with Peers and Parents</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>8</integer>
+			<key>pfm_description_reference</key>
+			<string>The maximum number of times, for a single request, that a child content cache will forward the request to a parent content cache.
+
+Requests that are too deep (forwarding chain is too long) are forced to the origin rather than to a parent.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MaxParentDepth</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Parent Depth</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description_reference</key>
+			<string>The maximum number of peer content caches to ask for content. 0 = unlimited</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MaxPeersToQuery</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Peers to Query</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>60</integer>
+			<key>pfm_description_reference</key>
+			<string>How often, in seconds, to add a row of metrics to the metrics database in /Library/Application Support/Apple/AssetCache/Metrics/Metrics.db.
+
+- If the value is &gt; 1, metrics are added at the top of each interval. For example, at 60 seconds, metrics are added at the top of each minute.
+- Flushing the cache flushes out the current row of metrics (if any).
+- No metrics are added while content caching is idle.
+
+Clamped between 1-60 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MetricsInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>60</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Metrics Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description_reference</key>
+			<string>Metrics that are older than this are removed from the metrics database, once per day. Clamped minimum is 30 days.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MetricsMaxAge</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>30</integer>
+			<key>pfm_title</key>
+			<string>Max Metrics Age</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>60</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow a download from Apple's servers to sit idle before giving up (and possibly trying the download again). Clamped between 5 and 300 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>OriginDownloadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>300</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Origin Download Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>600</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow an upload to an origin server to sit idle before giving up. Clamped between 5 and 3600 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>OriginUploadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Origin Upload Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>60</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow a download from a parent content cache to sit idle before giving up (and possibly trying the download again). Clamped between 5-300 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ParentDownloadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>300</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Parent Download Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>600</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow an upload to a parent content cache to sit idle before giving up. Clamped between 5-3600 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ParentUploadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Parent Upload Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>900</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to ignore parent content caches after they have accrued five consecutive network failures or server errors. Clamped between 30-3600 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ParentRetryInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>30</integer>
+			<key>pfm_title</key>
+			<string>Parent Retry Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description_reference</key>
+			<string>User affinities older than this number of days are removed from the affinities cache automatically. User affinities provide hints to clients as to where their content is cached, for improved performance. Pruning user affinities has no effect on cached content. Clamped minimum is 7 days.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PruneAffinitiesAge</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>7</integer>
+			<key>pfm_title</key>
+			<string>Prune Affinities Cache Age</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>7</integer>
+			<key>pfm_description_reference</key>
+			<string>How often, in days, the content cache should scan for and remove user affinities older than PruneAffinitiesAge days. User affinities, used only by iCloud, provide hints to clients as to where their content is cached, for improved performance. Pruning user affinities has no effect on cached content. Clamped minimum is one day.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PruneAffinitiesInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Prune Affinities Cache Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>120</integer>
+			<key>pfm_description_reference</key>
+			<string>Content that has not been requested in this number of days is removed from the content cache automatically. Clamped minimum is 7 days.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PruneAssetsAge</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>7</integer>
+			<key>pfm_title</key>
+			<string>Prune Assets Age</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>7</integer>
+			<key>pfm_description_reference</key>
+			<string>How often, in days, the content cache should scan for and remove content older than PruneAssetsAge days. Clamped minimum is one day.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PruneAssetsInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Prune Assets Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>2000000000</integer>
+			<key>pfm_description_reference</key>
+			<string>The minimum number of bytes of free disk space to be maintained for the volume that stores the cached content.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>ReservedVolumeSpace</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Reserved Volume Size</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>bytes</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>10</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, the content cache should try to deregister when it is being stopped. Deregistering informs clients that the content cache is no longer available so they won't try to use that content cache anymore (or until the content cache is started again). Clamped between 1 and 60 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>TerminationTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>60</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Termination Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description_reference</key>
+			<string>When Verbose=true the content cache logs a little more information about its activities. The increased logging can reduce performance. This setting is not recommended for long-term use.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>Verbose</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
@@ -426,13 +1139,17 @@ Availability: Available in macOS 10.13.4 and later.</string>
 					<string>LocalSubnetsOnly</string>
 					<string>ListenRangesOnly</string>
 					<string>ListenRanges</string>
+					<string>MaxConcurrentClients</string>
 				</array>
 				<key>Peer Restrictions</key>
 				<array>
 					<string>PeerLocalSubnetsOnly</string>
 					<string>PeerFilterRanges</string>
 					<string>PeerListenRanges</string>
-					
+					<string>PeerDownloadTimeout</string>
+					<string>PeerNotifyTimeout</string>
+					<string>PeerQueryTimeout</string>
+					<string>PeerRetryInterval</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -523,17 +1240,15 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>RangeDict</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_default</key>
 							<string>IPv4</string>
 							<key>pfm_description</key>
-							<string></string>
+							<string>IP version</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. The IP address type (IPv4 or IPv6). Default is IPv4.</string>
 							<key>pfm_name</key>
@@ -550,13 +1265,13 @@ Availability: Available in macOS 10.13.4 and later.</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string></string>
+							<string>First IP address in range</string>
 							<key>pfm_description_reference</key>
 							<string>Required. First IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>first</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Start IP Address</string>
 							<key>pfm_type</key>
@@ -566,13 +1281,13 @@ Availability: Available in macOS 10.13.4 and later.</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string></string>
+							<string>Last IP address in range</string>
 							<key>pfm_description_reference</key>
 							<string>Required. Last IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>last</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>End IP Address</string>
 							<key>pfm_type</key>
@@ -581,8 +1296,6 @@ Availability: Available in macOS 10.13.4 and later.</string>
 							<string>10.255.255.255</string>
 						</dict>
 					</array>
-					<key>pfm_title</key>
-					<string>RangeDict</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -591,6 +1304,24 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<string>Client Listen Ranges</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>3400</integer>
+			<key>pfm_description_reference</key>
+			<string>This limit is to prevent content caching from running out of file descriptors. Apple does not guarantee that a content cache can achieve 3400 concurrent clients.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>MaxConcurrentClients</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_title</key>
+			<string>Max Concurrent Clients</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>clients</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -665,10 +1396,10 @@ Availability: Available in macOS 10.13.4 and later.</string>
 							<string></string>
 							<key>pfm_description_reference</key>
 							<string>Required. First IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>first</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Start IP Address</string>
 							<key>pfm_type</key>
@@ -681,10 +1412,10 @@ Availability: Available in macOS 10.13.4 and later.</string>
 							<string></string>
 							<key>pfm_description_reference</key>
 							<string>Required. Last IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>last</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>End IP Address</string>
 							<key>pfm_type</key>
@@ -760,10 +1491,10 @@ Availability: Available in macOS 10.13.4 and later.</string>
 							<string></string>
 							<key>pfm_description_reference</key>
 							<string>Required. First IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>first</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Start IP Address</string>
 							<key>pfm_type</key>
@@ -776,10 +1507,10 @@ Availability: Available in macOS 10.13.4 and later.</string>
 							<string></string>
 							<key>pfm_description_reference</key>
 							<string>Required. Last IP address in the range.</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_name</key>
 							<string>last</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>End IP Address</string>
 							<key>pfm_type</key>
@@ -799,6 +1530,94 @@ Availability: Available in macOS 10.13.4 and later.</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to allow a download from a peer content cache to sit idle before giving up (and possibly trying the download again). Clamped between 5 and 300 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PeerDownloadTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>300</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Peer Download Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to wait for replies from peer content caches when pinging them on startup. Clamped between 5 and 300 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PeerNotifyTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>300</integer>
+			<key>pfm_range_min</key>
+			<integer>5</integer>
+			<key>pfm_title</key>
+			<string>Peer Notify Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>5</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to wait for replies from peer content caches when asking them about content in their caches. Clamped between 1 and 60 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PeerQueryTimeout</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>60</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Peer Query Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>900</integer>
+			<key>pfm_description_reference</key>
+			<string>How long, in seconds, to ignore peer content caches after they have accrued three consecutive notify or query failures. After the retry interval has passed, peer content caches are restored to the list of peers to query for content. Clamped between 30 and 3600 seconds, inclusive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/guide/mac-help/configure-advanced-content-caching-settings-mchl91e7141a/10.15/mac/10.15</string>
+			<key>pfm_name</key>
+			<string>PeerRetryInterval</string>
+			<key>pfm_note</key>
+			<string>Advanced Config - local .plist only, no profile support</string>
+			<key>pfm_range_max</key>
+			<integer>3600</integer>
+			<key>pfm_range_min</key>
+			<integer>30</integer>
+			<key>pfm_title</key>
+			<string>Peer Retry Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -809,6 +1628,6 @@ Availability: Available in macOS 10.13.4 and later.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>4</integer>
 </dict>
 </plist>

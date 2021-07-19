@@ -12,11 +12,12 @@
 	<string>com.trusourcelabs.NoMAD</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_icon</key>
-	<data>
-	</data>
 	<key>pfm_last_modified</key>
-	<date>2018-09-08T18:50:49Z</date>
+	<date>2020-05-20T13:35:11Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -262,50 +263,68 @@
 			<string>1.1.0</string>
 			<key>pfm_default</key>
 			<string>OD</string>
-			<key>pfm_description</key>
-			<string>An indication of what specific LDAP type is in use. Currently only “OD” for Apple’s Open Directory is available.</string>
+			<key>pfm_description_reference</key>
+			<string>An indication of what specific LDAP type is in use. Currently only "OD" for Apple's Open Directory is available.</string>
 			<key>pfm_name</key>
 			<string>LDAPType</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>OD</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Open Directory</string>
+			</array>
+			<key>pfm_title</key>
+			<string>LDAP Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Determines if NoMAD uses LDAP over SSL.</string>
 			<key>pfm_name</key>
 			<string>LDAPOverSSL</string>
+			<key>pfm_title</key>
+			<string>LDAP Over SSL</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Allow anonymous LDAP binding when getting the user record.</string>
 			<key>pfm_name</key>
 			<string>LDAPAnonymous</string>
+			<key>pfm_title</key>
+			<string>Anonymous LDAP</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Sets NoMAD to treat the remote server as just an LDAP server and not specifically AD.</string>
 			<key>pfm_name</key>
 			<string>LDAPOnly</string>
+			<key>pfm_title</key>
+			<string>LDAP Only</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>List of LDAP servers to use instead of doing SRV lookups.</string>
 			<key>pfm_name</key>
 			<string>LDAPServerList</string>
+			<key>pfm_title</key>
+			<string>LDAP Server List</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -314,53 +333,57 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.4</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>List of custom attributes to query in AD on each user record lookup. Attributes will be written back to the UserAttributes key.</string>
 			<key>pfm_name</key>
 			<string>CustomLDAPAttributes</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>LDAPAttribute</string>
 					<key>pfm_title</key>
-					<string>LDAPAttribute</string>
+					<string>LDAP Attributes</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Custom LDAP Attributes</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.4</string>
-			<key>pfm_description</key>
-			<string>Append your AD domain to the end of the user’s home folder. Used for when the home in AD is not fully qualified.</string>
+			<key>pfm_description_reference</key>
+			<string>Append your AD domain to the end of the user's home folder. Used for when the home in AD is not fully qualified.</string>
 			<key>pfm_name</key>
 			<string>HomeAppendDomain</string>
+			<key>pfm_title</key>
+			<string>Append Domain to User Home</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Allows for recursive group lookups in AD to find all nested groups a user may be a member of.</string>
 			<key>pfm_name</key>
 			<string>RecursiveGroupLookup</string>
+			<key>pfm_title</key>
+			<string>Recursive Group Lookup</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Kerberos realm to use to get Kerberos tickets as a side affect of authentication.</string>
 			<key>pfm_name</key>
 			<string>KerberosRealm</string>
+			<key>pfm_title</key>
+			<string>Kerberos Realm</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -369,10 +392,12 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Determines if the Kerberos tickets should be renewed or not.</string>
 			<key>pfm_name</key>
 			<string>RenewTickets</string>
+			<key>pfm_title</key>
+			<string>Renew Kerberos Tickets</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -381,135 +406,163 @@
 			<string>1.0</string>
 			<key>pfm_default</key>
 			<integer>3600</integer>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Number of seconds until the Kerberos ticket is renewed.</string>
 			<key>pfm_name</key>
 			<string>SecondsToRenew</string>
+			<key>pfm_title</key>
+			<string>Seconds To Renew Kerberos Tickets</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
-			<string>Seconds</string>
+			<string>seconds</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.4</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Ensures that the local user name is the active ticket being used by NoMAD.</string>
 			<key>pfm_name</key>
 			<string>UserSwitch</string>
+			<key>pfm_note</key>
+			<string>For when macOS User Switching is enabled.</string>
+			<key>pfm_title</key>
+			<string>Use Active User</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Determines if the kasspwd server is written out to the com.apple.Kerberos preference domain.</string>
 			<key>pfm_name</key>
 			<string>DontMatchKerbPrefs</string>
+			<key>pfm_title</key>
+			<string>Don't Match Kerberos Preferences</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_description</key>
-			<string>Update the user's Chrome settings to allow for Kerberos auth with your AD domain.</string>
+			<key>pfm_description_reference</key>
+			<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth with your AD domain.</string>
 			<key>pfm_name</key>
 			<string>ConfigureChrome</string>
+			<key>pfm_title</key>
+			<string>Configure Chrome</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_description</key>
-			<string>Update the user's Chrome settings to allow for Kerberos auth with the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of “nomad.test” will result in *nomad.test being set.</string>
+			<key>pfm_description_reference</key>
+			<string>Tells NoMAD to update your Chrome settings to allow for Kerberos auth for the set domain. This allows for Chrome to work with domains other than your AD Domain. Note that the domain will be automatically wildcarded, so setting a domain of "nomad.test" will result in *nomad.test being set. Multiple domains are supported, separate them by ","</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ConfigureChrome</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ConfigureChromeDomain</string>
+			<key>pfm_title</key>
+			<string>Configure Chrome Domain</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_description</key>
-			<string>Determines if the Kerberos password is stored in the user’s keychain.</string>
+			<key>pfm_description_reference</key>
+			<string>Determines if the Kerberos password is stored in the user's keychain.</string>
 			<key>pfm_name</key>
 			<string>UseKeychain</string>
+			<key>pfm_title</key>
+			<string>Use Keychain</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Determines if the Kerberos password is synchronized with the local account.</string>
 			<key>pfm_name</key>
 			<string>LocalPasswordSync</string>
+			<key>pfm_title</key>
+			<string>Local Password Sync</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.4</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Only sync the password if the account name is the same as the local account name.</string>
 			<key>pfm_name</key>
 			<string>LocalPasswordSyncOnMatchOnly</string>
+			<key>pfm_title</key>
+			<string>Only Sync Local Password on Match</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Local users that will not synchronize their password.</string>
 			<key>pfm_name</key>
 			<string>LocalPasswordSyncDontSyncLocalUsers</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>Username</string>
 					<key>pfm_title</key>
 					<string>Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Local Users to Not Sync Password</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>AD users that will not synchronize their password.</string>
 			<key>pfm_name</key>
 			<string>LocalPasswordSyncDontSyncNetworkUsers</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>Username</string>
 					<key>pfm_title</key>
 					<string>Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Network Users to Not Sync Password</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Items to update when the user's local password is updated as well.</string>
 			<key>pfm_name</key>
 			<string>KeychainItems</string>
@@ -541,27 +594,31 @@
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>KeychainItems</string>
+			<string>Keychain Items</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Updates keychain items on every sign in. Used for debugging.</string>
 			<key>pfm_name</key>
 			<string>KeychainItemsDebug</string>
+			<key>pfm_title</key>
+			<string>Enable Keychain Items Debugging</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.0</string>
-			<key>pfm_description</key>
-			<string>Enables a secondary password change with AD to fix an issue with macOS 10.13.0 with AD-bound mobiles accounts.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables a secondary password change with AD to fix an issue with macOS 10.13.0 with AD-bound mobile accounts.</string>
 			<key>pfm_name</key>
 			<string>HicFix</string>
+			<key>pfm_title</key>
+			<string>Enable High Sierra Fix</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -613,6 +670,8 @@
 			<string>1.0.4</string>
 			<key>pfm_description</key>
 			<string>Complexity policy for changing the password via Kerberos.</string>
+			<key>pfm_description_reference</key>
+			<string>Will show visual indicators to the user when changing his or her password that it does not meet policy. Note: the values need to be set as Strings in your dictionary.</string>
 			<key>pfm_name</key>
 			<string>PasswordPolicy</string>
 			<key>pfm_subkeys</key>
@@ -621,109 +680,139 @@
 					<key>pfm_app_min</key>
 					<string>1.0.4</string>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minimum password length</string>
 					<key>pfm_format</key>
 					<string>^[0-9]+$</string>
 					<key>pfm_name</key>
 					<string>minLength</string>
+					<key>pfm_title</key>
+					<string>Minimum Password Length</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_type_input</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
 					<string>6</string>
+					<key>pfm_value_unit</key>
+					<string>characters</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>1.0.4</string>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minimum # of lowercase letters required in password</string>
 					<key>pfm_format</key>
 					<string>^[0-9]+$</string>
 					<key>pfm_name</key>
 					<string>minLowerCase</string>
+					<key>pfm_title</key>
+					<string>Minimum Lowercase Letters</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_type_input</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
 					<string>2</string>
+					<key>pfm_value_unit</key>
+					<string>lowercase letters</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>1.0.4</string>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minimum # of uppercase letters required in password</string>
+					<key>pfm_format</key>
+					<string>^[0-9]+$</string>
+					<key>pfm_name</key>
+					<string>minUpperCase</string>
+					<key>pfm_title</key>
+					<string>Minimum Uppercase Letters</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_type_input</key>
+					<string>integer</string>
+					<key>pfm_value_placeholder</key>
+					<string>2</string>
+					<key>pfm_value_unit</key>
+					<string>uppercase letters</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.0.4</string>
+					<key>pfm_description</key>
+					<string>Minimum # of numbers required in password</string>
 					<key>pfm_format</key>
 					<string>^[0-9]+$</string>
 					<key>pfm_name</key>
 					<string>minNumber</string>
+					<key>pfm_title</key>
+					<string>Minimum Numbers</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_type_input</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
 					<string>2</string>
+					<key>pfm_value_unit</key>
+					<string>numbers</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>1.0.4</string>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minimum # of symbols required in password</string>
 					<key>pfm_format</key>
 					<string>^[0-9]+$</string>
 					<key>pfm_name</key>
 					<string>minSymbol</string>
+					<key>pfm_title</key>
+					<string>Minimum Symbols</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_type_input</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
 					<string>1</string>
+					<key>pfm_value_unit</key>
+					<string>symbols</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>1.0.4</string>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_format</key>
-					<string>^[0-9]+$</string>
-					<key>pfm_name</key>
-					<string>minUpperCase</string>
-					<key>pfm_type</key>
-					<string>string</string>
-					<key>pfm_type_input</key>
-					<string>integer</string>
-					<key>pfm_value_placeholder</key>
-					<string>2</string>
-				</dict>
-				<dict>
-					<key>pfm_app_min</key>
-					<string>1.0.4</string>
-					<key>pfm_description</key>
-					<string></string>
+					<string>Minimum # of password policies that must be met (not including length)</string>
 					<key>pfm_format</key>
 					<string>^[0-9]+$</string>
 					<key>pfm_name</key>
 					<string>minMatches</string>
+					<key>pfm_note</key>
+					<string>For example, entering a value of 3 when you configure uppercase, lowercase, number, and symbol requirements will permit a password that matches only 3 of the 4 requirements. Users will always have to meet the configured minimum password length, regardless of this setting.</string>
+					<key>pfm_title</key>
+					<string>Minimum Password Policy Matches</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_type_input</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
 					<string>3</string>
+					<key>pfm_value_unit</key>
+					<string>matches</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Password Policy</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Script or other binary to run when a password is successfully changed.</string>
 			<key>pfm_name</key>
 			<string>ChangePasswordCommand</string>
+			<key>pfm_title</key>
+			<string>Change Password Command</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -742,7 +831,10 @@
 				<string>Task</string>
 				<string>App</string>
 				<string>URL</string>
+				<string>None</string>
 			</array>
+			<key>pfm_title</key>
+			<string>Change Password Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -751,8 +843,28 @@
 			<string>1.0</string>
 			<key>pfm_description</key>
 			<string>Task, URL or App path for ChangePasswordType. (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_contains_any</key>
+							<array>
+								<string>Task</string>
+								<string>App</string>
+								<string>URL</string>
+							</array>
+							<key>pfm_target</key>
+							<string>ChangePasswordType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ChangePasswordOptions</string>
+			<key>pfm_title</key>
+			<string>Change Password Options</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -761,10 +873,12 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.4</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Hides the password countdown display in the menu bar.</string>
 			<key>pfm_name</key>
 			<string>HideExpiration</string>
+			<key>pfm_title</key>
+			<string>Hide Password Expiration</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -775,6 +889,8 @@
 			<string>Message text to show in the menu bar when the password countdown has been suppressed.</string>
 			<key>pfm_name</key>
 			<string>HideExpirationMessage</string>
+			<key>pfm_title</key>
+			<string>Hide Password Expiration Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -782,63 +898,75 @@
 			<key>pfm_app_min</key>
 			<string>1.0</string>
 			<key>pfm_default</key>
-			<integer>3600</integer>
+			<integer>1296000</integer>
 			<key>pfm_description</key>
-			<string>Number of seconds remaining before the password expiration alert is shown. (Set to 0 to never be bothered. Defaults to 15 days or 1,296,000 seconds.)</string>
+			<string>Number of seconds before a user's password expiration that an alert is shown. (Set to 0 to never be bothered. Defaults to 15 days or 1,296,000 seconds.)</string>
+			<key>pfm_description_reference</key>
+			<string>The threshold, in seconds, for when to start notifying the user about their expiring password – set to 0 to never be bothered, and defaults to 15 days or 1,296,000 seconds</string>
 			<key>pfm_name</key>
 			<string>PasswordExpireAlertTime</string>
+			<key>pfm_title</key>
+			<string>Password Expiration Alert Time</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
-			<string>Seconds</string>
+			<string>seconds</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_default</key>
-			<string>Account expiring soon</string>
-			<key>pfm_description</key>
+			<key>pfm_description_reference</key>
 			<string>Custom alert to show in the menu bar instead of days to go.</string>
 			<key>pfm_name</key>
 			<string>PasswordExpireCustomAlert</string>
+			<key>pfm_title</key>
+			<string>Password Expiration Custom Alert</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Account expiring soon</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_default</key>
-			<integer>20</integer>
 			<key>pfm_description</key>
 			<string>Number of days remaining before the custom alert is shown, and in yellow.</string>
 			<key>pfm_name</key>
 			<string>PasswordExpireCustomWarnTime</string>
+			<key>pfm_title</key>
+			<string>Password Expiration Custom Warning Time</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<integer>20</integer>
 			<key>pfm_value_unit</key>
-			<string>Days</string>
+			<string>days</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_default</key>
-			<integer>5</integer>
 			<key>pfm_description</key>
 			<string>Number of days remaining before the custom alert is shown, and in red.</string>
 			<key>pfm_name</key>
 			<string>PasswordExpireCustomAlertTime</string>
+			<key>pfm_title</key>
+			<string>Password Expiration Custom Alert Time</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<integer>5</integer>
 			<key>pfm_value_unit</key>
-			<string>Days</string>
+			<string>days</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.2</string>
 			<key>pfm_description</key>
-			<string>Alerts the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user’s system.</string>
+			<string>Alerts the user to Unannounced Password Changes, typically when the password was changed in AD and not from the user's system.</string>
 			<key>pfm_name</key>
 			<string>UPCAlert</string>
+			<key>pfm_title</key>
+			<string>Unannounced Password Changes Alert</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -851,6 +979,8 @@
 			<string>Message to be shown in an UPCAlert notification.</string>
 			<key>pfm_name</key>
 			<string>MessageUPCAlert</string>
+			<key>pfm_title</key>
+			<string>Unannounced Password Changes Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -861,6 +991,8 @@
 			<string>Path to a script or other binary to execute when a UPC Alert occurs.</string>
 			<key>pfm_name</key>
 			<string>UPCAlertAction</string>
+			<key>pfm_title</key>
+			<string>Unannounced Password Changes Action</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -870,23 +1002,27 @@
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
 			<key>pfm_description</key>
-			<string>Automatically request a certificate for a user when they don’t have a valid certificate in the keychain.</string>
+			<string>Automatically request a certificate for a user when they don't have a valid certificate in the keychain.</string>
 			<key>pfm_name</key>
 			<string>GetCertificateAutomatically</string>
+			<key>pfm_title</key>
+			<string>Get Certificates Automatically</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.1</string>
-			<key>pfm_default</key>
-			<integer>30</integer>
 			<key>pfm_description</key>
 			<string>Number of days until the certificate expires before automatically renewing it.</string>
 			<key>pfm_name</key>
 			<string>AutoRenewCert</string>
+			<key>pfm_title</key>
+			<string>Automatic Certificate Renewal</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<integer>30</integer>
 			<key>pfm_value_unit</key>
 			<string>Days</string>
 		</dict>
@@ -897,6 +1033,8 @@
 			<string>Allows the private key from any NoMAD generated certificate to be exported.</string>
 			<key>pfm_name</key>
 			<string>ExportableKey</string>
+			<key>pfm_title</key>
+			<string>Exportable Private Key</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -904,9 +1042,11 @@
 			<key>pfm_app_min</key>
 			<string>1.1.4</string>
 			<key>pfm_description</key>
-			<string>Automatically remove extra certificates from the user’s keychain. This will leave the 2 newest and the 2 oldest certificates.</string>
+			<string>Automatically remove extra certificates from the user's keychain. This will leave the 2 newest and the 2 oldest certificates.</string>
 			<key>pfm_name</key>
 			<string>CleanCerts</string>
+			<key>pfm_title</key>
+			<string>Automatic Certificate Cleaning</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -917,6 +1057,8 @@
 			<string>FQDN of the Windows web CA for NoMAD to use for certificates.</string>
 			<key>pfm_name</key>
 			<string>X509CA</string>
+			<key>pfm_title</key>
+			<string>Windows Certificate Authority</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -925,14 +1067,30 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_default</key>
-			<string>User Auth</string>
 			<key>pfm_description</key>
 			<string>Certificate template to request when using the Windows CA.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>X509CA</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>Template</string>
+			<key>pfm_title</key>
+			<string>Windows Certificate Authority Template</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>User Auth</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -941,11 +1099,11 @@
 			<string>A list of wireless networks that the certificate created by NoMAD should be associated with.</string>
 			<key>pfm_name</key>
 			<string>WifiNetworks</string>
+			<key>pfm_title</key>
+			<string>Wi-Fi Networks</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
 					<key>pfm_name</key>
 					<string>SSID</string>
 					<key>pfm_type</key>
@@ -962,6 +1120,8 @@
 			<string>Removes the icon from the menu bar. Note that NoMAD still is in the menu bar, just with no icon and taking up less space.</string>
 			<key>pfm_name</key>
 			<string>LightsOutIKnowWhatImDoing</string>
+			<key>pfm_title</key>
+			<string>Hide NoMAD Menubar Icon</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1039,6 +1199,8 @@
 			<string>Use the Finder instead of the API for automounted file shares.</string>
 			<key>pfm_name</key>
 			<string>MountSharesWithFinder</string>
+			<key>pfm_title</key>
+			<string>Mount Shares with Finder</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1055,6 +1217,8 @@
 				<string>URL</string>
 				<string>App</string>
 			</array>
+			<key>pfm_title</key>
+			<string>Get Help Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1063,8 +1227,29 @@
 			<string>1.0</string>
 			<key>pfm_description</key>
 			<string>URL or Path for GetHelpType (&lt;&lt;serial&gt;&gt;, &lt;&lt;fullname&gt;&gt;, &lt;&lt;shortname&gt;&gt; and &lt;&lt;domain&gt;&gt; are currently supported as substitutions)</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_n_contains_any</key>
+							<array>
+								<string>URL</string>
+								<string>App</string>
+							</array>
+							<key>pfm_target</key>
+							<string>GetHelpType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>GetHelpOptions</string>
+			<key>pfm_title</key>
+			<string>Get Help Options</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1077,6 +1262,8 @@
 			<string>File path for a Self Service application not found automatically.</string>
 			<key>pfm_name</key>
 			<string>SelfServicePath</string>
+			<key>pfm_title</key>
+			<string>Self Service Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1089,6 +1276,8 @@
 			<string>Hides the About menu item.</string>
 			<key>pfm_name</key>
 			<string>HideAbout</string>
+			<key>pfm_title</key>
+			<string>Hide 'About' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1099,6 +1288,8 @@
 			<string>Hides the Get Software menu item.</string>
 			<key>pfm_name</key>
 			<string>HideGetSoftware</string>
+			<key>pfm_title</key>
+			<string>Hide 'Get Software' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1109,6 +1300,8 @@
 			<string>Hides the Get Help menu item.</string>
 			<key>pfm_name</key>
 			<string>HideHelp</string>
+			<key>pfm_title</key>
+			<string>Hide 'Help' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1119,6 +1312,8 @@
 			<string>Shows the Home Directory share menu item.</string>
 			<key>pfm_name</key>
 			<string>ShowHome</string>
+			<key>pfm_title</key>
+			<string>Show 'Home' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1129,6 +1324,8 @@
 			<string>Hides the Lock Screen menu item.</string>
 			<key>pfm_name</key>
 			<string>HideLockScreen</string>
+			<key>pfm_title</key>
+			<string>Hide 'Lock Screen' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1139,6 +1336,8 @@
 			<string>Disables the Preferences menu item.</string>
 			<key>pfm_name</key>
 			<string>HidePrefs</string>
+			<key>pfm_title</key>
+			<string>Hide 'Preferences' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1149,6 +1348,8 @@
 			<string>Hides the Quit menu item.</string>
 			<key>pfm_name</key>
 			<string>HideQuit</string>
+			<key>pfm_title</key>
+			<string>Hide 'Quit' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1159,6 +1360,8 @@
 			<string>Hides the Renew Tickets menu item.</string>
 			<key>pfm_name</key>
 			<string>HideRenew</string>
+			<key>pfm_title</key>
+			<string>Hide 'Renew Tickets' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1169,6 +1372,8 @@
 			<string>Hides the Sign Out menu item.</string>
 			<key>pfm_name</key>
 			<string>HideSignOut</string>
+			<key>pfm_title</key>
+			<string>Hide 'Sign Out' Menu Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1179,142 +1384,169 @@
 			<string>Shows the password expiration countdown even when the user is not logged into the domain.</string>
 			<key>pfm_name</key>
 			<string>PersistExpiration</string>
+			<key>pfm_title</key>
+			<string>Persist Password Expiration Countdown</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>No dice!</string>
 			<key>pfm_description</key>
 			<string>Message text to show in the menu bar when NoMAD is not connected to the AD domain.</string>
 			<key>pfm_name</key>
 			<string>MessageNotConnected</string>
+			<key>pfm_title</key>
+			<string>Not Connected to Domain Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>No dice!</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Your password is required to have 128 characters.</string>
 			<key>pfm_description</key>
 			<string>Message text to display in the password change dialog to help the user understand how complex they need to be.</string>
 			<key>pfm_name</key>
 			<string>MessagePasswordChangePolicy</string>
-			<key>pfm_range_max</key>
-			<integer>2</integer>
+			<key>pfm_note</key>
+			<string>Use '***' to create new lines in the message. For example, 'Line one***Line two' will be displayed as:
+
+Line one
+Line two</string>
+			<key>pfm_title</key>
+			<string>Password Change Policy Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Your password is required to have 128 characters.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Please provide your local password.</string>
 			<key>pfm_description</key>
 			<string>Message text for when a user is asked for their local password to sync their network password to their local account.</string>
 			<key>pfm_name</key>
 			<string>MessageLocalSync</string>
+			<key>pfm_title</key>
+			<string>Local Password Sync Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Your network and local passwords are not the same. Please enter the password for your Mac.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.4</string>
-			<key>pfm_default</key>
-			<string>This Application</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the About item.</string>
 			<key>pfm_name</key>
 			<string>MenuAbout</string>
+			<key>pfm_title</key>
+			<string>'About' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>This Application</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_default</key>
-			<string>Update Account</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Change Password item.</string>
 			<key>pfm_name</key>
 			<string>MenuChangePassword</string>
+			<key>pfm_title</key>
+			<string>'Change Password' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Update Account</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.3</string>
-			<key>pfm_default</key>
-			<string>Files</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the File Servers item.</string>
 			<key>pfm_name</key>
 			<string>MenuFileServers</string>
+			<key>pfm_title</key>
+			<string>'File Servers' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Files</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.5</string>
-			<key>pfm_default</key>
-			<string>Update Certificate</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Get Certificate item.</string>
 			<key>pfm_name</key>
 			<string>MenuGetCertificate</string>
+			<key>pfm_title</key>
+			<string>'Get Certificate' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Update Certificate</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Get Apps</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Get Software item.</string>
 			<key>pfm_name</key>
 			<string>MenuGetSoftware</string>
+			<key>pfm_title</key>
+			<string>'Get Software' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Get Apps</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>File ticket</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Get Help item.</string>
 			<key>pfm_name</key>
 			<string>MenuGetHelp</string>
+			<key>pfm_title</key>
+			<string>'Get Help' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>File ticket</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Network Home</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Home Directory item.</string>
 			<key>pfm_name</key>
 			<string>MenuHomeDirectory</string>
+			<key>pfm_title</key>
+			<string>'Home Directory' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Network Home</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Renew</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the Renew Tickets item.</string>
 			<key>pfm_name</key>
 			<string>MenuRenewTickets</string>
+			<key>pfm_title</key>
+			<string>'Renew Tickets' Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Renew</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -1323,20 +1555,26 @@
 			<string>Menu item text for the user name item before a user logs in.</string>
 			<key>pfm_name</key>
 			<string>MenuUserName</string>
+			<key>pfm_title</key>
+			<string>Username Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>User Name</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.3</string>
-			<key>pfm_default</key>
-			<string>Welcome!</string>
 			<key>pfm_description</key>
 			<string>Menu item text for the password expiration item before a user logs in.</string>
 			<key>pfm_name</key>
 			<string>MenuPasswordExpires</string>
+			<key>pfm_title</key>
+			<string>Password Expiration Menu Item Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Welcome!</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -1345,6 +1583,8 @@
 			<string>Changes the icon set to Carrie the Caribou.</string>
 			<key>pfm_name</key>
 			<string>CaribouTime</string>
+			<key>pfm_title</key>
+			<string>Carrie the Caribou Icons</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1355,6 +1595,8 @@
 			<string>Path to a 16x16 pixel image to use as the icon in the menu bar when NoMAD is connected.</string>
 			<key>pfm_name</key>
 			<string>IconOn</string>
+			<key>pfm_title</key>
+			<string>NoMAD Connected Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1367,6 +1609,8 @@
 			<string>Path to a 16x16 pixel image to use as the icon in the menu bar when NoMAD is not connected.</string>
 			<key>pfm_name</key>
 			<string>IconOff</string>
+			<key>pfm_title</key>
+			<string>NoMAD Disconnected Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1379,6 +1623,8 @@
 			<string>Path to a 16x16 pixel image to use as the icon in the menu bar when NoMAD is connected in dark mode.</string>
 			<key>pfm_name</key>
 			<string>IconOnDark</string>
+			<key>pfm_title</key>
+			<string>NoMAD Connected Dark Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1391,6 +1637,8 @@
 			<string>Path to a 16x16 pixel image to use as the icon in the menu bar when NoMAD is not connected in dark mode.</string>
 			<key>pfm_name</key>
 			<string>IconOffDark</string>
+			<key>pfm_title</key>
+			<string>NoMAD Disconnected Dark Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1403,6 +1651,8 @@
 			<string>Enables verbose logging.</string>
 			<key>pfm_name</key>
 			<string>Verbose</string>
+			<key>pfm_title</key>
+			<string>Verbose Logging</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1410,9 +1660,11 @@
 			<key>pfm_app_min</key>
 			<string>1.0</string>
 			<key>pfm_description</key>
-			<string>Adds NoMAD to the user’s start up items.</string>
+			<string>Adds NoMAD to the user's start up items.</string>
 			<key>pfm_name</key>
 			<string>LoginItem</string>
+			<key>pfm_title</key>
+			<string>NoMAD Login Item</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1423,6 +1675,8 @@
 			<string>Path to a script or command to be run after a successful sign in.</string>
 			<key>pfm_name</key>
 			<string>SignInCommand</string>
+			<key>pfm_title</key>
+			<string>Post Sign In Command</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1435,6 +1689,8 @@
 			<string>Path to a script or other binary to be run on sign out.</string>
 			<key>pfm_name</key>
 			<string>SignOutCommand</string>
+			<key>pfm_title</key>
+			<string>Post Sign Out Command</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1447,6 +1703,8 @@
 			<string>Path to a script that will be launched on network changes.</string>
 			<key>pfm_name</key>
 			<string>StateChangeAction</string>
+			<key>pfm_title</key>
+			<string>Network Change Action</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1455,14 +1713,16 @@
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
-			<key>pfm_default</key>
-			<string>TSL</string>
 			<key>pfm_description</key>
 			<string>Keyword to determine what auto configuration scheme to use.</string>
 			<key>pfm_name</key>
 			<string>AutoConfigure</string>
+			<key>pfm_title</key>
+			<string>Auto Configuration Scheme</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>TSL</string>
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -1502,6 +1762,8 @@
 			<string>Hides the Welcome window on first launch.</string>
 			<key>pfm_name</key>
 			<string>DontShowWelcome</string>
+			<key>pfm_title</key>
+			<string>Don't Show NoMAD Welcome Window</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1509,7 +1771,7 @@
 			<key>pfm_app_min</key>
 			<string>1.1.3</string>
 			<key>pfm_description</key>
-			<string>Shows the Welcome window on first launch, but checks the "Don’t show again" box by default.</string>
+			<string>Shows the Welcome Screen, but checks the "Don't show again" box by default. Useful for when you want to show the Welcome screen only once.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1528,6 +1790,8 @@
 			</array>
 			<key>pfm_name</key>
 			<string>DontShowWelcomeDefaultOn</string>
+			<key>pfm_title</key>
+			<string>Don't Show Again Welcome Window Checkbox</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1538,6 +1802,8 @@
 			<string>Path to a folder containing an index.html file and associated resources for displaying as a Welcome window.</string>
 			<key>pfm_name</key>
 			<string>MenuWelcome</string>
+			<key>pfm_title</key>
+			<string>Custom Welcome Window Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1550,6 +1816,8 @@
 			<string>Shows the Sign In window on launch.</string>
 			<key>pfm_name</key>
 			<string>SignInWindowOnLaunch</string>
+			<key>pfm_title</key>
+			<string>Show Sign In Window on Launch</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1560,6 +1828,8 @@
 			<string>Shows the Sign In window on launch unless the user has a password in the keychain.</string>
 			<key>pfm_name</key>
 			<string>UseKeychainPrompt</string>
+			<key>pfm_title</key>
+			<string>Sign In Window Keychain</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1570,6 +1840,8 @@
 			<string>Makes the Sign In window the foremost window when a user is not signed in.</string>
 			<key>pfm_name</key>
 			<string>SignInWindowAlert</string>
+			<key>pfm_title</key>
+			<string>Force Sign In Window on Top</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1598,22 +1870,26 @@
 			</array>
 			<key>pfm_name</key>
 			<string>SignInWindowAlertTime</string>
+			<key>pfm_title</key>
+			<string>Force Sign In Window on Top Timer</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
-			<string>Seconds</string>
+			<string>seconds</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0.2</string>
-			<key>pfm_default</key>
-			<string>Password please</string>
 			<key>pfm_description</key>
 			<string>Title of the Sign In window.</string>
 			<key>pfm_name</key>
 			<string>TitleSignIn</string>
+			<key>pfm_title</key>
+			<string>Sign In Window Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>NoMAD - Sign In</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -1625,16 +1901,14 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
 					<key>pfm_name</key>
-					<string>Username</string>
-					<key>pfm_title</key>
 					<string>Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Sign In Window User Exclusions</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -1644,6 +1918,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>

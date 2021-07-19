@@ -4,6 +4,8 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Use this section to define Wi-Fi settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/wifi</string>
 	<key>pfm_domain</key>
 	<string>com.apple.wifi.managed</string>
 	<key>pfm_format_version</key>
@@ -11,13 +13,19 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-09-02T19:24:02Z</date>
+	<date>2020-09-16T02:20:42Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
 		<string>macOS</string>
 		<string>tvOS</string>
 	</array>
+	<key>pfm_ios_min</key>
+	<string>4.0</string>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
+	<key>pfm_tvos_min</key>
+	<string>9.0</string>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -120,7 +128,7 @@
 			<key>pfm_excluded</key>
 			<true/>
 			<key>pfm_name</key>
-			<string>Interface</string>
+			<string>PFC_InterfaceSelector</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>BuiltInWireless</string>
@@ -155,7 +163,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -176,7 +184,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -207,13 +215,26 @@
 								<string>Hotspot</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>DomainName</string>
+							<key>pfm_present</key>
+							<false/>
 						</dict>
 					</array>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Enter the SSID of the wireless network to connect to.</string>
+			<string>Displayed name of the wireless network</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -225,7 +246,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -233,7 +254,7 @@
 			<key>pfm_name</key>
 			<string>SSID_STR</string>
 			<key>pfm_title</key>
-			<string>SSID</string>
+			<string>Service Set Identifier (SSID)</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -262,6 +283,15 @@
 			<string>Auto Join</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
+			<key>pfm_macos_min</key>
+			<string>10.7</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -283,9 +313,32 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If true, disables MAC address randomization for that Wi-Fi network while associated with the network. This also shows a privacy warning in Settings indicating that the network has reduced privacy protections.</string>
+			<key>pfm_ios_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>DisableAssociationMACRandomization</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable MAC Address Randomization</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<string>None</string>
 			<key>pfm_description</key>
 			<string>The type of proxy configuration to use for this wireless connection.</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -461,7 +514,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>URL used to receive proxy settings. If no URL is specified, the device uses the web proxy autodiscovery protocol (WPAD) to discover proxies.</string>
+			<string>URL used to receive proxy settings. If no URL is specified, the device uses the web proxy autodiscovery protocol (WPAD) to discover proxies</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -486,8 +539,10 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
-			<string>Enable to allow direct connection if PAC is unreachable.</string>
+			<string>Enable to allow direct connection if PAC is unreachable</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -513,11 +568,16 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>None</string>
+			<string>Any</string>
 			<key>pfm_description</key>
-			<string>Wireless network encryption to use when connecting. The None value is available in iOS 5.0 and later and the WPA2 value is available in iOS 8.0 and later.</string>
+			<string>Wireless network encryption to use when connecting. The None value is available in iOS 5.0 and later and the WPA2 value is available in iOS 8.0 and later</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>EncryptionType</string>
 			<key>pfm_range_list</key>
@@ -526,6 +586,7 @@
 				<string>WEP</string>
 				<string>WPA</string>
 				<string>WPA2</string>
+				<string>WPA3</string>
 				<string>Any</string>
 			</array>
 			<key>pfm_range_list_titles</key>
@@ -534,6 +595,7 @@
 				<string>WEP</string>
 				<string>WPA/WPA2</string>
 				<string>WPA2</string>
+				<string>WPA3</string>
 				<string>Any</string>
 			</array>
 			<key>pfm_require</key>
@@ -583,7 +645,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -609,7 +671,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -618,6 +680,11 @@
 			<string>7.0</string>
 			<key>pfm_macos_min</key>
 			<string>10.9</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>DisplayedOperatorName</string>
 			<key>pfm_title</key>
@@ -639,7 +706,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -665,7 +732,7 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
@@ -674,6 +741,11 @@
 			<string>7.0</string>
 			<key>pfm_macos_min</key>
 			<string>10.9</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>DomainName</string>
 			<key>pfm_title</key>
@@ -711,10 +783,15 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
+			</array>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
 			</array>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
@@ -755,10 +832,15 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
+			</array>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
 			</array>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
@@ -810,10 +892,15 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
+			</array>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
 			</array>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
@@ -863,13 +950,17 @@
 								<string>Hotspot2</string>
 							</array>
 							<key>pfm_target</key>
-							<string>Interface</string>
+							<string>PFC_InterfaceSelector</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
 			<key>pfm_name</key>
 			<string>MCCAndMNCs</string>
 			<key>pfm_subkeys</key>
@@ -1121,6 +1212,8 @@
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_default</key>
+					<true/>
 					<key>pfm_description</key>
 					<string>Allows a dynamic trust decision by the user.</string>
 					<key>pfm_ios_deprecated</key>
@@ -1472,6 +1565,15 @@
 			<string>10.0</string>
 			<key>pfm_name</key>
 			<string>QoSMarkingPolicy</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
+			<key>pfm_ios_min</key>
+			<string>10.0</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -1500,7 +1602,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Whitelist specific apps for QoS marking.</string>
+					<string>Add specific apps to an allowlist for QoS marking.</string>
 					<key>pfm_name</key>
 					<string>QoSMarkingWhitelistedAppIdentifiers</string>
 					<key>pfm_subkeys</key>
@@ -1513,13 +1615,13 @@
 							<key>pfm_name</key>
 							<string>appBundleID</string>
 							<key>pfm_title</key>
-							<string>Whitelisted App</string>
+							<string>Allowlisted App</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Whitelisted App Identifiers</string>
+					<string>Allowlisted App Identifiers</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -1579,6 +1681,8 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If set, force a non-default authentication method. (if YES, uses certificate from PayloadCertificateUUID).</string>
 			<key>pfm_ios_min</key>
@@ -1589,6 +1693,36 @@
 			<string>Certificate Required</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>Interface</string>
+			<key>pfm_title</key>
+			<string>Interface</string>
+			<key>pfm_description</key>
+			<string>The wireless interface to use</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>AnyEthernet</string>
+				<string>FirstEthernet</string>
+				<string>FirstActiveEthernet</string>
+				<string>SecondEthernet</string>
+				<string>SecondActiveEthernet</string>
+				<string>ThirdEthernet</string>
+				<string>ThirdActiveEthernet</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Any Ethernet</string>
+				<string>First Ethernet</string>
+				<string>First Active Ethernet</string>
+				<string>Second Ethernet</string>
+				<string>Second Active Ethernet</string>
+				<string>Third Ethernet</string>
+				<string>Third Active Ethernet</string>
+			</array>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -1601,6 +1735,6 @@
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>8</integer>
 </dict>
 </plist>

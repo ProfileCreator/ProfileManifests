@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>pfm_description_reference</key>
-	<string>The Software Update payload is designated by specifying com.apple.SoftwareUpdate as the PayloadType.</string>
 	<key>pfm_description</key>
 	<string>Software Update settings</string>
+	<key>pfm_description_reference</key>
+	<string>The Software Update payload is designated by specifying com.apple.SoftwareUpdate as the PayloadType.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/softwareupdate</string>
 	<key>pfm_domain</key>
 	<string>com.apple.SoftwareUpdate</string>
 	<key>pfm_format_version</key>
@@ -13,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-11-16T18:22:44Z</date>
+	<date>2020-06-26T14:57:05Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -130,14 +132,16 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Optional. The URL of the software update catalog.</string>
 			<key>pfm_description</key>
-			<string>Specify a URL of the form http://server.example.com:8088/index.sucatalog</string>
+			<string>Specify a URL of the desired software update catalog in the form of http://server.example.com:8088/index.sucatalog</string>
+			<key>pfm_description_reference</key>
+			<string>The URL of the software update catalog. This property is not supported in macOS 11 and later.</string>
+			<key>pfm_macos_deprecated</key>
+			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>CatalogURL</string>
 			<key>pfm_title</key>
-			<string>Software Update Server</string>
+			<string>Catalog URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -156,6 +160,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_name</key>
 			<string>AutomaticCheckEnabled</string>
 			<key>pfm_title</key>
@@ -164,6 +170,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_name</key>
 			<string>AutomaticDownload</string>
 			<key>pfm_title</key>
@@ -172,24 +180,42 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_name</key>
 			<string>AutomaticallyInstallMacOSUpdates</string>
 			<key>pfm_macos_min</key>
-			<string>10.14</string>
+			<string>10.15</string>
 			<key>pfm_title</key>
 			<string>Automatically install macOS updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_name</key>
-			<string>ConfigDataInstall</string>
+			<string>AutomaticallyInstallAppUpdates</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
 			<key>pfm_title</key>
-			<string>Install XProtect and Gatekeeper updates automatically</string>
+			<string>Automatically install App Store app updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>ConfigDataInstall</string>
+			<key>pfm_title</key>
+			<string>Install XProtect, MRT, &amp; Gatekeeper updates automatically</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>These are not regular security updates. An example is the OS X NTP Security Update 1.0 update.</string>
 			<key>pfm_name</key>
@@ -200,6 +226,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description_reference</key>
 			<string>Optional. If true, prerelease software can be installed on this computer. Default is true.</string>
 			<key>pfm_description</key>
@@ -224,6 +252,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This key has the same function as the key restrict-store-require-admin-to-install in the com.apple.appstore payload.</string>
 			<key>pfm_description_reference</key>
@@ -300,6 +330,6 @@ Availability: Available in macOS 10.14 and later.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>

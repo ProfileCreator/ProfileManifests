@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-11-27T16:23:00Z</date>
+	<date>2020-08-05T19:00:12Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -172,8 +172,11 @@ A profile can consist of payloads with different version numbers. For example, c
 				</array>
 				<key>Updates</key>
 				<array>
+					<string>SUAllowsAutomaticUpdates</string>
+					<string>SUAutomaticallyUpdate</string>
 					<string>SUEnableAutomaticChecks</string>
 					<string>SUFeedURL</string>
+					<string>SUScheduledCheckInterval</string>
 					<string>SUSendProfileInfo</string>
 				</array>
 			</dict>
@@ -181,38 +184,78 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_description</key>
-			<string>Enable/disable Google Cast.</string>
-			<key>pfm_name</key>
-			<string>EnableGoogleCast</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description</key>
-			<string>Automatically check for AirServer software updates.</string>
-			<key>pfm_description_reference</key>
-			<string>When set to false, AirServer will not automatically check for software updates.</string>
-			<key>pfm_name</key>
-			<string>SUEnableAutomaticChecks</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Sparkle update framework key. While automatic update checks can be disabled via the SUEnableAutomaticChecks key, this does not prevent users from manually running a software update check via the GUI. Setting this key to a non-existant local address will prevent users from manually triggering and/or installing updates themselves.</string>
-			<key>pfm_description_reference</key>
-			<string>When set to a non-existant local address, AirServer will be unable to determine if updates are available.</string>
+			<string>Setting this to a non-existent URL will disable the ability for users to manually check for updates. Useful when you intend to use your own software distribution mechanism to deploy updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
 			<key>pfm_name</key>
 			<string>SUFeedURL</string>
+			<key>pfm_title</key>
+			<string>Sparkle Feed URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>http://127.0.0.1</string>
+			<string>https://127.0.0.1</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls automatic update checks.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUEnableAutomaticChecks</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Update Checks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>86400</integer>
+			<key>pfm_description</key>
+			<string>Controls the automatic update check interval. The default is 1 day (86400 seconds). Setting to 0 disables updates.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUScheduledCheckInterval</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Check Interval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls the automatic update install prompt. When enabled, presents users with the option to allow automatic download and install of available updates. If disabled, disallows automatic updates and requires manual installation every time.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAllowsAutomaticUpdates</string>
+			<key>pfm_title</key>
+			<string>Automatic Update Install Prompt</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Controls automatic silent updates. If enabled, users will not be informed about updates and updates will be silently installed when the app quits.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://sparkle-project.org/documentation/customization/</string>
+			<key>pfm_name</key>
+			<string>SUAutomaticallyUpdate</string>
+			<key>pfm_title</key>
+			<string>Enable Automatic Silent Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>

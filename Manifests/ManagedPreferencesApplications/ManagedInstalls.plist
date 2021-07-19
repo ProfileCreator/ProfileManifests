@@ -12,11 +12,12 @@
 	<string>ManagedInstalls</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_icon</key>
-	<data>
-	</data>
 	<key>pfm_last_modified</key>
-	<date>2019-06-05T09:54:00Z</date>
+	<date>2020-10-25T17:17:08Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -141,70 +142,70 @@
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>General</key>
+				<array>
+					<string>AppleSoftwareUpdatesOnly</string>
+					<string>ClientIdentifier</string>
+					<string>EmulateProfileSupport</string>
+					<string>InstallAppleSoftwareUpdates</string>
+					<string>LocalOnlyManifest</string>
+					<string>ManagedInstallDir</string>
+					<string>PerformAuthRestarts</string>
+					<string>RecoveryKeyFile</string>
+					<string>SuppressAutoInstall</string>
+					<string>SuppressLoginwindowInstall</string>
+					<string>UnattendedAppleUpdates</string>
+				</array>
+				<key>MSC</key>
+				<array>
+					<string>AggressiveUpdateNotificationDays</string>
+					<string>DaysBetweenNotifications</string>
+					<string>InstallRequiresLogout</string>
+					<string>ShowRemovalDetail</string>
+					<string>ShowOptionalInstallsForHigherOSVersions</string>
+					<string>SuppressUserNotification</string>
+					<string>SuppressStopButtonOnInstall</string>
+					<string>UseNotificationCenterDays</string>
+				</array>
+				<key>URL</key>
+				<array>
+					<string>AdditionalHttpHeaders</string>
+					<string>CatalogURL</string>
+					<string>ClientResourceURL</string>
+					<string>ClientResourcesFilename</string>
+					<string>FollowHTTPRedirects</string>
+					<string>HelpURL</string>
+					<string>IconURL</string>
+					<string>IgnoreSystemProxies</string>
+					<string>LicenseInfoURL</string>
+					<string>PackageURL</string>
+					<string>PackageVerificationMode</string>
+					<string>SoftwareUpdateServerURL</string>
+				</array>
 				<key>Certificate</key>
 				<array>
-					<string>UseClientCertificate</string>
-					<string>UseClientCertificateCNAsClientIdentifier</string>
 					<string>ClientCertificatePath</string>
 					<string>ClientKeyPath</string>
 					<string>SoftwareRepoCAPath</string>
 					<string>SoftwareRepoCACertificate</string>
-				</array>
-				<key>General</key>
-				<array>
-					<string>ClientIdentifier</string>
-					<string>ManagedInstallDir</string>
-					<string>LocalOnlyManifest</string>
-					<string>SuppressAutoInstall</string>
-					<string>SuppressLoginwindowInstall</string>
-					<string>InstallAppleSoftwareUpdates</string>
-					<string>AppleSoftwareUpdatesOnly</string>
-					<string>UnattendedAppleUpdates</string>
-					<string>AppleSoftwareUpdatesOnly</string>
-					<string>AppleSoftwareUpdatesOnly</string>
-					<string>AppleSoftwareUpdatesOnly</string>
-					<string>PerformAuthRestarts</string>
-					<string>RecoveryKeyFile</string>
+					<string>UseClientCertificate</string>
+					<string>UseClientCertificateCNAsClientIdentifier</string>
 				</array>
 				<key>Log</key>
 				<array>
 					<string>LogFile</string>
 					<string>LogToSyslog</string>
 					<string>LoggingLevel</string>
-					<string>MSULogEnabled</string>
 					<string>MSUDebugLogEnabled</string>
-				</array>
-				<key>MSC</key>
-				<array>
-					<string>SuppressUserNotification</string>
-					<string>SuppressStopButtonOnInstall</string>
-					<string>InstallRequiresLogout</string>
-					<string>ShowRemovalDetail</string>
-					<string>ShowOptionalInstallsForHigherOSVersions</string>
-					<string>DaysBetweenNotifications</string>
-					<string>UseNotificationCenterDays</string>
+					<string>MSULogEnabled</string>
 				</array>
 				<key>Plugins</key>
 				<array>
 					<string>PFC_SegmentedControl_Plugins</string>
 					<string>AccessKey</string>
-					<string>SecretKey</string>
 					<string>Region</string>
-				</array>
-				<key>URL</key>
-				<array>
-					<string>PackageVerificationMode</string>
-					<string>FollowHTTPRedirects</string>
-					<string>AdditionalHttpHeaders</string>
-					<string>IgnoreSystemProxies</string>
-					<string>PackageURL</string>
-					<string>CatalogURL</string>
-					<string>LicenseInfoURL</string>
-					<string>IconURL</string>
-					<string>ClientResourceURL</string>
-					<string>ClientResourcesFilename</string>
-					<string>HelpURL</string>
-					<string>SoftwareUpdateServerURL</string>
+					<string>SecretKey</string>
+					<string>S3Endpoint</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -215,6 +216,8 @@
 			<string>Identifier for Munki client. Usually is the same as a manifest name on the Munki server. If this is empty or undefined, Munki will attempt the following identifiers, in order: fully-qualified hostname, "short" hostname, serial number and finally, "site_default".</string>
 			<key>pfm_name</key>
 			<string>ClientIdentifier</string>
+			<key>pfm_title</key>
+			<string>Client Identifier</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -225,6 +228,8 @@
 			<string>Folder where Munki keeps its data on the client.</string>
 			<key>pfm_name</key>
 			<string>ManagedInstallDir</string>
+			<key>pfm_title</key>
+			<string>Managed Install Directory</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -235,6 +240,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#localonlymanifest</string>
 			<key>pfm_name</key>
 			<string>LocalOnlyManifest</string>
+			<key>pfm_title</key>
+			<string>Local Only Manifest</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -247,6 +254,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#suppressautoinstall</string>
 			<key>pfm_name</key>
 			<string>SuppressAutoInstall</string>
+			<key>pfm_title</key>
+			<string>Suppress Auto Install</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -259,6 +268,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#suppressloginwindowinstall</string>
 			<key>pfm_name</key>
 			<string>SuppressLoginwindowInstall</string>
+			<key>pfm_title</key>
+			<string>Suppress Loginwindow Install</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -271,6 +282,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#installapplesoftwareupdates</string>
 			<key>pfm_name</key>
 			<string>InstallAppleSoftwareUpdates</string>
+			<key>pfm_title</key>
+			<string>Install Apple Software Updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -281,6 +294,8 @@
 			<string>Only install updates from an Apple Software Update server. No Munki repository is needed or used.</string>
 			<key>pfm_name</key>
 			<string>AppleSoftwareUpdatesOnly</string>
+			<key>pfm_title</key>
+			<string>Install Apple Software Updates Only</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -295,6 +310,8 @@
 			<string>10.10</string>
 			<key>pfm_name</key>
 			<string>UnattendedAppleUpdates</string>
+			<key>pfm_title</key>
+			<string>Unattended Apple Updates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -307,6 +324,8 @@
 			<string>Munki will attempt to perform a filevault auth restart.</string>
 			<key>pfm_name</key>
 			<string>PerformAuthRestarts</string>
+			<key>pfm_title</key>
+			<string>Perform FileVault Authorized Restarts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -317,8 +336,24 @@
 			<string>Absolute path to a plist file containing filevault credentials in key/value format. Used to perform auth restarts.</string>
 			<key>pfm_name</key>
 			<string>RecoveryKeyFile</string>
+			<key>pfm_title</key>
+			<string>FileVault Credentials Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.2</string>
+			<key>pfm_description</key>
+			<string>A bit of hack and not supported by Apple, it is disabled by default. To emulate profile installs, configuration profiles are read, and if they contain managed preferences, they are converted to MCX data that is added to a ComputerGroup in the local Open Directory store. Configuration profile payloads that are not managed preferences are ignored/skipped.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Configuration-Profile-Emulation</string>
+			<key>pfm_name</key>
+			<string>EmulateProfileSupport</string>
+			<key>pfm_title</key>
+			<string>Emulate Profile Support (Big Sur)</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -329,6 +364,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#suppressusernotification</string>
 			<key>pfm_name</key>
 			<string>SuppressUserNotification</string>
+			<key>pfm_title</key>
+			<string>Suppress Update Notifications</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -339,6 +376,8 @@
 			<string>Managed Software Center will hide the stop button while installing or removing software, preventing users from interrupting the install.</string>
 			<key>pfm_name</key>
 			<string>SuppressStopButtonOnInstall</string>
+			<key>pfm_title</key>
+			<string>Suppress Stop Button On Install</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -351,6 +390,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#installrequireslogout</string>
 			<key>pfm_name</key>
 			<string>InstallRequiresLogout</string>
+			<key>pfm_title</key>
+			<string>Require Logout for Installs &amp; Uninstalls</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -363,6 +404,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#showremovaldetail</string>
 			<key>pfm_name</key>
 			<string>ShowRemovalDetail</string>
+			<key>pfm_title</key>
+			<string>Show Removal Detail</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -375,6 +418,8 @@
 			<string>Managed Software Center.app will show optional installs and updates that apply to macOS versions higher than the currently installed version.</string>
 			<key>pfm_name</key>
 			<string>ShowOptionalInstallsForHigherOSVersions</string>
+			<key>pfm_title</key>
+			<string>Show Optional Installs For Higher OS Versions</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -387,6 +432,8 @@
 			<string>DaysBetweenNotifications</string>
 			<key>pfm_range_min</key>
 			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Days Between Notifications</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
@@ -403,6 +450,8 @@
 			<string>UseNotificationCenterDays</string>
 			<key>pfm_range_min</key>
 			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Use Notification Center Days</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
@@ -419,6 +468,8 @@
 				<string>hash</string>
 				<string>hash_strict</string>
 			</array>
+			<key>pfm_title</key>
+			<string>Package Verification Mode</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -435,6 +486,8 @@
 				<string>https</string>
 				<string>all</string>
 			</array>
+			<key>pfm_title</key>
+			<string>Follow HTTP Redirects</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -458,6 +511,8 @@
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Additional HTTP Headers</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -468,6 +523,8 @@
 			<string>HTTP and/or HTTPS proxies set system-wide will be ignored, connections will be made directly.</string>
 			<key>pfm_name</key>
 			<string>IgnoreSystemProxies</string>
+			<key>pfm_title</key>
+			<string>Ignore System Proxies</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -476,6 +533,8 @@
 			<string>Base URL for Munki pkgs. Useful if your packages are served from a different server than your catalogs or manifests.</string>
 			<key>pfm_name</key>
 			<string>PackageURL</string>
+			<key>pfm_title</key>
+			<string>Base Package URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -486,6 +545,8 @@
 			<string>Base URL for Munki catalogs. Useful if your catalogs are served from a different server than your packages or manifests.</string>
 			<key>pfm_name</key>
 			<string>CatalogURL</string>
+			<key>pfm_title</key>
+			<string>Base Catalog URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -496,6 +557,8 @@
 			<string>Base URL for product icons. Useful if your icons are served from a different server or different directory than the default.</string>
 			<key>pfm_name</key>
 			<string>IconURL</string>
+			<key>pfm_title</key>
+			<string>Base Icon URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -506,6 +569,8 @@
 			<string>Base URL for custom client resources for Managed Software Center. Useful if your resources are served from a different server or different directory than the default.</string>
 			<key>pfm_name</key>
 			<string>ClientResourceURL</string>
+			<key>pfm_title</key>
+			<string>Base Client Resource URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -516,6 +581,8 @@
 			<string>Specific filename to use when requesting custom client resources.</string>
 			<key>pfm_name</key>
 			<string>ClientResourcesFilename</string>
+			<key>pfm_title</key>
+			<string>Client Resources Filename</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -526,6 +593,8 @@
 			<string>URL to open/display when the user selects "Managed Software Center Help" from Managed Software Center's Help menu.</string>
 			<key>pfm_name</key>
 			<string>HelpURL</string>
+			<key>pfm_title</key>
+			<string>Help URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -536,6 +605,8 @@
 			<string>https://github.com/munki/munki/wiki/License-Seat-Tracking</string>
 			<key>pfm_name</key>
 			<string>LicenseInfoURL</string>
+			<key>pfm_title</key>
+			<string>License Info URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -552,6 +623,8 @@
 			<string>10.11</string>
 			<key>pfm_name</key>
 			<string>SoftwareUpdateServerURL</string>
+			<key>pfm_title</key>
+			<string>Software Update Server URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -562,6 +635,8 @@
 			<string>Use an SSL client certificate when communicating with the Munki server. Requires an https:// URL for the Munki repo.</string>
 			<key>pfm_name</key>
 			<string>UseClientCertificate</string>
+			<key>pfm_title</key>
+			<string>Use Client Certificate</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -572,6 +647,8 @@
 			<string>Use the CN of the client certificate as the Client Identifier. Used in combination with the UseClientCertificate key.</string>
 			<key>pfm_name</key>
 			<string>UseClientCertificateCNAsClientIdentifier</string>
+			<key>pfm_title</key>
+			<string>Use Client Certificate CN As Client Identifier</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -580,6 +657,8 @@
 			<string>Absolute path to a client certificate. There are 3 defaults for this key. Concatenated cert/key PEM file accepted.</string>
 			<key>pfm_name</key>
 			<string>ClientCertificatePath</string>
+			<key>pfm_title</key>
+			<string>Client Certificate Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -590,6 +669,8 @@
 			<string>Absolute path to a client private key.</string>
 			<key>pfm_name</key>
 			<string>ClientKeyPath</string>
+			<key>pfm_title</key>
+			<string>Client Key Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -600,6 +681,8 @@
 			<string>Path to the directory that stores your CA certificate(s).</string>
 			<key>pfm_name</key>
 			<string>SoftwareRepoCAPath</string>
+			<key>pfm_title</key>
+			<string>Software Repo CA Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -610,6 +693,8 @@
 			<string>Absolute path to your CA Certificate.</string>
 			<key>pfm_name</key>
 			<string>SoftwareRepoCACertificate</string>
+			<key>pfm_title</key>
+			<string>Software Repo CA Certificate</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -624,6 +709,8 @@
 			<string>https://github.com/munki/munki/wiki/Preferences#logfile</string>
 			<key>pfm_name</key>
 			<string>LogFile</string>
+			<key>pfm_title</key>
+			<string>Log File</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -634,6 +721,8 @@
 			<string>Log to syslog in addition to ManagedSoftwareUpdate.log.</string>
 			<key>pfm_name</key>
 			<string>LogToSyslog</string>
+			<key>pfm_title</key>
+			<string>Log to Syslog</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -644,6 +733,8 @@
 			<string>Higher values cause more detail to be written to the primary log.</string>
 			<key>pfm_name</key>
 			<string>LoggingLevel</string>
+			<key>pfm_title</key>
+			<string>Logging Level</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
@@ -654,6 +745,8 @@
 			<string>Log user actions in the GUI.</string>
 			<key>pfm_name</key>
 			<string>MSULogEnabled</string>
+			<key>pfm_title</key>
+			<string>Log Enabled</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -664,6 +757,8 @@
 			<string>Debug logging for Managed Software Center.</string>
 			<key>pfm_name</key>
 			<string>MSUDebugLogEnabled</string>
+			<key>pfm_title</key>
+			<string>Debug Log Enabled</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -683,6 +778,7 @@
 					<string>AccessKey</string>
 					<string>SecretKey</string>
 					<string>Region</string>
+					<string>S3Endpoint</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -699,6 +795,8 @@ AccessKey for S3 bucket.</string>
 			<string>https://github.com/waderobson/s3-auth</string>
 			<key>pfm_name</key>
 			<string>AccessKey</string>
+			<key>pfm_title</key>
+			<string>Access Key</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -731,10 +829,50 @@ SecretKey for S3 bucket.</string>
 			<string>https://github.com/waderobson/s3-auth</string>
 			<key>pfm_name</key>
 			<string>SecretKey</string>
+			<key>pfm_title</key>
+			<string>Secret Key</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>ex. z5MFJCcEyYBmh2BxbrlZBWNJ4izEXAMPLE</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.7.0</string>
+			<key>pfm_description</key>
+			<string>Munki has a feature which enables Mac administrators to use middleware to change munki's HTTP request. S3-Auth uses this feature to create the HTTP headers necessary to authenticate to S3.
+
+S3 Endpoint for bucket.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/waderobson/s3-auth</string>
+			<key>pfm_name</key>
+			<string>S3Endpoint</string>
+			<key>pfm_title</key>
+			<string>S3 Endpoint</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>ex. s3.us-west-1.wasabisys.com</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.0</string>
+			<key>pfm_default</key>
+			<integer>14</integer>
+			<key>pfm_description</key>
+			<string>This preference controls how many days after one or more pending updates are ignored that aggressive user notification begins. Setting this to 0 never triggers this aggressive behavior.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/aggressive-update-notifications-in-munki-5</string>
+			<key>pfm_name</key>
+			<string>AggressiveUpdateNotificationDays</string>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Aggressive Update Notification Days</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_placeholder</key>
+			<string>Days</string>
 		</dict>
 	</array>
 	<key>pfm_title</key>
@@ -742,6 +880,6 @@ SecretKey for S3 bucket.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>9</integer>
 </dict>
 </plist>

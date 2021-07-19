@@ -8,12 +8,14 @@
 	<string>com.apple.MCX</string>
 	<key>pfm_subdomain</key>
 	<string>EnergySaver</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/energysaver</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:49Z</date>
+	<date>2020-04-15T17:54:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -119,6 +121,7 @@
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
 			<array>
+				<string>General</string>
 				<string>Desktop</string>
 				<string>Portable</string>
 				<string>Schedule</string>
@@ -127,6 +130,10 @@
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>General</key>
+				<array>
+					<string>SleepDisabled</string>
+				</array>
 				<key>Desktop</key>
 				<array>
 					<string>com.apple.EnergySaver.desktop.ACPower</string>
@@ -155,142 +162,74 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_default</key>
-					<integer>-1</integer>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_hidden</key>
-					<string>all</string>
-					<key>pfm_name</key>
-					<string>com.apple.EnergySaver.desktop.ACPower-ProfileNumber</string>
-					<key>pfm_title</key>
-					<string>Desktop Energy Saver Profile</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the display(s) to sleep after:</string>
+					<string>Display Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the computer to sleep after:</string>
+					<string>System Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<true/>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
-					<string>Disk Sleep Timer-boolean</string>
+					<string>Disk Sleep Timer</string>
 					<key>pfm_title</key>
-					<string>Put the hard disk(s) to sleep whenever possible</string>
+					<string>Disk(s) Sleep Timer</string>
 					<key>pfm_type</key>
-					<string>boolean</string>
+					<string>integer</string>
+					<key>pfm_default</key>
+					<integer>10</integer>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<integer>1</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Wake the system for network access</string>
 					<key>pfm_name</key>
 					<string>Wake On LAN</string>
 					<key>pfm_title</key>
-					<string>Wake for Ethernet network administrator access</string>
+					<string>Wake on LAN</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<integer>1</integer>
 					<key>pfm_description</key>
 					<string></string>
 					<key>pfm_name</key>
-					<string>Sleep On Power Button</string>
+					<string>Wake On Modem Ring</string>
 					<key>pfm_title</key>
-					<string>Allow power button to sleep the computer</string>
+					<string>Wake On Modem Ring</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -302,9 +241,33 @@
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
-					<string>Start up automatically after a power failure</string>
+					<string>Start up Automatically After a Power Failure</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_title</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_title</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
@@ -349,128 +312,74 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_default</key>
-					<integer>-1</integer>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_hidden</key>
-					<string>all</string>
-					<key>pfm_name</key>
-					<string>com.apple.EnergySaver.portable.BatteryPower-ProfileNumber</string>
-					<key>pfm_title</key>
-					<string>Portable on Battery Power Energy Saver Profile</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the display(s) to sleep after:</string>
+					<string>Display Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the computer to sleep after:</string>
+					<string>System Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<true/>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
-					<string>Disk Sleep Timer-boolean</string>
+					<string>Disk Sleep Timer</string>
 					<key>pfm_title</key>
-					<string>Put the hard disk(s) to sleep whenever possible</string>
+					<string>Disk(s) Sleep Timer</string>
 					<key>pfm_type</key>
-					<string>boolean</string>
+					<string>integer</string>
+					<key>pfm_default</key>
+					<integer>10</integer>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<integer>1</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Wake the system for network access</string>
 					<key>pfm_name</key>
 					<string>Wake On LAN</string>
 					<key>pfm_title</key>
-					<string>Wake for Ethernet network administrator access</string>
+					<string>Wake on LAN</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>Wake On Modem Ring</string>
+					<key>pfm_title</key>
+					<string>Wake On Modem Ring</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -482,9 +391,33 @@
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
-					<string>Start up automatically after a power failure</string>
+					<string>Start up Automatically After a Power Failure</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_title</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_title</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
@@ -504,128 +437,74 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_default</key>
-					<integer>-1</integer>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_hidden</key>
-					<string>all</string>
-					<key>pfm_name</key>
-					<string>com.apple.EnergySaver.portable.ACPower-ProfileNumber</string>
-					<key>pfm_title</key>
-					<string>Portable AC Power Energy Saver Profile</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the display(s) to sleep after:</string>
+					<string>Display Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
-					<key>pfm_range_list</key>
-					<array>
-						<integer>0</integer>
-						<integer>1</integer>
-						<integer>2</integer>
-						<integer>3</integer>
-						<integer>5</integer>
-						<integer>10</integer>
-						<integer>20</integer>
-						<integer>30</integer>
-						<integer>45</integer>
-						<integer>60</integer>
-						<integer>75</integer>
-						<integer>90</integer>
-						<integer>105</integer>
-						<integer>120</integer>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Never</string>
-						<string>1 Minute</string>
-						<string>2 Minutes</string>
-						<string>3 Minutes</string>
-						<string>5 Minutes</string>
-						<string>10 Minutes</string>
-						<string>20 Minutes</string>
-						<string>30 Minutes</string>
-						<string>45 Minutes</string>
-						<string>1 Hour</string>
-						<string>1 Hour 15 Minutes</string>
-						<string>1 Hour 30 Minutes</string>
-						<string>1 Hour 45 Minutes</string>
-						<string>2 Hours</string>
-					</array>
 					<key>pfm_title</key>
-					<string>Put the computer to sleep after:</string>
+					<string>System Sleep Timer</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<true/>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
 					<key>pfm_name</key>
-					<string>Disk Sleep Timer-boolean</string>
+					<string>Disk Sleep Timer</string>
 					<key>pfm_title</key>
-					<string>Put the hard disk(s) to sleep whenever possible</string>
+					<string>Disk(s) Sleep Timer</string>
 					<key>pfm_type</key>
-					<string>boolean</string>
+					<string>integer</string>
+					<key>pfm_default</key>
+					<integer>10</integer>
+					<key>pfm_range_min</key>
+					<integer>0</integer>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_value_unit</key>
+					<string>minutes</string>
 				</dict>
 				<dict>
-					<key>pfm_default</key>
-					<integer>1</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Wake the system for network access</string>
 					<key>pfm_name</key>
 					<string>Wake On LAN</string>
 					<key>pfm_title</key>
-					<string>Wake for Ethernet network administrator access</string>
+					<string>Wake on LAN</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>Wake On Modem Ring</string>
+					<key>pfm_title</key>
+					<string>Wake On Modem Ring</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -637,9 +516,33 @@
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
-					<string>Start up automatically after a power failure</string>
+					<string>Start up Automatically After a Power Failure</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_title</key>
+					<string>Dynamic Power Step</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_title</key>
+					<string>Reduce Processor Speed</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_description</key>
+					<string>May not be available on all systems</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
@@ -880,6 +783,18 @@
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>SleepDisabled</string>
+			<key>pfm_title</key>
+			<string>Sleep Disabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -890,6 +805,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

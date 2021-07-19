@@ -4,6 +4,8 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Setup Assistant settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/setupassistant</string>
 	<key>pfm_domain</key>
 	<string>com.apple.SetupAssistant.managed</string>
 	<key>pfm_format_version</key>
@@ -11,9 +13,10 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2018-08-28T19:58:45Z</date>
+	<date>2019-06-26T01:07:33Z</date>
 	<key>pfm_platforms</key>
 	<array>
+		<string>iOS</string>
 		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
@@ -113,36 +116,146 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Skip iCloud Setup</string>
+			<string>Skips the Choose Your Look window.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.0</string>
+			<key>pfm_name</key>
+			<string>SkipAppearance</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Skip Appearance window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Skips the Apple ID setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
 			<string>SkipCloudSetup</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
 			<key>pfm_title</key>
 			<string>Skip iCloud</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Skip Siri Setup</string>
+			<string>Skips the iCloud Storage window.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.4</string>
+			<key>pfm_name</key>
+			<string>SkipiCloudStorageSetup</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Skip iCloud Storage window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Skips the Privacy consent window.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.4</string>
+			<key>pfm_name</key>
+			<string>SkipPrivacySetup</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Skip Privacy consent window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Skips the Siri setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
 			<string>SkipSiriSetup</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
 			<key>pfm_title</key>
 			<string>Skip Siri</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Skip TouchID Setup</string>
+			<string>Skips the True Tone Display window.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If true, skip the True Tone Display window. Availability: Available in macOS 10.13.6 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.6</string>
+			<key>pfm_name</key>
+			<string>SkipTrueTone</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Skip True Tone Display window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Skips the Screen Time window.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>SkipScreenTime</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Skip Screen Time window</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Skips the TouchID setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
 			<string>SkipTouchIDSetup</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>macOS</string>
+			</array>
 			<key>pfm_title</key>
 			<string>Skip TouchID</string>
 			<key>pfm_type</key>
@@ -150,53 +263,94 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Skip Privacy consent window</string>
-			<key>pfm_macos_min</key>
-			<string>10.13.4</string>
+			<string>List of setup items to skip</string>
+			<key>pfm_documentation_url</key>
+			<string>https://developer.apple.com/documentation/devicemanagement/skipkeys</string>
+			<key>pfm_ios_min</key>
+			<string>14.0</string>
 			<key>pfm_name</key>
-			<string>SkipPrivacySetup</string>
+			<string>SkipSetupItems</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_range_list</key>
+					<array>
+						<string>Android</string>
+						<string>Appearance</string>
+						<string>AppleID</string>
+						<string>Biometric</string>
+						<string>DeviceToDeviceMigration</string>
+						<string>Diagnostics</string>
+						<string>DisplayTone</string>
+						<string>HomeButtonSensitivity</string>
+						<string>iCloudDiagnostics</string>
+						<string>iMessageAndFaceTime</string>
+						<string>Location</string>
+						<string>MessagingActivationUsingPhoneNumber</string>
+						<string>OnBoarding</string>
+						<string>Passcode</string>
+						<string>Payment</string>
+						<string>Privacy</string>
+						<string>Restore</string>
+						<string>RestoreCompleted</string>
+						<string>ScreenTime</string>
+						<string>SIMSetup</string>
+						<string>Siri</string>
+						<string>SoftwareUpdate</string>
+						<string>TapToSetup</string>
+						<string>TOS</string>
+						<string>UpdateCompleted</string>
+						<string>WatchMigration</string>
+						<string>Welcome</string>
+						<string>Zoom</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Android</string>
+						<string>Appearance</string>
+						<string>Apple ID</string>
+						<string>Biometric</string>
+						<string>Device to Device Migration</string>
+						<string>Diagnostics</string>
+						<string>Display Tone</string>
+						<string>Home Button Sensitivity</string>
+						<string>iCloud Diagnostics</string>
+						<string>iMessage and FaceTime</string>
+						<string>Location</string>
+						<string>Messaging Activation Using Phone Number</string>
+						<string>OnBoarding</string>
+						<string>Passcode</string>
+						<string>Payment</string>
+						<string>Privacy</string>
+						<string>Restore</string>
+						<string>Restore Completed</string>
+						<string>ScreenTime</string>
+						<string>SIM Setup</string>
+						<string>Siri</string>
+						<string>Software Update</string>
+						<string>Tap To Setup</string>
+						<string>Terms of Service</string>
+						<string>Update Completed</string>
+						<string>Watch Migration</string>
+						<string>Welcome</string>
+						<string>Zoom</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Items to Skip</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_unique</key>
+					<true/>
+				</dict>
+			</array>
 			<key>pfm_title</key>
-			<string>Skip Privacy consent window</string>
+			<string>iOS Skip Items</string>
 			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Skip iCloud Storage window</string>
-			<key>pfm_macos_min</key>
-			<string>10.13.4</string>
-			<key>pfm_name</key>
-			<string>SkipiCloudStorageSetup</string>
-			<key>pfm_title</key>
-			<string>Skip iCloud Storage window</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Skip True Tone Display window</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, skip the True Tone Display window. Availability: Available in macOS 10.13.6 and later.</string>
-			<key>pfm_macos_min</key>
-			<string>10.13.6</string>
-			<key>pfm_name</key>
-			<string>SkipTrueTone</string>
-			<key>pfm_title</key>
-			<string>Skip True Tone Display window</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Skip Choose Your Look window</string>
-			<key>pfm_macos_min</key>
-			<string>10.14.0</string>
-			<key>pfm_name</key>
-			<string>SkipAppearance</string>
-			<key>pfm_title</key>
-			<string>Skip Appearance window</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>array</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -209,6 +363,6 @@
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>6</integer>
 </dict>
 </plist>
