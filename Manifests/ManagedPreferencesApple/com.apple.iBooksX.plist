@@ -16,19 +16,19 @@
 		<string>macOS</string>
 	</array>
 	<key>pfm_description</key>
-	<string>iBooks settings</string>
+	<string>Books/iBooks settings</string>
     <key>pfm_domain</key>
 	<string>com.apple.iBooksX</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2018-07-18T08:58:48Z</date>
+	<date>2021-07-20T12:20:00Z</date>
 	<key>pfm_title</key>
-	<string>iBooks</string>
+	<string>Books/iBooks</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -146,6 +146,31 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Disable iBooks Store</string>
             <key>pfm_description</key>
             <string>This payload also requires an iTunes payload with the "disableMusicStore" key set.</string>
+		</dict>
+
+		<dict>
+			<key>pfm_name</key>
+			<string>BKAlreadyDisplayedGDPRWelcomeExperience</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_title</key>
+			<string>Suppress Welcome to Apple Books Screen</string>
+			<key>pfm_description</key>
+			<string>Suppresses the "Welcome to Apple Books" screen at launch. This payload should be used in conjunction with the "Suppress Empty Library" key.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>BKAlreadyDisplayedUbiquity</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_title</key>
+			<string>Suppress Empty Library / Go to Store Screen</string>
+			<key>pfm_description</key>
+			<string>Suppresses the "There are no books in your library" screen. This payload should be used in conjunction with the "Suppress Welcome to Apple Books Screen" key</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
 		</dict>
 	</array>
 </dict>
