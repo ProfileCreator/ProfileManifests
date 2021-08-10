@@ -5,7 +5,7 @@
 	<key>pfm_description</key>
 	<string>Web Content Filter settings</string>
 	<key>pfm_description_reference</key>
-	<string>URLs are matched by using string-based root matching. A URL matches a whitelist, blacklist, or permitted list pattern if the exact characters of the pattern appear as the root of the URL. For example, if test.com/a is blacklisted, then test.com, test.com/b, and test.com/c/d/e will all be blocked. Matching also discards subdomain prefixes, so if test.com/a is blacklisted, m.test.com is also blocked.</string>
+	<string>URLs are matched by using string-based root matching. A URL matches an allow list, deny list, or permitted list pattern if the exact characters of the pattern appear as the root of the URL. For example, if test.com/a is denylisted, then test.com, test.com/b, and test.com/c/d/e will all be blocked. Matching also discards subdomain prefixes, so if test.com/a is denylisted, m.test.com is also blocked.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/webcontentfilter</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2021-05-03T08:32:57Z</date>
+	<date>2021-06-21T08:13:02Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -55,7 +55,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.webcontent-filter</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -303,6 +303,92 @@ The search algorithm is complex and may vary from release to release, but it is 
 					</array>
 				</dict>
 			</array>
+			<key>pfm_ios_min</key>
+			<string>14.5</string>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_repetition_max</key>
+			<integer>500</integer>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_hidden</key>
+					<string>container</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_format</key>
+							<string>^https?:\/\/.*$</string>
+							<key>pfm_description</key>
+							<string>URL of the allow list bookmark.</string>
+							<key>pfm_name</key>
+							<string>URL</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The title of the bookmark.</string>
+							<key>pfm_name</key>
+							<string>Title</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Title</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Allow List Bookmarks Dictionary</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AllowListBookmarks</string>
+			<key>pfm_title</key>
+			<string>Allow List Bookmarks</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If present, these URLs are added to the browser’s bookmarks, and the user is not allowed to visit any sites other than these. The number of these URLs should be limited to about 500.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>BuiltIn</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AutoFilterEnabled</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_ios_deprecated</key>
+			<string>14.5</string>
+			<key>pfm_macos_deprecated</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>WhitelistedBookmarks</string>
 			<key>pfm_repetition_max</key>
 			<integer>500</integer>
 			<key>pfm_subkeys</key>
@@ -345,8 +431,6 @@ The search algorithm is complex and may vary from release to release, but it is 
 					<string>dictionary</string>
 				</dict>
 			</array>
-			<key>pfm_name</key>
-			<string>WhitelistedBookmarks</string>
 			<key>pfm_title</key>
 			<string>Allowlisted Bookmarks</string>
 			<key>pfm_type</key>
@@ -356,7 +440,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description_reference</key>
-			<string>If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it is basically looking for adult language.</string>
+			<string>If present, the user is denied visiting any of the sites on this list. The number of these URLs should be limited to about 500.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -381,6 +465,61 @@ The search algorithm is complex and may vary from release to release, but it is 
 					</array>
 				</dict>
 			</array>
+			<key>pfm_ios_min</key>
+			<string>14.5</string>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>DenyListURLs</string>
+			<key>pfm_repetition_max</key>
+			<integer>500</integer>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Deny List URL</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Deny List URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description_reference</key>
+			<string>If present, the user is denied visiting any of the sites on this list. The number of these URLs should be limited to about 500.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>BuiltIn</string>
+							</array>
+							<key>pfm_target</key>
+							<string>FilterType</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>AutoFilterEnabled</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_ios_deprecated</key>
+			<string>14.5</string>
+			<key>pfm_macos_deprecated</key>
+			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>BlacklistedURLs</string>
 			<key>pfm_repetition_max</key>
@@ -808,8 +947,6 @@ Available in macOS 10.15 and later.</string>
 			<array>
 				<string>macOS</string>
 			</array>
-			<key>pfm_macos_min</key>
-			<string>10.15</string>
 			<key>pfm_title</key>
 			<string>Enable Packet Filtering</string>
 			<key>pfm_type</key>
@@ -996,6 +1133,6 @@ Available in macOS 10.15 and later.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
