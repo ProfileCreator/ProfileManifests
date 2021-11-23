@@ -15,7 +15,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-08-13T15:15:14Z</date>
+	<date>2021-11-02T21:15:06Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -161,7 +161,7 @@ The payload organization for a payload need not match the payload organization i
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_description_reference</key>
 							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
-							<key>pfm_required</key>
+							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_default</key>
 							<string>file-tile</string>
@@ -198,7 +198,7 @@ The payload organization for a payload need not match the payload organization i
 									<string>Label of a dock item.</string>
 									<key>pfm_description_reference</key>
 									<string>Required. Label of a dock item.</string>
-									<key>pfm_required</key>
+									<key>pfm_require</key>
 									<string>always</string>
 									<key>pfm_name</key>
 									<string>label</string>
@@ -236,7 +236,7 @@ The payload organization for a payload need not match the payload organization i
 									<string>The type of the tile expressed as a number.</string>
 									<key>pfm_description_reference</key>
 									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
-									<key>pfm_required</key>
+									<key>pfm_require</key>
 									<string>always</string>
 									<key>pfm_name</key>
 									<string>file-type</string>
@@ -364,7 +364,7 @@ The payload organization for a payload need not match the payload organization i
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_description_reference</key>
 							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
-							<key>pfm_required</key>
+							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_default</key>
 							<string>file-tile</string>
@@ -403,7 +403,7 @@ The payload organization for a payload need not match the payload organization i
 									<string>Label of a dock item.</string>
 									<key>pfm_description_reference</key>
 									<string>Required. Label of a dock item.</string>
-									<key>pfm_required</key>
+									<key>pfm_require</key>
 									<string>always</string>
 									<key>pfm_name</key>
 									<string>label</string>
@@ -453,7 +453,7 @@ The payload organization for a payload need not match the payload organization i
 									<string>The type of the tile expressed as a number.</string>
 									<key>pfm_description_reference</key>
 									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
-									<key>pfm_required</key>
+									<key>pfm_require</key>
 									<string>always</string>
 									<key>pfm_name</key>
 									<string>file-type</string>
@@ -1141,8 +1141,6 @@ The payload organization for a payload need not match the payload organization i
 			<string>Remove non-static apps and documents from Dock</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_value_inverted</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
