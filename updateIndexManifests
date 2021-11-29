@@ -11,13 +11,17 @@ if !( [[ $? -eq 0 ]] && [[ $(git remote -v) == *"ProfileManifests.git"* ]] ); th
 	printf "%s\n" "This script must be run inside the ProfileManifests repository."
 	exit 1
 fi
-cd $repository_path
+cd "${repository_path}"
 
 # Set the path to the index file
 index_path="${repository_path}/Manifests/index"
 
 # Set the path to the temporary index file
-index_path_tmp="/private/tmp/index.$( cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 8 )"
+index_path_tmp="$(mktemp -d)"
+index_file_path_tmp="${index_path_tmp}/index"
+
+# Get the current time
+timestamp=$( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )
 
 # List all directories to index
 manifest_directories=( 'ManagedPreferencesApple' 'ManifestsApple' 'ManagedPreferencesApplications' 'ManagedPreferencesDeveloper' )
@@ -25,14 +29,14 @@ manifest_directories=( 'ManagedPreferencesApple' 'ManifestsApple' 'ManagedPrefer
 # Loop through all directories
 for directory_name in "${manifest_directories[@]}"; do
 	directory_path="${repository_path}/Manifests/${directory_name}"
-	if ! [[ -d ${directory_path} ]]; then
+	if ! [[ -d "${directory_path}" ]]; then
 		printf "%s\n" "${directory_path}: No such file or directory"
 		continue
 	fi
 	
 	# Create the directory dictionary
-	if ! /usr/libexec/PlistBuddy -c "Add :${directory_name} dict" "${index_path_tmp}" &>/dev/null; then
-		printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}"
+	if ! /usr/libexec/PlistBuddy -c "Add :${directory_name} dict" "${index_file_path_tmp}" &>/dev/null; then
+		printf "%s\n" "${index_file_path_tmp}: Failed to add dictionary with key: ${directory_name}."
 		exit 1
 	fi
 	
@@ -78,37 +82,37 @@ for directory_name in "${manifest_directories[@]}"; do
 		file_last_modified=$( /usr/libexec/PlistBuddy -c "Print pfm_last_modified" "${file}" 2>/dev/null )
 		
 		# Verify the value returned is valid
-		if [[ -z ${file_last_modified} ]] && ! /usr/libexec/PlistBuddy -c "Add pfm_last_modified date $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${file}"; then
-			printf "%s\n" "${file_name}: Failed to add value: $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y ) for key: pfm_last_modified"
+		if [[ -z ${file_last_modified} ]] && ! /usr/libexec/PlistBuddy -c "Add pfm_last_modified date ${timestamp}" "${file}"; then
+			printf "%s\n" "${file_name}: Failed to add value: ${timestamp} for key: pfm_last_modified"
 			exit 1
 		fi
 		
 		# Create the file dictionary
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_path_tmp}"; then
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain} dict" "${index_file_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add dictionary with key: ${directory_name}:${file_domain}"
 			exit 1
 		fi
 		
 		# Add the file version
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:version integer ${file_version}" "${index_path_tmp}"; then
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:version integer ${file_version}" "${index_file_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add value: ${file_version} for key: ${directory_name}:${file_domain}:version"
 			exit 1
 		fi
 		
 		# Add the file hash
-		#if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_path_tmp}"; then
+		#if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:hash string ${file_hash}" "${index_file_path_tmp}"; then
 		#	printf "%s\n" "${file_name}: Failed to add value: ${file_hash} for key: ${directory_name}:${file_domain}:hash"
 		#	exit 1
 		#fi
 		
 		# Add the file path
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string Manifests/${directory_name}/${file_name}" "${index_path_tmp}"; then
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:path string Manifests/${directory_name}/${file_name}" "${index_file_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add value: ${directory_name}/${file_name} for key: ${directory_name}:${file_domain}:path"
 			exit 1
 		fi
 		
 		# Add the file last modified
-		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:modified date ${file_last_modified}" "${index_path_tmp}"; then
+		if ! /usr/libexec/PlistBuddy -c "Add :${directory_name}:${file_domain}:modified date ${file_last_modified}" "${index_file_path_tmp}"; then
 			printf "%s\n" "${file_name}: Failed to add value: ${directory_name}/${file_name} for key: ${directory_name}:${file_domain}:modified"
 			exit 1
 		fi
@@ -116,13 +120,13 @@ for directory_name in "${manifest_directories[@]}"; do
 done
 
 # Set the date the file was generated
-if ! /usr/libexec/PlistBuddy -c "Add :date date $( LANG=C /bin/date +%a" "%b" "%d" "%T" "%Z" "%Y )" "${index_path_tmp}"; then
+if ! /usr/libexec/PlistBuddy -c "Add :date date ${timestamp}" "${index_file_path_tmp}"; then
 	printf "%s\n" "Failed to add value for key: date"
 	exit 1
 fi
 
 # Move the temporary file in place
-if ! mv "${index_path_tmp}" "${index_path}"; then
+if ! mv "${index_file_path_tmp}" "${index_path}"; then
 	printf "%s\n" "Failed to move the temporary index file to the repository"
 	exit 1
 fi
