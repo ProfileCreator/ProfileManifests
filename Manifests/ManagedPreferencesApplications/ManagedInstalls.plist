@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-10-25T17:17:08Z</date>
+	<date>2021-12-06T03:31:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -178,6 +178,7 @@
 					<string>IconURL</string>
 					<string>IgnoreSystemProxies</string>
 					<string>LicenseInfoURL</string>
+					<string>ManifestURL</string>
 					<string>PackageURL</string>
 					<string>PackageVerificationMode</string>
 					<string>SoftwareUpdateServerURL</string>
@@ -554,6 +555,18 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>Base URL for Munki manifests. Useful if your manifests are served from a different server than your catalogs or manifests.</string>
+			<key>pfm_name</key>
+			<string>ManifestURL</string>
+			<key>pfm_title</key>
+			<string>Base Manifest URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>&lt;SoftwareRepoURL&gt;/manifests</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>Base URL for product icons. Useful if your icons are served from a different server or different directory than the default.</string>
 			<key>pfm_name</key>
 			<string>IconURL</string>
@@ -616,7 +629,7 @@
 			<key>pfm_app_deprecated</key>
 			<string>2.8.0</string>
 			<key>pfm_description</key>
-			<string>Catalog URL for Apple Software Updates. If undefined or empty, Munki will use the same catalog that the OS uses.</string>
+			<string>Catalog URL for Apple Software Updates. If undefined or empty, Munki will use the same catalog that the OS uses when you run Apple's Software Update application or call /usr/sbin/softwareupdate.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://github.com/munki/munki/wiki/Preferences#softwareupdateserverurl</string>
 			<key>pfm_macos_deprecated</key>
@@ -880,6 +893,6 @@ S3 Endpoint for bucket.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>9</integer>
+	<integer>10</integer>
 </dict>
 </plist>
