@@ -31,7 +31,7 @@ def main():
 
             if index_type == "Icons":
                 # Generate index information for icons
-                domain = file_name.replace("." + ext, "")
+                domain = file_name[: -len(ext) - 1]
                 with open(path, "rb") as f:
                     hash = hashlib.md5(f.read()).hexdigest()
                 index[category][domain] = {
