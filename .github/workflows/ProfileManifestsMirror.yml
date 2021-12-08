@@ -1,4 +1,4 @@
-name: Trigger profilecreator-schemas rebuild
+name: Trigger ProfileManifestsMirror rebuild
 
 on:
   push:
@@ -10,10 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: POST to profilecreator-schemas rebuild workflow
+      - name: POST to ProfileManifestsMirror rebuild workflow
         run: |
           curl -XPOST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Content-Type: application/json" \
-          --url "https://api.github.com/repos/Jamf-Custom-Profile-Schemas/profilecreator-schemas/actions/workflows/build.yml/dispatches" \
+          --url "https://api.github.com/repos/Jamf-Custom-Profile-Schemas/ProfileManifestsMirror/actions/workflows/build.yml/dispatches" \
           --data '{"ref": "main"}'
