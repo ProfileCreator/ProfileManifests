@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'ProfileCreator/ProfileManifests'
     runs-on: ubuntu-latest
     steps:
       - name: POST to ProfileManifestsMirror rebuild workflow
