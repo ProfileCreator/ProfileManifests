@@ -2,16 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>pfm_app_url</key>
-	<string>https://slack.com/downloads/mac</string>
 	<key>pfm_description</key>
-	<string>Slack settings</string>
+	<string>Settings for macOS-bundled Python</string>
 	<key>pfm_domain</key>
-	<string>com.tinyspeck.slackmacgap</string>
+	<string>com.apple.python</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2021-12-07T17:35:44Z</date>
+	<date>2021-11-27T08:58:48Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -20,7 +18,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures Slack settings</string>
+			<string>Configures settings for the version of Python bundled with macOS.</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -34,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Slack</string>
+			<string>Python</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -50,9 +48,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.tinyspeck.slackmacgap</string>
+			<string>com.apple.python</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -66,7 +64,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.tinyspeck.slackmacgap</string>
+			<string>com.apple.python</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -114,48 +112,39 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_app_min</key>
-			<string>4.0</string>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_description</key>
-			<string>When true, disables Slack's built-in automatic update mechanism. Useful if you update Slack using a tool like Munki.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://slack.com/help/articles/360035635174-Deploy-Slack-for-macOS</string>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_name</key>
-			<string>SlackNoAutoUpdates</string>
+			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
-			<string>Disable Automatic Updates</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>4.23</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Sets the default workspace for Slack sign-ins.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://slack.com/help/articles/360041725993-Share-a-default-sign-in-file-with-members</string>
-			<key>pfm_name</key>
-			<string>SlackDefaultSignInWorkspace</string>
-			<key>pfm_title</key>
-			<string>Default Workspace</string>
+			<string>Payload Organization</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Controls whether warnings are shown to the user when an app or process calls the macOS-bundled Python2 interpreter. This interpreter has been deprecated and will be removed in a future version of macOS.</string>
+			<key>pfm_description_reference</key>
+			<string>Controls whether warnings are shown to the user when an app or process calls the macOS-bundled Python2 interpreter. This interpreter has been deprecated and will be removed in a future version of macOS.</string>
+			<key>pfm_name</key>
+			<string>DisablePythonAlert</string>
+			<key>pfm_title</key>
+			<string>Disable Python Alert</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
 		<string>system</string>
-		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Slack</string>
+	<string>Python</string>
 	<key>pfm_unique</key>
-	<false/>
+	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>
