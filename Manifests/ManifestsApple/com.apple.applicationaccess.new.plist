@@ -13,6 +13,8 @@ To determine if an application can be launched, these rules are evaluated:
 3. If the path to the binary being launched matches (or is in a subdirectory) of a path in pathBlackList, the binary is denied.
 4. Ifthepathtothebinarybeinglaunchedmatches(orisasubdirectory)ofapathinpathWhiteList,thebinary is allowed to launch.
 5. Thebinaryisdeniedpermissiontolaunch.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/parentalcontrolsapplicationrestrictions</string>
 	<key>pfm_domain</key>
 	<string>com.apple.applicationaccess.new</string>
 	<key>pfm_format_version</key>
@@ -20,7 +22,7 @@ To determine if an application can be launched, these rules are evaluated:
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-05-03T15:38:44Z</date>
+	<date>2021-12-13T03:14:13Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -166,9 +168,9 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_range_list</key>
+							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
 							<key>pfm_target</key>
 							<string>familyControlsEnabled</string>
@@ -290,7 +292,7 @@ The payload organization for a payload need not match the payload organization i
 									<key>pfm_name</key>
 									<string>detachedSignature</string>
 									<key>pfm_title</key>
-									<string></string>
+									<string>Detached Signature</string>
 									<key>pfm_type</key>
 									<string>data</string>
 								</dict>
@@ -323,7 +325,7 @@ Default is false.</string>
 								</dict>
 							</array>
 							<key>pfm_title</key>
-							<string></string>
+							<string>Sub Apps</string>
 							<key>pfm_type</key>
 							<string>array</string>
 						</dict>
@@ -337,7 +339,7 @@ Default is false.</string>
 							<key>pfm_name</key>
 							<string>detachedSignature</string>
 							<key>pfm_title</key>
-							<string></string>
+							<string>Detached Signature</string>
 							<key>pfm_type</key>
 							<string>data</string>
 						</dict>
@@ -397,9 +399,9 @@ Default is false.</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_range_list</key>
+							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
 							<key>pfm_target</key>
 							<string>familyControlsEnabled</string>
@@ -448,9 +450,9 @@ Default is false.</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
-							<key>pfm_range_list</key>
+							<key>pfm_n_range_list</key>
 							<array>
-								<false/>
+								<true/>
 							</array>
 							<key>pfm_target</key>
 							<string>familyControlsEnabled</string>
