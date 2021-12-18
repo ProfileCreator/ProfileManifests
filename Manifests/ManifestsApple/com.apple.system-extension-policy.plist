@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-06-08T10:16:58Z</date>
+	<date>2021-11-11T09:27:57Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -261,6 +261,54 @@
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Dictionary of system extensions that can be removed by their own app without requiring an admin password. Extensions are represented in the dictionary using a team identifier string as key and an array of removable extension bundle identifier strings as the associated value.</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>RemovableSystemExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_format</key>
+					<string>^[A-Z0-9]{10}$</string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Team Identifier</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>A1B2C3D4E5</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>BundleIdentifier</string>
+							<key>pfm_title</key>
+							<string>Bundle Identifier</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>com.domainname.applicationname</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Bundle Identifier</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Removable System Extensions</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -273,6 +321,6 @@
 	<key>pfm_user_approved</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

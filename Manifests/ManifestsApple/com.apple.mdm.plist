@@ -13,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2021-06-07T14:32:50Z</date>
+	<date>2021-11-23T13:58:21Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -374,6 +374,62 @@
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The Managed Apple ID pre-assigned to the authenticated user of a user-enrolled (non-supervised) device.</string>
+			<key>pfm_ios_min</key>
+			<string>15.0</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>AssignedManagedAppleID</string>
+			<key>pfm_title</key>
+			<string>Assigned Managed Apple ID</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The enrollment mode for a user-enrolled (non-supervised) device.</string>
+			<key>pfm_ios_min</key>
+			<string>15.0</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>EnrollmentMode</string>
+			<key>pfm_note</key>
+			<string>This must be present for BYOD enrollments.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>BYOD</string>
+			</array>
+			<key>pfm_title</key>
+			<string>EnrollmentMode</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>iTunesStoreID of a single app that the MDM service can require and push to a user-enrolled (non-supervised) device.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.apple.com/en-in/guide/deployment/dep950aed53e/web</string>
+			<key>pfm_ios_min</key>
+			<string>15.0</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>RequiredAppIDForMDM</string>
+			<key>pfm_title</key>
+			<string>Required App ID for MDM on Unsupervised Device</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -386,6 +442,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
