@@ -314,23 +314,23 @@ If set to false, the Local Auth button is available, and users can choose to aut
 			<key>pfm_name</key>
 			<string>Migrate</string>
 			<key>pfm_description</key>
-			<string>Allows local accounts to be migrated to network accounts. This is typically used when the user account was already created on the system, but you want the accounts to have the same username and password as the user’s Okta identity.</string>
+			<string>Allows local accounts to be migrated to network accounts. This is typically used when the user account was already created on the system, but you want the accounts to have the same username and password as the user's Okta identity.</string>
 			<key>pfm_description_reference</key>
 			<string>Allows local accounts to be migrated to Okta-based accounts.
-This is typically used when the user account was already created on the system, but you want the accounts to have the same username and password as the user’s Okta identity.
+This is typically used when the user account was already created on the system, but you want the accounts to have the same username and password as the user's Okta identity.
 
 Jamf Connect Login does this by forcing the user to sign in via Okta, and then attempts to match the user with an existing local account. Consider the following user migration scenarios:
 
 If a user's Okta username and password match a local username and password, the account is considered migrated. No additional steps are needed.
 If a user's Okta username matches a local username but the passwords do not match, the user will be prompted to enter their current local password. Once successfully entered, Jamf Connect Login will use the current local password and the current Okta password to sync the account to the current Okta password.
 If a user's Okta username does not match any local account, the user will be given the option to create or migrate a local account. To migrate an account, the user must provide the existing local password. At this point Jamf Connect Login will synchronize the password to the Okta password, and then add the Okta username as an alias to the local account. This way the user can sign in to the system as their Okta username.
-Additionally, Okta can migrate users from local accounts to accounts associated with an Okta identity. With the Migrate and DenyLocal preference keys, all subsequent sign-ins will be authenticated to Okta, and then the system verifies if the user record has an “OktaUser” attribute. If this attribute cannot be verified, the user will be asked to select a local account to associate with the user’s Okta account. If the local account shortname does not match the Okta shortname, the Okta name will be added as an alias to the account so the user will be able to use either one. This also keeps the home folder path and other elements of the user record the same.
+Additionally, Okta can migrate users from local accounts to accounts associated with an Okta identity. With the Migrate and DenyLocal preference keys, all subsequent sign-ins will be authenticated to Okta, and then the system verifies if the user record has an "OktaUser" attribute. If this attribute cannot be verified, the user will be asked to select a local account to associate with the user's Okta account. If the local account shortname does not match the Okta shortname, the Okta name will be added as an alias to the account so the user will be able to use either one. This also keeps the home folder path and other elements of the user record the same.
 
-Note: For every successful Okta authentication of a user, the user’s record will be updated with the “NetworkSignIn” attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
+Note: For every successful Okta authentication of a user, the user's record will be updated with the "NetworkSignIn" attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfm_note</key>
-			<string>For every successful Okta authentication of a user, the user’s record will be updated with the “NetworkSignIn” attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
+			<string>For every successful Okta authentication of a user, the user's record will be updated with the "NetworkSignIn" attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.jamf.com/jamf-connect/1.2.3/administrator-guide/Configuring_with_Okta.html</string>
 		</dict>
