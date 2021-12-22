@@ -11,11 +11,11 @@
 	<key>pfm_domain</key>
 	<string>com.microsoft.Edge</string>
 	<key>pfm_format_version</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-06-08T10:15:16Z</date>
+	<date>2021-12-22T06:06:42Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -1622,7 +1622,7 @@ If this policy is left not set, 'AskNotifications' will be used and the user wil
 			<key>pfm_description_reference</key>
 			<string>Allows you to create a list of url patterns to specify sites that are allowed to display notifications.
 
-If you don’t set this policy, the global default value will be used for all sites. This default value will be from the `DefaultNotificationsSetting` policy if it’s set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
+If you don't set this policy, the global default value will be used for all sites. This default value will be from the `DefaultNotificationsSetting` policy if it's set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#notificationsallowedforurls</string>
 			<key>pfm_name</key>
@@ -1651,7 +1651,7 @@ If you don’t set this policy, the global default value will be used for all si
 			<key>pfm_description_reference</key>
 			<string>Allows you to create a list of url patterns to specify sites that are not allowed to display notifications.
 
-If you don’t set this policy, the global default value will be used for all sites. This default value will be from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy if it’s set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
+If you don't set this policy, the global default value will be used for all sites. This default value will be from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy if it's set, or from the user's personal configuration. For detailed information on valid url patterns, see https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#notificationsblockedforurls</string>
 			<key>pfm_name</key>
@@ -4077,9 +4077,9 @@ If you disable or don't configure this policy, the default link for the Help men
 			<key>pfm_description_reference</key>
 			<string>This detection might not be necessary in an enterprise environment where the network configuration is known. It can be disabled to avoid additional DNS and HTTP traffic on start-up and each DNS configuration change.
 
-If you enable or don’t set this policy, the DNS interception checks are performed.
+If you enable or don't set this policy, the DNS interception checks are performed.
 
-If you disable this policy, DNS interception checks aren’t performed.</string>
+If you disable this policy, DNS interception checks aren't performed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#dnsinterceptionchecksenabled</string>
 			<key>pfm_name</key>
@@ -4793,13 +4793,13 @@ If you don't configure this policy, on an unmanaged device the behavior is the s
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If you set to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.</string>
+			<string>If you set to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won't get any future confirmation prompts for this protocol.</string>
 			<key>pfm_description_reference</key>
 			<string>This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won't get any future confirmation prompts for this protocol.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.</string>
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn't displayed. The user will be prompted for confirmation every time an external protocol is invoked.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#externalprotocoldialogshowalwaysopencheckbox</string>
 			<key>pfm_name</key>
@@ -5078,7 +5078,7 @@ If you enable this policy, the second auto-suggest result in the address bar sug
 
 Two effects of enabling this policy are:
 
-Navigation to sites in response to single word queries that would typically resolve to a history item will no longer happen. Instead, the browser will attempt navigate to internal sites that may not exist in an organization’s intranet. This will result in a 404 error.
+Navigation to sites in response to single word queries that would typically resolve to a history item will no longer happen. Instead, the browser will attempt navigate to internal sites that may not exist in an organization's intranet. This will result in a 404 error.
 
 Popular, single-word search terms will require manual selection of search suggestions to properly conduct a search.</string>
 			<key>pfm_documentation_url</key>
@@ -5225,9 +5225,9 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<key>pfm_description_reference</key>
 			<string>If you enable this policy, the Browser settings check box is automatically selected in the Import browser data dialog box.
 
-If you disable this policy, browser settings aren't imported at first run, and users can’t import them manually.
+If you disable this policy, browser settings aren't imported at first run, and users can't import them manually.
 
-If you don’t configure this policy, browser settings are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+If you don't configure this policy, browser settings are imported at first run, and users can choose whether to import them manually during later browsing sessions.
 
 You can also set this policy as a recommendation. This means that Microsoft Edge imports the settings on first run, but users can select or clear the browser settings option during manual import.</string>
 			<key>pfm_documentation_url</key>
@@ -5392,9 +5392,9 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 			<key>pfm_description_reference</key>
 			<string>If you enable this policy, the payment info check box is automatically selected in the Import browser data dialog box.
 
-If you disable this policy, payment info isn’t imported at first run, and users can’t import it manually.
+If you disable this policy, payment info isn't imported at first run, and users can't import it manually.
 
-If you don’t configure this policy, payment info is imported at first run, and users can choose whether to import it manually during later browsing sessions.
+If you don't configure this policy, payment info is imported at first run, and users can choose whether to import it manually during later browsing sessions.
 
 You can also set this policy as a recommendation. This means that Microsoft Edge imports payment info on first run, but users can select or clear the payment info option during manual import.</string>
 			<key>pfm_documentation_url</key>
@@ -5839,6 +5839,8 @@ If you disable or don't configure this policy and:
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>32</integer>
 			<key>pfm_app_min</key>
 			<string>77</string>
 			<key>pfm_description</key>
@@ -5982,7 +5984,7 @@ If you enable this policy or don't set this policy, websites can check if the us
 			<key>pfm_description_reference</key>
 			<string>This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
 
-If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.</string>
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user's preference.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#personalizationreportingenabled</string>
 			<key>pfm_name</key>
@@ -6668,7 +6670,7 @@ URLs (like https://example.com/some/path) will only match as U2F appIDs. Domains
 			<key>pfm_description_reference</key>
 			<string>Enable this policy to send info about websites visited in Microsoft Edge to Microsoft. Disable this policy to not send info about websites visited in Microsoft Edge to Microsoft. In both cases, users can't change or override the setting.
 
-This policy controls sending info about websites visited. If this policy is not configured, Microsoft Edge will default to the user’s preference.</string>
+This policy controls sending info about websites visited. If this policy is not configured, Microsoft Edge will default to the user's preference.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#sendsiteinfotoimproveservices</string>
 			<key>pfm_name</key>
@@ -6812,7 +6814,7 @@ If this policy is disabled, the user is not allowed to use spellcheck. The Spell
 
 This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser.
 
-If you set this policy to true or not set, audio and video mixed content will be automatically upgraded to HTTPS (that is, the URL will be rewritten as HTTPS, without a fallback if the resource isn’t available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content.
+If you set this policy to true or not set, audio and video mixed content will be automatically upgraded to HTTPS (that is, the URL will be rewritten as HTTPS, without a fallback if the resource isn't available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content.
 
 If you set the policy to false, auto upgrades will be disabled for audio and video, and no warning will be shown for images.
 
@@ -6874,7 +6876,7 @@ This policy should not be enabled when RoamingProfileSupportEnabled policy is se
 			<key>pfm_description_reference</key>
 			<string>If you enable this policy all the specified data types will be excluded from synchronization. This policy can be used to limit the type of data uploaded to the Microsoft Edge synchronization service.
 
-You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", and “collections”. Note that these data type names are case sensitive.
+You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", and "collections". Note that these data type names are case sensitive.
 
 Users will not be able to override the disabled data types.</string>
 			<key>pfm_documentation_url</key>
@@ -8234,9 +8236,9 @@ This policy is available only on Windows instances that are joined to a Microsof
 			<key>pfm_description_reference</key>
 			<string>This policy setting lets you configure whether Microsoft Defender SmartScreen checks download reputation from a trusted source.
 
-If you enable or don't configure this setting, Microsoft Defender SmartScreen checks the download’s reputation regardless of source.
+If you enable or don't configure this setting, Microsoft Defender SmartScreen checks the download's reputation regardless of source.
 
-If you disable this setting, Microsoft Defender SmartScreen doesn’t check the download’s reputation when downloading from a trusted source.
+If you disable this setting, Microsoft Defender SmartScreen doesn't check the download's reputation when downloading from a trusted source.
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.</string>
 			<key>pfm_documentation_url</key>
