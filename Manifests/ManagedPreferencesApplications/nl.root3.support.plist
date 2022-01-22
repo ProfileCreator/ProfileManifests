@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2021-12-22T06:06:42Z</date>
+	<date>2022-01-22T14:49:33Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0.1</string>
 	<key>pfm_platforms</key>
@@ -125,6 +125,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>General</string>
+				<string>InfoItems</string>
 				<string>First Row Left</string>
 				<string>First Row Right</string>
 				<string>Second Row Left</string>
@@ -148,6 +149,17 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>StatusBarIconNotifierEnabled</string>
 					<string>StatusBarIconSFSymbol</string>
 					<string>Title</string>
+				</array>
+				<key>InfoItems</key>
+				<array>
+					<string>InfoItemOne</string>
+					<string>InfoItemTwo</string>
+					<string>InfoItemThree</string>
+					<string>HideFirstRow</string>
+					<string>InfoItemFour</string>
+					<string>UptimeDaysLimit</string>
+					<string>PasswordExpiryLimit</string>
+					<string>PasswordLabel</string>
 				</array>
 				<key>First Row Left</key>
 				<array>
@@ -337,6 +349,88 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		
+		<!-- InfoItems -->
+		
+		<dict>
+			<key>pfm_default</key>
+			<string>ComputerName</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the upper left corner.</string>
+			<key>pfm_name</key>
+			<string>InfoItemOne</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>"ComputerName", "MacOSVersion", "Network", "Password", "Storage" or "Uptime"</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>MacOSVersion</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the upper right corner.</string>
+			<key>pfm_name</key>
+			<string>InfoItemTwo</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>"ComputerName", "MacOSVersion", "Network", "Password", "Storage" or "Uptime"</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Uptime</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the second row left.</string>
+			<key>pfm_name</key>
+			<string>InfoItemThree</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>"ComputerName", "MacOSVersion", "Network", "Password", "Storage" or "Uptime"</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Storage</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the second row right.</string>
+			<key>pfm_name</key>
+			<string>InfoItemFour</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>"ComputerName", "MacOSVersion", "Network", "Password", "Storage" or "Uptime"</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Info item shown in the second row right.</string>
+			<key>pfm_name</key>
+			<string>UptimeDaysLimit</string>
+			<key>pfm_type</key>
+			<string>Integer</string>
+			<key>pfm_value_placeholder</key>
+			<string>7</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Days of uptime after which a notification badge is shown, disabled by default.</string>
+			<key>pfm_name</key>
+			<string>PasswordExpiryLimit</string>
+			<key>pfm_type</key>
+			<string>Integer</string>
+			<key>pfm_value_placeholder</key>
+			<string>14</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Mac Password</string>
+			<key>pfm_description</key>
+			<string>Days until password expiry after which a notification badge is shown, disabled by default.</string>
+			<key>pfm_name</key>
+			<string>PasswordLabel</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>"AD Password", "Company Password"</string>
+		</dict>
 		
 		<!-- First Row -->
 
@@ -766,6 +860,6 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
