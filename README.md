@@ -1,6 +1,8 @@
 # ProfileManifests
 Manifest repository for the ProfilePayloads framework that powers [ProfileCreator](https://github.com/ProfileCreator/ProfileCreator) and [iMazing Profile Editor](https://imazing.com/profile-editor).
 
+If you have questions or need any help whatsoever in contributing to this repository, join the [#profilemanifests](https://macadmins.slack.com/messages/profilemanifests) channel in the [MacAdmins Slack](https://www.macadmins.org/).
+
 ## Contributing
 This repository is meant to provide administrators with a central, common framework which makes it possible to easily configure and manage any available settings in Apple products and supporting third-party software.  By contributing to this repo, you are helping make the lives of all members of the Mac Admin community easier and lowering the barrier to entry for those who are new to managing Apple devices in the process.
 
