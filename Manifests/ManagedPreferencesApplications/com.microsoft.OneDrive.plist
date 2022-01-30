@@ -165,30 +165,41 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string>The TenantID value is a string that determines the tenants to whom the default folder location setting is applicable.</string>
-					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
-					<key>pfm_name</key>
-					<string>TenantID</string>
-					<key>pfm_title</key>
-					<string>Tenant ID</string>
+					<key>pfm_hidden</key>
+					<string>container</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>The TenantID value is a string that determines the tenants to whom the default folder location setting is applicable.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
+							<key>pfm_name</key>
+							<string>TenantID</string>
+							<key>pfm_title</key>
+							<string>Tenant ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
+							<key>pfm_name</key>
+							<string>DefaultFolderPath</string>
+							<key>pfm_title</key>
+							<string>Path</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
 					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
-					<key>pfm_name</key>
-					<string>DefaultFolderPath</string>
-					<key>pfm_type</key>
-					<string>string</string>
+					<string>dictionary</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>Default Folder Location</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -489,6 +500,80 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 			<string>Disable Hydration Toast</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the sync app from syncing libraries and folders shared from other organizations. Set the setting's value to True, to prevent the users from syncing OneDrive, SharePoint libraries, and folders with organizations other than the user's own organization.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#blockexternalsync</string>
+			<key>pfm_name</key>
+			<string>BlockExternalSync</string>
+			<key>pfm_title</key>
+			<string>Block External Sync</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the users from uploading files to other organizations by specifying a list of allowed tenant IDs. If you enable this setting, the user gets an error if they attempt to add an account from an organization that isn't in the allowed tenants list.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#allowtenantlist</string>
+			<key>pfm_name</key>
+			<string>AllowTenantList</string>
+			<key>pfm_title</key>
+			<string>Allow Tenant List</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Tenant ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Check to Allow</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the users from uploading files to organizations that are included in the blocked tenant IDs list. If you enable this setting, the users get an error if they attempt to add an account from an organization that is blocked. If a user has already added an account for a blocked organization, the files stop syncing.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#blocktenantlist</string>
+			<key>pfm_name</key>
+			<string>BlockTenantList</string>
+			<key>pfm_title</key>
+			<string>Block Tenant List</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>TenantID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Check to Block</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
