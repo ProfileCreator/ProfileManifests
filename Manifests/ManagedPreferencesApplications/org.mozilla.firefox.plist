@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-12-19T23:13:07Z</date>
+	<date>2022-01-30T21:14:55Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -4818,7 +4818,7 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 			<key>pfm_app_min</key>
 			<string>60</string>
 			<key>pfm_description</key>
-			<string>Block websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each.</string>
+			<string>Block websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. http/https addresses are supported as well as local file:// URLs. The arrays are limited to 1000 entries each.</string>
 			<key>pfm_description_reference</key>
 			<string>This preference blocks websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. The arrays are limited to 1000 entries each. You cannot have entries in Exceptions without entries in Block.</string>
 			<key>pfm_documentation_url</key>
@@ -4834,6 +4834,8 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 					<string>Required. If this preference is enabled, you can specify match patterns that indicate sites to be blocked. The match patterns are documented at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns. Only http/https addresses are supported at the moment. There is a 1000 entry limit. If this preference is disabled or not configured, no websites are blocked.</string>
 					<key>pfm_name</key>
 					<string>Block</string>
+					<key>pfm_note</key>
+					<string>If you want to block all URLs, you can use &lt;all_urls&gt;</string>
 					<key>pfm_repetition_max</key>
 					<integer>1000</integer>
 					<key>pfm_require</key>
@@ -4841,6 +4843,8 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_format</key>
+							<string>(^(https?|file)://.*|&lt;all_urls&gt;)</string>
 							<key>pfm_name</key>
 							<string>Block</string>
 							<key>pfm_title</key>
@@ -4869,7 +4873,7 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 					<array>
 						<dict>
 							<key>pfm_format</key>
-							<string>^https?://.*</string>
+							<string>^(https?|file)://.*</string>
 							<key>pfm_name</key>
 							<string>Exceptions</string>
 							<key>pfm_title</key>
@@ -5655,6 +5659,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>12</integer>
+	<integer>13</integer>
 </dict>
 </plist>
