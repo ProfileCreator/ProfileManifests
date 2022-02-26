@@ -3,7 +3,7 @@ name: Update indexes
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
           path: clone
 
       - name: Run updateindexes.py script and commit changes
@@ -24,4 +24,4 @@ jobs:
           git config user.email github-actions@github.com
           git add -A
           git commit -am "Update indexes" || true
-          git push --set-upstream origin master || true
+          git push --set-upstream origin main || true
