@@ -15,7 +15,7 @@
 		<key>pfm_interaction</key>
 		<string>combined</string>
 		<key>pfm_last_modified</key>
-		<date>2022-02-02T09:29:41Z</date>
+		<date>2022-02-14T16:57:44Z</date>
 		<key>pfm_note</key>
 		<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 		<key>pfm_platforms</key>
@@ -129,6 +129,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<key>pfm_range_list_titles</key>
 				<array>
 					<string>General</string>
+					<string>AirDrop</string>
 					<string>AirPrint</string>
 					<string>iCloud</string>
 					<string>Passwords / Unlock</string>
@@ -139,6 +140,10 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>always</string>
 				<key>pfm_segments</key>
 				<dict>
+					<key>AirDrop</key>
+					<array>
+						<string>allowAirDrop</string>
+					</array>
 					<key>AirPrint</key>
 					<array>
 						<string>allowAirPrintiBeaconDiscovery</string>
@@ -170,6 +175,22 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>allowSpotlightInternetResults</string>
 						<string>allowiTunesFileSharing</string>
 					</array>
+					<key>iCloud</key>
+					<array>
+						<string>allowCloudAddressBook</string>
+						<string>allowCloudBTMM</string>
+						<string>allowCloudBookmarks</string>
+						<string>allowCloudCalendar</string>
+						<string>allowCloudDesktopAndDocuments</string>
+						<string>allowCloudDocumentSync</string>
+						<string>allowCloudFMM</string>
+						<string>allowCloudKeychainSync</string>
+						<string>allowCloudMail</string>
+						<string>allowCloudNotes</string>
+						<string>allowCloudPhotoLibrary</string>
+						<string>allowCloudPrivateRelay</string>
+						<string>allowCloudReminders</string>
+					</array>
 					<key>Passwords / Unlock</key>
 					<array>
 						<string>allowAutoUnlock</string>
@@ -189,25 +210,27 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>forceDelayedMajorSoftwareUpdates</string>
 						<string>forceDelayedSoftwareUpdates</string>
 					</array>
-					<key>iCloud</key>
-					<array>
-						<string>allowCloudAddressBook</string>
-						<string>allowCloudBTMM</string>
-						<string>allowCloudBookmarks</string>
-						<string>allowCloudCalendar</string>
-						<string>allowCloudDesktopAndDocuments</string>
-						<string>allowCloudDocumentSync</string>
-						<string>allowCloudFMM</string>
-						<string>allowCloudKeychainSync</string>
-						<string>allowCloudMail</string>
-						<string>allowCloudNotes</string>
-						<string>allowCloudPhotoLibrary</string>
-						<string>allowCloudPrivateRelay</string>
-						<string>allowCloudReminders</string>
-					</array>
 				</dict>
 				<key>pfm_type</key>
 				<string>string</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string>If false, disables AirDrop.</string>
+				<key>pfm_description_reference</key>
+				<string>If false, disables AirDrop. Requires a supervised device. Available in iOS 7 and later, and macOS 10.13 and later.</string>
+				<key>pfm_documentation_url</key>
+				<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+				<key>pfm_macos_min</key>
+				<string>10.13</string>
+				<key>pfm_name</key>
+				<string>allowAirDrop</string>
+				<key>pfm_title</key>
+				<string>Allow AirDrop</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
 			</dict>
 			<dict>
 				<key>pfm_default</key>
@@ -319,6 +342,22 @@ A profile can consist of payloads with different version numbers. For example, c
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
+			<dict>
+ 				<key>pfm_default</key>
+ 				<true/>
+ 				<key>pfm_description</key>
+ 				<string>If false, prevents the device from automatically submitting diagnostic reports to Apple.</string>
+				<key>pfm_documentation_url</key>
+				<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+ 				<key>pfm_macos_min</key>
+ 				<string>10.13</string>
+ 				<key>pfm_name</key>
+ 				<string>allowDiagnosticSubmission</string>
+ 				<key>pfm_title</key>
+ 				<string>Allow submitting diagnostic and usage data to Apple</string>
+ 				<key>pfm_type</key>
+ 				<string>boolean</string>
+ 			</dict>
 			<dict>
 				<key>pfm_default</key>
 				<true/>
@@ -1141,6 +1180,6 @@ Available in macOS 11 and later.</string>
 		<key>pfm_unique</key>
 		<true/>
 		<key>pfm_version</key>
-		<integer>8</integer>
+		<integer>9</integer>
 	</dict>
 </plist>
