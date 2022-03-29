@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2021-05-03T12:04:17Z</date>
+	<date>2022-03-29T09:18:07Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -3485,6 +3485,25 @@
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>com.wireguard.ios</string>
+								<string>com.wireguard.macos</string>
+							</array>
+							<key>pfm_target</key>
+							<string>VPNSubType</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_description</key>
 			<string>Filtering service vendor configuration dictionary</string>
 			<key>pfm_exclude</key>
@@ -3647,6 +3666,56 @@
 					<string>Role</string>
 					<key>pfm_title</key>
 					<string>Vendor-Specific Role</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_present</key>
+									<true/>
+									<key>pfm_range_list</key>
+									<array>
+										<string>com.wireguard.ios</string>
+										<string>com.wireguard.macos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNSubType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_description</key>
+					<string>WireGuard configuration in wg-quick(8) or wg(8) format. The keys 'FwMark', 'Table', 'PreUp', 'PostUp', 'PreDown', 'PostDown' and 'SaveConfig' are not supported.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://git.zx2c4.com/wireguard-apple/about/MOBILECONFIG.md</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.wireguard.ios</string>
+										<string>com.wireguard.macos</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNSubType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_name</key>
+					<string>WgQuickConfig</string>
+					<key>pfm_title</key>
+					<string>WireGuard Quick Config</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4884,6 +4953,6 @@
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
