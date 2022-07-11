@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2022-07-08T10:11:16Z</date>
+	<date>2022-07-11T15:25:30Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -218,6 +218,7 @@
 				</array>
 				<key>Extensions</key>
 				<array>
+					<string>BlockExternalExtensions</string>
 					<string>ExtensionAllowInsecureUpdates</string>
 					<string>ExtensionAllowedTypes</string>
 					<string>ExtensionInstallAllowlist</string>
@@ -1985,6 +1986,28 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 		</dict> -->
 		<!-- END ContentSettings/DefaultSearchProvider -->
 		<!-- START ContentSettings/Extensions -->
+		<dict>
+			<key>pfm_app_min</key>
+			<string>88</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Controls the installation of external extensions.</string>
+			<key>pfm_description_reference</key>
+			<string>Control the installation of external extensions.
+
+If you enable this setting, external extensions are blocked from being installed.
+
+If you disable this setting or leave it unset, external extensions are allowed to be installed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#blockexternalextensions</string>
+			<key>pfm_name</key>
+			<string>BlockExternalExtensions</string>
+			<key>pfm_title</key>
+			<string>Block External Extensions</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -9433,6 +9456,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>13</integer>
+	<integer>14</integer>
 </dict>
 </plist>
