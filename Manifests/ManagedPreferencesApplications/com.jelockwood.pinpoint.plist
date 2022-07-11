@@ -2,16 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pfm_app_url</key>
+	<string>https://github.com/jelockwood/pinpoint</string>
 	<key>pfm_description</key>
-	<string>macOS AirDrop Settings</string>
+	<string>Pinpoint settings</string>
 	<key>pfm_domain</key>
-	<string>com.apple.NetworkBrowser</string>
+	<string>com.jelockwood.pinpoint</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_interaction</key>
-	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2022-02-11T20:10:44Z</date>
+	<date>2022-02-21T17:17:24Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -20,7 +20,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>macOS AirDrop Preferences</string>
+			<string>Configures Pinpoint settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -34,7 +34,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>AirDrop</string>
+			<string>Pinpoint</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -50,9 +50,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.NetworkBrowser</string>
+			<string>com.jelockwood.pinpoint</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -66,7 +66,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.NetworkBrowser</string>
+			<string>com.jelockwood.pinpoint</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -81,10 +81,8 @@
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -117,32 +115,71 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>API key for using the Google location service API.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/jelockwood/pinpoint/wiki/Preferences</string>
 			<key>pfm_name</key>
-			<string>PayloadOrganization</string>
+			<string>YOUR_API_KEY</string>
 			<key>pfm_title</key>
-			<string>Payload Organization</string>
+			<string>API Key</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to true then pinpoint will also use the Google Geocode API to look up the street address for the location, if set to false it skips this and records the location as an empty string but saves on an additional API call thereby either preventing you exceeding your quota or reducing the cost.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/jelockwood/pinpoint/wiki/Preferences</string>
+			<key>pfm_name</key>
+			<string>USE_GEOCODE</string>
+			<key>pfm_title</key>
+			<string>Enable Geocoding</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If set to true then pinpoint will also use the Google Elevation API to determine the altitude, if set to false it skips this and records the altitude as zero but saves on an additional API call thereby either preventing you exceeding your quota or reducing the cost.</string>
 			<key>pfm_documentation_url</key>
- 			<string>https://derflounder.wordpress.com/2011/10/07/disabling-airdrop-from-the-command-line/</string>
+			<string>https://github.com/jelockwood/pinpoint/wiki/Preferences</string>
 			<key>pfm_name</key>
-			<string>DisableAirDrop</string>
-			<key>pfm_note</key>
-			<string>This undocumented preference still functions, but AirDrop can also be disabled by using the documented "allowAirDrop" key in the Restrictions payload.</string>
-			<key>pfm_macos_min</key>
-			<string>10.7</string>
+			<string>USE_ALTITUDE</string>
 			<key>pfm_title</key>
-			<string>Disable AirDrop</string>
+			<string>Enable Altitude</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>3.1.1</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Optional feature designed to reduce i.e. 'optimise' the use of the Google APIs and therefore reduce the potential bill use of these APIs might result in.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/jelockwood/pinpoint/wiki/Preferences</string>
+			<key>pfm_name</key>
+			<string>OPTIMISE</string>
+			<key>pfm_title</key>
+			<string>Enable Optimisation</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If enabled logs to /var/log/pinpoint.log</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/jelockwood/pinpoint/wiki/Preferences</string>
+			<key>pfm_name</key>
+			<string>DEBUG</string>
+			<key>pfm_title</key>
+			<string>Enable Debugging</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -152,9 +189,9 @@ The payload organization for a payload need not match the payload organization i
 		<string>system</string>
 	</array>
 	<key>pfm_title</key>
-	<string>AirDrop (macOS)</string>
+	<string>Pinpoint</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
 	<integer>1</integer>
 </dict>

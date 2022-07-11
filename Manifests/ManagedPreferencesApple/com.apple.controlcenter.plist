@@ -3,13 +3,19 @@
 <plist version="1.0">
 	<dict>
 		<key>pfm_description</key>
-		<string>Ad Tracking settings</string>
+		<string>Control Center settings</string>
+		<key>pfm_documentation_url</key>
+		<string>https://github.com/usnistgov/macos_security/blob/main/rules/sysprefs/sysprefs_airplay_receiver_disable.yaml</string>
 		<key>pfm_domain</key>
-		<string>com.apple.AdLib</string>
+		<string>com.apple.controlcenter</string>
 		<key>pfm_format_version</key>
 		<integer>1</integer>
+		<key>pfm_macos_min</key>
+		<string>12.0</string>
+		<key>pfm_interaction</key>
+		<string>exlusive</string>
 		<key>pfm_last_modified</key>
-		<date>2022-02-25T11:21:51Z</date>
+		<date>2022-02-12T18:58:44Z</date>
 		<key>pfm_platforms</key>
 		<array>
 			<string>macOS</string>
@@ -18,7 +24,7 @@
 		<array>
 			<dict>
 				<key>pfm_default</key>
-				<string>Configures Ad Tracking settings</string>
+				<string>Configures Control Center settings</string>
 				<key>pfm_description</key>
 				<string>Description of the payload.</string>
 				<key>pfm_description_reference</key>
@@ -32,7 +38,7 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>Ad Tracking</string>
+				<string>Control Center</string>
 				<key>pfm_description</key>
 				<string>Name of the payload.</string>
 				<key>pfm_description_reference</key>
@@ -48,9 +54,9 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>com.apple.AdLib</string>
+				<string>com.apple.controlcenter</string>
 				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
 				<key>pfm_description_reference</key>
 				<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 				<key>pfm_name</key>
@@ -64,7 +70,7 @@
 			</dict>
 			<dict>
 				<key>pfm_default</key>
-				<string>com.apple.AdLib</string>
+				<string>com.apple.controlcenter</string>
 				<key>pfm_description</key>
 				<string>The type of the payload, a reverse dns string.</string>
 				<key>pfm_description_reference</key>
@@ -82,7 +88,7 @@
 				<key>pfm_default</key>
 				<string/>
 				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
 				<key>pfm_description_reference</key>
 				<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 				<key>pfm_format</key>
@@ -115,27 +121,28 @@ A profile can consist of payloads with different version numbers. For example, c
 			</dict>
 			<dict>
 				<key>pfm_description</key>
-				<string>Enabling this opts out of receiving ads targeted to interests in Apple Apps and macOS devices. May still receive the same number of ads, but the ads may be less relevant.</string>
+				<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+				<key>pfm_description_reference</key>
+				<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 				<key>pfm_name</key>
-				<string>forceLimitAdTracking</string>
-				<key>pfm_note</key>
-				<string>This preference lives in the Restrictions payload, but is only officially supported for iOS. This payload and preference permits the management of this setting on macOS.</string>
+				<string>PayloadOrganization</string>
 				<key>pfm_title</key>
-				<string>Force Limiting Ad Tracking</string>
+				<string>Payload Organization</string>
 				<key>pfm_type</key>
-				<string>boolean</string>
+				<string>string</string>
 			</dict>
 			<dict>
 				<key>pfm_description</key>
-				<string>Disabling ad tracking ensures that applications and advertisers are unable to track users’ interests and deliver targeted advertisements.</string>
+				<string>Airplay Receiver allows you to send content from another Apple device to be displayed on the screen as it's being played from your other device.</string>
 				<key>pfm_documentation_url</key>
-				<string>https://github.com/usnistgov/macos_security/blob/main/rules/sysprefs/sysprefs_personalized_advertising_disable.yaml</string>
+				<string>https://github.com/usnistgov/macos_security/blob/main/rules/sysprefs/sysprefs_airplay_receiver_disable.yaml</string>
 				<key>pfm_macos_min</key>
 				<string>12.0</string>
 				<key>pfm_name</key>
-				<string>allowApplePersonalizedAdvertising</string>
+				<string>AirplayRecieverEnabled</string>
 				<key>pfm_title</key>
-				<string>Allow Personalized Advertising</string>
+				<string>Enable AirPlay Receiver</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -143,13 +150,12 @@ A profile can consist of payloads with different version numbers. For example, c
 		<key>pfm_targets</key>
 		<array>
 			<string>system</string>
-			<string>user</string>
 		</array>
 		<key>pfm_title</key>
-		<string>Ad Tracking</string>
+		<string>Control Center</string>
 		<key>pfm_unique</key>
 		<true/>
 		<key>pfm_version</key>
-		<integer>2</integer>
+		<integer>1</integer>
 	</dict>
 </plist>

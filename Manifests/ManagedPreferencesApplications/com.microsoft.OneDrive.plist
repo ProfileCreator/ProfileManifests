@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-09-16T02:41:55Z</date>
+	<date>2022-03-05T03:25:49Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -119,16 +119,18 @@
 			<true/>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Disable personal accounts</string>
 			<key>pfm_description</key>
 			<string>Prevents users from adding or syncing personal accounts.</string>
 			<key>pfm_description_reference</key>
 			<string>Blocks users from signing in and syncing files in personal OneDrive accounts. If this key is set after a user has set up sync with a personal account, the user will be signed out.</string>
 			<key>pfm_description_extended</key>
 			<string>When set to true, this parameter prevents users from adding or syncing personal accounts.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#disablepersonalsync</string>
 			<key>pfm_name</key>
 			<string>DisablePersonalSync</string>
+			<key>pfm_title</key>
+			<string>Disable Personal Accounts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>		
@@ -139,81 +141,65 @@
 			<string>Disable tutorial screens during first setup.</string>
 			<key>pfm_description_extended</key>
 			<string>Disables "Share Files and Folders", "Get to Know Your OneDrive" and "Get the Mobile app" screens during first setup.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#disabletutorial</string>
 			<key>pfm_name</key>
 			<string>DisableTutorial</string>
 			<key>pfm_title</key>
-			<string>Disable tutorial screens</string>
+			<string>Disable Tutorial Screens</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_app_min</key>
-			<string></string>
 			<key>pfm_description</key>
-			<string>OneDrive folder default location.</string>
+			<string>OneDrive folder default location. Specifies the default location of the OneDrive folder for each organization.</string>
 			<key>pfm_description_reference</key>
-			<string>Specifies the default location of the OneDrive folder for each organization.</string>
-			<key>pfm_description_extended</key>
 			<string>TenantID (String): TenantID determines which accounts the default folder location setting should apply to. 
 DefaultFolderPath (String): DefaultFolder specifies the default folder location. 
 Mac App Store: The path must already exist when users set up the sync client. 
 Standalone: The path will be created on users' computers if it doesn't already exist. Only with the Standalone sync client can you prevent users from changing the location.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
 			<key>pfm_name</key>
-			<string>Tenants</string>
-			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>DefaultFolderLocation</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_app_min</key>
-					<string></string>
-					<key>pfm_title</key>
-					<string>TenantID</string>
-					<key>pfm_description</key>
-					<string>A globally unique identifier (GUID) that is different than your tenant name or domain.</string>
-					<key>pfm_description_reference</key>
-					<string>Your Office 365 tenant ID is a globally unique identifier (GUID) that is different than your tenant name or domain.</string>
-					<key>pfm_name</key>
-					<string>{{key}}</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_app_min</key>
-					<string></string>
 					<key>pfm_hidden</key>
 					<string>container</string>
-					<key>pfm_title</key>
-					<string>DefaultFolderDict</string>
-					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
-					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<key>pfm_app_min</key>
-							<string></string>
-							<key>pfm_title</key>
-							<string>Folder Path</string>
 							<key>pfm_description</key>
-							<string></string>
-							<key>pfm_description_reference</key>
-							<string></string>
+							<string>The TenantID value is a string that determines the tenants to whom the default folder location setting is applicable.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
 							<key>pfm_name</key>
-							<string>DefaultFolder</string>
+							<string>TenantID</string>
+							<key>pfm_title</key>
+							<string>Tenant ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#defaultfolderlocation</string>
+							<key>pfm_name</key>
+							<string>DefaultFolderPath</string>
+							<key>pfm_title</key>
+							<string>Path</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Default Folder Location</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -227,21 +213,21 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<key>pfm_description_extended</key>
 			<string>Determines the percentage of local upload bandwidth that the sync client can use. Accepted values are from 1 through 99.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#automaticuploadbandwidthpercentage</string>
 			<key>pfm_name</key>
 			<string>AutomaticUploadBandwidthPercentage</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_range_min</key>
 			<integer>1</integer>
 			<key>pfm_range_max</key>
 			<integer>99</integer>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>%</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Maximum upload throughput</string>
 			<key>pfm_description</key>
 			<string>Upload throughput in KB/sec that the sync client can use.</string>
 			<key>pfm_description_reference</key>
@@ -249,43 +235,45 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<key>pfm_description_extended</key>
 			<string>Determines the upload throughput in KB/sec that the sync client can use. The minimum rate is 50 KB/sec and the maximum rate is 100,000 KB/sec.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#uploadbandwidthlimited</string>
 			<key>pfm_name</key>
 			<string>UploadBandwidthLimited</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>50</integer>
 			<key>pfm_range_max</key>
 			<integer>100000</integer>
+			<key>pfm_range_min</key>
+			<integer>50</integer>
+			<key>pfm_title</key>
+			<string>Maximum Upload Bandwidth</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>KB/sec</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Maximum download throughput</string>
 			<key>pfm_description</key>
-			<string>Download throughput in KB/sec that the sync client can use.</string>
-			<key>pfm_description_reference</key>
 			<string>Sets the maximum download throughput rate in kilobytes (KB)/sec for computers running the OneDrive sync client.</string>
-			<key>pfm_description_extended</key>
+			<key>pfm_description_reference</key>
 			<string>Determines the download throughput in KB/sec that the sync client can use. The minimum rate is 50 KB/sec and the maximum rate is 100,000 KB/sec.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#downloadbandwidthlimited</string>
 			<key>pfm_name</key>
 			<string>DownloadBandwidthLimited</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>50</integer>
 			<key>pfm_range_max</key>
 			<integer>100000</integer>
+			<key>pfm_range_min</key>
+			<integer>50</integer>
+			<key>pfm_title</key>
+			<string>Maximum Download Bandwidth</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>KB/sec</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Hide Dock Icon</string>
 			<key>pfm_description</key>
 			<string>Hides the OneDrive dock icon even when the application is running.</string>
 			<key>pfm_description_reference</key>
@@ -293,17 +281,17 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<key>pfm_description_extended</key>
 			<string>When set to true, this parameter hides the OneDrive dock icon even when the application is running.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#hidedockicon</string>
 			<key>pfm_name</key>
 			<string>HideDockIcon</string>
+			<key>pfm_title</key>
+			<string>Hide Dock Icon</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>Open at login</string>
 			<key>pfm_description</key>
 			<string>Automatically start OneDrive when the user logs in.</string>
 			<key>pfm_description_reference</key>
@@ -311,25 +299,29 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<key>pfm_description_extended</key>
 			<string>When set to true, OneDrive will start automatically when the user logs in on the Mac.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#openatlogin</string>
 			<key>pfm_name</key>
 			<string>OpenAtLogin</string>
+			<key>pfm_title</key>
+			<string>Open at Login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint Server Front Door URL</string>
 			<key>pfm_description</key>
 			<string>The URL of the on-premises SharePoint Server.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the SharePoint Server 2019 Public Preview on-premises URL that the OneDrive sync client should try to authenticate and sync against.</string>
 			<key>pfm_description_extended</key>
 			<string>The URL of the on-premises SharePoint Server.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#sharepointonpremfrontdoorurl</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremFrontDoorUrl</string>
+			<key>pfm_title</key>
+			<string>SharePoint Server Front Door URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -338,8 +330,6 @@ Standalone: The path will be created on users' computers if it doesn't already e
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint Server Tenant Name</string>
 			<key>pfm_description</key>
 			<string>The name that will be used when creating a folder to sync the on-premises SharePoint Server files.</string>
 			<key>pfm_description_reference</key>
@@ -351,9 +341,11 @@ TenantName
 If not specified, the folder names will use the first segment of the FrontDoorURL as the Tenant Name.
 Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#sharepointonpremtenantname</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremTenantName</string>
+			<key>pfm_title</key>
+			<string>SharePoint Server Tenant Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -362,8 +354,6 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
-			<key>pfm_title</key>
-			<string>SharePoint OnPrem Prioritization</string>
 			<key>pfm_description</key>
 			<string>Determines whether or not the client should set up sync for SharePoint Server or SharePoint Online first during the first-run scenario.</string>
 			<key>pfm_description_reference</key>
@@ -372,11 +362,9 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 			<string>This parameter determines which service to attempt to authenticate against for setting up sync.
 1 indicates OneDrive should setup SharePoint Server on-premises first, followed by SharePoint Online.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#sharepointonpremprioritizationpolicy</string>
 			<key>pfm_name</key>
 			<string>SharePointOnPremPrioritzationPolicy</string>
-			<key>pfm_type</key>
-			<string>integer</string>
 			<key>pfm_range_list</key>
 			<array>
 				<integer>0</integer>
@@ -387,6 +375,10 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 				<string>SharePoint Online</string>
 				<string>SharePoint Server</string>
 			</array>
+			<key>pfm_title</key>
+			<string>SharePoint OnPrem Prioritization</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -417,14 +409,16 @@ Example - https://Contoso.SharePoint.com will use Contoso as the Tenant Name.</s
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
+			<key>pfm_description</key>
 			<string>When set to true, new users who set up the sync app will download online-only files by default. When set to false, Files On-Demand will be disabled and users won't be able to turn it on.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#filesondemandenabled</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>
 			<string>FilesOnDemandEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable Files On-Demand</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -450,7 +444,7 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 			<key>pfm_description_reference</key>
 			<string>Applications will not be allowed to trigger the download of cloud-only files. You can use this setting to lock down applications that don't work correctly with your deployment of Files On-Demand.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#hydrationdisallowedapps</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>
@@ -459,6 +453,241 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>[{"ApplicationId":"appId","MaxBundleVersion":"1.1","MaxBuildVersion":"1.0"}]</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting lets you enter keywords to prevent the OneDrive sync app from uploading certain files to OneDrive or SharePoint. You can enter complete names, such as "setup.exe" or use the asterisk (*) as a wildcard character to represent a series of characters, such as *.pst. Keywords aren't case-sensitive.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#enableodignore</string>
+			<key>pfm_name</key>
+			<string>EnableODIgnore</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Ignore rule</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>OneDrive Sync Ignore Rules</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting lets multiple users use the Microsoft 365 Apps for enterprise, Office 2019, or Office 2016 desktop apps to simultaneously edit an Office file stored in OneDrive. It also lets users share files from the Office desktop apps.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos</string>
+			<key>pfm_name</key>
+			<string>EnableAllOcsiClients</string>
+			<key>pfm_note</key>
+			<string>If you set this setting to True or don't set this setting, the Office tab appears in OneDrive sync preferences, and Use Office applications to sync Office files that I open is selected, by default.</string>
+			<key>pfm_title</key>
+			<string>Enable All Osci Clients</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents toasts from appearing when applications cause file contents to be downloaded.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#hydrationdisallowedapps</string>
+			<key>pfm_name</key>
+			<string>DisableHydrationToast</string>
+			<key>pfm_title</key>
+			<string>Disable Hydration Toast</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the sync app from syncing libraries and folders shared from other organizations. Set the setting's value to True, to prevent the users from syncing OneDrive, SharePoint libraries, and folders with organizations other than the user's own organization.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#blockexternalsync</string>
+			<key>pfm_name</key>
+			<string>BlockExternalSync</string>
+			<key>pfm_title</key>
+			<string>Block External Sync</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the users from uploading files to other organizations by specifying a list of allowed tenant IDs. If you enable this setting, the user gets an error if they attempt to add an account from an organization that isn't in the allowed tenants list.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#allowtenantlist</string>
+			<key>pfm_name</key>
+			<string>AllowTenantList</string>
+			<key>pfm_title</key>
+			<string>Allow Tenant List</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>Tenant ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Check to Allow</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This setting prevents the users from uploading files to organizations that are included in the blocked tenant IDs list. If you enable this setting, the users get an error if they attempt to add an account from an organization that is blocked. If a user has already added an account for a blocked organization, the files stop syncing.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#blocktenantlist</string>
+			<key>pfm_name</key>
+			<string>BlockTenantList</string>
+			<key>pfm_title</key>
+			<string>Block Tenant List</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_title</key>
+					<string>TenantID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_title</key>
+					<string>Check to Block</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMOptInWithWizard</string>
+			<key>pfm_title</key>
+			<string>Prompt Users to Move Known Folders</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>TenantID</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMSilentOptIn</string>
+			<key>pfm_title</key>
+			<string>Silently Move Known Folders</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>TenantID</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string>Enable to silently opt-in the user's Desktop folder.</string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMSilentOptInDesktop</string>
+			<key>pfm_title</key>
+			<string>Silently Opt in Desktop to Known Folders</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string>Enable to silently opt-in the user's Documents folder.</string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMSilentOptInDocuments</string>
+			<key>pfm_title</key>
+			<string>Silently Opt in Documents to Known Folders</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string>If enabled, displays a notification to users after their folders have been redirected.</string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMSilentOptInWithNotification</string>
+			<key>pfm_title</key>
+			<string>Silently Opt in with Notification</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string>If enabled, will prevent KFM opt-in.</string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMBlockOptIn</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Don't Block Opt-in</string>
+				<string>Prevent Known Folder Move</string>
+				<string>Prevent &amp; Redirect Previous KFM'd Folders to the Device</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Block Opt-in</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>20.033</string>
+			<key>pfm_description</key>
+			<string>If enabled, prevents users from redirecting their known folders to the Mac.</string>
+			<key>pfm_documentation_url</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>KFMBlockOptOut</string>
+			<key>pfm_title</key>
+			<string>Block KFM Opt-out</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -471,6 +700,6 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>6</integer>
 </dict>
 </plist>
