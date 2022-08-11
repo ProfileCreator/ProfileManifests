@@ -1,995 +1,995 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_title</key>
-		<string>Santa</string>
-		<key>pfm_domain</key>
-		<string>com.google.santa</string>
-		<key>pfm_description</key>
-		<string>Santa settings</string>
-		<key>pfm_version</key>
-		<integer>4</integer>
-		<key>pfm_last_modified</key>
-		<date>2022-08-11T00:20:00Z</date>
-		<key>pfm_documentation_url</key>
-		<string>https://santa.dev/deployment/configuration.html</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_targets</key>
-		<array>
-			<string>system</string>
-		</array>
-		<key>pfm_unique</key>
-		<true />
-		<key>pfm_subkeys</key>
-		<array>
+<dict>
+	<key>pfm_title</key>
+	<string>Santa</string>
+	<key>pfm_domain</key>
+	<string>com.google.santa</string>
+	<key>pfm_description</key>
+	<string>Santa settings</string>
+	<key>pfm_version</key>
+	<integer>4</integer>
+	<key>pfm_last_modified</key>
+	<date>2022-08-11T00:20:00Z</date>
+	<key>pfm_documentation_url</key>
+	<string>https://santa.dev/deployment/configuration.html</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_unique</key>
+	<true />
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_default</key>
+			<string>Configures Santa settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<key>pfm_default</key>
+			<string>Santa</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<key>pfm_default</key>
+			<string>com.google.santa</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
+			<key>pfm_default</key>
+			<string>com.google.santa</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<key>pfm_default</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile. The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>General</string>
+				<string>Customisation</string>
+				<string>Sync Server</string>
+				<string>Event Logging</string>
+				<string>Metrics</string>
+			</array>
+			<key>pfm_segments</key>
 			<dict>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_default</key>
-				<string>Configures Santa settings</string>
-				<key>pfm_description</key>
-				<string>Description of the payload.</string>
-				<key>pfm_description_reference</key>
-				<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_description</key>
-				<string>Name of the payload.</string>
-				<key>pfm_description_reference</key>
-				<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
-				<key>pfm_default</key>
-				<string>Santa</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
-				<key>pfm_description_reference</key>
-				<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
-				<key>pfm_default</key>
-				<string>com.google.santa</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string.</string>
-				<key>pfm_description_reference</key>
-				<string>The payload type.</string>
-				<key>pfm_default</key>
-				<string>com.google.santa</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_description_reference</key>
-				<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
-				<key>pfm_default</key>
-				<string></string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_description_reference</key>
-				<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Payload Organization</string>
-				<key>pfm_name</key>
-				<string>PayloadOrganization</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-				<key>pfm_description_reference</key>
-				<string>Optional. A human-readable string containing the name of the organization that provided the profile. The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PFC_SegmentedControl_0</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_range_list_titles</key>
+				<key>General</key>
 				<array>
-					<string>General</string>
-					<string>Customisation</string>
-					<string>Sync Server</string>
-					<string>Event Logging</string>
-					<string>Metrics</string>
+					<string>ClientMode</string>
+					<string>FailClosed</string>
+					<string>FileChangesRegex</string>
+					<string>AllowedPathRegex</string>
+					<string>BlockedPathRegex</string>
+					<string>EnableBadSignatureProtection</string>
+					<string>EnablePageZeroProtection</string>
+					<string>EnableSysxCache</string>
 				</array>
-				<key>pfm_segments</key>
+				<key>Customisation</key>
+				<array>
+					<string>AboutText</string>
+					<string>MoreInfoURL</string>
+					<string>EventDetailURL</string>
+					<string>EventDetailText</string>
+					<string>UnknownBlockMessage</string>
+					<string>BannedBlockMessage</string>
+					<string>ModeNotificationMonitor</string>
+					<string>ModeNotificationLockdown</string>
+				</array>
+				<key>SyncServer</key>
+				<array>
+					<string>SyncBaseURL</string>
+					<string>SyncEnableCleanSyncEventUpload</string>
+					<string>ClientAuthCertificateFile</string>
+					<string>ClientAuthCertificatePassword</string>
+					<string>ClientAuthCertificateCN</string>
+					<string>ClientAuthCertificateIssuerCN</string>
+					<string>ServerAuthRootsData</string>
+					<string>ServerAuthRootsFile</string>
+					<string>MachineOwner</string>
+					<string>MachineID</string>
+					<string>MachineOwnerPlist</string>
+					<string>MachineOwnerKey</string>
+					<string>MachineIDPlist</string>
+					<string>MachineIDKey</string>
+					<string>EnableAllEventUpload</string>
+					<string>DisableUnknownEventUpload</string>
+				</array>
+				<key>Event Logging</key>
+				<array>
+					<string>EventLogType</string>
+					<string>EventLogPath</string>
+					<string>MailDirectory</string>
+					<string>MailDirectoryFileSizeThresholdKB</string>
+					<string>MailDirectorySizeThresholdMB</string>
+					<string>MailDirectoryEventMaxFlushTimeSec</string>
+					<string>EnableMachineIDDecoration</string>
+				</array>
+				<key>Metrics</key>
+				<array>
+					<string>MetricFormat</string>
+					<string>MetricURL</string>
+					<string>MetricExportInterval</string>
+					<string>MetricExportTimeout</string>
+					<string>MetricExtraLabels</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Client Mode</string>
+			<key>pfm_name</key>
+			<string>ClientMode</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>1 = MONITOR, 2 = LOCKDOWN, defaults to MONITOR</string>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Monitor</string>
+				<string>Lockdown</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Deny on Read Error</string>
+			<key>pfm_name</key>
+			<string>FailClosed</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Deny execution in LOCKDOWN mode if there is an error reading or processing an executable file.</string>
+			<key>pfm_description_reference</key>
+			<string>If true and the ClientMode is LOCKDOWN: execution will be denied when there is an error reading or processing an executable file.</string>
+			<key>pfm_default</key>
+			<false />
+			<key>pfm_exclude</key>
+			<array>
 				<dict>
-					<key>General</key>
+					<key>pfm_target_conditions</key>
 					<array>
-						<string>ClientMode</string>
-						<string>FailClosed</string>
-						<string>FileChangesRegex</string>
-						<string>AllowedPathRegex</string>
-						<string>BlockedPathRegex</string>
-						<string>EnableBadSignatureProtection</string>
-						<string>EnablePageZeroProtection</string>
-						<string>EnableSysxCache</string>
-					</array>
-					<key>Customisation</key>
-					<array>
-						<string>AboutText</string>
-						<string>MoreInfoURL</string>
-						<string>EventDetailURL</string>
-						<string>EventDetailText</string>
-						<string>UnknownBlockMessage</string>
-						<string>BannedBlockMessage</string>
-						<string>ModeNotificationMonitor</string>
-						<string>ModeNotificationLockdown</string>
-					</array>
-					<key>SyncServer</key>
-					<array>
-						<string>SyncBaseURL</string>
-						<string>SyncEnableCleanSyncEventUpload</string>
-						<string>ClientAuthCertificateFile</string>
-						<string>ClientAuthCertificatePassword</string>
-						<string>ClientAuthCertificateCN</string>
-						<string>ClientAuthCertificateIssuerCN</string>
-						<string>ServerAuthRootsData</string>
-						<string>ServerAuthRootsFile</string>
-						<string>MachineOwner</string>
-						<string>MachineID</string>
-						<string>MachineOwnerPlist</string>
-						<string>MachineOwnerKey</string>
-						<string>MachineIDPlist</string>
-						<string>MachineIDKey</string>
-						<string>EnableAllEventUpload</string>
-						<string>DisableUnknownEventUpload</string>
-					</array>
-					<key>Event Logging</key>
-					<array>
-						<string>EventLogType</string>
-						<string>EventLogPath</string>
-						<string>MailDirectory</string>
-						<string>MailDirectoryFileSizeThresholdKB</string>
-						<string>MailDirectorySizeThresholdMB</string>
-						<string>MailDirectoryEventMaxFlushTimeSec</string>
-						<string>EnableMachineIDDecoration</string>
-					</array>
-					<key>Metrics</key>
-					<array>
-						<string>MetricFormat</string>
-						<string>MetricURL</string>
-						<string>MetricExportInterval</string>
-						<string>MetricExportTimeout</string>
-						<string>MetricExtraLabels</string>
+						<dict>
+							<key>pfm_target</key>
+							<string>ClientMode</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<integer>2</integer>
+							</array>
+						</dict>
 					</array>
 				</dict>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Client Mode</string>
-				<key>pfm_name</key>
-				<string>ClientMode</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>1 = MONITOR, 2 = LOCKDOWN, defaults to MONITOR</string>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_range_list</key>
-				<array>
-					<integer>1</integer>
-					<integer>2</integer>
-				</array>
-				<key>pfm_range_list_titles</key>
-				<array>
-					<string>Monitor</string>
-					<string>Lockdown</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Deny on Read Error</string>
-				<key>pfm_name</key>
-				<string>FailClosed</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Deny execution in LOCKDOWN mode if there is an error reading or processing an executable file.</string>
-				<key>pfm_description_reference</key>
-				<string>If true and the ClientMode is LOCKDOWN: execution will be denied when there is an error reading or processing an executable file.</string>
-				<key>pfm_default</key>
-				<false />
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>ClientMode</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<integer>2</integer>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>File Changes Regex</string>
-				<key>pfm_name</key>
-				<string>FileChangesRegex</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Path regexes (ICU format) to monitor for file changes.</string>
-				<key>pfm_description_reference</key>
-				<string>The regex of paths to log file changes. Regexes are specified in ICU format.</string>
-				<key>pfm_value_placeholder</key>
-				<string>^/(?!(?:private/tmp|Library/(?:Caches|Managed Installs/Logs|(?:Managed )?Preferences))/)</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Allowed Path Regex</string>
-				<key>pfm_name</key>
-				<string>AllowedPathRegex</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Path regexes (ICU format) of binaries to allow. Lower precedent than binary, certificate, and Team ID scopes.</string>
-				<key>pfm_description_reference</key>
-				<string>A regex to allow if the binary, certificate, or Team ID scopes did not allow/block execution. Regexes are specified in ICU format.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Blocked Path Regex</string>
-				<key>pfm_name</key>
-				<string>BlockedPathRegex</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Path regexes (ICU format) of binaries to block. Lower precedent than binary, certificate, and Team ID scopes.</string>
-				<key>pfm_description_reference</key>
-				<string>A regex to block if the binary, certificate, or Team ID scopes did not allow/block an execution. Regexes are specified in ICU format.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Bad Signature Protection</string>
-				<key>pfm_name</key>
-				<string>EnableBadSignatureProtection</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Block binaries with a bad signing chain, unless explicitly allowed.</string>
-				<key>pfm_description_reference</key>
-				<string>Enable bad signature protection, defaults to NO. If this flag is set to YES, binaries with a bad signing chain will be blocked even in MONITOR mode, unless the binary is allowed by an explicit rule.</string>
-				<key>pfm_default</key>
-				<false />
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Enable Page Zero Protection</string>
-				<key>pfm_name</key>
-				<string>EnablePageZeroProtection</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Block 32-bit binaries missinf the __PAGEZERO segment, unless explicitly allowed.</string>
-				<key>pfm_description_reference</key>
-				<string>Enable __PAGEZERO protection, defaults to YES. If this flag is set to YES, 32-bit binaries that are missing the __PAGEZERO segment will be blocked even in MONITOR mode, unless the binary is allowed by an explicit rule.</string>
-				<key>pfm_default</key>
-				<true />
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Enable Sysx Cache</string>
-				<key>pfm_name</key>
-				<string>EnableSysxCache</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Enable secondary cache. Improves performance when multiple EndpointSecurity system extensions are installed.</string>
-				<key>pfm_description_reference</key>
-				<string>Enables a secondary cache that ensures better performance when multiple EndpointSecurity system extensions are installed. Defaults to YES in 2021.8, defaults to NO in earlier versions.</string>
-				<key>pfm_default</key>
-				<true />
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>About Text</string>
-				<key>pfm_name</key>
-				<string>AboutText</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Custom text to display at launch.</string>
-				<key>pfm_description_reference</key>
-				<string>The text to display when the user opens Santa.app. If unset, the default text will be displayed.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>More Info URL</string>
-				<key>pfm_name</key>
-				<string>MoreInfoURL</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Optional "More Info..." link.</string>
-				<key>pfm_description_reference</key>
-				<string>The URL to open when the user clicks "More Info..." when opening Santa.app. If unset, the button will not be displayed.</string>
-				<key>pfm_value_placeholder</key>
-				<string>https://sync-server-hostname/moreinfo</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Event Detail URL</string>
-				<key>pfm_name</key>
-				<string>EventDetailURL</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>%file_sha% - SHA-256 of the file that was blocked
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>File Changes Regex</string>
+			<key>pfm_name</key>
+			<string>FileChangesRegex</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Path regexes (ICU format) to monitor for file changes.</string>
+			<key>pfm_description_reference</key>
+			<string>The regex of paths to log file changes. Regexes are specified in ICU format.</string>
+			<key>pfm_value_placeholder</key>
+			<string>^/(?!(?:private/tmp|Library/(?:Caches|Managed Installs/Logs|(?:Managed )?Preferences))/)</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Allowed Path Regex</string>
+			<key>pfm_name</key>
+			<string>AllowedPathRegex</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Path regexes (ICU format) of binaries to allow. Lower precedent than binary, certificate, and Team ID scopes.</string>
+			<key>pfm_description_reference</key>
+			<string>A regex to allow if the binary, certificate, or Team ID scopes did not allow/block execution. Regexes are specified in ICU format.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Blocked Path Regex</string>
+			<key>pfm_name</key>
+			<string>BlockedPathRegex</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Path regexes (ICU format) of binaries to block. Lower precedent than binary, certificate, and Team ID scopes.</string>
+			<key>pfm_description_reference</key>
+			<string>A regex to block if the binary, certificate, or Team ID scopes did not allow/block an execution. Regexes are specified in ICU format.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Bad Signature Protection</string>
+			<key>pfm_name</key>
+			<string>EnableBadSignatureProtection</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Block binaries with a bad signing chain, unless explicitly allowed.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable bad signature protection, defaults to NO. If this flag is set to YES, binaries with a bad signing chain will be blocked even in MONITOR mode, unless the binary is allowed by an explicit rule.</string>
+			<key>pfm_default</key>
+			<false />
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Enable Page Zero Protection</string>
+			<key>pfm_name</key>
+			<string>EnablePageZeroProtection</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Block 32-bit binaries missinf the __PAGEZERO segment, unless explicitly allowed.</string>
+			<key>pfm_description_reference</key>
+			<string>Enable __PAGEZERO protection, defaults to YES. If this flag is set to YES, 32-bit binaries that are missing the __PAGEZERO segment will be blocked even in MONITOR mode, unless the binary is allowed by an explicit rule.</string>
+			<key>pfm_default</key>
+			<true />
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Enable Sysx Cache</string>
+			<key>pfm_name</key>
+			<string>EnableSysxCache</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Enable secondary cache. Improves performance when multiple EndpointSecurity system extensions are installed.</string>
+			<key>pfm_description_reference</key>
+			<string>Enables a secondary cache that ensures better performance when multiple EndpointSecurity system extensions are installed. Defaults to YES in 2021.8, defaults to NO in earlier versions.</string>
+			<key>pfm_default</key>
+			<true />
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>About Text</string>
+			<key>pfm_name</key>
+			<string>AboutText</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Custom text to display at launch.</string>
+			<key>pfm_description_reference</key>
+			<string>The text to display when the user opens Santa.app. If unset, the default text will be displayed.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>More Info URL</string>
+			<key>pfm_name</key>
+			<string>MoreInfoURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Optional "More Info..." link.</string>
+			<key>pfm_description_reference</key>
+			<string>The URL to open when the user clicks "More Info..." when opening Santa.app. If unset, the button will not be displayed.</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://sync-server-hostname/moreinfo</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Event Detail URL</string>
+			<key>pfm_name</key>
+			<string>EventDetailURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>%file_sha% - SHA-256 of the file that was blocked
 %machine_id% - ID of the machine
 %username% - The executing user
 %bundle_id% - Bundle ID of the binary, if applicable
 %bundle_ver% - Bundle version of the binary, if applicable</string>
-				<key>pfm_description_reference</key>
-				<string>See the EventDetailURL - https://santa.dev/deployment/configuration.html#eventdetailurl - section.</string>
-				<key>pfm_value_placeholder</key>
-				<string>https://sync-server-hostname/blockables/%file_sha%</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Event Detail Text</string>
-				<key>pfm_name</key>
-				<string>EventDetailText</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>Related to the EventDetailURL property, this string represents the text to show on the button.</string>
-				<key>pfm_value_placeholder</key>
-				<string>Open sync server</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventDetailURL</string>
-								<key>pfm_present</key>
-								<false />
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Unknown Block Message</string>
-				<key>pfm_name</key>
-				<string>UnknownBlockMessage</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Custom message when an unknown binary is blocked.</string>
-				<key>pfm_description_reference</key>
-				<string>In Lockdown mode this is the message shown to the user when an unknown binary is blocked. If this message is not configured a reasonable default is provided.</string>
-				<key>pfm_value_placeholder</key>
-				<string>This application has been blocked from executing.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>ClientMode</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<integer>2</integer>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Banned Block Message</string>
-				<key>pfm_name</key>
-				<string>BannedBlockMessage</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Custom message when a binary is blocked by a rule.</string>
-				<key>pfm_description_reference</key>
-				<string>This is the message shown to the user when a binary is blocked because of a rule if that rule doesn't provide a custom message. If this is not configured a reasonable default is provided.</string>
-				<key>pfm_value_placeholder</key>
-				<string>This application has been banned</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Monitor Notification Text</string>
-				<key>pfm_name</key>
-				<string>ModeNotificationMonitor</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Custom message when entering MONITOR mode.</string>
-				<key>pfm_description_reference</key>
-				<string>The notification text to display when the client goes into Monitor mode. Defaults to "Switching into Monitor mode".</string>
-				<key>pfm_value_placeholder</key>
-				<string>Entering Monitor mode&lt;br/&gt;Please be careful!</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Lockdown Notification Text</string>
-				<key>pfm_name</key>
-				<string>ModeNotificationLockdown</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Custom message when entering LOCKDOWN mode.</string>
-				<key>pfm_description_reference</key>
-				<string>The notification text to display when the client goes into Lockdown mode. Defaults to "Switching into Lockdown mode".</string>
-				<key>pfm_value_placeholder</key>
-				<string>Entering Lockdown mode</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Sync Server URL</string>
-				<key>pfm_name</key>
-				<string>SyncBaseURL</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>The base URL of the sync server.</string>
-				<key>pfm_value_placeholder</key>
-				<string>https://sync-server-hostname/api/santa/</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Enable Upload Clean Syncs</string>
-				<key>pfm_name</key>
-				<string>SyncEnableCleanSyncEventUpload</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Upload events to the sync server even if a clean sync is requested.</string>
-				<key>pfm_description_reference</key>
-				<string>If true, events will be uploaded to the sync server even if a clean sync is requested. Defaults to false.</string>
-				<key>pfm_default</key>
-				<false />
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Client Certificate File Path</string>
-				<key>pfm_name</key>
-				<string>ClientAuthCertificateFile</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Location of a PKCS#12 certificate to be used for sync authentication.</string>
-				<key>pfm_description_reference</key>
-				<string>If set, this contains the location of a PKCS#12 certificate to be used for sync authentication.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Client Certificate Password</string>
-				<key>pfm_name</key>
-				<string>ClientAuthCertificatePassword</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>Contains the password for the PKCS#12 certificate.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Client Certificate Common Name</string>
-				<key>pfm_name</key>
-				<string>ClientAuthCertificateCN</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>The Common Name of a certificate in the System keychain to be used for sync authentication.</string>
-				<key>pfm_note</key>
-				<string>The corresponding private key must also be in the keychain.</string>
-				<key>pfm_description_reference</key>
-				<string>If set, this is the Common Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Client Certificate Issuer Common Name</string>
-				<key>pfm_name</key>
-				<string>ClientAuthCertificateIssuerCN</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>The Issuer Name of a certificate in the System keychain to be used for sync authentication.</string>
-				<key>pfm_note</key>
-				<string>The corresponding private key must also be in the keychain.</string>
-				<key>pfm_description_reference</key>
-				<string>If set, this is the Issuer Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Server Authentication Certificate Roots</string>
-				<key>pfm_name</key>
-				<string>ServerAuthRootsData</string>
-				<key>pfm_type</key>
-				<string>data</string>
-				<key>pfm_allowed_file_types</key>
-				<array>
-					<string>public.x509-certificate</string>
-				</array>
-				<key>pfm_description</key>
-				<string>X.509 certificate (.pem) for inclusion on device. A valid PEM containing one or more certificates to be used for certificate pinning.</string>
-				<key>pfm_note</key>
-				<string>To comply with ATS (https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57) the certificate chain must also be trusted in the keychain.</string>
-				<key>pfm_description_reference</key>
-				<string>If set, this is valid PEM containing one or more certificates to be used for certificate pinning. To comply with ATS - https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57 - the certificate chain must also be trusted in the keychain.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Server Authentication Certificate Roots (Local)</string>
-				<key>pfm_name</key>
-				<string>ServerAuthRootsFile</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>Path to an on-disk X.509 certificate (.pem). A valid PEM containing one or more certificates to be used for certificate pinning.</string>
-				<key>pfm_note</key>
-				<string>To comply with ATS (https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57) the certificate chain must also be trusted in the keychain.</string>
-				<key>pfm_description_reference</key>
-				<string>The same as the above but is a path to a file on disk containing the PEM data.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine Owner</string>
-				<key>pfm_name</key>
-				<string>MachineOwner</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>The machine owner.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine ID</string>
-				<key>pfm_name</key>
-				<string>MachineID</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>The machine ID.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine Owner Plist</string>
-				<key>pfm_name</key>
-				<string>MachineOwnerPlist</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>The path to a plist that contains the MachineOwnerKey / value pair.</string>
-				<key>pfm_value_placeholder</key>
-				<string>/Library/Preferences/com.company.machine-mapping.plist</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine Owner Key</string>
-				<key>pfm_name</key>
-				<string>MachineOwnerKey</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>The key to use on Machine Owner Plist.</string>
-				<key>pfm_description_reference</key>
-				<string>The key to use on MachineOwnerPlist.</string>
-				<key>pfm_value_placeholder</key>
-				<string>Owner</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine ID Plist</string>
-				<key>pfm_name</key>
-				<string>MachineIDPlist</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>The path to a plist that contains the MachineOwnerKey / value pair.</string>
-				<key>pfm_value_placeholder</key>
-				<string>/Library/Preferences/com.company.machine-mapping.plist</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Machine ID Key</string>
-				<key>pfm_name</key>
-				<string>MachineIDKey</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>The key to use on Machine ID Plist.</string>
-				<key>pfm_description_reference</key>
-				<string>The key to use on MachineIDPlist.</string>
-				<key>pfm_value_placeholder</key>
-				<string>MachineUUID</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Event Log Type</string>
-				<key>pfm_name</key>
-				<string>EventLogType</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>syslog: Sent to ASL or ULS (if built with the 10.12 SDK or later); filelog: Sent to a file on disk. Use EventLogPath to specify a path.</string>
-				<key>pfm_description_reference</key>
-				<string>Defines how event logs are stored. Options are 1) syslog: Sent to ASL or ULS (if built with the 10.12 SDK or later). 2) filelog: Sent to a file on disk. Use EventLogPath to specify a path. 3) protobuf (BETA): Sent to file on disk using maildir format. 4) null: Don't output any event logs. Defaults to filelog.</string>
-				<key>pfm_default</key>
+			<key>pfm_description_reference</key>
+			<string>See the EventDetailURL - https://santa.dev/deployment/configuration.html#eventdetailurl - section.</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://sync-server-hostname/blockables/%file_sha%</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Event Detail Text</string>
+			<key>pfm_name</key>
+			<string>EventDetailText</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Related to the EventDetailURL property, this string represents the text to show on the button.</string>
+			<key>pfm_value_placeholder</key>
+			<string>Open sync server</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventDetailURL</string>
+							<key>pfm_present</key>
+							<false />
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Unknown Block Message</string>
+			<key>pfm_name</key>
+			<string>UnknownBlockMessage</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Custom message when an unknown binary is blocked.</string>
+			<key>pfm_description_reference</key>
+			<string>In Lockdown mode this is the message shown to the user when an unknown binary is blocked. If this message is not configured a reasonable default is provided.</string>
+			<key>pfm_value_placeholder</key>
+			<string>This application has been blocked from executing.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>ClientMode</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<integer>2</integer>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Banned Block Message</string>
+			<key>pfm_name</key>
+			<string>BannedBlockMessage</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Custom message when a binary is blocked by a rule.</string>
+			<key>pfm_description_reference</key>
+			<string>This is the message shown to the user when a binary is blocked because of a rule if that rule doesn't provide a custom message. If this is not configured a reasonable default is provided.</string>
+			<key>pfm_value_placeholder</key>
+			<string>This application has been banned</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Monitor Notification Text</string>
+			<key>pfm_name</key>
+			<string>ModeNotificationMonitor</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Custom message when entering MONITOR mode.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when the client goes into Monitor mode. Defaults to "Switching into Monitor mode".</string>
+			<key>pfm_value_placeholder</key>
+			<string>Entering Monitor mode&lt;br/&gt;Please be careful!</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Lockdown Notification Text</string>
+			<key>pfm_name</key>
+			<string>ModeNotificationLockdown</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Custom message when entering LOCKDOWN mode.</string>
+			<key>pfm_description_reference</key>
+			<string>The notification text to display when the client goes into Lockdown mode. Defaults to "Switching into Lockdown mode".</string>
+			<key>pfm_value_placeholder</key>
+			<string>Entering Lockdown mode</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Sync Server URL</string>
+			<key>pfm_name</key>
+			<string>SyncBaseURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The base URL of the sync server.</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://sync-server-hostname/api/santa/</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Enable Upload Clean Syncs</string>
+			<key>pfm_name</key>
+			<string>SyncEnableCleanSyncEventUpload</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Upload events to the sync server even if a clean sync is requested.</string>
+			<key>pfm_description_reference</key>
+			<string>If true, events will be uploaded to the sync server even if a clean sync is requested. Defaults to false.</string>
+			<key>pfm_default</key>
+			<false />
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Client Certificate File Path</string>
+			<key>pfm_name</key>
+			<string>ClientAuthCertificateFile</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Location of a PKCS#12 certificate to be used for sync authentication.</string>
+			<key>pfm_description_reference</key>
+			<string>If set, this contains the location of a PKCS#12 certificate to be used for sync authentication.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Client Certificate Password</string>
+			<key>pfm_name</key>
+			<string>ClientAuthCertificatePassword</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Contains the password for the PKCS#12 certificate.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Client Certificate Common Name</string>
+			<key>pfm_name</key>
+			<string>ClientAuthCertificateCN</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>The Common Name of a certificate in the System keychain to be used for sync authentication.</string>
+			<key>pfm_note</key>
+			<string>The corresponding private key must also be in the keychain.</string>
+			<key>pfm_description_reference</key>
+			<string>If set, this is the Common Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Client Certificate Issuer Common Name</string>
+			<key>pfm_name</key>
+			<string>ClientAuthCertificateIssuerCN</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>The Issuer Name of a certificate in the System keychain to be used for sync authentication.</string>
+			<key>pfm_note</key>
+			<string>The corresponding private key must also be in the keychain.</string>
+			<key>pfm_description_reference</key>
+			<string>If set, this is the Issuer Name of a certificate in the System keychain to be used for sync authentication. The corresponding private key must also be in the keychain.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Server Authentication Certificate Roots</string>
+			<key>pfm_name</key>
+			<string>ServerAuthRootsData</string>
+			<key>pfm_type</key>
+			<string>data</string>
+			<key>pfm_allowed_file_types</key>
+			<array>
+				<string>public.x509-certificate</string>
+			</array>
+			<key>pfm_description</key>
+			<string>X.509 certificate (.pem) for inclusion on device. A valid PEM containing one or more certificates to be used for certificate pinning.</string>
+			<key>pfm_note</key>
+			<string>To comply with ATS (https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57) the certificate chain must also be trusted in the keychain.</string>
+			<key>pfm_description_reference</key>
+			<string>If set, this is valid PEM containing one or more certificates to be used for certificate pinning. To comply with ATS - https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57 - the certificate chain must also be trusted in the keychain.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Server Authentication Certificate Roots (Local)</string>
+			<key>pfm_name</key>
+			<string>ServerAuthRootsFile</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>Path to an on-disk X.509 certificate (.pem). A valid PEM containing one or more certificates to be used for certificate pinning.</string>
+			<key>pfm_note</key>
+			<string>To comply with ATS (https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57) the certificate chain must also be trusted in the keychain.</string>
+			<key>pfm_description_reference</key>
+			<string>The same as the above but is a path to a file on disk containing the PEM data.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine Owner</string>
+			<key>pfm_name</key>
+			<string>MachineOwner</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The machine owner.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine ID</string>
+			<key>pfm_name</key>
+			<string>MachineID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The machine ID.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine Owner Plist</string>
+			<key>pfm_name</key>
+			<string>MachineOwnerPlist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The path to a plist that contains the MachineOwnerKey / value pair.</string>
+			<key>pfm_value_placeholder</key>
+			<string>/Library/Preferences/com.company.machine-mapping.plist</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine Owner Key</string>
+			<key>pfm_name</key>
+			<string>MachineOwnerKey</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>The key to use on Machine Owner Plist.</string>
+			<key>pfm_description_reference</key>
+			<string>The key to use on MachineOwnerPlist.</string>
+			<key>pfm_value_placeholder</key>
+			<string>Owner</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine ID Plist</string>
+			<key>pfm_name</key>
+			<string>MachineIDPlist</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>The path to a plist that contains the MachineOwnerKey / value pair.</string>
+			<key>pfm_value_placeholder</key>
+			<string>/Library/Preferences/com.company.machine-mapping.plist</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Machine ID Key</string>
+			<key>pfm_name</key>
+			<string>MachineIDKey</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>The key to use on Machine ID Plist.</string>
+			<key>pfm_description_reference</key>
+			<string>The key to use on MachineIDPlist.</string>
+			<key>pfm_value_placeholder</key>
+			<string>MachineUUID</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Event Log Type</string>
+			<key>pfm_name</key>
+			<string>EventLogType</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>syslog: Sent to ASL or ULS (if built with the 10.12 SDK or later); filelog: Sent to a file on disk. Use EventLogPath to specify a path.</string>
+			<key>pfm_description_reference</key>
+			<string>Defines how event logs are stored. Options are 1) syslog: Sent to ASL or ULS (if built with the 10.12 SDK or later). 2) filelog: Sent to a file on disk. Use EventLogPath to specify a path. 3) protobuf (BETA): Sent to file on disk using maildir format. 4) null: Don't output any event logs. Defaults to filelog.</string>
+			<key>pfm_default</key>
+			<string>filelog</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>syslog</string>
 				<string>filelog</string>
-				<key>pfm_range_list</key>
-				<array>
-					<string>syslog</string>
-					<string>filelog</string>
-					<string>protobuf</string>
-					<string />
-				</array>
-				<key>pfm_range_list_titles</key>
-				<array>
-					<string>System log</string>
-					<string>File</string>
-					<string>Mail</string>
-					<string>None</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Event Log Path</string>
-				<key>pfm_name</key>
-				<string>EventLogPath</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_note</key>
-				<string>If you change this value ensure you also update com.google.santa.newsyslog.conf with the new path.</string>
-				<key>pfm_description_reference</key>
-				<string>If EventLogType is set to filelog, EventLogPath will provide the path to save logs. Defaults to /var/db/santa/santa.log. If you change this value ensure you also update com.google.santa.newsyslog.conf with the new path.</string>
-				<key>pfm_default</key>
-				<string>/var/db/santa/santa.log</string>
-				<key>pfm_conditionals</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_range_list</key>
-								<array>
-									<string>filelog</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<string>filelog</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Mail Directory</string>
-				<key>pfm_name</key>
-				<string>MailDirectory</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>If EventLogType is set to protobuf, MailDirectory will provide the the base directory used to save files according to the maildir format. Defaults to /var/db/santa/mail.</string>
-				<key>pfm_default</key>
-				<string>/var/db/santa/mail</string>
-				<key>pfm_conditionals</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_range_list</key>
-								<array>
-									<string>protobuf</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<string>protobuf</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Mail Max File Size</string>
-				<key>pfm_name</key>
-				<string>MailDirectoryFileSizeThresholdKB</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string>Per-file size limit (KB) for files stored in the event log mail directory.</string>
-				<key>pfm_description_reference</key>
-				<string>If EventLogType is set to protobuf, MailDirectoryFileSizeThresholdKB defines the per-file size limit for files stored in the mail directory. Events are buffered in memory until this threshold would be exceeded (or MailDirectoryEventMaxFlushTimeSec is exceeded). Defaults to 100.</string>
-				<key>pfm_default</key>
-				<integer>100</integer>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<string>protobuf</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Mail Max Size</string>
-				<key>pfm_name</key>
-				<string>MailDirectorySizeThresholdMB</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string>Total file size limit (MB) for all files stored in the event log mail directory.</string>
-				<key>pfm_description_reference</key>
-				<string>If EventLogType is set to protobuf, MailDirectorySizeThresholdMB defines the total combined size limit of all files in the mail directory. Once the threshold is met, no more events will be saved. Defaults to 500.</string>
-				<key>pfm_default</key>
-				<integer>500</integer>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<string>protobuf</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Mail Max Event Buffer</string>
-				<key>pfm_name</key>
-				<string>MailDirectoryEventMaxFlushTimeSec</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string>Maximum time (seconds) events will stay buffered in memory before being flushed to disk.</string>
-				<key>pfm_description_reference</key>
-				<string>If EventLogType is set to protobuf, MailDirectoryEventMaxFlushTimeSec defines the maximum amount of time events will stay buffered in memory before being flushed to disk, regardless of whether or not MailDirectoryFileSizeThresholdKB would be exceeded. Defaults to 5.</string>
-				<key>pfm_default</key>
-				<integer>5</integer>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_target</key>
-								<string>EventLogType</string>
-								<key>pfm_present</key>
-								<false />
-								<key>pfm_n_range_list</key>
-								<array>
-									<string>protobuf</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Enable Machine ID Decoration</string>
-				<key>pfm_name</key>
-				<string>EnableMachineIDDecoration</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_description</key>
-				<string>Appends the MachineID to the end of each log line if enabled.</string>
-				<key>pfm_description_reference</key>
-				<string>If YES, this appends the MachineID to the end of each log line. Defaults to NO.</string>
-				<key>pfm_default</key>
-				<false />
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Metric Format</string>
-				<key>pfm_name</key>
-				<string>MetricFormat</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>The key to use on Machine ID Plist.</string>
-				<key>pfm_description_reference</key>
-				<string>Format to export metrics as, supported formats are "rawjson" for a single JSON blob and "monarchjson" for a format consumable by Google's Monarch tooling. Defaults to "".</string>
-				<key>pfm_default</key>
+				<string>protobuf</string>
 				<string />
-				<key>pfm_range_list</key>
-				<array>
-					<string>rawjson</string>
-					<string>monarchjson</string>
-					<string />
-				</array>
-				<key>pfm_range_list_titles</key>
-				<array>
-					<string>Raw JSON</string>
-					<string>Monarch JSON</string>
-					<string>None</string>
-				</array>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Metric URL</string>
-				<key>pfm_name</key>
-				<string>MetricURL</string>
-				<key>pfm_type</key>
-				<string>string</string>
-				<key>pfm_description</key>
-				<string>URL describing where monitoring metrics should be exported.</string>
-				<key>pfm_description_reference</key>
-				<string>URL describing where monitoring metrics should be exported.</string>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Metric Export Interval</string>
-				<key>pfm_name</key>
-				<string>MetricExportInterval</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string>Time (seconds) between exporting metrics.</string>
-				<key>pfm_description_reference</key>
-				<string>Number of seconds to wait between exporting metrics. Defaults to 30.</string>
-				<key>pfm_default</key>
-				<integer>30</integer>
-			</dict>
-			<dict>
-				<key>pfm_title</key>
-				<string>Metric Export Timeout</string>
-				<key>pfm_name</key>
-				<string>MetricExportTimeout</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_description</key>
-				<string>Timeout (seconds) for exporting metrics.</string>
-				<key>pfm_description_reference</key>
-				<string>Number of seconds to wait before a timeout occurs when exporting metrics. Defaults to 30.</string>
-				<key>pfm_default</key>
-				<integer>30</integer>
-			</dict>
-		</array>
-	</dict>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>System log</string>
+				<string>File</string>
+				<string>Mail</string>
+				<string>None</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Event Log Path</string>
+			<key>pfm_name</key>
+			<string>EventLogPath</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_note</key>
+			<string>If you change this value ensure you also update com.google.santa.newsyslog.conf with the new path.</string>
+			<key>pfm_description_reference</key>
+			<string>If EventLogType is set to filelog, EventLogPath will provide the path to save logs. Defaults to /var/db/santa/santa.log. If you change this value ensure you also update com.google.santa.newsyslog.conf with the new path.</string>
+			<key>pfm_default</key>
+			<string>/var/db/santa/santa.log</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>filelog</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>filelog</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Mail Directory</string>
+			<key>pfm_name</key>
+			<string>MailDirectory</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If EventLogType is set to protobuf, MailDirectory will provide the the base directory used to save files according to the maildir format. Defaults to /var/db/santa/mail.</string>
+			<key>pfm_default</key>
+			<string>/var/db/santa/mail</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>protobuf</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>protobuf</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Mail Max File Size</string>
+			<key>pfm_name</key>
+			<string>MailDirectoryFileSizeThresholdKB</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string>Per-file size limit (KB) for files stored in the event log mail directory.</string>
+			<key>pfm_description_reference</key>
+			<string>If EventLogType is set to protobuf, MailDirectoryFileSizeThresholdKB defines the per-file size limit for files stored in the mail directory. Events are buffered in memory until this threshold would be exceeded (or MailDirectoryEventMaxFlushTimeSec is exceeded). Defaults to 100.</string>
+			<key>pfm_default</key>
+			<integer>100</integer>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>protobuf</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Mail Max Size</string>
+			<key>pfm_name</key>
+			<string>MailDirectorySizeThresholdMB</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string>Total file size limit (MB) for all files stored in the event log mail directory.</string>
+			<key>pfm_description_reference</key>
+			<string>If EventLogType is set to protobuf, MailDirectorySizeThresholdMB defines the total combined size limit of all files in the mail directory. Once the threshold is met, no more events will be saved. Defaults to 500.</string>
+			<key>pfm_default</key>
+			<integer>500</integer>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>protobuf</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Mail Max Event Buffer</string>
+			<key>pfm_name</key>
+			<string>MailDirectoryEventMaxFlushTimeSec</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string>Maximum time (seconds) events will stay buffered in memory before being flushed to disk.</string>
+			<key>pfm_description_reference</key>
+			<string>If EventLogType is set to protobuf, MailDirectoryEventMaxFlushTimeSec defines the maximum amount of time events will stay buffered in memory before being flushed to disk, regardless of whether or not MailDirectoryFileSizeThresholdKB would be exceeded. Defaults to 5.</string>
+			<key>pfm_default</key>
+			<integer>5</integer>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_target</key>
+							<string>EventLogType</string>
+							<key>pfm_present</key>
+							<false />
+							<key>pfm_n_range_list</key>
+							<array>
+								<string>protobuf</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Enable Machine ID Decoration</string>
+			<key>pfm_name</key>
+			<string>EnableMachineIDDecoration</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfm_description</key>
+			<string>Appends the MachineID to the end of each log line if enabled.</string>
+			<key>pfm_description_reference</key>
+			<string>If YES, this appends the MachineID to the end of each log line. Defaults to NO.</string>
+			<key>pfm_default</key>
+			<false />
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Metric Format</string>
+			<key>pfm_name</key>
+			<string>MetricFormat</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>The key to use on Machine ID Plist.</string>
+			<key>pfm_description_reference</key>
+			<string>Format to export metrics as, supported formats are "rawjson" for a single JSON blob and "monarchjson" for a format consumable by Google's Monarch tooling. Defaults to "".</string>
+			<key>pfm_default</key>
+			<string />
+			<key>pfm_range_list</key>
+			<array>
+				<string>rawjson</string>
+				<string>monarchjson</string>
+				<string />
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Raw JSON</string>
+				<string>Monarch JSON</string>
+				<string>None</string>
+			</array>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Metric URL</string>
+			<key>pfm_name</key>
+			<string>MetricURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_description</key>
+			<string>URL describing where monitoring metrics should be exported.</string>
+			<key>pfm_description_reference</key>
+			<string>URL describing where monitoring metrics should be exported.</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Metric Export Interval</string>
+			<key>pfm_name</key>
+			<string>MetricExportInterval</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string>Time (seconds) between exporting metrics.</string>
+			<key>pfm_description_reference</key>
+			<string>Number of seconds to wait between exporting metrics. Defaults to 30.</string>
+			<key>pfm_default</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Metric Export Timeout</string>
+			<key>pfm_name</key>
+			<string>MetricExportTimeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_description</key>
+			<string>Timeout (seconds) for exporting metrics.</string>
+			<key>pfm_description_reference</key>
+			<string>Number of seconds to wait before a timeout occurs when exporting metrics. Defaults to 30.</string>
+			<key>pfm_default</key>
+			<integer>30</integer>
+		</dict>
+	</array>
+</dict>
 </plist>
