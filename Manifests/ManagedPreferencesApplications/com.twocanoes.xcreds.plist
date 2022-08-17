@@ -2,84 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	
-	<!-- *************************** OPTIONAL KEYS *************************** -->
-	<!-- All keys below this comment are only optional but help the user with more information about the payload. -->
-	
-	<!-- This key should contain a URL to the download page of the application it's configuring. -->
 	<key>pfm_app_url</key>
 	<string>https://github.com/twocanoes/xcreds</string>
-	
-	<!-- This key should contain a URL to the documentation of the keys this application supports. (And from where you have taken the information to create this manifest)-->
+	<key>pfm_description</key>
+	<string>xcreds OAuth Settings</string>
+	<key>pfm_domain</key>
+	<string>com.twocanoes.xcreds</string>
 	<key>pfm_documentation_url</key>
 	<string>https://github.com/twocanoes/xcreds</string>
-	
-	<!-- The scope where this payload is valid. -->
-	<!-- If this payload is only for iOS and tvOS this should be set to only system.-->
-	<!-- On macOS you include all scopes this payload is valid to install to. -->
-	<!-- If this is not included, it will default to system AND user.-->
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-		<string>user</string>
-	</array>
-	
-	<!-- The platforms where this payload is valid. -->
-	<!-- If this is not included, it will default to only macOS. -->
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
-	
-	<!-- *************************** REQUIRED KEYS *************************** -->
-	<!-- All keys below this comment are required for this manifest to be loaded by the framework. -->
-
-	<!-- A description of the payload. -->
-	<key>pfm_description</key>
-	<string>xcreds OAuth Settings</string>
-	
-	<!-- The preference domain of the payload. This should be the same as PayloadType in the pfm_subkeys.-->
-	<key>pfm_domain</key>
-	<string>com.twocanoes.xcreds</string>
-	
-	<!-- The format version is used by the application to know it can support all manifest keys in this manifest. -->
-	<!-- Sometimes new keys are added, but those will not be supported by older versions of the application. -->
-	<!-- To avoid creating invalid payloads because of that, the app will not load manifests with newer format versions that it can support. -->
-	<!-- See this page for the current versions: https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format-Versions -->
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	
-	<!-- Date the manifest was last modified. This is used for manifest collision. -->
-	<!-- Read more about that here: https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Collision -->
 	<key>pfm_last_modified</key>
 	<date>2022-08-12T17:21:11Z</date>
-	
-	<!-- This is the title of the manifest -->
-	<key>pfm_title</key>
-	<string>XCreds</string>
-	
-	<!-- This determines if there can be more than one payload in the profile for this PayloadType. -->
-	<key>pfm_unique</key>
-	<false/>
-	
-	<!-- This is the version number of this manifest, it's used to determine which manifest to load if two manifests with identical "pfm_domain" is found-->
-	<key>pfm_version</key>
-	<integer>1</integer>
-	
-	<!-- This is an array of all keys this payload can configure. They will be shown in order. -->
 	<key>pfm_subkeys</key>
 	<array>
-		
-		<!-- *************************** REQUIRED KEYS *************************** -->
-		<!-- Currently the "base" keys for each payload must be defined in each manifest -->
-		<!-- That is something I hope to move into the application and make the settings more simple. -->
-		<!-- But for now, these are required to create a valid payload on export. -->
-		
-		<!-- PayloadDescription -->
-		<!-- Description for the payload shown when the payload is installed. -->
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures XCreds configuration preferences</string> <!-- CHANGE THIS VALUE -->
+			<string>Configures XCreds configuration preferences</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -91,12 +34,9 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- PayloadDisplayName -->
-		<!-- Display Name of the payload shown when the payload is installed. -->
 		<dict>
 			<key>pfm_default</key>
-			<string>XCreds</string> <!-- CHANGE THIS VALUE -->
+			<string>XCreds</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -110,12 +50,9 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- PayloadIdentifier -->
-		<!-- The base identifier this payload should use. This will then be expanded by the application to add the root identifier + the payload UUID to create a unique identifier automatically. -->
 		<dict>
 			<key>pfm_default</key>
-			<string>com.twocanoes.xcreds</string> <!-- CHANGE THIS VALUE TO THE SAME AS pfm_domain and PayloadType -->
+			<string>com.twocanoes.xcreds</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
@@ -129,12 +66,9 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- PayloadType -->
-		<!-- This is the PayloadType of the payload. -->
 		<dict>
 			<key>pfm_default</key>
-			<string>com.twocanoes.xcreds</string> <!-- CHANGE THIS VALUE TO THE SAME AS pfm_domain and PayloadIdentifier -->
+			<string>com.twocanoes.xcreds</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -148,9 +82,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- PayloadUUID -->
-		<!-- This is the PayloadUUID and it will be generated automatically. You should NOT edit this. -->
 		<dict>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
@@ -167,9 +98,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- PayloadVersion -->
-		<!-- This is the version of the payload. You should NOT edit this. -->
 		<dict>
 			<key>pfm_default</key>
 			<integer>1</integer>
@@ -187,9 +115,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
-		
-		<!-- PayloadOrganization -->
-		<!-- This is the organization of the payload. You should NOT edit this. -->
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
@@ -200,14 +125,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- *************************** APPLICATION KEYS *************************** -->
-		<!-- You should add all keys this payload can manage below this comment. -->
-		<!-- Example: Required -->
-		<!-- This example shows a key to be required to be included in the exported profile -->
-				
-		<!-- Example: Default Value -->
-		<!-- This example shows a key with a default value. -->
 		<dict>
 			<key>pfm_name</key>
 			<string>discoveryURL</string>
@@ -217,14 +134,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Discovery URL</string>
 			<key>pfm_description</key>
 			<string></string>
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string>https://login.microsoftonline.com/common/.well-known/openid-configuration</string>
 			<key>pfm_require</key>
 			<string>always</string>
-
 		</dict>
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>clientID</string>
@@ -234,13 +148,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Client ID</string>
 			<key>pfm_description</key>
 			<string></string>
-			
-			<!-- This value will be automatically set as the value until the user changes it. -->
-			<key>pfm_default</key>
-			<string></string>
 			<key>pfm_require</key>
 			<string>always</string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -251,11 +160,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Local Username</string>
 			<key>pfm_description</key>
 			<string>When a user uses cloud login, XCreds will try and figure out the local username based on the email or other data returned for the IdP. Use this value to force the local username for any cloud login. Provide only the shortname.</string>
-			
-			<!-- This value will be automatically set as the value until the user changes it. -->
-			<key>pfm_default</key>
-			<string></string>
-			
 		</dict>
 		
 		<dict>
@@ -267,11 +171,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Client Secret</string>
 			<key>pfm_description</key>
 			<string>Client Secret sometimes required by identity provider.</string>
-			
-			<!-- This value will be automatically set as the value until the user changes it. -->
-			<key>pfm_default</key>
-			<string></string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -282,14 +181,9 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Scopes</string>
 			<key>pfm_description</key>
 			<string>OIDC Scopes</string>
-			
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string>profile openid offline_access</string>
-			
 		</dict>
-
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>refreshRateHours</string>
@@ -299,10 +193,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Password Change Check Rate</string>
 			<key>pfm_description</key>
 			<string>Number of hours for checking for password changes. Default is 3 hours.  Minimum is 1 hour.</string>
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string>3</string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -313,10 +205,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Redirect URI</string>
 			<key>pfm_description</key>
 			<string>URI to redirect to when authentication is complete.</string>
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string>xcreds://auth/</string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -327,10 +217,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Log File Name</string>
 			<key>pfm_description</key>
 			<string>Name of log file. Normally saved to /tmp</string>
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string>xcreds.log</string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -356,7 +244,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<true/>
 		</dict>
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>shouldShowSupportStatus</string>
@@ -369,7 +256,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<true/>
 		</dict>
-
 		<dict>
 			<key>pfm_name</key>
 			<string>shouldShowConfigureWifiButton</string>
@@ -382,7 +268,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<true/>
 		</dict>
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>shouldShowMacLoginButton</string>
@@ -407,8 +292,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<false/>
 		</dict>
-		
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>showDebug</string>
@@ -458,7 +341,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<false/>
 		</dict>
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>EnableFDE</string>
@@ -507,8 +389,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<false/>
 		</dict>
-		
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>shouldShowAboutMenu</string>
@@ -530,10 +410,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Password Change URL for Menu</string>
 			<key>pfm_description</key>
 			<string>Add a menu item for changing the password that will open this URL when the menu item is selected.</string>
-			<!-- This value will be automatically set as the value until the user changes it. -->
 			<key>pfm_default</key>
 			<string></string>
-			
 		</dict>
 		<dict>
 			<key>pfm_name</key>
@@ -546,10 +424,18 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>url to an image to show in the background while logging in </string>
 			<key>pfm_default</key>
 			<string>file:///System/Library/Desktop Pictures/Monterey Graphic.heic</string>
-			
-		</dict>
-
-		
+		</dict>		
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>XCreds</string>
+	<key>pfm_unique</key>
+	<false/>
+	<key>pfm_version</key>
+	<integer>1</integer>
 </dict>
 </plist>
