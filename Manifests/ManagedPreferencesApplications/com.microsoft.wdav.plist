@@ -2,16 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>pfm_documentation_url</key>
-	<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences</string>
 	<key>pfm_description</key>
-	<string>Microsoft Defender Advanced Threat Protection settings</string>
+	<string>Microsoft Defender for Endpoint settings</string>
+	<key>pfm_documentation_url</key>
+	<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences</string>
 	<key>pfm_domain</key>
 	<string>com.microsoft.wdav</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2020-03-26T22:45:00Z</date>
+	<date>2022-08-22T01:00:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -20,7 +20,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures Microsoft Defender Advanced Threat Protection settings</string>
+			<string>Configures Microsoft Defender for Endpoint settings</string>
 			<key>pfm_description</key>
 			<string>Description of the payload</string>
 			<key>pfm_name</key>
@@ -32,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Microsoft Defender Advanced Threat Protection</string>
+			<string>Microsoft Defender for Endpoint</string>
 			<key>pfm_description</key>
 			<string>Name of the payload</string>
 			<key>pfm_name</key>
@@ -104,58 +104,175 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Manages the preferences of the antivirus component of Microsoft Defender ATP.</string>
+			<string>Manages the preferences of the antivirus component of Microsoft Defender for Endpoint.</string>
+			<key>pfm_description_reference</key>
+			<string>The antivirusEngine section of the configuration profile is used to manage the preferences of the antivirus component of Microsoft Defender for Endpoint.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#antivirus-engine-preferences</string>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#antivirus-engine-preferences</string>
 			<key>pfm_name</key>
 			<string>antivirusEngine</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>101.10.72</string>
+					<key>pfm_default</key>
+					<string>real_time</string>
+					<key>pfm_description</key>
+					<string>Enforcement level of antivirus engine. On-demand: Files are scanned only on demand; Passive: Same as on-demand, but also security intelligence updates are enabled, and the status menu icon is hidden; Real-time: Scan files as they are accessed.</string>
+					<key>pfm_description_reference</key>
+					<string>Specifies the enforcement preference of antivirus engine. There are three values for setting enforcement level:
+- Real-time (real_time): Real-time protection (scan files as they are accessed) is enabled.
+- On-demand (on_demand): Files are scanned only on demand. In this:
+	- Real-time protection is turned off.
+- Passive (passive): Runs the antivirus engine in passive mode. In this:
+	- Real-time protection is turned off.
+	- On-demand scanning is turned on.
+	- Automatic threat remediation is turned off.
+	- Security intelligence updates are turned on.
+	- Status menu icon is hidden.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#enforcement-level-for-antivirus-engine</string>
+					<key>pfm_name</key>
+					<string>enforcementLevel</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>on_demand</string>
+						<string>passive</string>
+						<string>real_time</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>On-demand</string>
+						<string>Passive</string>
+						<string>Real-time</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Enforcement level for antivirus engine</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.73.77</string>
+					<key>pfm_default</key>
+					<string>disabled</string>
+					<key>pfm_description</key>
+					<string>When this feature is enabled, Defender for Endpoint will compute hashes for files it scans.</string>
+					<key>pfm_description_reference</key>
+					<string>Enables or disables file hash computation feature. When this feature is enabled, Defender for Endpoint will compute hashes for files it scans. Note that enabling this feature might impact device performance. For more details, please refer to https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/indicator-file.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#configure-file-hash-computation-feature</string>
+					<key>pfm_name</key>
+					<string>enableFileHashComputation</string>
+					<key>pfm_note</key>
+					<string>Enabling this feature might impact device performance.</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>disabled</string>
+						<string>enabled</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Disabled</string>
+						<string>Enabled</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Configure file hash computation feature</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.41.10</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Enables / disables real-time protection, which scans files as they are accessed.</string>
+					<string>Specifies whether to start a process scan after new security intelligence updates are downloaded on the device.</string>
 					<key>pfm_description_reference</key>
-					<string>Specify whether to enable real-time protection, which scans files as they are accessed.</string>
+					<string>Specifies whether to start a process scan after new security intelligence updates are downloaded on the device. Enabling this setting will trigger an antivirus scan on the running processes of the device.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#enable--disable-real-time-protection</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#run-a-scan-after-definitions-are-updated</string>
 					<key>pfm_name</key>
-					<string>enableRealTimeProtection</string>
+					<string>scanAfterDefinitionUpdate</string>
 					<key>pfm_title</key>
-					<string>Enable Real-Time Protection</string>
+					<string>Run a scan after definitions are updated</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
-					<string>100.67.60</string>
+					<string>101.41.10</string>
 					<key>pfm_default</key>
-					<false/>
+					<true/>
 					<key>pfm_description</key>
-					<string>Specify whether the antivirus engine runs in passive mode.</string>
+					<string>Specifies whether to scan archives during on-demand antivirus scans.</string>
 					<key>pfm_description_reference</key>
-					<string>Specify whether to enable real-time protection, which scans files as they are accessed.</string>
+					<string>Specifies whether to scan archives during on-demand antivirus scans.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#enable--disable-passive-mode</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#scan-archives-on-demand-antivirus-scans-only</string>
 					<key>pfm_name</key>
-					<string>passiveMode</string>
-					<key>pfm_note</key>
-					<string>Passive mode has the following implications:
-
-- Real-time protection is turned off
-- On-demand scanning is turned on
-- Automatic threat remediation is turned off
-- Security intelligence updates are turned on
-- Status menu icon is hidden</string>
+					<string>scanArchives</string>
 					<key>pfm_title</key>
-					<string>Enable Passive Mode</string>
+					<string>Scan archives (on-demand antivirus scans only)</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>101.41.10</string>
+					<key>pfm_default</key>
+					<integer>2</integer>
 					<key>pfm_description</key>
-					<string>Manages the preferences of the antivirus component of Microsoft Defender ATP.</string>
+					<string>The number of threads used to perform the scan.</string>
+					<key>pfm_description_reference</key>
+					<string>Specifies the degree of parallelism for on-demand scans. This corresponds to the number of threads used to perform the scan and impacts the CPU usage, as well as the duration of the on-demand scan.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#degree-of-parallelism-for-on-demand-scans</string>
+					<key>pfm_name</key>
+					<string>maximumOnDemandScanThreads</string>
+					<key>pfm_range_max</key>
+					<integer>64</integer>
+					<key>pfm_range_min</key>
+					<integer>1</integer>
+					<key>pfm_title</key>
+					<string>Degree of parallelism for on-demand scans</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>100.83.73</string>
+					<key>pfm_default</key>
+					<string>merge</string>
+					<key>pfm_description</key>
+					<string>This setting can be used to restrict local users from defining their own exclusions.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify the merge policy for exclusions. This can be a combination of administrator-defined and user-defined exclusions (merge), or only administrator-defined exclusions (admin_only). This setting can be used to restrict local users from defining their own exclusions.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#exclusion-merge-policy</string>
+					<key>pfm_name</key>
+					<string>exclusionsMergePolicy</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>merge</string>
+						<string>admin_only</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Merge</string>
+						<string>Admin Only</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Exclusion merge policy</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Specify entities excluded from being scanned.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify entities excluded from being scanned. Exclusions can be specified by full paths, extensions, or file names. (Exclusions are specified as an array of items, administrator can specify as many elements as necessary, in any order.)</string>
 					<key>pfm_documentation_url</key>
 					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#scan-exclusions</string>
 					<key>pfm_name</key>
@@ -163,13 +280,17 @@
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_hidden</key>
+							<string>container</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
 									<key>pfm_description</key>
 									<string>Specify content excluded from being scanned by type.</string>
+									<key>pfm_documentation_reference</key>
+									<string>Specify content excluded from being scanned by type.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#type-of-exclusion</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#type-of-exclusion</string>
 									<key>pfm_name</key>
 									<string>$type</string>
 									<key>pfm_range_list</key>
@@ -185,15 +306,17 @@
 										<string>Filename</string>
 									</array>
 									<key>pfm_title</key>
-									<string>Exclusion Type</string>
+									<string>Type</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
 									<string>Specify content excluded from being scanned by full file path.</string>
+									<key>pfm_description_reference</key>
+									<string>Specify content excluded from being scanned by full file path.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#path-to-excluded-content</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#path-to-excluded-content</string>
 									<key>pfm_exclude</key>
 									<array>
 										<dict>
@@ -223,8 +346,10 @@
 									<false/>
 									<key>pfm_description</key>
 									<string>Indicate if the path property refers to a file or directory.</string>
+									<key>pfm_description_reference</key>
+									<string>Indicate if the path property refers to a file or directory.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#path-type-file--directory</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#path-type-file--directory</string>
 									<key>pfm_exclude</key>
 									<array>
 										<dict>
@@ -251,8 +376,10 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Specify content excluded from being scanned by file extension.</string>
+									<key>pfm_description_reference</key>
+									<string>Specify content excluded from being scanned by file extension.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#file-extension-excluded-from-the-scan</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#file-extension-excluded-from-the-scan</string>
 									<key>pfm_exclude</key>
 									<array>
 										<dict>
@@ -279,8 +406,10 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Specify a process for which all file activity is excluded from scanning. The process can be specified either by its name (e.g. cat) or full path (e.g. /bin/cat).</string>
+									<key>pfm_description_reference</key>
+									<string>Specify a process for which all file activity is excluded from scanning. The process can be specified either by its name (for example, cat) or full path (for example, /bin/cat).</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#process-excluded-from-the-scan</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#process-excluded-from-the-scan</string>
 									<key>pfm_exclude</key>
 									<array>
 										<dict>
@@ -300,13 +429,11 @@
 									<key>pfm_name</key>
 									<string>name</string>
 									<key>pfm_title</key>
-									<string>Process / Filename</string>
+									<string>Process</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 							</array>
-							<key>pfm_hidden</key>
-							<string>container</string>
 							<key>pfm_title</key>
 							<string>Exclusions</string>
 							<key>pfm_type</key>
@@ -314,41 +441,77 @@
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Exclusions</string>
+					<string>Scan exclusions</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Specify threats by name that are not blocked by Defender for Endpoint on Mac. These threats will be allowed to run.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify threats by name that are not blocked by Defender for Endpoint on Mac. These threats will be allowed to run.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#allowed-threats</string>
+					<key>pfm_name</key>
+					<string>allowedThreats</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Threats</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Allowed threats</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
 					<string>100.83.73</string>
-					<key>pfm_default</key>
-					<string>merge</string>
+					<key>pfm_description</key>
+					<string>Restricts the actions that the local user of a device can take when threats are detected. The actions included in this list are not displayed in the user interface.</string>
 					<key>pfm_description_reference</key>
-					<string>Specify the merge policy for exclusions. This can be a combination of administrator-defined and user-defined exclusions (merge) or only administrator-defined exclusions (admin_only). This setting can be used to restrict local users from defining their own exclusions.</string>
+					<string>Restricts the actions that the local user of a device can take when threats are detected. The actions included in this list are not displayed in the user interface.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#exclusion-merge-policy</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#disallowed-threat-actions</string>
 					<key>pfm_name</key>
-					<string>exclusionsMergePolicy</string>
-					<key>pfm_range_list</key>
+					<string>disallowedThreatActions</string>
+					<key>pfm_subkeys</key>
 					<array>
-						<string>merge</string>
-						<string>admin_only</string>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Merge</string>
-						<string>Admin Only</string>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>allow</string>
+								<string>restore</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Allow Threats (restricts users from allowing threats)</string>
+								<string>Restore Threats (restricts users from restoring threats from the quarantine)</string>
+							</array>
+							<key>pfm_repetition_max</key>
+							<integer>2</integer>
+							<key>pfm_title</key>
+							<string>Disallowed Threat Actions</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Exclusions Merge Policy</string>
+					<string>Disallowed threat actions</string>
 					<key>pfm_type</key>
-					<string>string</string>
+					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>Specify how certain threat types are handled.</string>
 					<key>pfm_description_reference</key>
-					<string>Specify how certain threat types are handled by Microsoft Defender ATP for Mac.</string>
+					<string>Specify how certain threat types are handled by Microsoft Defender for Endpoint on macOS.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#threat-type-settings</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#threat-type-settings</string>
 					<key>pfm_name</key>
 					<string>threatTypeSettings</string>
 					<key>pfm_note</key>
@@ -363,8 +526,10 @@
 								<dict>
 									<key>pfm_description</key>
 									<string>Specify threat types.</string>
+									<key>pfm_description_reference</key>
+									<string>Specify threat types.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#threat-type</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#threat-type</string>
 									<key>pfm_name</key>
 									<string>key</string>
 									<key>pfm_range_list</key>
@@ -387,12 +552,16 @@
 									<string>audit</string>
 									<key>pfm_description</key>
 									<string>Specify what action to take when a threat of the type specified in the preceding section is detected. Choose from the following options:
-
+Audit: your device is not protected against this type of threat, but an entry about the threat is logged.
+Block: your device is protected against this type of threat and you are notified in the user interface and the security console.
+Off: your device is not protected against this type of threat and nothing is logged.</string>
+									<key>pfm_description_reference</key>
+									<string>Specify what action to take when a threat of the type specified in the preceding section is detected. Choose from the following options:
 Audit: your device is not protected against this type of threat, but an entry about the threat is logged.
 Block: your device is protected against this type of threat and you are notified in the user interface and the security console.
 Off: your device is not protected against this type of threat and nothing is logged.</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#action-to-take</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#action-to-take</string>
 									<key>pfm_name</key>
 									<string>value</string>
 									<key>pfm_range_list</key>
@@ -408,19 +577,17 @@ Off: your device is not protected against this type of threat and nothing is log
 										<string>Off</string>
 									</array>
 									<key>pfm_title</key>
-									<string>Action to Take</string>
+									<string>Action</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 							</array>
-							<key>pfm_title</key>
-							<string></string>
 							<key>pfm_type</key>
 							<string>dictionary</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Threat Type Settings</string>
+					<string>Threat type settings</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -429,10 +596,12 @@ Off: your device is not protected against this type of threat and nothing is log
 					<string>100.83.73</string>
 					<key>pfm_default</key>
 					<string>merge</string>
+					<key>pfm_description</key>
+					<string>Specify the merge policy for threat type settings. This can be a combination of administrator-defined and user-defined settings (merge) or only administrator-defined settings (admin_only). This setting can be used to restrict local users from defining their own settings for different threat types.</string>
 					<key>pfm_description_reference</key>
 					<string>Specify the merge policy for threat type settings. This can be a combination of administrator-defined and user-defined settings (merge) or only administrator-defined settings (admin_only). This setting can be used to restrict local users from defining their own settings for different threat types.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#threat-type-settings-merge-policy</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#threat-type-settings-merge-policy</string>
 					<key>pfm_name</key>
 					<string>threatTypeSettingsMergePolicy</string>
 					<key>pfm_range_list</key>
@@ -446,77 +615,67 @@ Off: your device is not protected against this type of threat and nothing is log
 						<string>Admin Only</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Threat Type Settings Merge Policy</string>
+					<string>Threat type settings merge policy</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>101.07.23</string>
+					<key>pfm_default</key>
+					<string>90</string>
+					<key>pfm_description</key>
+					<string>The number of days (1-180) that results are retained in the scan history on the device.</string>
 					<key>pfm_description_reference</key>
-					<string>Specify threats by name that are not blocked by Microsoft Defender ATP for Mac. These threats will be allowed to run.</string>
+					<string>Specify the number of days that results are retained in the scan history on the device. Old scan results are removed from the history. Old quarantined files that are also removed from the disk.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#allowed-threats</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#antivirus-scan-history-retention-in-days</string>
 					<key>pfm_name</key>
-					<string>allowedThreats</string>
+					<string>scanResultsRetentionDays</string>
+					<key>pfm_range_max</key>
+					<integer>180</integer>
+					<key>pfm_range_min</key>
+					<integer>1</integer>
 					<key>pfm_title</key>
-					<string>Allowed Threats</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_title</key>
-							<string>Threats</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
+					<string>Antivirus scan history retention (in days)</string>
 					<key>pfm_type</key>
-					<string>array</string>
+					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
-					<string>100.83.73</string>
+					<string>101.07.23</string>
+					<key>pfm_default</key>
+					<string>10000</string>
+					<key>pfm_description</key>
+					<string>The maximum number of entries to keep in the scan history.</string>
 					<key>pfm_description_reference</key>
-					<string>Restricts the actions that the local user of a device can take when threats are detected. The actions included in this list are not displayed in the user interface.</string>
+					<string>Specify the maximum number of entries to keep in the scan history. Entries include all on-demand scans performed in the past and all antivirus detections.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#disallowed-threat-actions</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#maximum-number-of-items-in-the-antivirus-scan-history</string>
 					<key>pfm_name</key>
-					<string>disallowedThreatActions</string>
+					<string>scanHistoryMaximumItems</string>
+					<key>pfm_range_max</key>
+					<integer>15000</integer>
+					<key>pfm_range_min</key>
+					<integer>5000</integer>
 					<key>pfm_title</key>
-					<string>Disallowed Threat Actions</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_range_list</key>
-							<array>
-								<string>allow</string>
-								<string>restore</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>Allow (restricts users from allowing threats)</string>
-								<string>Restore (restricts users from restoring threats from the quarantine)</string>
-							</array>
-							<key>pfm_repetition_max</key>
-							<integer>2</integer>
-							<key>pfm_title</key>
-							<string>Disallowed Threat Actions</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
+					<string>Maximum number of items in the antivirus scan history</string>
 					<key>pfm_type</key>
-					<string>array</string>
+					<string>string</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Anti-Virus Engine</string>
+			<string>Antivirus engine preferences</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Configure the cloud-driven protection features of Microsoft Defender for Endpoint.</string>
 			<key>pfm_description_reference</key>
-			<string>Configure the cloud-driven protection features of Microsoft Defender ATP for Mac.</string>
+			<string>Configure the cloud-driven protection features of Microsoft Defender for Endpoint on macOS.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#cloud-delivered-protection-preferences</string>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#cloud-delivered-protection-preferences</string>
 			<key>pfm_name</key>
 			<string>cloudService</string>
 			<key>pfm_subkeys</key>
@@ -524,10 +683,12 @@ Off: your device is not protected against this type of threat and nothing is log
 				<dict>
 					<key>pfm_default</key>
 					<true/>
+					<key>pfm_description</key>
+					<string>Specify whether to enable cloud-delivered protection on the device or not.</string>
 					<key>pfm_description_reference</key>
 					<string>Specify whether to enable cloud-delivered protection the device or not. To improve the security of your services, we recommend keeping this feature turned on.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#enable--disable-cloud-delivered-protection</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#enable--disable-cloud-delivered-protection</string>
 					<key>pfm_name</key>
 					<string>enabled</string>
 					<key>pfm_title</key>
@@ -538,10 +699,12 @@ Off: your device is not protected against this type of threat and nothing is log
 				<dict>
 					<key>pfm_default</key>
 					<string>optional</string>
+					<key>pfm_description</key>
+					<string>Determines the level of diagnostics sent by Microsoft Defender for Endpoint to Microsoft.</string>
 					<key>pfm_description_reference</key>
-					<string>Diagnostic data is used to keep Microsoft Defender ATP secure and up-to-date, detect, diagnose and fix problems, and also make product improvements. This setting determines the level of diagnostics sent by Microsoft Defender ATP to Microsoft.</string>
+					<string>Diagnostic data is used to keep Microsoft Defender for Endpoint secure and up-to-date, detect, diagnose and fix problems, and also make product improvements. This setting determines the level of diagnostics sent by Microsoft Defender for Endpoint to Microsoft.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#diagnostic-collection-level</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#diagnostic-collection-level</string>
 					<key>pfm_name</key>
 					<string>diagnosticLevel</string>
 					<key>pfm_range_list</key>
@@ -555,17 +718,58 @@ Off: your device is not protected against this type of threat and nothing is log
 						<string>Required</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Diagnostic Collection Level</string>
+					<string>Diagnostic collection level</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.56.62</string>
+					<key>pfm_default</key>
+					<string>normal</string>
+					<key>pfm_description</key>
+					<string>Determines how aggressive Defender for Endpoint will be in blocking and scanning suspicious files.</string>
+					<key>pfm_description_reference</key>
+					<string>This setting determines how aggressive Defender for Endpoint will be in blocking and scanning suspicious files. If this setting is on, Defender for Endpoint will be more aggressive when identifying suspicious files to block and scan; otherwise, it will be less aggressive and therefore block and scan with less frequency. There are five values for setting cloud block level:
+Normal (normal): The default blocking level.
+Moderate (moderate): Delivers verdict only for high confidence detections.
+High (high): Aggressively blocks unknown files while optimizing for performance (greater chance of blocking non-harmful files).
+High Plus (high_plus): Aggressively blocks unknown files and applies additional protection measures (might impact client device performance).
+Zero Tolerance (zero_tolerance): Blocks all unknown programs.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#configure-cloud-block-level</string>
+					<key>pfm_name</key>
+					<string>cloudBlockLevel</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>normal</string>
+						<string>moderate</string>
+						<string>high</string>
+						<string>high_plus</string>
+						<string>zero_tolerance</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Normal: The default blocking level</string>
+						<string>Moderate: Delivers verdict only for high confidence detections</string>
+						<string>High: Aggressively blocks unknown files while optimizing for performance (greater chance of blocking non-harmful files)</string>
+						<string>High Plus: Aggressively blocks unknown files and applies additional protection measures (might impact client device performance)</string>
+						<string>Zero Tolerance: Blocks all unknown programs</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Configure cloud block level</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<true/>
+					<key>pfm_description</key>
+					<string>Determines whether suspicious samples are sent to Microsoft.</string>
 					<key>pfm_description_reference</key>
 					<string>Determines whether suspicious samples (that are likely to contain threats) are sent to Microsoft. You are prompted if the submitted file is likely to contain personal information.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#enable--disable-automatic-sample-submissions</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#enable--disable-automatic-sample-submissions</string>
 					<key>pfm_name</key>
 					<string>automaticSampleSubmission</string>
 					<key>pfm_title</key>
@@ -573,17 +777,35 @@ Off: your device is not protected against this type of threat and nothing is log
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>Determines whether security intelligence updates are installed automatically.</string>
+					<key>pfm_description_reference</key>
+					<string>Determines whether security intelligence updates are installed automatically.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#enable--disable-automatic-security-intelligence-updates</string>
+					<key>pfm_name</key>
+					<string>automaticDefinitionUpdateEnabled</string>
+					<key>pfm_title</key>
+					<string>Enable / disable automatic security intelligence updates</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Cloud Service</string>
+			<string>Cloud-delivered protection preferences</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Manage the preferences for the user interface.</string>
 			<key>pfm_description_reference</key>
-			<string>Manage the preferences for the user interface of Microsoft Defender ATP for Mac.</string>
+			<string>Manage the preferences for the user interface of Microsoft Defender for Endpoint on macOS.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#user-interface-preferences</string>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#user-interface-preferences</string>
 			<key>pfm_name</key>
 			<string>userInterface</string>
 			<key>pfm_subkeys</key>
@@ -591,6 +813,8 @@ Off: your device is not protected against this type of threat and nothing is log
 				<dict>
 					<key>pfm_default</key>
 					<false/>
+					<key>pfm_description</key>
+					<string>Specify whether to hide the status menu icon in the top-right corner of the screen.</string>
 					<key>pfm_description_reference</key>
 					<string>Specify whether to show or hide the status menu icon in the top-right corner of the screen.</string>
 					<key>pfm_documentation_url</key>
@@ -598,46 +822,93 @@ Off: your device is not protected against this type of threat and nothing is log
 					<key>pfm_name</key>
 					<string>hideStatusMenuIcon</string>
 					<key>pfm_title</key>
-					<string>Show / hide status menu icon</string>
+					<string>Hide status menu icon</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.19.61</string>
+					<key>pfm_default</key>
+					<string>enabled</string>
+					<key>pfm_description</key>
+					<string>Specify whether users can submit feedback to Microsoft by going to Help &gt; Send Feedback.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify whether users can submit feedback to Microsoft by going to Help &gt; Send Feedback.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#show--hide-option-to-send-feedback</string>
+					<key>pfm_name</key>
+					<string>userInitiatedFeedback</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>enabled</string>
+						<string>disabled</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Enabled</string>
+						<string>Disabled</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Show option to send feedback</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.60.18</string>
+					<key>pfm_default</key>
+					<string>enabled</string>
+					<key>pfm_description</key>
+					<string>Specify whether users can sign into the consumer version of Microsoft Defender.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify whether users can sign into the consumer version of Microsoft Defender.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#control-sign-in-to-consumer-version-of-microsoft-defender</string>
+					<key>pfm_name</key>
+					<string>consumerExperience</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>enabled</string>
+						<string>disabled</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Enabled</string>
+						<string>Disabled</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Control sign-in to consumer version of Microsoft Defender</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>User Interface Preferences</string>
+			<string>User interface preferences</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Manage the preferences of the endpoint detection and response (EDR) component.</string>
 			<key>pfm_description_reference</key>
-			<string>Manage the preferences for the user interface of Microsoft Defender ATP for Mac.</string>
+			<string>Manage the preferences of the endpoint detection and response (EDR) component of Microsoft Defender for Endpoint on macOS.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#endpoint-detection-and-response-preferences</string>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#endpoint-detection-and-response-preferences</string>
 			<key>pfm_name</key>
 			<string>edr</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_default</key>
-					<true/>
 					<key>pfm_description_reference</key>
-					<string>Specify whether to enable EDR early preview features.</string>
+					<string>Specify a tag name and its value.
+The GROUP tag, tags the device with the specified value. The tag is reflected in the portal under the device page and can be used for filtering and grouping devices.</string>
 					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#enable--disable-early-preview</string>
-					<key>pfm_name</key>
-					<string>earlyPreview</string>
-					<key>pfm_title</key>
-					<string>Early Preview</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
-				</dict>
-				<dict>
-					<key>pfm_description_reference</key>
-					<string>Specify a tag name and its value.</string>
-					<key>pfm_documentation_url</key>
-					<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#device-tags</string>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#device-tags</string>
 					<key>pfm_name</key>
 					<string>tags</string>
+					<key>pfm_note</key>
+					<string>Only one value per tag type can be set. Type of tags are unique, and should not be repeated in the same configuration profile.</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -646,8 +917,12 @@ Off: your device is not protected against this type of threat and nothing is log
 								<dict>
 									<key>pfm_description</key>
 									<string>Specifies the type of tag</string>
+									<key>pfm_description_reference</key>
+									<string>Specifies the type of tag</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#type-of-tag</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#type-of-tag</string>
+									<key>pfm_name</key>
+									<string>key</string>
 									<key>pfm_range_list</key>
 									<array>
 										<string>GROUP</string>
@@ -656,40 +931,390 @@ Off: your device is not protected against this type of threat and nothing is log
 									<array>
 										<string>Group</string>
 									</array>
-									<key>pfm_name</key>
-									<string>key</string>
 									<key>pfm_title</key>
-									<string>Tag Type</string>
+									<string>Type</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
 									<string>Specifies the value of tag</string>
+									<key>pfm_description_reference</key>
+									<string>Specifies the value of tag</string>
 									<key>pfm_documentation_url</key>
-									<string>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences#value-of-tag</string>
+									<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-preferences#value-of-tag</string>
 									<key>pfm_name</key>
 									<string>value</string>
 									<key>pfm_title</key>
-									<string>Tag Value</string>
+									<string>Value</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 							</array>
-							<key>pfm_title</key>
-							<string></string>
 							<key>pfm_type</key>
 							<string>dictionary</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Device Tags</string>
+					<string>Device tags</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Endpoint Detection and Response Preferences</string>
+			<string>Endpoint detection and response preferences</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Tamper protection helps prevent unauthorized removal of Microsoft Defender for Endpoint.</string>
+			<key>pfm_description_reference</key>
+			<string>Tamper protection in macOS helps prevent unwanted changes to security settings from being made by unauthorized users. Tamper protection helps prevent unauthorized removal of Microsoft Defender for Endpoint on macOS. This capability also helps important security files, processes, and configuration settings from being tampered.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/tamperprotection-macos</string>
+			<key>pfm_name</key>
+			<string>tamperProtection</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.70.19</string>
+					<key>pfm_default</key>
+					<string>disabled</string>
+					<key>pfm_description</key>
+					<string>Specify the enforcement level for tamper protection.</string>
+					<key>pfm_description_reference</key>
+					<string>Specify whether to show or hide the status menu icon in the top-right corner of the screen.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/tamperprotection-macos</string>
+					<key>pfm_name</key>
+					<string>enforcementLevel</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>disabled</string>
+						<string>audit</string>
+						<string>block</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Disabled: Tamper protection is completely off</string>
+						<string>Audit: Tampering operations are logged, but not blocked</string>
+						<string>Block: Tamper protection is on, tampering operations are blocked</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Enfocement level</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Tamper protection</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Device control can be used to customize the URL target for notifications raised by device control, and allow or block removable devices.</string>
+			<key>pfm_description_reference</key>
+			<string>To configure device control for macOS, you must create a policy that describes the restrictions you want to put in place within your organization.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#device-control-policy</string>
+			<key>pfm_name</key>
+			<string>deviceControl</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.34.20</string>
+					<key>pfm_description</key>
+					<string>Configure the URL that is opened when end users click the notification shown when a device control policy is enforced.</string>
+					<key>pfm_description_reference</key>
+					<string>When the device control policy that you have put in place is enforced on a device (for example, access to a removable media device is restricted), a notification is displayed to the user. When end users click this notification, a web page is opened in the default browser. You can configure the URL that is opened when end users click the notification.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#customize-url-target-for-notifications-raised-by-device-control</string>
+					<key>pfm_name</key>
+					<string>navigationTarget</string>
+					<key>pfm_title</key>
+					<string>Customize URL target for notifications raised by device control</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>101.34.20</string>
+					<key>pfm_description</key>
+					<string>Restrict access to removable media.</string>
+					<key>pfm_description_reference</key>
+					<string>The removable media section of the device control policy is used to restrict access to removable media.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#allow-or-block-removable-devices</string>
+					<key>pfm_name</key>
+					<string>removableMediaPolicy</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>101.34.20</string>
+							<key>pfm_description</key>
+							<string>Set the removable media enforcement level.</string>
+							<key>pfm_description_reference</key>
+							<string>Under the removable media section, there is an option to set the enforcement level, which can take one of the following values:
+audit - Under this enforcement level, if access to a device is restricted, a notification is displayed to the user, however the device can still be used. This enforcement level can be useful to evaluate the effectiveness of a policy.
+block - Under this enforcement level, the operations that the user can perform on the device are limited to what is defined in the policy. Furthermore, a notification is raised to the user.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#policy-enforcement-level</string>
+							<key>pfm_name</key>
+							<string>enforcementLevel</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>audit</string>
+								<string>block</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Audit: A notification is displayed to the user, however the device can still be used.</string>
+								<string>Block: A notification is displayed to the user, and the device cannot be used.</string>
+							</array>
+							<key>pfm_title</key>
+							<string>Policy enforcement level</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>101.34.20</string>
+							<key>pfm_description</key>
+							<string>The default permission level for devices that do not match anything else in the policy.</string>
+							<key>pfm_description_reference</key>
+							<string>At the top level of the removable media section, you can configure the default permission level for devices that do not match anything else in the policy. This setting can be set to:
+none - No operations can be performed on the device
+A combination of the following values:
+read - Read operations are permitted on the device
+write - Write operations are permitted on the device
+execute - Execute operations are permitted on the device.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#default-permission-level</string>
+							<key>pfm_name</key>
+							<string>permission</string>
+							<key>pfm_note</key>
+							<string>If None is present in the permission level, any other permissions (Read, Write, or Execute) will be ignored.
+The execute permission only refers to execution of Mach-O binaries. It does not include execution of scripts or other types of payloads.</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<string>none</string>
+										<string>read</string>
+										<string>write</string>
+										<string>execute</string>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>None</string>
+										<string>Read</string>
+										<string>Write</string>
+										<string>Execute</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Permissions</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Default permission level</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Restrict removable media by vendor.</string>
+							<key>pfm_description_reference</key>
+							<string>Restrict removable media by vendor.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/mac-device-control-overview#restrict-removable-media-by-vendor-product-and-serial-number</string>
+							<key>pfm_name</key>
+							<string>vendors</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>{{key}}</string>
+									<key>pfm_title</key>
+									<string>Vendor ID</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_name</key>
+									<string>{{value}}</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>permission</string>
+											<key>pfm_subkeys</key>
+											<array>
+												<dict>
+													<key>pfm_range_list</key>
+													<array>
+														<string>none</string>
+														<string>read</string>
+														<string>write</string>
+														<string>execute</string>
+													</array>
+													<key>pfm_range_list_titles</key>
+													<array>
+														<string>None</string>
+														<string>Read</string>
+														<string>Write</string>
+														<string>Execute</string>
+													</array>
+													<key>pfm_title</key>
+													<string>Permissions</string>
+													<key>pfm_type</key>
+													<string>string</string>
+												</dict>
+											</array>
+											<key>pfm_title</key>
+											<string>Permission level</string>
+											<key>pfm_type</key>
+											<string>array</string>
+										</dict>
+										<dict>
+											<key>pfm_name</key>
+											<string>products</string>
+											<key>pfm_subkeys</key>
+											<array>
+												<dict>
+													<key>pfm_name</key>
+													<string>{{key}}</string>
+													<key>pfm_title</key>
+													<string>Product ID</string>
+													<key>pfm_type</key>
+													<string>string</string>
+												</dict>
+												<dict>
+													<key>pfm_name</key>
+													<string>{{value}}</string>
+													<key>pfm_subkeys</key>
+													<array>
+														<dict>
+															<key>pfm_name</key>
+															<string>permission</string>
+															<key>pfm_subkeys</key>
+															<array>
+																<dict>
+																	<key>pfm_range_list</key>
+																	<array>
+																		<string>none</string>
+																		<string>read</string>
+																		<string>write</string>
+																		<string>execute</string>
+																	</array>
+																	<key>pfm_range_list_titles</key>
+																	<array>
+																		<string>None</string>
+																		<string>Read</string>
+																		<string>Write</string>
+																		<string>Execute</string>
+																	</array>
+																	<key>pfm_title</key>
+																	<string>Permissions</string>
+																	<key>pfm_type</key>
+																	<string>string</string>
+																</dict>
+															</array>
+															<key>pfm_title</key>
+															<string>Permission level</string>
+															<key>pfm_type</key>
+															<string>array</string>
+														</dict>
+														<dict>
+															<key>pfm_name</key>
+															<string>serialNumbers</string>
+															<key>pfm_subkeys</key>
+															<array>
+																<dict>
+																	<key>pfm_name</key>
+																	<string>{{key}}</string>
+																	<key>pfm_title</key>
+																	<string>Serial Number</string>
+																	<key>pfm_type</key>
+																	<string>string</string>
+																</dict>
+																<dict>
+																	<key>pfm_name</key>
+																	<string>{{value}}</string>
+																	<key>pfm_subkeys</key>
+																	<array>
+																		<dict>
+																			<key>pfm_range_list</key>
+																			<array>
+																				<string>none</string>
+																				<string>read</string>
+																				<string>write</string>
+																				<string>execute</string>
+																			</array>
+																			<key>pfm_range_list_titles</key>
+																			<array>
+																				<string>None</string>
+																				<string>Read</string>
+																				<string>Write</string>
+																				<string>Execute</string>
+																			</array>
+																			<key>pfm_title</key>
+																			<string>Permissions</string>
+																			<key>pfm_type</key>
+																			<string>string</string>
+																		</dict>
+																	</array>
+																	<key>pfm_title</key>
+																	<string>Serial Number Details</string>
+																	<key>pfm_type</key>
+																	<string>array</string>
+																</dict>
+															</array>
+															<key>pfm_title</key>
+															<string>Serial Numbers</string>
+															<key>pfm_type</key>
+															<string>dictionary</string>
+														</dict>
+													</array>
+													<key>pfm_title</key>
+													<string>Product Details</string>
+													<key>pfm_type</key>
+													<string>dictionary</string>
+												</dict>
+											</array>
+											<key>pfm_title</key>
+											<string>Products</string>
+											<key>pfm_type</key>
+											<string>dictionary</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>Vendor Details</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Vendors</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Allow or block removable devices</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Device control policy</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
@@ -699,7 +1324,7 @@ Off: your device is not protected against this type of threat and nothing is log
 		<string>system</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Microsoft Defender ATP</string>
+	<string>Microsoft Defender for Endpoint</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
