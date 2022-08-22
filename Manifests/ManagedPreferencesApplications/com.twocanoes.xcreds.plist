@@ -132,12 +132,12 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#clientid</string>
 			<key>pfm_name</key>
 			<string>clientID</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
 			<string>Client ID</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_require</key>
-			<string>always</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -160,26 +160,26 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#createadminuser</string>
 			<key>pfm_name</key>
 			<string>CreateAdminUser</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_title</key>
 			<string>Create User as Admin</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>https://login.microsoftonline.com/common/.well-known/openid-configuration</string>
 			<key>pfm_description</key>
 			<string>The discovery URL provided by your OIDC / Cloud provider.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#discoveryurl</string>
-			<key>pfm_default</key>
-			<string>https://login.microsoftonline.com/common/.well-known/openid-configuration</string>
 			<key>pfm_name</key>
 			<string>discoveryURL</string>
 			<key>pfm_require</key>
 			<string>always</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_title</key>
 			<string>Discovery URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -296,10 +296,14 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#refreshratehours</string>
 			<key>pfm_name</key>
 			<string>refreshRateHours</string>
+			<key>pfm_range_min</key>
+			<string>1</string>
 			<key>pfm_title</key>
 			<string>Password Change Check Rate</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_unit_value</key>
+			<string>hours</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -310,6 +314,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#scopes</string>
 			<key>pfm_name</key>
 			<string>scopes</string>
+			<key>pfm_note</key>
+			<string>All scopes should be lowercase and separated by single spaces</string>
 			<key>pfm_title</key>
 			<string>Scopes</string>
 			<key>pfm_type</key>
