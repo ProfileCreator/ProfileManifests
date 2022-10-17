@@ -5,7 +5,7 @@
 	<key>pfm_app_url</key>
 	<string>https://github.com/twocanoes/xcreds</string>
 	<key>pfm_description</key>
-	<string>XCreds OAuth Settings</string>
+	<string>xcreds OAuth Settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide</string>
 	<key>pfm_domain</key>
@@ -17,7 +17,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2022-08-23T02:57:28Z</date>
+	<date>2022-09-01T15:08:44Z</date>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -333,6 +333,20 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
+			<string>Determine if the mac login window or the cloud login window is shown by default</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#shouldshowcloudloginbydefault</string>
+			<key>pfm_name</key>
+			<string>shouldShowCloudLoginByDefault</string>
+			<key>pfm_title</key>
+			<string>Show Cloud Login By Default</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
 			<string>Show the About Menu</string>
 			<key>pfm_documentation_url</key>
 			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#shouldshowaboutmenu</string>
@@ -467,6 +481,49 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>hostname of the page that has the password field.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#idphostname</string>
+			<key>pfm_name</key>
+			<string>idpHostName</string>
+			<key>pfm_title</key>
+			<string>idpHostName</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>array of hostnames of the page that has the password field.</string>
+			<key>pfm_name</key>
+			<string>idpHostNames</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>idpHostName</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>idpHostNames</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>password element id of the html element that has the password.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/twocanoes/xcreds/wiki/AdminGuide#passwordelementid</string>
+			<key>pfm_name</key>
+			<string>passwordElementID</string>
+			<key>pfm_title</key>
+			<string>passwordElementID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -478,6 +535,6 @@ A profile can consist of payloads with different version numbers. For example, c
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
