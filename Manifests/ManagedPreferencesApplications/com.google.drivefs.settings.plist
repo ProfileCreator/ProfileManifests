@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Google Drive File Stream settings</string>
+	<string>Google Drive for desktop settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://support.google.com/a/answer/7644837</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2020-08-23T16:50:23Z</date>
+	<date>2022-08-19T14:50:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures Google Drive File Stream preferences</string>
+			<string>Configures Google Drive for desktop preferences</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -36,7 +36,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Google Drive File Stream</string>
+			<string>Google Drive for desktop</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -131,17 +131,21 @@ A profile can consist of payloads with different version numbers. For example, c
 			<dict>
 				<key>General</key>
 				<array>
+					<string>AllowedAccountsPattern</string>
 					<string>AutoStartOnLogin</string>
 					<string>BandwidthRxKBPS</string>
 					<string>BandwidthTxKBPS</string>
 					<string>ContentCachePath</string>
 					<string>ContentCacheMaxKbytes</string>
 					<string>DefaultMountPoint</string>
+					<string>DisableLocalizedVirtualFolders</string>
 					<string>DisableMeetOutlookPlugin</string>
+					<string>DisableOnboardingDialog</string>
 					<string>DisableOutlookPlugin</string>
 					<string>DisableRealTimePresence</string>
 					<string>ForceBrowserAuth</string>
 					<string>MinFreeDiskSpaceKBytes</string>
+					<string>OpenOfficeFilesInDocs</string>
 				</array>
 				<key>Proxy Settings</key>
 				<array>
@@ -168,8 +172,22 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>.*@(mydomain1|mydomain2).com</string>
 			<key>pfm_description</key>
-			<string>Start Drive File Stream automatically on session login.</string>
+			<string>Regular expression indicating accounts that are allowed to sign in on this machine.</string>
+			<key>pfm_name</key>
+			<string>AllowedAccountsPattern</string>
+			<key>pfm_note</key>
+			<string>For example, to allow all users of mydomain1.com and mydomain2.com: .*@(mydomain1|mydomain2).com</string>
+			<key>pfm_title</key>
+			<string>Allowed Accounts Pattern</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Start Drive for desktop automatically on session login.</string>
 			<key>pfm_name</key>
 			<string>AutoStartOnLogin</string>
 			<key>pfm_title</key>
@@ -209,7 +227,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>ContentCachePath</string>
 			<key>pfm_note</key>
-			<string>When Drive File Stream restarts, local data in the old content cache will move to the new content cache location. If you delete your custom setting, data will move back to the default location.</string>
+			<string>When Drive for desktop restarts, local data in the old content cache will move to the new content cache location. If you delete your custom setting, data will move back to the default location. WARNING: Be cautious about clearing the Google Drive for desktop cache to try to fix general problems. Files are moved here before they're uploaded. If you clear the cache before an upload is complete, that file will be lost.</string>
 			<key>pfm_title</key>
 			<string>Content Cache Path</string>
 			<key>pfm_type</key>
@@ -242,10 +260,20 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Disables localized names for My Drive, Shared drives, and Computers. Names remain in en-US instead of being localized to the OS system language.</string>
+			<key>pfm_name</key>
+			<string>DisableLocalizedVirtualFolders</string>
+			<key>pfm_title</key>
+			<string>Disable Localized Virtual Folders</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>39</string>
 			<key>pfm_description</key>
-			<string>Disables the Microsoft Outlook Meet plugin that's bundled with Drive File Stream.</string>
+			<string>Disables the Microsoft Outlook Meet plugin that's bundled with Drive for desktop.</string>
 			<key>pfm_name</key>
 			<string>DisableMeetOutlookPlugin</string>
 			<key>pfm_title</key>
@@ -255,7 +283,17 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Disables the Microsoft Outlook Google Drive attachment plugin that's bundled with Drive File Stream.</string>
+			<string>Disables the welcome window for new users.</string>
+			<key>pfm_name</key>
+			<string>DisableOnboardingDialog</string>
+			<key>pfm_title</key>
+			<string>Disable Onboarding Dialog</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Disables the Microsoft Outlook Google Drive attachment plugin that's bundled with Drive for desktop.</string>
 			<key>pfm_name</key>
 			<string>DisableOutlookPlugin</string>
 			<key>pfm_title</key>
@@ -269,7 +307,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>DisableRealTimePresence</string>
 			<key>pfm_note</key>
-			<string>This can also be disabled for organizational units from the Admin console. See step 4 of Deploy Drive File Stream (https://support.google.com/a/answer/7491144).</string>
+			<string>This can also be disabled for organizational units from the Admin console. See step 4 of Deploy Drive for desktop (https://support.google.com/a/answer/7491144).</string>
 			<key>pfm_title</key>
 			<string>Disable Real Time Presence</string>
 			<key>pfm_type</key>
@@ -281,7 +319,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>ForceBrowserAuth</string>
 			<key>pfm_note</key>
-			<string>If your organization uses security keys or SSO, this setting may resolve sign-in problems.</string>
+			<string>If your organization uses security keys or SSO, this setting may resolve sign-in problems. NOTE: Undocumented key.</string>
 			<key>pfm_title</key>
 			<string>Force Browser Authentication</string>
 			<key>pfm_type</key>
@@ -289,7 +327,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Controls the amount of local space used by Drive File Stream's cache. Stops writing content to the disk when free disk space gets below this threshold, in kilobytes.</string>
+			<string>Controls the amount of local space used by Drive for desktop's cache. Stops writing content to the disk when free disk space gets below this threshold, in kilobytes.</string>
 			<key>pfm_name</key>
 			<string>MinFreeDiskSpaceKBytes</string>
 			<key>pfm_title</key>
@@ -298,6 +336,18 @@ The payload organization for a payload need not match the payload organization i
 			<string>integer</string>
 			<key>pfm_value_unit</key>
 			<string>Kilobytes</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When using Copy to clipboard on MS Office files synced by Drive for desktop, create links that open in the respective Google Docs Editor instead of the read only Google Drive web preview.</string>
+			<key>pfm_name</key>
+			<string>OpenOfficeFilesInDocs</string>
+			<key>pfm_title</key>
+			<string>Open Office Files In Docs</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -341,7 +391,7 @@ Enterprises that specify a CRL in their proxy certificate can explicitly set Dis
 			<key>pfm_name</key>
 			<string>TrustedRootCertsFile</string>
 			<key>pfm_note</key>
-			<string>The file should contain the contents of the roots.pem file shipped with Drive File Stream, plus the certificates used to authenticate your proxy. These additions should correspond to the proxy-signing certificates you added to the certificate stores in your fleet of machines.
+			<string>The file should contain the contents of the roots.pem file shipped with Drive for desktop, plus the certificates used to authenticate your proxy. These additions should correspond to the proxy-signing certificates you added to the certificate stores in your fleet of machines.
 
 You can find roots.pem in /Applications/Google\ Drive\ File\ Stream.app/Contents/Resources/roots.pem. Only settable host-wide.</string>
 			<key>pfm_title</key>
@@ -356,10 +406,10 @@ You can find roots.pem in /Applications/Google\ Drive\ File\ Stream.app/Contents
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Google Drive File Stream</string>
+	<string>Google Drive for desktop</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

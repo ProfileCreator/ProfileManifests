@@ -11,7 +11,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2022-01-23T11:48:44Z</date>
+	<date>2022-07-17T20:15:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -130,6 +130,7 @@
 					<string>UpdateCache</string>
 					<string>UpdateCheckFrequency</string>
 					<string>UpdateDeadline.DaysBeforeForcedQuit</string>
+					<string>UpdateDeadline.FinalCountDown</string>
 					<string>UpdateDeadline.StartAutomaticUpdates</string>
 					<string>UpdaterOptimization</string>
 				</array>
@@ -431,6 +432,26 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
 			<string>Days</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>4.48</string>
+			<key>pfm_default</key>
+			<integer>60</integer>
+			<key>pfm_description</key>
+			<string>How many minutes is the final countdown timer once the update deadline is reached.</string>
+			<key>pfm_description_reference</key>
+			<string>IT admins can now override the default deadline time of 60 minutes through the UpdateDeadline.FinalCountDown preference</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/officeupdates/release-history-microsoft-autoupdate#june-2022-release</string>
+			<key>pfm_name</key>
+			<string>UpdateDeadline.FinalCountDown</string>
+			<key>pfm_title</key>
+			<string>Update Deadline: Final Countdown Timer</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>Minutes</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -2204,6 +2225,6 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>14</integer>
+	<integer>15</integer>
 </dict>
 </plist>
