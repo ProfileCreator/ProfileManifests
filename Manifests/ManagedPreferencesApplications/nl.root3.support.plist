@@ -127,6 +127,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>General</string>
 				<string>Info Items</string>
 				<string>First Row Left</string>
+                <string>First Row Middle</string>
 				<string>First Row Right</string>
 				<string>Second Row Left</string>
 				<string>Second Row Middle</string>
@@ -141,10 +142,14 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>CustomColor</string>
 					<string>CustomColorDarkMode</string>
 					<string>ErrorMessage</string>
+                    <string>FooterText</string>
 					<string>HideFirstRow</string>
 					<string>HideSecondRow</string>
 					<string>Logo</string>
 					<string>LogoDarkMode</string>
+                    <string>NotificationIcon</string>
+                    <string>OpenAtLogin</string>
+                    <string>ShowWelcomeScreen</string>
 					<string>StatusBarIcon</string>
 					<string>StatusBarIconNotifierEnabled</string>
 					<string>StatusBarIconSFSymbol</string>
@@ -157,8 +162,12 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>InfoItemTwo</string>
 					<string>InfoItemThree</string>
 					<string>InfoItemFour</string>
+                    <string>InfoItemFive</string>
+                    <string>InfoItemSix</string>
 					<string>PasswordExpiryLimit</string>
+                    <string>PasswordType</string>
 					<string>PasswordLabel</string>
+					<string>StorageLimit</string>
 					<string>UptimeDaysLimit</string>
 				</array>
 				<key>First Row Left</key>
@@ -168,6 +177,14 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>FirstRowSymbolLeft</string>
 					<string>FirstRowTitleLeft</string>
 					<string>FirstRowTypeLeft</string>
+				</array>
+                <key>First Row Middle</key>
+				<array>
+					<string>FirstRowLinkMiddle</string>
+					<string>FirstRowSubtitleMiddle</string>
+					<string>FirstRowSymbolMiddle</string>
+					<string>FirstRowTitleMiddle</string>
+					<string>FirstRowTypeMiddle</string>
 				</array>
 				<key>First Row Right</key>
 				<array>
@@ -243,6 +260,18 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>ex. /Library/Application Support/Your Company/DarkModeLogo.png</string>
+		</dict>
+        <dict>
+			<key>pfm_description</key>
+			<string>Path to a custom square image to be shown in alerts and the about window.</string>
+			<key>pfm_name</key>
+			<string>NotificationIcon</string>
+			<key>pfm_note</key>
+			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>ex. /Library/Application Support/Your Company/Logo.png</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -347,6 +376,42 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Error Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+        <dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Shows the welcome screen when the Support App is opened for the first time.</string>
+			<key>pfm_name</key>
+			<string>ShowWelcomeScreen</string>
+			<key>pfm_title</key>
+			<string>Show Welcome Screen</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+        <dict>
+			<key>pfm_value_placeholder</key>
+			<string>Provided by IT</string>
+			<key>pfm_description</key>
+			<string>Text shown at the bottom as footnote</string>
+			<key>pfm_name</key>
+			<string>FooterText</string>
+			<key>pfm_title</key>
+			<string>Footer Text</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+        <dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Launch Support automatically at login and keep it open (macOS 13 and higher). This setting is ignored if a legacy LaunchAgent is installed/active. Disable this if you don't want to open Support at login or use your own LaunchAgent</string>
+			<key>pfm_name</key>
+			<string>OpenAtLogin</string>
+			<key>pfm_title</key>
+			<string>Open At Login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		
 		<!-- InfoItems -->
@@ -471,11 +536,71 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+        <dict>
+			<key>pfm_default</key>
+			<string>Storage</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the third row left.</string>
+			<key>pfm_name</key>
+			<string>InfoItemFive</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>ComputerName</string>
+				<string>MacOSVersion</string>
+				<string>Network</string>
+				<string>Password</string>
+				<string>Storage</string>
+				<string>Uptime</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Computer Name</string>
+				<string>macOS Version</string>
+				<string>Network</string>
+				<string>Password</string>
+				<string>Storage</string>
+				<string>Uptime</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Info Item 5</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+        <dict>
+			<key>pfm_default</key>
+			<string>Storage</string>
+			<key>pfm_description</key>
+			<string>Info item shown in the third row right.</string>
+			<key>pfm_name</key>
+			<string>InfoItemSix</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>ComputerName</string>
+				<string>MacOSVersion</string>
+				<string>Network</string>
+				<string>Password</string>
+				<string>Storage</string>
+				<string>Uptime</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Computer Name</string>
+				<string>macOS Version</string>
+				<string>Network</string>
+				<string>Password</string>
+				<string>Storage</string>
+				<string>Uptime</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Info Item 6</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Info item shown in the second row right.</string>
+			<string>Days of uptime after which a notification badge is shown, disabled by default</string>
 			<key>pfm_name</key>
 			<string>UptimeDaysLimit</string>
 			<key>pfm_title</key>
@@ -489,7 +614,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Days of uptime after which a notification badge is shown, disabled by default.</string>
+			<string>Days until password expiry after which a notification badge is shown, disabled by default</string>
 			<key>pfm_name</key>
 			<string>PasswordExpiryLimit</string>
 			<key>pfm_range_min</key>
@@ -609,6 +734,88 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
 			<string>First Row Left Symbol</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+        <dict>
+			<key>pfm_default</key>
+			<string>Company Store</string>
+			<key>pfm_description</key>
+			<string>The text shown in the button label.</string>
+			<key>pfm_name</key>
+			<string>FirstRowTitleMiddle</string>
+			<key>pfm_title</key>
+			<string>First Row Middle Title</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Subtitle text will appear under title when the user hovers over the button. Ignored if left empty.</string>
+			<key>pfm_name</key>
+			<string>FirstRowSubtitleMiddle</string>
+			<key>pfm_title</key>
+			<string>First Row Middle Subtitle</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<key>pfm_name</key>
+			<string>FirstRowTypeMiddle</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>App</string>
+				<string>Command</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_title</key>
+			<string>First Row Middle Link Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>FirstRowTypeRight</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_default</key>
+			<string>com.apple.ScreenSharing</string>
+			<key>pfm_description</key>
+			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<key>pfm_name</key>
+			<string>FirstRowLinkMiddle</string>
+			<key>pfm_note</key>
+			<string>App: Bundle Identifier of the app
+URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
+Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
+			<key>pfm_title</key>
+			<string>First Row Middle Link</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>cart.fill</string>
+			<key>pfm_description</key>
+			<string>The SF Symbol shown in the button.</string>
+			<key>pfm_name</key>
+			<string>FirstRowSymbolMiddle</string>
+			<key>pfm_note</key>
+			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
+			<key>pfm_title</key>
+			<string>First Row Middle Symbol</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
