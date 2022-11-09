@@ -140,13 +140,11 @@
 				<string>Extensions</string>
 				<string>Google Cast</string>
 				<string>HTTP Authentication</string>
-				<!-- <string>Legacy Browser Support</string> -->
 				<string>Misc.</string>
 				<string>Native Messaging</string>
 				<string>Password Manager</string>
 				<string>Printing</string>
 				<string>Proxy Server</string>
-				<!-- <string>Remote Access</string> -->
 				<string>Safe Browsing Settings</string>
 				<string>SmartScreen</string>
 				<string>Startup, Home &amp; New Tab Page</string>
@@ -2110,7 +2108,6 @@ A blacklist value of '*' means all extensions are blacklisted unless they are ex
 If this policy is left not set the user can install any extension in Google Chrome.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#extensioninstallblocklist</string>
-			<!-- In Chrome this is ExtensionInstallBlacklist -->
 			<key>pfm_name</key>
 			<string>ExtensionInstallBlocklist</string>
 			<key>pfm_subkeys</key>
@@ -2140,7 +2137,6 @@ A blacklist value of * means all extensions are blacklisted and users can only i
 By default, all extensions are whitelisted, but if all extensions have been blacklisted by policy, the whitelist can be used to override that policy.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#extensioninstallallowlist</string>
-			<!-- In Chrome this is ExtensionInstallWhitelist -->
 			<key>pfm_name</key>
 			<string>ExtensionInstallAllowlist</string>
 			<key>pfm_note</key>
@@ -2537,8 +2533,6 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ContentSettings/GoogleCast -->
-		<!-- START ContentSettings/HTTPAuthentication -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -2616,7 +2610,6 @@ Separate multiple server names with commas. Wildcards (*) are allowed.
 If you leave this policy not set Google Chrome will try to detect if a server is on the Intranet and only then will it respond to IWA requests.  If a server is detected as Internet then IWA requests from it will be ignored by Google Chrome.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#authserverallowlist</string>
-			<!-- In Chrome this is AuthServerWhitelist -->
 			<key>pfm_name</key>
 			<string>AuthServerAllowlist</string>
 			<key>pfm_title</key>
@@ -2670,8 +2663,6 @@ If you disable this setting or leave it not set, the generated Kerberos SPN will
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END HTTPAuthentication -->
-		<!-- START ContentSettings/LegacyBrowserSupport -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -3571,7 +3562,6 @@ If you enable or disable this setting, users cannot change or override it in Goo
 If this setting is left not set the user can decide to use this function or not.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#favoritesbarenabled</string>
-			<!-- In Chrome this is BookmarkBarEnabled -->
 			<key>pfm_name</key>
 			<string>FavoritesBarEnabled</string>
 			<key>pfm_title</key>
@@ -3592,7 +3582,6 @@ If this setting is left not set the user can decide to use this function or not.
 If this policy is set to false, Google Chrome will not allow creation of new profiles from the user manager.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#browseraddprofileenabled</string>
-			<!-- In Chrome this is BrowserAddPersonEnabled -->
 			<key>pfm_name</key>
 			<string>BrowserAddProfileEnabled</string>
 			<key>pfm_title</key>
@@ -4607,7 +4596,6 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 If you disable this setting, bookmarks can not be added, removed or modified. Existing bookmarks are still available.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#editfavoritesenabled</string>
-			<!-- In Chrome this is EditBookmarksEnabled -->
 			<key>pfm_name</key>
 			<string>EditFavoritesEnabled</string>
 			<key>pfm_title</key>
@@ -5357,7 +5345,6 @@ If disabled, no bookmarks are imported.
 If it is not set, the user may be asked whether to import, or importing may happen automatically.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#importfavorites</string>
-			<!-- In Chrome this is ImportBookmarks -->
 			<key>pfm_name</key>
 			<string>ImportFavorites</string>
 			<key>pfm_title</key>
@@ -5565,7 +5552,6 @@ If 'Disabled' is selected, pages may not be opened in Incognito mode.
 If 'Forced' is selected, pages may be opened ONLY in Incognito mode.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#inprivatemodeavailability</string>
-			<!-- In Chrome this is IncognitoModeAvailability -->
 			<key>pfm_name</key>
 			<string>InPrivateModeAvailability</string>
 			<key>pfm_range_list</key>
@@ -5664,7 +5650,6 @@ These bookmarks are placed in a folder that can't be modified by the user (but t
 Managed bookmarks are not synced to the user account and can't be modified by extensions.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#managedfavorites</string>
-			<!-- In Chrome this is ManagedBookmarks -->
 			<key>pfm_name</key>
 			<string>ManagedFavorites</string>
 			<key>pfm_title</key>
@@ -7228,7 +7213,6 @@ Note that it is not recommended to block internal 'chrome://*' URLs since this m
 If this policy is not set no URL will be blacklisted in the browser.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#urlblocklist</string>
-			<!--  In Chrome this is URLBlocklist -->
 			<key>pfm_name</key>
 			<string>URLBlocklist</string>
 			<key>pfm_subkeys</key>
@@ -7290,7 +7274,6 @@ This policy is limited to 1000 entries; subsequent entries will be ignored.
 If this policy is not set there will be no exceptions to the blacklist from the 'URLBlacklist' policy.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#urlallowlist</string>
-			<!-- In Chrome this is URLWhitelist -->
 			<key>pfm_name</key>
 			<string>URLAllowlist</string>
 			<key>pfm_subkeys</key>
@@ -7714,8 +7697,6 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<key>pfm_value_placeholder</key>
 			<string>port range (ex. 10000-11999)</string>
 		</dict>
-		<!-- END ContentSettings/Misc -->
-		<!-- START NativeMessaging -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -7729,7 +7710,6 @@ A blacklist value of '*' means all native messaging hosts are blacklisted unless
 If this policy is left not set Google Chrome will load all installed native messaging hosts.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#nativemessagingblocklist</string>
-			<!-- In Chrome this is NativeMessagingBlacklist -->
 			<key>pfm_name</key>
 			<string>NativeMessagingBlocklist</string>
 			<key>pfm_subkeys</key>
@@ -7781,7 +7761,6 @@ A blacklist value of * means all native messaging hosts are blacklisted and only
 By default, all native messaging hosts are whitelisted, but if all native messaging hosts have been blacklisted by policy, the whitelist can be used to override that policy.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#nativemessagingallowlist</string>
-			<!-- In Chrome this is NativeMessagingWhitelist -->
 			<key>pfm_name</key>
 			<string>NativeMessagingAllowlist</string>
 			<key>pfm_subkeys</key>
@@ -7798,8 +7777,6 @@ By default, all native messaging hosts are whitelisted, but if all native messag
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- END NativeMessaging -->
-		<!-- START PasswordManager -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -8033,8 +8010,6 @@ If you enable this setting, Print Preview will use the OS system default printer
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END Printing -->
-		<!-- START ProxyServer -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
@@ -8367,8 +8342,6 @@ This policy is available only on Windows instances that are joined to a Microsof
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ProxyServer -->
-		<!-- START RemoteAccess -->
 		<!-- <dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
@@ -9387,7 +9360,6 @@ Leaving this policy not set will allow the user to choose whether to show the ho
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END StartupHomepageNewTabPage -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>77</string>
