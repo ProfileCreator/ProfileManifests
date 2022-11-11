@@ -15,7 +15,7 @@
 		<key>pfm_interaction</key>
 		<string>combined</string>
 		<key>pfm_last_modified</key>
-		<date>2022-05-25T08:04:43Z</date>
+		<date>2022-11-08T10:00:40Z</date>
 		<key>pfm_note</key>
 		<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 		<key>pfm_platforms</key>
@@ -130,6 +130,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<array>
 					<string>General</string>
 					<string>AirDrop</string>
+					<string>AirPlay</string>
 					<string>AirPrint</string>
 					<string>iCloud</string>
 					<string>Passwords / Unlock</string>
@@ -143,6 +144,10 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>AirDrop</key>
 					<array>
 						<string>allowAirDrop</string>
+					</array>
+					<key>AirPlay</key>
+					<array>
+						<string>allowAirPlayIncomingRequests</string>
 					</array>
 					<key>AirPrint</key>
 					<array>
@@ -167,11 +172,14 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>allowEraseContentAndSettings</string>
 						<string>allowGameCenter</string>
 						<string>allowMailPrivacyProtection</string>
+						<string>allowUniversalControl</string>
 						<string>allowMusicService</string>
 						<string>allowRemoteScreenObservation</string>
 						<string>allowScreenShot</string>
+						<string>allowUIConfigurationProfileInstallation</string>
 						<string>allowSpotlightInternetResults</string>
 						<string>allowiTunesFileSharing</string>
+						<string>allowUSBRestrictedMode</string>
 					</array>
 					<key>iCloud</key>
 					<array>
@@ -207,6 +215,8 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>forceDelayedAppSoftwareUpdates</string>
 						<string>forceDelayedMajorSoftwareUpdates</string>
 						<string>forceDelayedSoftwareUpdates</string>
+						<string>allowRapidSecurityResponseInstallation</string>
+						<string>allowRapidSecurityResponseRemoval</string>
 					</array>
 				</dict>
 				<key>pfm_type</key>
@@ -227,6 +237,20 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>allowAirDrop</string>
 				<key>pfm_title</key>
 				<string>Allow AirDrop</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_macos_min</key>
+				<string>12.3</string>
+				<key>pfm_name</key>
+				<string>allowAirPlayIncomingRequests</string>
+				<key>pfm_title</key>
+				<string>Allow incoming AirPlay requests</string>
+				<key>pfm_supervised</key>
+				<true/>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -305,6 +329,20 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>allowMailPrivacyProtection</string>
 				<key>pfm_title</key>
 				<string>Allow mail privacy protection</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string>Set to false to prevent sharing mouse and keyboard between a Mac and an iPad</string>
+				<key>pfm_macos_min</key>
+				<string>13.0</string>
+				<key>pfm_name</key>
+				<string>allowUniversalControl</string>
+				<key>pfm_title</key>
+				<string>Allow Universal Control</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -778,6 +816,22 @@ A profile can consist of payloads with different version numbers. For example, c
 				<key>pfm_default</key>
 				<true/>
 				<key>pfm_description</key>
+				<string></string>
+				<key>pfm_macos_min</key>
+				<string>13.0</string>
+				<key>pfm_name</key>
+				<string>allowUIConfigurationProfileInstallation</string>
+				<key>pfm_title</key>
+				<string>Allow user installation of configuration profiles</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+				<key>pfm_supervised</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
 				<string>If 'Allow Screenshots and Screen Recording' is set to 'false', it also overrides this preference and prevents the Classroom app from observing remote screens.</string>
 				<key>pfm_description_reference</key>
 				<string>If false, disables remote screen observation by the Classroom app. Nest this key beneath allowScreenShot as a subrestriction. If allowScreenShot is set to false, the Classroom app doesn't observe remote screens. Required a supervised device until iOS 13 and macOS 10.15. Available in iOS 12 and later, and macOS 10.14.4 and later.</string>
@@ -904,6 +958,22 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			</dict>
 			<dict>
 				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string>Set to false to allow new USB accessories to connect to a Mac without authorization</string>
+				<key>pfm_macos_min</key>
+				<string>13.0</string>
+				<key>pfm_name</key>
+				<string>allowUSBRestrictedMode</string>
+				<key>pfm_supervised</key>
+				<true/>
+				<key>pfm_title</key>
+				<string>Allow USB accessories while device is locked</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
 				<false/>
 				<key>pfm_description</key>
 				<string/>
@@ -919,6 +989,38 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 				<true/>
 				<key>pfm_title</key>
 				<string>Defer OS Software Updates</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string>Set to false to prevent the installation of rapid security responses</string>
+				<key>pfm_macos_min</key>
+				<string>13.0</string>
+				<key>pfm_name</key>
+				<string>allowRapidSecurityResponseInstallation</string>
+				<key>pfm_supervised</key>
+				<true/>
+				<key>pfm_title</key>
+				<string>Allow rapid security response installation</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+			<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_description</key>
+				<string>Set to false to prevent the removal of rapid security responses</string>
+				<key>pfm_macos_min</key>
+				<string>13.0</string>
+				<key>pfm_name</key>
+				<string>allowRapidSecurityResponseRemoval</string>
+				<key>pfm_supervised</key>
+				<true/>
+				<key>pfm_title</key>
+				<string>Allow rapid security response removal</string>
 				<key>pfm_type</key>
 				<string>boolean</string>
 			</dict>
@@ -1146,6 +1248,6 @@ Available in macOS 11 and later.</string>
 		<key>pfm_unique</key>
 		<true/>
 		<key>pfm_version</key>
-		<integer>10</integer>
+		<integer>11</integer>
 	</dict>
 </plist>

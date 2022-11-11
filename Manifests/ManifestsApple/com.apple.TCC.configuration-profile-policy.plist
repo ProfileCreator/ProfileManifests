@@ -11,7 +11,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2019-12-04T23:44:49Z</date>
+	<date>2022-09-06T08:17:53Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.14</string>
 	<key>pfm_platforms</key>
@@ -2697,7 +2697,127 @@
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>SystemPolicySysAdminFiles</string>
+					<string>System Policy Sys Admin Files</string>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfm_value_import_processor</key>
+					<string>com.apple.TCC.configuration-profile-policy.services</string>
+				</dict>
+				<dict>
+					<key>pfm_macos_min</key>
+					<string>13.0</string>
+					<key>pfm_name</key>
+					<string>SystemPolicyAppBundles</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Keys are limited to the privacy service names listed below. Each key is an array of dictionaries describing the app or process to which access is given. In the case of conflicting specifications, the most restrictive setting (deny) will be used.</string>
+							<key>pfm_name</key>
+							<string>Services</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The bundle ID or installation path of the binary.</string>
+									<key>pfm_name</key>
+									<string>Identifier</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_placeholder</key>
+									<string>com.github.erikberglund.ProfileCreator</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The type of Identifier value.</string>
+									<key>pfm_name</key>
+									<string>IdentifierType</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>bundleID</string>
+										<string>path</string>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Bundle ID</string>
+										<string>Path</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Identifier Type</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The designated requirement describing the code signature of this executable.</string>
+									<key>pfm_name</key>
+									<string>CodeRequirement</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Code Requirement</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>If set to true, statically validate the code requirement. Used only if the process invalidates its dynamic code signature.</string>
+									<key>pfm_name</key>
+									<string>StaticCode</string>
+									<key>pfm_title</key>
+									<string>StaticCode</string>
+									<key>pfm_type</key>
+									<string>boolean</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>If set to true, access is granted. Otherwise the process does not have access. The user is not prompted and cannot change this value.</string>
+									<key>pfm_name</key>
+									<string>Allowed</string>
+									<key>pfm_range_list</key>
+									<array>
+										<false/>
+										<true/>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Deny</string>
+										<string>Allow</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Allowed</string>
+									<key>pfm_type</key>
+									<string>boolean</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Not Used</string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>Comment</string>
+									<key>pfm_title</key>
+									<string>Comment</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Services</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>App Management</string>
 					<key>pfm_type</key>
 					<string>array</string>
 					<key>pfm_value_import_processor</key>
@@ -2722,6 +2842,6 @@
 	<key>pfm_user_approved</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>6</integer>
 </dict>
 </plist>
