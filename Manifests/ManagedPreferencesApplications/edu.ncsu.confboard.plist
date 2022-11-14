@@ -53,8 +53,6 @@
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Display Name</string>
 			<key>pfm_type</key>
@@ -75,8 +73,6 @@
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Identifier</string>
 			<key>pfm_type</key>
@@ -91,8 +87,6 @@
 			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Type</string>
 			<key>pfm_type</key>
@@ -107,8 +101,6 @@
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
 			<string>PayloadUUID</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload UUID</string>
 			<key>pfm_type</key>
@@ -124,8 +116,6 @@
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Payload Version</string>
 			<key>pfm_type</key>
@@ -149,11 +139,9 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_documentation_url</key>
 			<string>https://go.ncsu.edu/confboard#h.b53vj55iw28d</string>
 			<key>pfm_format</key>
-			<string>^https://.*$</string>
+			<string>^https://.*[^/]$</string>
 			<key>pfm_name</key>
 			<string>baseURL</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>URL</string>
 			<key>pfm_type</key>
@@ -194,8 +182,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://go.ncsu.edu/confboard#h.8tq6r5jg8sne</string>
 			<key>pfm_name</key>
 			<string>groupLabel</string>
-			<key>pfm_require</key>
-			<string>never</string>
 			<key>pfm_title</key>
 			<string>Group Label</string>
 			<key>pfm_type</key>
@@ -210,8 +196,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://go.ncsu.edu/confboard#h.97mek2dcu8c</string>
 			<key>pfm_name</key>
 			<string>reloadContentTimer</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_range_list</key>
 			<array>
 				<integer>30</integer>
@@ -246,8 +230,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>https://go.ncsu.edu/confboard#h.wzrbt7u86mlv</string>
 			<key>pfm_name</key>
 			<string>rotateImageTimer</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_range_list</key>
 			<array>
 				<integer>10</integer>
