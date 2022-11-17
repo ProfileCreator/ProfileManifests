@@ -11,9 +11,9 @@
 	<key>pfm_domain</key>
 	<string>nl.root3.support</string>
 	<key>pfm_format_version</key>
-	<integer>1</integer>
+	<integer>1.1</integer>
 	<key>pfm_last_modified</key>
-	<date>2022-01-22T14:49:33Z</date>
+	<date>2022-11-17T14:49:33Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0.1</string>
 	<key>pfm_platforms</key>
@@ -230,6 +230,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Text shown in the top left corner when the app opens.</string>
 			<key>pfm_name</key>
 			<string>Title</string>
+			<key>pfm_title</key>
+			<string>Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -240,36 +242,42 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Path to the logo shown in the top right corner when the app opens. Scales to 48 points maximum height.</string>
 			<key>pfm_name</key>
 			<string>Logo</string>
+			<key>pfm_title</key>
+			<string>Light Mode Logo</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>ex. /Library/Application Support/Your Company/LightModeLogo.png</string>
+			<string>/Library/Application Support/Your Company/LightModeLogo.png</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
 			<string>Path to the logo shown in the top right corner when the app opens for Dark Mode. Scales to 48 points maximum height.</string>
 			<key>pfm_name</key>
 			<string>LogoDarkMode</string>
+			<key>pfm_title</key>
+			<string>Dark Mode Logo</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>ex. /Library/Application Support/Your Company/DarkModeLogo.png</string>
+			<string>/Library/Application Support/Your Company/DarkModeLogo.png</string>
 		</dict>
         	<dict>
 			<key>pfm_description</key>
 			<string>Path to a custom square image to be shown in alerts and the about window.</string>
 			<key>pfm_name</key>
 			<string>NotificationIcon</string>
+			<key>pfm_title</key>
+			<string>Notification Icon</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>ex. /Library/Application Support/Your Company/Logo.png</string>
+			<string>/Library/Application Support/Your Company/Logo.png</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -283,7 +291,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>ex. /Library/Application Support/Your Company/menubaricon.png</string>
+			<string>/Library/Application Support/Your Company/menubaricon.png</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
