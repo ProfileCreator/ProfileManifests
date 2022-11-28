@@ -2,80 +2,45 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	
-	<!-- *************************** OPTIONAL KEYS *************************** -->
-	<!-- All keys below this comment are only optional but help the user with more information about the payload. -->
-	
-	<!-- This key should contain a URL to the download page of the application it's configuring. -->
 	<key>pfm_app_url</key>
 	<string>https://github.com/SecondSonConsulting/Renew/releases</string>
 	
-	<!-- This key should contain a URL to the documentation of the keys this application supports. (And from where you have taken the information to create this manifest)-->
 	<key>pfm_documentation_url</key>
 	<string>https://github.com/SecondSonConsulting/Renew/wiki</string>
 	
-	<!-- The scope where this payload is valid. -->
-	<!-- If this payload is only for iOS and tvOS this should be set to only system.-->
-	<!-- On macOS you include all scopes this payload is valid to install to. -->
-	<!-- If this is not included, it will default to system AND user.-->
 	<key>pfm_targets</key>
 	<array>
 		<string>system</string>
 	</array>
 	
-	<!-- The platforms where this payload is valid. -->
-	<!-- If this is not included, it will default to only macOS. -->
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
 	
-	<!-- *************************** REQUIRED KEYS *************************** -->
-	<!-- All keys below this comment are required for this manifest to be loaded by the framework. -->
-
-	<!-- A description of the payload. -->
 	<key>pfm_description</key>
 	<string>Renew Configuration</string>
 	
-	<!-- The preference domain of the payload. This should be the same as PayloadType in the pfm_subkeys.-->
 	<key>pfm_domain</key>
 	<string>com.secondsonconsulting.renew</string>
 	
-	<!-- The format version is used by the application to know it can support all manifest keys in this manifest. -->
-	<!-- Sometimes new keys are added, but those will not be supported by older versions of the application. -->
-	<!-- To avoid creating invalid payloads because of that, the app will not load manifests with newer format versions that it can support. -->
-	<!-- See this page for the current versions: https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Format-Versions -->
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	
-	<!-- Date the manifest was last modified. This is used for manifest collision. -->
-	<!-- Read more about that here: https://github.com/erikberglund/ProfileManifests/wiki/Manifest-Collision -->
 	<key>pfm_last_modified</key>
 	<date>2022-11-25T00:00:00Z</date>
 	
-	<!-- This is the title of the manifest -->
 	<key>pfm_title</key>
 	<string>Renew - Second Son Consulting</string>
 	
-	<!-- This determines if there can be more than one payload in the profile for this PayloadType. -->
 	<key>pfm_unique</key>
 	<true/>
 	
-	<!-- This is the version number of this manifest, it's used to determine which manifest to load if two manifests with identical "pfm_domain" is found-->
 	<key>pfm_version</key>
 	<integer>1</integer>
 	
-	<!-- This is an array of all keys this payload can configure. They will be shown in order. -->
 	<key>pfm_subkeys</key>
 	<array>
-		
-		<!-- *************************** REQUIRED KEYS *************************** -->
-		<!-- Currently the "base" keys for each payload must be defined in each manifest -->
-		<!-- That is something I hope to move into the application and make the settings more simple. -->
-		<!-- But for now, these are required to create a valid payload on export. -->
-		
-		<!-- PayloadDescription -->
-		<!-- Description for the payload shown when the payload is installed. -->
 		<dict>
 			<key>pfm_default</key>
 			<string>Configures Renew behavior and dialog window design</string> <!-- CHANGE THIS VALUE -->
@@ -91,8 +56,6 @@
 			<string>string</string>
 		</dict>
 		
-		<!-- PayloadDisplayName -->
-		<!-- Display Name of the payload shown when the payload is installed. -->
 		<dict>
 			<key>pfm_default</key>
 			<string>Renew</string> <!-- CHANGE THIS VALUE -->
@@ -110,8 +73,6 @@
 			<string>string</string>
 		</dict>
 		
-		<!-- PayloadIdentifier -->
-		<!-- The base identifier this payload should use. This will then be expanded by the application to add the root identifier + the payload UUID to create a unique identifier automatically. -->
 		<dict>
 			<key>pfm_default</key>
 			<string>com.secondsonconsulting.renew</string> <!-- CHANGE THIS VALUE TO THE SAME AS pfm_domain and PayloadType -->
@@ -129,8 +90,6 @@
 			<string>string</string>
 		</dict>
 		
-		<!-- PayloadType -->
-		<!-- This is the PayloadType of the payload. -->
 		<dict>
 			<key>pfm_default</key>
 			<string>com.secondsonconsulting.renew</string> <!-- CHANGE THIS VALUE TO THE SAME AS pfm_domain and PayloadIdentifier -->
@@ -148,8 +107,6 @@
 			<string>string</string>
 		</dict>
 		
-		<!-- PayloadUUID -->
-		<!-- This is the PayloadUUID and it will be generated automatically. You should NOT edit this. -->
 		<dict>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
@@ -167,8 +124,6 @@
 			<string>string</string>
 		</dict>
 		
-		<!-- PayloadVersion -->
-		<!-- This is the version of the payload. You should NOT edit this. -->
 		<dict>
 			<key>pfm_default</key>
 			<integer>1</integer>
@@ -187,8 +142,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>integer</string>
 		</dict>
 		
-		<!-- PayloadOrganization -->
-		<!-- This is the organization of the payload. You should NOT edit this. -->
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
@@ -200,11 +153,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		
-		<!-- *************************** APPLICATION KEYS *************************** -->
-		<!-- You should add all keys this payload can manage below this comment. -->
-
-		<!-- Example: Dictionary -->
-		<!-- This example shows how to define a dictionary -->
 		<dict>
 			<key>pfm_name</key>
 			<string>RequiredArguments</string>
@@ -214,12 +162,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Required Arguments</string>
 			<key>pfm_description</key>
 			<string>There are four required arguments to make a valid Renew configuration.</string>
-			<key>pfm_description_reference</key>
+			<key>pfm_documentation_url</key>
 			<string>https://github.com/SecondSonConsulting/Renew/wiki/RequiredArguments</string>
 			<key>pfm_require</key>
 			<string>always</string>
 			
-			<!-- This key defines the contents of the array. As this is an array, it should only include ONE (1) subkey, as the array should only contain a single type.-->
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -231,7 +178,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Maximum number of deferrals</string>
 					<key>pfm_description</key>
 					<string></string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/RequiredArguments</string>
 					<key>pfm_require</key>
 					<string>always</string>
@@ -245,7 +192,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Uptime Threshold</string>
 					<key>pfm_description</key>
 					<string>How many days uptime do you want before Renew begins to take action?</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/RequiredArguments</string>
 					<key>pfm_require</key>
 					<string>always</string>
@@ -259,7 +206,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Notification Threshold</string>
 					<key>pfm_description</key>
 					<string>How many notifications before changing to Normal Mode?</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/RequiredArguments</string>
 					<key>pfm_require</key>
 					<string>always</string>
@@ -273,15 +220,13 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Deferral Duration</string>
 					<key>pfm_description</key>
 					<string>How many hours is a deferral?</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/RequiredArguments</string>
 					<key>pfm_require</key>
 					<string>always</string>
 				</dict>
 			</array>
 		</dict>
-				<!-- Example: Dictionary -->
-		<!-- This example shows how to define a dictionary -->
 		<dict>
 			<key>pfm_name</key>
 			<string>OptionalArguments</string>
@@ -291,9 +236,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Optional Arguments</string>
 			<key>pfm_description</key>
 			<string>There are a number of optional arguments to change Renew to look and act how you want.</string>
-			<key>pfm_description_reference</key>
+			<key>pfm_documentation_url</key>
 			<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
-			<!-- This key defines the contents of the array. As this is an array, it should only include ONE (1) subkey, as the array should only contain a single type.-->
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -305,7 +249,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Title</string>
 					<key>pfm_description</key>
 					<string>Maps to the swiftDialog option: --title</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -317,7 +261,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Aggressive Message</string>
 					<key>pfm_description</key>
 					<string>The message body you want in your Aggressive Mode dialog windows. SwiftDialog option: --message</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -329,7 +273,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Notification Message</string>
 					<key>pfm_description</key>
 					<string>The message body you want in your Notification Center alerts. Maps to SwiftDialog option: --message</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -341,7 +285,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Notification Subtitle</string>
 					<key>pfm_description</key>
 					<string>Maps to SwiftDialog option: --subtitle</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -353,7 +297,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Deferral Button Text</string>
 					<key>pfm_description</key>
 					<string>What do you want your deferral button to say? Maps to SwiftDialog option: --button1text</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -364,8 +308,8 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_title</key>
 					<string>"No Deferrals Remaining" Button Text</string>
 					<key>pfm_description</key>
-					<string>>What do you want your deferral button to say when it's greyed out in Aggressive Mode? Maps to SwiftDialog option: --button1text</string>
-					<key>pfm_description_reference</key>
+					<string>What do you want your deferral button to say when it's greyed out in Aggressive Mode? Maps to SwiftDialog option: --button1text</string>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -377,7 +321,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Restart Button Text</string>
 					<key>pfm_description</key>
 					<string>What do you want your "Restart Now" button to say? Maps to SwiftDialog option: --infobuttontext</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -389,7 +333,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Show Deferral Count</string>
 					<key>pfm_description</key>
 					<string>If true, an additional sentence is added to your Normal Mode dialog windows indicating how many deferrals the user has remaining. Omit this key if you don't want the extra information.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -401,7 +345,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Notification Icon</string>
 					<key>pfm_description</key>
 					<string>This is the icon included on the right side of the Dialog Notification. Maps to SwiftDialog option: --icon</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -413,7 +357,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Notification Icon DarkMode</string>
 					<key>pfm_description</key>
 					<string>This is the icon included on the right side of the Dialog Notification. Use this key if you have to differentiate between light and dark mode icons. Maps to SwiftDialog option: --icon</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -424,9 +368,11 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_title</key>
 					<string>Message Icon</string>
 					<key>pfm_description</key>
-					<string>The icon used in your Normal and Aggressive Mode dialogs. Use "none" to disable.  Maps to SwiftDialog option: --icon</string>
-					<key>pfm_description_reference</key>
+					<string>The icon used in your Normal and Aggressive Mode dialogs. Use "none" to disable.  This can be a path to an image file, an app, or an SF symbol by using "SF=symbol.name". This maps to SwiftDialog option: --icon</string>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
+					<key>pfm_description_reference</key>
+					<string>See SwiftDialog documentation for more details regarding icons.</string>
 				</dict>
 				<dict>
 					<key>pfm_name</key>
@@ -436,9 +382,11 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_title</key>
 					<string>Message Icon Dark Mode</string>
 					<key>pfm_description</key>
-					<string>The icon used in your Normal and Aggressive Mode dialogs. Use this key if you have to differentiate between light and dark mode icons. Maps to SwiftDialog option: --icon</string>
-					<key>pfm_description_reference</key>
+					<string>The icon used in your Normal and Aggressive Mode dialogs. Use this key if you have to differentiate between light and dark mode icons.This can be a path to an image file, an app, or an SF symbol by using "SF=symbol.name". This maps to SwiftDialog option: --icon</string>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
+					<key>pfm_description_reference</key>
+					<string>See SwiftDialog documentation for more details regarding icons.</string>
 				</dict>
 				<dict>
 					<key>pfm_name</key>
@@ -448,9 +396,11 @@ A profile can consist of payloads with different version numbers. For example, c
 					<key>pfm_title</key>
 					<string>Banner Image</string>
 					<key>pfm_description</key>
-					<string>Use this key to designate a Banner Image for your Normal and Aggressive Mode dialog windows. Maps to SwiftDialog option: --bannerimage</string>
-					<key>pfm_description_reference</key>
+					<string>Use this key to designate a file path to a Banner Image for your Normal and Aggressive Mode dialog windows. Maps to SwiftDialog option: --bannerimage</string>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
+					<key>pfm_description_reference</key>
+					<string>See SwiftDialog documentation for more details regarding icons.</string>
 				</dict>
 				<dict>
 					<key>pfm_name</key>
@@ -461,7 +411,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Banner Image Dark Mode</string>
 					<key>pfm_description</key>
 					<string>Use this key to designate a Banner Image for your Normal and Aggressive Mode dialog windows.  Use this key if you have to differentiate between light and dark mode banners. Maps to SwiftDialog option: --bannerimage</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -473,7 +423,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Additional Dialog Options</string>
 					<key>pfm_description</key>
 					<string>Use this key to pass additional options you want for all dialog events. See SwiftDialog documentation for what you can do.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -485,7 +435,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Additional Aggressive Mode Options</string>
 					<key>pfm_description</key>
 					<string>Use this key to pass additional options you want for only Aggressive Mode dialog events. See SwiftDialog documentation for what you can do.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -497,7 +447,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Additional Normal Options</string>
 					<key>pfm_description</key>
 					<string>Use this key to pass additional options you want for only Normal Mode dialog events. See SwiftDialog documentation for what you can do.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -509,7 +459,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Additional Notification Options</string>
 					<key>pfm_description</key>
 					<string>Use this key to pass additional options you want for only Notification Mode dialog events. See SwiftDialog documentation for what you can do.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -521,7 +471,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Deadline</string>
 					<key>pfm_description</key>
 					<string>Use this option to enable "Deadline" mode. If a device's uptime exceeds the "Deadline" value in days, Renew will enter Aggressive Mode regardless of the remaining deferrals.</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 				<dict>
@@ -533,7 +483,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>Secret Quit Key</string>
 					<key>pfm_description</key>
 					<string>This key in combination with the "Command" key will allow you to quit a dialog window without restarting. Cannot be set to Q! Omit this to leave the default combination (Cmd+])</string>
-					<key>pfm_description_reference</key>
+					<key>pfm_documentation_url</key>
 					<string>https://github.com/SecondSonConsulting/Renew/wiki/OptionalArguments</string>
 				</dict>
 			</array>
