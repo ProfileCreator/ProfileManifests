@@ -121,6 +121,7 @@
 			<array>
 				<string>Install and update</string>
 				<string>Network</string>
+				<string>Authentication</string>
 				<string>General</string>
 				<string>Meeting</string>
 				<string>Chat</string>
@@ -152,45 +153,53 @@
 					<string>ProxyPAC</string>
 					<string>ProxyServer</string>
 				</array>
-				<key>General</key>
+				<key>Authentication</key>
 				<array>
 					<string>Account</string>
-					<string>AlwaysCheckLatestVersion</string>
-					<string>AlwaysShowVideoPreviewDialog</string>
-					<string>DefaultUsePortraitView</string>
 					<string>DisableAutoLaunchSSO</string>
-					<string>DisableDirectShare</string>
 					<string>DisableKeepSignedInWithFacebook</string>
 					<string>DisableKeepSignedInWithGoogle</string>
 					<string>DisableKeepSignedInWithSSO</string>
 					<string>DisableLoginWithEmail</string>
-					<string>DisableZoomApps</string>
-					<string>EmbedUserAgentString</string>
+					<string>EnableAlipayLogin</string>
+					<string>EnableAppleLogin</string>
+					<string>EnableCloudSwitch</string>
 					<string>EnableEmbedBrowserForSSO</string>
-					<string>EnableHIDControl</string>
-					<string>EnableSilentAutoUpdate</string>
-					<string>EnableStartMeetingWithRoomSystem</string>
+					<string>EnablQQLogin</string>
+					<string>EnablePhoneLogin</string>
+					<string>EnableWeChatLogin</string>
 					<string>EnforceAppSignInToJoin</string>
 					<string>EnforceAppSignInToJoinForWebinar</string>
 					<string>EnforceSignInToJoin</string>
 					<string>EnforceSignInToJoinForWebinar</string>
 					<string>ForceSSOURL</string>
 					<string>KeepSignedIn</string>
-					<string>LastLoginType</string>
-					<string>LegacyCaptureMode</string>
 					<string>Login_Domain</string>
-					<string>NoGoogle</string>
 					<string>NoFacebook</string>
-					<string>EnableAppleLogin</string>
+					<string>NoGoogle</string>
 					<string>NoSSO</string>
-					<string>PresentInMeetingOption</string>
-					<string>PresentToRoomOptimizeVideo</string>
-					<string>PresentToRoomOption</string>
-					<string>PresentToRoomWithAudio</string>
 					<string>SetDevicePolicyToken</string>
 					<string>SetWebDomain</string>
 					<string>ZAutoSSOLogin</string>
 					<string>ZSSOHost</string>
+				</array>
+				<key>General</key>
+				<array>
+					<string>AlwaysCheckLatestVersion</string>
+					<string>AlwaysShowVideoPreviewDialog</string>
+					<string>DefaultUsePortraitView</string>
+					<string>DisableDirectShare</string>
+					<string>DisableZoomApps</string>
+					<string>EmbedUserAgentString</string>
+					<string>EnableHIDControl</string>
+					<string>EnableSilentAutoUpdate</string>
+					<string>EnableStartMeetingWithRoomSystem</string>
+					<string>LastLoginType</string>
+					<string>LegacyCaptureMode</string>
+					<string>PresentInMeetingOption</string>
+					<string>PresentToRoomOptimizeVideo</string>
+					<string>PresentToRoomOption</string>
+					<string>PresentToRoomWithAudio</string>
 				</array>
 				<key>Meeting</key>
 				<array>
@@ -273,7 +282,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Preconfigured SSO URL</string>
+			<string>Set the default SSO URL for SSO login. If your Zoom login URL were myorg.zoom.us, the value for this preference would be 'myorg'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -298,10 +307,12 @@
 			<string>SSO URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>zoom_subdomain</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures and locks the SSO URL</string>
+			<string>Set and lock the default SSO URL for SSO login. If your Zoom login URL were myorg.zoom.us, the value for this preference would be 'myorg'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -326,6 +337,8 @@
 			<string>Lock SSO URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>zoom_subdomain</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -389,9 +402,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>Remove Email login option</string>
 			<key>pfm_name</key>
 			<string>DisableLoginWithEmail</string>
 			<key>pfm_title</key>
@@ -440,6 +453,8 @@
 			<string>https://zoom.us</string>
 			<key>pfm_description</key>
 			<string>Sets the web domain for logging in or joining a meeting. By default, the value is https://zoom.us or https://zoom.com</string>
+			<key>pfm_format</key>
+			<string>^https://.*$</string>
 			<key>pfm_name</key>
 			<string>SetWebDomain</string>
 			<key>pfm_title</key>
@@ -449,7 +464,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Set the email address domain that users can login with</string>
+			<string>Set the email address domains that users can login with, each separated by '&amp;'</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -605,11 +620,71 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
+			<string>Enable the option to switch between Zoom commercial (default) and Zoom for Gov.</string>
+			<key>pfm_name</key>
+			<string>EnableCloudSwitch</string>
+			<key>pfm_title</key>
+			<string>Enable Cloud Switch</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
 			<string>Use the embedded browser in the Zoom client for SSO.</string>
 			<key>pfm_name</key>
 			<string>EnableEmbedBrowserForSSO</string>
 			<key>pfm_title</key>
 			<string>Enable Embedded Zoom Browser for SSO</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enables login with phone authentication.</string>
+			<key>pfm_name</key>
+			<string>EnablePhoneLogin</string>
+			<key>pfm_title</key>
+			<string>Enable Phone Login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enables login with Alipay authentication.</string>
+			<key>pfm_name</key>
+			<string>EnableAlipayLogin</string>
+			<key>pfm_title</key>
+			<string>Enable Alipay Login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enables login with QQ authentication.</string>
+			<key>pfm_name</key>
+			<string>EnableQQLogin</string>
+			<key>pfm_title</key>
+			<string>Enable QQ Login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enables login with WeChat authentication.</string>
+			<key>pfm_name</key>
+			<string>EnableWeChatLogin</string>
+			<key>pfm_title</key>
+			<string>Enable WeChat Login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
