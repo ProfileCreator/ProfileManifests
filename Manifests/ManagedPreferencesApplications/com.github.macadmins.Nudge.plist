@@ -146,6 +146,7 @@
 					<string>terminateApplicationsOnLaunch</string>
 					<string>attemptToFetchMajorUpgrade</string>
 					<string>enforceMinorUpdates</string>
+					<string>optionalFeatures</string>
 				</array>
 				<key>UI</key>
 				<array>
@@ -189,42 +190,59 @@
 			<string>string</string>
 		</dict>
 		<!-- Optional Features -->
-		<<dict>
-			<key>pfm_app_min</key>
-			<string>1.1.4</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_description_reference</key>
-			<string>When disabled, Nudge will not attempt to download a major upgrade application via softwareupdate.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#attempttofetchmajorupgrade---type-boolean-default-value-true-required-no</string>
-			<key>pfm_name</key>
-			<string>attemptToFetchMajorUpgrade</string>
-			<key>pfm_title</key>
-			<string>Attempt to Fetch Major Upgrade</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
+		
 		<dict>
-			<key>pfm_app_min</key>
-			<string>1.1.7</string>
-			<key>pfm_default</key>
-			<array></array>
 			<key>pfm_description_reference</key>
-			<string>The application Bundle ID which Nudge allows without taking focus. (You can specify one or more Bundle ID.)
-
-Disables Nudge's re-activation logic for the listed applications. If one of the specified applications is foremost, Nudge will not reactivate itself. (This feature does not work for Nudge's initial activation.).</string>
+			<string>All optional features to enhance and customize the Nudge experience for your employer's needs.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#acceptableapplicationbundleids---type-array-default-value--required-no</string>
-			<key>pfm_macos_min</key>
-			<string>11.0</string>
+			<string>https://github.com/macadmins/nudge/wiki/Preferences#optionalfeatures---type-hash-default-value-</string>
 			<key>pfm_name</key>
-			<string>acceptableApplicationBundleIDs</string>
+			<string>optionalFeatures</string>
 			<key>pfm_title</key>
-			<string>Acceptable Application Bundle IDs</string>
+			<string>Optional Features</string>
 			<key>pfm_type</key>
-			<string>array</string>
+			<string>dictionary</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.1.4</string>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description_reference</key>
+					<string>When disabled, Nudge will not attempt to download a major upgrade application via softwareupdate.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#attempttofetchmajorupgrade---type-boolean-default-value-true-required-no</string>
+					<key>pfm_name</key>
+					<string>attemptToFetchMajorUpgrade</string>
+					<key>pfm_title</key>
+					<string>Attempt to Fetch Major Upgrade</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>1.1.7</string>
+					<key>pfm_default</key>
+					<array></array>
+					<key>pfm_description_reference</key>
+					<string>The application Bundle ID which Nudge allows without taking focus. (You can specify one or more Bundle ID.)
+
+		Disables Nudge's re-activation logic for the listed applications. If one of the specified applications is foremost, Nudge will not reactivate itself. (This feature does not work for Nudge's initial activation.).</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#acceptableapplicationbundleids---type-array-default-value--required-no</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
+					<key>pfm_name</key>
+					<string>acceptableApplicationBundleIDs</string>
+					<key>pfm_title</key>
+					<string>Acceptable Application Bundle IDs</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
 		</dict>
+		
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.1.7</string>
@@ -1051,6 +1069,7 @@ Specify one array to enforce a single Operating System version across all machin
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>1.0</string>
 			<key>pfm_default</key>
@@ -1075,7 +1094,8 @@ Specify one array to enforce a single Operating System version across all machin
 			<false/>
 			<key>pfm_description_reference</key>
 			<string>Force the custom localizations to the value of fallbackLanguage.</string>
-			<key>pfm_documentation_url</key>https://github.com/macadmins/nudge/wiki/userInterface#forcefallbacklanguage---type-boolean-default-value-false</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/macadmins/nudge/wiki/userInterface#forcefallbacklanguage---type-boolean-default-value-false</string>
 			<key>pfm_macos_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
