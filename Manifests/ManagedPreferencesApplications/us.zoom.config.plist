@@ -142,6 +142,17 @@
 			<dict>
 				<key>Install and update</key>
 				<array>
+					<string>AU2_EnableAutoUpdate</string>
+					<string>AU2_DeploySpecificVersion</string>
+					<string>AU2_EnableManualUpdate</string>
+					<string>AU2_EnablePromptUpdateForAU2</string>
+					<string>AU2_EnableShowZoomUpdates</string>
+					<string>AU2_EnableUpdateAvailableBanner</string>
+					<string>AU2_EnableUpdateSuccessNotification</string>
+					<string>AU2_InstallAtIdleTime</string>
+					<string>AU2_SetUpdateChannel</string>
+					<string>AU2_SafeUpgradePeriod</string>
+					<string>AU2_SetUpdateSchedule</string>
 					<string>DisableDaemonInstall</string>
 					<string>SetEnrollToken4CloudMDM</string>
 					<string>SetUpdatingChannel</string>
@@ -586,6 +597,402 @@
 			<string>Stay Signed In (Email)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Enable auto updates through the client</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_name</key>
+			<string>AU2_EnableAutoUpdate</string>
+			<key>pfm_note</key>
+			<string>This must be enabled to use any of the associated AU2 options.</string>
+			<key>pfm_title</key>
+			<string>Enable Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set the cadence of updates applied to the desktop client</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_SetUpdateChannel</string>
+			<key>pfm_range_list</key>
+			<array>
+				<false/>
+				<true/>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Slow (fewer updates, better stability)</string>
+				<string>Fast (newest features and updates)</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Update Channel</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Show the Zoom Updates section of the General tab in client settings</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_EnableShowZoomUpdates</string>
+			<key>pfm_note</key>
+			<string>Depending on if AutoUpdate and SetUpdateChannel are required or not, users may only be able to view this setting</string>
+			<key>pfm_title</key>
+			<string>Show Zoom Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Show the Update Available banner on the Home tab of the client, when an update is available</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_EnableUpdateAvailableBanner</string>
+			<key>pfm_title</key>
+			<string>Display Banner for Available Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Prompt users to update when exiting a meeting or webinar, when an update is available</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_EnablePromptUpdateForAU2</string>
+			<key>pfm_title</key>
+			<string>Prompt for Updates on Leave</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Show notification indicating an update has been successfully installed</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_EnableUpdateSuccessNotification</string>
+			<key>pfm_title</key>
+			<string>Notify on Successful Update Install</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Control the visibility of the Check for Updates option in the client</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_EnableManualUpdate</string>
+			<key>pfm_title</key>
+			<string>Allow Manual Update Checks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_description</key>
+			<string>Download and install the specified version if the currently installed version is below that version. Format should be the official version without spaces or parentheses</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_format<key>
+			<string>^[^\.][\d.]+[^\.]$</string>
+			<key>pfm_name</key>
+			<string>AU2_DeploySpecificVersion</string>
+			<key>pfm_title</key>
+			<string>Deploy Specific Zoom Version</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder<key>
+			<string>5.10.4.5035</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_description</key>
+			<string>Timeframe to download an available update version. Update is then initiated by the user through prompt, or during idle time or the specified safe upgrade period</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_format<key>
+			<string>^\d{4}-\d{4}$</string>
+			<key>pfm_name</key>
+			<string>AU2_SetUpdateSchedule</string>
+			<key>pfm_note</key>
+			<string>Values are formatted as HHMM-HHMM, such that 1:00 to 2:30 is coded as 0100-0230. Time frames spanning into the next day are supported, such as 1800-0400 meaning 18:00 to 04:00 the next day.</string>
+			<key>pfm_title</key>
+			<string>Set Update Schedule Window</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder<key>
+			<string>1800-0400</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Auto install an available update when the device is idle</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>AU2_InstallAtIdleTime</string>
+			<key>pfm_note</key>
+			<string>To be considered 'Idle' devices must:
+
+Have no current meeting, phone call, or contact center engagement
+Have no upcoming meeting within 30 minutes
+Screen is locked or screen saver is active</string>
+			<key>pfm_title</key>
+			<string>Auto Install Updates When Idle</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>5.11.3</string>
+			<key>pfm_description</key>
+			<string>Set to install updates within a given time period. Requires AU2_InstallAtIdleTime be enabled</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.zoom.us/hc/en-us/articles/10365151862285</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_EnableAutoUpdate</string>
+						</dict>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>AU2_InstallAtIdleTime</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_format<key>
+			<string>^\d{4}-\d{4}$</string>
+			<key>pfm_name</key>
+			<string>AU2_SafeUpgradePeriod</string>
+			<key>pfm_note</key>
+			<string>Values are formatted as HHMM-HHMM, such that 1:00 to 2:30 is coded as 0100-0230. Time frames spanning into the next day are supported, such as 1800-0400 meaning 18:00 to 04:00 the next day.</string>
+			<key>pfm_title</key>
+			<string>Set Update Install Schedule Window</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder<key>
+			<string>1800-0400</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
