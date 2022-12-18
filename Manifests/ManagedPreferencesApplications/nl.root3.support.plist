@@ -11,7 +11,7 @@
 	<key>pfm_domain</key>
 	<string>nl.root3.support</string>
 	<key>pfm_format_version</key>
-	<integer>1.1</integer>
+	<integer>1</integer>
 	<key>pfm_last_modified</key>
 	<date>2022-11-17T14:49:33Z</date>
 	<key>pfm_macos_min</key>
@@ -127,7 +127,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>General</string>
 				<string>Info Items</string>
 				<string>First Row Left</string>
-                		<string>First Row Middle</string>
+				<string>First Row Middle</string>
 				<string>First Row Right</string>
 				<string>Second Row Left</string>
 				<string>Second Row Middle</string>
@@ -137,39 +137,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>General</key>
-				<array>
-					<string>CustomColor</string>
-					<string>CustomColorDarkMode</string>
-					<string>ErrorMessage</string>
-                    			<string>FooterText</string>
-					<string>HideFirstRow</string>
-					<string>HideSecondRow</string>
-					<string>Logo</string>
-					<string>LogoDarkMode</string>
-                    			<string>NotificationIcon</string>
-                    			<string>OpenAtLogin</string>
-                    			<string>ShowWelcomeScreen</string>
-					<string>StatusBarIcon</string>
-					<string>StatusBarIconNotifierEnabled</string>
-					<string>StatusBarIconSFSymbol</string>
-					<string>Title</string>
-				</array>
-				<key>Info Items</key>
-				<array>
-					<string>HideFirstRow</string>
-					<string>InfoItemOne</string>
-					<string>InfoItemTwo</string>
-					<string>InfoItemThree</string>
-					<string>InfoItemFour</string>
-                    			<string>InfoItemFive</string>
-                    			<string>InfoItemSix</string>
-					<string>PasswordExpiryLimit</string>
-                    			<string>PasswordType</string>
-					<string>PasswordLabel</string>
-					<string>StorageLimit</string>
-					<string>UptimeDaysLimit</string>
-				</array>
 				<key>First Row Left</key>
 				<array>
 					<string>FirstRowLinkLeft</string>
@@ -178,7 +145,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>FirstRowTitleLeft</string>
 					<string>FirstRowTypeLeft</string>
 				</array>
-                		<key>First Row Middle</key>
+				<key>First Row Middle</key>
 				<array>
 					<string>FirstRowLinkMiddle</string>
 					<string>FirstRowSubtitleMiddle</string>
@@ -193,6 +160,39 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>FirstRowSymbolRight</string>
 					<string>FirstRowTitleRight</string>
 					<string>FirstRowTypeRight</string>
+				</array>
+				<key>General</key>
+				<array>
+					<string>CustomColor</string>
+					<string>CustomColorDarkMode</string>
+					<string>ErrorMessage</string>
+					<string>FooterText</string>
+					<string>HideFirstRow</string>
+					<string>HideSecondRow</string>
+					<string>Logo</string>
+					<string>LogoDarkMode</string>
+					<string>NotificationIcon</string>
+					<string>OpenAtLogin</string>
+					<string>ShowWelcomeScreen</string>
+					<string>StatusBarIcon</string>
+					<string>StatusBarIconNotifierEnabled</string>
+					<string>StatusBarIconSFSymbol</string>
+					<string>Title</string>
+				</array>
+				<key>Info Items</key>
+				<array>
+					<string>HideFirstRow</string>
+					<string>InfoItemOne</string>
+					<string>InfoItemTwo</string>
+					<string>InfoItemThree</string>
+					<string>InfoItemFour</string>
+					<string>InfoItemFive</string>
+					<string>InfoItemSix</string>
+					<string>PasswordExpiryLimit</string>
+					<string>PasswordType</string>
+					<string>PasswordLabel</string>
+					<string>StorageLimit</string>
+					<string>UptimeDaysLimit</string>
 				</array>
 				<key>Second Row Left</key>
 				<array>
@@ -222,7 +222,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		<!-- General -->
 		<dict>
 			<key>pfm_default</key>
 			<string>Support</string>
@@ -242,10 +241,10 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Path to the logo shown in the top right corner when the app opens. Scales to 48 points maximum height.</string>
 			<key>pfm_name</key>
 			<string>Logo</string>
-			<key>pfm_title</key>
-			<string>Light Mode Logo</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
+			<key>pfm_title</key>
+			<string>Light Mode Logo</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -256,24 +255,24 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Path to the logo shown in the top right corner when the app opens for Dark Mode. Scales to 48 points maximum height.</string>
 			<key>pfm_name</key>
 			<string>LogoDarkMode</string>
-			<key>pfm_title</key>
-			<string>Dark Mode Logo</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
+			<key>pfm_title</key>
+			<string>Dark Mode Logo</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>/Library/Application Support/Your Company/DarkModeLogo.png</string>
 		</dict>
-        	<dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Path to a custom square image to be shown in alerts and the about window.</string>
 			<key>pfm_name</key>
 			<string>NotificationIcon</string>
-			<key>pfm_title</key>
-			<string>Notification Icon</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
+			<key>pfm_title</key>
+			<string>Notification Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -383,7 +382,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-        	<dict>
+		<dict>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
@@ -395,9 +394,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-        	<dict>
-			<key>pfm_value_placeholder</key>
-			<string>Provided by IT</string>
+		<dict>
 			<key>pfm_description</key>
 			<string>Text shown at the bottom as footnote</string>
 			<key>pfm_name</key>
@@ -406,8 +403,10 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Footer Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Provided by IT</string>
 		</dict>
-       		<dict>
+		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
@@ -419,7 +418,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- InfoItems -->
 		<dict>
 			<key>pfm_default</key>
 			<string>ComputerName</string>
@@ -540,7 +538,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-        	<dict>
+		<dict>
 			<key>pfm_default</key>
 			<string>Storage</string>
 			<key>pfm_description</key>
@@ -570,7 +568,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-        	<dict>
+		<dict>
 			<key>pfm_default</key>
 			<string>Storage</string>
 			<key>pfm_description</key>
@@ -656,7 +654,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_value_unit</key>
 			<string>%</string>
 		</dict>
-		<!-- First Row -->
 		<dict>
 			<key>pfm_default</key>
 			<string>Remote Support</string>
@@ -739,7 +736,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-        	<dict>
+		<dict>
 			<key>pfm_default</key>
 			<string>Company Store</string>
 			<key>pfm_description</key>
@@ -903,7 +900,6 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		<!-- Second Row -->
 		<dict>
 			<key>pfm_default</key>
 			<string>Support Ticket</string>
@@ -1069,7 +1065,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Second Row Middle Symbol</string>
 			<key>pfm_type</key>
 			<string>string</string>
-		</dict>		
+		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<string>Phone</string>
