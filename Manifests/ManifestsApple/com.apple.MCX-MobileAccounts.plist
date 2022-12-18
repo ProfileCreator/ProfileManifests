@@ -7,32 +7,24 @@
 	<key>pfm_description_reference</key>
 	<string>The Mobile Accounts payload is designated by specifying com.apple.MCX as the PayloadType value.
 This payload allows controls the authentication UI during mobile account creation. It must be installed as a device profile.</string>
-	<key>pfm_domain</key>
-	<string>com.apple.MCX</string>
-	<key>pfm_subdomain</key>
-	<string>MobileAccounts</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/mobileaccounts</string>
+	<key>pfm_domain</key>
+	<string>com.apple.MCX</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-12-18T19:55:17Z</date>
+	<date>2022-12-18T06:17:33Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
-	<key>pfm_macos_min</key>
-	<string>10.7</string>
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-	</array>
-	<key>pfm_title</key>
-	<string>Mobile Accounts</string>
-	<key>pfm_unique</key>
-	<true/>
+	<key>pfm_subdomain</key>
+	<string>MobileAccounts</string>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -152,14 +144,14 @@ The payload organization for a payload need not match the payload organization i
 			<string>Hides the authentication UI when a mobile account is created.</string>
 			<key>pfm_description_reference</key>
 			<string>If set to true, the authentication UI is not displayed when a mobile account is created. Suppressing the UI may prevent mobile accounts from being able to unlock a FileVault volume. Default is false. Availability: Available in macOS 10.13.5 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.5</string>
 			<key>pfm_name</key>
 			<string>cachedaccounts.askForSecureTokenAuthBypass</string>
 			<key>pfm_title</key>
 			<string>Ask for Secure Token Auth Bypass</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_macos_min</key>
-			<string>10.13.5</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -170,12 +162,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>The minimum number of seconds a mobile account can exist before an automatic attempt is made to remove the mobile account.</string>
 			<key>pfm_name</key>
 			<string>cachedaccounts.expiry.delete.disusedSeconds</string>
+			<key>pfm_range_min</key>
+			<integer>-1</integer>
 			<key>pfm_title</key>
 			<string>Cached Accounts Expiry</string>
 			<key>pfm_type</key>
 			<string>integer</string>
-			<key>pfm_range_min</key>
-			<integer>-1</integer>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -184,12 +176,6 @@ The payload organization for a payload need not match the payload organization i
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>If true, allows the user to stop the prompts about mobile account creation every time the user logs in. This key is only valid if com.apple.cachedaccounts.WarnOnCreate is set to true.</string>
-			<key>pfm_name</key>
-			<string>cachedaccounts.WarnOnCreate.allowNever</string>
-			<key>pfm_title</key>
-			<string>Allow Users to Stop Mobile Account Creation Prompts</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -208,6 +194,12 @@ The payload organization for a payload need not match the payload organization i
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>cachedaccounts.WarnOnCreate.allowNever</string>
+			<key>pfm_title</key>
+			<string>Allow Users to Stop Mobile Account Creation Prompts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -238,6 +230,14 @@ The payload organization for a payload need not match the payload organization i
 			<string>boolean</string>
 		</dict>
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Mobile Accounts</string>
+	<key>pfm_unique</key>
+	<true/>
 	<key>pfm_version</key>
 	<integer>2</integer>
 </dict>
