@@ -253,9 +253,9 @@ The search algorithm is complex and may vary from release to release, but it is 
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description_reference</key>
-			<string>If true, enables the filtering of WebKit traffic.</string>
+			<string>If 'true', enables the filtering of WebKit traffic. Either 'FilterBrowsers or 'FilterSockets' must be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -777,7 +777,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description_reference</key>
-			<string>If true, enables the filtering of socket traffic.</string>
+			<string>If 'true', enables the filtering of socket traffic. Either 'FilterBrowsers' or 'FilterSockets' must be 'true'..</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -933,13 +933,7 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>If set to 1, enables the filtering of network packets.
-
-Either FilterPackets or FilterSockets must be true for the filter to have any effect.
-
-Can be used when FilterType is Plugin.
-
-Available in macOS 10.15 and later.</string>
+			<string> If this value is 'true', the property enables the filtering of network packets. Either 'FilterPackets' or 'FilterSockets' must be 'true'. You can only use this when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
