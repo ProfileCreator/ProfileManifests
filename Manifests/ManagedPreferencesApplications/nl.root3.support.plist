@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2022-11-17T14:49:33Z</date>
+	<date>2023-01-15T02:15:59Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0.1</string>
 	<key>pfm_platforms</key>
@@ -125,6 +125,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>General</string>
+				<string>Extensions</string>
 				<string>Info Items</string>
 				<string>First Row Left</string>
 				<string>First Row Middle</string>
@@ -137,6 +138,17 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Extensions</key>
+				<array>
+					<string>ExtensionLinkA</string>
+					<string>ExtensionSymbolA</string>
+					<string>ExtensionTitleA</string>
+					<string>ExtensionTypeA</string>
+					<string>ExtensionLinkB</string>
+					<string>ExtensionSymbolB</string>
+					<string>ExtensionTitleB</string>
+					<string>ExtensionTypeB</string>
+				</array>
 				<key>First Row Left</key>
 				<array>
 					<string>FirstRowLinkLeft</string>
@@ -168,6 +180,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>ErrorMessage</string>
 					<string>FooterText</string>
 					<string>HideFirstRow</string>
+					<string>HideMajorUpdates</string>
 					<string>HideSecondRow</string>
 					<string>Logo</string>
 					<string>LogoDarkMode</string>
@@ -681,10 +694,20 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeLeft</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -763,10 +786,20 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeMiddle</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -845,10 +878,20 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeRight</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -929,10 +972,20 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeLeft</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -1011,10 +1064,20 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeMiddle</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -1093,10 +1156,20 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeRight</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
 				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
 			</array>
 			<key>pfm_title</key>
@@ -1148,6 +1221,166 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The title shown in extension A.</string>
+			<key>pfm_name</key>
+			<string>ExtensionTitleA</string>
+			<key>pfm_title</key>
+			<string>Support App Extension A: Title</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Last Check-In</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The SF Symbol shown in extension A.</string>
+			<key>pfm_name</key>
+			<string>ExtensionSymbolA</string>
+			<key>pfm_title</key>
+			<string>Support App Extension A: Symbol</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>clock.badge.checkmark.fill</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_default</key>
+			<string>App</string>
+			<key>pfm_description</key>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<key>pfm_name</key>
+			<string>ExtensionTypeA</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>App</string>
+				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Support App Extension A: Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The Bundle Identifier of the App, URL or command to open.</string>
+			<key>pfm_name</key>
+			<string>ExtensionLinkA</string>
+			<key>pfm_title</key>
+			<string>Support App Extension A: Link</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>defaults write /Library/Preferences/nl.root3.support.plist ExtensionLoadingA -bool true; /usr/local/bin/jamf policy; /usr/local/bin/jamf_last_check-in_time.zsh</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The title shown in extension B.</string>
+			<key>pfm_name</key>
+			<string>ExtensionTitleB</string>
+			<key>pfm_title</key>
+			<string>Support App Extension B: Title</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Last Check-In</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The SF Symbol shown in extension B.</string>
+			<key>pfm_name</key>
+			<string>ExtensionSymbolB</string>
+			<key>pfm_title</key>
+			<string>Support App Extension B: Symbol</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>clock.badge.checkmark.fill</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_default</key>
+			<string>App</string>
+			<key>pfm_description</key>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<key>pfm_name</key>
+			<string>ExtensionTypeB</string>
+			<key>pfm_note</key>
+			<string>DistributedNotification requires 'SupportHelper' to be installed.</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>App</string>
+				<string>Command</string>
+				<string>DistributedNotification</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>App</string>
+				<string>Command or Script (Run as user)</string>
+				<string>Command or Script (Run with elevated privileges)</string>
+				<string>URL</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Support App Extension B: Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4</string>
+			<key>pfm_description</key>
+			<string>The Bundle Identifier of the App, URL or command to open.</string>
+			<key>pfm_name</key>
+			<string>ExtensionLinkB</string>
+			<key>pfm_title</key>
+			<string>Support App Extension B: Link</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>defaults write /Library/Preferences/nl.root3.support.plist ExtensionLoadingA -bool true; /usr/local/bin/jamf policy; /usr/local/bin/jamf_last_check-in_time.zsh</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>2.4.3</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Ignore macOS major updates. This will prevent the menu bar icon and the macOS version info item from showing an available major update.</string>
+			<key>pfm_macos_min</key>
+			<string>12.3</string>
+			<key>pfm_name</key>
+			<string>HideMajorUpdates</string>
+			<key>pfm_title</key>
+			<string>Hide Major macOS Updates / Upgrades</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1159,6 +1392,6 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>3</integer>
+	<integer>4</integer>
 </dict>
 </plist>
