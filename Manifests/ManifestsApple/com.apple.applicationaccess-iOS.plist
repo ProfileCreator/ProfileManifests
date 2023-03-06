@@ -359,7 +359,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. When false, disables FaceTime app. This key is deprecated on unsupervised devices.</string>
+			<string>Optional. When false, disables video conferencing. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_name</key>
 			<string>allowVideoConferencing</string>
 			<key>pfm_title</key>
@@ -754,7 +754,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>Updated in iOS 9.0 to include screen recordings.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to false, users canʼt save a screenshot of the display and are prevented from capturing a screen recording; it also prevents the Classroom app from observing remote screens. Defaults to true. Also available for user enrollment. Availability: iOS 4 and later.</string>
 			<key>pfm_ios_min</key>
@@ -773,7 +773,7 @@ The payload organization for a payload need not match the payload organization i
 			<string>If Allow screenshots and screen recording is set to 'false', it also overrides this preference and prevents the Classroom app from observing remote screens.</string>
 			<key>pfm_description_reference</key>
 			<string>If set to false, remote screen observation by the Classroom app is disabled. Defaults to true.
-This key should be nested beneath allowScreenShot as a sub-restriction. If allowScreenShot is set to false, it also prevents the Classroom app from observing remote screens. Availability: Available in iOS 12 and later.</string>
+This key should be nested beneath allowScreenShot as a sub-restriction. If allowScreenShot is set to false, it also prevents the Classroom app from observing remote screens. Availability: Available in iOS 9.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -939,7 +939,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Supervised only. If set to false, Spotlight will not return Internet search results. Availability: Available in iOS 8 and later.</string>
+			<string>Supervised only. If set to false, Spotlight will not return Internet search results. Availability: Available in iOS and in macOS 10.11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -1079,7 +1079,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. When true, forces user to enter their iTunes password for each transaction. Availability: Available in iOS 6.0 and later.</string>
+			<string>Optional. When true, forces user to enter their iTunes password for each transaction. Availability: Available in iOS 5.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -1239,7 +1239,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If false, over-the-air PKI updates are disabled. Setting this restriction to false does not disable CRL and OCSP checks. Default is true. Also available for user enrollment. Availability: Available only in iOS 7.0 and later.</string>
+			<string>Optional. If false, over-the-air PKI updates are disabled. Setting this restriction to false does not disable CRL and OCSP checks. Default is true. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -1487,7 +1487,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, disables Near-field Communication functionality. Requires a supervised device.</string>
+			<string>If set to false, disables Near-field Communication functionality.</string>
 			<key>pfm_ios_min</key>
 			<string>14.2</string>
 			<key>pfm_name</key>
@@ -1519,7 +1519,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If Allow modifying passcode is set to 'false', this will override this preference if set to 'true'.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Supervised only. Allows the user to modify Touch ID. Default is false. Availability: Available in iOS 8.3 and later.</string>
 			<key>pfm_ios_min</key>
@@ -1610,8 +1610,6 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<false/>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
-			<key>pfm_description_reference</key>
-			<string>f true, allows devices to be booted into recovery by an unpaired device. Requires a supervised device. Availability: Available only in iOS 14.5 and later.</string>
 			<key>pfm_name</key>
 			<string>allowUnpairedExternalBootToRecovery</string>
 			<key>pfm_supervised</key>
@@ -1627,7 +1625,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If false, documents in managed apps and accounts only open in other managed apps and accounts. Default is true. Also available for user enrollment. Availability: Available only in iOS 7.0 and later.</string>
+			<string>Optional. If false, documents in managed apps and accounts only open in other managed apps and accounts. Default is true. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -1643,7 +1641,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If set to false, documents in unmanaged apps and accounts will only open in other unmanaged apps and accounts. Default is true. Also available for user enrollment. Availability: Available only in iOS 7.0 and later.</string>
+			<string>Optional. If set to false, documents in unmanaged apps and accounts will only open in other unmanaged apps and accounts. Default is true. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -1931,7 +1929,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Supervised only. If set to false, keyboard shortcuts cannot be used. Defaults is true. Availability: Available in iOS 9.0 and later.</string>
+			<string>Supervised only. If set to false, keyboard shortcuts cannot be used. Defaults to true. Availability: Available in iOS 9.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string> 
 			<key>pfm_name</key>
@@ -2093,7 +2091,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If false, prevents Control Center from appearing on the Lock screen. Also available for user enrollment. Availability: Available in iOS 7 and later.</string>
+			<string>Optional. If false, prevents Control Center from appearing on the Lock screen. Availability: Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string> 
 			<key>pfm_name</key>
@@ -2109,7 +2107,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If set to false, the Notifications history view on the lock screen is disabled and users can't view past notifications. Though, when the device is locked, the user will still be able to view notifications when they arrive. Also available for user enrollment. Availability: Available only in iOS 7.0 and later.</string>
+			<string>Optional. If set to false, the Notifications history view on the lock screen is disabled and users can't view past notifications. Though, when the device is locked, the user will still be able to view notifications when they arrive. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string> 
 			<key>pfm_name</key>
@@ -2125,7 +2123,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If set to false, the Today view in Notification Center on the lock screen is disabled. Also available for user enrollment. Availability: Available only in iOS 7.0 and later.</string>
+			<string>Optional. If set to false, the Today view in Notification Center on the lock screen is disabled. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string> 
 			<key>pfm_name</key>
@@ -2202,8 +2200,6 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		<dict>
 			<key>pfm_default</key>
 			<true/>
-			<key>pfm_description_reference</key>
-			<string>Optional. If false, disables Mail Privacy Protection on the device. Requires a supervised device. </string>
 			<key>pfm_ios_min</key>
 			<string>15.2</string>
 			<key>pfm_name</key>
@@ -2273,7 +2269,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. When false, the Safari web browser application is disabled and its icon removed from the Home screen. This also prevents users from opening web clips. Requires a supervised device.</string>
+			<string>Optional. When false, the Safari web browser application is disabled and its icon removed from the Home screen. This also prevents users from opening web clips. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -2712,7 +2708,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description</key>
 			<string>Integer rating value based on region. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
 			<key>pfm_description_reference</key>
-			<string>This value defines the maximum level of TV content that is allowed on the device. Availability: Available only in iOS 4 and tvOS 11.3 and later.</string>
+			<string>This value defines the maximum level of TV content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -2776,7 +2772,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description</key>
 			<string>Allow connecting to and browsing any USB storage device in the Files App</string>
 			<key>pfm_description_reference</key>
-			<string>If false, prevents connecting to any connected USB devices in the Files app. Requires a supervised device. Available in iOS 13.1 and later.</string>
+			<string>If false, prevents connecting to any connected USB devices in the Files app. Available in iOS 13.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.1</string>
 			<key>pfm_name</key>
@@ -2811,7 +2807,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only. If set to false, users can not share their passwords with the AirDrop Passwords feature. Defaults to true. Availability: Available only in iOS 12.0 and later.</string>
+			<string>Optional. Supervised only. If set to false, users can not share their passwords with the AirDrop Passwords feature. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -2829,7 +2825,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0 and later.</string>
+			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
