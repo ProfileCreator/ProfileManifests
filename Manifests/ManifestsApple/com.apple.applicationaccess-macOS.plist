@@ -1,1265 +1,1265 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>pfm_description</key>
-		<string>macOS Restrictions preferences</string>
-		<key>pfm_description_reference</key>
-		<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
-		<key>pfm_documentation_url</key>
-		<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
-		<key>pfm_domain</key>
-		<string>com.apple.applicationaccess</string>
-		<key>pfm_format_version</key>
-		<integer>1</integer>
-		<key>pfm_interaction</key>
-		<string>combined</string>
-		<key>pfm_last_modified</key>
-		<date>2022-12-28T01:40:48Z</date>
-		<key>pfm_note</key>
-		<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
-		<key>pfm_platforms</key>
-		<array>
-			<string>macOS</string>
-		</array>
-		<key>pfm_subdomain</key>
+<dict>
+	<key>pfm_description</key>
+	<string>macOS Restrictions preferences</string>
+	<key>pfm_description_reference</key>
+	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+	<key>pfm_domain</key>
+	<string>com.apple.applicationaccess</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>combined</string>
+	<key>pfm_last_modified</key>
+	<date>2022-12-28T01:40:48Z</date>
+	<key>pfm_note</key>
+	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
+	<key>pfm_platforms</key>
+	<array>
 		<string>macOS</string>
-		<key>pfm_subkeys</key>
-		<array>
-			<dict>
-				<key>pfm_default</key>
-				<string>Restrictions</string>
-				<key>pfm_description</key>
-				<string>Name of the payload.</string>
-				<key>pfm_description_reference</key>
-				<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
-				<key>pfm_name</key>
-				<string>PayloadDisplayName</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_title</key>
-				<string>Payload Display Name</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<string>com.apple.applicationaccess</string>
-				<key>pfm_description</key>
-				<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-				<key>pfm_description_reference</key>
-				<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
-				<key>pfm_name</key>
-				<string>PayloadIdentifier</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_title</key>
-				<string>Payload Identifier</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<string>com.apple.applicationaccess</string>
-				<key>pfm_description</key>
-				<string>The type of the payload, a reverse dns string.</string>
-				<key>pfm_description_reference</key>
-				<string>The payload type.</string>
-				<key>pfm_name</key>
-				<string>PayloadType</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_title</key>
-				<string>Payload Type</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<string/>
-				<key>pfm_description</key>
-				<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-				<key>pfm_description_reference</key>
-				<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
-				<key>pfm_format</key>
-				<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
-				<key>pfm_name</key>
-				<string>PayloadUUID</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_title</key>
-				<string>Payload UUID</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>1</integer>
-				<key>pfm_description</key>
-				<string>The version of the whole configuration profile.</string>
-				<key>pfm_description_reference</key>
-				<string>The version number of the individual payload.
+	</array>
+	<key>pfm_subdomain</key>
+	<string>macOS</string>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Restrictions</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.applicationaccess</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.applicationaccess</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
-				<key>pfm_name</key>
-				<string>PayloadVersion</string>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_title</key>
-				<string>Payload Version</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-			</dict>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures restrictions</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>General</string>
+				<string>AirDrop</string>
+				<string>AirPlay</string>
+				<string>AirPrint</string>
+				<string>iCloud</string>
+				<string>Passwords / Unlock</string>
+				<string>Classroom</string>
+				<string>Updates</string>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
 			<dict>
-				<key>pfm_default</key>
-				<string>Configures restrictions</string>
-				<key>pfm_description</key>
-				<string>Description of the payload.</string>
-				<key>pfm_description_reference</key>
-				<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
-				<key>pfm_name</key>
-				<string>PayloadDescription</string>
-				<key>pfm_title</key>
-				<string>Payload Description</string>
-				<key>pfm_type</key>
-				<string>string</string>
-			</dict>
-			<dict>
-				<key>pfm_name</key>
-				<string>PFC_SegmentedControl_0</string>
-				<key>pfm_range_list_titles</key>
+				<key>AirDrop</key>
 				<array>
-					<string>General</string>
-					<string>AirDrop</string>
-					<string>AirPlay</string>
-					<string>AirPrint</string>
-					<string>iCloud</string>
-					<string>Passwords / Unlock</string>
-					<string>Classroom</string>
-					<string>Updates</string>
+					<string>allowAirDrop</string>
 				</array>
-				<key>pfm_require</key>
-				<string>always</string>
-				<key>pfm_segments</key>
-				<dict>
-					<key>AirDrop</key>
-					<array>
-						<string>allowAirDrop</string>
-					</array>
-					<key>AirPlay</key>
-					<array>
-						<string>allowAirPlayIncomingRequests</string>
-					</array>
-					<key>AirPrint</key>
-					<array>
-						<string>allowAirPrintiBeaconDiscovery</string>
-						<string>forceAirPrintTrustedTLSRequirement</string>
-					</array>
-					<key>Classroom</key>
-					<array>
-						<string>forceClassroomAutomaticallyJoinClasses</string>
-						<string>forceClassroomRequestPermissionToLeaveClasses</string>
-						<string>forceClassroomUnpromptedAppAndDeviceLock</string>
-						<string>forceClassroomUnpromptedScreenObservation</string>
-					</array>
-					<key>General</key>
-					<array>
-						<string>allowActivityContinuation</string>
-						<string>allowAddingGameCenterFriends</string>
-						<string>allowCamera</string>
-						<string>allowContentCaching</string>
-						<string>allowDefinitionLookup</string>
-						<string>allowDeprecatedWebKitTLS</string>
-						<string>allowEraseContentAndSettings</string>
-						<string>allowGameCenter</string>
-						<string>allowMailPrivacyProtection</string>
-						<string>allowUniversalControl</string>
-						<string>allowMusicService</string>
-						<string>allowRemoteScreenObservation</string>
-						<string>allowScreenShot</string>
-						<string>allowUIConfigurationProfileInstallation</string>
-						<string>allowSpotlightInternetResults</string>
-						<string>allowiTunesFileSharing</string>
-						<string>allowUSBRestrictedMode</string>
-					</array>
-					<key>iCloud</key>
-					<array>
-						<string>allowCloudAddressBook</string>
-						<string>allowCloudBTMM</string>
-						<string>allowCloudBookmarks</string>
-						<string>allowCloudCalendar</string>
-						<string>allowCloudDesktopAndDocuments</string>
-						<string>allowCloudDocumentSync</string>
-						<string>allowCloudFMM</string>
-						<string>allowCloudKeychainSync</string>
-						<string>allowCloudMail</string>
-						<string>allowCloudNotes</string>
-						<string>allowCloudPhotoLibrary</string>
-						<string>allowCloudPrivateRelay</string>
-						<string>allowCloudReminders</string>
-					</array>
-					<key>Passwords / Unlock</key>
-					<array>
-						<string>allowAutoUnlock</string>
-						<string>allowFingerprintForUnlock</string>
-						<string>allowPasswordAutoFill</string>
-						<string>allowPasswordProximityRequests</string>
-						<string>allowPasswordSharing</string>
-						<string>enforcedFingerprintTimeout</string>
-					</array>
-					<key>Updates</key>
-					<array>
-						<string>enforcedSoftwareUpdateDelay</string>
-						<string>enforcedSoftwareUpdateMajorOSDeferredInstallDelay</string>
-						<string>enforcedSoftwareUpdateMinorOSDeferredInstallDelay</string>
-						<string>enforcedSoftwareUpdateNonOSDeferredInstallDelay</string>
-						<string>forceDelayedAppSoftwareUpdates</string>
-						<string>forceDelayedMajorSoftwareUpdates</string>
-						<string>forceDelayedSoftwareUpdates</string>
-						<string>allowRapidSecurityResponseInstallation</string>
-						<string>allowRapidSecurityResponseRemoval</string>
-					</array>
-				</dict>
-				<key>pfm_type</key>
-				<string>string</string>
+				<key>AirPlay</key>
+				<array>
+					<string>allowAirPlayIncomingRequests</string>
+				</array>
+				<key>AirPrint</key>
+				<array>
+					<string>allowAirPrintiBeaconDiscovery</string>
+					<string>forceAirPrintTrustedTLSRequirement</string>
+				</array>
+				<key>Classroom</key>
+				<array>
+					<string>forceClassroomAutomaticallyJoinClasses</string>
+					<string>forceClassroomRequestPermissionToLeaveClasses</string>
+					<string>forceClassroomUnpromptedAppAndDeviceLock</string>
+					<string>forceClassroomUnpromptedScreenObservation</string>
+				</array>
+				<key>General</key>
+				<array>
+					<string>allowActivityContinuation</string>
+					<string>allowAddingGameCenterFriends</string>
+					<string>allowCamera</string>
+					<string>allowContentCaching</string>
+					<string>allowDefinitionLookup</string>
+					<string>allowDeprecatedWebKitTLS</string>
+					<string>allowEraseContentAndSettings</string>
+					<string>allowGameCenter</string>
+					<string>allowMailPrivacyProtection</string>
+					<string>allowUniversalControl</string>
+					<string>allowMusicService</string>
+					<string>allowRemoteScreenObservation</string>
+					<string>allowScreenShot</string>
+					<string>allowUIConfigurationProfileInstallation</string>
+					<string>allowSpotlightInternetResults</string>
+					<string>allowiTunesFileSharing</string>
+					<string>allowUSBRestrictedMode</string>
+				</array>
+				<key>Passwords / Unlock</key>
+				<array>
+					<string>allowAutoUnlock</string>
+					<string>allowFingerprintForUnlock</string>
+					<string>allowPasswordAutoFill</string>
+					<string>allowPasswordProximityRequests</string>
+					<string>allowPasswordSharing</string>
+					<string>enforcedFingerprintTimeout</string>
+				</array>
+				<key>Updates</key>
+				<array>
+					<string>enforcedSoftwareUpdateDelay</string>
+					<string>enforcedSoftwareUpdateMajorOSDeferredInstallDelay</string>
+					<string>enforcedSoftwareUpdateMinorOSDeferredInstallDelay</string>
+					<string>enforcedSoftwareUpdateNonOSDeferredInstallDelay</string>
+					<string>forceDelayedAppSoftwareUpdates</string>
+					<string>forceDelayedMajorSoftwareUpdates</string>
+					<string>forceDelayedSoftwareUpdates</string>
+					<string>allowRapidSecurityResponseInstallation</string>
+					<string>allowRapidSecurityResponseRemoval</string>
+				</array>
+				<key>iCloud</key>
+				<array>
+					<string>allowCloudAddressBook</string>
+					<string>allowCloudBTMM</string>
+					<string>allowCloudBookmarks</string>
+					<string>allowCloudCalendar</string>
+					<string>allowCloudDesktopAndDocuments</string>
+					<string>allowCloudDocumentSync</string>
+					<string>allowCloudFMM</string>
+					<string>allowCloudKeychainSync</string>
+					<string>allowCloudMail</string>
+					<string>allowCloudNotes</string>
+					<string>allowCloudPhotoLibrary</string>
+					<string>allowCloudPrivateRelay</string>
+					<string>allowCloudReminders</string>
+				</array>
 			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>If false, disables AirDrop.</string>
-				<key>pfm_description_reference</key>
-				<string>If false, disables AirDrop. Requires a supervised device. Available in iOS 7 and later, and macOS 10.13 and later.</string>
-				<key>pfm_documentation_url</key>
-				<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-				<key>pfm_name</key>
-				<string>allowAirDrop</string>
-				<key>pfm_title</key>
-				<string>Allow AirDrop</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_macos_min</key>
-				<string>12.3</string>
-				<key>pfm_name</key>
-				<string>allowAirPlayIncomingRequests</string>
-				<key>pfm_title</key>
-				<string>Allow incoming AirPlay requests</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to false, users will not be able to use the AutoFill Passwords feature on iOS and will not be prompted to use a saved password in Safari or in apps. If set to false, Automatic Strong Passwords will also be disabled and strong passwords will not be suggested to users. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14</string>
-				<key>pfm_name</key>
-				<string>allowPasswordAutoFill</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow password AutoFill</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>If set to false, disallows macOS auto unlock. Defaults to true. Availability: Available only in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowAutoUnlock</string>
-				<key>pfm_title</key>
-				<string>Allow Apple Watch to auto unlock device</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, the camera is completely disabled and its icon is removed from the Home screen. Users are unable to take photographs. Availability: Available in iOS and in macOS 10.11 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.11</string>
-				<key>pfm_name</key>
-				<string>allowCamera</string>
-				<key>pfm_title</key>
-				<string>Allow Camera</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>When false this disallows content caching. Defaults to true. Introduced in macOS 10.13 but moved to the content caching domain in 10.13.4.</string>
-				<key>pfm_macos_deprecated</key>
-				<string>10.13.4</string>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-				<key>pfm_name</key>
-				<string>allowContentCaching</string>
-				<key>pfm_title</key>
-				<string>Allow Content Caching</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_macos_min</key>
-				<string>12</string>
-				<key>pfm_name</key>
-				<string>allowMailPrivacyProtection</string>
-				<key>pfm_title</key>
-				<string>Allow mail privacy protection</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>Set to false to prevent sharing mouse and keyboard between a Mac and an iPad</string>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowUniversalControl</string>
-				<key>pfm_title</key>
-				<string>Allow Universal Control</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, iTunes application file sharing services are disabled. Availability: Available in macOS 10.13 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-				<key>pfm_name</key>
-				<string>allowiTunesFileSharing</string>
-				<key>pfm_title</key>
-				<string>Allow iTunes File Sharing</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>If false, disables activity continuation. Available in iOS 8 and later, and macOS 10.15 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.15</string>
-				<key>pfm_name</key>
-				<string>allowActivityContinuation</string>
-				<key>pfm_title</key>
-				<string>Allow Handoff</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
- 				<key>pfm_default</key>
- 				<true/>
- 				<key>pfm_description</key>
- 				<string>If false, prevents the device from automatically submitting diagnostic reports to Apple.</string>
-				<key>pfm_documentation_url</key>
-				<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
- 				<key>pfm_macos_min</key>
- 				<string>10.13</string>
- 				<key>pfm_name</key>
- 				<string>allowDiagnosticSubmission</string>
- 				<key>pfm_title</key>
- 				<string>Allow submitting diagnostic and usage data to Apple</string>
- 				<key>pfm_type</key>
- 				<string>boolean</string>
- 			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to false, Music service is disabled and Music app reverts to classic mode. Defaults to true. Availability: Available in iOS 9.3 and later and macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowMusicService</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow Apple Music</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS Back to My Mac iCloud service. Availability: Available in macOS 10.12 and 10.13.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudBTMM</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Back to My Mac</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS iCloud Bookmark sync. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudBookmarks</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Bookmarks</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS iCloud Calendar services. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudCalendar</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Calendar</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS iCloud Address Book services. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudAddressBook</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Contacts</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disables document and key-value syncing to iCloud. This key is deprecated on unsupervised devices. Availability: Available in iOS 5.0 and later and in macOS 10.11 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.11</string>
-				<key>pfm_name</key>
-				<string>allowCloudDocumentSync</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow iCloud Drive</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>If set to false, disallows macOS cloud desktop and document services. Defaults to true. Availability: Available only in macOS 10.12.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12.4</string>
-				<key>pfm_name</key>
-				<string>allowCloudDesktopAndDocuments</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Desktop &amp; Documents</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS Find My Mac iCloud service. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudFMM</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Find My Mac</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disables iCloud keychain synchronization. Default is true. Availability: Available in iOS 7.0 and later and macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudKeychainSync</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Keychain</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS Mail iCloud services. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudMail</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Mail</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows macOS iCloud Notes services. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudNotes</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Notes</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>If set to false, disables iCloud Photo Library. Any photos not fully downloaded from iCloud Photo Library to the device will be removed from local storage. Availability: Available in iOS 9.0 and later and in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudPhotoLibrary</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Photo Library</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. When false, disallows iCloud Reminder services. Availability: Available in macOS 10.12 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12</string>
-				<key>pfm_name</key>
-				<string>allowCloudReminders</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Reminders</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>If set to false, prevents the use of iCloud Private Relay.</string>
-				<key>pfm_macos_min</key>
-				<string>12.0</string>
-				<key>pfm_name</key>
-				<string>allowCloudPrivateRelay</string>
-				<key>pfm_title</key>
-				<string>Allow iCloud Private Relay</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to false, Spotlight will not return Internet search results. Availability: Available in iOS and in macOS 10.11 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.11</string>
-				<key>pfm_name</key>
-				<string>allowSpotlightInternetResults</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow Siri Suggestions</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to false, disables the "Erase All Content And Settings" option in the Reset UI.</string>
-				<key>pfm_macos_min</key>
-				<string>12.0</string>
-				<key>pfm_name</key>
-				<string>allowEraseContentAndSettings</string>
-				<key>pfm_title</key>
-				<string>Allow Erase All Content and Settings</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_supervised</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. If false, prevents Touch ID from unlocking a device. Availability: Available in iOS 7 and later and in macOS 10.12.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.12.4</string>
-				<key>pfm_name</key>
-				<string>allowFingerprintForUnlock</string>
-				<key>pfm_title</key>
-				<string>Allow Touch ID / Face ID to unlock device</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to false, disables definition lookup. Defaults to true. Availability: Available in iOS 8.1.3 and later and in macOS 10.11.2 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.11.2</string>
-				<key>pfm_name</key>
-				<string>allowDefinitionLookup</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow definition lookup</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string>Allow websites that use TLS 1.0 and TLS 1.1 to be accessed using Safari.</string>
-				<key>pfm_documentation_url</key>
-				<string>https://docs.jamf.com/10.20.0/jamf-pro/release-notes/What%27s_New.html</string>
-				<key>pfm_macos_min</key>
-				<string>10.15.4</string>
-				<key>pfm_name</key>
-				<string>allowDeprecatedWebKitTLS</string>
-				<key>pfm_title</key>
-				<string>Allow accessing websites using TLS 1.0 and 1.1</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-				<key>pfm_name</key>
-				<string>allowGameCenter</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow Game Center</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_macos_min</key>
-				<string>10.13</string>
-				<key>pfm_name</key>
-				<string>allowAddingGameCenterFriends</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow adding Game Center friends</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to false, users can not share their passwords with the AirDrop Passwords feature. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14</string>
-				<key>pfm_name</key>
-				<string>allowPasswordSharing</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow password sharing</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to false, disables iBeacon discovery of AirPrint printers. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic. Defaults to true. Availability: Available in iOS 11.0 and later and macOS 10.13.</string>
-				<key>pfm_macos_min</key>
-				<string>10.13.0</string>
-				<key>pfm_name</key>
-				<string>allowAirPrintiBeaconDiscovery</string>
-				<key>pfm_note</key>
-				<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow discovery of AirPrint printers using iBeacons</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to true, requires trusted certificates for TLS printing communication. Defaults to false. Availability: Available in iOS 11.0 and later and macOS 10.13 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.13.0</string>
-				<key>pfm_name</key>
-				<string>forceAirPrintTrustedTLSRequirement</string>
-				<key>pfm_note</key>
-				<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Disallow AirPrint to destinations with untrusted certificates</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>If false, disables saving a screenshot of the display and capturing a screen recording. It also disables the Classroom app from observing remote screens. Available in iOS 4 and later, and macOS 10.14.4 and later. Also available for user enrollment.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>allowScreenShot</string>
-				<key>pfm_title</key>
-				<string>Allow screenshots and screen recording</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string></string>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowUIConfigurationProfileInstallation</string>
-				<key>pfm_title</key>
-				<string>Allow user installation of configuration profiles</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-				<key>pfm_supervised</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>If 'Allow Screenshots and Screen Recording' is set to 'false', it also overrides this preference and prevents the Classroom app from observing remote screens.</string>
-				<key>pfm_description_reference</key>
-				<string>If false, disables remote screen observation by the Classroom app. Nest this key beneath allowScreenShot as a subrestriction. If allowScreenShot is set to false, the Classroom app doesn't observe remote screens. Required a supervised device until iOS 13 and macOS 10.15. Available in iOS 12 and later, and macOS 10.14.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>allowRemoteScreenObservation</string>
-				<key>pfm_note</key>
-				<string>As of iOS 13 and macOS 10.15, this preference requires the device to be supervised.</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow AirPlay and View Screen by Classroom app</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string>If Allow screenshots and screen recording is set to 'false' or Allow AirPlay and View Screen by Classroom app, they also override this preference and prevents the Classroom app from unprompted remote AirPlay and view screens.
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, disables AirDrop.</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables AirDrop. Requires a supervised device. Available in iOS 7 and later, and macOS 10.13 and later.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowAirDrop</string>
+			<key>pfm_title</key>
+			<string>Allow AirDrop</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_macos_min</key>
+			<string>12.3</string>
+			<key>pfm_name</key>
+			<string>allowAirPlayIncomingRequests</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow incoming AirPlay requests</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to false, users will not be able to use the AutoFill Passwords feature on iOS and will not be prompted to use a saved password in Safari or in apps. If set to false, Automatic Strong Passwords will also be disabled and strong passwords will not be suggested to users. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14</string>
+			<key>pfm_name</key>
+			<string>allowPasswordAutoFill</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow password AutoFill</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, disallows macOS auto unlock. Defaults to true. Availability: Available only in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowAutoUnlock</string>
+			<key>pfm_title</key>
+			<string>Allow Apple Watch to auto unlock device</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, the camera is completely disabled and its icon is removed from the Home screen. Users are unable to take photographs. Availability: Available in iOS and in macOS 10.11 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.11</string>
+			<key>pfm_name</key>
+			<string>allowCamera</string>
+			<key>pfm_title</key>
+			<string>Allow Camera</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false this disallows content caching. Defaults to true. Introduced in macOS 10.13 but moved to the content caching domain in 10.13.4.</string>
+			<key>pfm_macos_deprecated</key>
+			<string>10.13.4</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowContentCaching</string>
+			<key>pfm_title</key>
+			<string>Allow Content Caching</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_macos_min</key>
+			<string>12</string>
+			<key>pfm_name</key>
+			<string>allowMailPrivacyProtection</string>
+			<key>pfm_title</key>
+			<string>Allow mail privacy protection</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to false to prevent sharing mouse and keyboard between a Mac and an iPad</string>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowUniversalControl</string>
+			<key>pfm_title</key>
+			<string>Allow Universal Control</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, iTunes application file sharing services are disabled. Availability: Available in macOS 10.13 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowiTunesFileSharing</string>
+			<key>pfm_title</key>
+			<string>Allow iTunes File Sharing</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables activity continuation. Available in iOS 8 and later, and macOS 10.15 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>allowActivityContinuation</string>
+			<key>pfm_title</key>
+			<string>Allow Handoff</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, prevents the device from automatically submitting diagnostic reports to Apple.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowDiagnosticSubmission</string>
+			<key>pfm_title</key>
+			<string>Allow submitting diagnostic and usage data to Apple</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, Music service is disabled and Music app reverts to classic mode. Defaults to true. Availability: Available in iOS 9.3 and later and macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowMusicService</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Apple Music</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS Back to My Mac iCloud service. Availability: Available in macOS 10.12 and 10.13.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudBTMM</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Back to My Mac</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Bookmark sync. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudBookmarks</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Bookmarks</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Calendar services. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudCalendar</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Calendar</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Address Book services. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudAddressBook</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Contacts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disables document and key-value syncing to iCloud. This key is deprecated on unsupervised devices. Availability: Available in iOS 5.0 and later and in macOS 10.11 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.11</string>
+			<key>pfm_name</key>
+			<string>allowCloudDocumentSync</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow iCloud Drive</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, disallows macOS cloud desktop and document services. Defaults to true. Availability: Available only in macOS 10.12.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12.4</string>
+			<key>pfm_name</key>
+			<string>allowCloudDesktopAndDocuments</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Desktop &amp; Documents</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS Find My Mac iCloud service. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudFMM</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Find My Mac</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disables iCloud keychain synchronization. Default is true. Availability: Available in iOS 7.0 and later and macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudKeychainSync</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Keychain</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS Mail iCloud services. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudMail</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Mail</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows macOS iCloud Notes services. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudNotes</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Notes</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, disables iCloud Photo Library. Any photos not fully downloaded from iCloud Photo Library to the device will be removed from local storage. Availability: Available in iOS 9.0 and later and in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudPhotoLibrary</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Photo Library</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disallows iCloud Reminder services. Availability: Available in macOS 10.12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowCloudReminders</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Reminders</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, prevents the use of iCloud Private Relay.</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>allowCloudPrivateRelay</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Private Relay</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, Spotlight will not return Internet search results. Availability: Available in iOS and in macOS 10.11 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.11</string>
+			<key>pfm_name</key>
+			<string>allowSpotlightInternetResults</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Siri Suggestions</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disables the "Erase All Content And Settings" option in the Reset UI.</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>allowEraseContentAndSettings</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Erase All Content and Settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If false, prevents Touch ID from unlocking a device. Availability: Available in iOS 7 and later and in macOS 10.12.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12.4</string>
+			<key>pfm_name</key>
+			<string>allowFingerprintForUnlock</string>
+			<key>pfm_title</key>
+			<string>Allow Touch ID / Face ID to unlock device</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disables definition lookup. Defaults to true. Availability: Available in iOS 8.1.3 and later and in macOS 10.11.2 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.11.2</string>
+			<key>pfm_name</key>
+			<string>allowDefinitionLookup</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow definition lookup</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Allow websites that use TLS 1.0 and TLS 1.1 to be accessed using Safari.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/10.20.0/jamf-pro/release-notes/What%27s_New.html</string>
+			<key>pfm_macos_min</key>
+			<string>10.15.4</string>
+			<key>pfm_name</key>
+			<string>allowDeprecatedWebKitTLS</string>
+			<key>pfm_title</key>
+			<string>Allow accessing websites using TLS 1.0 and 1.1</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowGameCenter</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Game Center</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowAddingGameCenterFriends</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow adding Game Center friends</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to false, users can not share their passwords with the AirDrop Passwords feature. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14</string>
+			<key>pfm_name</key>
+			<string>allowPasswordSharing</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow password sharing</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, disables iBeacon discovery of AirPrint printers. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic. Defaults to true. Availability: Available in iOS 11.0 and later and macOS 10.13.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.0</string>
+			<key>pfm_name</key>
+			<string>allowAirPrintiBeaconDiscovery</string>
+			<key>pfm_note</key>
+			<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow discovery of AirPrint printers using iBeacons</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to true, requires trusted certificates for TLS printing communication. Defaults to false. Availability: Available in iOS 11.0 and later and macOS 10.13 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.0</string>
+			<key>pfm_name</key>
+			<string>forceAirPrintTrustedTLSRequirement</string>
+			<key>pfm_note</key>
+			<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Disallow AirPrint to destinations with untrusted certificates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables saving a screenshot of the display and capturing a screen recording. It also disables the Classroom app from observing remote screens. Available in iOS 4 and later, and macOS 10.14.4 and later. Also available for user enrollment.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>allowScreenShot</string>
+			<key>pfm_title</key>
+			<string>Allow screenshots and screen recording</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowUIConfigurationProfileInstallation</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow user installation of configuration profiles</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'Allow Screenshots and Screen Recording' is set to 'false', it also overrides this preference and prevents the Classroom app from observing remote screens.</string>
+			<key>pfm_description_reference</key>
+			<string>If false, disables remote screen observation by the Classroom app. Nest this key beneath allowScreenShot as a subrestriction. If allowScreenShot is set to false, the Classroom app doesn't observe remote screens. Required a supervised device until iOS 13 and macOS 10.15. Available in iOS 12 and later, and macOS 10.14.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>allowRemoteScreenObservation</string>
+			<key>pfm_note</key>
+			<string>As of iOS 13 and macOS 10.15, this preference requires the device to be supervised.</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow AirPlay and View Screen by Classroom app</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If Allow screenshots and screen recording is set to 'false' or Allow AirPlay and View Screen by Classroom app, they also override this preference and prevents the Classroom app from unprompted remote AirPlay and view screens.
 
 Additionally, if set to true and ScreenObservationPermissionModificationAllowed is also true in the Education payload, a student enrolled in a managed course via the Classroom app will automatically give permission to that course's teacher's requests to observe the student's screen without prompting the student.</string>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to true, and ScreenObservationPermissionModificationAllowed is also true in the Education payload, a student enrolled in a managed course via the Classroom app will automatically give permission to that courseʼs teacher's requests to observe the student's screen without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_domain</key>
-								<string>com.apple.education</string>
-								<key>pfm_present</key>
-								<false/>
-								<key>pfm_target</key>
-								<string>ScreenObservationPermissionModificationAllowed</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>forceClassroomUnpromptedScreenObservation</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow Classroom app to perform AirPlay and View Screen without prompting</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to true, allow the teacher to lock apps or the device without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>forceClassroomUnpromptedAppAndDeviceLock</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow Classroom to lock apps or the device without prompting</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to true, automatically give permission to the teacherʼs requests without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>forceClassroomAutomaticallyJoinClasses</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Automatically join Classroom classes without prompting</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to true, a student enrolled in an unmanaged course via Classroom will request permission from the teacher when attempting to leave the course. Defaults to false. Availability: Available only in iOS 11.3 and macOS 10.14.4 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14.4</string>
-				<key>pfm_name</key>
-				<string>forceClassroomRequestPermissionToLeaveClasses</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Require teacher permission to leave Classroom app unmanaged classes</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowBluetoothModification</string>
-				<key>pfm_title</key>
-				<string>Allow modifying Bluetooth settings</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.14</string>
-				<key>pfm_name</key>
-				<string>allowPasswordProximityRequests</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow proximity based password sharing requests</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>Set to false to allow new USB accessories to connect to a Mac without authorization</string>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowUSBRestrictedMode</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow USB Restricted Mode</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>10.13.4</string>
-				<key>pfm_name</key>
-				<string>forceDelayedSoftwareUpdates</string>
-				<key>pfm_note</key>
-				<string>The delay is 30 days unless enforcedSoftwareUpdateDelay is set to another value.</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Defer OS Software Updates</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>Set to false to prevent the installation of rapid security responses</string>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowRapidSecurityResponseInstallation</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow rapid security response installation</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_description</key>
-				<string>Set to false to prevent the removal of rapid security responses</string>
-				<key>pfm_macos_min</key>
-				<string>13.0</string>
-				<key>pfm_name</key>
-				<string>allowRapidSecurityResponseRemoval</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Allow rapid security response removal</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>30</integer>
-				<key>pfm_description</key>
-				<string>Number of days minor software updates will be hidden from the user.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_n_range_list</key>
-								<array>
-									<true/>
-								</array>
-								<key>pfm_target</key>
-								<string>forceDelayedSoftwareUpdates</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>11.3</string>
-				<key>pfm_name</key>
-				<string>enforcedSoftwareUpdateMinorOSDeferredInstallDelay</string>
-				<key>pfm_range_max</key>
-				<integer>90</integer>
-				<key>pfm_range_min</key>
-				<integer>1</integer>
-				<key>pfm_title</key>
-				<string>Deferred Minor Software Updates Delay</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_value_unit</key>
-				<string>days</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string>If true, delays user visibility of non-OS Software Updates. Requires a supervised device.</string>
-				<key>pfm_description_reference</key>
-				<string>If true, delays user visibility of non-OS Software Updates. Requires a supervised device.
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to true, and ScreenObservationPermissionModificationAllowed is also true in the Education payload, a student enrolled in a managed course via the Classroom app will automatically give permission to that courseʼs teacher's requests to observe the student's screen without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_domain</key>
+							<string>com.apple.education</string>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ScreenObservationPermissionModificationAllowed</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>forceClassroomUnpromptedScreenObservation</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Classroom app to perform AirPlay and View Screen without prompting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to true, allow the teacher to lock apps or the device without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>forceClassroomUnpromptedAppAndDeviceLock</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Classroom to lock apps or the device without prompting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to true, automatically give permission to the teacherʼs requests without prompting the student. Defaults to false. Availability: Available only in iOS 11.0 and macOS 10.14.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>forceClassroomAutomaticallyJoinClasses</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Automatically join Classroom classes without prompting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to true, a student enrolled in an unmanaged course via Classroom will request permission from the teacher when attempting to leave the course. Defaults to false. Availability: Available only in iOS 11.3 and macOS 10.14.4 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14.4</string>
+			<key>pfm_name</key>
+			<string>forceClassroomRequestPermissionToLeaveClasses</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Require teacher permission to leave Classroom app unmanaged classes</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowBluetoothModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Bluetooth settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14</string>
+			<key>pfm_name</key>
+			<string>allowPasswordProximityRequests</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow proximity based password sharing requests</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to false to allow new USB accessories to connect to a Mac without authorization</string>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowUSBRestrictedMode</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow USB Restricted Mode</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13.4</string>
+			<key>pfm_name</key>
+			<string>forceDelayedSoftwareUpdates</string>
+			<key>pfm_note</key>
+			<string>The delay is 30 days unless enforcedSoftwareUpdateDelay is set to another value.</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Defer OS Software Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to false to prevent the installation of rapid security responses</string>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowRapidSecurityResponseInstallation</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow rapid security response installation</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to false to prevent the removal of rapid security responses</string>
+			<key>pfm_macos_min</key>
+			<string>13.0</string>
+			<key>pfm_name</key>
+			<string>allowRapidSecurityResponseRemoval</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow rapid security response removal</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description</key>
+			<string>Number of days minor software updates will be hidden from the user.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedSoftwareUpdates</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>enforcedSoftwareUpdateMinorOSDeferredInstallDelay</string>
+			<key>pfm_range_max</key>
+			<integer>90</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Deferred Minor Software Updates Delay</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If true, delays user visibility of non-OS Software Updates. Requires a supervised device.</string>
+			<key>pfm_description_reference</key>
+			<string>If true, delays user visibility of non-OS Software Updates. Requires a supervised device.
 Visibility of Operating System updates is controlled through forceDelayedSoftwareUpdates.
 
 The delay is 30 days unless enforcedSoftwareUpdateDelay is set to another value.
 
 Available in macOS 11 and later.</string>
-				<key>pfm_macos_min</key>
-				<string>11.0</string>
-				<key>pfm_name</key>
-				<string>forceDelayedAppSoftwareUpdates</string>
-				<key>pfm_note</key>
-				<string>The delay is 30 days unless enforcedSoftwareUpdateDelay is set to another value.</string>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Defer non-OS Software Updates</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>30</integer>
-				<key>pfm_description</key>
-				<string>Number of days the software updates will be hidden from the user.</string>
-				<key>pfm_description_reference</key>
-				<string>Supervised only. This restriction allows the admin to set how many days a software update on the device will be delayed. With this restriction in place, the user will not see a software update until the specified number of days after the software update release date. The max is 90 days and the default value is 30. Availability: Available in iOS 11.3 and later and macOS 10.13.4 and later.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_n_range_list</key>
-								<array>
-									<true/>
-								</array>
-								<key>pfm_target</key>
-								<string>forceDelayedSoftwareUpdates</string>
-							</dict>
-							<dict>
-								<key>pfm_n_range_list</key>
-								<array>
-									<true/>
-								</array>
-								<key>pfm_target</key>
-								<string>forceDelayedAppSoftwareUpdates</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>10.13.4</string>
-				<key>pfm_name</key>
-				<string>enforcedSoftwareUpdateDelay</string>
-				<key>pfm_range_max</key>
-				<integer>90</integer>
-				<key>pfm_range_min</key>
-				<integer>1</integer>
-				<key>pfm_supervised</key>
-				<true/>
-				<key>pfm_title</key>
-				<string>Deferred Software Updates Delay</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_value_unit</key>
-				<string>days</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>30</integer>
-				<key>pfm_description</key>
-				<string>Number of days non-OS software updates will be hidden from the user.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_n_range_list</key>
-								<array>
-									<true/>
-								</array>
-								<key>pfm_target</key>
-								<string>forceDelayedAppSoftwareUpdates</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>11.3</string>
-				<key>pfm_name</key>
-				<string>enforcedSoftwareUpdateNonOSDeferredInstallDelay</string>
-				<key>pfm_range_max</key>
-				<integer>90</integer>
-				<key>pfm_range_min</key>
-				<integer>1</integer>
-				<key>pfm_title</key>
-				<string>Deferred non-OS Software Updates Delay</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_value_unit</key>
-				<string>days</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<false/>
-				<key>pfm_description</key>
-				<string/>
-				<key>pfm_macos_min</key>
-				<string>11.3</string>
-				<key>pfm_name</key>
-				<string>forceDelayedMajorSoftwareUpdates</string>
-				<key>pfm_note</key>
-				<string>The delay is 30 days unless enforcedSoftwareUpdateMajorOSDeferredInstallDelay is set to another value.</string>
-				<key>pfm_title</key>
-				<string>Defer Major OS Software Updates</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>30</integer>
-				<key>pfm_description</key>
-				<string>Number of days major software updates will be hidden from the user.</string>
-				<key>pfm_exclude</key>
-				<array>
-					<dict>
-						<key>pfm_target_conditions</key>
-						<array>
-							<dict>
-								<key>pfm_n_range_list</key>
-								<array>
-									<true/>
-								</array>
-								<key>pfm_target</key>
-								<string>forceDelayedMajorSoftwareUpdates</string>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>pfm_macos_min</key>
-				<string>11.3</string>
-				<key>pfm_name</key>
-				<string>enforcedSoftwareUpdateMajorOSDeferredInstallDelay</string>
-				<key>pfm_range_max</key>
-				<integer>90</integer>
-				<key>pfm_range_min</key>
-				<integer>1</integer>
-				<key>pfm_title</key>
-				<string>Deferred Major Software Updates Delay</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_value_unit</key>
-				<string>days</string>
-			</dict>
-			<dict>
-				<key>pfm_default</key>
-				<integer>172800</integer>
-				<key>pfm_description</key>
-				<string>Period of time in seconds after which the device will require entry of password or passcode to unlock.</string>
-				<key>pfm_macos_min</key>
-				<string>12.0</string>
-				<key>pfm_name</key>
-				<string>enforcedFingerprintTimeout</string>
-				<key>pfm_title</key>
-				<string>Enforced Fingerprint Timeout</string>
-				<key>pfm_type</key>
-				<string>integer</string>
-				<key>pfm_value_unit</key>
-				<string>seconds</string>
-			</dict>
-		</array>
-		<key>pfm_targets</key>
-		<array>
-			<string>system</string>
-			<string>user</string>
-		</array>
-		<key>pfm_title</key>
-		<string>Restrictions (macOS)</string>
-		<key>pfm_unique</key>
-		<true/>
-		<key>pfm_version</key>
-		<integer>12</integer>
-	</dict>
+			<key>pfm_macos_min</key>
+			<string>11.0</string>
+			<key>pfm_name</key>
+			<string>forceDelayedAppSoftwareUpdates</string>
+			<key>pfm_note</key>
+			<string>The delay is 30 days unless enforcedSoftwareUpdateDelay is set to another value.</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Defer non-OS Software Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description</key>
+			<string>Number of days the software updates will be hidden from the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. This restriction allows the admin to set how many days a software update on the device will be delayed. With this restriction in place, the user will not see a software update until the specified number of days after the software update release date. The max is 90 days and the default value is 30. Availability: Available in iOS 11.3 and later and macOS 10.13.4 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedSoftwareUpdates</string>
+						</dict>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedAppSoftwareUpdates</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>10.13.4</string>
+			<key>pfm_name</key>
+			<string>enforcedSoftwareUpdateDelay</string>
+			<key>pfm_range_max</key>
+			<integer>90</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Deferred Software Updates Delay</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description</key>
+			<string>Number of days non-OS software updates will be hidden from the user.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedAppSoftwareUpdates</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>enforcedSoftwareUpdateNonOSDeferredInstallDelay</string>
+			<key>pfm_range_max</key>
+			<integer>90</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Deferred non-OS Software Updates Delay</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>forceDelayedMajorSoftwareUpdates</string>
+			<key>pfm_note</key>
+			<string>The delay is 30 days unless enforcedSoftwareUpdateMajorOSDeferredInstallDelay is set to another value.</string>
+			<key>pfm_title</key>
+			<string>Defer Major OS Software Updates</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description</key>
+			<string>Number of days major software updates will be hidden from the user.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedMajorSoftwareUpdates</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_macos_min</key>
+			<string>11.3</string>
+			<key>pfm_name</key>
+			<string>enforcedSoftwareUpdateMajorOSDeferredInstallDelay</string>
+			<key>pfm_range_max</key>
+			<integer>90</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Deferred Major Software Updates Delay</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>days</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>172800</integer>
+			<key>pfm_description</key>
+			<string>Period of time in seconds after which the device will require entry of password or passcode to unlock.</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>enforcedFingerprintTimeout</string>
+			<key>pfm_title</key>
+			<string>Enforced Fingerprint Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>seconds</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Restrictions (macOS)</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>12</integer>
+</dict>
 </plist>
