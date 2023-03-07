@@ -2,32 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pfm_app_url</key>
+	<string>https://go.ncsu.edu/confboard</string>
 	<key>pfm_description</key>
-	<string>DNS Proxy settings</string>
+	<string>ConfBoard Settings</string>
 	<key>pfm_documentation_url</key>
-	<string>https://developer.apple.com/documentation/devicemanagement/dnsproxy</string>
+	<string>https://go.ncsu.edu/confboard</string>
 	<key>pfm_domain</key>
-	<string>com.apple.dnsProxy.managed</string>
+	<string>edu.ncsu.confboard</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_interaction</key>
-	<string>combined</string>
-	<key>pfm_ios_min</key>
-	<string>11.0</string>
+	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2022-11-02T09:42:39Z</date>
+	<date>2022-09-01T15:08:44Z</date>
 	<key>pfm_macos_min</key>
-	<string>10.15</string>
+	<string>12.0</string>
 	<key>pfm_platforms</key>
 	<array>
-		<string>iOS</string>
 		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures DNS Proxy settings</string>
+			<string>Configures ConfBoard configuration preferences</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -41,7 +40,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>DNS Proxy</string>
+			<string>ConfBoard</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -57,9 +56,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.dnsProxy.managed</string>
+			<string>edu.ncsu.confboard</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -73,7 +72,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.dnsProxy.managed</string>
+			<string>edu.ncsu.confboard</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -88,10 +87,8 @@
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -124,10 +121,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -136,77 +130,136 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>https://storage.googleapis.com/confboard</string>
 			<key>pfm_description</key>
-			<string>Bundle ID of the app containing the DNS proxy network extension.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. Bundle identifer of the app containing the DNS proxy network extension.</string>
+			<string>The base URL to the folder containing the images.txt file or JSON information. Do NOT include trailing backslash.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.b53vj55iw28d</string>
+			<key>pfm_format</key>
+			<string>^https://.*[^/]$</string>
 			<key>pfm_name</key>
-			<string>AppBundleIdentifier</string>
-			<key>pfm_require</key>
-			<string>always</string>
+			<string>baseURL</string>
 			<key>pfm_title</key>
-			<string>App Bundle ID</string>
+			<string>URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Bundle ID of the DNS proxy network extension to use.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Bundle identifier of the DNS proxy network extension to use. Useful for apps that contain more than one DNS proxy extension.</string>
+			<string>Base URL is a JSON file or feed not text list of URIs.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.as2mra9pviie</string>
 			<key>pfm_name</key>
-			<string>ProviderBundleIdentifier</string>
+			<string>shouldUseJSON</string>
 			<key>pfm_title</key>
-			<string>Provider Bundle ID</string>
+			<string>Use ConfBoard JSON data file</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Show name of device on screen</string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.8bfb1vc4d0zo</string>
+			<key>pfm_name</key>
+			<string>shouldDisplayName</string>
+			<key>pfm_title</key>
+			<string>Display Device Name</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>String to be added after the baseURL.  Using images.txt this adds after the baseURL and before images.txt.  Using JSON this adds after the baseURL. Can be used to specify a folder on web server with different images.txt or as ? parameter string for JSON feed. </string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.8tq6r5jg8sne</string>
+			<key>pfm_name</key>
+			<string>groupLabel</string>
+			<key>pfm_title</key>
+			<string>Group Label</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_allowed_file_types</key>
+			<key>pfm_default</key>
+			<integer>720</integer>
+			<key>pfm_description</key>
+			<string>Time between reloading the list of image links</string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.97mek2dcu8c</string>
+			<key>pfm_name</key>
+			<string>reloadContentTimer</string>
+			<key>pfm_range_list</key>
 			<array>
-				<string>com.apple.property-list</string>
+				<integer>30</integer>
+				<integer>60</integer>
+				<integer>120</integer>
+				<integer>240</integer>
+				<integer>480</integer>
+				<integer>720</integer>
+				<integer>1440</integer>
 			</array>
-			<key>pfm_description</key>
-			<string>A plist formatted dictionary of custom options.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Dictionary of vendor-specific configuration items.</string>
-			<key>pfm_name</key>
-			<string>ProviderConfiguration</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>30 Minutes</string>
+				<string>1 Hour</string>
+				<string>2 Hours</string>
+				<string>4 Hours</string>
+				<string>8 Hours</string>
+				<string>12 Hours</string>
+				<string>24 Hours</string>
+			</array>
 			<key>pfm_title</key>
-			<string>Provider Custom Configuration</string>
+			<string>Reload Image List Time</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
-			<key>pfm_type_input</key>
-			<string>data</string>
-			<key>pfm_value_processor</key>
-			<string>plist2dict</string>
+			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>10</integer>
 			<key>pfm_description</key>
-			<string>Global identifier of the proxy configuration in this payload. Used for processing DNS requests of managed apps with an identical attribute by the proxy.</string>
-			<key>pfm_ios_min</key>
-			<string>16.0</string>
+			<string>Time each image will stay on screen.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://go.ncsu.edu/confboard#h.wzrbt7u86mlv</string>
 			<key>pfm_name</key>
-			<string>DNSProxyUUID</string>
-			<key>pfm_platforms</key>
+			<string>rotateImageTimer</string>
+			<key>pfm_range_list</key>
 			<array>
-				<string>iOS</string>
+				<integer>10</integer>
+				<integer>30</integer>
+				<integer>60</integer>
+				<integer>120</integer>
+				<integer>300</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>10 Seconds</string>
+				<string>30 Seconds</string>
+				<string>1 Minute</string>
+				<string>2 Minutes</string>
+				<string>5 Minutes</string>
 			</array>
 			<key>pfm_title</key>
-			<string>DNS Proxy UUID</string>
+			<string>Image Rotation Time</string>
 			<key>pfm_type</key>
-			<string>string</string>
+			<string>integer</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
+		<string>user</string>
 		<string>system</string>
 	</array>
 	<key>pfm_title</key>
-	<string>DNS Proxy</string>
+	<string>ConfBoard</string>
 	<key>pfm_unique</key>
-	<false/>
+	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>
