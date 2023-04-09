@@ -710,7 +710,7 @@ Note that if Google Chrome is running in 'background mode', the session may not 
 
 See also policies 'CookiesAllowedForUrls' and 'CookiesBlockedForUrls'. Note that there must be no conflicting URL patterns between these three policies - it is unspecified which policy takes precedence.
 
-If the &quot;RestoreOnStartup&quot; policy is set to restore URLs from previous sessions this policy will not be respected and cookies will be stored permanently for those sites.</string>
+If the "RestoreOnStartup" policy is set to restore URLs from previous sessions this policy will not be respected and cookies will be stored permanently for those sites.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CookiesSessionOnlyForUrls</string>
 			<key>pfm_name</key>
@@ -1076,7 +1076,7 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_description</key>
 			<string>Allows you to revert all cookies to legacy SameSite behavior.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were &quot;SameSite=None&quot;, and removes the requirement for &quot;SameSite=None&quot; cookies to carry the &quot;Secure&quot; attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
+			<string>Allows you to revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
 
 When this policy is not set, the default SameSite behavior for cookies that don't specify a SameSite attribute will depend on the user's personal configuration for the SameSite-by-default feature, which may be set by a field trial or by enabling or disabling the flag same-site-by-default-cookies flag.
 
@@ -1109,7 +1109,7 @@ When this policy is not set, the default SameSite behavior for cookies that don'
 			<key>pfm_description</key>
 			<string>Cookies set for domains matching these patterns will revert to legacy SameSite behavior. For cookies on domains not covered by the patterns specified here, or for all cookies if this policy is not set, the global default value will be used either from the LegacySameSiteCookieBehaviorEnabled policy, if it is set, or the user's personal configuration otherwise.</string>
 			<key>pfm_description_reference</key>
-			<string>Cookies set for domains matching these patterns will revert to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were &quot;SameSite=None&quot;, and removes the requirement for &quot;SameSite=None&quot; cookies to carry the &quot;Secure&quot; attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
+			<string>Cookies set for domains matching these patterns will revert to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute. See https://www.chromium.org/administrators/policy-list-3/cookie-legacy-samesite-policies for full description.
 
 For cookies on domains not covered by the patterns specified here, or for all cookies if this policy is not set, the global default value will be used either from the LegacySameSiteCookieBehaviorEnabled policy, if it is set, or the user's personal configuration otherwise.
 
@@ -1418,7 +1418,7 @@ If this policy is left not set the global default value will be used for all sit
 			<key>pfm_description_reference</key>
 			<string>Allows you to specify a list of url patterns that specify sites for which Google Chrome should automatically select a client certificate, if the site requests a certificate.
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { &quot;pattern&quot;: &quot;$URL_PATTERN&quot;, &quot;filter&quot; : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { &quot;ISSUER&quot;: { &quot;CN&quot;: &quot;$ISSUER_CN&quot; } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
 
 If this policy is left not set, no auto-selection will be done for any site.</string>
 			<key>pfm_documentation_url</key>
@@ -1426,14 +1426,14 @@ If this policy is left not set, no auto-selection will be done for any site.</st
 			<key>pfm_name</key>
 			<string>AutoSelectCertificateForUrls</string>
 			<key>pfm_note</key>
-			<string>The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { &quot;pattern&quot;: &quot;$URL_PATTERN&quot;, &quot;filter&quot; : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { &quot;ISSUER&quot;: { &quot;CN&quot;: &quot;$ISSUER_CN&quot; } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.</string>
+			<string>The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. If $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_value_placeholder</key>
-					<string>{&quot;pattern&quot;:&quot;https://www.example.com&quot;,&quot;filter&quot;:{&quot;ISSUER&quot;:{&quot;CN&quot;:&quot;certificate issuer name&quot;, &quot;L&quot;: &quot;certificate issuer location&quot;, &quot;O&quot;: &quot;certificate issuer org&quot;, &quot;OU&quot;: &quot;certificate issuer org unit&quot;}, &quot;SUBJECT&quot;:{&quot;CN&quot;:&quot;certificate subject name&quot;, &quot;L&quot;: &quot;certificate subject location&quot;, &quot;O&quot;: &quot;certificate subject org&quot;, &quot;OU&quot;: &quot;certificate subject org unit&quot;}}}</string>
+					<string>{"pattern":"https://www.example.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
@@ -1972,7 +1972,7 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 			<key>pfm_description_reference</key>
 			<string>Controls which app/extension types are allowed to be installed and limits runtime access.
 
-This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: &quot;extension&quot;, &quot;theme&quot;, &quot;user_script&quot;, &quot;hosted_app&quot;, &quot;legacy_packaged_app&quot;, &quot;platform_app&quot;. See the Google Chrome extensions documentation for more information on these types.
+This setting white-lists the allowed types of extension/apps that can be installed in Google Chrome and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", "hosted_app", "legacy_packaged_app", "platform_app". See the Google Chrome extensions documentation for more information on these types.
 
 Note that this policy also affects extensions and apps to be force-installed via ExtensionInstallForcelist.
 
@@ -2228,9 +2228,9 @@ For Windows instances that are not joined to a Microsoft® Active Directory® do
 
 Note that the source code of any extension may be altered by users via Developer Tools (potentially rendering the extension dysfunctional). If this is a concern, the DeveloperToolsDisabled policy should be set.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, an &quot;update&quot; URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The &quot;update&quot; URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is &quot;https://clients2.google.com/service/update2/crx&quot;). Note that the &quot;update&quot; URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the &quot;update&quot; URL explicitly was mandatory in Google Chrome versions up to and including 67.
+Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found e.g. on chrome://extensions when in developer mode. The "update" URL, if specified, should point to an Update Manifest XML document as described at https://developer.chrome.com/extensions/autoupdate. By default, the Chrome Web Store's update URL is used (which currently is "https://clients2.google.com/service/update2/crx"). Note that the "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension employ the update URL indicated in the extension's manifest. Note also that specifying the "update" URL explicitly was mandatory in Google Chrome versions up to and including 67.
 
-For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store &quot;update&quot; URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
+For example, gbchcmhmhahfdphkhkmpfmihenigjmpp;https://clients2.google.com/service/update2/crx installs the Chrome Remote Desktop app from the standard Chrome Web Store "update" URL. For more information about hosting extensions, see: https://developer.chrome.com/extensions/hosting.
 
 If this policy is left not set, no apps or extensions are installed automatically and the user can uninstall any app or extension in Google Chrome.</string>
 			<key>pfm_documentation_url</key>
@@ -2255,13 +2255,13 @@ If this policy is left not set, no apps or extensions are installed automaticall
 			<key>pfm_app_min</key>
 			<string>62</string>
 			<key>pfm_description</key>
-			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID &quot;*&quot;</string>
+			<string>Configures extension management settings for Google Chrome. A default configuration can be set for the special ID "*"</string>
 			<key>pfm_description_reference</key>
 			<string>Configures extension management settings for Google Chrome.
 
 This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy will override any legacy policies if both are set.
 
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID &quot;*&quot;, which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, configuration will be applied to the specified extension only. A default configuration can be set for the special ID "*", which will apply to all extensions that don't have a custom configuration set in this policy. With an update URL, configuration will be applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://developer.chrome.com/extensions/autoupdate.
 
 For a full description of possible settings and structure of this policy please visit https://www.chromium.org/administrators/policy-list-3/extension-settings-full</string>
 			<key>pfm_documentation_url</key>
@@ -2497,7 +2497,7 @@ For a full description of possible settings and structure of this policy please 
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in &quot;runtime_blocked_hosts&quot;.</string>
+							<string>Maps to a list of strings representing hosts that an extension can interact with regardless of whether they are listed in "runtime_blocked_hosts".</string>
 							<key>pfm_description_reference</key>
 							<string></string>
 							<key>pfm_name</key>
@@ -2606,7 +2606,7 @@ If this policy set to false, Google Cast will be disabled.</string>
 
 If this policy is set to false or is not set, users will be able to pin or remove the icon via its contextual menu.
 
-If the policy &quot;EnableMediaRouter&quot; is set to false, then this policy's value would have no effect, and the toolbar icon would not be shown.</string>
+If the policy "EnableMediaRouter" is set to false, then this policy's value would have no effect, and the toolbar icon would not be shown.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowCastIconInToolbar</string>
 			<key>pfm_name</key>
@@ -3661,7 +3661,7 @@ If you enable this setting or do not set a value, AutoFill will remain under the
 			<key>pfm_description</key>
 			<string>Define a list of protocols that can launch an external application from listed origins without prompting the user. If this policy is set, a protocol will only be permitted to launch an external application without prompting by policy if the protocol is listed, and the origin of the site trying to launch the protocol matches one of the origin patterns in that protocol's allowed_origins list.</string>
 			<key>pfm_description_reference</key>
-			<string>Allows you to set a list of protocols, and for each protocol an associated list of allowed origin patterns, that can launch an external application without prompting the user. The trailing separator should not be included when listing the protocol, so list &quot;skype&quot; instead of &quot;skype:&quot; or &quot;skype://&quot;.
+			<string>Allows you to set a list of protocols, and for each protocol an associated list of allowed origin patterns, that can launch an external application without prompting the user. The trailing separator should not be included when listing the protocol, so list "skype" instead of "skype:" or "skype://".
 
 If this policy is set, a protocol will only be permitted to launch an external application without prompting by policy if the protocol is listed, and the origin of the site trying to launch the protocol matches one of the origin patterns in that protocol's allowed_origins list. If either condition is false the external protocol launch prompt will not be omitted by policy.
 
@@ -3669,7 +3669,7 @@ If this policy is not set, no protocols can launch without a prompt by default. 
 
 The origin matching patterns use a similar format to those for the 'URLBlacklist' policy, which are documented at http://www.chromium.org/administrators/url-blacklist-filter-format.
 
-However, origin matching patterns for this policy cannot contain &quot;/path&quot; or &quot;@query&quot; elements. Any pattern that does contain a &quot;/path&quot; or &quot;@query&quot; element will be ignored.</string>
+However, origin matching patterns for this policy cannot contain "/path" or "@query" elements. Any pattern that does contain a "/path" or "@query" element will be ignored.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoLaunchProtocolsFromOrigins</string>
 			<key>pfm_name</key>
@@ -3764,7 +3764,7 @@ A URL pattern has to be formatted according to https://www.chromium.org/administ
 			<key>pfm_description</key>
 			<string>List of file types that should be automatically opened on download.</string>
 			<key>pfm_description_reference</key>
-			<string>List of file types that should be automatically opened on download. The leading separator should not be included when listing the file type, so list &quot;txt&quot; instead of &quot;.txt&quot;.
+			<string>List of file types that should be automatically opened on download. The leading separator should not be included when listing the file type, so list "txt" instead of ".txt".
 
 Files with types that should be automatically opened will still be subject to the enabled safe browsing checks and won't be opened if they fail those checks.
 
@@ -3776,7 +3776,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 			<key>pfm_name</key>
 			<string>AutoOpenFileTypes</string>
 			<key>pfm_note</key>
-			<string>The leading separator should not be included when listing the file type, so list &quot;txt&quot; instead of &quot;.txt&quot;</string>
+			<string>The leading separator should not be included when listing the file type, so list "txt" instead of ".txt"</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -3947,11 +3947,11 @@ If this policy is set to disabled or not set or browser guest mode is disabled b
 			<key>pfm_description_reference</key>
 			<string>This policy controls the sign-in behavior of the browser. It allows you to specify if the user can sign in to Google Chrome with their account and use account related services like Chrome sync.
 
-If the policy is set to &quot;Disable browser sign-in&quot; then the user can not sign in to the browser and use account based services. In this case browser level features like Chrome sync can not be used and will be unavailable. If the user was signed in and the policy is set &quot;Disabled&quot; they will be signed out the next time they run Chrome but their local profile data like bookmarks, passwords etc. will stay preserved. The user will still be able to sign into and use Google web services like Gmail.
+If the policy is set to "Disable browser sign-in" then the user can not sign in to the browser and use account based services. In this case browser level features like Chrome sync can not be used and will be unavailable. If the user was signed in and the policy is set "Disabled" they will be signed out the next time they run Chrome but their local profile data like bookmarks, passwords etc. will stay preserved. The user will still be able to sign into and use Google web services like Gmail.
 
-If the policy is set to &quot;Enable browser sign-in,&quot; then the user is allowed to sign in to the browser and is automatically signed in to the browser when signed in to Google web services like Gmail. Being signed in to the browser means the user's account information will be kept by the browser. However, it does not mean that Chrome sync will be turned on per default; the user must separately opt-in to use this feature. Enabling this policy will prevent the user from turning off the setting that allows browser sign-in. To control the availability of Chrome sync, use the &quot;SyncDisabled&quot; policy.
+If the policy is set to "Enable browser sign-in," then the user is allowed to sign in to the browser and is automatically signed in to the browser when signed in to Google web services like Gmail. Being signed in to the browser means the user's account information will be kept by the browser. However, it does not mean that Chrome sync will be turned on per default; the user must separately opt-in to use this feature. Enabling this policy will prevent the user from turning off the setting that allows browser sign-in. To control the availability of Chrome sync, use the "SyncDisabled" policy.
 
-If the policy is set to &quot;Force browser sign-in&quot; the user is presented with an account selection dialog and has to choose and sign in to an account to use the browser. This ensures that for managed accounts the policies associated with the account are applied and enforced. By default this turns on Chrome sync for the account, except for the case when sync was disabled by the domain admin or via the &quot;SyncDisabled&quot; policy. The default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article: https://support.google.com/chrome/a/answer/7572556.
+If the policy is set to "Force browser sign-in" the user is presented with an account selection dialog and has to choose and sign in to an account to use the browser. This ensures that for managed accounts the policies associated with the account are applied and enforced. By default this turns on Chrome sync for the account, except for the case when sync was disabled by the domain admin or via the "SyncDisabled" policy. The default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article: https://support.google.com/chrome/a/answer/7572556.
 
 If this policy is not set then the user can decide if they want to enable the browser sign in option and use it as they see fit.
 
@@ -4042,7 +4042,7 @@ In order for Certificate Transparency enforcement to be disabled when this polic
 2. The hash is of a subjectPublicKeyInfo that appears in a CA certificate in the certificate chain, that CA certificate is constrained via the X.509v3 nameConstraints extension, one or more directoryName nameConstraints are present in the permittedSubtrees, and the directoryName contains an organizationName attribute.
 3. The hash is of a subjectPublicKeyInfo that appears in a CA certificate in the certificate chain, the CA certificate has one or more organizationName attributes in the certificate Subject, and the server's certificate contains the same number of organizationName attributes, in the same order, and with byte-for-byte identical values.
 
-A subjectPublicKeyInfo hash is specified by concatenating the hash algorithm name, the &quot;/&quot; character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is &quot;sha256&quot;.
+A subjectPublicKeyInfo hash is specified by concatenating the hash algorithm name, the "/" character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is "sha256".
 
 If this policy is not set, any certificate that is required to be disclosed via Certificate Transparency will be treated as untrusted if it is not disclosed according to the Certificate Transparency policy.</string>
 			<key>pfm_documentation_url</key>
@@ -4075,7 +4075,7 @@ This policy allows disabling Certificate Transparency disclosure requirements fo
 
 In order for Certificate Transparency enforcement to be disabled when this policy is set, the hash must be of a subjectPublicKeyInfo appearing in a CA certificate that is recognized as a Legacy Certificate Authority (CA). A Legacy CA is a CA that has been publicly trusted by default one or more operating systems supported by Google Chrome, but is not trusted by the Android Open Source Project or Google Chrome OS.
 
-A subjectPublicKeyInfo hash is specified by concatenating the hash algorithm name, the &quot;/&quot; character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is &quot;sha256&quot;.
+A subjectPublicKeyInfo hash is specified by concatenating the hash algorithm name, the "/" character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is "sha256".
 
 If this policy is not set, any certificate that is required to be disclosed via Certificate Transparency will be treated as untrusted if it is not disclosed according to the Certificate Transparency policy.</string>
 			<key>pfm_documentation_url</key>
@@ -4628,7 +4628,7 @@ If you enable this setting, the specified list of plugins can be used in Google 
 
 This policy is meant to allow for strict plugin blacklisting where the 'DisabledPlugins' list contains wildcarded entries like disable all plugins '*' or disable all Java plugins '*Java*' but the administrator wishes to enable some particular version like 'IcedTea Java 2.3'. This particular versions can be specified in this policy.
 
-Note that both the plugin name and the plugin's group name have to be exempted. Each plugin group is shown in a separate section in about:plugins; each section may have one or more plugins. For example, the &quot;Shockwave Flash&quot; plugin belongs to the &quot;Adobe Flash Player&quot; group, and both names have to have a match in the exceptions list if that plugin is to be exempted from the blacklist.
+Note that both the plugin name and the plugin's group name have to be exempted. Each plugin group is shown in a separate section in about:plugins; each section may have one or more plugins. For example, the "Shockwave Flash" plugin belongs to the "Adobe Flash Player" group, and both names have to have a match in the exceptions list if that plugin is to be exempted from the blacklist.
 
 If this policy is left not set any plugin that matches the patterns in the 'DisabledPlugins' will be locked disabled and the user won't be able to enable them.</string>
 			<key>pfm_documentation_url</key>
@@ -4774,9 +4774,9 @@ For detailed information on valid url patterns, please see https://cloud.google.
 			<key>pfm_description_reference</key>
 			<string>The URI template of the desired DNS-over-HTTPS resolver. To specify multiple DNS-over-HTTPS resolvers, separate the corresponding URI templates with spaces.
 
-If the DnsOverHttpsMode is set to &quot;secure&quot; then this policy must be set and not empty.
+If the DnsOverHttpsMode is set to "secure" then this policy must be set and not empty.
 
-If the DnsOverHttpsMode is set to &quot;automatic&quot; and this policy is set then the URI templates specified will be used; if this policy is unset then hardcoded mappings will be used to attempt to upgrade the user's current DNS resolver to a DoH resolver operated by the same provider.
+If the DnsOverHttpsMode is set to "automatic" and this policy is set then the URI templates specified will be used; if this policy is unset then hardcoded mappings will be used to attempt to upgrade the user's current DNS resolver to a DoH resolver operated by the same provider.
 
 If the URI template contains a dns variable, requests to the resolver will use GET; otherwise requests will use POST.
 
@@ -5041,7 +5041,7 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<key>pfm_description_reference</key>
 			<string>This policy controls checking URLs in real time to identify unsafe URLs.
 
-If this policy is left not set or set to ‘Disabled', the consumer Safe Browsing checks will be applied. Consumer Safe Browsing checks can still include real time lookups, depending on the value of the &quot;Make searches and browsing better&quot; setting and the value of the UrlKeyedAnonymizedDataCollectionEnabled policy.
+If this policy is left not set or set to ‘Disabled', the consumer Safe Browsing checks will be applied. Consumer Safe Browsing checks can still include real time lookups, depending on the value of the "Make searches and browsing better" setting and the value of the UrlKeyedAnonymizedDataCollectionEnabled policy.
 
 If this policy is set to ‘Enabled', URLs will be sent to be scanned in real time under enterprise ToS. It will result in Chrome sending URLs to Google Cloud or third parties of your choosing to check them in real time. The consumer version of Safe Browsing real time lookup will be switched off.
 
@@ -5076,19 +5076,19 @@ This policy can only be set from the Google Admin console.
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Show an &quot;Always open&quot; checkbox in external protocol dialog.</string>
+			<string>Show an "Always open" checkbox in external protocol dialog.</string>
 			<key>pfm_description_reference</key>
-			<string>This policy controls whether or not the &quot;Always open&quot; checkbox is shown on external protocol launch confirmation prompts.
+			<string>This policy controls whether or not the "Always open" checkbox is shown on external protocol launch confirmation prompts.
 
-If this policy is set to True or not set, when an external protocol confirmation is shown, the user can select &quot;Always allow&quot; to skip all future confirmation prompts for the protocol on this site.
+If this policy is set to True or not set, when an external protocol confirmation is shown, the user can select "Always allow" to skip all future confirmation prompts for the protocol on this site.
 
-If this policy is set to False, the &quot;Always allow&quot; checkbox is not displayed and the user will be prompted each time an external protocol is invoked.</string>
+If this policy is set to False, the "Always allow" checkbox is not displayed and the user will be prompted each time an external protocol is invoked.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExternalProtocolDialogShowAlwaysOpenCheckbox</string>
 			<key>pfm_name</key>
 			<string>ExternalProtocolDialogShowAlwaysOpenCheckbox</string>
 			<key>pfm_title</key>
-			<string>Display &quot;Always open&quot; checkbox in external protocol dialog</string>
+			<string>Display "Always open" checkbox in external protocol dialog</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -5689,7 +5689,7 @@ If the policy is enabled and set to one or more domains, no lookalike warnings p
 
 If the policy is disabled, not set, or set to an empty list, warnings may appear on any site the user visits.
 
-A hostname can be allowed with a complete host match, or any domain match. For example, a URL like &quot;https://foo.example.com/bar&quot; may have warnings suppressed if this list includes either &quot;foo.example.com&quot; or &quot;example.com&quot;.</string>
+A hostname can be allowed with a complete host match, or any domain match. For example, a URL like "https://foo.example.com/bar" may have warnings suppressed if this list includes either "foo.example.com" or "example.com".</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=LookalikeWarningAllowlistDomains</string>
 			<key>pfm_name</key>
@@ -5738,9 +5738,9 @@ A hostname can be allowed with a complete host match, or any domain match. For e
 			<key>pfm_description_reference</key>
 			<string>Configures a list of managed bookmarks.
 
-The policy consists of a list of bookmarks whereas each bookmark is a dictionary containing the keys &quot;name&quot; and &quot;url&quot; which hold the bookmark's name and its target. A subfolder may be configured by defining a bookmark without an &quot;url&quot; key but with an additional &quot;children&quot; key which itself contains a list of bookmarks as defined above (some of which may be folders again). Google Chrome amends incomplete URLs as if they were submitted via the Omnibox, for example &quot;google.com&quot; becomes &quot;https://google.com/&quot;.
+The policy consists of a list of bookmarks whereas each bookmark is a dictionary containing the keys "name" and "url" which hold the bookmark's name and its target. A subfolder may be configured by defining a bookmark without an "url" key but with an additional "children" key which itself contains a list of bookmarks as defined above (some of which may be folders again). Google Chrome amends incomplete URLs as if they were submitted via the Omnibox, for example "google.com" becomes "https://google.com/".
 
-These bookmarks are placed in a folder that can't be modified by the user (but the user can choose to hide it from the bookmark bar). By default the folder name is &quot;Managed bookmarks&quot; but it can be customized by adding to the list of bookmarks a dictionary containing the key &quot;toplevel_name&quot; with the desired folder name as the value.
+These bookmarks are placed in a folder that can't be modified by the user (but the user can choose to hide it from the bookmark bar). By default the folder name is "Managed bookmarks" but it can be customized by adding to the list of bookmarks a dictionary containing the key "toplevel_name" with the desired folder name as the value.
 
 Managed bookmarks are not synced to the user account and can't be modified by extensions.</string>
 			<key>pfm_documentation_url</key>
@@ -5894,7 +5894,7 @@ If this policy is set to false, Google Cast will connect to Cast devices on RFC1
 
 If this policy is not set, Google Cast will connect to Cast devices on RFC1918/RFC4913 private addresses only, unless the CastAllowAllIPs feature is enabled.
 
-If the policy &quot;EnableMediaRouter&quot; is set to false, then this policy's value would have no effect.</string>
+If the policy "EnableMediaRouter" is set to false, then this policy's value would have no effect.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=MediaRouterCastAllowAllIPs</string>
 			<key>pfm_name</key>
@@ -6017,13 +6017,13 @@ If this policy is left not set, network prediction will be enabled but the user 
 			<key>pfm_app_min</key>
 			<string>69</string>
 			<key>pfm_description</key>
-			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as &quot;*.example.com&quot;) to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
+			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
 
 Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
 
 For more information on secure contexts, see https://www.w3.org/TR/secure-contexts/</string>
 			<key>pfm_description_reference</key>
-			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as &quot;*.example.com&quot;) to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
+			<string>The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") to be treated as secure contexts. The intent is to allow organizations to set up a staging server for internal web development, so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server.
 
 Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
 
@@ -6511,7 +6511,7 @@ If this policy is left not set or blank, then any user can sign in to Google Chr
 			<key>pfm_description_reference</key>
 			<string>If you enable this setting, all Flash content embedded on websites that have been set to allow Flash in content settings -- either by the user or by enterprise policy -- will be run, including content from other origins or small content.
 
-To control which websites are allowed to run Flash, see the &quot;DefaultPluginsSetting&quot;, &quot;PluginsAllowedForUrls&quot;, and &quot;PluginsBlockedForUrls&quot; policies.
+To control which websites are allowed to run Flash, see the "DefaultPluginsSetting", "PluginsAllowedForUrls", and "PluginsBlockedForUrls" policies.
 
 If this setting is disabled or not set, Flash content from other origins or small content might be blocked.</string>
 			<key>pfm_documentation_url</key>
@@ -6554,7 +6554,7 @@ tls1.1 - TLS 1.1
 tls1.2 - TLS 1.2
 If this policy is not configured then Google Chrome uses a default minimum version which is TLS 1.0.
 
-Otherwise it may be set to one of the following values: &quot;tls1&quot;, &quot;tls1.1&quot; or &quot;tls1.2&quot;. When set, Google Chrome will not use SSL/TLS versions less than the specified version. An unrecognized value will be ignored.</string>
+Otherwise it may be set to one of the following values: "tls1", "tls1.1" or "tls1.2". When set, Google Chrome will not use SSL/TLS versions less than the specified version. An unrecognized value will be ignored.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SSLVersionMin</string>
 			<key>pfm_name</key>
@@ -6588,9 +6588,9 @@ This filter uses the Google Safe Search API to classify URLs as pornographic or 
 This policy controls the application of the SafeSites URL filter.
 This filter uses the Google Safe Search API to classify URLs as pornographic or not.
 
-When this policy is not configured or set to &quot;Do not filter sites for adult content&quot;, sites will not be filtered.
+When this policy is not configured or set to "Do not filter sites for adult content", sites will not be filtered.
 
-When this policy is set to &quot;Filter top level sites for adult content&quot;, sites classified as pornographic will be filtered.</string>
+When this policy is set to "Filter top level sites for adult content", sites classified as pornographic will be filtered.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SafeSitesFilterBehavior</string>
 			<key>pfm_name</key>
@@ -6983,7 +6983,7 @@ This policy should not be enabled when RoamingProfileSupportEnabled policy is se
 			<key>pfm_description_reference</key>
 			<string>If this policy is set all specified data types will be excluded from synchronization both for Google Sync as well as for roaming profile synchronization. This can be beneficial to reduce the size of the roaming profile or limit the type of data uploaded to the Google Sync Servers.
 
-The current data types for this policy are: &quot;bookmarks&quot;, &quot;preferences&quot;, &quot;passwords&quot;, &quot;autofill&quot;, &quot;themes&quot;, &quot;typedUrls&quot;, &quot;extensions&quot;, &quot;apps&quot;, &quot;tabs&quot;, &quot;wifiConfiguration&quot;. Those names are case sensitive!</string>
+The current data types for this policy are: "bookmarks", "preferences", "passwords", "autofill", "themes", "typedUrls", "extensions", "apps", "tabs", "wifiConfiguration". Those names are case sensitive!</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SyncTypesListDisabled</string>
 			<key>pfm_name</key>
@@ -7066,11 +7066,11 @@ The default value for this policy was changed in Google Chrome 81 from false to 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup. Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel=&quot;opener&quot;.</string>
+			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup. Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".</string>
 			<key>pfm_description_reference</key>
 			<string>Setting the policy to Disabled allows popups targeting _blank to access (via JavaScript) the page that requested to open the popup.
 
-Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel=&quot;opener&quot;.
+Setting the policy to Enabled or leaving it unset causes the window.opener property to be set to null unless the anchor specifies rel="opener".
 
 This policy will be removed in Google Chrome version 95.
 
@@ -7308,13 +7308,13 @@ If this policy is not set there will be no exceptions to the blacklist from the 
 			<key>pfm_description</key>
 			<string>Deprecated in M69. Use OverrideSecurityRestrictionsOnInsecureOrigin instead.
 
-The policy specifies a list of origins (URLs) or hostname patterns (such as &quot;*.example.com&quot;) for which security restrictions on insecure origins will not apply.</string>
+The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") for which security restrictions on insecure origins will not apply.</string>
 			<key>pfm_description_reference</key>
 			<string>Deprecated in M69. Use OverrideSecurityRestrictionsOnInsecureOrigin instead.
 
-The policy specifies a list of origins (URLs) or hostname patterns (such as &quot;*.example.com&quot;) for which security restrictions on insecure origins will not apply.
+The policy specifies a list of origins (URLs) or hostname patterns (such as "*.example.com") for which security restrictions on insecure origins will not apply.
 
-The intent is to allow organizations to whitelist origins for legacy applications that cannot deploy TLS, or to set up a staging server for internal web development so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server. This policy will also prevent the origin from being labeled &quot;Not Secure&quot; in the omnibox.
+The intent is to allow organizations to whitelist origins for legacy applications that cannot deploy TLS, or to set up a staging server for internal web development so that their developers can test out features requiring secure contexts without having to deploy TLS on the staging server. This policy will also prevent the origin from being labeled "Not Secure" in the omnibox.
 
 Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If the policy is set, it will override the command-line flag.
 
@@ -7543,7 +7543,7 @@ Independent of whether or how this policy is set, the WPAD optimization setting 
 			<key>pfm_description_reference</key>
 			<string>Specifies a list of websites that are installed silently, without user interaction, and which cannot be uninstalled nor disabled by the user.
 
-Each list item of the policy is an object with a mandatory member: &quot;url&quot; and two optional members: &quot;default_launch_container&quot; and &quot;create_desktop_shortcut&quot;. &quot;url&quot; should be the URL of the web app to install, &quot;launch_container&quot; should be either &quot;window&quot; or &quot;tab&quot; to indicate how the Web App will be opened once installed, and &quot;create_desktop_shortcut&quot; should be true if a desktop shortcut should be created on Linux and Windows. If &quot;default_launch_container&quot; is omitted, the app will open in a tab by default. Regardless of the value of &quot;default_launch_container&quot;, users are able to change which container the app will open in. If &quot;create_desktop_shortcuts&quot; is omitted, no desktop shortcuts will be created. See PinnedLauncherApps policy for pinning apps to the ChromeOS shelf.</string>
+Each list item of the policy is an object with a mandatory member: "url" and two optional members: "default_launch_container" and "create_desktop_shortcut". "url" should be the URL of the web app to install, "launch_container" should be either "window" or "tab" to indicate how the Web App will be opened once installed, and "create_desktop_shortcut" should be true if a desktop shortcut should be created on Linux and Windows. If "default_launch_container" is omitted, the app will open in a tab by default. Regardless of the value of "default_launch_container", users are able to change which container the app will open in. If "create_desktop_shortcuts" is omitted, no desktop shortcuts will be created. See PinnedLauncherApps policy for pinning apps to the ChromeOS shelf.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebAppInstallForceList</string>
 			<key>pfm_name</key>
@@ -7997,25 +7997,25 @@ If this policy is not set or matching printer is not found within the timeout, t
 
 The value is parsed as JSON object, conforming to the following schema:
 {
-  &quot;type&quot;: &quot;object&quot;,
-  &quot;properties&quot;: {
-    &quot;kind&quot;: {
-      &quot;description&quot;: &quot;Whether to limit the search of the matching printer to a specific set of printers.&quot;,
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;enum&quot;: [ &quot;local&quot;, &quot;cloud&quot; ]
+  "type": "object",
+  "properties": {
+    "kind": {
+      "description": "Whether to limit the search of the matching printer to a specific set of printers.",
+      "type": "string",
+      "enum": [ "local", "cloud" ]
     },
-    &quot;idPattern&quot;: {
-      &quot;description&quot;: &quot;Regular expression to match printer id.&quot;,
-      &quot;type&quot;: &quot;string&quot;
+    "idPattern": {
+      "description": "Regular expression to match printer id.",
+      "type": "string"
     },
-    &quot;namePattern&quot;: {
-      &quot;description&quot;: &quot;Regular expression to match printer display name.&quot;,
-      &quot;type&quot;: &quot;string&quot;
+    "namePattern": {
+      "description": "Regular expression to match printer display name.",
+      "type": "string"
     }
   }
 }
 
-Printers connected to Google Cloud Print are considered &quot;cloud&quot;, the rest of the printers are classified as &quot;local&quot;.
+Printers connected to Google Cloud Print are considered "cloud", the rest of the printers are classified as "local".
 Omitting a field means all values match, for example, not specifying connectivity will cause Print Preview to initiate the discovery of all kinds of printers, local and cloud.
 Regular expression patterns must follow the JavaScript RegExp syntax and matches are case sensistive.</string>
 			<key>pfm_documentation_url</key>
@@ -8951,9 +8951,9 @@ If this policy is left not set the setting will be enabled.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If this setting is enabled, then the remote access host compares the name of the local user (that the host is associated with) and the name of the Google account registered as the host owner (i.e. &quot;johndoe&quot; if the host is owned by &quot;johndoe@example.com&quot; Google account).  The remote access host will not start if the name of the host owner is different from the name of the local user that the host is associated with.  RemoteAccessHostMatchUsername policy should be used together with RemoteAccessHostDomain to also enforce that the Google account of the host owner is associated with a specific domain (i.e. &quot;example.com&quot;).</string>
+			<string>If this setting is enabled, then the remote access host compares the name of the local user (that the host is associated with) and the name of the Google account registered as the host owner (i.e. "johndoe" if the host is owned by "johndoe@example.com" Google account).  The remote access host will not start if the name of the host owner is different from the name of the local user that the host is associated with.  RemoteAccessHostMatchUsername policy should be used together with RemoteAccessHostDomain to also enforce that the Google account of the host owner is associated with a specific domain (i.e. "example.com").</string>
 			<key>pfm_description_reference</key>
-			<string>If this setting is enabled, then the remote access host compares the name of the local user (that the host is associated with) and the name of the Google account registered as the host owner (i.e. &quot;johndoe&quot; if the host is owned by &quot;johndoe@example.com&quot; Google account).  The remote access host will not start if the name of the host owner is different from the name of the local user that the host is associated with.  RemoteAccessHostMatchUsername policy should be used together with RemoteAccessHostDomain to also enforce that the Google account of the host owner is associated with a specific domain (i.e. &quot;example.com&quot;).
+			<string>If this setting is enabled, then the remote access host compares the name of the local user (that the host is associated with) and the name of the Google account registered as the host owner (i.e. "johndoe" if the host is owned by "johndoe@example.com" Google account).  The remote access host will not start if the name of the host owner is different from the name of the local user that the host is associated with.  RemoteAccessHostMatchUsername policy should be used together with RemoteAccessHostDomain to also enforce that the Google account of the host owner is associated with a specific domain (i.e. "example.com").
 
 If this setting is disabled or not set, then the remote access host can be associated with any local user.</string>
 			<key>pfm_documentation_url</key>
@@ -9039,9 +9039,9 @@ This feature is currently disabled server-side.</string>
 			<key>pfm_app_min</key>
 			<string>28</string>
 			<key>pfm_description</key>
-			<string>If this policy is set, the host will use a client certificate with the given issuer CN to authenticate to RemoteAccessHostTokenValidationUrl. Set it to &quot;*&quot; to use any available client certificate.</string>
+			<string>If this policy is set, the host will use a client certificate with the given issuer CN to authenticate to RemoteAccessHostTokenValidationUrl. Set it to "*" to use any available client certificate.</string>
 			<key>pfm_description_reference</key>
-			<string>If this policy is set, the host will use a client certificate with the given issuer CN to authenticate to RemoteAccessHostTokenValidationUrl. Set it to &quot;*&quot; to use any available client certificate.
+			<string>If this policy is set, the host will use a client certificate with the given issuer CN to authenticate to RemoteAccessHostTokenValidationUrl. Set it to "*" to use any available client certificate.
 
 This feature is currently disabled server-side.</string>
 			<key>pfm_documentation_url</key>
@@ -9204,7 +9204,7 @@ If you enable this setting, Safe Browsing is always active.
 
 If you disable this setting, Safe Browsing is never active.
 
-If you enable or disable this setting, users cannot change or override the &quot;Enable phishing and malware protection&quot; setting in Google Chrome.
+If you enable or disable this setting, users cannot change or override the "Enable phishing and malware protection" setting in Google Chrome.
 
 If this policy is left not set, this will be enabled but the user will be able to change it.
 
