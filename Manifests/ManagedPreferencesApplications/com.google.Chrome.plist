@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2021-12-23T00:31:31Z</date>
+	<date>2023-04-09T14:29:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -226,6 +226,7 @@
 					<string>ExtensionInstallForcelist</string>
 					<string>ExtensionInstallSources</string>
 					<string>ExtensionInstallWhitelist</string>
+					<string>ExtensionManifestV2Availability</string>
 					<string>ExtensionSettings</string>
 				</array>
 				<key>Google Cast</key>
@@ -512,7 +513,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		<!-- START Cloud Reporting -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>72</string>
@@ -583,7 +583,6 @@ This policy is only effective when the machine is enrolled with CloudManagementE
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END Cloud Report -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>10</string>
@@ -1584,42 +1583,60 @@ URL patterns in this policy should not clash with the ones configured via WebUsb
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_name</key>
-					<string>urls</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_format</key>
-							<string>https?://.*</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>URLs</string>
-					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>devices</string>
+					<key>pfm_hidden</key>
+					<string>hidden</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_name</key>
-							<string>product_id</string>
+							<string>urls</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_format</key>
+									<string>https?://.*</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>URLs</string>
 							<key>pfm_type</key>
-							<string>integer</string>
+							<string>array</string>
 						</dict>
 						<dict>
 							<key>pfm_name</key>
-							<string>vendor_id</string>
+							<string>devices</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>product_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+										<dict>
+											<key>pfm_name</key>
+											<string>vendor_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Devices</string>
 							<key>pfm_type</key>
-							<string>integer</string>
+							<string>array</string>
 						</dict>
 					</array>
-					<key>pfm_title</key>
-					<string>Devices</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -1627,7 +1644,7 @@ URL patterns in this policy should not clash with the ones configured via WebUsb
 			<key>pfm_title</key>
 			<string>Automatically grant permission to these sites to connect to USB devices with the given vendor and product IDs</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict> -->
 		<dict>
 			<key>pfm_app_min</key>
@@ -1725,7 +1742,6 @@ Note that if Google Chrome is running and this policy changes, it will be applie
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- START ContentSettings/DefaultSearchProvider -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>24</string>
@@ -2033,8 +2049,6 @@ This policy is only respected if the 'DefaultSearchProviderEnabled' policy is en
 			<key>pfm_value_placeholder</key>
 			<string>q={searchTerms},ie=utf-8,oe=utf-8</string>
 		</dict>
-		<!-- END ContentSettings/DefaultSearchProvider -->
-		<!-- START ContentSettings/Extensions -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>25</string>
@@ -2248,6 +2262,42 @@ By default, all extensions are allowed. But, if you prohibited extensions by pol
 			<string>Extension ID Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>110</string>
+			<key>pfm_description</key>
+			<string>Control if Manifest v2 extensions can be used by browser.</string>
+			<key>pfm_description_reference</key>
+			<string>Control if Manifest v2 extensions can be used by browser.
+
+0 = Default browser behavior
+1 = Manifest v2 is disabled
+2 = Manifest v2 is enabled
+3 = Manifest v2 is enabled for forced extensions only
+</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#ExtensionManifestV2Availability</string>
+			<key>pfm_name</key>
+			<string>ExtensionManifestV2Availability</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Default browser behavior</string>
+				<string>Manifest v2 is disabled</string>
+				<string>Manifest v2 is enabled</string>
+				<string>Manifest v2 is enabled for forced extensions only</string>
+			</array>
+			<key>pfm_title</key>
+			<string>ExtensionManifestV2Availability</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -2609,8 +2659,6 @@ Starting in Google Chrome 78, this policy will be ignored and treated as disable
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ContentSettings/Extensions -->
-		<!-- START ContentSettings/GoogleCast -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>52</string>
@@ -2653,8 +2701,6 @@ If the policy "EnableMediaRouter" is set to false, then this policy's value woul
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END ContentSettings/GoogleCast -->
-		<!-- START ContentSettings/HTTPAuthentication -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>13</string>
@@ -2910,8 +2956,6 @@ If this policy is not set, the default is true and NTLMv2 is enabled.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END HTTPAuthentication -->
-		<!-- START ContentSettings/LegacyBrowserSupport -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>73</string>
@@ -3190,8 +3234,6 @@ For more information on Internet Explorer's SiteList policy: https://docs.micros
 			<key>pfm_value_placeholder</key>
 			<string>http://example.com/sitelist.xml</string>
 		</dict>
-		<!-- END ContentSettings/LegacyBrowserSupport -->
-		<!-- START ContentSettings/Misc -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>65</string>
@@ -4615,7 +4657,6 @@ If disabled or not specified, taking screenshots is allowed.</string>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>10</string>
 			<key>pfm_app_min</key>
@@ -4653,7 +4694,6 @@ If this policy is left not set the user can use any plugin installed on the syst
 			<string>array</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>12</string>
 			<key>pfm_app_min</key>
@@ -4693,7 +4733,6 @@ If this policy is left not set any plugin that matches the patterns in the 'Disa
 			<string>array</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>13</string>
 			<key>pfm_app_min</key>
@@ -5023,7 +5062,6 @@ If the policy is not set, or is set to false, then Google Chrome will not perfor
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
@@ -5210,7 +5248,6 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_app_deprecated</key>
@@ -5353,7 +5390,6 @@ If this setting is set to Off or no value is set, Restricted Mode on YouTube is 
 			<string>integer</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_app_deprecated</key>
@@ -5572,7 +5608,6 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_app_deprecated</key>
@@ -5684,7 +5719,6 @@ NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android
 			<string>string</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_app_deprecated</key>
@@ -5829,8 +5863,7 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
-						<!--
-						<dict>
+						<!-- <dict>
 							<key>pfm_description</key>
 							<string>Folder contents</string>
 							<key>pfm_description_reference</key>
@@ -5875,8 +5908,7 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							</array>
 							<key>pfm_type</key>
 							<string>array</string>
-						</dict>
-							-->
+						</dict> -->
 					</array>
 					<key>pfm_title</key>
 					<string></string>
@@ -6440,8 +6472,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyMode field allows you to specify the proxy server used by Google Chrome and prevents users from changing proxy settings.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyMode</string>
 							<key>pfm_range_list</key>
@@ -6464,8 +6494,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>string</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyPacUrl field is a URL to a proxy .pac file.</string> -->
 							<key>pfm_format</key>
 							<string>^https?://.*.pac$</string>
 							<key>pfm_name</key>
@@ -6476,8 +6504,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>https://internal.site/example.pac</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyServer field is a URL of the proxy server.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyServer</string>
 							<key>pfm_type</key>
@@ -6486,8 +6512,6 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 							<string>123.123.123.123:8080</string>
 						</dict>
 						<dict>
-							<!-- <key>pfm_description_reference</key>
-							<string>The ProxyBypassList field is a list of proxy hosts that Google Chrome will bypass.</string> -->
 							<key>pfm_name</key>
 							<string>ProxyBypassList</string>
 							<key>pfm_subkeys</key>
@@ -6919,7 +6943,6 @@ If this policy is set to Disabled, Signed HTTP Exchanges cannot be loaded.</stri
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>30</string>
 			<key>pfm_app_min</key>
@@ -7505,7 +7528,7 @@ If this policy is enabled or not set the User-Agent Client Hints feature is enab
 			<key>pfm_description_reference</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Google.
 
-If the policy is unset or set to true, users can send feedback to Google via Menu->Help->Report an Issue or key combination.</string>
+If the policy is unset or set to true, users can send feedback to Google via Menu-&gt;Help-&gt;Report an Issue or key combination.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=UserFeedbackAllowed</string>
 			<key>pfm_name</key>
@@ -7856,8 +7879,6 @@ If the policy is not set, or if it is set to the empty string or an invalid port
 			<key>pfm_value_placeholder</key>
 			<string>port range (ex. 10000-11999)</string>
 		</dict>
-		<!-- END ContentSettings/Misc -->
-		<!-- START NativeMessaging -->
 		<dict>
 			<key>pfm_app_deprecated</key>
 			<string>86</string>
@@ -8004,8 +8025,6 @@ By default, all native messaging hosts are allowed, but if all native messaging 
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- END NativeMessaging -->
-		<!-- START PasswordManager -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>79</string>
@@ -8049,8 +8068,6 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END PasswordManager -->
-		<!-- START Printing -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>17</string>
@@ -8388,21 +8405,21 @@ If the page size is unavailable on the printer chosen by the user this policy is
 						</dict>
 					</array>
 					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
-									<key>pfm_target_conditions</key>
+									<key>pfm_n_range_list</key>
 									<array>
-										<dict>
-											<key>pfm_n_range_list</key>
-											<array>
-												<string>custom</string>
-											</array>
-											<key>pfm_target</key>
-											<string>PrinterPaperSizeDefault.name</string>
-										</dict>
+										<string>custom</string>
 									</array>
+									<key>pfm_target</key>
+									<string>PrinterPaperSizeDefault.name</string>
 								</dict>
 							</array>
+						</dict>
+					</array>
 					<key>pfm_name</key>
 					<string>custom_size</string>
 					<key>pfm_subkeys</key>
@@ -8659,8 +8676,6 @@ If the page size is unavailable on the printer chosen by the user this policy is
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
-		<!-- END Printing -->
-		<!-- START ProxyServer -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
@@ -8785,7 +8800,6 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<string>string</string>
 		</dict>
 		<dict>
-			<!-- Documentation does not have an explicit version listed for deprecation -->
 			<key>pfm_app_deprecated</key>
 			<string>10</string>
 			<key>pfm_app_min</key>
@@ -8838,8 +8852,6 @@ Leaving this policy not set will allow the users to choose the proxy settings on
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
-		<!-- END ProxyServer -->
-		<!-- START RemoteAccess -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>30</string>
@@ -9216,9 +9228,6 @@ If this policy is left not set, or if it is set to an empty string, the remote a
 			<key>pfm_value_unit</key>
 			<string>port range</string>
 		</dict>
-		<!-- END RemoteAccess -->
-		<!-- START SafeBrowsing -->
-		<!-- Documentation does not have an explicit version listed for deprecation -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>69</string>
@@ -9516,8 +9525,6 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END SafeBrowsing -->
-		<!-- START StartupHomepageNewTabPage -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>8</string>
@@ -9695,7 +9702,6 @@ Leaving this policy not set will allow the user to choose whether to show the ho
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- END StartupHomepageNewTabPage -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>68</string>
@@ -9793,6 +9799,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>12</integer>
+	<integer>13</integer>
 </dict>
 </plist>
