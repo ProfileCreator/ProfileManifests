@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-04-18T14:56:21Z</date>
+	<date>2023-04-18T15:18:12Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0</string>
 	<key>pfm_platforms</key>
@@ -263,17 +263,17 @@ Disables Nudge's re-activation logic for the listed applications. If one of the 
 					<string>https://github.com/macadmins/nudge/wiki/optionalFeatures#acceptableassertionapplicationnames---type-array-default-value--required-no</string>
 					<key>pfm_name</key>
 					<string>acceptableAssertionApplicationNames</string>
-					<key>pfm_title</key>
-					<string>Acceptable Assertion Application Names</string>
 					<key>pfm_subkeys</key>
-  					<array>
-    					<dict>
+					<array>
+						<dict>
 							<key>pfm_title</key>
 							<string>Acceptable Assertion Application Name</string>
 							<key>pfm_type</key>
 							<string>string</string>
-					    </dict>
-				  	</array>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Acceptable Assertion Application Names</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -390,6 +390,15 @@ A Notification Profile should be implemented so the user can see why the applica
 					<string>blockedApplicationBundleIDs</string>
 					<key>pfm_note</key>
 					<string>Do not try to block com.apple.finder in conjunction with terminateApplicationsOnLaunch as launchd will immediately try relaunch it causing loopy behaviour.</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_tile</key>
+							<string>Bundle ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
 					<key>pfm_title</key>
 					<string>Blocked Application Bundle IDs</string>
 					<key>pfm_type</key>
@@ -1446,6 +1455,6 @@ Specify one array to enforce a single Operating System version across all machin
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
