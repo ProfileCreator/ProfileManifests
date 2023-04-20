@@ -1495,16 +1495,30 @@
 					<string>integer</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>EnforceRoutes</string>
-					<key>pfm_title</key>
-					<string>Enforce Routes</string>
-					<key>pfm_description</key>
-					<string>If 1, then all the VPN's non-default routes will take precedence over any locally-defined routes. If IncludeAllNetworks is 1, the value of EnforceRoutes is ignored.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_default</key>
 					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If 1, then all the VPN's non-default routes will take precedence over any locally-defined routes. If IncludeAllNetworks is 1, the value of EnforceRoutes is ignored.</string>
+					<key>pfm_name</key>
+					<string>EnforceRoutes</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -1519,16 +1533,34 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
-				</dict>
-				<dict>
-					<key>pfm_name</key>
-					<string>ExcludeLocalNetworks</string>
 					<key>pfm_title</key>
-					<string>Exclude Local Networks</string>
-					<key>pfm_description</key>
-					<string>If 1 and either IncludeAllNetworks or EnforceRoutes are 1, then local network traffic will be routed outside of the VPN. The default for this value is 0 on macOS and 1 on iOS.</string>
+					<string>Enforce Routes</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+				</dict>
+				<dict>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_description</key>
+					<string>If 1 and either IncludeAllNetworks or EnforceRoutes are 1, then local network traffic will be routed outside of the VPN. The default for this value is 0 on macOS and 1 on iOS.</string>
+					<key>pfm_name</key>
+					<string>ExcludeLocalNetworks</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -1543,23 +1575,41 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Exclude Local Networks</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>IncludeAllNetworks</string>
-					<key>pfm_title</key>
-					<string>Include All Networks</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_default</key>
+					<integer>0</integer>
 					<key>pfm_description</key>
 					<string>If 1, then all network traffic will be routed through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, and ExcludeAPNs properties. See the documentation for those properties.  The following traffic is always excluded from the tunnel.
 
 * Traffic necessary for connecting and maintaining the device's network connection, such as DHCP.
 * Traffic necessary for connecting to captive networks.
 * Certain cellular services traffic that is not routable over the internet and is instead directly routed to the cellular network. See the ExcludeCellularServices property for more details.
-* Network communication with a companion device such as a watchOS device.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-					<key>pfm_default</key>
-					<integer>0</integer>
+* Network communication with a companion device such as a watchOS device</string>
+					<key>pfm_name</key>
+					<string>IncludeAllNetworks</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -1574,18 +1624,36 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Include All Networks</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>ExcludeCellularServices</string>
-					<key>pfm_title</key>
-					<string>Exclude Cellular Services</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_default</key>
+					<integer>1</integer>
 					<key>pfm_description</key>
 					<string>If 1 and IncludeAllNetworks is 1, then internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) is excluded from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet.  Such cellular services traffic is always excluded from the tunnel.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-					<key>pfm_default</key>
-					<integer>1</integer>
+					<key>pfm_name</key>
+					<string>ExcludeCellularServices</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -1600,18 +1668,36 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Exclude Cellular Services</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>ExcludeAPNs</string>
-					<key>pfm_title</key>
-					<string>Exclude APNs</string>
-					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then network traffic for the Apple Push Notification service (APNs) is excluded from the tunnel.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_default</key>
 					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If 1 and IncludeAllNetworks is 1, then network traffic for the Apple Push Notification service (APNs) is excluded from the tunnel.</string>
+					<key>pfm_name</key>
+					<string>ExcludeAPNs</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -1626,6 +1712,10 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Exclude APNs</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
@@ -4577,16 +4667,30 @@
 					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>ExcludeAPNs</string>
-					<key>pfm_title</key>
-					<string>Exclude APNs</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>VPN</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_default</key>
+					<integer>1</integer>
 					<key>pfm_description</key>
 					<string>If 1 and IncludeAllNetworks is 1, then network traffic for the Apple Push Notification service (APNs) is excluded from the tunnel.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
-					<key>pfm_default</key>
-					<integer>1</integer>
+					<key>pfm_name</key>
+					<string>ExcludeAPNs</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -4601,18 +4705,36 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Exclude APNs</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 				<dict>
-					<key>pfm_name</key>
-					<string>ExcludeCellularServices</string>
-					<key>pfm_title</key>
-					<string>Exclude Cellular Services</string>
-					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) is excluded from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet.  Such cellular services traffic is always excluded from the tunnel.</string>
-					<key>pfm_type</key>
-					<string>integer</string>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>VPN</string>
+									</array>
+									<key>pfm_target</key>
+									<string>VPNType</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_default</key>
 					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If 1 and IncludeAllNetworks is 1, then internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) is excluded from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet.  Such cellular services traffic is always excluded from the tunnel.</string>
+					<key>pfm_name</key>
+					<string>ExcludeCellularServices</string>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -4627,6 +4749,10 @@
 						<string>iOS</string>
 						<string>macOS</string>
 					</array>
+					<key>pfm_title</key>
+					<string>Exclude Cellular Services</string>
+					<key>pfm_type</key>
+					<string>integer</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
