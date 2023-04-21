@@ -1537,13 +1537,13 @@
 					<string>Enforce Routes</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_conditionals</key>
+					<key>pfm_exclude</key>
 					<array>
 						<dict>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
@@ -1557,6 +1557,8 @@
 							</array>
 						</dict>
 					</array>
+					<key>pfm_default</key>
+					<integer>1</integer>
 					<key>pfm_description</key>
 					<string>If 1 and either IncludeAllNetworks or EnforceRoutes are 1, then local network traffic will be routed outside of the VPN. The default for this value is 0 on macOS and 1 on iOS.</string>
 					<key>pfm_name</key>
@@ -1579,13 +1581,13 @@
 					<string>Exclude Local Networks</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_conditionals</key>
+					<key>pfm_exclude</key>
 					<array>
 						<dict>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
@@ -1628,6 +1630,8 @@
 					<string>Include All Networks</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_exclude</key>
