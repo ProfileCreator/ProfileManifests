@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2021-12-22T05:49:22Z</date>
+	<date>2023-04-20T15:10:11Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -119,7 +119,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_app_min</key>
 			<string>1.1</string>
 			<key>pfm_description</key>
-			<string>Required.</string>
+			<string>This is the version number of the configuration specification.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://nomad.menu/help/nomad-shares-menu/</string>
 			<key>pfm_hidden</key>
@@ -133,7 +133,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
-			<string>NoMAD Shares PLIST Version</string>
+			<string>Configuration Version</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -142,6 +142,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
 			<array>
+				<string>Version</string>
 				<string>Home Mount</string>
 				<string>Shares</string>
 			</array>
@@ -157,6 +158,10 @@ A profile can consist of payloads with different version numbers. For example, c
 				<array>
 					<string>Shares</string>
 					<string>IgnoreShareNames</string>
+				</array>
+				<key>Version</key>
+				<array>
+					<string>Version</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -198,6 +203,8 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>https://nomad.menu/help/nomad-shares-menu/</string>
 					<key>pfm_name</key>
 					<string>Groups</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -223,6 +230,8 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>https://nomad.menu/help/nomad-shares-menu/</string>
 					<key>pfm_name</key>
 					<string>Options</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -286,6 +295,8 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 							<string>An array of AD groups allowed to mount the share.</string>
 							<key>pfm_name</key>
 							<string>Groups</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
@@ -327,6 +338,8 @@ For the URLs, you can use variable substitution to allow for custom mounts witho
 							<string>Array of optional mount options. Refer to documentation for more information.</string>
 							<key>pfm_name</key>
 							<string>Options</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
