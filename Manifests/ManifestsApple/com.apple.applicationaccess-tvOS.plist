@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>tvOS Restrictions preferences</string>
+	<key>pfm_description_reference</key>
+	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
+	<key>pfm_note</key>
+	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
+	<key>pfm_domain</key>
+	<string>com.apple.applicationaccess</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>combined</string>
+	<key>pfm_last_modified</key>
+	<date>2022-09-05T01:03:41Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>tvOS</string>
+	</array>
+	<key>pfm_subdomain</key>
+	<string>tvOS</string>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures restrictions</string>
+			<key>pfm_description</key>
+			<string>Description of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Restrictions</string>
+			<key>pfm_description</key>
+			<string>Name of the payload.</string>
+			<key>pfm_description_reference</key>
+			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.applicationaccess</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<key>pfm_description_reference</key>
+			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.apple.applicationaccess</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string.</string>
+			<key>pfm_description_reference</key>
+			<string>The payload type.</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_description_reference</key>
+			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_description_reference</key>
+			<string>The version number of the individual payload.
+A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
+The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		
+		<!-- Custom Keys -->
+		
+		<dict>
+			<key>pfm_name</key>
+			<string>PFC_SegmentedControl_0</string>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>General</string>
+				<string>AirPlay</string>
+				<string>Apps</string>
+				<string>Media</string>
+				<string>Passwords / Unlock</string>
+				<string>Siri</string>
+				<string>Updates</string>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_segments</key>
+			<dict>
+				<key>General</key>
+				<array>
+					<string>allowAutomaticScreenSaver</string>
+					<string>allowCloudPrivateRelay</string>
+					<string>allowDeviceNameModification</string>
+					<string>allowInAppPurchases</string>
+					<string>allowRemoteAppPairing</string>
+					<string>forceAutomaticDateAndTime</string>
+				</array>
+				<key>AirPlay</key>
+				<array>
+					<string>allowAirPlayIncomingRequests</string>
+					<string>forceAirPlayIncomingRequestsPairingPassword</string>
+				</array>
+				<key>Apps</key>
+				<array>
+					<string>allowListedAppBundleIDs</string>
+					<string>blacklistedAppBundleIDs</string>
+					<string>blockedAppBundleIDs</string>
+					<string>whitelistedAppBundleIDs</string>
+				</array>
+				<key>Media</key>
+				<array>
+					<string>allowBookstoreErotica</string>
+					<string>allowExplicitContent</string>
+					<string>ratingApps</string>
+					<string>ratingMovies</string>
+					<string>ratingRegion</string>
+					<string>ratingTVShows</string>
+				</array>
+				<key>Passwords / Unlock</key>
+				<array>
+					<string>allowPasswordProximityRequests</string>
+				</array>
+				<key>Siri</key>
+				<array>
+					<string>forceAssistantProfanityFilter</string>
+				</array>
+				<key>Updates</key>
+				<array>
+					<string>enforcedSoftwareUpdateDelay</string>
+					<string>forceDelayedSoftwareUpdates</string>
+				</array>
+			</dict>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		
+		<!-- START iOS &amp; tvOS -->
+		
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, prevents device name from being changed.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to false, prevents device name from being changed. Defaults to true. Availability: Available in iOS 9.0 and tvOS 11.0 and later.</string>
+			<key>pfm_name</key>
+			<string>allowDeviceNameModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying device name</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_tvos_min</key>
+			<string>11.0</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If true, enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<key>pfm_tvos_min</key>
+			<string>12.2</string>
+			<key>pfm_name</key>
+			<string>forceAutomaticDateAndTime</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Force automatic date and time</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+				<key>pfm_default</key>
+				<true/>
+				<key>pfm_name</key>
+				<string>allowAutomaticScreenSaver</string>
+				<key>pfm_tvos_min</key>
+				<string>15.4</string>
+				<key>pfm_title</key>
+				<string>Allow Automatic Screen Saver</string>
+				<key>pfm_type</key>
+				<string>boolean</string>
+			</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, prevents the use of iCloud Private Relay.</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>allowCloudPrivateRelay</string>
+			<key>pfm_title</key>
+			<string>Allow iCloud Private Relay</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>When populated, prevents displaying or launching listed apps. Disabled when using the Allowed Apps preference.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>allowListedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>blockedAppBundleIDs</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.domainname.applicationname</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Blocked Apps</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If enabled, cannot use the allowlist to restrict app usage.</string>
+			<key>pfm_description_reference</key>
+			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value com.apple.webapp to blacklist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later. </string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>whitelistedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>blacklistedAppBundleIDs</string>
+			<key>pfm_note</key>
+			<string>Use blockedAppBundleIDs instead of this deprecated key.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>iOS / tvOS Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.apple.tv</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Restrict App Usage - Denylist</string>
+			<key>pfm_tvos_deprecated</key>
+			<string>15.0</string>
+			<key>pfm_tvos_min</key>
+			<string>11.0</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>When populated, prevents displaying or launching apps other than the listed ones. Disabled when using the Blocked Apps preference.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>blockedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>allowListedAppBundleIDs</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.domainname.applicationname</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allowed Apps</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>If enabled, cannot use the denylist to restrict app usage.</string>
+			<key>pfm_description_reference</key>
+			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value com.apple.webapp to whitelist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>blacklistedAppBundleIDs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>whitelistedAppBundleIDs</string>
+			<key>pfm_note</key>
+			<string>Use allowListedAppBundleIDs instead of this deprecated key.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_title</key>
+					<string>iOS / tvOS Bundle ID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>com.apple.tv</string>
+				</dict>
+			</array>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Restrict App Usage - Allowlist</string>
+			<key>pfm_tvos_deprecated</key>
+			<string>15.0</string>
+			<key>pfm_tvos_min</key>
+			<string>11.0</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When true, forces the use of the profanity filter assistant.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. When true, forces the use of the profanity filter assistant.</string>
+			<key>pfm_name</key>
+			<string>forceAssistantProfanityFilter</string>
+			<key>pfm_title</key>
+			<string>Enable Siri profanity filter</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false, prohibits in-app purchasing.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, prohibits in-app purchasing.</string>
+			<key>pfm_name</key>
+			<string>allowInAppPurchases</string>
+			<key>pfm_title</key>
+			<string>Allow in app purchases</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>us</string>
+			<key>pfm_description</key>
+			<string>This 2-letter key is used by profile tools to display the proper ratings for given region. It is not recognized or reported by the client.</string>
+			<key>pfm_description_reference</key>
+			<string>This 2-letter key is used by profile tools to display the proper ratings for given region. It is not recognized or reported by the client. Availability: Available in iOS and tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>ratingRegion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>au</string>
+				<string>ca</string>
+				<string>fr</string>
+				<string>de</string>
+				<string>ie</string>
+				<string>jp</string>
+				<string>nz</string>
+				<string>gb</string>
+				<string>us</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Australia</string>
+				<string>Canada</string>
+				<string>France</string>
+				<string>Germany</string>
+				<string>Ireland</string>
+				<string>Japan</string>
+				<string>New Zealand</string>
+				<string>United Kingdom</string>
+				<string>United States</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Ratings region</string>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>This value defines the maximum level of app content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
+			<key>pfm_description_reference</key>
+			<string>This value defines the maximum level of app content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>ratingApps</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1000</integer>
+				<integer>900</integer>
+				<integer>800</integer>
+				<integer>700</integer>
+				<integer>600</integer>
+				<integer>500</integer>
+				<integer>400</integer>
+				<integer>300</integer>
+				<integer>200</integer>
+				<integer>100</integer>
+				<integer>0</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>1000: Allow All Apps</string>
+				<string>900</string>
+				<string>800</string>
+				<string>700</string>
+				<string>600: 17+</string>
+				<string>500</string>
+				<string>400</string>
+				<string>300: 12+</string>
+				<string>200: 9+</string>
+				<string>100: 4+</string>
+				<string>Don't Allow Apps</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed content ratings - Apps</string>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>This value defines the maximum level of movie content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
+			<key>pfm_description_reference</key>
+			<string>This value defines the maximum level of movie content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>ratingMovies</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1000</integer>
+				<integer>900</integer>
+				<integer>800</integer>
+				<integer>700</integer>
+				<integer>600</integer>
+				<integer>500</integer>
+				<integer>400</integer>
+				<integer>300</integer>
+				<integer>200</integer>
+				<integer>100</integer>
+				<integer>0</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>1000: Allow All Movies</string>
+				<string>900</string>
+				<string>800</string>
+				<string>700</string>
+				<string>600</string>
+				<string>500: NC-17</string>
+				<string>400: R</string>
+				<string>300: PG-13</string>
+				<string>200: PG</string>
+				<string>100: G</string>
+				<string>0: Don't Allow Movies</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed content ratings - Movies</string>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>This value defines the maximum level of TV content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
+			<key>pfm_description_reference</key>
+			<string>This value defines the maximum level of TV content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>ratingTVShows</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1000</integer>
+				<integer>900</integer>
+				<integer>800</integer>
+				<integer>700</integer>
+				<integer>600</integer>
+				<integer>500</integer>
+				<integer>400</integer>
+				<integer>300</integer>
+				<integer>200</integer>
+				<integer>100</integer>
+				<integer>0</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>1000: Allow All TV Shows</string>
+				<string>900</string>
+				<string>800</string>
+				<string>700</string>
+				<string>600: TV-MA</string>
+				<string>500: TV-14</string>
+				<string>400: TV-PG</string>
+				<string>300: TV-G</string>
+				<string>200: TV-Y7</string>
+				<string>100: TV-Y</string>
+				<string>0: Don't Allow TV Shows</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Allowed content ratings - TV Shows</string>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices. Availability: Available in iOS and in tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>allowExplicitContent</string>
+			<key>pfm_title</key>
+			<string>Allow playback of explicit music, podcasts, and iTunes U</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, the user will not be able to download media from Apple Books that has been tagged as erotica.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only prior to iOS 6.1. If set to false, the user will not be able to download media from Apple Books that has been tagged as erotica. This will default to true. Availability: Available in iOS and in tvOS 11.3 and later.</string>
+			<key>pfm_name</key>
+			<string>allowBookstoreErotica</string>
+			<key>pfm_title</key>
+			<string>Allow explicit sexual content in iBooks Store</string>
+			<key>pfm_tvos_min</key>
+			<string>11.3</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		
+		<!-- START tvOS -->
+		
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>allowAirPlayIncomingRequests</string>
+			<key>pfm_title</key>
+			<string>Allow incoming AirPlay requests</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_tvos_min</key>
+			<string>10.2</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>It is recommended to use the AirPlay Security Payload.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. If set to true, forces all devices sending AirPlay requests to this device to use a pairing password. Default is false. Availability: Available only in Apple TV 6.1 to tvOS 10.1. This is not supported as of tvOS 10.2. It is recommended to use the AirPlay Security Payload.</string>
+			<key>pfm_name</key>
+			<string>forceAirPlayIncomingRequestsPairingPassword</string>
+			<key>pfm_note</key>
+			<string></string> 
+			<key>pfm_title</key>
+			<string>Require passcode on first AirPlay pairing</string>
+			<key>pfm_tvos_min</key>
+			<string>6.1</string>
+			<key>pfm_tvos_deprecated</key>
+			<string>10.2</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, the Apple TV cannot be paired for use with the Remote app or Control Center widget.</string>
+			<key>pfm_description_reference</key>
+			<string>If set to false, the Apple TV cannot be paired for use with the Remote app or Control Center widget. Defaults to true. Availability: Available in tvOS 10.2 and later.</string>
+			<key>pfm_name</key>
+			<string>allowRemoteAppPairing</string>
+			<key>pfm_title</key>
+			<string>Allow pairing with Remote app</string>
+			<key>pfm_tvos_min</key>
+			<string>10.2</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		
+		<!-- START All OSs -->
+		
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, a user's device will not request passwords from nearby devices.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
+			<key>pfm_name</key>
+			<string>allowPasswordProximityRequests</string>
+			<key>pfm_title</key>
+			<string>Allow proximity based password sharing requests</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_tvos_min</key>
+			<string>12.0</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If set to true, delays user visibility of Software Updates.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
+			<key>pfm_name</key>
+			<string>forceDelayedSoftwareUpdates</string>
+			<key>pfm_title</key>
+			<string>Defer Software Updates</string>
+			<key>pfm_tvos_min</key>
+			<string>12.2</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>30</integer>
+			<key>pfm_description</key>
+			<string>Number of days the software updates will be hidden from the user.</string>
+			<key>pfm_description_reference</key>
+			<string>Supervised only. This restriction allows the admin to set how many days a software update on the device will be delayed. With this restriction in place, the user will not see a software update until the specified number of days after the software update release date. The max is 90 days and the default value is 30. Availability: Available in iOS 11.3 and later and macOS 10.13.4 and later.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>forceDelayedSoftwareUpdates</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_name</key>
+			<string>enforcedSoftwareUpdateDelay</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_range_max</key>
+			<integer>90</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Deferred Software Updates Delay</string>
+			<key>pfm_tvos_min</key>
+			<string>12.2</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_value_unit</key>
+			<string>Days</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Restrictions (tvOS)</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>5</integer>
+</dict>
+</plist>
