@@ -2,48 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
 	<key>pfm_app_url</key>
 	<string>https://software.alectrona.com/patch/releases/alectrona-patch-latest.pkg</string>
-	
+	<key>pfm_description</key>
+	<string>Settings for Patch Notifier</string>
 	<key>pfm_documentation_url</key>
 	<string>https://patchdocs.alectrona.com/docs/patch-notifier</string>
-	
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-        <string>user</string>
-	</array>
-
+	<key>pfm_domain</key>
+	<string>com.alectrona.patch-notifier</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_last_modified</key>
+	<date>2023-06-02T08:00:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
-
-	<key>pfm_description</key>
-	<string>Settings for Patch Notifier</string>
-
-	<key>pfm_domain</key>
-	<string>com.alectrona.patch-notifier</string>
-
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-
-	<key>pfm_last_modified</key>
-	<date>2023-06-02T08:00:00Z</date>
-
-	<key>pfm_title</key>
-	<string>Alectrona Patch Notifier</string>
-	
-	<key>pfm_unique</key>
-	<true/>
-	
-	<key>pfm_version</key>
-	<integer>1</integer>
-
 	<key>pfm_subkeys</key>
 	<array>
-		
 		<dict>
 			<key>pfm_default</key>
 			<string>Configures Alectrona Patch Notifier configuration preferences</string>
@@ -58,7 +34,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
 		<dict>
 			<key>pfm_default</key>
 			<string>Alectrona Patch Notifier</string>
@@ -75,10 +50,9 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
 		<dict>
 			<key>pfm_default</key>
-			<string>com.alectrona.patch-notifier</string> 
+			<string>com.alectrona.patch-notifier</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
@@ -92,10 +66,9 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
 		<dict>
 			<key>pfm_default</key>
-			<string>com.alectrona.patch-notifier</string> 
+			<string>com.alectrona.patch-notifier</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -109,7 +82,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
 		<dict>
 			<key>pfm_description</key>
 			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
@@ -126,7 +98,6 @@
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
 		<dict>
 			<key>pfm_default</key>
 			<integer>1</integer>
@@ -144,7 +115,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
-
 		<dict>
 			<key>pfm_description</key>
 			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
@@ -155,8 +125,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
-        <dict>
+		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
@@ -168,6 +137,16 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>Deferral Limits</key>
+				<array>
+					<string>DeferralLimit</string>
+					<string>DeferralLimitExceptions</string>
+					<string>FinalDialogDescription</string>
+					<string>DialogDeferralText</string>
+					<string>IgnoreDeferralText</string>
+					<string>RecordTimeoutAsDeferral</string>
+					<string>FinalDialogTimeout</string>
+				</array>
 				<key>General Settings</key>
 				<array>
 					<string>DialogDescription</string>
@@ -180,258 +159,253 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>DialogHelpToolTip</string>
 					<string>DialogTitle</string>
 				</array>
-				<key>Deferral Limits</key>
-				<array>
-					<string>DeferralLimit</string>
-					<string>DeferralLimitExceptions</string>
-					<string>FinalDialogDescription</string>
-					<string>DialogDeferralText</string>
-					<string>IgnoreDeferralText</string>
-					<string>RecordTimeoutAsDeferral</string>
-					<string>FinalDialogTimeout</string>
-				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-
-        <!-- General Settings -->
-
 		<dict>
-			<key>pfm_name</key>
-			<string>DialogDescription</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Dialog Description</string>
 			<key>pfm_description</key>
 			<string>The main description that appears in the update dialog.	</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>UpdateButtonLabel</string>
+			<string>DialogDescription</string>
+			<key>pfm_title</key>
+			<string>Dialog Description</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Update Button Label</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The label or displayed text in the update button.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>			
-		</dict>
-        <dict>
+			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
 			<key>pfm_name</key>
-			<string>DeferButtonLabel</string>
+			<string>UpdateButtonLabel</string>
+			<key>pfm_title</key>
+			<string>Update Button Label</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Defer Button Label</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The label or displayed text in the defer button.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
+			<key>pfm_name</key>
+			<string>DeferButtonLabel</string>
+			<key>pfm_title</key>
+			<string>Defer Button Label</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>UpdateButtonPrimary</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Update Button Primary</string>
 			<key>pfm_description</key>
 			<string>By default, the Update button is the primary button of the Update Dialog; meaning it responds to the Return key. Set this key to false if you wish to disable this behavior.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>ContentImagePath</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<string>UpdateButtonPrimary</string>
 			<key>pfm_title</key>
-			<string>Content Image Path</string>
+			<string>Update Button Primary</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Path to a locally stored image to use as the content image of the update dialog (PNG/JPG/GIF/TIFF).</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>DialogTimeout</string>
-			<key>pfm_type</key>
-			<string>integer</string>
+			<string>ContentImagePath</string>
 			<key>pfm_title</key>
-			<string>Dialog Timeout</string>
-			<key>pfm_description</key>
-			<string>The duration, in seconds, that the update dialog will appear on screen before performing a timeout.</string>
-            <key>pfm_range_min</key>
-			<integer>1</integer>
-            <key>pfm_range_max</key>
-			<integer>600</integer>
-			<key>pfm_documentation_url</key>
-			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
-			<key>pfm_name</key>
-			<string>DialogHelpText</string>
+			<string>Content Image Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The duration, in seconds, that the update dialog will appear on screen before performing a timeout.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
+			<key>pfm_name</key>
+			<string>DialogTimeout</string>
+			<key>pfm_range_max</key>
+			<integer>600</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
 			<key>pfm_title</key>
-			<string>Dialog Help Text</string>
+			<string>Dialog Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Enable the help button and populate the text displayed on screen when clicked.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>DialogHelpToolTip</string>
+			<string>DialogHelpText</string>
+			<key>pfm_title</key>
+			<string>Dialog Help Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Dialog Help Tool Tip</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Customizes the tooltip of the help button (when enabled).</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>DialogTitle</string>
+			<string>DialogHelpToolTip</string>
+			<key>pfm_title</key>
+			<string>Dialog Help Tool Tip</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Dialog Title</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The title of the update dialog window.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-general-settings/</string>
-		</dict>
-
-         <!-- Deferral Limits -->
-
-         <dict>
 			<key>pfm_name</key>
-			<string>DeferralLimit</string>
-			<key>pfm_type</key>
-			<string>integer</string>
+			<string>DialogTitle</string>
 			<key>pfm_title</key>
-			<string>Deferral Limit</string>
+			<string>Dialog Title</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Sets a global Deferral Limit for all software.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>			
-		</dict>
-        <dict>
+			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
 			<key>pfm_name</key>
-			<string>DeferralLimitExceptions</string>
-			<key>pfm_type</key>
-			<string>array</string>
+			<string>DeferralLimit</string>
 			<key>pfm_title</key>
-			<string>Deferral Limit Exceptions</string>
+			<string>Deferral Limit</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Sets exceptions to the global Deferral Limit, or irrespective of it.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
+			<key>pfm_name</key>
+			<string>DeferralLimitExceptions</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_type</key>
-					<string>dictionary</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_description</key>
+							<string>Software ID of the software title to include in the deferral limit exceptions.</string>
 							<key>pfm_name</key>
+							<string>Key</string>
+							<key>pfm_title</key>
 							<string>Key</string>
 							<key>pfm_type</key>
 							<string>string</string>
-							<key>pfm_title</key>
-							<string>Key</string>
-							<key>pfm_description</key>
-							<string>Software ID of the software title to include in the deferral limit exceptions.</string>
 						</dict>
 						<dict>
+							<key>pfm_description</key>
+							<string>Deferral limit for the specified Software ID.</string>
 							<key>pfm_name</key>
+							<string>Integer</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
 							<string>Integer</string>
 							<key>pfm_type</key>
 							<string>integer</string>
-							<key>pfm_title</key>
-							<string>Integer</string>
-							<key>pfm_description</key>
-							<string>Deferral limit for the specified Software ID.</string>
-                            <key>pfm_require</key>
-			                <string>always</string>
 						</dict>
 					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
 				</dict>
 			</array>
-			<key>pfm_documentation_url</key>
-			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
-		</dict>
-        <dict>
-			<key>pfm_name</key>
-			<string>FinalDialogDescription</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_title</key>
-			<string>Final Dialog Description</string>
+			<string>Deferral Limit Exceptions</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The main description that appears in the final update dialog.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>DialogDeferralText</string>
+			<string>FinalDialogDescription</string>
+			<key>pfm_title</key>
+			<string>Final Dialog Description</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Dialog Deferral Text</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The text that appears below the main description in the update dialog.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>IgnoreDeferralText</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>DialogDeferralText</string>
 			<key>pfm_title</key>
-			<string>Ignore Deferral Text</string>
+			<string>Dialog Deferral Text</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Does not include the deferral text in the update dialog’s description.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>RecordTimeoutAsDeferral</string>
+			<string>IgnoreDeferralText</string>
+			<key>pfm_title</key>
+			<string>Ignore Deferral Text</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Record Timeout as Deferral</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>When an update dialog timeout occurs, record a deferral rather than taking no action.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
-		</dict>
-        <dict>
 			<key>pfm_name</key>
-			<string>FinalDialogTimeout</string>
-			<key>pfm_type</key>
-			<string>integer</string>
+			<string>RecordTimeoutAsDeferral</string>
 			<key>pfm_title</key>
-			<string>Final Dialog Timeout</string>
+			<string>Record Timeout as Deferral</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The duration, in seconds, that the final update dialog will appear on screen before performing an update.</string>
-            <key>pfm_range_min</key>
-			<integer>1</integer>
-            <key>pfm_range_max</key>
-			<integer>600</integer>
 			<key>pfm_documentation_url</key>
 			<string>https://patchdocs.alectrona.com/docs/patch-notifier/#preference-keys-for-deferral-limits/</string>
+			<key>pfm_name</key>
+			<string>FinalDialogTimeout</string>
+			<key>pfm_range_max</key>
+			<integer>600</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Final Dialog Timeout</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Alectrona Patch Notifier</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
 </dict>
 </plist>
