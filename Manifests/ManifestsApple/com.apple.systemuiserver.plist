@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Allowed Media settings</string>
+	<string>Allowed media management and menu bar extras settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/mediamanagementallowedmedia</string>
 	<key>pfm_domain</key>
@@ -12,14 +12,14 @@
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
+	<key>pfm_last_modified</key>
+	<date>2023-04-18T11:26:55Z</date>
 	<key>pfm_macos_deprecated</key>
 	<string>11.0</string>
 	<key>pfm_macos_max</key>
 	<string>10.15.7</string>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
-	<key>pfm_last_modified</key>
-	<date>2021-04-03T19:08:31Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -128,6 +128,7 @@
 				<string>Mount</string>
 				<string>Unmount</string>
 				<string>Logout</string>
+				<string>Menu Extras</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
@@ -136,6 +137,10 @@
 				<key>Logout</key>
 				<array>
 					<string>logout-eject</string>
+				</array>
+				<key>Menu Extras</key>
+				<array>
+					<string>menuExtras</string>
 				</array>
 				<key>Mount</key>
 				<array>
@@ -1559,6 +1564,59 @@
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>List of menu extras to combine with the user's menu bar</string>
+			<key>pfm_name</key>
+			<string>menuExtras</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>menuExtra</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>/System/Library/CoreServices/Menu Extras/AirPort.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Battery.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Bluetooth.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Clock.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Displays.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/DwellControl.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Eject.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/ExpressCard.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Ink.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/IrDA.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/PPP.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/PPPoE.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/SafeEjectGPUExtra.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Script</string>
+						<string>/System/Library/CoreServices/Menu Extras/Menu.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/TextInput.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/TimeMachine.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/UniversalAccess.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/User.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/VPN.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/Volume.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/WWAN.menu</string>
+						<string>/System/Library/CoreServices/Menu Extras/iChat.menu</string>
+					</array>
+					<key>pfm_range_list_allow_custom_value</key>
+					<true/>
+					<key>pfm_title</key>
+					<string>Menu Extra Path</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Menu Extras</string>
+			<key>pfm_type</key>
+			<string>array</string>
+			<key>pfm_value_unique</key>
+			<true/>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1566,10 +1624,10 @@
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Allowed Media</string>
+	<string>Allowed Media and Menu Bar Extras</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>
