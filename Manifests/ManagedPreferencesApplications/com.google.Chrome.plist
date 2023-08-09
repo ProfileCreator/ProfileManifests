@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-09T00:31:31Z</date>
+	<date>2023-04-09T14:29:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -226,6 +226,7 @@
 					<string>ExtensionInstallForcelist</string>
 					<string>ExtensionInstallSources</string>
 					<string>ExtensionInstallWhitelist</string>
+					<string>ExtensionManifestV2Availability</string>
 					<string>ExtensionSettings</string>
 				</array>
 				<key>Google Cast</key>
@@ -1560,6 +1561,91 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
+		<!-- <dict>
+			<key>pfm_app_min</key>
+			<string>74</string>
+			<key>pfm_description</key>
+			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+
+The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+
+If this policy is left not set, the global default value will be used for all sites either from the 'DefaultWebUsbGuardSetting' policy if it is set, or the user's personal configuration otherwise.
+
+URL patterns in this policy should not clash with the ones configured via WebUsbBlockedForUrls. If there is a clash, this policy will take precedence over WebUsbBlockedForUrls and WebUsbAskForUrls.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebUsbAllowDevicesForUrls</string>
+			<key>pfm_name</key>
+			<string>WebUsbAllowDevicesForUrls</string>
+			<key>pfm_note</key>
+			<string>Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_hidden</key>
+					<string>hidden</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>urls</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_format</key>
+									<string>https?://.*</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>URLs</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>devices</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>product_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+										<dict>
+											<key>pfm_name</key>
+											<string>vendor_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Devices</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Automatically grant permission to these sites to connect to USB devices with the given vendor and product IDs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict> -->
 		<dict>
 			<key>pfm_app_min</key>
 			<string>66</string>
@@ -2176,6 +2262,42 @@ By default, all extensions are allowed. But, if you prohibited extensions by pol
 			<string>Extension ID Allowlist</string>
 			<key>pfm_type</key>
 			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>110</string>
+			<key>pfm_description</key>
+			<string>Control if Manifest v2 extensions can be used by browser.</string>
+			<key>pfm_description_reference</key>
+			<string>Control if Manifest v2 extensions can be used by browser.
+
+0 = Default browser behavior
+1 = Manifest v2 is disabled
+2 = Manifest v2 is enabled
+3 = Manifest v2 is enabled for forced extensions only
+</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#ExtensionManifestV2Availability</string>
+			<key>pfm_name</key>
+			<string>ExtensionManifestV2Availability</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Default browser behavior</string>
+				<string>Manifest v2 is disabled</string>
+				<string>Manifest v2 is enabled</string>
+				<string>Manifest v2 is enabled for forced extensions only</string>
+			</array>
+			<key>pfm_title</key>
+			<string>ExtensionManifestV2Availability</string>
+			<key>pfm_type</key>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5741,6 +5863,52 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<!-- <dict>
+							<key>pfm_description</key>
+							<string>Folder contents</string>
+							<key>pfm_description_reference</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>children</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string></string>
+									<key>pfm_name</key>
+									<string>ManagedBookmark</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Name of the bookmark.</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_name</key>
+											<string>name</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>URL for the bookmark.</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_name</key>
+											<string>url</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string></string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict> -->
 					</array>
 					<key>pfm_title</key>
 					<string></string>
@@ -7360,7 +7528,7 @@ If this policy is enabled or not set the User-Agent Client Hints feature is enab
 			<key>pfm_description_reference</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Google.
 
-If the policy is unset or set to true, users can send feedback to Google via Menu->Help->Report an Issue or key combination.</string>
+If the policy is unset or set to true, users can send feedback to Google via Menu-&gt;Help-&gt;Report an Issue or key combination.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=UserFeedbackAllowed</string>
 			<key>pfm_name</key>
@@ -8237,21 +8405,21 @@ If the page size is unavailable on the printer chosen by the user this policy is
 						</dict>
 					</array>
 					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
-									<key>pfm_target_conditions</key>
+									<key>pfm_n_range_list</key>
 									<array>
-										<dict>
-											<key>pfm_n_range_list</key>
-											<array>
-												<string>custom</string>
-											</array>
-											<key>pfm_target</key>
-											<string>PrinterPaperSizeDefault.name</string>
-										</dict>
+										<string>custom</string>
 									</array>
+									<key>pfm_target</key>
+									<string>PrinterPaperSizeDefault.name</string>
 								</dict>
 							</array>
+						</dict>
+					</array>
 					<key>pfm_name</key>
 					<string>custom_size</string>
 					<key>pfm_subkeys</key>
@@ -9631,6 +9799,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>12</integer>
+	<integer>13</integer>
 </dict>
 </plist>
