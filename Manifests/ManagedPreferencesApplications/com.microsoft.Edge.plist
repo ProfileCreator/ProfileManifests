@@ -674,6 +674,8 @@ This policy can be overridden for specific URL patterns using the InsecureConten
 If this policy isn't set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#defaultinsecurecontentsetting</string>
+			<key>pfm_name</key>
+			<string>DefaultInsecureContentSetting</string>
 			<key>pfm_range_list</key>
 			<array>
 				<integer>2</integer>
@@ -684,8 +686,6 @@ If this policy isn't set, users will be allowed to add exceptions to allow block
 				<string>Do not allow any site to load blockable mixed content</string>
 				<string>Allow users to add exceptions to allow blockable mixed content</string>
 			</array>
-			<key>pfm_name</key>
-			<string>DefaultInsecureContentSetting</string>
 			<key>pfm_title</key>
 			<string>Default insecure content setting</string>
 			<key>pfm_type</key>
@@ -843,10 +843,10 @@ If this policy is left not set, 'BlockPopups' will be used and the user will be 
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>3</integer>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<integer>3</integer>
 			<key>pfm_description</key>
 			<string>Allows you to set whether websites are allowed to get access to nearby Bluetooth devices. Access can be completely blocked, or the user can be asked every time a website wants to get access to nearby Bluetooth devices.</string>
 			<key>pfm_description_reference</key>
@@ -875,10 +875,10 @@ If this policy is left not set, '3' will be used, and the user will be able to c
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>3</integer>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<integer>3</integer>
 			<key>pfm_description</key>
 			<string>Allows you to set whether websites are allowed to get access to connected USB devices. Access can be completely blocked, or the user can be asked every time a website wants to get access to connected USB devices.</string>
 			<key>pfm_description_reference</key>
@@ -2010,10 +2010,10 @@ For a full description of possible settings and structure of this policy please 
 					<string></string>
 					<key>pfm_description_reference</key>
 					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
 					<key>pfm_hidden</key>
 					<string>container</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -3183,12 +3183,12 @@ If this policy is not set, any certificate that is required to be disclosed via 
 If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
 
 If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.</string>
-			<key>pfm_note</key>
-			<string>If you enable this policy, don't enable the AllowDeletingBrowserHistory policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured AllowDeletingBrowserHistory.</string>
 			<key>pfm_documentation_url</key>
-		 	<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#clearbrowsingdataonexit</string>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#clearbrowsingdataonexit</string>
 			<key>pfm_name</key>
 			<string>ClearBrowsingDataOnExit</string>
+			<key>pfm_note</key>
+			<string>If you enable this policy, don't enable the AllowDeletingBrowserHistory policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured AllowDeletingBrowserHistory.</string>
 			<key>pfm_title</key>
 			<string>Clear browsing data when Microsoft Edge closes</string>
 			<key>pfm_type</key>
@@ -3237,7 +3237,7 @@ Policy options mapping:
 pinterest_suggestions (pinterest_suggestions) = Pinterest suggestions
 Use the preceding information when configuring this policy.</string>
 			<key>pfm_documentation_url</key>
-		 	<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#collectionsservicesandexportsblocklist</string>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#collectionsservicesandexportsblocklist</string>
 			<key>pfm_name</key>
 			<string>CollectionsServicesAndExportsBlockList</string>
 			<key>pfm_subkeys</key>
@@ -3690,24 +3690,24 @@ See https://developers.google.com/safe-browsing for more info on Safe Browsing.<
 			<string>integer</string>
 		</dict>
 		<dict>
-		  <key>pfm_app_min</key>
-		  <string>78</string>
-		  <key>pfm_default</key>
-		  <true/>
-		  <key>pfm_description</key>
-		  <string>Lets you allow users to access the Collections feature, where they can collect, organize, share, and export content more efficiently and with Office integration.</string>
-		  <key>pfm_description_reference</key>
-		  <string>If you enable or don't configure this policy, users can access and use the Collections feature in Microsoft Edge.
+			<key>pfm_app_min</key>
+			<string>78</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Lets you allow users to access the Collections feature, where they can collect, organize, share, and export content more efficiently and with Office integration.</string>
+			<key>pfm_description_reference</key>
+			<string>If you enable or don't configure this policy, users can access and use the Collections feature in Microsoft Edge.
 
 		If you disable this policy, users can't access and use Collections in Microsoft Edge.</string>
-		  <key>pfm_documentation_url</key>
-		  <string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#edgecollectionsenabled</string>
-		  <key>pfm_name</key>
-		  <string>EdgeCollectionsEnabled</string>
-		  <key>pfm_title</key>
-		  <string>Enable the Collections feature</string>
-		  <key>pfm_type</key>
-		  <string>boolean</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#edgecollectionsenabled</string>
+			<key>pfm_name</key>
+			<string>EdgeCollectionsEnabled</string>
+			<key>pfm_title</key>
+			<string>Enable the Collections feature</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -4560,8 +4560,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#managedfavorites</string>
 			<key>pfm_name</key>
 			<string>ManagedFavorites</string>
-			<key>pfm_title</key>
-			<string>Managed Favorites</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -4580,7 +4578,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							<string>string</string>
 						</dict>
 						<dict>
-							
 							<key>pfm_description</key>
 							<string>URL for the favorite.</string>
 							<key>pfm_name</key>
@@ -4616,6 +4613,8 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Managed Favorites</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -4731,10 +4730,10 @@ If you disable or don't configure this policy and:
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>32</integer>
 			<key>pfm_app_min</key>
 			<string>77</string>
+			<key>pfm_default</key>
+			<integer>32</integer>
 			<key>pfm_description</key>
 			<string>Specifies the maximal number of simultaneous connections to the proxy server.</string>
 			<key>pfm_description_reference</key>
@@ -5962,7 +5961,7 @@ If this policy is not set there will be no exceptions to the blacklist from the 
 			<key>pfm_description_reference</key>
 			<string>Allow user feedback. If the policy is set to false, users can not send feedback to Google.
 
-If the policy is unset or set to true, users can send feedback to Google via Menu->Help->Report an Issue or key combination.</string>
+If the policy is unset or set to true, users can send feedback to Google via Menu-&gt;Help-&gt;Report an Issue or key combination.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies#userfeedbackallowed</string>
 			<key>pfm_name</key>
@@ -6375,7 +6374,7 @@ If this policy is enabled or disabled, users cannot change or override it in Goo
 			<key>pfm_description</key>
 			<string>Allow Microsoft Edge to monitor user passwords.</string>
 			<key>pfm_description_reference</key>
-			<string>If you enable this policy and a user consents to enabling the policy, the user will get alerted if any of their passwords stored in Microsoft Edge are found to be unsafe. Microsoft Edge will show an alert and this information will also be available in Settings > Passwords > Password Monitor.
+			<string>If you enable this policy and a user consents to enabling the policy, the user will get alerted if any of their passwords stored in Microsoft Edge are found to be unsafe. Microsoft Edge will show an alert and this information will also be available in Settings &gt; Passwords &gt; Password Monitor.
 
 If you disable this policy, users will not be asked for permission to enable this feature and will not be alerted. Their passwords will not be scanned.
 
@@ -7473,6 +7472,5 @@ URL patterns in this policy should not clash with ones configured via WebUsbAskF
 	<true/>
 	<key>pfm_version</key>
 	<integer>13</integer>
-
 </dict>
 </plist>

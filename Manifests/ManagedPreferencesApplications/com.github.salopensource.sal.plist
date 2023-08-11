@@ -131,10 +131,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>The URL of your Sal server (required).</string>
 			<key>pfm_description</key>
 			<string>URL of your Sal server.</string>
+			<key>pfm_description_reference</key>
+			<string>The URL of your Sal server (required).</string>
 			<key>pfm_name</key>
 			<string>ServerURL</string>
 			<key>pfm_require</key>
@@ -143,28 +143,20 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Whether to use basic authentication on your server. You should have a very good reason to disable this (defaults to true)</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Whether to use basic authentication on your server.</string>
+			<key>pfm_description_reference</key>
+			<string>Whether to use basic authentication on your server. You should have a very good reason to disable this (defaults to true)</string>
+			<key>pfm_enabled</key>
+			<true/>
 			<key>pfm_name</key>
 			<string>BasicAuth</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
-			<key>pfm_enabled</key>
-			<true/>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>The machine group's key (required if you wish to use basic authentication).</string>
-			<key>pfm_description</key>
-			<string>The machine group's key.</string>
-			<key>pfm_name</key>
-			<string>key</string>
-			<key>pfm_type</key>
-			<string>string</string>
 			<key>pfm_conditionals</key>
 			<array>
 				<dict>
@@ -183,28 +175,34 @@ The payload organization for a payload need not match the payload organization i
 					</array>
 				</dict>
 			</array>
+			<key>pfm_description</key>
+			<string>The machine group's key.</string>
+			<key>pfm_description_reference</key>
+			<string>The machine group's key (required if you wish to use basic authentication).</string>
+			<key>pfm_name</key>
+			<string>key</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>By default the Sal client will download the scripts it needs to run for your plugins from the server. (defaults to true)</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Download the scripts needed to run for your plugins from the server.</string>
+			<key>pfm_description_reference</key>
+			<string>By default the Sal client will download the scripts it needs to run for your plugins from the server. (defaults to true)</string>
 			<key>pfm_name</key>
 			<string>SyncScripts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>It is possible to not upload all the data produced by Facter. You may have facts that are duplicates of other information Sal collects, or you don't wish to upload them for security reasons.</string>
 			<key>pfm_description</key>
+			<string>It is possible to not upload all the data produced by Facter. You may have facts that are duplicates of other information Sal collects, or you don't wish to upload them for security reasons.</string>
+			<key>pfm_description_reference</key>
 			<string>It is possible to not upload all the data produced by Facter. You may have facts that are duplicates of other information Sal collects, or you don't wish to upload them for security reasons.</string>
 			<key>pfm_name</key>
 			<string>SkipFacts</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -212,33 +210,35 @@ The payload organization for a payload need not match the payload organization i
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Collect Salt grains and upload them to Sal. (defaults to false)</string>
 			<key>pfm_description</key>
 			<string>Collect Salt grains and upload them to Sal.</string>
+			<key>pfm_description_reference</key>
+			<string>Collect Salt grains and upload them to Sal. (defaults to false)</string>
 			<key>pfm_name</key>
 			<string>GetGrains</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Collect Ohai attributes and upload them to Sal. (defaults to false)</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Collect Ohai attributes and upload them to Sal.</string>
+			<key>pfm_description_reference</key>
+			<string>Collect Ohai attributes and upload them to Sal. (defaults to false)</string>
 			<key>pfm_name</key>
 			<string>GetOhai</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_default</key>
-			<true/>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Path to your sal certificate. Curl on 10.13 requires this for self-signed certificates or uploading the report data will fail.</string>
 			<key>pfm_description</key>
+			<string>Path to your sal certificate. Curl on 10.13 requires this for self-signed certificates or uploading the report data will fail.</string>
+			<key>pfm_description_reference</key>
 			<string>Path to your sal certificate. Curl on 10.13 requires this for self-signed certificates or uploading the report data will fail.</string>
 			<key>pfm_name</key>
 			<string>CACert</string>
@@ -246,9 +246,9 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Full path to your sal SSL client key file for mutual TLS</string>
 			<key>pfm_description</key>
+			<string>Full path to your sal SSL client key file for mutual TLS</string>
+			<key>pfm_description_reference</key>
 			<string>Full path to your sal SSL client key file for mutual TLS</string>
 			<key>pfm_name</key>
 			<string>SSLClientKey</string>
@@ -256,14 +256,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Absolute path to the SSL client certificate to use with mutual TLS when connecting to the sal server in PEM format (Requires SSLClientKey to also be defined), in PKCS#12 format, or the name for a certificate in the system or root user keychain. (See curl(1) man page for further details on --cert for advanced format options)</string>
 			<key>pfm_description</key>
 			<string>Absolute path to the SSL client certificate to use with mutual TLS when connecting to the sal server in PEM format.</string>
-			<key>pfm_name</key>
-			<string>SSLClientCertificate</string>
-			<key>pfm_type</key>
-			<string>string</string>
+			<key>pfm_description_reference</key>
+			<string>Absolute path to the SSL client certificate to use with mutual TLS when connecting to the sal server in PEM format (Requires SSLClientKey to also be defined), in PKCS#12 format, or the name for a certificate in the system or root user keychain. (See curl(1) man page for further details on --cert for advanced format options)</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -276,14 +272,18 @@ The payload organization for a payload need not match the payload organization i
 							<string>SSLClientKey</string>
 						</dict>
 						<dict>
-							<key>pfm_value_empty</key>
-							<true/>
 							<key>pfm_target</key>
 							<string>SSLClientKey</string>
+							<key>pfm_value_empty</key>
+							<true/>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>SSLClientCertificate</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>

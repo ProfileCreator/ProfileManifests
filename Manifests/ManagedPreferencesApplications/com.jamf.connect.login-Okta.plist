@@ -4,30 +4,22 @@
 <dict>
 	<key>pfm_app_url</key>
 	<string>https://www.jamf.com/support/jamf-connect/</string>
+	<key>pfm_description</key>
+	<string>Jamf Connect Login settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://docs.jamf.com/jamf-connect/1.2.3/administrator-guide/Jamf_Connect_Login.html</string>
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-	</array>
+	<key>pfm_domain</key>
+	<string>com.jamf.connect.login</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
 	<key>pfm_last_modified</key>
 	<date>2021-12-22T05:49:22Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
 	</array>
-	<key>pfm_description</key>
-	<string>Jamf Connect Login settings</string>
-	<key>pfm_domain</key>
-	<string>com.jamf.connect.login</string>
 	<key>pfm_subdomain</key>
 	<string>Okta</string>
-	<key>pfm_format_version</key>
-	<integer>1</integer>
-	<key>pfm_title</key>
-	<string>Jamf Connect Login (Okta)</string>
-	<key>pfm_unique</key>
-	<false/>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -159,9 +151,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>data</string>
 		</dict>
-		
-		
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
@@ -200,16 +189,20 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>HelpURLLogo</string>
 					<string>LocalHelpFile</string>
 				</array>
+				<key>Create User</key>
+				<array>
+					<string>CreateAdminUser</string>
+				</array>
+				<key>Demobilize</key>
+				<array>
+					<string>DemobilizeUsers</string>
+				</array>
 				<key>EULA</key>
 				<array>
 					<string>EULAText</string>
 					<string>EULAPath</string>
 					<string>EULATitle</string>
 					<string>EULASubTitle</string>
-				</array>
-				<key>Create User</key>
-				<array>
-					<string>CreateAdminUser</string>
 				</array>
 				<key>Enable FDE</key>
 				<array>
@@ -222,22 +215,18 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>ScriptPath</string>
 					<string>ScriptArgs</string>
 				</array>
-				<key>Demobilize</key>
-				<array>
-					<string>DemobilizeUsers</string>
-				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>Determines if users can bypass network authentication and use the Local Auth button at the loginwindow.</string>
 			<key>pfm_description_reference</key>
 			<string>Determines if users can bypass network authentication and use the Local Auth button at the loginwindow.
 If set to true, the Local Auth button is not available, and user must authenticate to their network.
 
 If set to false, the Local Auth button is available, and users can choose to authenticate locally.</string>
-			<key>pfm_description</key>
-			<string>Determines if users can bypass network authentication and use the Local Auth button at the loginwindow.</string>
 			<key>pfm_name</key>
 			<string>DenyLocal</string>
 			<key>pfm_type</key>
@@ -246,10 +235,26 @@ If set to false, the Local Auth button is available, and users can choose to aut
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Specifies which local users can still locally authorize if the DenyLocal key is set to true.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>DenyLocal</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>DenyLocalExcluded</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -259,32 +264,12 @@ If set to false, the Local Auth button is available, and users can choose to aut
 					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_range_list</key>
-							<array>
-								<false/>
-							</array>
-							<key>pfm_target</key>
-							<string>DenyLocal</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Used with DenyLocal to force authentication to Okta first, but then fallback to local auth if Okta is unavailable.</string>
-			<key>pfm_name</key>
-			<string>LocalFallback</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -303,10 +288,12 @@ If set to false, the Local Auth button is available, and users can choose to aut
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>LocalFallback</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>Migrate</string>
 			<key>pfm_description</key>
 			<string>Allows local accounts to be migrated to network accounts. This is typically used when the user account was already created on the system, but you want the accounts to have the same username and password as the user's Okta identity.</string>
 			<key>pfm_description_reference</key>
@@ -321,20 +308,20 @@ If a user's Okta username does not match any local account, the user will be giv
 Additionally, Okta can migrate users from local accounts to accounts associated with an Okta identity. With the Migrate and DenyLocal preference keys, all subsequent sign-ins will be authenticated to Okta, and then the system verifies if the user record has an "OktaUser" attribute. If this attribute cannot be verified, the user will be asked to select a local account to associate with the user's Okta account. If the local account shortname does not match the Okta shortname, the Okta name will be added as an alias to the account so the user will be able to use either one. This also keeps the home folder path and other elements of the user record the same.
 
 Note: For every successful Okta authentication of a user, the user's record will be updated with the "NetworkSignIn" attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_note</key>
-			<string>For every successful Okta authentication of a user, the user's record will be updated with the "NetworkSignIn" attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://docs.jamf.com/jamf-connect/1.2.3/administrator-guide/Configuring_with_Okta.html</string>
+			<key>pfm_name</key>
+			<string>Migrate</string>
+			<key>pfm_note</key>
+			<string>For every successful Okta authentication of a user, the user's record will be updated with the "NetworkSignIn" attribute. If the user was only authenticated locally, this attribute will not be updated.</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>MigrateUsersHide</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies which local accounts are excluded from the migration pull-down menu.</string>
-			<key>pfm_type</key>
-			<string>array</string>
+			<key>pfm_name</key>
+			<string>MigrateUsersHide</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -344,6 +331,8 @@ Note: For every successful Okta authentication of a user, the user's record will
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -394,19 +383,19 @@ Note: For every successful Okta authentication of a user, the user's record will
 			<string>0oa0grdsrhdsre54gn3y9O 0h4</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>nomadoauth://oauth-callback/okta</string>
+			<key>pfm_description</key>
+			<string>The Redirect URI the user is sent to after successful authentication.</string>
 			<key>pfm_description_reference</key>
 			<string>The Redirect URI the user is sent to after successful authentication.
 Note: Use a private URL scheme to ensure the the Redirect URI does not conflict with other addresses.</string>
-			<key>pfm_description</key>
-			<string>The Redirect URI the user is sent to after successful authentication.</string>
 			<key>pfm_name</key>
 			<string>OIDCRedirectURI</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_default</key>
-			<string>nomadoauth://oauth-callback/okta</string>
 			<key>pfm_note</key>
 			<string>Use a private URL scheme to ensure the Redirect URI does not conflict with other addresses.</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -459,12 +448,6 @@ Note: Use a private URL scheme to ensure the the Redirect URI does not conflict 
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Path to an image used as a clickable logo for the Help URL at the loginwindow.</string>
-			<key>pfm_name</key>
-			<string>HelpURLLogo</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/shared/helplogo.png</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -473,93 +456,99 @@ Note: Use a private URL scheme to ensure the the Redirect URI does not conflict 
 						<dict>
 							<key>pfm_present</key>
 							<false/>
-							<key>pfm_value_empty</key>
-							<true/>
 							<key>pfm_target</key>
 							<string>HelpURL</string>
+							<key>pfm_value_empty</key>
+							<true/>
 						</dict>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>HelpURLLogo</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/shared/helplogo.png</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>1.2.3</string>
+			<key>pfm_description</key>
+			<string>A path to a local file that users can access by clicking the "Help" button in the Jamf Connect Login window.</string>
 			<key>pfm_description_reference</key>
 			<string>A path to a local file that users can access by clicking the "Help" button in the Jamf Connect Login window
 Note: Supported file types include PDF and HTML.</string>
-			<key>pfm_description</key>
-			<string>A path to a local file that users can access by clicking the "Help" button in the Jamf Connect Login window.</string>
 			<key>pfm_name</key>
 			<string>LocalHelpFile</string>
+			<key>pfm_note</key>
+			<string>Supported file types include PDF and HTML.</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>/usr/local/shared/JamfConnect.pdf</string>
-			<key>pfm_note</key>
-			<string>Supported file types include PDF and HTML.</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>End User License Agreement</string>
 			<key>pfm_description</key>
 			<string>Title of the end user license agreement</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 			<key>pfm_name</key>
 			<string>EULATitle</string>
 			<key>pfm_title</key>
 			<string>EULA Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>End User License Agreement</string>
-			<key>pfm_documentation_url</key>
-			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>Terms and Conditions</string>
 			<key>pfm_description</key>
 			<string>Subtitle of the end user license agreement</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 			<key>pfm_name</key>
 			<string>EULASubTitle</string>
 			<key>pfm_title</key>
 			<string>EULA Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_default</key>
-			<string>Terms and Conditions</string>
-			<key>pfm_documentation_url</key>
-			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>Text used for the EULA.</string>
 			<key>pfm_description</key>
 			<string>Text used for the end user license agreement (use three asterisks to create a line break in the text)</string>
+			<key>pfm_description_reference</key>
+			<string>Text used for the EULA.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 			<key>pfm_name</key>
 			<string>EULAText</string>
+			<key>pfm_note</key>
+			<string>You must include the JamfConnectLogin:EULA mechanism (which you can do with authchanger) to display the contents of EULAText.</string>
 			<key>pfm_title</key>
 			<string>EULA Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_note</key>
-			<string>You must include the JamfConnectLogin:EULA mechanism (which you can do with authchanger) to display the contents of EULAText.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 		</dict>
 		<dict>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/shared/</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the path to a folder where the end user's license agreement record (EULA) is stored.</string>
 			<key>pfm_description</key>
 			<string>The path to a file storing the end user license agreement record</string>
+			<key>pfm_description_reference</key>
+			<string>Specifies the path to a folder where the end user's license agreement record (EULA) is stored.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
 			<key>pfm_name</key>
 			<string>EULAPath</string>
+			<key>pfm_note</key>
+			<string>The user _securityagent must have write access to this folder.</string>
 			<key>pfm_title</key>
 			<string>EULA Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_note</key>
-			<string>The user _securityagent must have write access to this folder.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://docs.jamf.com/jamf-connect/1.8.0/administrator-guide/Adding_the_EULA_Mechanism.html</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/shared/</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -580,10 +569,6 @@ Note: Supported file types include PDF and HTML.</string>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>If set to true, the FileVault personal recovery key is written to the following location: /var/db/NoMADFDESetup.plist</string>
-			<key>pfm_name</key>
-			<string>EnableFDERecoveryKey</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -602,16 +587,14 @@ Note: Supported file types include PDF and HTML.</string>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>EnableFDERecoveryKey</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
 			<string>Changes the path used for the FileVault recovery key.</string>
-			<key>pfm_name</key>
-			<string>EnableFDERecoveryKeyPath</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>/usr/local/opt</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -640,6 +623,12 @@ Note: Supported file types include PDF and HTML.</string>
 					</array>
 				</dict>
 			</array>
+			<key>pfm_name</key>
+			<string>EnableFDERecoveryKeyPath</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>/usr/local/opt</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -652,15 +641,29 @@ Note: Supported file types include PDF and HTML.</string>
 			<string>/usr/local/bin/login</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The arguments used with a specified script run by the RunScript mechanism</string>
 			<key>pfm_description_reference</key>
 			<string>The arguments used with a specified script run by the RunScript mechanism
 Note: The ScriptPath key must bey specified.</string>
-			<key>pfm_description</key>
-			<string>The arguments used with a specified script run by the RunScript mechanism</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>ScriptPath</string>
+							<key>pfm_value_empty</key>
+							<true/>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>ScriptArgs</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -670,22 +673,8 @@ Note: The ScriptPath key must bey specified.</string>
 					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_exclude</key>
-			<array>
-				<dict>
-					<key>pfm_target_conditions</key>
-					<array>
-						<dict>
-							<key>pfm_present</key>
-							<false/>
-							<key>pfm_value_empty</key>
-							<true/>
-							<key>pfm_target</key>
-							<string>ScriptPath</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description_reference</key>
@@ -696,6 +685,14 @@ Note: The ScriptPath key must bey specified.</string>
 			<string>boolean</string>
 		</dict>
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Jamf Connect Login (Okta)</string>
+	<key>pfm_unique</key>
+	<false/>
 	<key>pfm_version</key>
 	<integer>2</integer>
 </dict>
