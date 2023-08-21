@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Exchange Active Sync settings</string>
-	<key>pfm_description_reference</key>
-	<string>In iOS, the Exchange payload is designated by specifying com.apple.eas.account as the PayloadType value. This payload configures an Exchange Active Sync Contacts account on the device. Mail and Calendar are not config- ured using this payload on iOS.</string>
+	<string>Use this section to define settings for the Exchange ActiveSync account.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/exchangeactivesync</string>
 	<key>pfm_domain</key>
@@ -15,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_note</key>
 	<string>As with VPN and Wi-Fi configurations, it is possible to associate an SCEP credential with an Exchange configu- ration via the PayloadCertificateUUID key.</string>
 	<key>pfm_platforms</key>
@@ -28,9 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures an Exchange account</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -42,9 +38,7 @@
 			<key>pfm_default</key>
 			<string>Exchange ActiveSync</string>
 			<key>pfm_description</key>
-			<string>The display name for the account.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_enabled</key>
 			<true/>
 			<key>pfm_name</key>
@@ -60,9 +54,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.eas.account</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -76,9 +68,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.eas.account</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -92,9 +82,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -110,7 +98,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -125,7 +113,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -138,7 +126,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user name with the optional domain (e.g "user" or "domain\user").</string>
+			<string>This user name for this Exchange account. The user name is required for noninteractive installations like MDM in iOS.</string>
 			<key>pfm_description_reference</key>
 			<string>This string specifies the user name for this Exchange account.
 Required in macOS or non-interactive installations (like MDM on iOS).</string>
@@ -153,7 +141,7 @@ Required in macOS or non-interactive installations (like MDM on iOS).</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The email address for the account (e.g. "john@company.com).</string>
+			<string>The full email address for the account. If not present in the payload, the device prompts for this string during profile installation.</string>
 			<key>pfm_description_reference</key>
 			<string>Specifies the full email address for the account. If not present in the payload, the device prompts for this string during profile installation.
 In macOS, this key is required.</string>
@@ -166,9 +154,7 @@ In macOS, this key is required.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password of the user account.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The password of the account. Use only with encrypted profiles.</string>
+			<string>The password of the account. Use only with encrypted profiles.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -198,7 +184,7 @@ In macOS, this key is required.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, a previously set EAS password is overriden with a new password in this payload.</string>
+			<string>If 'true',  overrides the previous user/EAS password with the new EAS password in the payload. Available in iOS 14 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -210,9 +196,8 @@ In macOS, this key is required.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The IP address or fully qualified domain name (FQDN) of the internal Exchange host.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the Exchange server host name (or IP address). In macOS 10.11 and later, this key is optional.</string>
+			<string>The Exchange server host name or IP address.
+If using OAuth without an OAuthSignInURL, the host name is ignored.</string>
 			<key>pfm_name</key>
 			<string>Host</string>
 			<key>pfm_require</key>
@@ -226,9 +211,7 @@ In macOS, this key is required.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Send all communication through Secure Socket Layer.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default YES. Specifies whether the Exchange server uses SSL for authentication.</string>
+			<string>If 'true', enables SSL for authentication.</string>
 			<key>pfm_name</key>
 			<string>SSL</string>
 			<key>pfm_title</key>
@@ -240,7 +223,8 @@ In macOS, this key is required.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Specifies whether the connection should use OAuth for authentication.</string>
+			<string>If 'true', enables OAuth for authentication. If enabled, don't specify a password.
+Available only in iOS 12.0 and above.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Specifies whether the connection should use OAuth for authentication. If enabled, a password should not be specified. This defaults to false.
 Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
@@ -261,9 +245,7 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 				<string>com.rsa.pkcs-12</string>
 			</array>
 			<key>pfm_description</key>
-			<string>X.509 certificate (.p12) for inclusion on device.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. For accounts that allow authentication via certificate, a .p12 identity certificate in NSData blob format.</string>
+			<string>The '.p12' identity certificate in NSData blob format, for accounts that allow authentication via certificate.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -287,9 +269,7 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name or description of the certificate credential.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Specifies the name or description of the certificate.</string>
+			<string>The name or description of the certificate.</string>
 			<key>pfm_name</key>
 			<string>CertificateName</string>
 			<key>pfm_title</key>
@@ -299,9 +279,7 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Password protecting the PKCS12 file.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The password necessary for the p12 identity certificate. Used with mandatory encryption of profiles.</string>
+			<string>The password necessary for the '.p12' identity certificate. Used with mandatory encryption of profiles.</string>
 			<key>pfm_name</key>
 			<string>CertificatePassword</string>
 			<key>pfm_sensitive</key>
@@ -315,7 +293,7 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, messages may not be moved out of this email account into another account. Also prevents forwarding or replying from a different account than the message was originated from.</string>
+			<string>If 'true', prevents messages from being moved out of this email account into another account. This setting also prevents forwarding or replying from an account other than the one the message was sent to.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Defaultfalse.
 If set to true, messages may not be moved out of this email account into another account. Also prevents forwarding or replying from a different account than the message was originated from.
@@ -333,7 +311,7 @@ Availability: Available in iOS 5.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, this account will not be available for sending mail in any app other than the Apple Mail app.</string>
+			<string>If 'true', prevents this account from sending mail in any app other than the Apple Mail app.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default false. If set to true, this account will not be available for sending mail in any app other than the Apple Mail app.
 Availability: Available in iOS 5.0 and later.</string>
@@ -348,7 +326,7 @@ Availability: Available in iOS 5.0 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>UUID of the certificate payload to use for the identity credential.</string>
+			<string>The UUID of of the certificate payload within the same profile to use for the identity credential. If this field is present, the Certificate field is not used.</string>
 			<key>pfm_description_reference</key>
 			<string>UUID of the certificate payload to use for the identity credential. If this field is present, the Certificate field is not used.
 Availability: Available in iOS 5.0 and later.</string>
@@ -365,7 +343,7 @@ Availability: Available in iOS 5.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, this account supports S/MIME.</string>
+			<string>If 'true', enables S/MIME encryption. In iOS 10.0 and later, this key is ignored. Use 'SMIMESigningEnabled' instead.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default false. If true, this account supports S/MIME.
 As of iOS 10.0, this key is ignored.
@@ -387,7 +365,7 @@ Availability: Available only in iOS 5.0 through 9.3.3.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, S/MIME signing is enabled for this account.</string>
+			<string>If 'true', enables S/MIME signing for this account. Available in iOS 10.0 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default true. If set to true, S/MIME signing is enabled for this account.
 Availability: Available only in iOS 10.3 and later.</string>
@@ -402,7 +380,7 @@ Availability: Available only in iOS 10.3 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The PayloadUUID of the identity certificate used to sign messages sent from this account.</string>
+			<string>The UUID of the identity certificate used to sign messages sent from this account.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. The PayloadUUID of the identity certificate used to sign messages sent from this account. 
 Availability: Available only in iOS 5.0 and later.</string>
@@ -419,7 +397,7 @@ Availability: Available only in iOS 5.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, S/MIME encryption is on by default for this account. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEncryptByDefault instead.</string>
+			<string>If 'true', enables S/MIME encryption for this account. Available in iOS 10.0 and later. As of iOS 12.0, this key is deprecated. It is recommended to use 'SMIMEEncryptByDefault' instead.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default false. If set to true, S/MIME encryption is on by default for this account.
 Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEncryptByDefault instead.</string>
@@ -436,9 +414,7 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The PayloadUUID of the identity certificate used to decrypt messages sent to this account.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The PayloadUUID of the identity certificate used to decrypt messages sent to this account. The public certificate is attached to outgoing mail to allow encrypted mail to be sent to this user. When the user sends encrypted mail, the public certificate is used to encrypt the copy of the mail in their Sent mailbox. Availability: Available only in iOS 5.0 and later.</string>
+			<string>The payload UUID of the identity certificate used to decrypt messages sent to this account. The public certificate is attached to outgoing mail to allow encrypted mail to be sent to this user. When the user sends encrypted mail, the public certificate is used to encrypt the copy of the mail in the user's Sent mailbox.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -470,9 +446,8 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, displays the per-message encryption switch in the Mail Compose UI. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEnableEncryptionPerMessageSwitch instead.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default false. If set to true, displays the per-message encryption switch in the Mail Compose UI. Availability: Available only in iOS 8.0 and later. As of iOS 12.0, this key is deprecated. It is recommended to use SMIMEEnableEncryptionPerMessageSwitch instead.</string>
+			<string>If 'true', displays the per-message encryption switch in the Mail Compose UI.
+Available in iOS 8.0 and later. As of iOS 12.0, this key is deprecated. Use 'SMIMEEnableEncryptionPerMessageSwitch' instead.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>12.0</string>
 			<key>pfm_ios_min</key>
@@ -488,9 +463,7 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, the user can toggle S/MIME signing on or off in Settings.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default false. If set to true, the user can toggle S/MIME signing on or off in Settings. Availability: Available only in iOS 12.0 and later.</string>
+			<string>If 'true', the user can turn S/MIME signing on or off in Settings. Available in iOS 12.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -504,7 +477,7 @@ Availability: Available only in iOS 10.3 and later. As of iOS 12.0, this key is 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, the user can select the signing identity.</string>
+			<string>If 'true', the user can select the signing identity. Available in iOS 12.0 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default false. If set to true, the user can select the signing identity.
 Availability: Available only in iOS 12.0 and later.</string>
@@ -521,9 +494,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, S/MIME encryption is enabled by default.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default false. If set to true, S/MIME encryption is enabled by default. If SMIMEEnableEncryptionPerMessageSwitch is false, this default cannot be changed by the user. Availability: Available only in iOS 12.0 and later.</string>
+			<string>If set to true, S/MIME encryption is enabled by default. If 'SMIMEEnableEncryptionPerMessageSwitch' is false, this default cannot be changed by the user. Available in iOS 12.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -537,9 +508,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, the user can toggle the encryption by default setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default false. If set to true, the user can toggle the encryption by default setting. Availability: Available only in iOS 12.0 and later.</string>
+			<string>If 'true', the user can turn encryption by default on/off, and encryption is on. Available in iOS 12.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -553,7 +522,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, the user can select the S/MIME encryption identity and encryption is enabled.</string>
+			<string>If 'true', the user can select the S/MIME encryption identity, and encryption is on.Available in iOS 12.0 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Default false. If set to true, the user can select the S/MIME encryption identity and encryption is enabled.
 Availability: Available only in iOS 12.0 and later.</string>
@@ -570,9 +539,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, displays the per-message encryption switch in the Mail Compose UI.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Default false. If set to true, displays the per-message encryption switch in the Mail Compose UI. Availability: Available only in iOS 12.0 and later.</string>
+			<string>If 'true', displays the per-message encryption switch in the Mail Compose UI. Available in iOS 12.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -586,9 +553,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the Calendars service for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, disables the Calendars service for this account. The Calendars service may be re-enabled in Settings unless EnableCalendarsUserOverridable is false.</string>
+			<string>If 'false', disables the Calendars service for this account. The Calendars service may be re-enabled in Settings unless 'EnableCalendarsUserOverridable' is 'false'.
+'EnableMail', 'EnableContacts', 'EnableCalendars', 'EnableReminders', and 'EnableNotes' can't all be set to 'false'.</string>
 			<key>pfm_name</key>
 			<string>EnableCalendars</string>
 			<key>pfm_note</key>
@@ -602,9 +568,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the Contacts service for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, disables the Contacts service for this account. The Contacts service may be re-enabled in Settings unless EnableContactsUserOverridable is false.</string>
+			<string>If 'false', disables the Contacts service for this account. The Contacts service may be re-enabled in Settings unless 'EnableContactsUserOverridable' is 'false'.
+'EnableMail', 'EnableContacts', 'EnableCalendars', 'EnableReminders', and 'EnableNotes' can't all be set to 'false'.</string>
 			<key>pfm_name</key>
 			<string>EnableContacts</string>
 			<key>pfm_note</key>
@@ -618,9 +583,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the Mail service for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, disables the Mail service for this account. The Mail service may be re-enabled in Settings unless EnableMailUserOverridable is false.</string>
+			<string>If 'false', disables the Mail service for this account. The Mail service may be re-enabled in Settings unless 'EnableMailUserOverridable' is 'false'.
+'EnableMail', 'EnableContacts', 'EnableCalendars', 'EnableReminders', and 'EnableNotes' can't all be set to 'false'.</string>
 			<key>pfm_name</key>
 			<string>EnableMail</string>
 			<key>pfm_note</key>
@@ -634,9 +598,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the Notes service for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, disables the Notes service for this account. The Notes service may be re-enabled in Settings unless EnableNotesUserOverridable is false.</string>
+			<string>If 'false', disables the Notes service for this account. The Notes service may be re-enabled in Settings unless 'EnableNotesUserOverridable' is 'false'.
+'EnableMail', 'EnableContacts', 'EnableCalendars', 'EnableReminders', and 'EnableNotes' can't all be set to 'false'.</string>
 			<key>pfm_name</key>
 			<string>EnableNotes</string>
 			<key>pfm_note</key>
@@ -650,9 +613,8 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the Reminders service for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, disables the Reminders service for this account. The Reminders service may be re-enabled in Settings unless EnableRemindersUserOverridable is false.</string>
+			<string>If 'false', disables the Reminders service for this account. The Reminders service may be re-enabled in Settings unless 'EnableRemindersUserOverridable' is false.
+'EnableMail', 'EnableContacts', 'EnableCalendars', 'EnableReminders', and 'EnableNotes' can't all be set to 'false'.</string>
 			<key>pfm_name</key>
 			<string>EnableReminders</string>
 			<key>pfm_note</key>
@@ -666,9 +628,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the users to modify the Calendars settings.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, prevents the user from changing the state of the Calendars service for this account in Settings.</string>
+			<string>If 'false', prevents the user from changing the state of the Calendars service for this account in Settings.</string>
 			<key>pfm_name</key>
 			<string>EnableCalendarsUserOverridable</string>
 			<key>pfm_title</key>
@@ -680,9 +640,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the users to modify the Contacts settings.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, prevents the user from changing the state of the Contacts service for this account in Settings.</string>
+			<string>If 'false', prevents the user from changing the state of the Contacts service for this account in Settings.</string>
 			<key>pfm_name</key>
 			<string>EnableContactsUserOverridable</string>
 			<key>pfm_title</key>
@@ -694,9 +652,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the users to modify the Mail settings.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, prevents the user from changing the state of the Mail service for this account in Settings.</string>
+			<string>If 'false', prevents the user from changing the state of the Mail service for this account in Settings.</string>
 			<key>pfm_name</key>
 			<string>EnableMailUserOverridable</string>
 			<key>pfm_title</key>
@@ -708,9 +664,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the users to modify the Notes settings.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, prevents the user from changing the state of the Notes service for this account in Settings.</string>
+			<string>If 'false', prevents the user from changing the state of the Notes service for this account in Settings.</string>
 			<key>pfm_name</key>
 			<string>EnableNotesUserOverridable</string>
 			<key>pfm_title</key>
@@ -722,9 +676,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enables/disables the users to modify the Reminders settings.</string>
-			<key>pfm_description_reference</key>
-			<string>If false, prevents the user from changing the state of the Reminders service for this account in Settings.</string>
+			<string>If 'false', prevents the user from changing the state of the Reminders service for this account in Settings.</string>
 			<key>pfm_name</key>
 			<string>EnableRemindersUserOverridable</string>
 			<key>pfm_title</key>
@@ -736,7 +688,7 @@ Availability: Available only in iOS 12.0 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, this account is excluded from address Recents syncing.</string>
+			<string>If 'true', excludes this account from Recent Addresses syncing.</string>
 			<key>pfm_description_reference</key>
 			<string>If true, this account is excluded from address Recents syncing. This defaults to false.
 Availability: Available only in iOS 6.0 and later.</string>
@@ -753,9 +705,7 @@ Availability: Available only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<integer>7</integer>
 			<key>pfm_description</key>
-			<string>The number of days since synchronization.</string>
-			<key>pfm_description_reference</key>
-			<string>The number of days since synchronization.</string>
+			<string>The number of days in the past to sync mail on the device.</string>
 			<key>pfm_name</key>
 			<string>MailNumberOfPastDaysToSync</string>
 			<key>pfm_range_list</key>
@@ -774,15 +724,13 @@ Availability: Available only in iOS 6.0 and later.</string>
 		<dict>
 			<key>pfm_description</key>
 			<string>The communication service handler rules for this account.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The communication service handler rules for this account. The CommunicationServiceRules dictionary currently contains only a DefaultServiceHandlers key; its value is a dictionary which contains an AudioCall key whose value is a string containing the bundle identifier for the default application that handles audio calls made to contacts from this account.</string>
 			<key>pfm_name</key>
 			<string>CommunicationServiceRules</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>The default handlers to be used for contacts from this account.</string>
 					<key>pfm_name</key>
 					<string>DefaultServiceHandlers</string>
 					<key>pfm_required</key>
@@ -791,7 +739,7 @@ Availability: Available only in iOS 6.0 and later.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>Bundle identifier for the default application that handles audio calls made to contacts from this account</string>
+							<string>The bundle identifier of the default application to use for audio calls made to contacts from this account.</string>
 							<key>pfm_name</key>
 							<string>AudioCall</string>
 							<key>pfm_title</key>
@@ -813,7 +761,8 @@ Availability: Available only in iOS 6.0 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>UUID of a per-app VPN payload to tunnel this account communication through</string>
+			<string>The VPNUUID of the per-app VPN the account uses for network communication.
+Available in iOS 14 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>

@@ -15,7 +15,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -26,9 +26,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string>Dock Payload</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -40,9 +38,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string>Dock</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -56,9 +52,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string>com.apple.dock</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -72,9 +66,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string>com.apple.dock</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -88,9 +80,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -106,7 +96,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -121,7 +111,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -138,17 +128,13 @@ The payload organization for a payload need not match the payload organization i
 				<string>com.apple.application-bundle</string>
 			</array>
 			<key>pfm_description</key>
-			<string>Dock items in the Applications side that cannot be removed from the dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Dock items in the Applications side that cannot be removed from the dock.</string>
+			<string>An array of items located on the Applications side of the Dock and cannot be removed from that location.</string>
 			<key>pfm_name</key>
 			<string>static-apps</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
 					<string></string>
 					<key>pfm_name</key>
 					<string>static-app</string>
@@ -159,8 +145,6 @@ The payload organization for a payload need not match the payload organization i
 							<string>file-tile</string>
 							<key>pfm_description</key>
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_hidden</key>
 							<string>all</string>
 							<key>pfm_name</key>
@@ -183,8 +167,6 @@ The payload organization for a payload need not match the payload organization i
 						<dict>
 							<key>pfm_description</key>
 							<string>Information about a dock item.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. Information about a dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
@@ -194,8 +176,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Label of a dock item.</string>
-									<key>pfm_description_reference</key>
-									<string>Required. Label of a dock item.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -214,8 +194,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Display name in the profile GUI of a dock item.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_hidden</key>
@@ -232,8 +210,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>The type of the tile expressed as a number.</string>
-									<key>pfm_description_reference</key>
-									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -262,8 +238,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Dictionary describing the target file.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_hidden</key>
@@ -277,8 +251,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path to the application.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_name</key>
@@ -291,8 +263,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -343,17 +313,13 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dock items in the Documents side that cannot be removed from the dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Dock items in the Documents side that cannot be removed from the dock.</string>
+			<string>An array of items located on the Documents side of the Dock and cannot be removed from that location.</string>
 			<key>pfm_name</key>
 			<string>static-others</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
-					<key>pfm_description_reference</key>
 					<string></string>
 					<key>pfm_name</key>
 					<string>static-other</string>
@@ -364,8 +330,6 @@ The payload organization for a payload need not match the payload organization i
 							<string>file-tile</string>
 							<key>pfm_description</key>
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_name</key>
 							<string>tile-type</string>
 							<key>pfm_range_list</key>
@@ -390,8 +354,6 @@ The payload organization for a payload need not match the payload organization i
 						<dict>
 							<key>pfm_description</key>
 							<string>Information about a dock item.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. Information about a dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
@@ -403,8 +365,6 @@ The payload organization for a payload need not match the payload organization i
 									<string>static-others.static-other.tile-data.file-data._CFURLString</string>
 									<key>pfm_description</key>
 									<string>Label of a dock item.</string>
-									<key>pfm_description_reference</key>
-									<string>Required. Label of a dock item.</string>
 									<key>pfm_name</key>
 									<string>label</string>
 									<key>pfm_require</key>
@@ -421,8 +381,6 @@ The payload organization for a payload need not match the payload organization i
 									<string>static-others.static-other.tile-data.label</string>
 									<key>pfm_description</key>
 									<string>Display name in the profile GUI of a dock item.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_hidden</key>
@@ -437,8 +395,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>For URL tiles, the URL string.</string>
-									<key>pfm_description_reference</key>
-									<string>Optional. For URL tiles, the URL string.</string>
 									<key>pfm_name</key>
 									<string>url</string>
 									<key>pfm_title</key>
@@ -451,8 +407,6 @@ The payload organization for a payload need not match the payload organization i
 									<string>static-others.static-other.tile-type</string>
 									<key>pfm_description</key>
 									<string>The type of the tile expressed as a number.</string>
-									<key>pfm_description_reference</key>
-									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -483,8 +437,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Dictionary describing the target file.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_exclude</key>
@@ -521,8 +473,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path to the file.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_name</key>
@@ -535,8 +485,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -570,8 +518,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Dictionary describing the target url.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_exclude</key>
@@ -601,8 +547,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>The URL.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_name</key>
@@ -615,8 +559,6 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>URL type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
-											<key>pfm_description_reference</key>
-											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -650,8 +592,6 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Path to item relative to the current user's home directory.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -688,8 +628,6 @@ The payload organization for a payload need not match the payload organization i
 									<integer>1</integer>
 									<key>pfm_description</key>
 									<string>Arrangement (sorting) of the directory contents.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -736,8 +674,6 @@ The payload organization for a payload need not match the payload organization i
 									<integer>2</integer>
 									<key>pfm_description</key>
 									<string>Display directory as either a Folder or a Stack.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -778,8 +714,6 @@ The payload organization for a payload need not match the payload organization i
 									<integer>4</integer>
 									<key>pfm_description</key>
 									<string>How to show directory contents.</string>
-									<key>pfm_description_reference</key>
-									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -843,9 +777,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>64</integer>
 			<key>pfm_description</key>
-			<string>The tile size in pixels.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. The tile size. Values must be in range 16 to 128.</string>
+			<string>The tile size. Values must be in the range from 16 to 128.</string>
 			<key>pfm_name</key>
 			<string>tilesize</string>
 			<key>pfm_range_max</key>
@@ -861,9 +793,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing tile size.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the size slider will be disabled.</string>
+			<string>If 'true', locks the size slider.</string>
 			<key>pfm_name</key>
 			<string>size-immutable</string>
 			<key>pfm_title</key>
@@ -875,9 +805,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Set to true to turn on magnification.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, magnification is active.</string>
+			<string>If 'true', enables magnification.</string>
 			<key>pfm_name</key>
 			<string>magnification</string>
 			<key>pfm_title</key>
@@ -889,9 +817,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing the enable magnification setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the magnification checkbox is disabled.</string>
+			<string>If 'true', locks magnification.</string>
 			<key>pfm_name</key>
 			<string>magnify-immutable</string>
 			<key>pfm_title</key>
@@ -903,9 +829,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>128</integer>
 			<key>pfm_description</key>
-			<string>Largest magnification tile size in pixels.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. THe size of the largest magnification. Values must be in range 16 to 128.</string>
+			<string>The size of the largest magnification.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -937,9 +861,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing magnification size.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the magnify slider is disabled.</string>
+			<string>If 'true', locks the magnification slider.</string>
 			<key>pfm_name</key>
 			<string>magsize-immutable</string>
 			<key>pfm_title</key>
@@ -949,9 +871,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Orientation of the dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Orientation of the dock. Values may be bottom, left, or right.</string>
+			<string>The orientation of the dock.</string>
 			<key>pfm_name</key>
 			<string>orientation</string>
 			<key>pfm_range_list</key>
@@ -975,9 +895,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing position.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the position is locked.</string>
+			<string>If 'true', locks the position.</string>
 			<key>pfm_name</key>
 			<string>position-immutable</string>
 			<key>pfm_title</key>
@@ -989,9 +907,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<string>genie</string>
 			<key>pfm_description</key>
-			<string>Transition effect to use when minimizing applications to the Dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Set minimize effect. Values may be genie or scale.</string>
+			<string>The minimize effect.</string>
 			<key>pfm_name</key>
 			<string>mineffect</string>
 			<key>pfm_range_list</key>
@@ -1008,9 +924,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing the minimization setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the Minimize Using popup is disabled.</string>
+			<string>If 'true', locks 'Minimize windows using.'</string>
 			<key>pfm_name</key>
 			<string>mineffect-immutable</string>
 			<key>pfm_title</key>
@@ -1022,9 +936,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Set to true to minimize windows into application icons.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, enable the minimize-to-application feature.</string>
+			<string>If 'true', enables 'Minimize windows into application icon.'</string>
 			<key>pfm_name</key>
 			<string>minimize-to-application</string>
 			<key>pfm_title</key>
@@ -1036,9 +948,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing the minimize windows into application icon setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the minimize-to-application checkbox is disabled.</string>
+			<string>If 'true', disables the 'Minimize windows into application icon' checkbox.</string>
 			<key>pfm_name</key>
 			<string>minintoapp-immutable</string>
 			<key>pfm_title</key>
@@ -1050,9 +960,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to true to use launch animation.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, animate opening applications.</string>
+			<string>If 'true', enables 'Animate opening applications.'</string>
 			<key>pfm_name</key>
 			<string>launchanim</string>
 			<key>pfm_title</key>
@@ -1064,9 +972,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing the animate opening applications setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the Animate Opening Applications checkbox is disabled.</string>
+			<string>If 'true', locks 'Animate opening applications.'</string>
 			<key>pfm_name</key>
 			<string>launchanim-immutable</string>
 			<key>pfm_title</key>
@@ -1078,9 +984,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Set to true to automatically hide and show the dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, automatically hide and show the dock.</string>
+			<string>If 'true', enables 'Automatically hide and show the dock.'</string>
 			<key>pfm_name</key>
 			<string>autohide</string>
 			<key>pfm_title</key>
@@ -1092,9 +996,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from changing the automatically hide and show the dock setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the Automatically Hide checkbox is disabled.</string>
+			<string>If 'true', locks 'Automatically hide.'</string>
 			<key>pfm_name</key>
 			<string>autohide-immutable</string>
 			<key>pfm_title</key>
@@ -1106,9 +1008,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to true to show an indicator below the application icon when an application is running.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, show the process indicator.</string>
+			<string>If true, shows the process indicator.</string>
 			<key>pfm_name</key>
 			<string>show-process-indicators</string>
 			<key>pfm_title</key>
@@ -1120,9 +1020,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to true to show recent applications in the Dock.</string>
-			<key>pfm_description_reference</key>
-			<string>If true, the three most recent applications will be shown in the Dock.</string>
+			<string>If 'true', enables 'Show recent items.'</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>
@@ -1136,9 +1034,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Whether these settings will merge with the user's existing Dock settings.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the device will use the static-apps and static-others dictionaries for the dock and ignore any items in the persistent-apps and persistent-others dictionaries. If false, the contents will be merged with the static items listed first.</string>
+			<string>If 'true', uses the 'static-apps' and 'static-others' dictionaries for the dock and ignores any items in the 'persistent-apps' and 'persistent-others' dictionaries. If 'false', the contents are merged with the static items listed first.</string>
 			<key>pfm_name</key>
 			<string>static-only</string>
 			<key>pfm_title</key>
@@ -1150,9 +1046,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent user from removing any item from or adding any item to the dock.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, the user cannot remove any item from or add any item to the dock.</string>
+			<string>If 'true', disables changes to the dock.</string>
 			<key>pfm_name</key>
 			<string>contents-immutable</string>
 			<key>pfm_title</key>
@@ -1164,9 +1058,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, use the file in /Library/Preferences/com.apple.dockfixup.plist when a new user or migrated user logs in. The format of this file currently has no documentation. This option has no effect for existing users.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, use the file in /Library/Preferences/ com.apple.dockfixup.plist when a new user or migrated user logs in. The format of this file currently has no documentation. This option has no effect for existing users.</string>
+			<string>If 'true', use the file in '/Library/Preferences/com.apple.dockfixup.plist' when a new user or migrated user logs in. This option has no effect for existing users. Available in macOS 10.12 and later. Only available on the device channel.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -1178,9 +1070,9 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Folders added by Managed Client.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. One or more special folders that may be created at user login time and placed in the dock. Values may be AddDockMCXMyApplicationsFolder, AddDockMCXDocumentsFolder, AddDockMCXSharedFolder, or AddDockMCXOriginalNetworkHomeFolder. The ”My Applications” item is only used for Simple Finder environments. The ”Original Network Home” item is only used for mobile account users.</string>
+			<string>One or more special folders that may be created at user login time and placed in the dock.
+
+The 'My Applications' item is only used for Simple Finder environments. The 'Original Network Home' item is only used for mobile account users.</string>
 			<key>pfm_name</key>
 			<string>MCXDockSpecialFolders</string>
 			<key>pfm_repetition_max</key>

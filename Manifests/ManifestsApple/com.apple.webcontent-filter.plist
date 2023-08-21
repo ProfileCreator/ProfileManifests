@@ -4,8 +4,6 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Web Content Filter settings</string>
-	<key>pfm_description_reference</key>
-	<string>URLs are matched by using string-based root matching. A URL matches an allow list, deny list, or permitted list pattern if the exact characters of the pattern appear as the root of the URL. For example, if test.com/a is denylisted, then test.com, test.com/b, and test.com/c/d/e will all be blocked. Matching also discards subdomain prefixes, so if test.com/a is denylisted, m.test.com is also blocked.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/webcontentfilter</string>
 	<key>pfm_domain</key>
@@ -15,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -29,7 +27,7 @@
 			<key>pfm_default</key>
 			<string>Adds a Web Content Filter</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -41,7 +39,7 @@
 			<key>pfm_default</key>
 			<string>Web Content Filter</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -55,7 +53,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.webcontent-filter</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -69,7 +67,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.webcontent-filter</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -83,7 +81,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -99,7 +97,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -111,7 +109,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -122,8 +120,8 @@
 		<dict>
 			<key>pfm_default</key>
 			<string>BuiltIn</string>
-			<key>pfm_description_reference</key>
-			<string>The type of filter, built-in or plug-in. Built-in filtering is available on iOS only.</string>
+			<key>pfm_description</key>
+			<string>The type of filter, built-in or plug-in. In macOS, the system supports only the plug-in value.</string>
 			<key>pfm_name</key>
 			<string>FilterType</string>
 			<key>pfm_range_list</key>
@@ -144,8 +142,9 @@
 		<dict>
 			<key>pfm_default</key>
 			<string>firewall</string>
-			<key>pfm_description_reference</key>
-			<string>This value is used to derive the relative order of content filters. Filters with a grade of firewall see network traffic before filters with a grade of inspector. The order of filters within a grade is undefined.</string>
+			<key>pfm_description</key>
+			<string>This value is for deriving the relative order of content filters. Filters with a grade of 'firewall' see network traffic before filters with a grade of 'inspector'. The system doesn't define the order of filters within a grade.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.15</string>
 			<key>pfm_name</key>
@@ -173,11 +172,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Optional. If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children.
-
-The search algorithm is complex and may vary from release to release, but it is basically looking for adult language, i.e. swearing and sexually explicit language. The default value is false.</string>
-			<key>pfm_description_reference</key>
-			<string>If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it is basically looking for adult language.</string>
+			<string>If 'true', automatic filtering is in an enabled state. This function evaluates each web page as it loads and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it's basically looking for adult language.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -202,8 +197,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>An array or URLs that are accessible whether or not the automatic filter allows access. This array is use only when AutoFilterEnabled is true. Otherwise, this field is ignored.</string>
+			<key>pfm_description</key>
+			<string>An array or URLs that are accessible whether or not the automatic filter allows access. The system uses this array only when 'AutoFilterEnabled' is 'true'. Otherwise, it ignores this field.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -254,8 +249,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 		<dict>
 			<key>pfm_default</key>
 			<false/>
-			<key>pfm_description_reference</key>
-			<string>If 'true', enables the filtering of WebKit traffic. Either 'FilterBrowsers or 'FilterSockets' must be 'true'.</string>
+			<key>pfm_description</key>
+			<string>If 'true', enables the filtering of WebKit traffic. Either 'FilterBrowsers' or 'FilterSockets' must be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -281,7 +276,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, these URLs are added to the browser's bookmarks, and the user is not allowed to visit any sites other than these. The number of these URLs should be limited to about 500.</string>
+			<string>An array of dictionaries defining the pages that the user can visit.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -366,7 +361,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, these URLs are added to the browser's bookmarks, and the user is not allowed to visit any sites other than these. The number of these URLs should be limited to about 500.</string>
+			<string>Use 'AllowListBookmarks' instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -450,8 +445,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>If present, the user is denied visiting any of the sites on this list. The number of these URLs should be limited to about 500.</string>
+			<key>pfm_description</key>
+			<string>An array of URLs that are inaccessible. Limit the number of these URLs to about 500.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -504,8 +499,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>If present, the user is denied visiting any of the sites on this list. The number of these URLs should be limited to about 500.</string>
+			<key>pfm_description</key>
+			<string>Use 'DenyListURLs' instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -577,7 +572,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>A string which will be displayed for this filtering configuration.</string>
+			<string>The display name for this filtering configuration.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -620,8 +615,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 					</array>
 				</dict>
 			</array>
-			<key>pfm_description_reference</key>
-			<string>The Bundle ID of the plugin that provides filtering service.</string>
+			<key>pfm_description</key>
+			<string>The bundle ID of the plug-in that provides filtering service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -646,8 +641,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>The server address, which may be IP address, hostname, or URL.</string>
+			<key>pfm_description</key>
+			<string>The server address, which may be the IP address, hostname, or URL.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -672,8 +667,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>A user name for the service.</string>
+			<key>pfm_description</key>
+			<string>The user name for the service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -698,8 +693,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>A password for the service.</string>
+			<key>pfm_description</key>
+			<string>The password for the service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -722,8 +717,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_description_reference</key>
-			<string>The UUID of the certificate payload within the same profile used to authenticate the user.</string>
+			<key>pfm_description</key>
+			<string>The UUID of the certificate payload within the same profile that the system uses to authenticate the user.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -751,7 +746,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An Organization string that will be passed to the 3rd party plugin.</string>
+			<string>The organization string that passes to the third-party plug-in.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -776,7 +771,7 @@ The search algorithm is complex and may vary from release to release, but it is 
 		<dict>
 			<key>pfm_default</key>
 			<false/>
-			<key>pfm_description_reference</key>
+			<key>pfm_description</key>
 			<string>If 'true', enables the filtering of socket traffic. Either 'FilterBrowsers' or 'FilterSockets' must be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
@@ -823,9 +818,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The bundle identifier string of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running.</string>
-			<key>pfm_description_reference</key>
-			<string>The bundle identifier string of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running.</string>
+			<string>The bundle identifier string of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. This field is a requirement if 'FilterSockets' is 'true'.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -883,7 +877,8 @@ The search algorithm is complex and may vary from release to release, but it is 
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The designated requirement string that is embedded in the code signature of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running.</string>
+			<string>The designated requirement string that the system embeds in the code signature of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. This field is a requirement if 'FilterSockets' is 'true'.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>The designated requirement string that is embedded in the code signature of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running. This field is required if FilterSockets is set to 1.
 
@@ -929,9 +924,10 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
-			<key>pfm_description_reference</key>
-			<string> If this value is 'true', the property enables the filtering of network packets. Either 'FilterPackets' or 'FilterSockets' must be 'true'. You can only use this when 'FilterType' is 'Plugin'.</string>
+			<string>If this value is 'true', the property enables the filtering of network packets.
+Either 'FilterPackets' or 'FilterSockets' must be 'true'.
+You can only use this when 'FilterType' is 'Plugin'.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -983,7 +979,8 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The bundle identifier string of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running.</string>
+			<string>The bundle identifier string of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. This field is a requirement if 'FilterPackets' is 'true'.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>The bundle identifier string of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
 
@@ -1045,7 +1042,8 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The designated requirement string that is embedded in the code signature of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running.</string>
+			<string>The designated requirement string that the system embeds in the code signature of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. This field is a requirement if 'FilterPackets' is 'true'.
+Available in macOS 10.15 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>The designated requirement string that is embedded in the code signature of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
 
@@ -1089,7 +1087,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Custom key/value pairs for the filtering service plugin</string>
+			<string>The custom dictionary that the filtering service plug-in needs.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1134,7 +1132,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Global identifier of the content filter configuration in this payload. Used for processing network traffic of managed apps with an identical attribute by the filter.</string>
+			<string>A globally-unique identifier for this content filter configuration. Managed apps with the same 'ContentFilterUUID' in their app attributes have their network traffic processed by the content filter.</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_name</key>

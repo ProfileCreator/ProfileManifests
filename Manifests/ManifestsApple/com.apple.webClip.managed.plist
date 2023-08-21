@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2022-03-31T08:41:40Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -25,9 +25,7 @@
 			<key>pfm_default</key>
 			<string>Configures settings for a web clip</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -39,9 +37,7 @@
 			<key>pfm_default</key>
 			<string>Web Clip</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -55,9 +51,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.webClip.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -71,9 +65,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.webClip.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -87,9 +79,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -105,7 +95,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -120,7 +110,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -133,9 +123,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The name of the Web Clip</string>
-			<key>pfm_description_reference</key>
-			<string>The name of the Web Clip as displayed on the Home screen.</string>
+			<string>The name of the web clip as displayed on the Home screen.</string>
 			<key>pfm_name</key>
 			<string>Label</string>
 			<key>pfm_require</key>
@@ -147,9 +135,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The URL that's displayed when users open the Web Clip. The URL must begin with HTTP or HTTPS</string>
-			<key>pfm_description_reference</key>
-			<string>The URL that the Web Clip should open when clicked. The URL must begin with HTTP or HTTPS or it won't work.</string>
+			<string>The URL that the web clip should open when clicked. If the URL doesn't begin with 'HTTP' or 'HTTPS', it doesn't work.</string>
 			<key>pfm_format</key>
 			<string>^https?://.*$</string>
 			<key>pfm_name</key>
@@ -165,9 +151,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Whether the Web Clip can be removed by users</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If false, the web clip is not removable. Defaults to true. Not available in macOS.</string>
+			<string>If 'true', enables removing the web clip.</string>
 			<key>pfm_name</key>
 			<string>IsRemovable</string>
 			<key>pfm_platforms</key>
@@ -185,9 +169,9 @@ The payload organization for a payload need not match the payload organization i
 				<string>public.png</string>
 			</array>
 			<key>pfm_description</key>
-			<string>The icon to use for the Web Clip</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A PNG icon to be shown on the Home screen. Should be 59 x 60 pixels in size. If not specified, a white square will be shown.</string>
+			<string>The PNG icon to be shown on the Home screen.
+For best results, provide a square image that's no larger than 400 x 400 pixels and less than 1 MB when uncompressed. The graphics file is automatically scaled and cropped to fit, if necessary, and converted to PNG format. Web clip icons are 144 x 144 pixels for iPad devices with a Retina display, and 114 x 114 pixels for iPhone devices. To prevent the device from adding a shine to the image, set 'Precomposed' to 'true'.
+If this property isn't specified, a white square is shown.</string>
 			<key>pfm_name</key>
 			<string>Icon</string>
 			<key>pfm_range_max</key>
@@ -201,9 +185,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevents the iOS device from adding a shine to the image</string>
-			<key>pfm_description_reference</key>
-			<string></string>
+			<string>If 'true', prevents SpringBoard from adding 'shine' to the icon.</string>
 			<key>pfm_name</key>
 			<string>Precomposed</string>
 			<key>pfm_platforms</key>
@@ -219,9 +201,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Opens the URL as a web app without a browser</string>
-			<key>pfm_description_reference</key>
-			<string></string>
+			<string>If 'true', launches the web clip as a full-screen web app.</string>
 			<key>pfm_name</key>
 			<string>FullScreen</string>
 			<key>pfm_platforms</key>
@@ -237,7 +217,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, a full screen web clip will not show the Safari UI when navigating to URLs other than the web clip's own.</string>
+			<string>If 'true', a full screen web clip can navigate to an external web site without showing Safari UI. Otherwise, Safari UI appears when navigating away from the web clip's URL.
+This key has no effect when 'FullScreen' is 'false'.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_macos_min</key>
@@ -251,7 +232,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Bundle identifier of the application that opens this web clip's URL.</string>
+			<string>The application bundle identifier that specifies the application which opens the URL. To use this property, the profile must be installed through an MDM.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_macos_min</key>
