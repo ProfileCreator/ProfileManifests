@@ -26,8 +26,6 @@ The Disc Burning payload is designated by specifying com.apple.DiscRecording as 
 			<string>Configures Disc Burning settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -40,8 +38,6 @@ The Disc Burning payload is designated by specifying com.apple.DiscRecording as 
 			<string>Disc Burning</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -56,8 +52,6 @@ The Disc Burning payload is designated by specifying com.apple.DiscRecording as 
 			<string>com.apple.DiscRecording</string>
 			<key>pfm_description</key>
 			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -72,8 +66,6 @@ The Disc Burning payload is designated by specifying com.apple.DiscRecording as 
 			<string>com.apple.DiscRecording</string>
 			<key>pfm_description</key>
 			<string>The payload type, which each payload domain's reference page specifies.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -88,8 +80,6 @@ The Disc Burning payload is designated by specifying com.apple.DiscRecording as 
 			<string></string>
 			<key>pfm_description</key>
 			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -158,8 +148,6 @@ The payload organization for a payload need not match the payload organization i
 If 'on', allows normal default operation. Setting this key to 'on' doesn't enable disc burn support if it has already been disabled by other mechanisms or preferences. It also must be enabled with the Finder profile.
 
 If 'authenticate', requires authentication.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. Set to off to disable disc burning. Set to on for normal default operation. Set to authenticate to require authentication. Setting this key to on will not enable disc burn support if it has already been disabled by other mechanisms or preferences.</string>
 			<key>pfm_name</key>
 			<string>BurnSupport</string>
 			<key>pfm_range_list</key>

@@ -35,8 +35,6 @@ Note these cautions:
 			<string>FileVault Recovery Key Escrow settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -49,8 +47,6 @@ Note these cautions:
 			<string>FileVault Recovery Key Escrow</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -65,8 +61,6 @@ Note these cautions:
 			<string>com.apple.security.FDERecoveryKeyEscrow</string>
 			<key>pfm_description</key>
 			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -81,8 +75,6 @@ Note these cautions:
 			<string>com.apple.security.FDERecoveryKeyEscrow</string>
 			<key>pfm_description</key>
 			<string>The payload type, which each payload domain's reference page specifies.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -97,8 +89,6 @@ Note these cautions:
 			<string></string>
 			<key>pfm_description</key>
 			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -143,8 +133,6 @@ Note these cautions:
 		<dict>
 			<key>pfm_description</key>
 			<string>The description of the location where the recovery key will be escrowed. This text will be inserted into the message the user sees when enabling FileVault.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. A short description of the location where the recovery key will be escrowed. This text will be inserted into the message the user sees when enabling FileVault.</string>
 			<key>pfm_name</key>
 			<string>Location</string>
 			<key>pfm_require</key>
@@ -157,8 +145,6 @@ Note these cautions:
 		<dict>
 			<key>pfm_description</key>
 			<string>The UUID of a payload within the same profile that contains the certificate that will be used to encrypt the recovery key. The referenced payload must be of type 'com.apple.security.pkcs1'.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. The UUID of a payload within the same profile that contains the certificate that will be used to encrypt the recovery key. The referenced payload must be of type com.apple.security.pkcs1.</string>
 			<key>pfm_name</key>
 			<string>EncryptCertPayloadUUID</string>
 			<key>pfm_require</key>
@@ -173,8 +159,6 @@ Note these cautions:
 			<string>The string that's included in help text if the user appears to have forgotten the password. Site admins can use this key to look up the escrowed key for the particular computer.
 
 This key replaces the 'RecordNumber' key used in the previous escrow mechanism. If the key is missing, the device serial number is used instead.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. An optional string that will be included in help text if the user appears to have forgotten the password. Can be used by a site admin to look up the escrowed key for the particular machine. Replaces the RecordNumber key used in previous escrow mechanism. If missing, the device serial number will be used instead.</string>
 			<key>pfm_name</key>
 			<string>DeviceKey</string>
 			<key>pfm_title</key>

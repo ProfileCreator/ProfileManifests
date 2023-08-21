@@ -4,8 +4,6 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Xsan Preference settings</string>
-	<key>pfm_description_reference</key>
-	<string>The payload for configuring the Xsan preferences that define the volumes that automatically mount at startup.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/xsanpreferences</string>
 	<key>pfm_domain</key>
@@ -123,8 +121,6 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', use the DLC for all volumes.</string>
-			<key>pfm_description_reference</key>
-			<string>If true, use the DLC for all volumes.</string>
 			<key>pfm_name</key>
 			<string>useDLC</string>
 			<key>pfm_title</key>
@@ -135,8 +131,6 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>An array of Xsan or StorNext volume names. The Xsan client attempts to automatically mount these volumes at startup. The system administrator can mount additional volumes manually by using the 'xsanctl(8)' mount command.</string>
-			<key>pfm_description_reference</key>
-			<string>An array of Xsan or StorNext volume names. The Xsan client attempts to automatically mount these volumes at startup. The system administrator can mount additional volumes manually by using the xsanctl(8) mount command.</string>
 			<key>pfm_name</key>
 			<string>onlyMount</string>
 			<key>pfm_subkeys</key>
@@ -156,8 +150,6 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>An array of Xsan or StorNext volume names. If no 'onlyMount' array is present, the Xsan client automatically attempts to mount all SAN volumes except the volumes in this array. The system administrator can mount those volumes manually by using the 'xsanctl(8)' mount command.</string>
-			<key>pfm_description_reference</key>
-			<string>An array of Xsan or StorNext volume names. If no onlyMount array is present, the Xsan client automatically attempts to mount all SAN volumes except the volumes in this array. The system administrator can mount those volumes manually by using the xsanctl(8) mount command.</string>
 			<key>pfm_name</key>
 			<string>denyMount</string>
 			<key>pfm_subkeys</key>
@@ -177,8 +169,6 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>An array of StorNext volume names. If the Xsan client is attempting to mount a volume named in this array, the Xsan client attempts to mount the volume using DLC. If DLC isn't available, the client attempts to mount the volume if its LUNs are available through Fibre Channel. The volume name must not also appear in 'denyDLC'.</string>
-			<key>pfm_description_reference</key>
-			<string>An array of StorNext volume names. If the Xsan client is attempting to mount a volume named in this array, the Xsan client attempts to mount the volume using DLC. If DLC isn't available, the client attempts to mount the volume if its LUNs are available through Fibre Channel. The volume name must not also appear in denyDLC.</string>
 			<key>pfm_name</key>
 			<string>preferDLC</string>
 			<key>pfm_subkeys</key>
@@ -197,8 +187,6 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of StorNext volume names. If the Xsan client is attempting to mount a volume named in this array, the client only mounts the volume if its logical units (LUNs) are available through Fibre Channel. It doesn't attempt to mount the volume using Distributed LAN Client (DLC).</string>
-			<key>pfm_description_reference</key>
 			<string>An array of StorNext volume names. If the Xsan client is attempting to mount a volume named in this array, the client only mounts the volume if its logical units (LUNs) are available through Fibre Channel. It doesn't attempt to mount the volume using Distributed LAN Client (DLC).</string>
 			<key>pfm_name</key>
 			<string>denyDLC</string>

@@ -4,8 +4,6 @@
 <dict>
 	<key>pfm_description</key>
 	<string>AirPlay settings</string>
-	<key>pfm_description_reference</key>
-	<string>The AirPlay payload is designated by specifying com.apple.airplay as the PayloadType value. This payload is supported on iOS 7.0 and later and on macOS 10.10 and later.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.airplay</string>
 	<key>pfm_format_version</key>
@@ -30,8 +28,6 @@
 			<string>Configures AirPlay settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -44,8 +40,6 @@
 			<string>AirPlay settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -60,8 +54,6 @@
 			<string>com.apple.airplay</string>
 			<key>pfm_description</key>
 			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -76,8 +68,6 @@
 			<string>com.apple.airplay</string>
 			<key>pfm_description</key>
 			<string>The payload type, which each payload domain's reference page specifies.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -92,8 +82,6 @@
 			<string></string>
 			<key>pfm_description</key>
 			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -163,8 +151,6 @@ The dictionary format is described below.</string>
 						<dict>
 							<key>pfm_description</key>
 							<string>The device ID of the AirPlay destination in the format 'xx:xx:xx:xx:xx:xx'. This field isn't case-sensitive.</string>
-							<key>pfm_description_reference</key>
-							<string>The Device ID of the AirPlay destination, in the format xx:xx:xx:xx:xx:xx. This field is not case sensitive.</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
 							<key>pfm_name</key>
@@ -222,8 +208,6 @@ The dictionary format is described below.</string>
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay destination's MAC address</string>
-							<key>pfm_description_reference</key>
-							<string>The Device ID of the AirPlay destination, in the format xx:xx:xx:xx:xx:xx. This field is not case sensitive.</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
 							<key>pfm_name</key>
@@ -257,8 +241,6 @@ The dictionary format is described below.</string>
 			<key>pfm_description</key>
 			<string>If present, sets passwords for known AirPlay destinations.
 Using multiple entries for the same destination, whether within the same payload or across multiple installed payloads, is an error and results in undefined behavior.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If present, sets passwords for known AirPlay destinations. The dictionary format is described below.</string>
 			<key>pfm_name</key>
 			<string>Passwords</string>
 			<key>pfm_subkeys</key>
@@ -275,8 +257,6 @@ Using multiple entries for the same destination, whether within the same payload
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay destination's name</string>
-							<key>pfm_description_reference</key>
-							<string>The name of the AirPlay destination (used on iOS).</string>
 							<key>pfm_name</key>
 							<string>DeviceName</string>
 							<key>pfm_platforms</key>
@@ -293,8 +273,6 @@ Using multiple entries for the same destination, whether within the same payload
 						<dict>
 							<key>pfm_description</key>
 							<string>The AirPlay destination's MAC address</string>
-							<key>pfm_description_reference</key>
-							<string>The DeviceID of the AirPlay destination (used on macOS).</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
 							<key>pfm_name</key>
@@ -315,8 +293,6 @@ Using multiple entries for the same destination, whether within the same payload
 						<dict>
 							<key>pfm_description</key>
 							<string>The password for the AirPlay destination</string>
-							<key>pfm_description_reference</key>
-							<string>The password for the AirPlay destination.</string>
 							<key>pfm_name</key>
 							<string>Password</string>
 							<key>pfm_require</key>
