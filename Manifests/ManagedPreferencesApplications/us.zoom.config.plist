@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2022-12-04T04:38:14Z</date>
+	<date>2023-08-17T13:21:37Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -140,39 +140,25 @@
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>Install and update</key>
+				<key>Apps</key>
 				<array>
-					<string>AU2_EnableAutoUpdate</string>
-					<string>AU2_DeploySpecificVersion</string>
-					<string>AU2_EnableManualUpdate</string>
-					<string>AU2_EnablePromptUpdateForAU2</string>
-					<string>AU2_EnableShowZoomUpdates</string>
-					<string>AU2_EnableUpdateAvailableBanner</string>
-					<string>AU2_EnableUpdateSuccessNotification</string>
-					<string>AU2_InstallAtIdleTime</string>
-					<string>AU2_SetUpdateChannel</string>
-					<string>AU2_SafeUpgradePeriod</string>
-					<string>AU2_SetUpdateSchedule</string>
-					<string>DisableDaemonInstall</string>
-					<string>SetEnrollToken4CloudMDM</string>
-					<string>SetUpdatingChannel</string>
-					<string>ZAutoUpdate</string>
+					<string>DisableZoomApps</string>
+					<string>DisableZoomAppsGuestAccess</string>
 				</array>
-				<key>Network</key>
+				<key>Audio</key>
 				<array>
-					<string>BandwidthLimitDown</string>
-					<string>BandwidthLimitUp</string>
-					<string>BlockUntrustedSSLCert</string>
-					<string>DisableAudioOverProxy</string>
-					<string>DisableCertPin</string>
-					<string>DisableDirectConnection2Web</string>
-					<string>DisableSharingOverProxy</string>
-					<string>DisableVideoOverProxy</string>
-					<string>EnableIndependentDataPort</string>
-					<string>IgnoreBandwidthLimits</string>
-					<string>ProxyBypass</string>
-					<string>ProxyPAC</string>
-					<string>ProxyServer</string>
+					<string>AudioAutoAdjust</string>
+					<string>AutoHideToolbar</string>
+					<string>DisableComputerAudio</string>
+					<string>EnableDoNotDisturbInSharing</string>
+					<string>EnableHIDControl</string>
+					<string>EnableOriginalSound</string>
+					<string>MuteVoipWhenJoin</string>
+					<string>PresentInMeetingOption</string>
+					<string>SetUseSystemDefaultMicForVOIP</string>
+					<string>SetUseSystemDefaultSpeakerForVOIP</string>
+					<string>SetSuppressBackgroundNoiseLevel</string>
+					<string>ZAutoJoinVoip</string>
 				</array>
 				<key>Authentication</key>
 				<array>
@@ -204,6 +190,23 @@
 					<string>ZAutoSSOLogin</string>
 					<string>ZSSOHost</string>
 				</array>
+				<key>Background / Filters</key>
+				<array>
+					<string>DisableVideoFilters</string>
+					<string>DisableVirtualBkgnd</string>
+					<string>EnableAutoReverseVirtualBkgnd</string>
+				</array>
+				<key>Chat</key>
+				<array>
+					<string>DisableLinkPreviewInChat</string>
+					<string>MuteIMNotificationWhenInMeeting</string>
+					<string>PlaySoundForIMMessage</string>
+					<string>SetMessengerDoNotDropThread</string>
+					<string>ShowIMMessagePreview</string>
+					<string>ShowProfilePhotosInChat</string>
+					<string>ShowVideoMessageButton</string>
+					<string>ShowVoiceMessageButton</string>
+				</array>
 				<key>General</key>
 				<array>
 					<string>AlwaysCheckLatestVersion</string>
@@ -224,39 +227,56 @@
 					<string>ShowConnectedTime</string>
 					<string>ZDualMonitorOn</string>
 				</array>
-				<key>Video</key>
+				<key>Install and update</key>
 				<array>
-					<string>AlwaysShowVideoPreviewDialog</string>
-					<string>EnableAutoLightAdaption</string>
-					<string>EnableFaceBeauty</string>
-					<string>EnableLightAdaption</string>
-					<string>EnableMirrorEffect</string>
-					<string>EnableSpotlightSelf</string>
-					<string>Enable49Video</string>
-					<string>HideSelfView</string>
-					<string>SetFaceBeautyValue</string>
-					<string>SetLightAdaptionManualValue</string>
-					<string>VideoRenderMethod</string>
-					<string>zDisableSendVideo</string>
-					<string>zDisableRecvVideo</string>
-					<string>ZDisableVideo</string>
-					<string>ZHideNoVideoUser</string>
-					<string>ZUse720PByDefault</string>
+					<string>AU2_EnableAutoUpdate</string>
+					<string>AU2_DeploySpecificVersion</string>
+					<string>AU2_EnableManualUpdate</string>
+					<string>AU2_EnablePromptUpdateForAU2</string>
+					<string>AU2_EnableShowZoomUpdates</string>
+					<string>AU2_EnableUpdateAvailableBanner</string>
+					<string>AU2_EnableUpdateSuccessNotification</string>
+					<string>AU2_InstallAtIdleTime</string>
+					<string>AU2_SetUpdateChannel</string>
+					<string>AU2_SafeUpgradePeriod</string>
+					<string>AU2_SetUpdateSchedule</string>
+					<string>DisableDaemonInstall</string>
+					<string>SetEnrollToken4CloudMDM</string>
+					<string>SetUpdatingChannel</string>
+					<string>ZAutoUpdate</string>
 				</array>
-				<key>Audio</key>
+				<key>Meeting Chat</key>
 				<array>
-					<string>AudioAutoAdjust</string>
-					<string>AutoHideToolbar</string>
-					<string>DisableComputerAudio</string>
-					<string>EnableDoNotDisturbInSharing</string>
-					<string>EnableHIDControl</string>
-					<string>EnableOriginalSound</string>
-					<string>MuteVoipWhenJoin</string>
-					<string>PresentInMeetingOption</string>
-					<string>SetUseSystemDefaultMicForVOIP</string>
-					<string>SetUseSystemDefaultSpeakerForVOIP</string>
-					<string>SetSuppressBackgroundNoiseLevel</string>
-					<string>ZAutoJoinVoip</string>
+					<string>DisableMeeting3rdPartyFileStorage</string>
+					<string>zDisableChat</string>
+					<string>zDisableFT</string>
+				</array>
+				<key>Misc.</key>
+				<array>
+					<string>EmbedDeviceTag</string>
+					<string>EmbedUserAgentString</string>
+				</array>
+				<key>Network</key>
+				<array>
+					<string>BandwidthLimitDown</string>
+					<string>BandwidthLimitUp</string>
+					<string>BlockUntrustedSSLCert</string>
+					<string>DisableAudioOverProxy</string>
+					<string>DisableCertPin</string>
+					<string>DisableDirectConnection2Web</string>
+					<string>DisableSharingOverProxy</string>
+					<string>DisableVideoOverProxy</string>
+					<string>EnableIndependentDataPort</string>
+					<string>IgnoreBandwidthLimits</string>
+					<string>ProxyBypass</string>
+					<string>ProxyPAC</string>
+					<string>ProxyServer</string>
+				</array>
+				<key>Recording</key>
+				<array>
+					<string>RecordPath</string>
+					<string>zDisableCMR</string>
+					<string>zDisableLocalRecord</string>
 				</array>
 				<key>Screen Sharing</key>
 				<array>
@@ -278,61 +298,24 @@
 					<string>ZDisableAnnotation</string>
 					<string>ZRemoteControllAllApp</string>
 				</array>
-				<key>Zoom Phone</key>
+				<key>Video</key>
 				<array>
-					<string>EnableLaunchApp4IncomingCalls</string>
-					<string>HidePhoneInComingCallWhileInMeeting</string>
-					<string>SetCommand4IncomingCalls</string>
-					<string>EnableEchoCancellation</string>
-					<string>EnableSSLVerification</string>
-					<string>EnableSplitScreen</string>
-				</array>
-				<key>Meeting Chat</key>
-				<array>
-					<string>DisableMeeting3rdPartyFileStorage</string>
-					<string>zDisableChat</string>
-					<string>zDisableFT</string>
-				</array>
-				<key>Apps</key>
-				<array>
-					<string>DisableZoomApps</string>
-					<string>DisableZoomAppsGuestAccess</string>
-				</array>
-				<key>Background / Filters</key>
-				<array>
-					<string>DisableVideoFilters</string>
-					<string>DisableVirtualBkgnd</string>
-					<string>EnableAutoReverseVirtualBkgnd</string>
-				</array>
-				<key>Recording</key>
-				<array>
-					<string>RecordPath</string>
-					<string>zDisableCMR</string>
-					<string>zDisableLocalRecord</string>
-				</array>
-				<key>Zoom Room</key>
-				<array>
-					<string>DisableDirectShare</string>
-					<string>EnableStartMeetingWithRoomSystem</string>
-					<string>PresentToRoomOption</string>
-					<string>PresentToRoomOptimizeVideo</string>
-					<string>PresentToRoomWithAudio</string>
-				</array>
-				<key>Chat</key>
-				<array>
-					<string>DisableLinkPreviewInChat</string>
-					<string>MuteIMNotificationWhenInMeeting</string>
-					<string>PlaySoundForIMMessage</string>
-					<string>SetMessengerDoNotDropThread</string>
-					<string>ShowIMMessagePreview</string>
-					<string>ShowProfilePhotosInChat</string>
-					<string>ShowVideoMessageButton</string>
-					<string>ShowVoiceMessageButton</string>
-				</array>
-				<key>Misc.</key>
-				<array>
-					<string>EmbedDeviceTag</string>
-					<string>EmbedUserAgentString</string>
+					<string>AlwaysShowVideoPreviewDialog</string>
+					<string>EnableAutoLightAdaption</string>
+					<string>EnableFaceBeauty</string>
+					<string>EnableLightAdaption</string>
+					<string>EnableMirrorEffect</string>
+					<string>EnableSpotlightSelf</string>
+					<string>Enable49Video</string>
+					<string>HideSelfView</string>
+					<string>SetFaceBeautyValue</string>
+					<string>SetLightAdaptionManualValue</string>
+					<string>VideoRenderMethod</string>
+					<string>zDisableSendVideo</string>
+					<string>zDisableRecvVideo</string>
+					<string>ZDisableVideo</string>
+					<string>ZHideNoVideoUser</string>
+					<string>ZUse720PByDefault</string>
 				</array>
 				<key>ZfG Cloud</key>
 				<array>
@@ -349,6 +332,23 @@
 					<string>Intercloud_DisableRemoteControl</string>
 					<string>Intercloud_DisableShareScreen</string>
 					<string>Intercloud_DisableWhiteBoard</string>
+				</array>
+				<key>Zoom Phone</key>
+				<array>
+					<string>EnableLaunchApp4IncomingCalls</string>
+					<string>HidePhoneInComingCallWhileInMeeting</string>
+					<string>SetCommand4IncomingCalls</string>
+					<string>EnableEchoCancellation</string>
+					<string>EnableSSLVerification</string>
+					<string>EnableSplitScreen</string>
+				</array>
+				<key>Zoom Room</key>
+				<array>
+					<string>DisableDirectShare</string>
+					<string>EnableStartMeetingWithRoomSystem</string>
+					<string>PresentToRoomOption</string>
+					<string>PresentToRoomOptimizeVideo</string>
+					<string>PresentToRoomWithAudio</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -2840,18 +2840,6 @@ Audio: 8803</string>
 			<string>Intercloud_DisableRemoteControl</string>
 			<key>pfm_title</key>
 			<string>Disable Remote Control (ZfG)</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Disables all features except for audio and video for meetings hosted on the ZfG cloud</string>
-			<key>pfm_name</key>
-			<string>Intercloud_DisableAllFeatures</string>
-			<key>pfm_title</key>
-			<string>Disable All Features (ZfG)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>

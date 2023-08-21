@@ -8,8 +8,6 @@
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
-	<key>pfm_note</key>
-	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.applicationaccess</string>
 	<key>pfm_format_version</key>
@@ -17,7 +15,9 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2022-11-17T01:53:54Z</date>
+	<date>2023-08-15T08:00:00Z</date>
+	<key>pfm_note</key>
+	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -157,6 +157,61 @@ The payload organization for a payload need not match the payload organization i
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
+				<key>AirDrop</key>
+				<array>
+					<string>allowAirDrop</string>
+					<string>forceAirDropUnmanaged</string>
+				</array>
+				<key>AirPlay</key>
+				<array>
+					<string>forceAirPlayOutgoingRequestsPairingPassword</string>
+				</array>
+				<key>AirPrint</key>
+				<array>
+					<string>allowAirPrint</string>
+					<string>allowAirPrintCredentialsStorage</string>
+					<string>allowAirPrintiBeaconDiscovery</string>
+					<string>forceAirPrintTrustedTLSRequirement</string>
+				</array>
+				<key>Apps</key>
+				<array>
+					<string>allowAddingGameCenterFriends</string>
+					<string>allowAppClips</string>
+					<string>allowAppInstallation</string>
+					<string>allowAppRemoval</string>
+					<string>allowAutomaticAppDownloads</string>
+					<string>allowBookstore</string>
+					<string>allowChat</string>
+					<string>allowGameCenter</string>
+					<string>allowInAppPurchases</string>
+					<string>allowListedAppBundleIDs</string>
+					<string>allowMultiplayerGaming</string>
+					<string>allowMusicService</string>
+					<string>allowNews</string>
+					<string>allowPodcasts</string>
+					<string>allowRadioService</string>
+					<string>allowSafari</string>
+					<string>allowSystemAppRemoval</string>
+					<string>allowUIAppInstallation</string>
+					<string>allowYouTube</string>
+					<string>allowiTunes</string>
+					<string>blacklistedAppBundleIDs</string>
+					<string>blockedAppBundleIDs</string>
+					<string>safariAcceptCookies</string>
+					<string>safariAllowAutoFill</string>
+					<string>safariAllowJavaScript</string>
+					<string>safariAllowPopups</string>
+					<string>safariForceFraudWarning</string>
+					<string>whitelistedAppBundleIDs</string>
+				</array>
+				<key>Classroom</key>
+				<array>
+					<string>forceClassroomAutomaticallyJoinClasses</string>
+					<string>forceClassroomRequestPermissionToLeaveClasses</string>
+					<string>forceClassroomUnpromptedAppAndDeviceLock</string>
+					<string>forceClassroomUnpromptedScreenObservation</string>
+					<string>forceUnpromptedManagedClassroomScreenObservation</string>
+				</array>
 				<key>General</key>
 				<array>
 					<string>allowAccountModification</string>
@@ -225,74 +280,6 @@ The payload organization for a payload need not match the payload organization i
 					<string>forceWiFiWhitelisting</string>
 					<string>requireManagedPasteboard</string>
 				</array>
-				<key>AirDrop</key>
-				<array>
-					<string>allowAirDrop</string>
-					<string>forceAirDropUnmanaged</string>
-				</array>
-				<key>AirPlay</key>
-				<array>
-					<string>forceAirPlayOutgoingRequestsPairingPassword</string>
-				</array>
-				<key>AirPrint</key>
-				<array>
-					<string>allowAirPrint</string>
-					<string>allowAirPrintCredentialsStorage</string>
-					<string>allowAirPrintiBeaconDiscovery</string>
-					<string>forceAirPrintTrustedTLSRequirement</string>
-				</array>
-				<key>Apps</key>
-				<array>
-					<string>allowAddingGameCenterFriends</string>
-					<string>allowAppClips</string>
-					<string>allowAppInstallation</string>
-					<string>allowAppRemoval</string>
-					<string>allowAutomaticAppDownloads</string>
-					<string>allowBookstore</string>
-					<string>allowChat</string>
-					<string>allowGameCenter</string>
-					<string>allowInAppPurchases</string>
-					<string>allowListedAppBundleIDs</string>
-					<string>allowMultiplayerGaming</string>
-					<string>allowMusicService</string>
-					<string>allowNews</string>
-					<string>allowPodcasts</string>
-					<string>allowRadioService</string>
-					<string>allowSafari</string>
-					<string>allowSystemAppRemoval</string>
-					<string>allowUIAppInstallation</string>
-					<string>allowYouTube</string>
-					<string>allowiTunes</string>
-					<string>blacklistedAppBundleIDs</string>
-					<string>blockedAppBundleIDs</string>
-					<string>safariAcceptCookies</string>
-					<string>safariAllowAutoFill</string>
-					<string>safariAllowJavaScript</string>
-					<string>safariAllowPopups</string>
-					<string>safariForceFraudWarning</string>
-					<string>whitelistedAppBundleIDs</string>
-				</array>
-				<key>Classroom</key>
-				<array>
-					<string>forceClassroomAutomaticallyJoinClasses</string>
-					<string>forceClassroomRequestPermissionToLeaveClasses</string>
-					<string>forceClassroomUnpromptedAppAndDeviceLock</string>
-					<string>forceClassroomUnpromptedScreenObservation</string>
-					<string>forceUnpromptedManagedClassroomScreenObservation</string>
-				</array>
-				<key>iCloud</key>
-				<array>
-					<string>allowCloudBackup</string>
-					<string>allowCloudDocumentSync</string>
-					<string>allowCloudKeychainSync</string>
-					<string>allowCloudPhotoLibrary</string>
-					<string>allowCloudPrivateRelay</string>
-					<string>allowEnterpriseBookBackup</string>
-					<string>allowEnterpriseBookMetadataSync</string>
-					<string>allowManagedAppsCloudSync</string>
-					<string>allowPhotoStream</string>
-					<string>allowSharedStream</string>
-				</array>
 				<key>Media</key>
 				<array>
 					<string>allowBookstoreErotica</string>
@@ -313,7 +300,6 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowPasswordAutoFill</string>
 					<string>allowPasswordProximityRequests</string>
 					<string>allowPasswordSharing</string>
-					<string>enforcedFingerprintTimeout</string>
 				</array>
 				<key>Siri</key>
 				<array>
@@ -331,6 +317,19 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowRapidSecurityResponseInstallation</string>
 					<string>allowRapidSecurityResponseRemoval</string>
 				</array>
+				<key>iCloud</key>
+				<array>
+					<string>allowCloudBackup</string>
+					<string>allowCloudDocumentSync</string>
+					<string>allowCloudKeychainSync</string>
+					<string>allowCloudPhotoLibrary</string>
+					<string>allowCloudPrivateRelay</string>
+					<string>allowEnterpriseBookBackup</string>
+					<string>allowEnterpriseBookMetadataSync</string>
+					<string>allowManagedAppsCloudSync</string>
+					<string>allowPhotoStream</string>
+					<string>allowSharedStream</string>
+				</array>
 			</dict>
 			<key>pfm_type</key>
 			<string>string</string>
@@ -342,6 +341,8 @@ The payload organization for a payload need not match the payload organization i
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, the camera is completely disabled and its icon is removed from the Home screen. Users are unable to take photographs. Availability: Available in iOS and in macOS 10.11 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowCamera</string>
 			<key>pfm_title</key>
@@ -356,14 +357,16 @@ The payload organization for a payload need not match the payload organization i
 			<string>If Allow use of Camera is set to 'false', this will override this preference if set to 'true'.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, disables video conferencing. This key is deprecated on unsupervised devices.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowVideoConferencing</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow FaceTime</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -451,7 +454,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string/>
+			<string></string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -467,7 +470,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If false, prevents Touch ID from unlocking a device. Availability: Available in iOS 7 and later and in macOS 10.12.4 and later.</string>
+			<string>Optional. If false, prevents Touch ID from unlocking a device. Availability: Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -488,12 +491,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowBookstore</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow iBooks Store</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -503,15 +506,15 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, disables the use of iMessage with supervised devices. If the device supports text messaging, the user can still send and receive text messages. Availability: Available in iOS 6.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>6.0</string>
+			<string>5.0</string>
 			<key>pfm_name</key>
 			<string>allowChat</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow iMessage</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -520,14 +523,16 @@ The payload organization for a payload need not match the payload organization i
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, the iTunes Music Store is disabled and its icon is removed from the Home screen. Users cannot preview, purchase, or download content. This key is deprecated on unsupervised devices.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowiTunes</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow iTunes Store</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -540,12 +545,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>9.3</string>
 			<key>pfm_name</key>
 			<string>allowMusicService</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Apple Music</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -558,12 +563,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowNews</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow News</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -576,12 +581,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowPodcasts</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Podcasts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -594,12 +599,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>9.3</string>
 			<key>pfm_name</key>
 			<string>allowRadioService</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Radio</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -612,12 +617,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowYouTube</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Apple's YouTube</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -661,15 +666,15 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables definition lookup. Defaults to true. Availability: Available in iOS 8.1.3 and later and in macOS 10.11.2 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>8.1.3</string> 
+			<string>8.1.3</string>
 			<key>pfm_name</key>
 			<string>allowDefinitionLookup</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow definition lookup</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -698,12 +703,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowAirPrint</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow AirPrint</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -718,12 +723,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>allowAirPrintiBeaconDiscovery</string>
 			<key>pfm_note</key>
 			<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow discovery of AirPrint printers using iBeacons</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -738,21 +743,22 @@ The payload organization for a payload need not match the payload organization i
 			<string>forceAirPrintTrustedTLSRequirement</string>
 			<key>pfm_note</key>
 			<string>Apple documentation does not indicate that this preference is supported on macOS, but Jamf includes it with a min macOS of 10.13.</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Disallow AirPrint to destinations with untrusted certificates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
-		<!-- START iOS -->
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string>Updated in iOS 9.0 to include screen recordings.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. If set to false, users canʼt save a screenshot of the display and are prevented from capturing a screen recording; it also prevents the Classroom app from observing remote screens. Defaults to true. Availability: Updated in iOS 9.0 to include screen recordings.</string>
+			<string>Optional. If set to false, users canʼt save a screenshot of the display and are prevented from capturing a screen recording; it also prevents the Classroom app from observing remote screens. Defaults to true. Also available for user enrollment. Availability: iOS 4 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowScreenShot</string>
 			<key>pfm_title</key>
@@ -769,7 +775,7 @@ The payload organization for a payload need not match the payload organization i
 			<string>If set to false, remote screen observation by the Classroom app is disabled. Defaults to true.
 This key should be nested beneath allowScreenShot as a sub-restriction. If allowScreenShot is set to false, it also prevents the Classroom app from observing remote screens. Availability: Available in iOS 9.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>9.3</string>
+			<string>12.0</string>
 			<key>pfm_name</key>
 			<string>allowRemoteScreenObservation</string>
 			<key>pfm_title</key>
@@ -806,12 +812,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>forceClassroomUnpromptedScreenObservation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Classroom app to perform AirPlay and View Screen without prompting</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -848,6 +854,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, disables Siri. Defaults to true.</string>
+			<key>pfm_ios_min</key>
+			<string>5.0</string>
 			<key>pfm_name</key>
 			<string>allowAssistant</string>
 			<key>pfm_title</key>
@@ -878,14 +886,16 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>If Allow Siri is set to 'false', it also overrides this preference. This preference is ignored if the device does not have a passcode set.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Supervised only. When true, forces the use of the profanity filter assistant.</string>
+			<key>pfm_ios_min</key>
+			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>forceAssistantProfanityFilter</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Enable Siri profanity filter</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -898,12 +908,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowAssistantUserGeneratedContent</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Show user-generated content in Siri</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -934,12 +944,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowSpotlightInternetResults</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Siri Suggestions</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -948,14 +958,16 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Supervised only. When false, the App Store is disabled and its icon is removed from the Home screen. Users are unable to install or update their applications. This key is deprecated on unsupervised devices. In iOS 10 and later, MDM commands can override this restriction.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowAppInstallation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow installing apps</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -968,12 +980,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowUIAppInstallation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow installing apps using App Store</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -986,12 +998,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowAutomaticAppDownloads</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow automatic app downloads</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1000,6 +1012,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>Deprecated on unsupervised devices.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, disables removal of apps from iOS device. This key is deprecated on unsupervised devices.</string>
+			<key>pfm_ios_min</key>
+			<string>4.2.1</string>
 			<key>pfm_name</key>
 			<string>allowAppRemoval</string>
 			<key>pfm_supervised</key>
@@ -1013,7 +1027,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string/>
+			<string></string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -1050,6 +1064,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, prohibits in-app purchasing.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowInAppPurchases</string>
 			<key>pfm_title</key>
@@ -1065,7 +1081,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. When true, forces user to enter their iTunes password for each transaction. Availability: Available in iOS 5.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>forceITunesStorePasswordEntry</string>
 			<key>pfm_title</key>
@@ -1080,6 +1096,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to false, prevents managed applications from using iCloud sync.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowManagedAppsCloudSync</string>
 			<key>pfm_title</key>
@@ -1094,6 +1112,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>If set to false, Enterprise books will not be backed up. Defaults to true.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEnterpriseBookBackup</string>
 			<key>pfm_title</key>
@@ -1108,6 +1128,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>If set to false, Enterprise books notes and highlights will not be synced. Defaults to true.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEnterpriseBookMetadataSync</string>
 			<key>pfm_title</key>
@@ -1136,6 +1158,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, disables global background fetch activity when an iOS phone is roaming.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowGlobalBackgroundFetchWhenRoaming</string>
 			<key>pfm_title</key>
@@ -1150,6 +1174,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When true, encrypts all backups.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>forceEncryptedBackup</string>
 			<key>pfm_title</key>
@@ -1164,14 +1190,16 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables the "Erase All Content And Settings" option in the Reset UI.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEraseContentAndSettings</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Erase All Content and Settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1195,7 +1223,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
-			<string> If set to false removes the Trust Enterprise Developer button in Settings->General->Profiles &amp; Device Management, preventing apps from being provisioned by universal provisioning profiles. This restriction applies to free developer accounts but it does not apply to enterprise app developers who are trusted because their apps were pushed via MDM, nor does it revoke previously granted trust. Defaults to true. Availability: Available in iOS 9.0 and later.</string>
+			<string> If set to false removes the Trust Enterprise Developer button in Settings-&gt;General-&gt;Profiles &amp; Device Management, preventing apps from being provisioned by universal provisioning profiles. This restriction applies to free developer accounts but it does not apply to enterprise app developers who are trusted because their apps were pushed via MDM, nor does it revoke previously granted trust. Defaults to true. Availability: Available in iOS 9.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -1232,12 +1260,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowUIConfigurationProfileInstallation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow user installation of configuration profiles</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1250,12 +1278,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowVPNCreation</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow adding VPN configurations</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1286,12 +1314,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>forceClassroomUnpromptedAppAndDeviceLock</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Classroom to lock apps or the device without prompting</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1304,12 +1332,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>forceClassroomAutomaticallyJoinClasses</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Automatically join Classroom classes without prompting</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1322,12 +1350,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>forceClassroomRequestPermissionToLeaveClasses</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Require teacher permission to leave Classroom app unmanaged classes</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1340,12 +1368,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowAccountModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow modifying account settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1355,15 +1383,15 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, prevents modification of Bluetooth settings. Defaults to true. Availability: Available in iOS 10.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>10.0</string>
+			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowBluetoothModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow modifying Bluetooth settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1376,12 +1404,12 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowAppCellularDataModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow modifying celluar data app settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_supervised</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1409,7 +1437,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>If false, disables modifications to the eSIM setting. Requires a supervised device. Available in iOS 12.1 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>12.1</string>
+			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowESIMModification</string>
 			<key>pfm_supervised</key>
@@ -1493,9 +1521,9 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description</key>
 			<string>If Allow modifying passcode is set to 'false', this will override this preference if set to 'true'.</string>
 			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only. Not supported on macOS. Allows the user to modify Touch ID. Default is false.</string>
+			<string>Optional. Supervised only. Allows the user to modify Touch ID. Default is false. Availability: Available in iOS 8.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>9.0</string>
+			<string>8.3</string>
 			<key>pfm_name</key>
 			<string>allowFingerprintModification</string>
 			<key>pfm_supervised</key>
@@ -1710,6 +1738,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>If set to false, Activity Continuation will be disabled. Defaults to true.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowActivityContinuation</string>
 			<key>pfm_title</key>
@@ -1827,7 +1857,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_ios_min</key>
-			<string>14.5</string> 
+			<string>14.5</string>
 			<key>pfm_name</key>
 			<string>forceWiFiToAllowedNetworksOnly</string>
 			<key>pfm_supervised</key>
@@ -1847,7 +1877,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_ios_deprecated</key>
 			<string>14.5</string>
 			<key>pfm_ios_min</key>
-			<string>10.3</string> 
+			<string>10.3</string>
 			<key>pfm_name</key>
 			<string>forceWiFiWhitelisting</string>
 			<key>pfm_supervised</key>
@@ -1865,7 +1895,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables the prompt to setup new devices that are nearby. Defaults to true. Availability: Available only in iOS 11.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>11.0</string> 
+			<string>11.0</string>
 			<key>pfm_name</key>
 			<string>allowProximitySetupToNewDevice</string>
 			<key>pfm_supervised</key>
@@ -1883,7 +1913,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables predictive keyboards. Defaults to true. Availability: Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>8.1.3</string> 
+			<string>8.1.3</string>
 			<key>pfm_name</key>
 			<string>allowPredictiveKeyboard</string>
 			<key>pfm_supervised</key>
@@ -1901,7 +1931,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, keyboard shortcuts cannot be used. Defaults to true. Availability: Available in iOS 9.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>9.0</string> 
+			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowKeyboardShortcuts</string>
 			<key>pfm_supervised</key>
@@ -1919,7 +1949,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables keyboard auto-correction. Defaults to true. Availability: Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>8.1.3</string> 
+			<string>8.1.3</string>
 			<key>pfm_name</key>
 			<string>allowAutoCorrection</string>
 			<key>pfm_supervised</key>
@@ -1937,7 +1967,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>If false, disables QuickPath keyboard. Requires a supervised device. Available in iOS 13 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>13.0</string> 
+			<string>13.0</string>
 			<key>pfm_name</key>
 			<string>allowContinuousPathKeyboard</string>
 			<key>pfm_supervised</key>
@@ -1955,7 +1985,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables keyboard spell-check. Defaults to true. Availability: Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>8.1.3</string> 
+			<string>8.1.3</string>
 			<key>pfm_name</key>
 			<string>allowSpellCheck</string>
 			<key>pfm_supervised</key>
@@ -1987,7 +2017,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disallows dictation input. Defaults to true. Availability: Available only in iOS 10.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>10.3</string> 
+			<string>10.3</string>
 			<key>pfm_name</key>
 			<string>allowDictation</string>
 			<key>pfm_supervised</key>
@@ -2029,7 +2059,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to false, Passbook notifications will not be shown on the lock screen. This will default to true. Availability: Available in iOS 6.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>6.0</string> 
+			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowPassbookWhileLocked</string>
 			<key>pfm_title</key>
@@ -2045,7 +2075,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>If false, disables modifications of the personal hotspot setting. Requires a supervised device. Available in iOS 12.2 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>12.2</string> 
+			<string>12.2</string>
 			<key>pfm_name</key>
 			<string>allowPersonalHotspotModification</string>
 			<key>pfm_supervised</key>
@@ -2063,7 +2093,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. If false, prevents Control Center from appearing on the Lock screen. Availability: Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>7.0</string> 
+			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowLockScreenControlCenter</string>
 			<key>pfm_title</key>
@@ -2079,7 +2109,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to false, the Notifications history view on the lock screen is disabled and users can't view past notifications. Though, when the device is locked, the user will still be able to view notifications when they arrive. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>7.0</string> 
+			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowLockScreenNotificationsView</string>
 			<key>pfm_title</key>
@@ -2095,7 +2125,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to false, the Today view in Notification Center on the lock screen is disabled. Availability: Available only in iOS 7.0 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>7.0</string> 
+			<string>7.0</string>
 			<key>pfm_name</key>
 			<string>allowLockScreenTodayView</string>
 			<key>pfm_title</key>
@@ -2111,7 +2141,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. If set to true, forces all devices receiving AirPlay requests from this device to use a pairing password. Default is false. Availability: Available only in iOS 7.1 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>7.1</string> 
+			<string>7.1</string>
 			<key>pfm_name</key>
 			<string>forceAirPlayOutgoingRequestsPairingPassword</string>
 			<key>pfm_note</key>
@@ -2171,7 +2201,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_ios_min</key>
-			<string>15</string>
+			<string>15.2</string>
 			<key>pfm_name</key>
 			<string>allowMailPrivacyProtection</string>
 			<key>pfm_title</key>
@@ -2205,7 +2235,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, prohibits adding friends to Game Center. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_ios_min</key>
-			<string>6.0</string>
+			<string>4.2.1</string>
 			<key>pfm_name</key>
 			<string>allowAddingGameCenterFriends</string>
 			<key>pfm_supervised</key>
@@ -2223,7 +2253,7 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, prohibits multiplayer gaming. This key is deprecated on unsupervised devices.</string>
 			<key>pfm_ios_min</key>
-			<string>6.0</string>
+			<string>4.1</string>
 			<key>pfm_name</key>
 			<string>allowMultiplayerGaming</string>
 			<key>pfm_supervised</key>
@@ -2240,6 +2270,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, the Safari web browser application is disabled and its icon removed from the Home screen. This also prevents users from opening web clips. This key is deprecated on unsupervised devices.</string>
+			<key>pfm_ios_min</key>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowSafari</string>
 			<key>pfm_supervised</key>
@@ -2338,7 +2370,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>safariAcceptCookies</string>
 			<key>pfm_range_list</key>
 			<array>
-				<real>0</real>
+				<real>0.0</real>
 				<real>1</real>
 				<real>1.5</real>
 				<real>2</real>
@@ -2355,7 +2387,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_type</key>
 			<string>real</string>
 		</dict>
-		<!-- START iOS &amp; tvOS -->
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -2392,7 +2423,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 				</dict>
 			</array>
 			<key>pfm_ios_min</key>
-			<string>15.0</string>
+			<string>9.3</string>
 			<key>pfm_name</key>
 			<string>blockedAppBundleIDs</string>
 			<key>pfm_subkeys</key>
@@ -2590,7 +2621,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description_reference</key>
 			<string>This value defines the maximum level of app content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>ratingApps</string>
 			<key>pfm_range_list</key>
@@ -2634,7 +2665,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description_reference</key>
 			<string>This value defines the maximum level of movie content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>ratingMovies</string>
 			<key>pfm_range_list</key>
@@ -2678,7 +2709,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description_reference</key>
 			<string>This value defines the maximum level of TV content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>5.0</string>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>ratingTVShows</string>
 			<key>pfm_range_list</key>
@@ -2722,7 +2753,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_description_reference</key>
 			<string>Optional. When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices. Availability: Available in iOS and in tvOS 11.3 and later.</string>
 			<key>pfm_ios_min</key>
-			<string>11.3</string>
+			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowExplicitContent</string>
 			<key>pfm_supervised</key>
@@ -2768,7 +2799,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		<!-- START All OSs -->
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -2948,22 +2978,6 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<string>Allow Files Network Drive Access</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<integer>172800</integer>
-			<key>pfm_description</key>
-			<string>Period of time in seconds after which the device will require entry of password or passcode to unlock. The default value is 172800 seconds, which are 48 hours.</string>
-			<key>pfm_ios_min</key>
-			<string>15.0</string>
-			<key>pfm_name</key>
-			<string>enforcedFingerprintTimeout</string>
-			<key>pfm_title</key>
-			<string>Enforced Fingerprint Timeout</string>
-			<key>pfm_type</key>
-			<string>integer</string>
-			<key>pfm_value_unit</key>
-			<string>seconds</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
