@@ -31,7 +31,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<string>Configures Mobile Accounts settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -45,7 +45,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<string>Mobile Accounts</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_description_reference</key>
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -61,7 +61,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<string>com.apple.MCX</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -77,7 +77,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<string>com.apple.MCX</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_description_reference</key>
 			<string>The payload type.</string>
 			<key>pfm_name</key>
@@ -93,7 +93,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -111,7 +111,7 @@ This payload allows controls the authentication UI during mobile account creatio
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -126,7 +126,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -141,7 +141,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Hides the authentication UI when a mobile account is created.</string>
+			<string>If 'true', bypasses the secure token authorization dialog. This dialog only appears on APFS volumes.</string>
 			<key>pfm_description_reference</key>
 			<string>If set to true, the authentication UI is not displayed when a mobile account is created. Suppressing the UI may prevent mobile accounts from being able to unlock a FileVault volume. Default is false. Availability: Available in macOS 10.13.5 and later.</string>
 			<key>pfm_macos_min</key>
@@ -157,7 +157,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>-1</integer>
 			<key>pfm_description</key>
-			<string>Mobile account lifetime before automatic removal in an integer value representing seconds, where -1 means never and 0 means at next login</string>
+			<string>The minimum number of seconds a mobile account can exist before an automatic attempt is made to remove the mobile account.
+Set to '0' to try to remove it at next login or logout time. Set to '-1' to never try to remove the mobile account.</string>
 			<key>pfm_description_reference</key>
 			<string>The minimum number of seconds a mobile account can exist before an automatic attempt is made to remove the mobile account.</string>
 			<key>pfm_name</key>
@@ -173,7 +174,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If 'true', allows the user to stop the prompts about mobile account creation every time the user logs in. This key is only valid if 'com.apple.cachedaccounts.WarnOnCreate' is set to 'true'.</string>
 			<key>pfm_description_reference</key>
 			<string>If true, allows the user to stop the prompts about mobile account creation every time the user logs in. This key is only valid if com.apple.cachedaccounts.WarnOnCreate is set to true.</string>
 			<key>pfm_exclude</key>
@@ -205,7 +206,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If 'true', creates the mobile account at login time.</string>
 			<key>pfm_description_reference</key>
 			<string>If true, creates the mobile account at login time.</string>
 			<key>pfm_name</key>
@@ -219,7 +220,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If 'true', asks the user if the mobile account should be created and allow the user to not create it.</string>
 			<key>pfm_description_reference</key>
 			<string>If true, asks the user if the mobile account should be created and allow the user to not create it.</string>
 			<key>pfm_name</key>

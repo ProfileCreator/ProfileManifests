@@ -26,7 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures Energy Saver settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,7 +38,7 @@
 			<key>pfm_default</key>
 			<string>Energy Saver</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,7 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.MCX</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,7 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.MCX</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,7 +80,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,7 +96,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -154,7 +154,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Managed settings for the desktop energy profile.</string>
+			<string>The settings for a desktop computer.</string>
 			<key>pfm_hidden</key>
 			<string>container</string>
 			<key>pfm_name</key>
@@ -163,7 +163,7 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
+					<string>The display sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -179,7 +179,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
+					<string>System sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -197,7 +197,7 @@
 					<key>pfm_default</key>
 					<integer>10</integer>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
+					<string>The disk sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Disk Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -225,7 +225,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Wake for modem ring.'</string>
 					<key>pfm_name</key>
 					<string>Wake On Modem Ring</string>
 					<key>pfm_title</key>
@@ -237,7 +237,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Start up automatically after a power failure.'</string>
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
@@ -249,7 +249,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Dynamic Power Step</string>
 					<key>pfm_title</key>
@@ -261,7 +261,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Reduce Processor Speed</string>
 					<key>pfm_title</key>
@@ -304,7 +304,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Managed settings for the portable battery power energy profile</string>
+			<string>The settings for a laptop computer using battery power.</string>
 			<key>pfm_hidden</key>
 			<string>container</string>
 			<key>pfm_name</key>
@@ -313,7 +313,7 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
+					<string>The display sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -329,7 +329,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
+					<string>System sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -347,7 +347,7 @@
 					<key>pfm_default</key>
 					<integer>10</integer>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
+					<string>The disk sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Disk Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -375,7 +375,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Wake for modem ring.'</string>
 					<key>pfm_name</key>
 					<string>Wake On Modem Ring</string>
 					<key>pfm_title</key>
@@ -387,7 +387,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Start up automatically after a power failure.'</string>
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
@@ -399,7 +399,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Dynamic Power Step</string>
 					<key>pfm_title</key>
@@ -411,7 +411,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Reduce Processor Speed</string>
 					<key>pfm_title</key>
@@ -429,7 +429,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Managed settings for the portable AC power energy profile.</string>
+			<string>The settings for a laptop computer using AC power.</string>
 			<key>pfm_hidden</key>
 			<string>container</string>
 			<key>pfm_name</key>
@@ -438,7 +438,7 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the display will be turned off, in an integer value where 0 means never</string>
+					<string>The display sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Display Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -454,7 +454,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the system will enter sleep mode, in an integer value where 0 means never</string>
+					<string>System sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>System Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -472,7 +472,7 @@
 					<key>pfm_default</key>
 					<integer>10</integer>
 					<key>pfm_description</key>
-					<string>Minutes of inactivity before the disks(s) will be powered down, in an integer value where 0 means never</string>
+					<string>The disk sleep time, in minutes. A value of 0 means never.</string>
 					<key>pfm_name</key>
 					<string>Disk Sleep Timer</string>
 					<key>pfm_range_max</key>
@@ -500,7 +500,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Wake for modem ring.'</string>
 					<key>pfm_name</key>
 					<string>Wake On Modem Ring</string>
 					<key>pfm_title</key>
@@ -512,7 +512,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables 'Start up automatically after a power failure.'</string>
 					<key>pfm_name</key>
 					<string>Automatic Restart On Power Loss</string>
 					<key>pfm_title</key>
@@ -524,7 +524,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Dynamic Power Step</string>
 					<key>pfm_title</key>
@@ -536,7 +536,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>May not be available on all systems</string>
+					<string>May not be available on all systems.</string>
 					<key>pfm_name</key>
 					<string>Reduce Processor Speed</string>
 					<key>pfm_title</key>
@@ -554,7 +554,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Use this key to manage scheduled power on and power off events.</string>
+			<string>The schedule for turning a computer on and off.</string>
 			<key>pfm_hidden</key>
 			<string>container</string>
 			<key>pfm_name</key>
@@ -563,7 +563,7 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>Use this key to describe a repeating start up/wake time.</string>
+					<string>The schedule for turning the device on.</string>
 					<key>pfm_name</key>
 					<string>RepeatingPowerOn</string>
 					<key>pfm_subkeys</key>
@@ -572,7 +572,7 @@
 							<key>pfm_default</key>
 							<string>wakepoweron</string>
 							<key>pfm_description</key>
-							<string>The type of action to take at the scheduled time.</string>
+							<string>The type of action defined by this schedule.</string>
 							<key>pfm_name</key>
 							<string>eventtype</string>
 							<key>pfm_range_list</key>
@@ -596,7 +596,14 @@
 							<key>pfm_default</key>
 							<integer>31</integer>
 							<key>pfm_description</key>
-							<string>The days on which the scheduled event occurs.</string>
+							<string>One or more days of the week in an unsigned integer bitmap:
+* '1' = Mon
+* '2' = Tue
+* '4' = Wed
+* '8' = Thu
+* '16' = Fri
+* '32' = Sat
+* '64' = Sun</string>
 							<key>pfm_name</key>
 							<string>weekdays</string>
 							<key>pfm_require</key>
@@ -649,7 +656,7 @@
 							<key>pfm_default</key>
 							<integer>0</integer>
 							<key>pfm_description</key>
-							<string>The time of day to perform the action.</string>
+							<string>The time, in minutes, since midnight.</string>
 							<key>pfm_name</key>
 							<string>time</string>
 							<key>pfm_require</key>
@@ -671,14 +678,14 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Use this key to describe a repeating shut down, sleep or restart.</string>
+					<string>The schedule for turning the device off.</string>
 					<key>pfm_name</key>
 					<string>RepeatingPowerOff</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The type of action to take at the scheduled time.</string>
+							<string>The type of action defined by this schedule.</string>
 							<key>pfm_name</key>
 							<string>eventtype</string>
 							<key>pfm_range_list</key>
@@ -704,7 +711,14 @@
 							<key>pfm_default</key>
 							<integer>31</integer>
 							<key>pfm_description</key>
-							<string>The days on which the scheduled event occurs.</string>
+							<string>One or more days of the week in an unsigned integer bitmap:
+* '1' = Mon
+* '2' = Tue
+* '4' = Wed
+* '8' = Thu
+* '16' = Fri
+* '32' = Sat
+* '64' = Sun</string>
 							<key>pfm_name</key>
 							<string>weekdays</string>
 							<key>pfm_require</key>
@@ -757,7 +771,7 @@
 							<key>pfm_default</key>
 							<integer>0</integer>
 							<key>pfm_description</key>
-							<string>The time of day to perform the action.</string>
+							<string>The time, in minutes, since midnight.</string>
 							<key>pfm_name</key>
 							<string>time</string>
 							<key>pfm_require</key>
@@ -787,7 +801,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string></string>
+			<string>If 'true', disables sleep.</string>
 			<key>pfm_name</key>
 			<string>SleepDisabled</string>
 			<key>pfm_title</key>

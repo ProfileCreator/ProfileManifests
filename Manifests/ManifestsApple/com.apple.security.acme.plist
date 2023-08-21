@@ -28,7 +28,7 @@
 			<key>pfm_default</key>
 			<string>Use this section to define settings to have an ACME server issue a client certificate.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -42,7 +42,7 @@
 			<key>pfm_default</key>
 			<string>ACME Certificate</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_description_reference</key>
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -58,7 +58,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.acme</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -74,7 +74,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.acme</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_description_reference</key>
 			<string>The payload type.</string>
 			<key>pfm_name</key>
@@ -88,7 +88,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -106,7 +106,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
@@ -120,7 +120,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -189,7 +189,8 @@
 			<key>pfm_description</key>
 			<string>If 'false', the private key isn't bound to the device.
 If 'true', the private key is bound to the device. The Secure Enclave generates the key pair, and the private key is cryptographically entangled with a system key. This prevents the system from exporting the private key.
-If 'true', 'KeyType' must be 'ECSECPrimeRandom' and 'KeySize' must be 256 or 384.</string>
+If 'true', 'KeyType' must be 'ECSECPrimeRandom' and 'KeySize' must be 256 or 384.
+On macOS, this key is required but must have a value of 'false'.</string>
 			<key>pfm_name</key>
 			<string>HardwareBound</string>
 			<key>pfm_require</key>
@@ -338,7 +339,8 @@ The device requests this field for the certificate that the ACME server issues. 
 			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', the device provides attestations describing the device and the generated key to the ACME server. The server can use the attestations as strong evidence that the key is bound to the device, and that the device has properties listed in the attestation. The server can use that as part of a trust score to decide whether to issue the requested certificate.
-When 'Attest' is 'true', 'HardwareBound' must also be 'true'.</string>
+When 'Attest' is 'true', 'HardwareBound' must also be 'true'.
+On macOS, if this key is present, it must have a value of 'false'.</string>
 			<key>pfm_name</key>
 			<string>Attest</string>
 			<key>pfm_title</key>
@@ -350,7 +352,7 @@ When 'Attest' is 'true', 'HardwareBound' must also be 'true'.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Whether the private key of the identity obtained via SCEP should be tagged as "non-extractable" in the keychain.</string>
+			<string>If true, the private key of the identity obtained via SCEP should be tagged as “non-extractable” in the keychain.</string>
 			<key>pfm_name</key>
 			<string>KeyIsExtractable</string>
 			<key>pfm_platforms</key>
@@ -366,7 +368,7 @@ When 'Attest' is 'true', 'HardwareBound' must also be 'true'.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If true, all apps have access to the private key.</string>
+			<string>If 'true', all apps have access to the private key.</string>
 			<key>pfm_name</key>
 			<string>AllowAllAppsAccess</string>
 			<key>pfm_platforms</key>

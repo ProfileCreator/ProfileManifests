@@ -28,7 +28,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<string>Configures Identification settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -42,7 +42,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<string>Identification</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_description_reference</key>
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -58,7 +58,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<string>com.apple.configurationprofile.identification</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -74,7 +74,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<string>com.apple.configurationprofile.identification</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_description_reference</key>
 			<string>The payload type.</string>
 			<key>pfm_name</key>
@@ -90,7 +90,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -108,7 +108,7 @@ The Identification payload is not supported in iOS.</string>
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -123,7 +123,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -136,7 +136,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string></string>
+			<string>The dictionary containing details about the user.</string>
 			<key>pfm_description_reference</key>
 			<string></string>
 			<key>pfm_name</key>
@@ -145,7 +145,7 @@ The payload organization for a payload need not match the payload organization i
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The full name of the designated accounts.</string>
+					<string>The full name of the account.</string>
 					<key>pfm_description_reference</key>
 					<string>The full name of the designated accounts.</string>
 					<key>pfm_name</key>
@@ -159,7 +159,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The address for the accounts.</string>
+					<string>The address for the account.</string>
 					<key>pfm_description_reference</key>
 					<string>The address for the accounts.</string>
 					<key>pfm_name</key>
@@ -187,7 +187,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>You can provide the password or choose to have the user provide it when he or she installs the profile.</string>
+					<string>The password for the account. Required when the 'AuthMethod' is of type 'password'.</string>
 					<key>pfm_description_reference</key>
 					<string>You can provide the password or choose to have the user provide it when he or she installs the profile.</string>
 					<key>pfm_exclude</key>
@@ -219,7 +219,7 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_default</key>
 					<string>UserEnteredPassword</string>
 					<key>pfm_description</key>
-					<string>Allow the user to enter the password upon installation instead of being supplied in the payload</string>
+					<string>The authorization method. Either the password is supplied in the profile or the user supplies it.</string>
 					<key>pfm_description_reference</key>
 					<string></string>
 					<key>pfm_documentation_source</key>
@@ -252,7 +252,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Short prompt text</string>
+					<string>The custom instructions for the user, if needed.</string>
 					<key>pfm_description_reference</key>
 					<string>Custom instruction for the user, if needed.</string>
 					<key>pfm_exclude</key>
@@ -278,7 +278,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Additional prompt description.</string>
+					<string>The additional descriptive text for the user prompt.</string>
 					<key>pfm_description_reference</key>
 					<string></string>
 					<key>pfm_documentation_source</key>

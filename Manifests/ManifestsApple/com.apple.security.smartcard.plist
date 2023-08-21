@@ -26,7 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures SmartCard settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,7 +38,7 @@
 			<key>pfm_default</key>
 			<string>SmartCard</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,7 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.smartcard</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,7 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.smartcard</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,7 +80,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,7 +96,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -120,7 +120,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables the SmartCard for logins, authorizations, and screen saver unlocking. It is still allowed for other functions, such as signing emails and accessing the web.</string>
+			<string>If 'false', disables the SmartCard for logins, authorizations, and screen saver unlocking. It is still allowed for other functions, such as signing emails and accessing the web. A restart is required for a setting change to take effect.</string>
 			<key>pfm_name</key>
 			<string>allowSmartCard</string>
 			<key>pfm_note</key>
@@ -156,7 +156,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, users don't get the pairing dialog, although existing pairings still work.</string>
+			<string>If 'false', users don't get the pairing dialog, although existing pairings still work.</string>
 			<key>pfm_name</key>
 			<string>UserPairing</string>
 			<key>pfm_title</key>
@@ -168,7 +168,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, a user can pair with only one SmartCard, although existing pairings are allowed if already set up.</string>
+			<string>If 'true', a user can pair with only one SmartCard, although existing pairings are allowed if already set up.</string>
 			<key>pfm_name</key>
 			<string>oneCardPerUser</string>
 			<key>pfm_title</key>
@@ -180,7 +180,11 @@
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Require unexpired, system trusted certificates for smart cards to work.</string>
+			<string>Valid values are 0 to 3:
+'0': Turns off certificate trust check.
+'1': Turns on certificate trust check. A standard validity check is performed but doesn't include additional revocation checks.
+'2': Turns on certificate trust check. A soft revocation check is also performed. Until the certificate is explicitly rejected by CRL/OCSP, it's considered valid. This setting means that unavailable or unreachable CRL/OCSP allow this check to succeed.
+'3': Turns on certificate trust check. A hard revocation check is also performed. Unless CRL/OCSP explicitly says 'This certificate is OK,' it's considered invalid. This option is the most secure.</string>
 			<key>pfm_description_reference</key>
 			<string>0: Turns off certificate trust check.
 
@@ -214,7 +218,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, a user can only log in or authenticate with a SmartCard.</string>
+			<string>If 'true', a user can only log in or authenticate with a SmartCard. Available in macOS 10.13.2 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>If true, a user can only log in or authenticate with a SmartCard. Available in macOS 10.13.2 and later.</string>
 			<key>pfm_macos_min</key>
@@ -230,7 +234,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>If enabled, enables the screen saver when the SmartCard is removed.</string>
+			<string>If '1', enables the screen saver when the SmartCard is removed. Available in macOS 10.13.4 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>If 1, enables the screen saver when the SmartCard is removed. Available in macOS 10.13.4 and later.</string>
 			<key>pfm_macos_min</key>

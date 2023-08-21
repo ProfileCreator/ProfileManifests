@@ -22,7 +22,7 @@
 			<key>pfm_default</key>
 			<string>Configures settings for calendar subscriptions</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -34,7 +34,7 @@
 			<key>pfm_default</key>
 			<string>Subscribed Calendars</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -48,7 +48,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.subscribedcalendar.account</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -62,7 +62,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.subscribedcalendar.account</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -76,7 +76,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -92,7 +92,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -104,7 +104,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,7 +116,7 @@
 			<key>pfm_default</key>
 			<string>My Subscribed Calendar</string>
 			<key>pfm_description</key>
-			<string>The description of the calendar subscription</string>
+			<string>The description of the account.</string>
 			<key>pfm_name</key>
 			<string>SubCalAccountDescription</string>
 			<key>pfm_title</key>
@@ -126,7 +126,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The URL of the calendar file</string>
+			<string>The server's address.</string>
 			<key>pfm_name</key>
 			<string>SubCalAccountHostName</string>
 			<key>pfm_require</key>
@@ -138,7 +138,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The username for this subscription</string>
+			<string>The user's user name.</string>
 			<key>pfm_name</key>
 			<string>SubCalAccountUsername</string>
 			<key>pfm_title</key>
@@ -148,7 +148,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password for this subscription</string>
+			<string>The user's password.</string>
 			<key>pfm_name</key>
 			<string>SubCalAccountPassword</string>
 			<key>pfm_sensitive</key>
@@ -162,7 +162,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Use Secure Socket Layer for this subscription</string>
+			<string>If 'true', enables SSL.</string>
 			<key>pfm_name</key>
 			<string>SubCalAccountUseSSL</string>
 			<key>pfm_title</key>

@@ -28,7 +28,7 @@
 			<key>pfm_default</key>
 			<string>Configures FileVault 2 settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -42,7 +42,7 @@
 			<key>pfm_default</key>
 			<string>FileVault 2</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_description_reference</key>
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -58,7 +58,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.MCX.FileVault2</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -74,7 +74,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.MCX.FileVault2</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_description_reference</key>
 			<string>The payload type.</string>
 			<key>pfm_name</key>
@@ -90,7 +90,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -108,7 +108,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -123,7 +123,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
 The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
@@ -136,7 +136,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Set to 'On' to enable FileVault. Set to 'Off' to disable FileVault.</string>
+			<string>If 'true', enables FileVault.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to ʼOnʼ to enable FileVault. Set to ʼOffʼ to disable FileVault. This value is required.</string>
 			<key>pfm_name</key>
@@ -157,7 +157,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Defer enabling FileVault until the designated user logs out. For details, see fdesetup(8). The person enabling FileVault must be either a local user or a mobile account user.</string>
+			<string>If 'true', defers enabling FileVault until the designated user logs out. For details, see 'fdesetup(8)'. The person enabling FileVault must be either a local user or a mobile account user.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to true to defer enabling FileVault until the designated user logs out. For details, see fdesetup(8). The person enabling FileVault must be either a local user or a mobile account user.</string>
 			<key>pfm_name</key>
@@ -171,7 +171,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to true for manual profile installs to prompt for missing user name or password fields.</string>
+			<string>If 'true', enables a prompt for missing user name or password fields.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to true for manual profile installs to prompt for missing user name or password fields.</string>
 			<key>pfm_name</key>
@@ -185,7 +185,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to true to create a personal recovery key.</string>
+			<string>If 'true', creates a personal recovery key and displays it to the user.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to true to create a personal recovery key. Defaults to true.</string>
 			<key>pfm_name</key>
@@ -199,7 +199,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set to false to not display the personal recovery key to the user after FileVault is enabled.</string>
+			<string>If 'false', prevents display of the personal recovery key to the user after FileVault is enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>Set to false to not display the personal recovery key to the user after FileVault is enabled. Defaults to true.</string>
 			<key>pfm_name</key>
@@ -211,7 +211,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Path to the location where the recovery key and computer information plist will be stored.</string>
+			<string>The path to the location where the recovery key and computer information property list are stored.</string>
 			<key>pfm_description_reference</key>
 			<string>Path to the location where the recovery key and computer information plist will be stored.</string>
 			<key>pfm_name</key>
@@ -227,7 +227,7 @@ The payload organization for a payload need not match the payload organization i
 				<string>public.x509-certificate</string>
 			</array>
 			<key>pfm_description</key>
-			<string>DER-encoded certificate data if an institutional recovery key will be added.</string>
+			<string>The DER-encoded certificate data if 'UseRecoveryKey' is enabled.</string>
 			<key>pfm_description_reference</key>
 			<string>DER-encoded certificate data if an institutional recovery key will be added.</string>
 			<key>pfm_name</key>
@@ -239,7 +239,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>UUID of the payload containing the asymmetric recovery key certificate payload.</string>
+			<string>The UUID of the payload within the same profile containing the asymmetric recovery key certificate payload.</string>
 			<key>pfm_description_reference</key>
 			<string>UUID of the payload containing the asymmetric recovery key certificate payload.</string>
 			<key>pfm_name</key>
@@ -251,7 +251,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>User name of the Open Directory user that will be added to FileVault.</string>
+			<string>The user name of the Open Directory user to be added to FileVault.</string>
 			<key>pfm_description_reference</key>
 			<string>User name of the Open Directory user that will be added to FileVault.</string>
 			<key>pfm_name</key>
@@ -263,7 +263,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>User password of the Open Directory user that will be added to FileVault. Use the UserEntersMissingInfo key if you want to prompt for this information.</string>
+			<string>The password of the Open Directory user to be added to FileVault. Use the 'UserEntersMissingInfo' key if you want to prompt for this information.</string>
 			<key>pfm_description_reference</key>
 			<string>User password of the Open Directory user that will be added to FileVault. Use the UserEntersMissingInfo key if you want to prompt for this information.</string>
 			<key>pfm_name</key>
@@ -277,7 +277,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true and no certificate information is provided in this payload, the keychain already created at /Library/Keychains/FileVaultMaster.keychain will be used when the institutional recovery key is added.</string>
+			<string>If 'true' and no certificate information is provided in this payload, the keychain created at '/Library/Keychains/FileVaultMaster.keychain' is used when the institutional recovery key is added.</string>
 			<key>pfm_description_reference</key>
 			<string>If set to true and no certificate information is provided in this payload, the keychain already created at /Library/Keychains/FileVaultMaster.keychain will be used when the institutional recovery key is added.</string>
 			<key>pfm_name</key>
@@ -289,7 +289,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When using the Defer option you can optionally set this key to the maximum number of times the user can bypass enabling FileVault before it will require that it be enabled before the user can log in. If set to 0, it will always prompt to enable FileVault until it is enabled, though it will allow you to bypass enabling it. Setting this key to –1 will disable this feature.</string>
+			<string>The maximum number of times users can bypass enabling FileVault before being required to enable it to log in. If the value is '0', the user will be required to enabled FileVault the next time they attempt to log in. Setting this key to '–1' disables the feature.</string>
 			<key>pfm_description_reference</key>
 			<string>When using the Defer option you can optionally set this key to the maximum number of times the user can bypass enabling FileVault before it will require that it be enabled before the user can log in. If set to 0, it will always prompt to enable FileVault until it is enabled, though it will allow you to bypass enabling it. Setting this key to –1 will disable this feature.
 Availability: Available in macOS 10.10 and later.</string>
@@ -306,7 +306,7 @@ Availability: Available in macOS 10.10 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When using the Defer option, set this key to true to not request enabling FileVault at user logout time.</string>
+			<string>If 'true', prevents requests for enabling FileVault at user logout time.</string>
 			<key>pfm_description_reference</key>
 			<string>When using the Defer option, set this key to true to not request enabling FileVault at user logout time. Availability: Available in macOS 10.10 and later.</string>
 			<key>pfm_macos_min</key>

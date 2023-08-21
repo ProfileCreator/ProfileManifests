@@ -26,7 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures Universal Access settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,7 +38,7 @@
 			<key>pfm_default</key>
 			<string>Universal Access</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,7 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.universalaccess</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,7 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.universalaccess</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,7 +80,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,7 +96,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -120,7 +120,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Use scroll gesture with modifier keys to zoom" in the zoom options</string>
+			<string>If 'true', enables 'Use scroll gesture' in the Zoom options.</string>
 			<key>pfm_name</key>
 			<string>closeViewScrollWheelToggle</string>
 			<key>pfm_title</key>
@@ -132,7 +132,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Use keyboard shortcuts to zoom" in the zoom options</string>
+			<string>If 'true', enables 'Use keyboard shortcuts' in the Zoom options.</string>
 			<key>pfm_name</key>
 			<string>closeViewHotkeysEnabled</string>
 			<key>pfm_title</key>
@@ -142,7 +142,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The maximal zoom magnification that can be set in the Zoom options in an integer value between 1 and 40</string>
+			<string>The maximum zoom level in the Zoom options.</string>
 			<key>pfm_name</key>
 			<string>closeViewNearPoint</string>
 			<key>pfm_range_max</key>
@@ -156,7 +156,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The minimal zoom magnification that can be set in the Zoom options in an integer value between 1 and 40</string>
+			<string>The minimum zoom level in the Zoom options.</string>
 			<key>pfm_name</key>
 			<string>closeViewFarPoint</string>
 			<key>pfm_range_max</key>
@@ -172,7 +172,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Show preview rectangle" in the Zoom options</string>
+			<string>If 'true', enables 'Show preview rectangle' in the Zoom options. Only available in macOS 10.15 and earlier.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -186,7 +186,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Smooth images" in the Zoom options</string>
+			<string>If 'true', enables 'Smooth images' in the Zoom options.</string>
 			<key>pfm_name</key>
 			<string>closeViewSmoothImages</string>
 			<key>pfm_title</key>
@@ -198,7 +198,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Invert colors" in Display options</string>
+			<string>If 'true', enables Invert Colors in Display Accommodations.</string>
 			<key>pfm_name</key>
 			<string>whiteOnBlack</string>
 			<key>pfm_title</key>
@@ -210,7 +210,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Use grayscale" in the Display options</string>
+			<string>If 'true', enables 'Use grayscale' in the Display options.
+This option is deprecated in macOS 11.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -224,7 +225,7 @@
 			<key>pfm_default</key>
 			<real>0.0</real>
 			<key>pfm_description</key>
-			<string>The amount of display contrast enhancement in a decimal value between 0 and 1, where 0 is none and 1 is the maximum</string>
+			<string>The contrast value in the Display options.</string>
 			<key>pfm_name</key>
 			<string>contrast</string>
 			<key>pfm_range_max</key>
@@ -240,7 +241,7 @@
 			<key>pfm_default</key>
 			<real>1</real>
 			<key>pfm_description</key>
-			<string>The size of the mouse cursor in a decimal value between 1 and 4, where 1 is normal and 4 is the maximum</string>
+			<string>The size of the cursor.</string>
 			<key>pfm_name</key>
 			<string>mouseDriverCursorSize</string>
 			<key>pfm_range_max</key>
@@ -256,7 +257,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>VoiceOver provides spoken and brailled descriptions of items on the computer screen and provides control of the computer through the user of the keyboard</string>
+			<string>If 'true', enables Voice Over.</string>
 			<key>pfm_name</key>
 			<string>voiceOverOnOffKey</string>
 			<key>pfm_title</key>
@@ -268,7 +269,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Flash the screen when an alert sound occurs" in the Audio options</string>
+			<string>If 'true', enables 'Flash the screen' in the Audio options.</string>
 			<key>pfm_name</key>
 			<string>flashScreen</string>
 			<key>pfm_title</key>
@@ -280,7 +281,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Play stereo audio as mono" in the Audio options</string>
+			<string>If 'true', plays stereo audio as mono.</string>
 			<key>pfm_name</key>
 			<string>stereoAsMono</string>
 			<key>pfm_title</key>
@@ -292,7 +293,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Sticky Keys" in the Keyboard options. Sticky keys allows modifier keys to be set without having to hold the key down</string>
+			<string>If 'true', enables Sticky Keys in the Keyboard options.</string>
 			<key>pfm_name</key>
 			<string>stickyKey</string>
 			<key>pfm_title</key>
@@ -304,7 +305,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Display pressed keys on screen" for Sticky Keys in Keyboard options</string>
+			<string>If 'true', enables 'Display pressed keys on screen' for Sticky Keys.</string>
 			<key>pfm_name</key>
 			<string>stickyKeyShowWindow</string>
 			<key>pfm_title</key>
@@ -316,7 +317,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Beep when a modifier key is set" for Sticky Keys in Keyboard options</string>
+			<string>If 'true', enables the beep when a modifier key is set for Sticky Keys.</string>
 			<key>pfm_name</key>
 			<string>stickyKeyBeepOnModifier</string>
 			<key>pfm_title</key>
@@ -328,7 +329,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Slow Keys" in the Keyboard options. Slow keys adjusts the amount of time between when a key is pressed and when it is activated</string>
+			<string>If 'true', enables 'Slow Keys' in the Keyboard options.</string>
 			<key>pfm_name</key>
 			<string>slowKey</string>
 			<key>pfm_title</key>
@@ -340,7 +341,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Use click key sounds" for Slow Keys in the Keyboard options</string>
+			<string>If 'true', enables 'click key sounds' for Slow Keys.</string>
 			<key>pfm_name</key>
 			<string>slowKeyBeepOn</string>
 			<key>pfm_title</key>
@@ -352,7 +353,7 @@
 			<key>pfm_default</key>
 			<integer>250</integer>
 			<key>pfm_description</key>
-			<string>The acceptance delay for Slow Keys in miliseconds</string>
+			<string>The acceptance delay, in milliseconds, for Slow Keys.</string>
 			<key>pfm_name</key>
 			<string>slowKeyDelay</string>
 			<key>pfm_title</key>
@@ -366,7 +367,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Enable Mouse Keys" in the Pointer Control options. Mouse Keys allows the mouse pointer to be controlled using the keyboard number pad</string>
+			<string>If 'true', enables Mouse Keys in the Mouse &amp; Trackpad options.</string>
 			<key>pfm_name</key>
 			<string>mouseDriver</string>
 			<key>pfm_title</key>
@@ -378,7 +379,7 @@
 			<key>pfm_default</key>
 			<real>1</real>
 			<key>pfm_description</key>
-			<string>The initial delay before moving the mouse cursor with Mouse Keys in a decimal value representing seconds</string>
+			<string>The initial delay before moving the mouse with Mouse Keys.</string>
 			<key>pfm_name</key>
 			<string>mouseDriverInitialDelay</string>
 			<key>pfm_title</key>
@@ -390,7 +391,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The maximum speed for the cursor when using Mouse Keys in an integer value between 1 and 32, where 1 is the slowest and 32 is the fastest</string>
+			<string>The maximum speed for the cursor when using Mouse Keys.</string>
 			<key>pfm_name</key>
 			<string>mouseDriverMaxSpeed</string>
 			<key>pfm_range_max</key>
@@ -406,7 +407,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Turns on "Ignore built-in trackpad when mouse or wireless trackpad is present" in the Mouse &amp; Trackpad options</string>
+			<string>If 'true', ignores the built-in trackpad.</string>
 			<key>pfm_name</key>
 			<string>mouseDriverIgnoreTrackpad</string>
 			<key>pfm_title</key>

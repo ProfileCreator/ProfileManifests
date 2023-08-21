@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Single App Mode settings</string>
+	<string>App Lock (Supervised Only)</string>
 	<key>pfm_description_reference</key>
 	<string>The App Lock payload is designated by specifying com.apple.app.lock as the PayloadType value. Only one of this payload type can be installed at any time. This payload can be installed only on a Supervised device.
 By installing an app lock payload, the device is locked to a single application until the payload is removed. The home button is disabled, and the device returns to the specified application automatically upon wake or reboot.
@@ -31,7 +31,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<string>Configures Single App Mode</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -45,7 +45,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<string>Single App Mode</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_description_reference</key>
 			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -61,7 +61,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<string>com.apple.app.lock</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -77,7 +77,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<string>com.apple.app.lock</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_description_reference</key>
 			<string>The payload type.</string>
 			<key>pfm_name</key>
@@ -93,7 +93,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -111,7 +111,7 @@ This payload is supported only in iOS 6.0 and later.</string>
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the individual payload.
 A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
@@ -126,7 +126,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile. The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
@@ -138,7 +138,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A dictionary containing information about the app</string>
+			<string>A dictionary that contains information about the app.</string>
 			<key>pfm_description_reference</key>
 			<string>A dictionary containing information about the app.</string>
 			<key>pfm_name</key>
@@ -149,7 +149,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The bundle identifier of the application.</string>
+					<string>The app's bundle identifier.</string>
 					<key>pfm_description_reference</key>
 					<string>The bundle identifier of the application.</string>
 					<key>pfm_name</key>
@@ -163,7 +163,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Settings enforced when in Single App Mode</string>
+					<string>A dictionary of options that the user cannot change.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Described below.
 Availability: Available only in iOS 7.0 and later.</string>
@@ -177,7 +177,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Touch Screen</string>
+							<string>If 'true', disables the touch screen. In tvOS, it disables the touch surface on the Apple TV Remote.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, the touch screen is disabled. Default is false. Also, available in tvOS 10.2 and later to lock the touch pad on the remote.</string>
 							<key>pfm_name</key>
@@ -193,7 +193,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Device Rotation</string>
+							<string>If 'true', disables device rotation sensing.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, device rotation sensing is disabled. Default is false.</string>
 							<key>pfm_name</key>
@@ -211,7 +211,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Volume Buttons</string>
+							<string>If 'true', disables the volume buttons.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, the volume buttons are disabled. Default to false.</string>
 							<key>pfm_name</key>
@@ -229,7 +229,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Ringer Switch</string>
+							<string>If 'true', disables the ringer switch. When disabled, the ringer behavior depends on what position the switch was in when it was first disabled.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, the ringer switch is disabled. Default is false. When disabled, the ringer behavior depends on what position the switch was in when it was first disabled.</string>
 							<key>pfm_name</key>
@@ -247,7 +247,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Sleep Wake Button</string>
+							<string>If 'true', disables the sleep/wake button.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, the sleep/wake button is disabled. Default is false.</string>
 							<key>pfm_name</key>
@@ -265,7 +265,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Disable Auto Lock</string>
+							<string>If 'true', the device doesn't automatically go to sleep after an idle period.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, the device will not automatically go to sleep after an idle period. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -281,7 +281,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Voice Over</string>
+							<string>If 'true', enables VoiceOver.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, VoiceOver is turned on. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -297,7 +297,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Zoom</string>
+							<string>If 'true', enables Zoom.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, Zoom is turned on. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -313,7 +313,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Inverted Colors</string>
+							<string>If 'true', enables Invert Colors.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, Invert Colors is turned on. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -329,7 +329,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Assistive Touch</string>
+							<string>If 'true', enables AssistiveTouch.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, AssistiveTouch is turned on. Default is false.</string>
 							<key>pfm_name</key>
@@ -347,7 +347,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Speak Selection</string>
+							<string>If 'true', enables Speak Selection.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, Speak Selection is turned on. Default is false.</string>
 							<key>pfm_name</key>
@@ -365,7 +365,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Enable Mono Audio</string>
+							<string>If 'true', enables Mono Audio.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, Mono Audio is turned on. Default is false.</string>
 							<key>pfm_name</key>
@@ -387,7 +387,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Allow the user to change these settings when in Single App Mode</string>
+					<string>A dictionary of user-editable options.</string>
 					<key>pfm_description_reference</key>
 					<string>Optional. Described below.
 Availability: Available only in iOS 7.0 and later.</string>
@@ -401,7 +401,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Allow user to enable Voice Over</string>
+							<string>If 'true', allows the user to toggle VoiceOver.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, allow VoiceOver adjustment. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -417,7 +417,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Allow user to enable Zoom</string>
+							<string>If 'true', allows the user to toggle Zoom.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, allow Zoom adjustment. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -433,7 +433,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Allow user to enable Inverted Colors</string>
+							<string>If 'true', allows the user to toggle Invert Colors.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, allow Zoom adjustment. Default is false. Also, available in tvOS 10.2 and later.</string>
 							<key>pfm_name</key>
@@ -449,7 +449,7 @@ Availability: Available only in iOS 7.0 and later.</string>
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>Allow user to enable Assistive Touch</string>
+							<string>If 'true', allows the user to toggle AssistiveTouch.</string>
 							<key>pfm_description_reference</key>
 							<string>Optional. If true, allow AssistiveTouch adjustment. Default is false.</string>
 							<key>pfm_name</key>

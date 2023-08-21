@@ -26,7 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures System Extensions Policy</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,7 +38,7 @@
 			<key>pfm_default</key>
 			<string>System Extension Policy</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,7 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.system-extension-policy</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,7 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.system-extension-policy</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,7 +80,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,7 +96,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -120,7 +120,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Set this property to false to prevent users from approving system extensions not explicitly allowed by configuration profiles.</string>
+			<string>If 'false', restricts users from approving additional system extensions that configuration profiles don't explicitly allow.</string>
 			<key>pfm_name</key>
 			<string>AllowUserOverrides</string>
 			<key>pfm_note</key>
@@ -132,7 +132,9 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>List of team identifiers that define which validly signed system extensions will be allowed to load.</string>
+			<string>An array of team identifiers that defines valid, signed system extensions that are allowable to load. Approved system extensions are those signed with any of the specified team identifiers.
+To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequestForExtension:queue:.
+It's an error for the same team identifier to appear in both this array and as a key in the 'AllowedSystemExtensions' dictionary.</string>
 			<key>pfm_format</key>
 			<string>^[A-Z0-9]{10}$</string>
 			<key>pfm_name</key>
@@ -159,7 +161,9 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary of system extensions that will be allowed. Extensions are represented in the dictionary using a team identifier string as key and an array of allowed extension bundle identifier strings as the associated value.</string>
+			<string>A dictionary of approved system extensions on the computer. The dictionary maps the team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension to install.
+To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequestForExtension:queue:.
+It's an error for the same team identifier to appear in both the 'AllowedTeamIdentifiers' array and as a key in this dictionary.</string>
 			<key>pfm_name</key>
 			<string>AllowedSystemExtensions</string>
 			<key>pfm_note</key>
@@ -207,7 +211,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary of developer teams and their allowed system extension types. Entries use the team identifier as the key and an array of the allowed extension type strings as the associated value.</string>
+			<string>A dictionary that maps a team identifier to an array of strings, where each string is a type of system extension that you can install for that team identifier. The allowed extension types are 'DriverExtension', 'NetworkExtension', and 'EndpointSecurityExtension'.
+If there's no entry for a specified team identifier in the dictionary, the system allows all extension types.</string>
 			<key>pfm_name</key>
 			<string>AllowedSystemExtensionTypes</string>
 			<key>pfm_subkeys</key>
@@ -263,7 +268,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary of system extensions that can be removed by their own app without requiring an admin password. Extensions are represented in the dictionary using a team identifier string as key and an array of removable extension bundle identifier strings as the associated value.</string>
+			<string>A dictionary of system extensions that are allowed to remove themselves from the machine. The dictionary maps team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension. An application using the 'OSSystemExtensionDeactivationRequest' API can deactivate the specified system extensions without requiring an administrator to authorize the operation.
+Available in macOS 12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
