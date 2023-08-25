@@ -153,17 +153,26 @@ A profile can consist of payloads with different version numbers. For example, c
 				<array>
 					<string>allowActivityContinuation</string>
 					<string>allowAddingGameCenterFriends</string>
+					<string>allowARDRemoteManagementModification</string>
+					<string>allowBluetoothSharingModification</string>
 					<string>allowCamera</string>
 					<string>allowContentCaching</string>
 					<string>allowDefinitionLookup</string>
 					<string>allowDeprecatedWebKitTLS</string>
 					<string>allowEraseContentAndSettings</string>
+					<string>allowFileSharingModification</string>
 					<string>allowGameCenter</string>
+					<string>allowInternetSharingModification</string>
+					<string>allowLocalUserCreation</string>
 					<string>allowMailPrivacyProtection</string>
+					<string>allowPrinterSharingModification</string>
 					<string>allowUniversalControl</string>
 					<string>allowMusicService</string>
+					<string>allowRemoteAppleEventsModification</string>
 					<string>allowRemoteScreenObservation</string>
 					<string>allowScreenShot</string>
+					<string>allowStartupDiskModification</string>
+					<string>allowTimeMachineBackup</string>
 					<string>allowUIConfigurationProfileInstallation</string>
 					<string>allowSpotlightInternetResults</string>
 					<string>allowiTunesFileSharing</string>
@@ -199,6 +208,7 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>allowCloudDesktopAndDocuments</string>
 					<string>allowCloudDocumentSync</string>
 					<string>allowCloudFMM</string>
+					<string>allowCloudFreeform</string>
 					<string>allowCloudKeychainSync</string>
 					<string>allowCloudMail</string>
 					<string>allowCloudNotes</string>
@@ -321,7 +331,22 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Universal Control. Available in macOS 13 and later.</string>
+			<string>If 'false', prevents modifying Printer Sharing setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowPrinterSharingModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Printer Sharing setting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Set to false to prevent sharing mouse and keyboard between a Mac and an iPad</string>
 			<key>pfm_macos_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -388,6 +413,23 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow Apple Music</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', prevents modifying Remote Apple Events Sharing setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowRemoteAppleEventsModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Remote Apple Events Sharing setting</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -495,7 +537,25 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables iCloud keychain synchronization. This restriction is deprecated on unsupervised devices and will be supervised only in a future release. Available in iOS 7 and later and macOS 10.12 and later.</string>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If 'false', disallows iCloud Freeform services. Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowCloudFreeform</string>
+			<key>pfm_title</key>
+			<string>Allow Cloud Freeform</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. When false, disables iCloud keychain synchronization. Default is true. Availability: Available in iOS 7.0 and later and macOS 10.12 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -673,7 +733,37 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits adding friends to Game Center. As of iOS 13, requires a supervised device. Available in iOS 4.2.1 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', prevents modifying Internet Sharing setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowInternetSharingModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Internet Sharing setting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', prevents creating new users in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowLocalUserCreation</string>
+			<key>pfm_title</key>
+			<string>Allow creating users in System Settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
 			<key>pfm_macos_min</key>
 			<string>10.13</string>
 			<key>pfm_name</key>
@@ -689,7 +779,39 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables sharing passwords with the Airdrop Passwords feature. Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and later.</string>
+			<string>If 'false', prevents modifying the Remote Management Sharing setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowARDRemoteManagementModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Remote Management Sharing setting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', prevents modifying the Remote Management Sharing setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowBluetoothSharingModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Bluetooth Sharing setting</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Supervised only. If set to false, users can not share their passwords with the AirDrop Passwords feature. Defaults to true. Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>
@@ -755,7 +877,41 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits the user from installing configuration profiles and certificates interactively. Requires a supervised device. Available in iOS 6 and later and macOS 13 and later.</string>
+			<string>If 'false', prevents modification of Startup Disk setting in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowStartupDiskModification</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Startup Disk settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', prevents modification of Time Machine settings in System Settings.
+Available in macOS 14 and later.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_macos_min</key>
+			<string>14.0</string>
+			<key>pfm_name</key>
+			<string>allowTimeMachineBackup</string>
+			<key>pfm_title</key>
+			<string>Allow modifying Time Machine settings</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string></string>
 			<key>pfm_macos_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
