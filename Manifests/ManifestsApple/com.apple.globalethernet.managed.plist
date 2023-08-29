@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.13</string>
 	<key>pfm_platforms</key>
@@ -26,7 +26,7 @@
 			<key>pfm_default</key>
 			<string>Configures Global Ethernet settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,7 +38,7 @@
 			<key>pfm_default</key>
 			<string>802.1X Ethernet: Global</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -52,7 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.globalethernet.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -66,7 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.globalethernet.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -80,7 +80,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -96,7 +96,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -159,8 +159,6 @@
 				<dict>
 					<key>pfm_description</key>
 					<string>The EAP types accepted.</string>
-					<key>pfm_description_reference</key>
-					<string>For EAP-TLS authentication without a network payload, install the necessary identity certificates and have your users select EAP-TLS mode in the 802.1X credentials dialog that appears when they connect to the network. For other EAP types, a network payload is necessary and must specify the correct settings for the network.</string>
 					<key>pfm_name</key>
 					<string>AcceptEAPTypes</string>
 					<key>pfm_note</key>
@@ -208,8 +206,6 @@
 					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>Username. If not provided, the user may be prompted during login.</string>
 					<key>pfm_name</key>
 					<string>UserName</string>
 					<key>pfm_title</key>
@@ -236,8 +232,6 @@
 							</array>
 						</dict>
 					</array>
-					<key>pfm_description_reference</key>
-					<string>Password. If not provided, the user may be prompted during login.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -272,8 +266,6 @@
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, the user will be prompted for a password each time they connect to the network.</string>
 					<key>pfm_name</key>
 					<string>OneTimePassword</string>
 					<key>pfm_note</key>
@@ -385,8 +377,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, allows for two-factor authentication for EAP-TTLS, PEAP, or EAP-FAST. If false, allows for zero-factor authentication for EAP-TLS.</string>
 					<key>pfm_name</key>
 					<string>TLSCertificateIsRequired</string>
 					<key>pfm_title</key>
@@ -483,8 +473,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<string>1.0</string>
-					<key>pfm_description_reference</key>
-					<string>The minimum TLS version to be used with EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -521,8 +509,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<string>1.2</string>
-					<key>pfm_description_reference</key>
-					<string>The maximum TLS version to be used with EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -559,8 +545,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, the device will use an existing PAC if it's present. Otherwise, the server must present its identity using a certificate.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -629,8 +613,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, provisions the device anonymously. Note that there are known man-in-the-middle attacks for anonymous provisioning. </string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>

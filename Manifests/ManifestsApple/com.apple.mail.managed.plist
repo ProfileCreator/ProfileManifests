@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Mail settings</string>
+	<string>Use this section to define settings for access to Email servers.</string>
 	<key>pfm_domain</key>
 	<string>com.apple.mail.managed</string>
 	<key>pfm_format_version</key>
@@ -11,7 +11,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-17T11:42:43Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -23,7 +23,7 @@
 			<key>pfm_default</key>
 			<string>Configures a Mail account</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -35,7 +35,7 @@
 			<key>pfm_default</key>
 			<string>Mail</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -49,7 +49,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mail.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -63,7 +63,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mail.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -77,7 +77,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -93,7 +93,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -105,7 +105,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -117,7 +117,7 @@
 			<key>pfm_default</key>
 			<string>EmailTypeIMAP</string>
 			<key>pfm_description</key>
-			<string>The protocol for accessing the account</string>
+			<string>Defines the protocol to be used for the account.</string>
 			<key>pfm_name</key>
 			<string>EmailAccountType</string>
 			<key>pfm_range_list</key>
@@ -139,7 +139,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The display name of the account (e.g. "Company Mail Account")</string>
+			<string>A user-visible description of the email account, shown in the Mail and Settings applications.</string>
 			<key>pfm_name</key>
 			<string>EmailAccountDescription</string>
 			<key>pfm_title</key>
@@ -149,8 +149,6 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Path prefix for IMAP mail server</string>
-			<key>pfm_description_reference</key>
 			<string>The path prefix for the IMAP mail server.</string>
 			<key>pfm_exclude</key>
 			<array>
@@ -171,13 +169,13 @@
 			<key>pfm_name</key>
 			<string>IncomingMailServerIMAPPathPrefix</string>
 			<key>pfm_title</key>
-			<string>Path Prefix</string>
+			<string>Incoming Mail Server IMAP Path Prefix</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The display name of the user (e.g. "John Appleseed")</string>
+			<string>The full user name for the account. This name is shown in sent messages.</string>
 			<key>pfm_name</key>
 			<string>EmailAccountName</string>
 			<key>pfm_require</key>
@@ -189,7 +187,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The address of the account (e.g. "john@company.com")</string>
+			<string>The full email address for the account. If this string isn't present in the payload, the device prompts for this string during interactive profile installation in Settings or System Preferences.</string>
 			<key>pfm_name</key>
 			<string>EmailAddress</string>
 			<key>pfm_require</key>
@@ -219,7 +217,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Messages cannot be moved out of this account into another.</string>
+			<string>If 'true', prevents messages from being moved out of this email account and into another account. It also prevents forwarding or replying from an account other than one the message was sent to.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -236,6 +234,8 @@
 		<dict>
 			<key>pfm_default</key>
 			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', excludes this account from Recent Addresses syncing.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -253,7 +253,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow Mail Drop for this account</string>
+			<string>If 'true', enables this account to use Mail Drop.</string>
 			<key>pfm_ios_min</key>
 			<string>9.2</string>
 			<key>pfm_name</key>
@@ -271,7 +271,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Send outgoing mail from this account only from Mail app</string>
+			<string>If 'true', prevents this account from sending mail in any app other than the Apple Mail app.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -289,7 +289,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, this account will support S/MIME</string>
+			<string>If 'true', enables S/MIME encryption. In iOS 10.0 and later, this key is ignored.</string>
 			<key>pfm_ios_max</key>
 			<string>9.3.3</string>
 			<key>pfm_ios_min</key>
@@ -309,7 +309,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Support S/MIME signing for this account</string>
+			<string>If 'true', enables S/MIME signing for this account.</string>
 			<key>pfm_ios_min</key>
 			<string>10.3</string>
 			<key>pfm_name</key>
@@ -325,7 +325,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The PayloadUUID of the identity certificate used to sign messages sent from this account.</string>
+			<string>The payload UUID of the identity certificate used to sign messages sent from this account.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -361,7 +361,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Support S/MIME encryption from this account</string>
+			<string>If 'true', enables S/MIME encryption for this account.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>12.0</string>
 			<key>pfm_ios_min</key>
@@ -379,7 +379,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The PayloadUUID of the identity certificate used to decrypt messages coming into this account.</string>
+			<string>The UUID of the identity certificate used to decrypt messages sent to this account. The public certificate is attached to outgoing mail to allow encrypted mail to be sent to this user. When the user sends encrypted mail, the public certificate is used to encrypt the copy of the mail in their Sent mailbox.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -415,7 +415,9 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user to choose whether to encrypt each message</string>
+			<string>If 'true', displays the per-message encryption switch in the Mail Compose UI.
+
+As of iOS 12.0, this key is deprecated. Use 'SMIMEEnableEncryptionPerMessageSwitch' instead.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>12.0</string>
 			<key>pfm_ios_min</key>
@@ -435,7 +437,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user to toggle S/MIME signing on or off in Settings.</string>
+			<string>If 'true', the user can turn S/MIME signing on or off in Settings.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -453,7 +455,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user to select the signing identity.</string>
+			<string>If 'true', the user can select the signing identity.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -471,7 +473,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If SMIMEEnableEncryptionPerMessageSwitch is false, this default cannot be changed by the user.</string>
+			<string>If 'true', enables S/MIME encryption by default.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -489,7 +491,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user to toggle the encryption by default setting.</string>
+			<string>If 'true', the user can turn encryption by default on/off, and encryption is on.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -507,7 +509,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user to select the signing identity and encryption is enabled.</string>
+			<string>If 'true', the user can select the S/MIME encryption identity, and encryption is on.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -525,7 +527,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allow the user toggle encrytion in the compose view and encryption is enabled.</string>
+			<string>If 'true', displays the per-message encryption switch in the Mail Compose UI.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -577,7 +579,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Hostname or IP Address for incoming mail</string>
+			<string>The incoming mail server host name.</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerHostName</string>
 			<key>pfm_require</key>
@@ -591,7 +593,7 @@
 			<key>pfm_default</key>
 			<integer>993</integer>
 			<key>pfm_description</key>
-			<string>Port number for incoming mail</string>
+			<string>The incoming mail server port number. If no port number is specified, the default port for a given protocol is used.</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerPortNumber</string>
 			<key>pfm_range_max</key>
@@ -605,7 +607,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The username used to connect to the server for incoming mail</string>
+			<string>The user name for the email account, usually the same as the email address up to the @ character. If the user name isn't present in the payload and the account is set up to require authentication for incoming email, the device prompts for this string during interactive profile installation in Settings or System Preferences.</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerUsername</string>
 			<key>pfm_require</key>
@@ -619,7 +621,7 @@
 			<key>pfm_default</key>
 			<string>EmailAuthPassword</string>
 			<key>pfm_description</key>
-			<string>The authentication method for the incoming mail server</string>
+			<string>The authentication scheme for incoming mail.</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerAuthentication</string>
 			<key>pfm_range_list</key>
@@ -647,7 +649,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password for the incoming mail server</string>
+			<string>The password for the incoming mail server. This password is used only with encrypted profiles.</string>
 			<key>pfm_name</key>
 			<string>IncomingPassword</string>
 			<key>pfm_title</key>
@@ -659,7 +661,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Retrieve incoming mail through Secure Socket Layer</string>
+			<string>If 'true', enables SSL for authentication on the incoming mail server.</string>
 			<key>pfm_name</key>
 			<string>IncomingMailServerUseSSL</string>
 			<key>pfm_title</key>
@@ -683,7 +685,7 @@
 			<key>pfm_default</key>
 			<integer>587</integer>
 			<key>pfm_description</key>
-			<string>The port number for outgoing mail</string>
+			<string>The outgoing mail server port number. If no port number is specified, ports 25, 587, and 465 are used, in that order.</string>
 			<key>pfm_name</key>
 			<string>OutgoingMailServerPortNumber</string>
 			<key>pfm_range_max</key>
@@ -697,7 +699,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The username used to connect to the server for outgoing mail</string>
+			<string>The user name for the email account, usually the same as the email address up to the @ character. If the user name isn't present in the payload and the account is set up to require authentication for outgoing email, the device prompts for this string during interactive profile installation in Settings or System Preferences.</string>
 			<key>pfm_name</key>
 			<string>OutgoingMailServerUsername</string>
 			<key>pfm_require</key>
@@ -711,7 +713,7 @@
 			<key>pfm_default</key>
 			<string>EmailAuthPassword</string>
 			<key>pfm_description</key>
-			<string>The authentication method for the outgoing mail server</string>
+			<string>The authentication scheme for outgoing mail.</string>
 			<key>pfm_name</key>
 			<string>OutgoingMailServerAuthentication</string>
 			<key>pfm_range_list</key>
@@ -739,7 +741,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password for the outgoing mail server</string>
+			<string>The password for the outgoing mail server. This password is used only with encrypted profiles.</string>
 			<key>pfm_name</key>
 			<string>OutgoingPassword</string>
 			<key>pfm_title</key>
@@ -751,7 +753,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>SMTP authentication uses the same password as POP/IMAP</string>
+			<string>If 'true', the user is prompted only once for the password, which is used for both outgoing and incoming mail.
+This setting is only supported by interactive profile installations. Not supported by non-interactive installations (like MDM on iOS).</string>
 			<key>pfm_name</key>
 			<string>OutgoingPasswordSameAsIncomingPassword</string>
 			<key>pfm_title</key>
@@ -763,7 +766,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Send outgoing mail through Secure Socket Layer</string>
+			<string>If 'true', enables SSL authentication on the outgoing mail server.</string>
 			<key>pfm_name</key>
 			<string>OutgoingMailServerUseSSL</string>
 			<key>pfm_title</key>

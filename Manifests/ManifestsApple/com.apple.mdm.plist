@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Use this section to define mobile device management (MDM) settings.</string>
+	<string>Use this section to define settings for mobile device management.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/mdm</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2021-11-23T13:58:21Z</date>
+	<date>2023-08-21T10:35:00Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -28,7 +28,7 @@
 			<key>pfm_default</key>
 			<string>Use this section to define mobile device management (MDM) settings.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -40,7 +40,7 @@
 			<key>pfm_default</key>
 			<string>MDM</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -54,7 +54,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mdm</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -68,7 +68,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mdm</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -82,7 +82,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -98,7 +98,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -110,7 +110,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -120,7 +120,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>URL used by the device to contact and retrieve device management instructions. Must be an HTTPS URL and may contain a port number.</string>
+			<string>The URL that the device contacts to retrieve device management instructions. The URL must begin with the 'https://' URL scheme, and may contain a port number (':1234', for example).</string>
 			<key>pfm_format</key>
 			<string>^https://.+$</string>
 			<key>pfm_name</key>
@@ -134,7 +134,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of UUIDs of Certificate payloads in this profile. The certificates are used for evaluating trustworthiness of the Connect URLs of MDM servers.</string>
+			<string>An array of strings, each containing the UUID of a certificate to be used when evaluating trust to the '.../connect/' URLs of MDM servers.</string>
 			<key>pfm_name</key>
 			<string>ServerURLPinningCertificateUUIDs</string>
 			<key>pfm_subkeys</key>
@@ -151,7 +151,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of unique capability identifiers.</string>
+			<string>A unique array of strings indicating server capabilities. If the server manages macOS devices or a Shared iPad, this field is mandatory and must contain the value 'com.apple.mdm.per-user-connections', which indicates that the server supports both device and user connections.
+Starting with macOS 11, it is also recommended that macOS device enrollment profiles contain the value 'com.apple.mdm.bootstraptoken' to ensure the Bootstrap Token is created and escrowed with the MDM server at enrollment time.</string>
 			<key>pfm_name</key>
 			<string>ServerCapabilities</string>
 			<key>pfm_subkeys</key>
@@ -175,7 +176,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The topic that MDM listens to for Push notifications. The topic must have the prefix 'com.apple.mgmt.'. Also, certificate used by the server to send notifications must contain this topic in its subject.</string>
+			<string>The topic that MDM listens to for push notifications. The certificate that the server uses to send push notifications must have the same topic in its subject. The topic must begin with the 'com.apple.mgmt.' prefix.</string>
 			<key>pfm_format</key>
 			<string>^com\.apple\.mgmt\..+$</string>
 			<key>pfm_name</key>
@@ -189,7 +190,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>UUID of a Certificate or SCEP payload in this profile, which will be used for the identity of the device.</string>
+			<string>The UUID of the certificate payload for the device's identity. It may also point to a SCEP payload.</string>
 			<key>pfm_name</key>
 			<string>IdentityCertificateUUID</string>
 			<key>pfm_require</key>
@@ -201,7 +202,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user's managed Apple ID.</string>
+			<string>The Managed Apple ID of the user. Available in iOS 13.1 and later, and macOS 10.15 and later. This is only used with the profile-based BYOD enrollment flow.</string>
 			<key>pfm_ios_min</key>
 			<string>13.1</string>
 			<key>pfm_macos_min</key>
@@ -220,7 +221,22 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Logical OR of access rights bit-flags. When 2 is specified 1 must be specified along. When 128 is specified 64 must be specified along. This property is ignored when ManagedAppleID is present.</string>
+			<string>Logical OR of the following bit flags:
+'1': Allow inspection of installed configuration profiles.
+'2': Allow installation and removal of configuration profiles.
+'4': Allow device lock and passcode removal.
+'8': Allow device erase.
+'16': Allow query of device information (device capacity, serial number).
+'32': Allow query of network information (phone/SIM numbers, MAC addresses).
+'64': Allow inspection of installed provisioning profiles.
+'128': Allow installation and removal of provisioning profiles.
+'256': Allow inspection of installed applications.
+'512': Allow restriction-related queries.
+'1024': Allow security-related queries.
+'2048': Allow manipulation of settings.
+'4096': Allow app management.
+The value can't be '0'. If '2' is specified, '1' must also be specified. If '128' is specified, '64' must also be specified.
+If the 'ManagedAppleID' is included, then 'AccessRights' are ignored.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -259,7 +275,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>URL used by the device for checking-in during installation. When omitted, ServerURL will be used for checking-in as well instead. Must be an HTTPS URL and may contain a port number.</string>
+			<string>The URL that the device should use to check in during installation. The URL must begin with the 'https://' URL scheme and may contain a port number (':1234', for example). If this URL isn't given, 'ServerURL' is used for both purposes.</string>
 			<key>pfm_format</key>
 			<string>^https://.+$</string>
 			<key>pfm_name</key>
@@ -271,7 +287,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of UUIDs of Certificate payloads in this profile. The certificates are used for evaluating trustworthiness of the Check-In URLs of MDM servers.</string>
+			<string>An array of strings, each containing the payload UUID of a certificate to be used when evaluating trust to the '.../checkin/' URLs of MDM servers.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -304,7 +320,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, the device will attempt to send a check-out message on removal of this profile.</string>
+			<string>If 'true', the device attempts to send a CheckOut &lt;https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/MobileDeviceManagementProtocolRef/2-MDM_Check_In_Protocol/MDM_Check_In_Protocol..html#//apple_ref/doc/uid/TP40017387-CH4-SW7&gt; message to the 'CheckInURL' when the profile is removed.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -330,7 +346,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, verified positive responses are required in order to pass certificate revocation checks. Otherwise, failed attemps to reach the server may not fail checks.</string>
+			<string>If 'true', fails the connection attempt unless a verified positive response is obtained during certificate revocation checks.
+If 'false', revocation checks are done on a best-attempt basis, where failure to reach the server isn't considered fatal.</string>
 			<key>pfm_name</key>
 			<string>PinningRevocationCheckRequired</string>
 			<key>pfm_title</key>
@@ -342,7 +359,11 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, notifies the user about needing to reboot into RecoveryOS and allowing the MDM to use the Bootstrap Token for authentication for certain operations (e.g. enabling some kernel extensions or software updates). When these operations are unnecessary for the MDM server to perform, this key can remain false.</string>
+			<string>If 'true', warns the user that they need to reboot into RecoveryOS and allow the MDM to use the Bootstrap Token for authentication for certain sensitive operations such as enabling kernel extensions or installing some types of software updates. If the MDM doesn't need to perform these operations, it can leave this key set to 'false', and the user won't be notified.
+The SettingsCommand.Command.Settings.MDMOptions.MDMOptions command overrides this default value.
+This setting only applies to devices that have 'BootstrapTokenRequiredForSoftwareUpdate' or 'BootstrapTokenRequiredForKernelExtensionApproval' set to 'true' in their SecurityInfoResponse.SecurityInfo.
+DEP-enrolled devices are automatically allowed to use the Bootstrap Token for authentication.
+Available in macOS 11 and later.</string>
 			<key>pfm_name</key>
 			<string>PromptUserToAllowBootstrapTokenForAuthentication</string>
 			<key>pfm_title</key>
@@ -354,7 +375,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, messages coming from the device will bear the Mdm-Signature HTTP header.</string>
+			<string>If 'true', each message coming from the device carries the additional 'Mdm-Signature' HTTP header.</string>
 			<key>pfm_name</key>
 			<string>SignMessage</string>
 			<key>pfm_title</key>
@@ -366,7 +387,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, the device will you development APNS servers instead of production ones. Must not be enabled when using Apple Push Notification Service certificate issued by the Apple Push Certificate Portal.</string>
+			<string>If 'true', the device uses the development APNS servers. Otherwise, the device uses the production servers.
+Note that this property must be set to 'false' if your Apple Push Notification Service certificate was issued by the Apple Push Certificate Portal ('https://identity.apple.com/pushcert'). That portal only issues certificates for the production push environment.</string>
 			<key>pfm_name</key>
 			<string>UseDevelopmentAPNS</string>
 			<key>pfm_title</key>
@@ -376,7 +398,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The Managed Apple ID pre-assigned to the authenticated user of a user-enrolled (non-supervised) device.</string>
+			<string>The Managed Apple ID pre-assigned to the authenticated user. This is only used with the account-based BYOD enrollment flow. Available in iOS 15 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -392,7 +414,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The enrollment mode for a user-enrolled (non-supervised) device.</string>
+			<string>The enrollment mode the server indicates must be used when enrolling. This must be present for account-based BYOD enrollments, but must not be present for profile-based BYOD enrollments. Available in iOS 15 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -414,7 +436,9 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>iTunesStoreID of a single app that the MDM service can require and push to a user-enrolled (non-supervised) device.</string>
+			<string>This property specifies an iTunes Store ID for an app the system can install with the InstallApplicationCommand, without any approval from the user. The MDM vendor or managing organization generally provides this app, which enhances the management experience for the user. The device shows the user details about this app in the account-driven enrollment process prior to installing the MDM profile. Use this property with account-driven MDM enrollments that normally require user approval for app installs through MDM.
+Only account-driven user enrollments support this property and other enrollment types ignore it.
+Available in iOS 15.1 and later.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.apple.com/en-in/guide/deployment/dep950aed53e/web</string>
 			<key>pfm_ios_min</key>
