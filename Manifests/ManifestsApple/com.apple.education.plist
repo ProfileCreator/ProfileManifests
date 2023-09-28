@@ -4,24 +4,24 @@
 <dict>
 	<key>pfm_description</key>
 	<string>Education Configuration settings</string>
-	<key>pfm_documentation_url</key>
-	<string></string>
 	<key>pfm_description_reference</key>
 	<string>The Education Configuration Payload is designated by specifying com.apple.education as the PayloadType value. It can contain only one payload.
 The Education Configuration Payload defines the users, groups, and departments within an educational organization. It is supported on iOS 9.3 and later. On iOS, it must be supervised and sent over the device channel.
 It is supported on macOS 10.14 and later. On macOS, it must be sent over the user channel. Student payloads are only supported on macOS 10.14.4 and later.</string>
+	<key>pfm_documentation_url</key>
+	<string></string>
 	<key>pfm_domain</key>
 	<string>com.apple.education</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
-	<key>pfm_last_modified</key>
-	<date>2022-03-14T03:32:52Z</date>
-	<key>pfm_macos_min</key>
-	<string>10.14</string>
 	<key>pfm_ios_min</key>
 	<string>9.3</string>
+	<key>pfm_last_modified</key>
+	<date>2023-08-15T08:00:00Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.14</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -138,9 +138,6 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- Custom Keys -->
-		
 		<dict>
 			<key>pfm_description</key>
 			<string>The organization's display name.</string>
@@ -196,6 +193,8 @@ Leader: An array of dictionaries that define the groups that the user can contro
 Member: An array of dictionaries that define the groups of which the user is a member.</string>
 			<key>pfm_name</key>
 			<string>Groups</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -281,6 +280,8 @@ Member: An array of dictionaries that define the groups of which the user is a m
 							<string>Required. The strings that refer to entries in the Users array that are members of the group.</string>
 							<key>pfm_name</key>
 							<string>MemberIdentifiers</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
@@ -290,8 +291,6 @@ Member: An array of dictionaries that define the groups of which the user is a m
 									<string>string</string>
 								</dict>
 							</array>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_title</key>
 							<string>Member Identifiers</string>
 							<key>pfm_type</key>
@@ -302,6 +301,8 @@ Member: An array of dictionaries that define the groups of which the user is a m
 							<string>Required. The identifier strings that refer to entries in the DeviceGroups array that are device groups to which the instructor can assign users from this class.</string>
 							<key>pfm_name</key>
 							<string>DeviceGroupIdentifiers</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
@@ -311,8 +312,6 @@ Member: An array of dictionaries that define the groups of which the user is a m
 									<string>string</string>
 								</dict>
 							</array>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_title</key>
 							<string>Device Group Identifiers</string>
 							<key>pfm_type</key>
@@ -325,8 +324,6 @@ Member: An array of dictionaries that define the groups of which the user is a m
 					<string>dictionary</string>
 				</dict>
 			</array>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Groups</string>
 			<key>pfm_type</key>
@@ -345,6 +342,8 @@ Member: An array of a dictionaries that must contain the definition of the user 
 With one-to-one member devices, this key should include only the device user and the leader but not other class members.</string>
 			<key>pfm_name</key>
 			<string>Users</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -467,8 +466,6 @@ With one-to-one member devices, this key should include only the device user and
 					<string>dictionary</string>
 				</dict>
 			</array>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Users</string>
 			<key>pfm_type</key>
