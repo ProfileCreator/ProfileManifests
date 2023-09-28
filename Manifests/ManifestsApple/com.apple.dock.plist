@@ -128,7 +128,9 @@ The payload organization for a payload need not match the payload organization i
 				<string>com.apple.application-bundle</string>
 			</array>
 			<key>pfm_description</key>
-			<string>An array of items located on the Applications side of the Dock and cannot be removed from that location.</string>
+			<string>Dock items in the Applications side that cannot be removed from the dock.</string>
+			<key>pfm_description_reference</key>
+			<string>Optional. Dock items in the Applications side that cannot be removed from the dock.</string>
 			<key>pfm_name</key>
 			<string>static-apps</string>
 			<key>pfm_subkeys</key>
@@ -145,6 +147,8 @@ The payload organization for a payload need not match the payload organization i
 							<string>file-tile</string>
 							<key>pfm_description</key>
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_hidden</key>
 							<string>all</string>
 							<key>pfm_name</key>
@@ -167,6 +171,8 @@ The payload organization for a payload need not match the payload organization i
 						<dict>
 							<key>pfm_description</key>
 							<string>Information about a dock item.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. Information about a dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
@@ -176,6 +182,8 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Label of a dock item.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. Label of a dock item.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -210,6 +218,8 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>The type of the tile expressed as a number.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -263,6 +273,8 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
+											<key>pfm_description_reference</key>
+											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -330,6 +342,8 @@ The payload organization for a payload need not match the payload organization i
 							<string>file-tile</string>
 							<key>pfm_description</key>
 							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
 							<key>pfm_name</key>
 							<string>tile-type</string>
 							<key>pfm_range_list</key>
@@ -354,6 +368,8 @@ The payload organization for a payload need not match the payload organization i
 						<dict>
 							<key>pfm_description</key>
 							<string>Information about a dock item.</string>
+							<key>pfm_description_reference</key>
+							<string>Required. Information about a dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
@@ -365,6 +381,8 @@ The payload organization for a payload need not match the payload organization i
 									<string>static-others.static-other.tile-data.file-data._CFURLString</string>
 									<key>pfm_description</key>
 									<string>Label of a dock item.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. Label of a dock item.</string>
 									<key>pfm_name</key>
 									<string>label</string>
 									<key>pfm_require</key>
@@ -407,6 +425,8 @@ The payload organization for a payload need not match the payload organization i
 									<string>static-others.static-other.tile-type</string>
 									<key>pfm_description</key>
 									<string>The type of the tile expressed as a number.</string>
+									<key>pfm_description_reference</key>
+									<string>Required. The type of the tile expressed as a number. 3 = directory, 0 = URL, 1 = file.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -473,6 +493,8 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path to the file.</string>
+											<key>pfm_description_reference</key>
+											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_name</key>
@@ -485,6 +507,8 @@ The payload organization for a payload need not match the payload organization i
 										<dict>
 											<key>pfm_description</key>
 											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
+											<key>pfm_description_reference</key>
+											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -518,6 +542,8 @@ The payload organization for a payload need not match the payload organization i
 								<dict>
 									<key>pfm_description</key>
 									<string>Dictionary describing the target url.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_exclude</key>
@@ -546,19 +572,21 @@ The payload organization for a payload need not match the payload organization i
 									<array>
 										<dict>
 											<key>pfm_description</key>
-											<string>The URL.</string>
+											<string>Path to the file.</string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_name</key>
 											<string>_CFURLString</string>
 											<key>pfm_title</key>
-											<string>URL</string>
+											<string>Path</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
 										<dict>
 											<key>pfm_description</key>
 											<string>URL type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
+											<key>pfm_description_reference</key>
+											<string></string>
 											<key>pfm_documentation_source</key>
 											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 											<key>pfm_hidden</key>
@@ -571,13 +599,13 @@ The payload organization for a payload need not match the payload organization i
 												<integer>15</integer>
 											</array>
 											<key>pfm_title</key>
-											<string>URL Type</string>
+											<string>Path Type</string>
 											<key>pfm_type</key>
 											<string>integer</string>
 											<key>pfm_type_input</key>
 											<string>string</string>
 											<key>pfm_value_copy</key>
-											<string>static-others.static-other.tile-data.url._CFURLString</string>
+											<string>static-others.static-other.tile-data.file-data._CFURLString</string>
 											<key>pfm_value_processor</key>
 											<string>dockTilePathType</string>
 											<key>pfmx_comment</key>
@@ -628,6 +656,8 @@ The payload organization for a payload need not match the payload organization i
 									<integer>1</integer>
 									<key>pfm_description</key>
 									<string>Arrangement (sorting) of the directory contents.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -674,6 +704,8 @@ The payload organization for a payload need not match the payload organization i
 									<integer>2</integer>
 									<key>pfm_description</key>
 									<string>Display directory as either a Folder or a Stack.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -714,6 +746,8 @@ The payload organization for a payload need not match the payload organization i
 									<integer>4</integer>
 									<key>pfm_description</key>
 									<string>How to show directory contents.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
 									<key>pfm_documentation_source</key>
 									<string></string>
 									<key>pfm_exclude</key>
@@ -1020,7 +1054,9 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'true', enables 'Show recent items.'</string>
+			<string>Set to true to show recent applications in the Dock.</string>
+			<key>pfm_description_reference</key>
+			<string>If true, the three most recent applications will be shown in the Dock.</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>

@@ -131,7 +131,9 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', bypasses the secure token authorization dialog. This dialog only appears on APFS volumes.</string>
+			<string>Hides the authentication UI when a mobile account is created.</string>
+			<key>pfm_description_reference</key>
+			<string>If set to true, the authentication UI is not displayed when a mobile account is created. Suppressing the UI may prevent mobile accounts from being able to unlock a FileVault volume. Default is false. Availability: Available in macOS 10.13.5 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13.5</string>
 			<key>pfm_name</key>
@@ -160,7 +162,9 @@ Set to '0' to try to remove it at next login or logout time. Set to '-1' to neve
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', allows the user to stop the prompts about mobile account creation every time the user logs in. This key is only valid if 'com.apple.cachedaccounts.WarnOnCreate' is set to 'true'.</string>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If true, allows the user to stop the prompts about mobile account creation every time the user logs in. This key is only valid if com.apple.cachedaccounts.WarnOnCreate is set to true.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>

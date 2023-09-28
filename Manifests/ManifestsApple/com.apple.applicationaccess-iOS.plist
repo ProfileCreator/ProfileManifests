@@ -428,7 +428,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disallows auto unlock. Available in macOS 10.12 and later, and iOS 14.5 and later.</string>
+			<string></string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -931,7 +931,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents a user from adding any App Clips, and removes any existing App Clips on the device. Requires a supervised device. Available in iOS 14.0 and later.</string>
+			<string></string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -1091,7 +1091,9 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', removes the Trust Enterprise Developer button in Settings &gt; General &gt; Profiles &amp; Device Management, preventing apps from being provisioned by universal provisioning profiles. This restriction applies to free developer accounts. However, it doesn't apply to enterprise app developers who are trusted because their apps were pushed through MDM. It also doesn't revoke previously granted trust. Available in iOS 9 and later.</string>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string> If set to false removes the Trust Enterprise Developer button in Settings-&gt;General-&gt;Profiles &amp; Device Management, preventing apps from being provisioned by universal provisioning profiles. This restriction applies to free developer accounts but it does not apply to enterprise app developers who are trusted because their apps were pushed via MDM, nor does it revoke previously granted trust. Defaults to true. Availability: Available in iOS 9.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -2118,14 +2120,14 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<real>2</real>
 			<key>pfm_description</key>
 			<string>This value defines the conditions under which the device accepts cookies. The user-facing settings changed in iOS 11, although the possible values remain the same. Available in iOS 4 and later.
-'0': Prevent Cross-Site Tracking and Block All Cookies are enabled and the user canʼt disable either setting.
-'1' or '1.5': Prevent Cross-Site Tracking is enabled and the user canʼt disable it. Block All Cookies is not enabled, although the user can enable it.
+'0': Prevent Cross-Site Tracking and Block All Cookies are enabled and the user can't disable either setting.
+'1' or '1.5': Prevent Cross-Site Tracking is enabled and the user can't disable it. Block All Cookies is not enabled, although the user can enable it.
 '2': Prevent Cross-Site Tracking is enabled and Block All Cookies is not enabled. The user can toggle either setting.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Determines conditions under which the device will accept cookies. The user facing settings changed in iOS 11, though the possible values remain the same. 
 
-- 0: PreventCross-SiteTrackingandBlockAllCookiesare enabled and the user canʼt disable either setting.
-- 1 or 1.5: PreventCross-SiteTrackingisenabledandthe user canʼt disable it. Block All Cookies is not enabled, though the user can enable it.
+- 0: PreventCross-SiteTrackingandBlockAllCookiesare enabled and the user can't disable either setting.
+- 1 or 1.5: PreventCross-SiteTrackingisenabledandthe user can't disable it. Block All Cookies is not enabled, though the user can enable it.
 - 2: PreventCross-SiteTrackingisenabledandBlockAll Cookies is not enabled. The user can toggle either setting. (Default)
 
 These are the allowed values and settings in iOS 10 and earlier:

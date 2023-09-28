@@ -120,8 +120,8 @@
 		<dict>
 			<key>pfm_default</key>
 			<string>BuiltIn</string>
-			<key>pfm_description</key>
-			<string>The type of filter, built-in or plug-in. In macOS, the system supports only the plug-in value.</string>
+			<key>pfm_description_reference</key>
+			<string>The type of filter, built-in or plug-in. Built-in filtering is available on iOS only.</string>
 			<key>pfm_name</key>
 			<string>FilterType</string>
 			<key>pfm_range_list</key>
@@ -142,9 +142,8 @@
 		<dict>
 			<key>pfm_default</key>
 			<string>firewall</string>
-			<key>pfm_description</key>
-			<string>This value is for deriving the relative order of content filters. Filters with a grade of 'firewall' see network traffic before filters with a grade of 'inspector'. The system doesn't define the order of filters within a grade.
-Available in macOS 10.15 and later.</string>
+			<key>pfm_description_reference</key>
+			<string>This value is used to derive the relative order of content filters. Filters with a grade of firewall see network traffic before filters with a grade of inspector. The order of filters within a grade is undefined.</string>
 			<key>pfm_macos_min</key>
 			<string>10.15</string>
 			<key>pfm_name</key>
@@ -172,7 +171,11 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', automatic filtering is in an enabled state. This function evaluates each web page as it loads and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it's basically looking for adult language.</string>
+			<string>Optional. If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children.
+
+The search algorithm is complex and may vary from release to release, but it is basically looking for adult language, i.e. swearing and sexually explicit language. The default value is false.</string>
+			<key>pfm_description_reference</key>
+			<string>If true, automatic filtering is enabled. This function evaluates each web page as it is loaded and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it is basically looking for adult language.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -615,8 +618,8 @@ Available in macOS 10.15 and later.</string>
 					</array>
 				</dict>
 			</array>
-			<key>pfm_description</key>
-			<string>The bundle ID of the plug-in that provides filtering service.</string>
+			<key>pfm_description_reference</key>
+			<string>The Bundle ID of the plugin that provides filtering service.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>

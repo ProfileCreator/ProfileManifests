@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Use this section to define restrictions settings</string>
+	<string>tvOS Restrictions preferences</string>
+	<key>pfm_description_reference</key>
+	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
 	<key>pfm_domain</key>
@@ -208,7 +210,9 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<string></string>
+			<key>pfm_description_reference</key>
+			<string>If true, enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_name</key>
 			<string>forceAutomaticDateAndTime</string>
 			<key>pfm_supervised</key>
@@ -223,8 +227,6 @@ The payload organization for a payload need not match the payload organization i
 		<dict>
 			<key>pfm_default</key>
 			<true/>
-			<key>pfm_description</key>
-			<string>If 'false', disables Apple TV's automatic screen saver. Available in tvOS 15.4 and later.</string>
 			<key>pfm_name</key>
 			<string>allowAutomaticScreenSaver</string>
 			<key>pfm_title</key>
