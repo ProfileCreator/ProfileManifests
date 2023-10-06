@@ -11,7 +11,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-21T10:35:00Z</date>
+	<date>2023-09-29T00:41:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -106,9 +106,9 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Lab Mode eases deployment of Particulars in a computer lab or data center.</string>
+			<string>Lab Mode eases the deployment of Particulars in a computer lab or other mass deployment. See the documentation for more information.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#labMode</string>
 			<key>pfm_name</key>
 			<string>labMode</string>
 			<key>pfm_title</key>
@@ -117,10 +117,44 @@
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>54</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>The default mode of Particulars is to present system information on the desktop. This can be disabled, usually in favor of showing Particulars in the menu bar.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#showOnDesktop</string>
+			<key>pfm_name</key>
+			<string>showOnDesktop</string>
+			<key>pfm_title</key>
+			<string>Show Particulars on the Desktop</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>26</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Adds an item to the macOS menu bar that allows quick access to system information. Secondary-clicking on the menu bar item shows a menu with settings, copying, and other functions.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#showMenuBarExtra</string>
+			<key>pfm_name</key>
+			<string>showMenuBarExtra</string>
+			<key>pfm_title</key>
+			<string>Show Particulars in the Menu Bar</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1</string>
 			<key>pfm_description</key>
 			<string>Adjust detail level options. See documentation URL for instructions.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#detailLevelAdvanced</string>
 			<key>pfm_name</key>
 			<string>detailLevel</string>
 			<key>pfm_title</key>
@@ -131,10 +165,12 @@
 			<string>Intentionally omitting range values because there are too many customization options to enumerate.</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1</string>
 			<key>pfm_description</key>
-			<string>Sets the display (or monitor) on which Particulars will show system information. If the display is later unavailable, Particulars will default back to the primary display. The value is an integer, taking 2 for the 2nd display, for example.</string>
+			<string>Sets the display (or monitor) on which Particulars will show desktop system information. If the display is later unavailable, Particulars will default back to the primary display. The value is an integer, taking 2 for the 2nd display, for example.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#preferredDisplay</string>
 			<key>pfm_name</key>
 			<string>preferredDisplay</string>
 			<key>pfm_title</key>
@@ -143,10 +179,12 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>30</string>
 			<key>pfm_description</key>
-			<string>Sets the relative position of system information on the desktop.</string>
+			<string>Sets the relative position of desktop system information.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#desktopPosition</string>
 			<key>pfm_name</key>
 			<string>desktopPosition</string>
 			<key>pfm_range_list</key>
@@ -179,12 +217,14 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>26</string>
 			<key>pfm_default</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>Sets the text theme. Each theme has a corresponding number.</string>
+			<string>Sets the theme of desktop system information. Each theme has a corresponding number.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#textTheme</string>
 			<key>pfm_name</key>
 			<string>textTheme</string>
 			<key>pfm_range_list</key>
@@ -210,9 +250,9 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>Particulars has 3 options for the shade of the output: automatic, light text, or dark text.</string>
+			<string>Particulars has 3 options for the shade of the desktop system information: automatic, light text, or dark text. The automatic setting scans the current desktop picture to determine what setting to use. If battery life or performance is a concern, use light or dark.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#lightDarkText</string>
 			<key>pfm_name</key>
 			<string>lightDarkText</string>
 			<key>pfm_range_list</key>
@@ -233,10 +273,12 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>18</integer>
 			<key>pfm_description</key>
-			<string>Sets the text size. The default is 18. Values between 12 and 24 are typical.</string>
+			<string>Sets the preferred text size for the desktop system information in points. The default is 18. Values between 12 and 24 are typical. (Value may be scaled down to fit.)</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#textSize</string>
 			<key>pfm_name</key>
 			<string>textSize</string>
 			<key>pfm_title</key>
@@ -246,11 +288,29 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Determines whether the desktop system information has a drop shadow behind it.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#dropShadow</string>
+			<key>pfm_name</key>
+			<string>dropShadow</string>
+			<key>pfm_title</key>
+			<string>Drop Shadow</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Intentionally omitting range values because there are too many customization options to enumerate.</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>28</string>
+			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>Sets the letter case of the labels. Each case option has a corresponding number.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#labelCase</string>
 			<key>pfm_name</key>
 			<string>labelCase</string>
 			<key>pfm_range_list</key>
@@ -271,40 +331,78 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>53</string>
+			<key>pfm_default</key>
+			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Determines whether the system information on the desktop has a drop shadow behind it.</string>
+			<string>Sets the appearance of the menu bar widget.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#menuBarWidgetAppearance</string>
 			<key>pfm_name</key>
-			<string>dropShadow</string>
+			<string>menuBarWidgetAppearance</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>System appearance (default)</string>
+				<string>Vibrant Light</string>
+				<string>Vibrant Dark</string>
+				<string>Light</string>
+				<string>Dark</string>
+			</array>
 			<key>pfm_title</key>
-			<string>Drop Shadow</string>
+			<string>Menu Bar Widget Appearance</string>
 			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfmx_comment</key>
-			<string>Intentionally omitting range values because there are too many customization options to enumerate.</string>
+			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>53</string>
+			<key>pfm_default</key>
+			<integer>12</integer>
+			<key>pfm_description</key>
+			<string>Sets the preferred text size in the menu bar widget in points. The default is 12. Values below 9 and above 24 are ignored. (Value may be scaled down to fit.)</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#menuBarWidgetTextSize</string>
+			<key>pfm_name</key>
+			<string>menuBarWidgetTextSize</string>
+			<key>pfm_title</key>
+			<string>Menu Bar Widget Text Size</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>31</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>By default, Particulars only displays information about the primary active network interface. To show information about all active network interfaces, set allNetworkInterfaces.</string>
+			<string>When enabled in the detail level, Particulars displays information about the primary active network interface. This setting expands that to include information about all active network interfaces.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#allNetworkInterfaces</string>
 			<key>pfm_name</key>
 			<string>allNetworkInterfaces</string>
 			<key>pfm_title</key>
-			<string>Show All Network Interfaces</string>
+			<string>Show All Active Network Interfaces</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Particulars shows the DHCP server address and the length of the DHCP lease. Setting this preference will also show the remaining lease time.</string>
+			<string>In the default network information, Particulars shows the DHCP server address and the length of the DHCP lease. This setting adds the remaining lease time.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#dhcpLeaseRemaining</string>
 			<key>pfm_name</key>
 			<string>dhcpLeaseRemaining</string>
 			<key>pfm_title</key>
@@ -313,12 +411,14 @@
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1</string>
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>By default, MAC (Media Access Control) addresses are formatted with colon separators and in lowercase. Use this preference to select another MAC address format.</string>
+			<string>By default, MAC (Media Access Control) addresses are formatted with colon separators and in lowercase. Use this setting to select another MAC address format.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#macAddressFormat</string>
 			<key>pfm_name</key>
 			<string>macAddressFormat</string>
 			<key>pfm_range_list</key>
@@ -341,10 +441,12 @@
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>35</string>
 			<key>pfm_description</key>
 			<string>By default, all network information is displayed. It is possible to construct a custom set of network information. Use this preference to create a custom network detail level. See documentation URL for instructions.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#networkDetailLevel</string>
 			<key>pfm_name</key>
 			<string>networkDetailLevel</string>
 			<key>pfm_title</key>
@@ -355,48 +457,62 @@
 			<string>Intentionally omitting range values because there are too many customization options to enumerate.</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>31</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>When enabled, Particulars will post system notifications when it detects a change in the primary IPv4 address or the public IP address. Notifications are also governed by settings in the Notifications preference pane in System Preferences.</string>
+			<string>When enabled, Particulars will post system notifications when it detects a change in the primary IPv4 address or the public IP address. Notifications are also governed by settings in the Notifications pane of System Settings.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#networkNotifications</string>
 			<key>pfm_name</key>
 			<string>networkNotifications</string>
 			<key>pfm_title</key>
-			<string>Show Network Notifications</string>
+			<string>Network Notifications</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>1.1</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Use this preference to have Particulars display subnet masks in the short CIDR (Classless Inter-domain Routing) notation. For example, 255.255.254.0 will show as /23.</string>
+			<string>This setting displays subnet masks in the short CIDR (Classless Inter-domain Routing) notation. For example, 255.255.254.0 will show as /23.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#subnetMaskCIDRNotation</string>
 			<key>pfm_name</key>
 			<string>subnetMaskCIDRNotation</string>
 			<key>pfm_title</key>
-			<string>Subnet Mask CIDR Notation</string>
+			<string>Use CIDR Notation for Subnet Mask</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>26</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Adds a count of CPU cores to the CPU item. Changing this preference requires a restart of the application/widget to take effect.</string>
+			<string>Adds a count of CPU cores to the CPU particular. Changing this setting requires a restart of the application to take effect.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#coreCount</string>
 			<key>pfm_name</key>
 			<string>coreCount</string>
 			<key>pfm_title</key>
-			<string>Show CPU Core Count</string>
+			<string>CPU Core Count</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>40</string>
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
 			<string>Free/available disk space can be displayed in multiple ways. See documentation URL for options.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#diskFreeSpace</string>
 			<key>pfm_name</key>
 			<string>diskFreeSpace</string>
 			<key>pfm_range_list</key>
@@ -412,27 +528,75 @@
 				<string>Free and purgeable</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Show Disk Free Space</string>
+			<string>Disk Free Space Format</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>46</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>On first run, Particulars displays a welcome window that describes how it runs on the Desktop and then hides all other apps and opens the preferences window. To skip this first run experience, set this preference. (Enabling labMode implies this setting.)</string>
+			<string>By default, Particulars only shows disk space for the boot disk. Enable this setting to show disk space for other disks.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#diskFreeSpaceNonBootVolumes</string>
 			<key>pfm_name</key>
-			<string>firstRunDone</string>
+			<string>diskFreeSpaceNonBootVolumes</string>
 			<key>pfm_title</key>
-			<string>First Run Done</string>
+			<string>Show Disk Free Space for Non-Boot Volumes</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Enabling this removes Particulars from the macOS Dock. Enabling or disabling this preference from Terminal will automatically restart Particulars and open the Preferences window.</string>
+			<string>On first run, Particulars displays a welcome window that describes how it runs on the desktop and then hides all other apps and opens the settings window. To skip this first run experience, enable this setting. (Enabling labMode implies this setting.)</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#firstRunDone</string>
+			<key>pfm_name</key>
+			<string>firstRunDone</string>
+			<key>pfm_title</key>
+			<string>Skip the First Run Experience</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>44</string>
+			<key>pfm_description</key>
+			<string>Header text is displayed in a separate paragraph above all particulars. Any leading or trailing whitespace is removed when displayed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#headerText</string>
+			<key>pfm_name</key>
+			<string>headerText</string>
+			<key>pfm_title</key>
+			<string>Header</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>44</string>
+			<key>pfm_description</key>
+			<string>Footer text is displayed in a separate paragraph below all particulars. Any leading or trailing whitespace is removed when displayed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#headerText</string>
+			<key>pfm_name</key>
+			<string>footerText</string>
+			<key>pfm_title</key>
+			<string>Footer</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Enabling this setting removes Particulars from the macOS Dock. Changing this setting while Particulars is running will automatically restart Particulars and open the Settings window.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#hideDockIcon</string>
 			<key>pfm_name</key>
 			<string>hideDockIcon</string>
 			<key>pfm_title</key>
@@ -441,10 +605,14 @@
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>1.3</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>When Particulars is running with the Dock icon shown, it will be hidden along with all other apps when you select Hide Others from another application's menu. This preference allows you to keep Particulars visible.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#ignoreHiding</string>
 			<key>pfm_name</key>
 			<string>ignoreHiding</string>
 			<key>pfm_title</key>
@@ -453,26 +621,18 @@
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_app_min</key>
+			<string>39</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>This preference adds the operating system version's marketing name (e.g., Big Sur, Catalina, etc) to the Operating system particular output.</string>
+			<string>This setting adds the operating system version's marketing name (e.g., Big Sur, Catalina, etc) to the Operating System particular.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
+			<string>https://particulars.app/_help/particularshelp/Advanced.html#operatingSystemVersionName</string>
 			<key>pfm_name</key>
 			<string>operatingSystemVersionName</string>
 			<key>pfm_title</key>
-			<string>Show Operating System Version Name</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Adds an item to the macOS menu bar that allows quick access to preferences, copying, and other functions.</string>
-			<key>pfm_documentation_url</key>
-			<string>https://particulars.app/_help/particularshelp/Lab-Mode.html</string>
-			<key>pfm_name</key>
-			<string>showMenuBarExtra</string>
-			<key>pfm_title</key>
-			<string>Show Menu Bar Extra</string>
+			<string>Operating System Version Name</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -487,6 +647,6 @@
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

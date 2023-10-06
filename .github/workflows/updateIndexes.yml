@@ -20,8 +20,8 @@ jobs:
         working-directory: clone
         run: |
           ./updateIndexes.py
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -am "Update indexes" || true
           git push --set-upstream origin master || true
