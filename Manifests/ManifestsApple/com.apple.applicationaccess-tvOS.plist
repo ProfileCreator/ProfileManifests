@@ -6,8 +6,6 @@
 	<string>tvOS Restrictions preferences</string>
 	<key>pfm_description_reference</key>
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
-	<key>pfm_note</key>
-	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/restrictions</string>
 	<key>pfm_domain</key>
@@ -17,7 +15,9 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2022-09-05T01:03:41Z</date>
+	<date>2023-08-15T08:00:00Z</date>
+	<key>pfm_note</key>
+	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>tvOS</string>
@@ -136,9 +136,6 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- Custom Keys -->
-		
 		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
@@ -156,15 +153,6 @@ The payload organization for a payload need not match the payload organization i
 			<string>always</string>
 			<key>pfm_segments</key>
 			<dict>
-				<key>General</key>
-				<array>
-					<string>allowAutomaticScreenSaver</string>
-					<string>allowCloudPrivateRelay</string>
-					<string>allowDeviceNameModification</string>
-					<string>allowInAppPurchases</string>
-					<string>allowRemoteAppPairing</string>
-					<string>forceAutomaticDateAndTime</string>
-				</array>
 				<key>AirPlay</key>
 				<array>
 					<string>allowAirPlayIncomingRequests</string>
@@ -176,6 +164,15 @@ The payload organization for a payload need not match the payload organization i
 					<string>blacklistedAppBundleIDs</string>
 					<string>blockedAppBundleIDs</string>
 					<string>whitelistedAppBundleIDs</string>
+				</array>
+				<key>General</key>
+				<array>
+					<string>allowAutomaticScreenSaver</string>
+					<string>allowCloudPrivateRelay</string>
+					<string>allowDeviceNameModification</string>
+					<string>allowInAppPurchases</string>
+					<string>allowRemoteAppPairing</string>
+					<string>forceAutomaticDateAndTime</string>
 				</array>
 				<key>Media</key>
 				<array>
@@ -203,9 +200,6 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
-		
-		<!-- START iOS &amp; tvOS -->
-		
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -215,10 +209,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>Supervised only. If set to false, prevents device name from being changed. Defaults to true. Availability: Available in iOS 9.0 and tvOS 11.0 and later.</string>
 			<key>pfm_name</key>
 			<string>allowDeviceNameModification</string>
-			<key>pfm_title</key>
-			<string>Allow modifying device name</string>
 			<key>pfm_supervised</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Allow modifying device name</string>
 			<key>pfm_tvos_min</key>
 			<string>11.0</string>
 			<key>pfm_type</key>
@@ -231,40 +225,40 @@ The payload organization for a payload need not match the payload organization i
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>If true, enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
-			<key>pfm_tvos_min</key>
-			<string>12.2</string>
 			<key>pfm_name</key>
 			<string>forceAutomaticDateAndTime</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
 			<string>Force automatic date and time</string>
+			<key>pfm_tvos_min</key>
+			<string>12.2</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
-				<key>pfm_default</key>
-				<true/>
-				<key>pfm_name</key>
-				<string>allowAutomaticScreenSaver</string>
-				<key>pfm_tvos_min</key>
-				<string>15.4</string>
-				<key>pfm_title</key>
-				<string>Allow Automatic Screen Saver</string>
-				<key>pfm_type</key>
-				<string>boolean</string>
-			</dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>allowAutomaticScreenSaver</string>
+			<key>pfm_title</key>
+			<string>Allow Automatic Screen Saver</string>
+			<key>pfm_tvos_min</key>
+			<string>15.4</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string>If set to false, prevents the use of iCloud Private Relay.</string>
-			<key>pfm_tvos_min</key>
-			<string>15.0</string>
 			<key>pfm_name</key>
 			<string>allowCloudPrivateRelay</string>
 			<key>pfm_title</key>
 			<string>Allow iCloud Private Relay</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -285,8 +279,6 @@ The payload organization for a payload need not match the payload organization i
 					</array>
 				</dict>
 			</array>
-			<key>pfm_tvos_min</key>
-			<string>15.0</string>
 			<key>pfm_name</key>
 			<string>blockedAppBundleIDs</string>
 			<key>pfm_subkeys</key>
@@ -304,6 +296,8 @@ The payload organization for a payload need not match the payload organization i
 			<true/>
 			<key>pfm_title</key>
 			<string>Blocked Apps</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -369,8 +363,6 @@ The payload organization for a payload need not match the payload organization i
 					</array>
 				</dict>
 			</array>
-			<key>pfm_tvos_min</key>
-			<string>15.0</string>
 			<key>pfm_name</key>
 			<string>allowListedAppBundleIDs</string>
 			<key>pfm_subkeys</key>
@@ -388,6 +380,8 @@ The payload organization for a payload need not match the payload organization i
 			<true/>
 			<key>pfm_title</key>
 			<string>Allowed Apps</string>
+			<key>pfm_tvos_min</key>
+			<string>15.0</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -445,10 +439,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>Optional. Supervised only. When true, forces the use of the profanity filter assistant.</string>
 			<key>pfm_name</key>
 			<string>forceAssistantProfanityFilter</string>
-			<key>pfm_title</key>
-			<string>Enable Siri profanity filter</string>
 			<key>pfm_supervised</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Enable Siri profanity filter</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -647,10 +641,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>Optional. When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices. Availability: Available in iOS and in tvOS 11.3 and later.</string>
 			<key>pfm_name</key>
 			<string>allowExplicitContent</string>
-			<key>pfm_title</key>
-			<string>Allow playback of explicit music, podcasts, and iTunes U</string>
 			<key>pfm_supervised</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Allow playback of explicit music, podcasts, and iTunes U</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -672,9 +666,6 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		<!-- START tvOS -->
-		
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -684,10 +675,10 @@ The payload organization for a payload need not match the payload organization i
 			<string></string>
 			<key>pfm_name</key>
 			<string>allowAirPlayIncomingRequests</string>
-			<key>pfm_title</key>
-			<string>Allow incoming AirPlay requests</string>
 			<key>pfm_supervised</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Allow incoming AirPlay requests</string>
 			<key>pfm_tvos_min</key>
 			<string>10.2</string>
 			<key>pfm_type</key>
@@ -703,13 +694,13 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>forceAirPlayIncomingRequestsPairingPassword</string>
 			<key>pfm_note</key>
-			<string></string> 
+			<string></string>
 			<key>pfm_title</key>
 			<string>Require passcode on first AirPlay pairing</string>
-			<key>pfm_tvos_min</key>
-			<string>6.1</string>
 			<key>pfm_tvos_deprecated</key>
 			<string>10.2</string>
+			<key>pfm_tvos_min</key>
+			<string>6.1</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -729,9 +720,6 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-		
-		<!-- START All OSs -->
-		
 		<dict>
 			<key>pfm_default</key>
 			<true/>
@@ -741,10 +729,10 @@ The payload organization for a payload need not match the payload organization i
 			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
 			<key>pfm_name</key>
 			<string>allowPasswordProximityRequests</string>
-			<key>pfm_title</key>
-			<string>Allow proximity based password sharing requests</string>
 			<key>pfm_supervised</key>
 			<true/>
+			<key>pfm_title</key>
+			<string>Allow proximity based password sharing requests</string>
 			<key>pfm_tvos_min</key>
 			<string>12.0</string>
 			<key>pfm_type</key>
@@ -759,12 +747,12 @@ The payload organization for a payload need not match the payload organization i
 			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Defer Software Updates</string>
 			<key>pfm_tvos_min</key>
 			<string>12.2</string>
-			<key>pfm_supervised</key>
-			<true/>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -793,12 +781,12 @@ The payload organization for a payload need not match the payload organization i
 			</array>
 			<key>pfm_name</key>
 			<string>enforcedSoftwareUpdateDelay</string>
-			<key>pfm_supervised</key>
-			<true/>
 			<key>pfm_range_max</key>
 			<integer>90</integer>
 			<key>pfm_range_min</key>
 			<integer>1</integer>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Deferred Software Updates Delay</string>
 			<key>pfm_tvos_min</key>

@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-10-05T00:00:00Z</date>
+  <date>2023-10-05T00:00:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -568,10 +568,10 @@ This policy is only effective when the machine is enrolled with CloudManagementE
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_app_min</key>
-			<string>72</string>
 			<key>pfm_app_deprecated</key>
 			<string>84</string>
+			<key>pfm_app_min</key>
+			<string>72</string>
 			<key>pfm_description</key>
 			<string>Report Safe Browsing information.</string>
 			<key>pfm_description_reference</key>
@@ -1569,7 +1569,7 @@ The protocol handlers registered by policy are merged with the ones registered b
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
-		<!-- <dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string>74</string>
 			<key>pfm_description</key>
@@ -1653,7 +1653,7 @@ URL patterns in this policy should not clash with the ones configured via WebUsb
 			<string>Automatically grant permission to these sites to connect to USB devices with the given vendor and product IDs</string>
 			<key>pfm_type</key>
 			<string>array</string>
-		</dict> -->
+		</dict>
 		<dict>
 			<key>pfm_app_min</key>
 			<string>66</string>
@@ -2380,10 +2380,10 @@ For a full description of possible settings and structure of this policy please 
 					<string></string>
 					<key>pfm_description_reference</key>
 					<string></string>
-					<key>pfm_name</key>
-					<string>{{value}}</string>
 					<key>pfm_hidden</key>
 					<string>container</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -2642,12 +2642,12 @@ External extensions and their installation are documented at https://developer.c
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
 			<string>73</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Allow insecure algorithms in integrity checks on extension updates and installs.</string>
 			<key>pfm_description_reference</key>
@@ -3811,12 +3811,12 @@ NOTE: Until version 45, this policy was only supported in Kiosk mode.</string>
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>Enable AutoFill. This policy is deprecated in M70, please use AutofillAddressEnabled and AutofillCreditCardEnabled instead.</string>
 			<key>pfm_description_reference</key>
@@ -5182,10 +5182,6 @@ If this policy is left not set the user can disable any plugin installed on the 
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=EnabledPlugins</string>
 			<key>pfm_name</key>
 			<string>EnabledPlugins</string>
-			<key>pfm_title</key>
-			<string>Enabled Plugins</string>
-			<key>pfm_type</key>
-			<string>array</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -5193,6 +5189,10 @@ If this policy is left not set the user can disable any plugin installed on the 
 					<string>string</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Enabled Plugins</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5274,12 +5274,12 @@ If this policy is set to False, the "Always allow" checkbox is not displayed and
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>70</string>
 			<key>pfm_app_min</key>
 			<string>66</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>If this policy is set to true, user has to sign in to Google Chrome with their profile before using the browser. And the default value of BrowserGuestModeEnabled will be set to false. Note that existing unsigned profiles will be locked and inaccessible after enabling this policy. For more information, see help center article. This policy is deprecated, consider using BrowserSignin instead.</string>
 			<key>pfm_description_reference</key>
@@ -5344,12 +5344,12 @@ If you disable this setting or do not set a value, SafeSearch in Google Search i
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>30</string>
 			<key>pfm_app_min</key>
 			<string>25</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated, please use ForceGoogleSafeSearch and ForceYouTubeRestrict instead. This policy is ignored if either the ForceGoogleSafeSearch, the ForceYouTubeRestrict or the (deprecated) ForceYouTubeSafetyMode policies are set.</string>
 			<key>pfm_description_reference</key>
@@ -5486,12 +5486,12 @@ If this setting is set to Off or no value is set, Restricted Mode on YouTube is 
 			<string>integer</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>45</string>
 			<key>pfm_app_min</key>
 			<string>41</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Consider using ForceYouTubeRestrict, which overrides this policy and allows more fine-grained tuning.
 
@@ -5556,12 +5556,12 @@ When this policy is set to false or is not configured, the icons are visible.</s
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>78</string>
 			<key>pfm_app_min</key>
 			<string>54</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>This policy enables HTTP/0.9 on ports other than 80 for HTTP and 443 for HTTPS.</string>
 			<key>pfm_description_reference</key>
@@ -5704,12 +5704,12 @@ If it is not set, the user may be asked whether to import, or importing may happ
 			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
 			<string>11</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated. Please, use IncognitoModeAvailability instead. Enables Incognito mode in Google Chrome.
 
@@ -5815,12 +5815,12 @@ NOTE: This policy does not apply on Android. To enable IsolateOrigins on Android
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<true/>
 			<key>pfm_app_deprecated</key>
 			<string>15</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
 			<string>This policy is deprecated, please use DefaultJavaScriptSetting instead.
 
@@ -5928,8 +5928,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks</string>
 			<key>pfm_name</key>
 			<string>ManagedBookmarks</string>
-			<key>pfm_title</key>
-			<string>Managed Bookmarks</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -5959,52 +5957,6 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
-						<!-- <dict>
-							<key>pfm_description</key>
-							<string>Folder contents</string>
-							<key>pfm_description_reference</key>
-							<string></string>
-							<key>pfm_name</key>
-							<string>children</string>
-							<key>pfm_subkeys</key>
-							<array>
-								<dict>
-									<key>pfm_description</key>
-									<string></string>
-									<key>pfm_name</key>
-									<string>ManagedBookmark</string>
-									<key>pfm_subkeys</key>
-									<array>
-										<dict>
-											<key>pfm_description</key>
-											<string>Name of the bookmark.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
-											<key>pfm_name</key>
-											<string>name</string>
-											<key>pfm_type</key>
-											<string>string</string>
-										</dict>
-										<dict>
-											<key>pfm_description</key>
-											<string>URL for the bookmark.</string>
-											<key>pfm_description_reference</key>
-											<string></string>
-											<key>pfm_name</key>
-											<string>url</string>
-											<key>pfm_type</key>
-											<string>string</string>
-										</dict>
-									</array>
-									<key>pfm_title</key>
-									<string></string>
-									<key>pfm_type</key>
-									<string>dictionary</string>
-								</dict>
-							</array>
-							<key>pfm_type</key>
-							<string>array</string>
-						</dict> -->
 					</array>
 					<key>pfm_title</key>
 					<string></string>
@@ -6031,14 +5983,16 @@ Managed bookmarks are not synced to the user account and can't be modified by ex
 					<string>dictionary</string>
 				</dict>
 			</array>
+			<key>pfm_title</key>
+			<string>Managed Bookmarks</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<integer>32</integer>
 			<key>pfm_app_min</key>
 			<string>14</string>
+			<key>pfm_default</key>
+			<integer>32</integer>
 			<key>pfm_description</key>
 			<string>Specifies the maximal number of simultaneous connections to the proxy server.</string>
 			<key>pfm_description_reference</key>
@@ -9857,12 +9811,12 @@ URL patterns in this policy should not clash with ones configured via WebUsbAskF
 			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_app_deprecated</key>
 			<string>68</string>
 			<key>pfm_app_min</key>
 			<string>9</string>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Disables the Developer Tools and the JavaScript console. This policy is deprecated in M68, please use DeveloperToolsAvailability instead.</string>
 			<key>pfm_description_reference</key>
@@ -9896,5 +9850,4 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<true/>
 	<key>pfm_version</key>
 	<integer>15</integer>
-</dict>
 </plist>
