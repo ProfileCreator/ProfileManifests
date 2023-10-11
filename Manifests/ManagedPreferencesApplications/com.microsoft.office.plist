@@ -138,6 +138,7 @@
 				<array>
 					<string>InstallAutoUpdate</string>
 					<string>InstallExcel</string>
+					<string>InstallDefender</string>
 					<string>InstallOneDrive</string>
 					<string>InstallOneNote</string>
 					<string>InstallOutlook</string>
@@ -489,6 +490,24 @@
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>16.75</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Uncheck (FALSE) to prevent the Office suite installer from installing Defender. (Not needed if you want to use default value of TRUE.)</string>
+			<key>pfm_description_reference</key>
+			<string>Disable the Office Suite installer from installing Defender. Only valid if set with a configuration profile or if written to /Library/Managed Preferences/com.microsoft.office.plist.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/deployoffice/mac/preferences-office#app-installation</string>
+			<key>pfm_name</key>
+			<string>InstallDefender</string>
+			<key>pfm_title</key>
+			<string>Install Defender</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>16.24</string>
 			<key>pfm_default</key>
 			<true/>
@@ -746,6 +765,6 @@ The default value for this setting allows using MacScript, as there are a number
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>10</integer>
+	<integer>11</integer>
 </dict>
 </plist>
