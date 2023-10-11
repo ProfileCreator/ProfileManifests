@@ -5,7 +5,7 @@
 	<key>pfm_app_url</key>
 	<string>https://github.com/twocanoes/xcreds</string>
 	<key>pfm_description</key>
-	<string>XCreds 3.1 (5084) OAuth Settings</string>
+	<string>XCreds 3.2 (5197) OAuth Settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-08T14:41:00Z</date>
+	<date>2022-09-01T15:08:44Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -441,7 +441,59 @@ Note that Google does not support the offline_access scope so instead use the pr
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<integer>0</integer>
+			<false/>
+			<key>pfm_description</key>
+			<string>Favor using XCreds' local login screen over the cloud login UI.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldPreferLocalLoginInsteadOfCloudLogin</string>
+			<key>pfm_title</key>
+			<string>Prefer Local Login over Cloud Login</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>When verifying password in the menu app, use ROPG.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldVerifyPasswordWithRopg</string>
+			<key>pfm_title</key>
+			<string>Use ROPG when testing password</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>ROPG Client ID for use when checking password</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>ropgClientID</string>
+			<key>pfm_title</key>
+			<string>ROPG Client ID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>ROPG Client Secret for use when checking password</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>ropgClientSecret</string>
+			<key>pfm_title</key>
+			<string>ROPG Client Secret</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>0</string>
 			<key>pfm_description</key>
 			<string>Timer for automatically refreshing login screen in seconds. If set to 0, does not automatically refresh.</string>
 			<key>pfm_documentation_url</key>
@@ -710,6 +762,20 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Check if network is up. If not, select username and password login window.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldDetectNetworkToDetermineLoginWindow</string>
+			<key>pfm_title</key>
+			<string>Should Detect Network ToDetermine LoginWindow</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Hostname of the page that has the password field. When the user submits the form, XCreds will use idpHostName to identify a page it needs to look for the password field. The password value is identified by an HTML id defined by passwordElementID. If this value is not defined. XCreds will look for login.microsoftonline.com and accounts.google.com. This value is commonly set for other IdP’s and for Azure environments that use ADFS.</string>
 			<key>pfm_documentation_url</key>
@@ -845,6 +911,6 @@ changing “passwordID” to the correct element ID. If the value you typed into
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 </dict>
 </plist>
