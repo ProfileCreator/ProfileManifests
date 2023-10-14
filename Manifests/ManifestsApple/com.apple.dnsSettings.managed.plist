@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>14.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-29T09:17:10Z</date>
+	<date>2023-10-14T18:10:00Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0</string>
 	<key>pfm_platforms</key>
@@ -270,86 +270,114 @@ A single wildcard * prefix is supported, but is not required. For example, both 
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string>The action to take if this dictionary matches the current network. Options:
-Connect: Apply DNS Settings when the dictionary matches.
-Disconnect: Do not apply DNS Settings when the dictionary matches.
-EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dictionary matches.</string>
 					<key>pfm_name</key>
-					<string>Action</string>
-					<key>pfm_range_list</key>
-					<array>
-						<string>Connect</string>
-						<string>Disconnect</string>
-						<string>EvaluateConnection</string>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Connect</string>
-						<string>Disconnect</string>
-						<string>Evaluate Connection</string>
-					</array>
-					<key>pfm_require</key>
-					<string>always-nested</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_conditionals</key>
-					<array>
-						<dict>
-							<key>pfm_target_conditions</key>
-							<array>
-								<dict>
-									<key>pfm_range_list</key>
-									<array>
-										<string>EvaluateConnection</string>
-									</array>
-									<key>pfm_target</key>
-									<string>OnDemandRules.Action</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-					<key>pfm_description</key>
-					<string>A dictionary that provides per-connection rules. This array is used only for settings where the Action value is EvaluateConnection.</string>
-					<key>pfm_name</key>
-					<string>ActionParameters</string>
-					<key>pfm_note</key>
-					<string>This array is used only for settings where the Action value is EvaluateConnection.</string>
+					<string>OnDemandRulesElement</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The DNS settings behavior for the specified domains. Options:
-NeverConnect: Do not use the DNS Settings for the specified domains.
-ConnectIfNeeded: Allow using the DNS Settings for the specified domains.</string>
+							<string>The action to take if this dictionary matches the current network. Options:
+Connect: Apply DNS Settings when the dictionary matches.
+Disconnect: Do not apply DNS Settings when the dictionary matches.
+EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dictionary matches.</string>
 							<key>pfm_name</key>
-							<string>DomainAction</string>
+							<string>Action</string>
 							<key>pfm_range_list</key>
 							<array>
-								<string>NeverConnect</string>
-								<string>ConnectIfNeeded</string>
+								<string>Connect</string>
+								<string>Disconnect</string>
+								<string>EvaluateConnection</string>
 							</array>
 							<key>pfm_range_list_titles</key>
 							<array>
-								<string>Never Connect</string>
-								<string>Connect if Needed</string>
+								<string>Connect</string>
+								<string>Disconnect</string>
+								<string>Evaluate Connection</string>
 							</array>
 							<key>pfm_require</key>
 							<string>always-nested</string>
-							<key>pfm_title</key>
-							<string>Domain Action</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
+							<key>pfm_conditionals</key>
+							<array>
+								<dict>
+									<key>pfm_target_conditions</key>
+									<array>
+										<dict>
+											<key>pfm_range_list</key>
+											<array>
+												<string>EvaluateConnection</string>
+											</array>
+											<key>pfm_target</key>
+											<string>OnDemandRulesElement.Action</string>
+										</dict>
+									</array>
+								</dict>
+							</array>
 							<key>pfm_description</key>
-							<string>The domains for which this evaluation applies.</string>
+							<string>A dictionary that provides per-connection rules. This array is used only for settings where the Action value is EvaluateConnection.</string>
 							<key>pfm_name</key>
-							<string>Domains</string>
-							<key>pfm_require</key>
-							<string>always-nested</string>
+							<string>ActionParameters</string>
+							<key>pfm_note</key>
+							<string>This array is used only for settings where the Action value is EvaluateConnection.</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The DNS settings behavior for the specified domains. Options:
+NeverConnect: Do not use the DNS Settings for the specified domains.
+ConnectIfNeeded: Allow using the DNS Settings for the specified domains.</string>
+									<key>pfm_name</key>
+									<string>DomainAction</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>NeverConnect</string>
+										<string>ConnectIfNeeded</string>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Never Connect</string>
+										<string>Connect if Needed</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always-nested</string>
+									<key>pfm_title</key>
+									<string>Domain Action</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The domains for which this evaluation applies.</string>
+									<key>pfm_name</key>
+									<string>Domains</string>
+									<key>pfm_require</key>
+									<string>always-nested</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_title</key>
+											<string>Domain</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Action Parameters</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list. A single wildcard * prefix is supported, but is not required.</string>
+							<key>pfm_name</key>
+							<string>DNSDomainMatch</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
@@ -359,107 +387,90 @@ ConnectIfNeeded: Allow using the DNS Settings for the specified domains.</string
 									<string>string</string>
 								</dict>
 							</array>
+							<key>pfm_title</key>
+							<string>Domain Match</string>
 							<key>pfm_type</key>
 							<string>array</string>
 						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Action Parameters</string>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list. A single wildcard * prefix is supported, but is not required.</string>
-					<key>pfm_name</key>
-					<string>DNSDomainMatch</string>
-					<key>pfm_subkeys</key>
-					<array>
 						<dict>
-							<key>pfm_title</key>
-							<string>Domain</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>Domain Match</string>
-					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array. Matching with a single wildcard is supported.</string>
-					<key>pfm_description_reference</key>
-					<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
+							<key>pfm_description</key>
+							<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array. Matching with a single wildcard is supported.</string>
+							<key>pfm_description_reference</key>
+							<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
 
 Matching with a single wildcard is supported. For example, 17.* matches any DNS server in the 17.0.0.0/8 subnet.</string>
-					<key>pfm_name</key>
-					<string>DNSServerAddressMatch</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
+							<key>pfm_name</key>
+							<string>DNSServerAddressMatch</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>IP Address</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
 							<key>pfm_title</key>
-							<string>IP Address</string>
+							<string>Server Address Match</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
+							<key>pfm_name</key>
+							<string>InterfaceTypeMatch</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Cellular</string>
+								<string>Ethernet</string>
+								<string>WiFi</string>
+							</array>
+							<key>pfm_title</key>
+							<string>Interface Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>An array of SSIDs to match against the current network. If the network is not a Wi-Fi network or if the SSID does not appear in this array, the match fails. Omit this key and the corresponding array to match against any SSID.</string>
+							<key>pfm_name</key>
+							<string>SSIDMatch</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_title</key>
+									<string>SSID</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>SSID Match</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.</string>
+							<key>pfm_name</key>
+							<string>URLStringProbe</string>
+							<key>pfm_title</key>
+							<string>URL String Probe</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Server Address Match</string>
+					<string>On Demand Rules Element</string>
 					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
-					<key>pfm_name</key>
-					<string>InterfaceTypeMatch</string>
-					<key>pfm_range_list</key>
-					<array>
-						<string>Cellular</string>
-						<string>Ethernet</string>
-						<string>WiFi</string>
-					</array>
-					<key>pfm_title</key>
-					<string>Interface Type</string>
-					<key>pfm_type</key>
-					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>An array of SSIDs to match against the current network. If the network is not a Wi-Fi network or if the SSID does not appear in this array, the match fails. Omit this key and the corresponding array to match against any SSID.</string>
-					<key>pfm_name</key>
-					<string>SSIDMatch</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_title</key>
-							<string>SSID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-					</array>
-					<key>pfm_title</key>
-					<string>SSID Match</string>
-					<key>pfm_type</key>
-					<string>array</string>
-				</dict>
-				<dict>
-					<key>pfm_description</key>
-					<string>A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.</string>
-					<key>pfm_name</key>
-					<string>URLStringProbe</string>
-					<key>pfm_title</key>
-					<string>URL String Probe</string>
-					<key>pfm_type</key>
-					<string>string</string>
+					<string>dictionary</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>On Demand Rules</string>
 			<key>pfm_type</key>
-			<string>dictionary</string>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -512,7 +523,7 @@ Matching with a single wildcard is supported. For example, 17.* matches any DNS 
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
