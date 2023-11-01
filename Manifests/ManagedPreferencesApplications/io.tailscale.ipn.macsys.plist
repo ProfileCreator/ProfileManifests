@@ -4,31 +4,20 @@
 <dict>
 	<key>pfm_app_url</key>
 	<string>https://tailscale.com/download/mac</string>
-	<key>pfm_documentation_url</key>
-	<string>https://tailscale.com/kb/1315/mdm-keys/</string>
-	<key>pfm_targets</key>
-	<array>
-		<string>system</string>
-		<string>user</string>
-	</array>
-	<key>pfm_platforms</key>
-	<array>
-		<string>macOS</string>
-	</array>
 	<key>pfm_description</key>
 	<string>Configure settings for the Standalone variant of the Tailscale client.</string>
+	<key>pfm_documentation_url</key>
+	<string>https://tailscale.com/kb/1315/mdm-keys/</string>
 	<key>pfm_domain</key>
 	<string>io.tailscale.ipn.macsys</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
 	<date>2023-10-31T08:00:00Z</date>
-	<key>pfm_title</key>
-	<string>Tailscale (Standalone)</string>
-	<key>pfm_unique</key>
-	<false/>
-	<key>pfm_version</key>
-	<integer>1</integer>
+	<key>pfm_platforms</key>
+	<array>
+		<string>macOS</string>
+	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
@@ -137,82 +126,80 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>ManagedByOrganizationName</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Organization Details: Name</string>
 			<key>pfm_description</key>
 			<string>Specifies the name of the organization managing Tailscale, for instance “XYZ Corp, Inc.”. The value will be displayed in the Tailscale client, so that users can easily reach your internal support resources.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#set-your-organization-name</string>
+			<key>pfm_name</key>
+			<string>ManagedByOrganizationName</string>
+			<key>pfm_title</key>
+			<string>Organization Details: Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>XYZ Corp, Inc.</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>ManagedByCaption</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Organization Details: Caption</string>
 			<key>pfm_description</key>
 			<string>Specifies a caption to be displayed in the Managed By view in the Tailscale client. Use this string value to provide your users with information on how to reach support resources for Tailscale in your organization.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#set-an-info-message</string>
+			<key>pfm_name</key>
+			<string>ManagedByCaption</string>
+			<key>pfm_title</key>
+			<string>Organization Details: Caption</string>
+			<key>pfm_type</key>
+			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>Support is available on the #tailscale channel on the company Slack.</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>ManagedByURL</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Organization Details: Support URL</string>
 			<key>pfm_description</key>
 			<string>Specifies a URL pointing to a help desk webpage, or other helpful resources for users in the organization. Clicking the Support button in the Tailscale UI will open this webpage.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#set-a-support-url</string>
+			<key>pfm_name</key>
+			<string>ManagedByURL</string>
+			<key>pfm_title</key>
+			<string>Organization Details: Support URL</string>
+			<key>pfm_type</key>
+			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>https://www.xyz-corp-example.com/helpdesk</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>SUEnableAutomaticChecks</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Check for updates automatically</string>
 			<key>pfm_description</key>
 			<string>If you are using the Standalone version of Tailscale for macOS, the client will periodically check for updates automatically and notify the user that a new version is available, using the Sparkle framework. We recommend that you leave this feature on, in order to ensure your users receive any security updates in a timely manner. However, you might prefer to manually deploy updates and disable notifications of new available versions. Set this value to false to disable automatically checking for updates.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#check-for-updates-automatically</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>SUAutomaticallyUpdate</string>
+			<string>SUEnableAutomaticChecks</string>
+			<key>pfm_title</key>
+			<string>Check for updates automatically</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Install updates automatically</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>If you are using the Standalone version of Tailscale for macOS, the client can also install updates automatically. This feature also relies on the Sparkle framework. We recommend that you always turn this feature on, in order to ensure your users receive any security updates in a timely manner. However, if you manually manage updates, or prefer your users to be notified but to manually update, you can disable the automatic installation. When set to false, the standalone variant of Tailscale for macOS will require user input before updates are installed.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#install-updates-automatically</string>
+			<key>pfm_name</key>
+			<string>SUAutomaticallyUpdate</string>
+			<key>pfm_title</key>
+			<string>Install updates automatically</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>ApplyUpdates</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide the automatic updates settings UI</string>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Use this if you do not want to allow the user to turn the automatic installation of updates on or off. When set to hide, the "Automatically install updates" menu item won’t be shown to the user, and the user won’t be able to configure automatic updates.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-auto-update-settings</string>
+			<key>pfm_name</key>
+			<string>ApplyUpdates</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>show</string>
@@ -223,142 +210,120 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Show</string>
 				<string>Hide</string>
 			</array>
-			<key>pfm_default</key>
-			<string>show</string>
+			<key>pfm_title</key>
+			<string>Show/hide the automatic updates settings UI</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>TailscaleStartOnLogin</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Automatically start Tailscale when the user logs in</string>
 			<key>pfm_description</key>
 			<string>The first time the application is opened on a Mac, Tailscale installs a macOS login helper. This allows Tailscale to start automatically when the user logs into their account. This boolean controls whether the login helper should start Tailscale at login time.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#automatically-start-tailscale-when-the-user-logs-in</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>ForceEnabled</string>
+			<string>TailscaleStartOnLogin</string>
+			<key>pfm_title</key>
+			<string>Automatically start Tailscale when the user logs in</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Force Tailscale to always be running</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>When set to true, this boolean instructs Tailscale to always be connected and actively monitor the tunnel state for disconnections. The Disconnect toggle will be disabled, to prevent users from disabling the VPN themselves. An attempt to disconnect will present a banner informing the user the organization’s policy prevents Tailscale from being disconnected. If the client detects the VPN tunnel is down because the Tailscale VPN process was terminated, Tailscale will automatically restart it and reconnect. You might want to use this policy together with an always-on VPN configuration profile.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#force-tailscale-to-always-be-running</string>
+			<key>pfm_name</key>
+			<string>ForceEnabled</string>
+			<key>pfm_title</key>
+			<string>Force Tailscale to always be running</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>Tailnet</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Suggested or required tailnet name</string>
 			<key>pfm_description</key>
 			<string>Specify a tailnet, and its identity provider will be used on the login page. If the policy value is prefixed with "required:"", Tailscale will force that identity provider to be used and won’t allow logging in with anything else.</string>
-			<key>pfm_value_placeholder</key>
-			<string>required:example.com</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#set-a-suggested-or-required-tailnet</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>LoginURL</string>
+			<string>Tailnet</string>
+			<key>pfm_title</key>
+			<string>Suggested or required tailnet name</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Custom control server URL</string>
+			<key>pfm_value_placeholder</key>
+			<string>required:example.com</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>The LoginURL policy can be used to specify a custom control server URL. This should not be changed unless you are not using the standard Tailscale server. Use this policy if you’re deploying your own server, such as Headscale.</string>
-			<key>pfm_value_placeholder</key>
-			<string>https://controlserver.ts.example.com</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#set-a-custom-control-server-url</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>ExitNodesPicker</string>
+			<string>LoginURL</string>
+			<key>pfm_title</key>
+			<string>Custom control server URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide exit nodes picker</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://controlserver.ts.example.com</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Shows or hides all UI items to choose an exit node in the Tailscale client.</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>show</string>
-				<string>hide</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Show</string>
-				<string>Hide</string>
-			</array>
-			<key>pfm_default</key>
-			<string>show</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-exit-node-picker</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>ManageTailnetLock</string>
+			<string>ExitNodesPicker</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>show</string>
+				<string>hide</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Show</string>
+				<string>Hide</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show/hide exit nodes picker</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide tailnet lock settings</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Shows or hides the "Manage Tailnet lock" menu item.</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>show</string>
-				<string>hide</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Show</string>
-				<string>Hide</string>
-			</array>
-			<key>pfm_default</key>
-			<string>show</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-tailnet-lock-settings</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>ResetToDefaults</string>
+			<string>ManageTailnetLock</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>show</string>
+				<string>hide</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Show</string>
+				<string>Hide</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Show/hide tailnet lock settings</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide the "Reset to Defaults" menu item</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Shows or hides the "Reset to Defaults" menu item.</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>show</string>
-				<string>hide</string>
-			</array>
-			<key>pfm_range_list_titles</key>
-			<array>
-				<string>Show</string>
-				<string>Hide</string>
-			</array>
-			<key>pfm_default</key>
-			<string>show</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-reset-to-defaults-menu-item</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>RunExitNode</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide "Run as Exit Node" menu item</string>
-			<key>pfm_description</key>
-			<string>Shows or hides the "Run as Exit Node" menu item, controlling the user's ability to toggle this option.</string>
+			<string>ResetToDefaults</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>show</string>
@@ -369,22 +334,44 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Show</string>
 				<string>Hide</string>
 			</array>
-			<key>pfm_default</key>
-			<string>show</string>
-			<key>pfm_documentation_url</key>
-			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-run-as-exit-node-menu-item</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>StartOnLoginMenuItem</string>
+			<key>pfm_title</key>
+			<string>Show/hide the "Reset to Defaults" menu item</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
+			<key>pfm_description</key>
+			<string>Shows or hides the "Run as Exit Node" menu item, controlling the user's ability to toggle this option.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-run-as-exit-node-menu-item</string>
+			<key>pfm_name</key>
+			<string>RunExitNode</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>show</string>
+				<string>hide</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Show</string>
+				<string>Hide</string>
+			</array>
 			<key>pfm_title</key>
-			<string>Show/hide "Start on Login" menu item</string>
+			<string>Show/hide "Run as Exit Node" menu item</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Shows or hides the "Start on Login" menu item, controlling the user's ability to toggle this option.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-start-on-login-menu-item</string>
+			<key>pfm_name</key>
+			<string>StartOnLoginMenuItem</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>show</string>
@@ -395,20 +382,20 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Show</string>
 				<string>Hide</string>
 			</array>
-			<key>pfm_default</key>
-			<string>show</string>
-		</dict>
-		<dict>
-			<key>pfm_name</key>
-			<string>TestMenu</string>
+			<key>pfm_title</key>
+			<string>Show/hide "Start on Login" menu item</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_title</key>
-			<string>Show/hide Debug menu</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>show</string>
 			<key>pfm_description</key>
 			<string>Shows or hides the debug menu in the Tailscale client. On macOS, this system policy will also hide any information displayed when holding down the Option key while clicking on the Tailscale menubar item.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-the-debug-menu</string>
+			<key>pfm_name</key>
+			<string>TestMenu</string>
 			<key>pfm_range_list</key>
 			<array>
 				<string>show</string>
@@ -419,23 +406,21 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Show</string>
 				<string>Hide</string>
 			</array>
-			<key>pfm_default</key>
-			<string>show</string>
+			<key>pfm_title</key>
+			<string>Show/hide Debug menu</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>Hidden network devices</string>
-			<key>pfm_type</key>
-			<string>array</string>
-			<key>pfm_title</key>
-			<string>Hide categories of network devices</string>
 			<key>pfm_description</key>
 			<string>Can be used to hides one or more categories of network devices normally displayed in the Tailscale client. Administrators can choose to hide: devices owned by the current user; devices owned by other users; tagged devices. If all three options are chosen, the "Network Devices" menu item disappears entirely and users aren’t able to see any device on the tailnet.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-network-devices</string>
+			<key>pfm_name</key>
+			<string>Hidden network devices</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_type</key>
-					<string>string</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>current-user</string>
@@ -448,35 +433,50 @@ A profile can consist of payloads with different version numbers. For example, c
 						<string>Devices belonging to other users</string>
 						<string>Tagged devices</string>
 					</array>
+					<key>pfm_type</key>
+					<string>string</string>
 				</dict>
 			</array>
-			<key>pfm_documentation_url</key>
-			<string>https://tailscale.com/kb/1315/mdm-keys/#hide-network-devices</string>
+			<key>pfm_title</key>
+			<string>Hide categories of network devices</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
-			<key>pfm_name</key>
-			<string>IPAddressCopiedAlertSuppressed</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Suppress IP Address Copied notifications</string>
 			<key>pfm_description</key>
 			<string>When you use the Tailscale menu bar item to copy to the Clipboard the IP address of a device, a notification displaying the IP address is presented. Use this to suppress this Copied IP address to clipboard notification.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#suppress-ip-address-copied-notifications</string>
-		</dict>
-		<dict>
 			<key>pfm_name</key>
-			<string>TailscaleOnboardingSeen</string>
+			<string>IPAddressCopiedAlertSuppressed</string>
+			<key>pfm_title</key>
+			<string>Suppress IP Address Copied notifications</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
-			<key>pfm_title</key>
-			<string>Suppress the first launch onboarding flow</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>When you start Tailscale on your Mac for the first time, an onboarding flow is presented. It explains the Tailscale privacy policy, and guides the user in setting up the VPN configuration on their Mac. You might want to disable this onboarding flow if you are going to automatically set up the VPN configuration on the system by using a configuration profile. In order to do so, this boolean suppresses the onboarding flow when Tailscale launches for the first time and the value is set to true.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://tailscale.com/kb/1315/mdm-keys/#suppress-the-first-launch-onboarding-flow</string>
+			<key>pfm_name</key>
+			<string>TailscaleOnboardingSeen</string>
+			<key>pfm_title</key>
+			<string>Suppress the first launch onboarding flow</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>system</string>
+		<string>user</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Tailscale (Standalone)</string>
+	<key>pfm_unique</key>
+	<false/>
+	<key>pfm_version</key>
+	<integer>1</integer>
 </dict>
 </plist>
