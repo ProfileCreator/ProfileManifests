@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-01T15:21:44Z</date>
+	<date>2023-11-06T15:29:40Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -7886,6 +7886,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 							<string>url</string>
 							<key>pfm_required</key>
 							<true/>
+							<key>pfm_title</key>
+							<string>URL</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
@@ -7894,6 +7896,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 						<dict>
 							<key>pfm_name</key>
 							<string>create_desktop_shortcut</string>
+							<key>pfm_title</key>
+							<string>Create Desktop Shortcut</string>
 							<key>pfm_type</key>
 							<string>boolean</string>
 						</dict>
@@ -7910,8 +7914,75 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 								<string>Window</string>
 								<string>Tab</string>
 							</array>
+							<key>pfm_title</key>
+							<string>Default Launch Container</string>
 							<key>pfm_type</key>
 							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>90</string>
+							<key>pfm_name</key>
+							<string>fallback_app_name</string>
+							<key>pfm_title</key>
+							<string>Fallback App Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>112</string>
+							<key>pfm_name</key>
+							<string>custom_name</string>
+							<key>pfm_title</key>
+							<string>Custom Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>112</string>
+							<key>pfm_name</key>
+							<string>custom_icon</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>hash</string>
+									<key>pfm_required</key>
+									<true/>
+									<key>pfm_title</key>
+									<string>Custom Icon Hash</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_format</key>
+									<string>^https?://.*</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_required</key>
+									<true/>
+									<key>pfm_title</key>
+									<string>Custom Icon URL</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Custom Icon</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>107</string>
+							<key>pfm_name</key>
+							<string>install_as_shortcut</string>
+							<key>pfm_title</key>
+							<string>Install as Shortcut</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
 						</dict>
 					</array>
 					<key>pfm_type</key>
@@ -10140,6 +10211,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>15</integer>
+	<integer>16</integer>
 </dict>
 </plist>
