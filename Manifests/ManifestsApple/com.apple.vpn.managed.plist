@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-10-26T21:54:00Z</date>
+	<date>2023-11-06T09:07:01Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -174,7 +174,9 @@
 			<key>pfm_default</key>
 			<string>L2TP</string>
 			<key>pfm_description</key>
-			<string>Indicates the VPN service type and the setting fields that it requires</string>
+			<string>The type of the VPN, which defines which settings are appropriate for this VPN payload.
+If the type is 'VPN' or 'TransparentProxy', then the system requires a value for 'VPNSubType'.
+'TransparentProxy' is only available in macOS. 'L2TP' and 'IPSec' aren't available in tvOS. 'AlwaysOn' is only available on iOS and Apple Watch pairing isn't supported with 'AlwaysOn'. For a previously paired Apple Watch, all phone-watch communications cease when 'AlwaysOn' is enabled. Not available in watchOS.</string>
 			<key>pfm_name</key>
 			<string>VPNType</string>
 			<key>pfm_range_list</key>
@@ -190,9 +192,9 @@
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>IKEv2</string>
-				<string>IKEv2 Always-On (supervised only)</string>
-				<string>IPSec</string>
-				<string>L2TP</string>
+				<string>IKEv2 Always-On (supervised iOS only)</string>
+				<string>IPSec (no tvOS)</string>
+				<string>L2TP (no tvOS)</string>
 				<string>PPTP</string>
 				<string>Transparent Proxy (macOS only)</string>
 				<string>VPN (Vendor-Specific)</string>
@@ -1277,7 +1279,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all network traffic will be routed through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, and ExcludeAPNs properties. See the documentation for those properties.  The following traffic is always excluded from the tunnel.
+					<string>If '1', routes all traffic through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, and ExcludeAPNs properties. See the documentation for those properties.  The following traffic is always excluded from the tunnel. Not available in watchOS.
 
 * Traffic necessary for connecting and maintaining the device's network connection, such as DHCP.
 * Traffic necessary for connecting to captive networks.
