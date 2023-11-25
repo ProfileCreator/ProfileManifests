@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-21T10:35:00Z</date>
+	<date>2023-11-23T13:57:28Z</date>
 	<key>pfm_note</key>
 	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_platforms</key>
@@ -226,6 +226,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowFindMyFriendsModification</string>
 					<string>allowGlobalBackgroundFetchWhenRoaming</string>
 					<string>allowHostPairing</string>
+					<string>allowiPhoneWidgetsOnMac</string>
 					<string>allowKeyboardShortcuts</string>
 					<string>allowLockScreenControlCenter</string>
 					<string>allowLockScreenNotificationsView</string>
@@ -1498,6 +1499,25 @@ Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow pairing with non-Configurator hosts</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', disallows iPhone widgets on a Mac that has signed in the same AppleID for iCloud. Supervised only.
+Available on iOS 17 and later.</string>
+			<key>pfm_description_reference</key>
+			<string></string>
+			<key>pfm_ios_min</key>
+			<string>17.0</string>
+			<key>pfm_name</key>
+			<string>allowiPhoneWidgetsOnMac</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow iPhone widget on Mac</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -2830,6 +2850,6 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>8</integer>
+	<integer>9</integer>
 </dict>
 </plist>
