@@ -3,27 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Parental Controls: Dashboard settings</string>
-	<key>pfm_description_reference</key>
-	<string>The Parental Control Dashboard payload is designated by specifying com.apple.dashboard as the PayloadType value.
-It is used to define a white list of dashboard widgets.</string>
+	<string>Declarations</string>
+	<key>pfm_documentation_url</key>
+	<string>https://developer.apple.com/documentation/devicemanagement/declarations-t8t</string>
 	<key>pfm_domain</key>
-	<string>com.apple.dashboard</string>
+	<string>com.apple.declarations</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
-	<key>pfm_interaction</key>
-	<string>exclusive</string>
+	<key>pfm_ios_min</key>
+	<string>17.0</string>
 	<key>pfm_last_modified</key>
 	<date>2023-11-23T13:57:28Z</date>
+	<key>pfm_macos_min</key>
+	<string>14.0</string>
 	<key>pfm_platforms</key>
 	<array>
+		<string>iOS</string>
+		<string>tvOS</string>
 		<string>macOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Parental Controls: Dashboard settings</string>
+			<string>Declarations</string>
 			<key>pfm_description</key>
 			<string>Description of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -37,7 +40,7 @@ It is used to define a white list of dashboard widgets.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Parental Controls: Dashboard</string>
+			<string>Declarations</string>
 			<key>pfm_description</key>
 			<string>Name of the payload.</string>
 			<key>pfm_description_reference</key>
@@ -53,9 +56,9 @@ It is used to define a white list of dashboard widgets.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.dashboard</string>
+			<string>com.apple.declarations</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
 			<key>pfm_name</key>
@@ -69,7 +72,7 @@ It is used to define a white list of dashboard widgets.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>com.apple.dashboard</string>
+			<string>com.apple.declarations</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_description_reference</key>
@@ -84,10 +87,8 @@ It is used to define a white list of dashboard widgets.</string>
 			<string>string</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -107,8 +108,7 @@ It is used to define a white list of dashboard widgets.</string>
 			<key>pfm_description</key>
 			<string>The version of the whole configuration profile.</string>
 			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -120,10 +120,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -133,103 +130,42 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Set to true to enable the widget white list items.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. Set to true to enable the widget white list items.</string>
+			<string>The set of declarations to apply. The items in this array are &lt;data&gt; (base64-encoded) representations
+of the declaration JSON data.</string>
 			<key>pfm_name</key>
-			<string>whiteListEnabled</string>
-			<key>pfm_require</key>
-			<string>always</string>
-			<key>pfm_title</key>
-			<string>Enable dashboard widget allowlist</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_allowed_file_types</key>
-			<array>
-				<string>com.apple.dashboard-widget</string>
-			</array>
-			<key>pfm_description</key>
-			<string>List that defines Dashboard widgets.</string>
-			<key>pfm_description_reference</key>
-			<string>Required. List that defines Dashboard widgets.</string>
-			<key>pfm_name</key>
-			<string>WhiteList</string>
+			<string>Declarations</string>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_description</key>
+					<string>An item in the declarations list</string>
 					<key>pfm_name</key>
-					<string>WhiteListItem</string>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_default</key>
-							<string>bundleID</string>
-							<key>pfm_description</key>
-							<string>Set to "bundleID" to use a widget's bundle ID as its ID.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. Set to bundleID to use a widget's bundle ID as its ID.</string>
-							<key>pfm_hidden</key>
-							<string>all</string>
-							<key>pfm_name</key>
-							<string>Type</string>
-							<key>pfm_range_list</key>
-							<array>
-								<string>bundleID</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>Bundle ID</string>
-							</array>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Entry Type</string>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>The bundle ID of a widget.</string>
-							<key>pfm_description_reference</key>
-							<string>Required. The bundle ID of a widget.</string>
-							<key>pfm_name</key>
-							<string>ID</string>
-							<key>pfm_require</key>
-							<string>always</string>
-							<key>pfm_title</key>
-							<string>Bundle ID</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>com.apple.widget.name</string>
-						</dict>
-					</array>
+					<string>DeclarationsItem</string>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_title</key>
+					<string>Declarations Content Item</string>
 					<key>pfm_type</key>
-					<string>dictionary</string>
+					<string>data</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Dashboard widget allowlist</string>
+			<string>Declarations</string>
 			<key>pfm_type</key>
 			<string>array</string>
-			<key>pfm_value_import_processor</key>
-			<string>com.apple.dashboard.whiteList</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
 		<string>system</string>
-		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Parental Controls: Dashboard</string>
-	<key>pfm_unique</key>
-	<true/>
+	<string>Declarations</string>
+	<key>pfm_tvos_min</key>
+	<string>17.0</string>
 	<key>pfm_version</key>
-	<integer>9</integer>
+	<integer>1</integer>
 </dict>
 </plist>
