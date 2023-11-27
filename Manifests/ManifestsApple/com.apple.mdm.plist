@@ -13,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2021-11-23T13:58:21Z</date>
+	<date>2023-11-23T13:57:28Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -157,10 +157,13 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>ServerCapabilitiesItems</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>com.apple.mdm.per-user-connections</string>
 						<string>com.apple.mdm.bootstraptoken</string>
+						<string>com.apple.mdm.token</string>
 					</array>
 					<key>pfm_type</key>
 					<string>string</string>
@@ -201,9 +204,13 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user's managed Apple ID.</string>
+			<string>The Managed Apple ID of the user. Available in iOS 13.1 and later, and macOS 10.15 and later. This is only used with the profile-driven BYOD enrollment flow, and must not be present in the BYOD and ADDE account-driven enrollment flows. As of iOS 17 and macOS 14, profile-driven user enrollments are deprecated and will be removed in a future release.</string>
+			<key>pfm_ios_deprecated</key>
+			<string>17.0</string>
 			<key>pfm_ios_min</key>
 			<string>13.1</string>
+			<key>pfm_macos_deprecated</key>
+			<string>14.0</string>
 			<key>pfm_macos_min</key>
 			<string>10.15</string>
 			<key>pfm_name</key>
@@ -380,7 +387,7 @@
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
-			<string>12.0</string>
+			<string>14.0</string>
 			<key>pfm_name</key>
 			<string>AssignedManagedAppleID</string>
 			<key>pfm_title</key>
@@ -396,7 +403,7 @@
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
-			<string>12.0</string>
+			<string>14.0</string>
 			<key>pfm_name</key>
 			<string>EnrollmentMode</string>
 			<key>pfm_note</key>
@@ -404,6 +411,7 @@
 			<key>pfm_range_list</key>
 			<array>
 				<string>BYOD</string>
+				<string>ADDE</string>
 			</array>
 			<key>pfm_title</key>
 			<string>EnrollmentMode</string>
