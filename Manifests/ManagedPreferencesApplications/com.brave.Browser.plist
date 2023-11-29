@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-04-09T14:57:02Z</date>
+	<date>2023-11-21T16:48:27Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -146,6 +146,7 @@
 				<string>Native Messaging</string>
 				<string>Password Manager</string>
 				<string>Printing</string>
+				<string>Privacy Sandbox</string>
 				<string>Proxy Server</string>
 				<string>Remote Access</string>
 				<string>Safe Browsing Settings</string>
@@ -199,6 +200,8 @@
 					<string>WebUsbAllowDevicesForUrls</string>
 					<string>WebUsbAskForUrls</string>
 					<string>WebUsbBlockedForUrls</string>
+					<string>DefaultThirdPartyStoragePartitioningSetting</string>
+					<string>ThirdPartyStoragePartitioningBlockedForOrigins</string>
 				</array>
 				<key>Default Search Provider</key>
 				<array>
@@ -382,7 +385,6 @@
 					<string>ProfilePickerOnStartupAvailability</string>
 					<string>PromotionalTabsEnabled</string>
 					<string>PromptForDownloadLocation</string>
-					<string>ProxySettings</string>
 					<string>QuicAllowed</string>
 					<string>RelaunchNotification</string>
 					<string>RelaunchNotificationPeriod</string>
@@ -438,6 +440,9 @@
 					<string>IPFSEnabled</string>
 					<string>BraveRewardsDisabled</string>
 					<string>BraveWalletDisabled</string>
+					<string>BraveShieldsDisabledForUrls</string>
+					<string>BraveShieldsEnabledForUrls</string>
+					<string>BraveVPNDisabled</string>
 				</array>
 				<key>Native Messaging</key>
 				<array>
@@ -466,8 +471,16 @@
 					<string>PrintingEnabled</string>
 					<string>PrinterPaperSizeDefault</string>
 				</array>
+				<key>Privacy Sandbox</key>
+				<array>
+					<string>PrivacySandboxAdMeasurementEnabled</string>
+					<string>PrivacySandboxAdTopicsEnabled</string>
+					<string>PrivacySandboxPromptEnabled</string>
+					<string>PrivacySandboxSiteEnabledAdsEnabled</string>
+				</array>
 				<key>Proxy Server</key>
 				<array>
+					<string>ProxySettings</string>
 					<string>ProxyBypassList</string>
 					<string>ProxyMode</string>
 					<string>ProxyPacUrl</string>
@@ -1217,6 +1230,57 @@ If this policy is left not set the global default value will be used for all sit
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>113</string>
+			<key>pfm_description</key>
+			<string>Third-party storage partitioning is on by default for some users as of M113, but can be disabled via Brave Browser flag. If this policy is set to AllowPartitioning or unset, third-party storage partitioning may be enabled. If this policy is set to BlockPartitioning, third-party storage partitioning cannot be enabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#DefaultThirdPartyStoragePartitioningSetting</string>
+			<key>pfm_name</key>
+			<string>DefaultThirdPartyStoragePartitioningSetting</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Allow third-party storage partitioning to be enabled</string>
+				<string>Block third-party storage partitioning from being enabled</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Default Third Party Storage Partitioning Setting</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>113</string>
+			<key>pfm_description</key>
+			<string>Allows you to set a list of url patterns that specify top-level (the url in the tab's address bar) origins which block third-party storage partitioning (partitioning of cross-origin iframe storage). If this policy is left not set or a top-level origin doesn't match then the value from DefaultThirdPartyStoragePartitioningSetting will be used.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#ThirdPartyStoragePartitioningBlockedForOrigins</string>
+			<key>pfm_name</key>
+			<string>ThirdPartyStoragePartitioningBlockedForOrigins</string>
+			<key>pfm_note</key>
+			<string>Note that patterns you list here are treated as origins, not URLs, so you should not specify a path.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>ThirdPartyStoragePartitioningBlockedForOriginsElement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>[*.]example.com</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Third Party Storage Partitioning Blocked For Origins</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>10</string>
 			<key>pfm_description</key>
 			<string>Allows you to set whether websites are allowed to display desktop notifications. Displaying desktop notifications can be allowed by default, denied by default or the user can be asked every time a website wants to show desktop notifications.</string>
@@ -1571,6 +1635,91 @@ The protocol handlers registered by policy are merged with the ones registered b
 			</array>
 			<key>pfm_title</key>
 			<string>Register protocol handlers</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>74</string>
+			<key>pfm_description</key>
+			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs.</string>
+			<key>pfm_description_reference</key>
+			<string>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+
+The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+
+If this policy is left not set, the global default value will be used for all sites either from the 'DefaultWebUsbGuardSetting' policy if it is set, or the user's personal configuration otherwise.
+
+URL patterns in this policy should not clash with the ones configured via WebUsbBlockedForUrls. If there is a clash, this policy will take precedence over WebUsbBlockedForUrls and WebUsbAskForUrls.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=WebUsbAllowDevicesForUrls</string>
+			<key>pfm_name</key>
+			<string>WebUsbAllowDevicesForUrls</string>
+			<key>pfm_note</key>
+			<string>Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_hidden</key>
+					<string>hidden</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>urls</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_format</key>
+									<string>https?://.*</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>URLs</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>devices</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>product_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+										<dict>
+											<key>pfm_name</key>
+											<string>vendor_id</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+										</dict>
+									</array>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Devices</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Automatically grant permission to these sites to connect to USB devices with the given vendor and product IDs</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -3244,6 +3393,142 @@ If this policy is left not set, 2 will be used.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>111</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>A policy to control whether the Privacy Sandbox Ad measurement setting can be disabled for your users.</string>
+			<key>pfm_description_reference</key>
+			<string>A policy to control whether the Privacy Sandbox Ad measurement setting can be disabled for your users.
+
+If you set this policy to Disabled, then the Ad measurement setting will be turned off for your users. If you set this policy to Enabled or keep it unset, your users will be able to turn on or off the Privacy Sandbox Ad measurement setting on their device.
+
+Setting this policy requires setting the PrivacySandboxPromptEnabled policy to Disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#PrivacySandboxAdMeasurementEnabled</string>
+			<key>pfm_name</key>
+			<string>PrivacySandboxAdMeasurementEnabled</string>
+			<key>pfm_title</key>
+			<string>Privacy Sandbox Ad Measurement Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>111</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>A policy to control whether the Privacy Sandbox Ad measurement setting can be disabled for your users.</string>
+			<key>pfm_description_reference</key>
+			<string>A policy to control whether the Privacy Sandbox Ad topics setting can be disabled for your users.
+
+If you set this policy to Disabled, then the Ad topics setting will be turned off for your users. If you set this policy to Enabled or keep it unset, your users will be able to turn on or off the Privacy Sandbox Ad topics setting on their device.
+
+Setting this policy requires setting the PrivacySandboxPromptEnabled policy to Disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#PrivacySandboxAdTopicsEnabled</string>
+			<key>pfm_name</key>
+			<string>PrivacySandboxAdTopicsEnabled</string>
+			<key>pfm_title</key>
+			<string>Privacy Sandbox Ad Topics Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>111</string>
+			<key>pfm_conditionals</key>
+			<array>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>PrivacySandboxAdTopicsEnabled</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>PrivacySandboxSiteEnabledAdsEnabled</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<false/>
+							</array>
+							<key>pfm_target</key>
+							<string>PrivacySandboxAdMeasurementEnabled</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>A policy to control whether your users see the Privacy Sandbox prompt.</string>
+			<key>pfm_description_reference</key>
+			<string>A policy to control whether your users see the Privacy Sandbox prompt. The prompt is a user-blocking flow which informs your users of the Privacy Sandbox settings. See https://privacysandbox.com for details about Brave Browser's effort to deprecate third-party cookies.
+
+If you set this policy to Disabled, then Brave Browser won't show the Privacy Sandbox prompt. If you set this policy to Enabled or keep it unset, then Brave Browser determines whether the Privacy Sandbox prompt can be shown or not and then show it if possible.
+
+If any of the following policies are set, it's required to set this policy to Disabled: PrivacySandboxAdTopicsEnabled PrivacySandboxSiteEnabledAdsEnabled PrivacySandboxAdMeasurementEnabled</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#PrivacySandboxPromptEnabled</string>
+			<key>pfm_name</key>
+			<string>PrivacySandboxPromptEnabled</string>
+			<key>pfm_title</key>
+			<string>Privacy Sandbox Prompt Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>111</string>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>A policy to control whether the Privacy Sandbox Site-suggested ads setting can be disabled for your users.</string>
+			<key>pfm_description_reference</key>
+			<string>A policy to control whether the Privacy Sandbox Site-suggested ads setting can be disabled for your users.
+
+If you set this policy to Disabled, then the Site-suggested ads setting will be turned off for your users. If you set this policy to Enabled or keep it unset, your users will be able to turn on or off the Privacy Sandbox Site-suggested ads setting on their device.
+
+Setting this policy requires setting the PrivacySandboxPromptEnabled policy to Disabled.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://chromeenterprise.google/policies/#PrivacySandboxSiteEnabledAdsEnabled</string>
+			<key>pfm_name</key>
+			<string>PrivacySandboxSiteEnabledAdsEnabled</string>
+			<key>pfm_title</key>
+			<string>Privacy Sandbox Site Enabled Ads Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>83</string>
 			<key>pfm_default</key>
 			<true/>
@@ -3705,6 +3990,17 @@ However, origin matching patterns for this policy cannot contain "/path" or "@qu
 							<string>allowed_origins</string>
 							<key>pfm_note</key>
 							<string>The origin matching patterns use a similar format to those for the 'URLBlocklist' policy, which are documented at http://www.chromium.org/administrators/url-blacklist-filter-format.</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_format</key>
+									<string>^https?://.*</string>
+									<key>pfm_name</key>
+									<string>allowed_originsItem</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
 							<key>pfm_title</key>
 							<string>Allowed Origins</string>
 							<key>pfm_type</key>
@@ -6339,7 +6635,7 @@ If you choose the value 'fixed_server' as 'ProxyMode', the 'ProxyServer' and 'Pr
 
 If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields will be used.</string>
 			<key>pfm_documentation_url</key>
-			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ProxySettings</string>
+			<string>https://chromeenterprise.google/policies/#ProxySettings</string>
 			<key>pfm_name</key>
 			<string>ProxySettings</string>
 			<key>pfm_note</key>
@@ -6348,69 +6644,142 @@ If you choose the value 'pac_script' as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>Specifies the proxy server Brave Browser uses and prevents users from changing proxy settings.</string>
 					<key>pfm_name</key>
-					<string>ProxySetting</string>
-					<key>pfm_subkeys</key>
+					<string>ProxyMode</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>direct</string>
+						<string>system</string>
+						<string>auto_detect</string>
+						<string>fixed_servers</string>
+						<string>pac_script</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Never use proxy (ignores other fields)</string>
+						<string>System (ignores other fields)</string>
+						<string>Auto Detect (ignores other fields)</string>
+						<string>Fixed (Uses ProxyServer &amp; ProxyBypassList)</string>
+						<string>Pac Script (Uses ProxyPacUrl &amp; ProxyBypassList)</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Proxy Mode</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Specifies the URL of the proxy server</string>
+					<key>pfm_exclude</key>
 					<array>
 						<dict>
-							<key>pfm_name</key>
-							<string>ProxyMode</string>
-							<key>pfm_range_list</key>
-							<array>
-								<string>direct</string>
-								<string>system</string>
-								<string>auto_detect</string>
-								<string>fixed_server</string>
-								<string>pac_script</string>
-							</array>
-							<key>pfm_range_list_titles</key>
-							<array>
-								<string>Never use proxy (ignores other fields)</string>
-								<string>System (ignores other fields)</string>
-								<string>Auto Detect (ignores other fields)</string>
-								<string>Fixed (Uses ProxyServer &amp; ProxyBypassList)</string>
-								<string>Pac Script (Uses ProxyPacUrl &amp; ProxyBypassList)</string>
-							</array>
-							<key>pfm_type</key>
-							<string>string</string>
-						</dict>
-						<dict>
-							<key>pfm_format</key>
-							<string>^https?://.*.pac$</string>
-							<key>pfm_name</key>
-							<string>ProxyPacUrl</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>https://internal.site/example.pac</string>
-						</dict>
-						<dict>
-							<key>pfm_name</key>
-							<string>ProxyServer</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>123.123.123.123:8080</string>
-						</dict>
-						<dict>
-							<key>pfm_name</key>
-							<string>ProxyBypassList</string>
-							<key>pfm_subkeys</key>
+							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
-									<key>pfm_format</key>
-									<string>^https?://.*</string>
-									<key>pfm_type</key>
-									<string>string</string>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>fixed_servers</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ProxySettings.ProxyMode</string>
 								</dict>
 							</array>
-							<key>pfm_type</key>
-							<string>array</string>
 						</dict>
 					</array>
+					<key>pfm_name</key>
+					<string>ProxyServer</string>
+					<key>pfm_title</key>
+					<string>Proxy Server URL</string>
 					<key>pfm_type</key>
-					<string>array</string>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>123.123.123.123:8080</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Defines a comma-separated list of hosts for which Brave Browser bypasses any proxy.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>fixed_servers</string>
+										<string>pac_script</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ProxySettings.ProxyMode</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_name</key>
+					<string>ProxyBypassList</string>
+					<key>pfm_title</key>
+					<string>Proxy Bypass List</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>https://www.example1.com,https://www.example2.com,https://internalsite/</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Specifies the URL for a proxy auto-config (PAC) file.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>pac_script</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ProxySettings.ProxyMode</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_format</key>
+					<string>^https?://.*.pac$</string>
+					<key>pfm_name</key>
+					<string>ProxyPacUrl</string>
+					<key>pfm_title</key>
+					<string>Proxy PAC URL</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfm_value_placeholder</key>
+					<string>https://internal.site/example.pac</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Prevents the network stack from falling back to direct connections with invalid or unavailable PAC script.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>pac_script</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ProxySettings.ProxyMode</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_name</key>
+					<string>ProxyPacMandatory</string>
+					<key>pfm_title</key>
+					<string>Proxy PAC Mandatory</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
@@ -7573,6 +7942,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 							<string>url</string>
 							<key>pfm_required</key>
 							<true/>
+							<key>pfm_title</key>
+							<string>URL</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
@@ -7581,6 +7952,8 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 						<dict>
 							<key>pfm_name</key>
 							<string>create_desktop_shortcut</string>
+							<key>pfm_title</key>
+							<string>Create Desktop Shortcut</string>
 							<key>pfm_type</key>
 							<string>boolean</string>
 						</dict>
@@ -7597,8 +7970,75 @@ Each list item of the policy is an object with a mandatory member: "url" and two
 								<string>Window</string>
 								<string>Tab</string>
 							</array>
+							<key>pfm_title</key>
+							<string>Default Launch Container</string>
 							<key>pfm_type</key>
 							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>90</string>
+							<key>pfm_name</key>
+							<string>fallback_app_name</string>
+							<key>pfm_title</key>
+							<string>Fallback App Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>112</string>
+							<key>pfm_name</key>
+							<string>custom_name</string>
+							<key>pfm_title</key>
+							<string>Custom Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>112</string>
+							<key>pfm_name</key>
+							<string>custom_icon</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_name</key>
+									<string>hash</string>
+									<key>pfm_required</key>
+									<true/>
+									<key>pfm_title</key>
+									<string>Custom Icon Hash</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_format</key>
+									<string>^https?://.*</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_required</key>
+									<true/>
+									<key>pfm_title</key>
+									<string>Custom Icon URL</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Custom Icon</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>107</string>
+							<key>pfm_name</key>
+							<string>install_as_shortcut</string>
+							<key>pfm_title</key>
+							<string>Install as Shortcut</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
 						</dict>
 					</array>
 					<key>pfm_type</key>
@@ -8559,6 +8999,10 @@ If the page size is unavailable on the printer chosen by the user this policy is
 			<string>dictionary</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>18</string>
+			<key>pfm_app_max</key>
+			<string>17</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
@@ -8584,6 +9028,10 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<string>https://www.example1.com,https://www.example2.com,https://internalsite/</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>18</string>
+			<key>pfm_app_max</key>
+			<string>17</string>
 			<key>pfm_app_min</key>
 			<string>10</string>
 			<key>pfm_description</key>
@@ -8638,6 +9086,10 @@ Leaving this policy not set will allow the users to choose the proxy settings on
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>18</string>
+			<key>pfm_app_max</key>
+			<string>17</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
@@ -8661,6 +9113,10 @@ https://www.chromium.org/developers/design-documents/network-settings#TOC-Comman
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>18</string>
+			<key>pfm_app_max</key>
+			<string>17</string>
 			<key>pfm_app_min</key>
 			<string>8</string>
 			<key>pfm_description</key>
@@ -9728,6 +10184,76 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>Array of websites (each as a string) for which you want to enable Brave shields. Once enabled, the user can’t override and disable. Wildcards are not supported.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
+			<key>pfm_name</key>
+			<string>BraveShieldsDisabledForUrls</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_format</key>
+					<string>^https?://.*$</string>
+					<key>pfm_name</key>
+					<string>BraveShieldsDisabledForUrlsElement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Brave Shields Disabled for URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Array of websites (each as a string) for which you want to enable Brave shields. Once enabled, the user can’t override and disable. Wildcards are not supported.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
+			<key>pfm_name</key>
+			<string>BraveShieldsEnabledForUrls</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_format</key>
+					<string>^https?://.*$</string>
+					<key>pfm_name</key>
+					<string>BraveShieldsDisabledForUrlsElement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Brave Shields Enabled for URLs</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_documentation_url</key>
+			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
+			<key>pfm_name</key>
+			<string>BraveVPNDisabled</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Enable</string>
+				<string>Disable</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Disable Brave VPN</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_type_input</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>Setting this to a non-existent URL will disable the ability for users to manually check for updates. Useful when you intend to use your own software distribution mechanism to deploy updates.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://sparkle-project.org/documentation/customization/</string>
@@ -9811,6 +10337,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>13</integer>
+	<integer>16</integer>
 </dict>
 </plist>
