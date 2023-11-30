@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-04-18T11:26:55Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_deprecated</key>
 	<string>11.0</string>
 	<key>pfm_macos_max</key>
@@ -30,7 +30,7 @@
 			<key>pfm_default</key>
 			<string>Configures Allowed Media settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -42,7 +42,7 @@
 			<key>pfm_default</key>
 			<string>Allowed Media</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -56,7 +56,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.systemuiserver</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -70,7 +70,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.systemuiserver</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -84,7 +84,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -100,7 +100,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -112,7 +112,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -156,7 +156,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Media type dictionary to control volume mounting.</string>
+			<string>The media type dictionary that controls volume mounting.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>11.0</string>
 			<key>pfm_macos_max</key>
@@ -169,7 +169,9 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>This key is the default for media types that donʼt fall into other categories. Like internally installed SD-Cards and USB flash drives.</string>
+					<string>A string or an array of media action strings. Internally installed SD cards and USB flash drives are included in the hard disk-external category.
+
+This key is the default for media types that don't fall into other categories.</string>
 					<key>pfm_name</key>
 					<string>harddisk-external</string>
 					<key>pfm_subkeys</key>
@@ -210,7 +212,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>harddisk-internal</string>
 					<key>pfm_subkeys</key>
@@ -251,7 +253,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>networkdisk</string>
 					<key>pfm_subkeys</key>
@@ -292,7 +294,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>disk-image</string>
 					<key>pfm_subkeys</key>
@@ -333,7 +335,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>bd</string>
 					<key>pfm_subkeys</key>
@@ -374,7 +376,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>cd</string>
 					<key>pfm_subkeys</key>
@@ -415,7 +417,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvd</string>
 					<key>pfm_subkeys</key>
@@ -456,7 +458,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvdram</string>
 					<key>pfm_subkeys</key>
@@ -497,7 +499,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankbd</string>
 					<key>pfm_subkeys</key>
@@ -538,7 +540,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankcd</string>
 					<key>pfm_subkeys</key>
@@ -579,7 +581,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankdvd</string>
 					<key>pfm_subkeys</key>
@@ -626,7 +628,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Media type dictionary to control volume unmounting.</string>
+			<string>The media type dictionary that controls volume unmounting.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>11.0</string>
 			<key>pfm_macos_max</key>
@@ -639,7 +641,9 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>This key is the default for media types that donʼt fall into other categories. Like internally installed SD-Cards and USB flash drives.</string>
+					<string>A string or an array of media action strings. Internally installed SD cards and USB flash drives are included in the hard disk-external category.
+
+This key is the default for media types that don't fall into other categories.</string>
 					<key>pfm_name</key>
 					<string>harddisk-external</string>
 					<key>pfm_subkeys</key>
@@ -680,7 +684,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>harddisk-internal</string>
 					<key>pfm_subkeys</key>
@@ -721,7 +725,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>networkdisk</string>
 					<key>pfm_subkeys</key>
@@ -762,7 +766,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>disk-image</string>
 					<key>pfm_subkeys</key>
@@ -803,7 +807,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>bd</string>
 					<key>pfm_subkeys</key>
@@ -844,7 +848,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>cd</string>
 					<key>pfm_subkeys</key>
@@ -885,7 +889,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvd</string>
 					<key>pfm_subkeys</key>
@@ -926,7 +930,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvdram</string>
 					<key>pfm_subkeys</key>
@@ -967,7 +971,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankbd</string>
 					<key>pfm_subkeys</key>
@@ -1008,7 +1012,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankcd</string>
 					<key>pfm_subkeys</key>
@@ -1049,7 +1053,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankdvd</string>
 					<key>pfm_subkeys</key>
@@ -1096,7 +1100,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Volumes to eject when the user logs out.</string>
+			<string>The media type dictionary that defines volumes to eject when the user logs out.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>11.0</string>
 			<key>pfm_macos_max</key>
@@ -1109,7 +1113,9 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>This key is the default for media types that donʼt fall into other categories. Like internally installed SD-Cards and USB flash drives.</string>
+					<string>A string or an array of media action strings. Internally installed SD cards and USB flash drives are included in the hard disk-external category.
+
+This key is the default for media types that don't fall into other categories.</string>
 					<key>pfm_name</key>
 					<string>harddisk-external</string>
 					<key>pfm_subkeys</key>
@@ -1150,7 +1156,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>harddisk-internal</string>
 					<key>pfm_subkeys</key>
@@ -1191,7 +1197,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>networkdisk</string>
 					<key>pfm_subkeys</key>
@@ -1232,7 +1238,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>disk-image</string>
 					<key>pfm_subkeys</key>
@@ -1273,7 +1279,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>bd</string>
 					<key>pfm_subkeys</key>
@@ -1314,7 +1320,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>cd</string>
 					<key>pfm_subkeys</key>
@@ -1355,7 +1361,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvd</string>
 					<key>pfm_subkeys</key>
@@ -1396,7 +1402,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>dvdram</string>
 					<key>pfm_subkeys</key>
@@ -1437,7 +1443,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankbd</string>
 					<key>pfm_subkeys</key>
@@ -1478,7 +1484,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankcd</string>
 					<key>pfm_subkeys</key>
@@ -1519,7 +1525,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>A media action string or an array of media action strings.</string>
 					<key>pfm_name</key>
 					<string>blankdvd</string>
 					<key>pfm_subkeys</key>

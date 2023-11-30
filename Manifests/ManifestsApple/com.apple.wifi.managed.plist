@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -30,7 +30,7 @@
 			<key>pfm_default</key>
 			<string>Configures Wi-Fi settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -42,7 +42,7 @@
 			<key>pfm_default</key>
 			<string>Wi-Fi</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -56,7 +56,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.wifi.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -70,7 +70,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.wifi.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -84,7 +84,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -100,7 +100,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -112,7 +112,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -169,7 +169,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If the network should be treated as a Legacy Hotspot or Passpoint network.</string>
+			<string>If 'true', the device treats the network as a hotspot.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -232,7 +233,7 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Displayed name of the wireless network</string>
+			<string>The SSID of the Wi-Fi network to be used. In iOS 7.0 and later, the SSID is optional if a 'DomainName' value is provided.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -260,7 +261,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Specify whether the network that the device connects to is broadcasting its identity.</string>
+			<string>If 'true', defines this network as hidden.</string>
 			<key>pfm_name</key>
 			<string>HIDDEN_NETWORK</string>
 			<key>pfm_title</key>
@@ -272,7 +273,9 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Automatically join the network without notifying users.</string>
+			<string>If 'true', the device joins the network automatically.
+If 'false', the user must tap the network name to join it.
+Available in iOS 5.0 and later, and in macOS 10.7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_macos_min</key>
@@ -293,7 +296,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Users won't have an opportunity to join networks that require agreements or other information prior to network access.</string>
+			<string>If 'true', Captive Network detection will be bypassed when the device connects to the network.
+Available in iOS 10.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>10.0</string>
 			<key>pfm_name</key>
@@ -311,7 +315,9 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, disables MAC address randomization for that Wi-Fi network while associated with the network. This also shows a privacy warning in Settings indicating that the network has reduced privacy protections.</string>
+			<string>If 'true,' disables MAC address randomization for a Wi-Fi network while associated with that network. This feature also shows a privacy warning in Settings indicating that the network has reduced privacy protections.
+This value is only locked when the profile is installed by MDM. If the profile is manually installed, the value is set but the user can change it.
+Available in iOS 14 and later, and watchOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -329,7 +335,8 @@
 			<key>pfm_default</key>
 			<string>None</string>
 			<key>pfm_description</key>
-			<string>The type of proxy configuration to use for this wireless connection.</string>
+			<string>The proxy type, if any, to use. If you choose the manual proxy type, you need the proxy server address, including its port and optionally a user name and password into the proxy server. If you choose the auto proxy type, you can enter a proxy autoconfiguration (PAC) URL.
+Available in iOS 5.0 and later, and on all versions of macOS.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -376,7 +383,7 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The hostname of the proxy server.</string>
+			<string>The proxy server's network address.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -426,7 +433,7 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The port used to connect to the proxy server.</string>
+			<string>The proxy server's port number.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -456,7 +463,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user name for the manual proxy connection.</string>
+			<string>The user name used to authenticate to the proxy server.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -482,7 +489,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password for the manual proxy connection.</string>
+			<string>The password used to authenticate to the proxy server.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -510,7 +517,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>URL used to receive proxy settings. If no URL is specified, the device uses the web proxy autodiscovery protocol (WPAD) to discover proxies</string>
+			<string>The URL of the PAC file that defines the proxy configuration.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -538,7 +545,7 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Enable to allow direct connection if PAC is unreachable</string>
+			<string>If 'true', allows connecting directly to the destination if the PAC file is unreachable.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -566,7 +573,15 @@
 			<key>pfm_default</key>
 			<string>Any</string>
 			<key>pfm_description</key>
-			<string>Wireless network encryption to use when connecting. The None value is available in iOS 5.0 and later and the WPA2 value is available in iOS 8.0 and later</string>
+			<string>The encryption type for the network.
+If set to anything except 'None', the payload may contain the following three keys: 'Password', 'PayloadCertificateUUID', or 'EAPClientConfiguration'.
+As of iOS 16, tvOS 16, watchOS 9, and macOS 13:
+* 'WPA' allows joining WPA or WPA2 networks
+* 'WPA2' allows joining WPA2 or WPA3 networks
+* 'WPA3' allows joining WPA3 networks only
+* 'Any' allows joining WPA, WPA2, WPA3, and WEP networks.
+Prior to iOS 16, tvOS 16, and watchOS 9, specifying 'WPA', 'WPA2', and 'WPA3' were equivalent and would allow joining any WPA network.
+Prior to macOS 13, the encryption type, if specified explicitly, needed to match the encryption type of the network exactly.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -603,7 +618,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Specifies the password for the access point.</string>
+			<string>The password for the access point.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -647,7 +662,8 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Display name of the Passpoint service provider.</string>
+			<string>The operator name to display when connected to this network. Used only with Wi-Fi Hotspot 2.0 access points.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -708,7 +724,8 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Domain name of the Passpoint service provider.</string>
+			<string>The primary domain of the tunnel.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -753,7 +770,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Specify whether to connect to additional Passpoint networks pre-approved by the service provider.</string>
+			<string>If 'true', allows connection to roaming service providers.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -802,7 +820,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Enter a series of digits corresponding to one of the service provider's Passpoint network.</string>
+			<string>An array of Roaming Consortium Organization Identifiers used for Wi-Fi Hotspot 2.0 negotiation.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -862,7 +881,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Enter the known NAI realm names.</string>
+			<string>An array of Network Access Identifier Realm names used for Wi-Fi Hotspot 2.0 negotiation.
+Available in iOS 7.0 and later, and in macOS 10.9 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -920,7 +940,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>HotSpot 2.0 MCC/MNCs.</string>
+			<string>An array of Mobile Country Code/Mobile Network Code (MCC/MNC) pairs used for Wi-Fi Hotspot 2.0 negotiation. Each string must contain exactly six digits.
+Available in iOS 7.0 and later. This feature is not supported in macOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -977,7 +998,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Select "Login Window" to authenticate the Mac to the network when the user logs in.</string>
+			<string>An array of strings that contain the type of connection mode to be attached.</string>
 			<key>pfm_name</key>
 			<string>SetupModes</string>
 			<key>pfm_platforms</key>
@@ -1016,14 +1037,23 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Specifies 802.1x EAP authentication parameters.</string>
+			<string>The enterprise network configuration.</string>
 			<key>pfm_name</key>
 			<string>EAPClientConfiguration</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The EAP types accepted.</string>
+					<string>The system accepts the following EAP types:
+13 = TLS
+17 = LEAP
+18 = EAP-SIM
+21 = TTLS
+23 = EAP-AKA
+25 = PEAP
+43 = EAP-FAST
+
+For EAP-TLS authentication without a network payload, install the necessary identity certificates and have your users select EAP-TLS mode in the 802.1X credentials dialog that appears when they connect to the network. For other EAP types, a network payload is necessary and must specify the correct settings for the network.</string>
 					<key>pfm_name</key>
 					<string>AcceptEAPTypes</string>
 					<key>pfm_require</key>
@@ -1070,7 +1100,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Username. If not provided, the user may be prompted during login.</string>
+					<string>The user name for the account. If you don't specify a value, the system prompts the user during login.</string>
 					<key>pfm_name</key>
 					<string>UserName</string>
 					<key>pfm_title</key>
@@ -1098,7 +1128,7 @@
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>Password. If not provided, the user may be prompted during login.</string>
+					<string>The user's password. If you don't specify a value, the system prompts the user during login.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1134,7 +1164,7 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If set, the user will be prompted for a password each time they connect to the network.</string>
+					<string>If 'true', the user receives a prompt for a password each time they connect to the network.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1173,7 +1203,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Array of UUIDs corresponding to the trusted certificates for this authentication.</string>
+					<string>An array of the UUID of a certificate payload to trust for authentication. Use this key to prevent the device from asking the user whether to trust the listed certificates. Dynamic trust (the certificate dialogue) is in a disabled state if you specify this property without also enabling  'TLSAllowTrustExceptions'.</string>
 					<key>pfm_name</key>
 					<string>PayloadCertificateAnchorUUID</string>
 					<key>pfm_subkeys</key>
@@ -1198,7 +1228,9 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Certificate Common Names expected from authentication server. The wildcard * can be used to match a range of strings.</string>
+					<string>The list of accepted server certificate common names. If a server presents a certificate that isn't in this list, the system doesn't trust it.
+If you specify this property, the system disables dynamic trust (the certificate dialog) unless you also specify 'TLSAllowTrustExceptions'  with the value 'true'.
+If necessary, use wildcards to specify the name, such as 'wpa.*.example.com'.</string>
 					<key>pfm_name</key>
 					<string>TLSTrustedServerNames</string>
 					<key>pfm_subkeys</key>
@@ -1223,7 +1255,9 @@
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Allows a dynamic trust decision by the user.</string>
+					<string>If 'true', allows a dynamic trust decision by the user. The dynamic trust is the certificate dialogue that appears when the system doesn't trust a certificate.
+If 'false', the authentication fails if the system doesn't already trust the certificate.
+As of iOS 8, Apple no longer supports this key.</string>
 					<key>pfm_ios_deprecated</key>
 					<string>7.1.2</string>
 					<key>pfm_ios_max</key>
@@ -1257,7 +1291,7 @@
 					<key>pfm_default</key>
 					<string>MSCHAPv2</string>
 					<key>pfm_description</key>
-					<string>Specifies the inner authentication used by the TTLS module.</string>
+					<string>The inner authentication that the TTLS module uses.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1291,7 +1325,9 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Externally visible identification (for TTLS, PEAP, and EAP-FAST). This string is used instead of the user's identity outside the encrypted tunnel. This value can be used to mask the true identity of the person using the network.</string>
+					<string>A name that hides the user's true name. The user's actual name appears only inside the encrypted tunnel. For example, you might set this to anonymous or anon, or anon@mycompany.net. It can increase security because an attacker can't see the authenticating user's name in the clear.
+
+This key is only relevant to TTLS, PEAP, and EAP-FAST.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1319,7 +1355,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>The minimum TLS version for EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1358,7 +1394,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string></string>
+					<string>The maximum TLS version for EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1399,7 +1435,7 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If set, the device will use an existing PAC if it's present. Otherwise the server must present its identity using a certificate.</string>
+					<string>If 'true', the device uses an existing PAC if it's present. Otherwise, the server must present its identity using a certificate.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1427,7 +1463,9 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If set, allows PAC provisioning.</string>
+					<string>If 'true', allows PAC provisioning.
+
+This value is only applicable if 'EAPFASTUsePAC' is 'true'. This value must be 'true' for EAP-FAST PAC usage to succeed because there is no other way to provision a PAC.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1468,7 +1506,7 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If set, provisions the device anonymously. Note that there are known man-in-the-middle attacks for anonymous provisioning.</string>
+					<string>If 'true', provisions the device anonymously. Note that there are known machine-in-the-middle attacks for anonymous provisioning.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1509,7 +1547,8 @@
 					<key>pfm_default</key>
 					<integer>3</integer>
 					<key>pfm_description</key>
-					<string>The minimum number of RAND values accepted from the server. 3 is the default, and 2 is allowed, but offers less security.</string>
+					<string>The minimum number of RAND values to accept from the server.
+For use with EAP-SIM only.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1540,7 +1579,8 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Use an alternate set of credentials when in System mode (AKA not a loginwindow profile). This can be used to tell EAPOLClient to use the computer password in a bound active directory scenario for authentication.</string>
+					<string>Set this string to 'ActiveDirectory' to use the AD computer name and password credentials.
+If using this property, you can't use 'SystemModeUseOpenDirectoryCredentials'.</string>
 					<key>pfm_name</key>
 					<string>SystemModeCredentialsSource</string>
 					<key>pfm_range_list</key>
@@ -1554,7 +1594,8 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>This indicates if the connection should try to use the OpenDirectory machine credentials.</string>
+					<string>If 'true', the system mode connection tries to use the Open Directory credentials.
+If using this property, you can't use  'SystemModeCredentialsSource'.</string>
 					<key>pfm_name</key>
 					<string>SystemModeUseOpenDirectoryCredentials</string>
 					<key>pfm_title</key>
@@ -1570,7 +1611,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Restrict fast lane QoS marking.</string>
+			<string>A dictionary that contains the list of apps that are allowed to benefit from L2 and L3 marking. When this dictionary isn't present, all apps are allowed to use L2 and L3 marking when the Wi-Fi network supports Cisco QoS fast lane.
+Available in iOS 10.0 and later, and in macOS 10.13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>10.0</string>
 			<key>pfm_macos_min</key>
@@ -1588,7 +1630,9 @@
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Enable any kind of QoS marking.</string>
+					<string>If 'true', disables L3 marking and only uses L2 marking for traffic that goes to the Wi-Fi network.
+
+If 'false', the system behaves as if Wi-Fi doesn't have an association with a Cisco QoS fast lane network.</string>
 					<key>pfm_name</key>
 					<string>QoSMarkingEnabled</string>
 					<key>pfm_title</key>
@@ -1600,7 +1644,7 @@
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Enable QoS for WiFi Calling, FaceTime, SMS, etc.</string>
+					<string>If 'true', adds audio and video traffic of built-in audio/video services, such as FaceTime and Wi-Fi Calling, to the allow list for L2 and L3 marking for traffic that goes to the Wi-Fi network.</string>
 					<key>pfm_name</key>
 					<string>QoSMarkingAppleAudioVideoCalls</string>
 					<key>pfm_title</key>
@@ -1610,7 +1654,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Add specific apps to an allow list for QoS marking.</string>
+					<string>An array of app bundle identifiers that defines the allow list for L2 and L3 marking for traffic that goes to the Wi-Fi network. If the array isn't present, but the 'QoSMarkingPolicy' key is present — even empty — no apps can use L2 and L3 marking.</string>
 					<key>pfm_ios_min</key>
 					<string>14.5</string>
 					<key>pfm_macos_min</key>
@@ -1633,7 +1677,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Add specific apps to an allow list for QoS marking.</string>
+					<string>Use 'QoSMarkingAllowListAppIdentifiers' instead.</string>
 					<key>pfm_ios_deprecated</key>
 					<string>14.5</string>
 					<key>pfm_macos_deprecated</key>
@@ -1680,7 +1724,7 @@
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>UUID of the certificate payload containing an identity used as the client credential.</string>
+			<string>The UUID of the certificate payload within the same profile to use for the client credential.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1713,7 +1757,8 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set, force a non-default authentication method. (if YES, uses certificate from PayloadCertificateUUID).</string>
+			<string>If 'true', allows for two-factor authentication for EAP-TTLS, PEAP, or EAP-FAST.
+If 'false', allows for zero-factor authentication for EAP-TLS.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>

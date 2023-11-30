@@ -11,7 +11,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -24,7 +24,7 @@
 			<key>pfm_default</key>
 			<string>Configures SCEP settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -36,7 +36,7 @@
 			<key>pfm_default</key>
 			<string>SCEP</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -50,7 +50,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.scep</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -64,7 +64,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.scep</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -78,7 +78,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -94,7 +94,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -106,7 +106,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This dictionary contains the payload contents</string>
+			<string>An array of payload dictionaries. This array isn't present if 'IsEncrypted' is 'true'.</string>
 			<key>pfm_name</key>
 			<string>PayloadContent</string>
 			<key>pfm_require</key>
@@ -125,7 +125,7 @@
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The base URL for the SCEP server</string>
+					<string>The SCEP URL. See Over-the-Air Profile Delivery and Configuration for more information about SCEP.</string>
 					<key>pfm_name</key>
 					<string>URL</string>
 					<key>pfm_require</key>
@@ -137,7 +137,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Any string that is understood by the SCEP server. For example, it could be a domain name like example.org. If a certificate authority has multiple CA certificates this field can be used to distinguish which is required.</string>
+					<string>A string that's understood by the SCEP server; for example, a domain name like example.org. If a certificate authority has multiple CA certificates, this field can be used to distinguish which is required.</string>
 					<key>pfm_name</key>
 					<string>Name</string>
 					<key>pfm_title</key>
@@ -147,7 +147,10 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The representation of a X.500 name represented as an array of OID and value. OIDs can be represented as dotted numbers, with shortcuts for country (C), locality (L), state (ST), organization (O), organizational unit (OU), and common name (CN).</string>
+					<string>The representation of an X.500 name as an array of OID and value.
+For example, '/C=US/O=Apple Inc./CN=foo/1.2.5.3=bar' translates to '[ [ [“C”, “US”] ], [ [“O”, “Apple Inc.'] ], …, [ [ “1.2.5.3”, “bar” ] ] ]'.
+
+OIDs can be represented as dotted numbers, with shortcuts for country (C), locality (L), state (ST), organization (O), organizational unit (OU), and common name (CN).</string>
 					<key>pfm_format</key>
 					<string>(,?[^=,]+=[^=,]+(,|$))</string>
 					<key>pfm_name</key>
@@ -319,7 +322,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Used as the pre-shared secret for automatic enrollment.</string>
+					<string>A preshared secret.</string>
 					<key>pfm_name</key>
 					<string>Challenge</string>
 					<key>pfm_title</key>
@@ -331,7 +334,7 @@
 					<key>pfm_default</key>
 					<integer>1024</integer>
 					<key>pfm_description</key>
-					<string>Key size in bits</string>
+					<string>The key size, in bits.</string>
 					<key>pfm_name</key>
 					<string>Keysize</string>
 					<key>pfm_range_list</key>
@@ -346,7 +349,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The fingerprint (hex string) of the Certificate Authority certificate.</string>
+					<string>The fingerprint of the Certificate Authority certificate.</string>
 					<key>pfm_name</key>
 					<string>CAFingerprint</string>
 					<key>pfm_title</key>
@@ -362,7 +365,7 @@
 					<key>pfm_default</key>
 					<string>RSA</string>
 					<key>pfm_description</key>
-					<string>Currently always "RSA".</string>
+					<string>Always 'RSA'.</string>
 					<key>pfm_name</key>
 					<string>Key Type</string>
 					<key>pfm_range_list</key>
@@ -378,7 +381,12 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>A bitmask indicating the use of the key.\n• 1 - signing\n• 4 - encryption\n• 5 - signing and encryption</string>
+					<string>A bitmask indicating the use of the key.
+
+* 1: Signing
+* 4: Encryption
+
+Some certificate authorities, such as Windows CA, support only encryption or signing, but not both at the same time.</string>
 					<key>pfm_ios_min</key>
 					<string>4.0</string>
 					<key>pfm_name</key>
@@ -406,9 +414,7 @@
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Allow / restrict exporting the private key from the keychain.</string>
-					<key>pfm_description_reference</key>
-					<string>If `false`, disables exporting the private key from the keychain.</string>
+					<string>If 'false', disables exporting the private key from the keychain.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -420,14 +426,14 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Specifies the Subject Alt Name for the certificate.</string>
+					<string>The SCEP payload can specify an optional 'SubjectAltName' dictionary that provides values required by the CA for issuing a certificate. You can specify a single string or an array of strings for each key. The values you specify depend on the CA you're using, but might include DNS name, URL, or email values. For an example, see Sample Configuration Profile or Over-the-Air Profile Delivery and Configuration.</string>
 					<key>pfm_name</key>
 					<string>SubjectAltName</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>RFC 822 (email address) string</string>
+							<string>The RFC 822 (email address) string.</string>
 							<key>pfm_name</key>
 							<string>rfc822Name</string>
 							<key>pfm_substitution_variables</key>
@@ -548,7 +554,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>DNS Name</string>
+							<string>The DNS name.</string>
 							<key>pfm_name</key>
 							<string>dNSName</string>
 							<key>pfm_substitution_variables</key>
@@ -669,7 +675,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Uniform Resource Indentifier</string>
+							<string>The Uniform Resource Identifier.</string>
 							<key>pfm_name</key>
 							<string>uniformResourceIdentifier</string>
 							<key>pfm_substitution_variables</key>
@@ -790,7 +796,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>NT Principal Name</string>
+							<string>The NT principal name.</string>
 							<key>pfm_name</key>
 							<string>ntPrincipalName</string>
 							<key>pfm_substitution_variables</key>
@@ -959,7 +965,7 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Allow all apps to access the certificate in the keychain</string>
+					<string>If 'true', all apps have access to the private key.</string>
 					<key>pfm_name</key>
 					<string>AllowAllAppsAccess</string>
 					<key>pfm_platforms</key>
