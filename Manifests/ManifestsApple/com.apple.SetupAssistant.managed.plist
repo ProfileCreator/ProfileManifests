@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>14.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-06T09:11:21Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -29,7 +29,7 @@
 			<key>pfm_default</key>
 			<string>Configures Setup Assistant settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -41,7 +41,7 @@
 			<key>pfm_default</key>
 			<string>Setup Assistant</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -55,7 +55,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.SetupAssistant.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -69,7 +69,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.SetupAssistant.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -83,7 +83,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -99,7 +99,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -111,7 +111,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -123,7 +123,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Choose Your Look window.</string>
+			<string>If 'true', skips the Choose Your Look window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.14.0</string>
 			<key>pfm_name</key>
@@ -141,7 +141,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Apple ID setup window.</string>
+			<string>If 'true', skips the Apple ID setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -159,7 +159,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the iCloud Storage window.</string>
+			<string>If 'true', skips the iCloud Storage window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13.4</string>
 			<key>pfm_name</key>
@@ -177,7 +177,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Privacy consent window.</string>
+			<string>If 'true', skips the Privacy consent window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13.4</string>
 			<key>pfm_name</key>
@@ -195,7 +195,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Siri setup window.</string>
+			<string>If 'true', skips the Siri setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -213,9 +213,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the True Tone Display window.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If true, skip the True Tone Display window. Availability: Available in macOS 10.13.6 and later.</string>
+			<string>If 'true', skips the True Tone Display window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.13.6</string>
 			<key>pfm_name</key>
@@ -233,7 +231,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Screen Time window.</string>
+			<string>If true, skips the Screen Time window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.15</string>
 			<key>pfm_name</key>
@@ -251,7 +249,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the TouchID setup window.</string>
+			<string>If true, skips the Touch ID setup window.</string>
 			<key>pfm_macos_min</key>
 			<string>10.12</string>
 			<key>pfm_name</key>
@@ -269,7 +267,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the Unlock with Apple Watch setup window.</string>
+			<string>Skips Unlock With Apple Watch window</string>
 			<key>pfm_macos_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -287,7 +285,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Skips the accessibility setup window.</string>
+			<string>Skips Accessibility window</string>
 			<key>pfm_macos_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -321,7 +319,8 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>List of setup items to skip</string>
+			<string>An array strings describing setup items to skip. SkipKeys provides a list of valid strings and their meanings.
+Available in iOS 14 and later.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/skipkeys</string>
 			<key>pfm_ios_min</key>

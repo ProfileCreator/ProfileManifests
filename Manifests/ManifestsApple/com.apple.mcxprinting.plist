@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>exlusive</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -28,9 +28,7 @@
 			<key>pfm_default</key>
 			<string>Configures Printing settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -42,9 +40,7 @@
 			<key>pfm_default</key>
 			<string>Printing</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -58,9 +54,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mcxprinting</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -74,9 +68,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.mcxprinting</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -90,9 +82,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -108,10 +98,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -123,10 +110,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -138,7 +122,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If true, allows printers that connect directly to a user's computer.</string>
+			<string>If 'true', allows printers that connect directly to a user's computer.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -152,7 +136,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The default printer for the user. This information should match one of the printers in the Printer List.</string>
+			<string>The default printer for the user.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_exclude</key>
@@ -177,7 +161,7 @@ The payload organization for a payload need not match the payload organization i
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The printer display name. This should match one of the printers in the Printer List.</string>
+					<string>The display name.</string>
 					<key>pfm_documentation_url</key>
 					<string>https://developer.apple.com/documentation/devicemanagement/printing/defaultprinter</string>
 					<key>pfm_macos_min</key>
@@ -195,7 +179,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The device URI. This should match one of the printers in the Printer List.</string>
+					<string>The device URI.</string>
 					<key>pfm_documentation_url</key>
 					<string>https://developer.apple.com/documentation/devicemanagement/printing/defaultprinter</string>
 					<key>pfm_macos_min</key>
@@ -221,7 +205,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, prints the page footer (including the user name and date).</string>
+			<string>If 'true', prints the page footer (including the user name and date).</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -235,7 +219,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The font to use when printing a footer.</string>
+			<string>The footer font name.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -249,7 +233,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The font size to use when printing a footer.</string>
+			<string>The footer font size.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -265,7 +249,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, includes the MAC address.</string>
+			<string>If 'true', includes the MAC address.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -281,7 +265,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If true, requires an administrator password to add printers.</string>
+			<string>If 'true', requires an administrator password to add printers.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -297,7 +281,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, requires an administrator password to print locally.</string>
+			<string>If 'true', requires an administrator password to print locally.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -313,7 +297,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If true, shows only managed printers.</string>
+			<string>If 'true', shows only managed printers.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://developer.apple.com/documentation/devicemanagement/printing</string>
 			<key>pfm_macos_min</key>
@@ -338,7 +322,7 @@ The payload organization for a payload need not match the payload organization i
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>A printer item in the printer list</string>
+					<string>A dictionary of printer details.</string>
 					<key>pfm_hidden</key>
 					<string>container</string>
 					<key>pfm_name</key>
@@ -349,7 +333,7 @@ The payload organization for a payload need not match the payload organization i
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The printer display name.</string>
+							<string>The display name.</string>
 							<key>pfm_name</key>
 							<string>DisplayName</string>
 							<key>pfm_require</key>
@@ -417,7 +401,7 @@ The payload organization for a payload need not match the payload organization i
 							<key>pfm_default</key>
 							<false/>
 							<key>pfm_description</key>
-							<string>If true, locks the printer.</string>
+							<string>If 'true', locks the printer.</string>
 							<key>pfm_name</key>
 							<string>PrinterLocked</string>
 							<key>pfm_require</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>tvOS Restrictions preferences</string>
+	<string>Use this section to define restrictions settings</string>
 	<key>pfm_description_reference</key>
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
 	<key>pfm_documentation_url</key>
@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_note</key>
 	<string>You can specify additional restrictions, including maximum allowed content ratings, by creating a profile using Apple Configurator 2 or Profile Manager.</string>
 	<key>pfm_platforms</key>
@@ -30,9 +30,7 @@
 			<key>pfm_default</key>
 			<string>Configures restrictions</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -44,9 +42,7 @@
 			<key>pfm_default</key>
 			<string>Restrictions</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -60,9 +56,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.applicationaccess</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -76,9 +70,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.applicationaccess</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -92,9 +84,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -110,10 +100,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -125,10 +112,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -205,9 +189,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, prevents device name from being changed.</string>
-			<key>pfm_description_reference</key>
-			<string>Supervised only. If set to false, prevents device name from being changed. Defaults to true. Availability: Available in iOS 9.0 and tvOS 11.0 and later.</string>
+			<string>If 'false', prevents the user from changing the device name. Requires a supervised device. Available in iOS 9 and later, and tvOS 11.0 and later.</string>
 			<key>pfm_name</key>
 			<string>allowDeviceNameModification</string>
 			<key>pfm_supervised</key>
@@ -223,9 +205,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string></string>
-			<key>pfm_description_reference</key>
-			<string>If true, enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<string>If 'true', enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_name</key>
 			<string>forceAutomaticDateAndTime</string>
 			<key>pfm_supervised</key>
@@ -240,6 +220,8 @@ The payload organization for a payload need not match the payload organization i
 		<dict>
 			<key>pfm_default</key>
 			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', disables Apple TV's automatic screen saver. Available in tvOS 15.4 and later.</string>
 			<key>pfm_name</key>
 			<string>allowAutomaticScreenSaver</string>
 			<key>pfm_title</key>
@@ -279,7 +261,8 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When populated, prevents displaying or launching listed apps. Disabled when using the Allowed Apps preference.</string>
+			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value 'com.apple.webapp' to restrict all webclips. Note that denying system apps may disable other functionality. For example, denying the App Store app may prevent users from accepting the terms and conditions for user-based VPP.
+Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -318,9 +301,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If enabled, cannot use the allowlist to restrict app usage.</string>
-			<key>pfm_description_reference</key>
-			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value com.apple.webapp to blacklist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later. </string>
+			<string>Use blockedAppBundleIDs instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -363,7 +344,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>When populated, prevents displaying or launching apps other than the listed ones. Disabled when using the Blocked Apps preference.</string>
+			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value 'com.apple.webapp' to allow all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -402,9 +383,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If enabled, cannot use the denylist to restrict app usage.</string>
-			<key>pfm_description_reference</key>
-			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value com.apple.webapp to whitelist all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<string>Use 'allowListedAppBundleIDs' instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -479,9 +458,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<string>us</string>
 			<key>pfm_description</key>
-			<string>This 2-letter key is used by profile tools to display the proper ratings for given region. It is not recognized or reported by the client.</string>
-			<key>pfm_description_reference</key>
-			<string>This 2-letter key is used by profile tools to display the proper ratings for given region. It is not recognized or reported by the client. Availability: Available in iOS and tvOS 11.3 and later.</string>
+			<string>The two-letter key that profile tools use to display the proper ratings for the given region. This data isn't recognized or reported by the client.</string>
 			<key>pfm_name</key>
 			<string>ratingRegion</string>
 			<key>pfm_range_list</key>
@@ -519,9 +496,14 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>This value defines the maximum level of app content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
-			<key>pfm_description_reference</key>
-			<string>This value defines the maximum level of app content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<string>The maximum level of app content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
+Possible values (with the US description of the rating level):
+* 1000: All
+* 600: 17+
+* 300: 12+
+* 200: 9+
+* 100: 4+
+* 0: None</string>
 			<key>pfm_name</key>
 			<string>ratingApps</string>
 			<key>pfm_range_list</key>
@@ -563,9 +545,15 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>This value defines the maximum level of movie content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
-			<key>pfm_description_reference</key>
-			<string>This value defines the maximum level of movie content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
+Possible values (with the US description of the rating level):
+* 1000: All
+* 500: NC-17
+* 400: R
+* 300: PG-13
+* 200: PG
+* 100: G
+* 0: None</string>
 			<key>pfm_name</key>
 			<string>ratingMovies</string>
 			<key>pfm_range_list</key>
@@ -607,9 +595,18 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>This value defines the maximum level of TV content that is allowed on the device. Not all integer values are used in each region. Apple's Configuration Profile documentation includes the values for the US, so you may need to do some sleuthing here.</string>
-			<key>pfm_description_reference</key>
-			<string>This value defines the maximum level of TV content that is allowed on the device. Availability: Available only in iOS 5 and tvOS 11.3 and later.</string>
+			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
+
+Possible values (with the US description of the rating level):
+
+* 1000: All
+* 600: TV-MA
+* 500: TV-14
+* 400: TV-PG
+* 300: TV-G
+* 200: TV-Y7
+* 100: TV-Y
+* 0: None</string>
 			<key>pfm_name</key>
 			<string>ratingTVShows</string>
 			<key>pfm_range_list</key>
@@ -651,9 +648,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. When false, explicit music or video content purchased from the iTunes Store is hidden. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. This key is deprecated on unsupervised devices. Availability: Available in iOS and in tvOS 11.3 and later.</string>
+			<string>If 'false', hides explicit music or video content purchased from the iTunes Store. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. As of iOS 13, requires a supervised device. Available in iOS 4 and later, and tvOS 11.3 and later.</string>
 			<key>pfm_name</key>
 			<string>allowExplicitContent</string>
 			<key>pfm_supervised</key>
@@ -669,9 +664,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, the user will not be able to download media from Apple Books that has been tagged as erotica.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only prior to iOS 6.1. If set to false, the user will not be able to download media from Apple Books that has been tagged as erotica. This will default to true. Availability: Available in iOS and in tvOS 11.3 and later.</string>
+			<string>If 'false', the user can't download Apple Books media that is tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later.</string>
 			<key>pfm_name</key>
 			<string>allowBookstoreErotica</string>
 			<key>pfm_title</key>
@@ -685,9 +678,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string></string>
-			<key>pfm_description_reference</key>
-			<string></string>
+			<string>If 'false', disables incoming AirPlay requests. Requires a supervised device. Available in macOS 12.3 and later, and tvOS 10.2 and later.</string>
 			<key>pfm_name</key>
 			<string>allowAirPlayIncomingRequests</string>
 			<key>pfm_supervised</key>
@@ -703,9 +694,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>It is recommended to use the AirPlay Security Payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If set to true, forces all devices sending AirPlay requests to this device to use a pairing password. Default is false. Availability: Available only in Apple TV 6.1 to tvOS 10.1. This is not supported as of tvOS 10.2. It is recommended to use the AirPlay Security Payload.</string>
+			<string>If 'true', forces all devices sending AirPlay requests to this device to use a pairing password. Available in Apple TV Software 6.2 and later. This key isn't supported in tvOS 10.2 and later. Use the AirPlay Security Payload instead.</string>
 			<key>pfm_name</key>
 			<string>forceAirPlayIncomingRequestsPairingPassword</string>
 			<key>pfm_note</key>
@@ -723,9 +712,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, the Apple TV cannot be paired for use with the Remote app or Control Center widget.</string>
-			<key>pfm_description_reference</key>
-			<string>If set to false, the Apple TV cannot be paired for use with the Remote app or Control Center widget. Defaults to true. Availability: Available in tvOS 10.2 and later.</string>
+			<string>If 'false', disables pairing Apple TV for use with the Remote app or Control Center widget. Requires a supervised device. Available in tvOS 10.2 and later.</string>
 			<key>pfm_name</key>
 			<string>allowRemoteAppPairing</string>
 			<key>pfm_title</key>
@@ -739,9 +726,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, a user's device will not request passwords from nearby devices.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only. If set to false, a user's device will not request passwords from nearby devices. Defaults to true. Availability: Available only in iOS 12.0, macOS 10.14, and tvOS 12.0 and later.</string>
+			<string>If 'false', disables requesting passwords from nearby devices. Requires a supervised device. Available in iOS 12 and later, macOS 10.14 and later, and tvOS 12 and later.</string>
 			<key>pfm_name</key>
 			<string>allowPasswordProximityRequests</string>
 			<key>pfm_supervised</key>
@@ -757,9 +742,9 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If set to true, delays user visibility of Software Updates.</string>
-			<key>pfm_description_reference</key>
-			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
+			<string>If 'true', delays user visibility of software updates. In macOS, seed build updates are allowed, without delay. Requires a supervised device in iOS and tvOS.
+The delay is 30 days unless 'enforcedSoftwareUpdateDelay' is set to another value.
+Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
 			<key>pfm_supervised</key>
@@ -775,9 +760,9 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<integer>30</integer>
 			<key>pfm_description</key>
-			<string>Number of days the software updates will be hidden from the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Supervised only. This restriction allows the admin to set how many days a software update on the device will be delayed. With this restriction in place, the user will not see a software update until the specified number of days after the software update release date. The max is 90 days and the default value is 30. Availability: Available in iOS 11.3 and later and macOS 10.13.4 and later.</string>
+			<string>Sets how many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. This value is used by 'forceDelayedAppSoftwareUpdates' and 'forceDelayedSoftwareUpdates'.
+Requires a supervised device in iOS and tvOS.
+Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>

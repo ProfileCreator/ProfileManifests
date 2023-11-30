@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2021-01-15T14:45:32Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -24,7 +24,7 @@
 			<key>pfm_default</key>
 			<string>Configures Proxies settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -36,7 +36,7 @@
 			<key>pfm_default</key>
 			<string>Proxies</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -50,7 +50,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.SystemConfiguration</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -64,7 +64,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.SystemConfiguration</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -78,7 +78,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -94,7 +94,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -106,7 +106,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>macOS System Proxy Configuration</string>
+			<string>The dictionary containing all the proxies for this device.</string>
 			<key>pfm_name</key>
 			<string>Proxies</string>
 			<key>pfm_subkeys</key>
@@ -125,7 +125,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables web proxy.</string>
 					<key>pfm_name</key>
 					<string>HTTPEnable</string>
 					<key>pfm_title</key>
@@ -137,7 +137,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the http proxy server.</string>
+					<string>The host name or IP address for the web proxy.</string>
 					<key>pfm_name</key>
 					<string>HTTPProxy</string>
 					<key>pfm_title</key>
@@ -149,7 +149,7 @@
 					<key>pfm_default</key>
 					<integer>80</integer>
 					<key>pfm_description</key>
-					<string>The port on which to connect to the http proxy server.</string>
+					<string>The web proxy port.</string>
 					<key>pfm_name</key>
 					<string>HTTPPort</string>
 					<key>pfm_title</key>
@@ -161,7 +161,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables secure web proxy.</string>
 					<key>pfm_name</key>
 					<string>HTTPSEnable</string>
 					<key>pfm_title</key>
@@ -173,7 +173,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the https proxy server.</string>
+					<string>The host name or IP address for the secure web proxy.</string>
 					<key>pfm_name</key>
 					<string>HTTPSProxy</string>
 					<key>pfm_title</key>
@@ -185,7 +185,7 @@
 					<key>pfm_default</key>
 					<integer>80</integer>
 					<key>pfm_description</key>
-					<string>The port on which to connect to the https proxy server.</string>
+					<string>The secure web proxy port.</string>
 					<key>pfm_name</key>
 					<string>HTTPSPort</string>
 					<key>pfm_title</key>
@@ -197,7 +197,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables FTP proxy.</string>
 					<key>pfm_name</key>
 					<string>FTPEnable</string>
 					<key>pfm_title</key>
@@ -211,7 +211,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables passive FTP mode.</string>
 					<key>pfm_name</key>
 					<string>FTPPassive</string>
 					<key>pfm_title</key>
@@ -223,7 +223,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the ftp proxy server.</string>
+					<string>The host name or IP address for the FTP proxy.</string>
 					<key>pfm_name</key>
 					<string>FTPProxy</string>
 					<key>pfm_title</key>
@@ -235,7 +235,7 @@
 					<key>pfm_default</key>
 					<integer>80</integer>
 					<key>pfm_description</key>
-					<string>The port on which to connect to the ftp proxy server.</string>
+					<string>The FTP proxy port.</string>
 					<key>pfm_name</key>
 					<string>FTPPort</string>
 					<key>pfm_title</key>
@@ -247,7 +247,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enable the SOCKS proxy.</string>
 					<key>pfm_name</key>
 					<string>SOCKSEnable</string>
 					<key>pfm_title</key>
@@ -259,7 +259,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the socks proxy server.</string>
+					<string>The host name or IP address for the SOCKS proxy.</string>
 					<key>pfm_name</key>
 					<string>SOCKSProxy</string>
 					<key>pfm_title</key>
@@ -283,7 +283,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enable streaming proxy.</string>
 					<key>pfm_name</key>
 					<string>RTSPEnable</string>
 					<key>pfm_title</key>
@@ -295,7 +295,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the rtsp proxy server.</string>
+					<string>The host name or IP address for the streaming proxy.</string>
 					<key>pfm_name</key>
 					<string>RTSPProxy</string>
 					<key>pfm_title</key>
@@ -307,7 +307,7 @@
 					<key>pfm_default</key>
 					<integer>80</integer>
 					<key>pfm_description</key>
-					<string>The port on which to connect to the rtsp proxy server.</string>
+					<string>The streaming proxy port.</string>
 					<key>pfm_name</key>
 					<string>RTSPPort</string>
 					<key>pfm_title</key>
@@ -319,7 +319,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string></string>
+					<string>If 'true', enables gopher proxy.</string>
 					<key>pfm_name</key>
 					<string>GopherEnable</string>
 					<key>pfm_title</key>
@@ -331,7 +331,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The IP address or fully qualified domain name (FQDN) of the gopher proxy server.</string>
+					<string>The host name or IP address for the gopher proxy.</string>
 					<key>pfm_name</key>
 					<string>GopherProxy</string>
 					<key>pfm_title</key>
@@ -343,7 +343,7 @@
 					<key>pfm_default</key>
 					<integer>80</integer>
 					<key>pfm_description</key>
-					<string>The port on which to connect to the gopher proxy server.</string>
+					<string>The gopher proxy port.</string>
 					<key>pfm_name</key>
 					<string>GopherPort</string>
 					<key>pfm_title</key>
@@ -353,7 +353,7 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Bypass proxy settings for these Hosts &amp; Domains.</string>
+					<string>The list of hosts and domains that should bypass proxy settings.</string>
 					<key>pfm_name</key>
 					<string>ExceptionsList</string>
 					<key>pfm_subkeys</key>
@@ -380,7 +380,7 @@
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enable the use of a Proxy AutoConfig file.</string>
+					<string>If 'true', enables automatic proxy configuration.</string>
 					<key>pfm_name</key>
 					<string>ProxyAutoConfigEnable</string>
 					<key>pfm_title</key>
@@ -410,7 +410,7 @@
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>URL to the Automatic Proxy Configuration file.</string>
+					<string>The automatic proxy configuration URL.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -436,7 +436,8 @@
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Enables fallback when set to 1. The default value is 1, except for managed devices whose default is 0.</string>
+					<string>If '1', enables fallback. Default is '1'.
+For managed devices, if not supplied, the default is '0'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -464,7 +465,7 @@
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Allow the device to bypass the proxy server to display the login page for captive networks.</string>
+					<string>If 1, allows client to log into captive portal network.</string>
 					<key>pfm_name</key>
 					<string>ProxyCaptiveLoginAllowed</string>
 					<key>pfm_title</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Single Sign-On Extension settings. User-level payload support for macOS 11.x and later.</string>
+	<string>Configures an app extension to handle Kerberos SSO.</string>
 	<key>pfm_description_reference</key>
 	<string>The payload for configuring an app extension that performs single sign-on.</string>
 	<key>pfm_documentation_url</key>
@@ -17,7 +17,7 @@
 	<key>pfm_ios_min</key>
 	<string>13.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -31,9 +31,7 @@
 			<key>pfm_default</key>
 			<string>Configures an app extension that performs single sign-on</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -45,9 +43,7 @@
 			<key>pfm_default</key>
 			<string>Single Sign-On Extensions</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -61,9 +57,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.extensiblesso</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -77,9 +71,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.extensiblesso</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -93,9 +85,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -111,10 +101,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -126,10 +113,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -139,7 +123,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The bundle identifier of the app extension that performs single sign-on (SSO) for the specified URLs. Enter com.apple.AppSSOKerberos.KerberosExtension to use Apple's Kerberos SSO extension.</string>
+			<string>This value must be  'com.apple.AppSSOKerberos.KerberosExtension' for this extension.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -165,7 +149,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The type of SSO.</string>
+			<string>This value must be 'Credential' for the Kerberos extension.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -200,7 +184,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The team identifier of the app extension. This key is required on macOS and ignored elsewhere.</string>
+			<string>This value must be 'apple' for the Kerberos extension.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -232,7 +216,8 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>An array of host names or domain names that can be authenticated through the app extension. Required for Credential payloads. Ignored for Redirect payloads.</string>
+			<string>One or more host or domain names for which the app extension performs SSO. Host or domain names are matched case-insensitively, and all the host/domain names of all installed Extensible SSO payloads must be unique.
+Hosts that begin with a “.” are wildcard suffixes and will match all subdomains, otherwise the host must be an exact match.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -273,7 +258,7 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The realm name for Credential payloads. This value should be properly capitalized. This key is ignored for Redirect payloads.</string>
+			<string>The Kerberos realm, which should be properly capitalized. If in an Active Directory forest, this is the realm where the user logs in.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -303,7 +288,9 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The realm name for Credential payloads. This value should be properly capitalized. This key is ignored for Redirect payloads.</string>
+			<string>An array of URL prefixes of identity providers where the app extension performs SSO.
+Required for 'Redirect' payloads. Ignored for 'Credential' payloads.
+The URLs must begin with 'http://' or 'https://', the scheme and host name are matched case-insensitively, query parameters and URL fragments are not allowed, and the URLs of all installed Extensible SSO payloads must be unique.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -331,6 +318,9 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>An array of bundle identifiers of apps that don't use SSO provided by this extension.
+Available in iOS 15 and later and macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -354,6 +344,9 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 		<dict>
 			<key>pfm_default</key>
 			<string>Cancel</string>
+			<key>pfm_description</key>
+			<string>If set to 'Cancel', the system cancels authentication requests when the screen is locked. If set to 'DoNotHandle', the request continues without SSO instead. This does not apply to requests where 'userInterfaceEnabled' is set to 'false' or background NSURLSession requests.
+Available in iOS 15 and later and macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -393,7 +386,7 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Used by the Apple built-in Kerberos extension.</string>
+			<string>This is the dictionary used by the Apple built-in Kerberos extension.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -424,7 +417,7 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If false, passwords are not allowed to be saved to the keychain.</string>
+					<string>If 'false', passwords are not allowed to be saved to the keychain.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -456,7 +449,7 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If false, disables password changes. Available in macOS 10.15 and later.</string>
+					<string>If 'false', disables password changes. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -486,7 +479,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, the configured SSO extension must use a ticket-granting ticket (TGT) from Platform SSO.</string>
+					<string>If 'true', requires this configuration uses a TGT from Platform SSO instead of requesting a new one.
+Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -520,7 +514,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If true, allows manual sign-ins as fallback.</string>
+					<string>If 'true' and 'usePlatformSSOTGT' is 'true', allows the user to manually sign in.
+Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -567,7 +562,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, the configured extension only handles Kerberos requests and does not check for or show the expiration of the password, does not check external password changes, does not sync passwords, and does not retrieve the user's home directory.</string>
+					<string>If 'true', the Kerberos Extension handles Kerberos requests only. It doesn't check for password expiration, show the password expiration in the menu, check for external password changes, perform password sync, or retrieve the home directory.
+Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -708,7 +704,11 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<key>pfm_default</key>
 					<string>always</string>
 					<key>pfm_description</key>
-					<string>This setting affects how the Kerberos Extension credential is used by other processes. Available in macOS 11 and later.</string>
+					<string>This setting affects how the Kerberos Extension credential is used by other processes. Use of the following:
+* 'always -' The extension credential will always be used if the SPN matches the Kerberos Extension 'Hosts' array. The credential will not be used if the calling app is not in the 'credentialBundleIDACL'.
+* 'whenNotSpecified -' The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions 'Hosts' array. The credential will not be used if the calling app is not in the 'credentialBundleIDACL'.
+* 'kerberosDefault - 'The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.
+Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -754,7 +754,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The custom user name label used in the Kerberos extension instead of "Username". For example, "Company ID". Available on macOS 11 and later.</string>
+					<string>The custom user name label used in the Kerberos extension instead of “Username”. For example, “Company ID”. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -784,7 +784,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, doesn't prompt the user to setup the Kerberos extension until either the administrator enables it with the app-sso tool or a Kerberos challenge is received. Available in macOS 11 and later.</string>
+					<string>If 'true', doesn't prompt the user to setup the Kerberos extension until either the administrator enables it with the 'app-sso' tool or a Kerberos challenge is received. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -876,7 +876,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, the Kerberos extension will allow only managed apps to access and use the credential. This is in addition to the credentialBundleIDACL, if it is specified. Available in iOS 14 and later.</string>
+					<string>If 'true', the Kerberos extension allows only managed apps to access and use the credential. This is in addition to the 'credentialBundleIDACL', if it is specified. Available in iOS 14 and later, and macOS 12 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -908,7 +908,8 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, the Kerberos extension will allow standard Kerberos utilities such as TicketViewer and klist to access and use the credential. This is in addition to either includeManagedAppsInBundleIdACL or credentialBundleIDACL, if any are specified.</string>
+					<string>If 'true', the Kerberos extension allows the standard kerberos utilities including 'TicketViewer' and 'klist' to access and use the credential. This is in addition to 'includeManagedAppsInBundleIdACL' or the 'credentialBundleIdACL', if it is specified.
+Available in macOS 12 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -938,7 +939,8 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If false, the credential is requested on the next matching Kerberos challenge or network state change. If the credential is expired or missing, a new one will be created. Available in macOS 11 and later.</string>
+					<string>If 'false', the credential is requested on the next matching Kerberos challenge or network state change.
+If the credential is expired or missing, a new one will be created. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -996,7 +998,10 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Preferred Key Distribution Centers for Kerberos traffic when the servers cannot be discovered via DNS.</string>
+					<string>The ordered list of preferred Key Distribution Centers (KDCs) to use for Kerberos traffic. Use this if the servers are not discoverable via DNS. If the servers are specified, then they are used for both connectivity checks and attempted first for Kerberos traffic. If the servers do not respond, then the device falls back to DNS discovery. Each entry is formatted the same as it would be in a 'krb5.conf' file. Examples of entries are:
+* 'adserver1.example.com'
+* 'tcp/adserver1.example.com:88'
+* 'kkdcp://kerberosproxy.example.com:443/kkdcp'</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1131,7 +1136,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, passwords must meet Active Directory's definition of "complex". Available in macOS 10.15 and later.</string>
+					<string>If 'true', passwords must meet Active Directory's definition of 'complex'.Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1159,7 +1164,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The number of prior passwords that cannot be re-used on this domain. Available in macOS 10.15 and later.</string>
+					<string>The number of prior passwords that cannot be re-used on this domain.Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1189,7 +1194,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The minimum length of passwords on the domain. Available in macOS 10.15 and later.</string>
+					<string>The minimum length of passwords on the domain.Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1249,7 +1254,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The text version of the domain's password requirements. Only for use if pwReqComplexity or pwReqLength aren't specified. Available in macOS 10.15 and later.</string>
+					<string>The text version of the domain's password requirements. Only for use if 'pwReqComplexity' or 'pwReqLength' aren't specified. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1341,7 +1346,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If true, requires the user to provide Touch ID, Face ID or their passcode to access the keychain entry.</string>
+					<string>If 'true', requires the user to provide Touch ID, Face ID or their passcode to access the keychain entry.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1403,7 +1408,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If false, disables password sync. Note that this will not work if the user is logged in with a mobile account. Available in macOS 10.15 and later.</string>
+					<string>If 'false', disables password sync. Note that this will not work if the user is logged in with a mobile account. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1433,7 +1438,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If false, the Kerberos extension doesn't automatically use LDAP and DNS to determine its AD site name.</string>
+					<string>If 'false', the Kerberos extension doesn't automatically use LDAP and DNS to determine its AD site name.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1796,7 +1801,8 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Platform SSO authentication method supported and used by the configured SSO extension.</string>
+			<string>The Platform SSO authentication method the extension uses. Requires that the SSO Extension also supports the method.
+Available in macOS 13 and later.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>14.0</string>
 			<key>pfm_macos_min</key>
@@ -1824,7 +1830,8 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Platform SSO token for use in silent registration.</string>
+			<string>The token this device uses for registration with Platform SSO. Use it for silent registration with the Identity Provider. Requires that 'AuthenticationMethod' isn't empty.
+Available in macOS 13 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>

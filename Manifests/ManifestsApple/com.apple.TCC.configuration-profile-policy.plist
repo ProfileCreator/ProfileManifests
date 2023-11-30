@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Configures Privacy Preferences Policy Control settings</string>
+	<string>Configures Security Preferences:Privacy settings</string>
 	<key>pfm_domain</key>
 	<string>com.apple.TCC.configuration-profile-policy</string>
 	<key>pfm_format_version</key>
@@ -11,7 +11,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2023-11-30T15:08:23Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.14</string>
 	<key>pfm_platforms</key>
@@ -24,7 +24,7 @@
 			<key>pfm_default</key>
 			<string>Configures Privacy Preferences Policy Control settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -36,7 +36,7 @@
 			<key>pfm_default</key>
 			<string>Privacy Preferences Policy Control</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -50,7 +50,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.TCC.configuration-profile-policy</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -64,7 +64,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.TCC.configuration-profile-policy</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -78,7 +78,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -94,7 +94,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -106,7 +106,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Keys are limited to the privacy service names listed below. Each key is an array of dictionaries describing the app or process to which access is given. In the case of conflicting specifications, the most restrictive setting (deny) will be used.</string>
+			<string>A dictionary whose keys are limited to the privacy policy control services.  In the case of conflicting specifications, the most restrictive setting (deny) is used.</string>
 			<key>pfm_name</key>
 			<string>Services</string>
 			<key>pfm_require</key>
@@ -124,7 +124,7 @@
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Specifies the policies for the app via the Accessibility subsystem.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
@@ -246,7 +246,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Specifies the policies for the app sending restricted AppleEvents to another process.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
@@ -414,7 +414,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services.AppleEvents</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Specifies the policies for calendar information managed by the Calendar.app.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
@@ -536,8 +536,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>A system camera. Access to the camera cannot be given in a profile; it can only be denied.</string>
+					<key>pfm_description</key>
+					<string>A system camera. Access to the camera can't be given in a profile; it can only be denied.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
 					<key>pfm_name</key>
@@ -656,7 +656,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Specifies the policies for contact information managed by the Contacts.app.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -778,7 +778,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows a File Provider application to know when the user is using files managed by the File Provider.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -898,8 +898,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>Allows the application to use CoreGraphics and HID APIs to listen to (receive) CGEvents and HID events from all processes. Access to these events cannot be given in a profile; it can only be denied.</string>
+					<key>pfm_description</key>
+					<string>Allows the application to use CoreGraphics and HID APIs to listen to (receive) CGEvents and HID events from all processes. Access to these events can't be given in a profile; it can only be denied.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -1016,7 +1016,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access Apple Music, music and video activity, and the media library.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -1136,8 +1136,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>A system microphone. Access to the microphone cannot be given in a profile; it can only be denied.</string>
+					<key>pfm_description</key>
+					<string>A system microphone. Access to the microphone can't be given in a profile; it can only be denied.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
 					<key>pfm_name</key>
@@ -1256,8 +1256,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>Pictures managed by Photos.app in ~/Pictures/.photoslibrary.</string>
+					<key>pfm_description</key>
+					<string>The pictures managed by the Photos app in '~/Pictures/.photoslibrary'.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
 					<key>pfm_name</key>
@@ -1500,7 +1500,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Specifies the policies for reminders information managed by the Reminders app.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
@@ -1622,8 +1622,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>Allows the application access to all protected files.</string>
+					<key>pfm_description</key>
+					<string>Allows the application access to all protected files, including system administration files.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
 					<key>pfm_name</key>
@@ -1744,8 +1744,8 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
-					<string>Allows the application to capture (read) the contents of the system display. Access to the contents cannot be given in a profile; it can only be denied.</string>
+					<key>pfm_description</key>
+					<string>Allows the application to capture (read) the contents of the system display. Access to the contents can't be given in a profile; it can only be denied.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
@@ -1862,7 +1862,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to use the system Speech Recognition facility and to send speech data to Apple.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -1982,7 +1982,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access files in the user's Desktop folder.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -2102,7 +2102,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access files in the user's Documents folder.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -2222,7 +2222,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access files in the user's Downloads folder.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -2342,7 +2342,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access files on network volumes.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -2462,7 +2462,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application to access files on removable volumes.</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
@@ -2582,7 +2582,7 @@
 					<string>com.apple.TCC.configuration-profile-policy.services</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Allows the application access to some files used in system administration.</string>
 					<key>pfm_macos_min</key>
 					<string>10.14</string>
@@ -2844,6 +2844,8 @@ Available in macOS 11 and later.</string>
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>Allows the application to update or delete other apps. Available in macOS 13 and later.</string>
 					<key>pfm_macos_min</key>
 					<string>13.0</string>
 					<key>pfm_name</key>
