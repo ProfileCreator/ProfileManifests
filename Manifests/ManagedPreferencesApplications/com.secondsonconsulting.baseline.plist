@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-21T10:35:00Z</date>
+	<date>2024-01-24T00:00:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -225,6 +225,16 @@ A profile can consist of payloads with different version numbers. For example, c
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The icon you want to appear in the SwiftDialog menu as this Installomator label is processed. Can be a URL or local file path.</string>
+							<key>pfm_name</key>
+							<string>Icon</string>
+							<key>pfm_title</key>
+							<string>Icon</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
 					</array>
 					<key>pfm_type</key>
 					<string>dictionary</string>
@@ -295,6 +305,16 @@ A profile can consist of payloads with different version numbers. For example, c
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The icon you want to appear in the SwiftDialog menu as this package is installed. Can be a URL or local file path.</string>
+							<key>pfm_name</key>
+							<string>Icon</string>
+							<key>pfm_title</key>
+							<string>Icon</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
 					</array>
 					<key>pfm_type</key>
 					<string>dictionary</string>
@@ -355,6 +375,16 @@ A profile can consist of payloads with different version numbers. For example, c
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The icon you want to appear in the SwiftDialog menu as this script is run. Can be a URL or local file path.</string>
+							<key>pfm_name</key>
+							<string>Icon</string>
+							<key>pfm_title</key>
+							<string>Icon</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
 					</array>
 					<key>pfm_type</key>
 					<string>dictionary</string>
@@ -366,22 +396,120 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_description</key>
-			<string>This setting controls whether Baseline forces a restart after completion. Default is true.</string>
+			<string>This setting controls whether Baseline forces a restart after completion.</string>
 			<key>pfm_name</key>
 			<string>Restart</string>
 			<key>pfm_title</key>
-			<string>Restart</string>
+			<string>Force Restart</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This setting controls whether Baseline forces a restart after completion.</string>
+			<key>pfm_name</key>
+			<string>LogOut</string>
+			<key>pfm_title</key>
+			<string>Force Log Out</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>This setting controls whether Baseline uses the SwiftDialog --blurscreen feature. Default is true. If you set to false, consider using --ontop in your DialogListOptions key</string>
+			<key>pfm_name</key>
+			<string>BlurScreen</string>
+			<key>pfm_title</key>
+			<string>Blur Screen</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This setting controls whether Baseline displays a progress bar.</string>
+			<key>pfm_name</key>
+			<string>ProgressBar</string>
+			<key>pfm_title</key>
+			<string>Show Progress Bar</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This setting controls whether Baseline displays the current item being processed under the progress bar.</string>
+			<key>pfm_name</key>
+			<string>ProgressBarDisplayNames</string>
+			<key>pfm_title</key>
+			<string>Show Display Names on Progress Bar</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>This setting controls whether Baseline deletes it's install directory after use: /usr/local/Baseline.</string>
+			<key>pfm_name</key>
+			<string>CleanupAfterUse</string>
+			<key>pfm_title</key>
+			<string>Cleanup After Use</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This setting controls whether Baseline forces a restart after completion. Default is true.</string>
+			<string>This setting controls whether Baseline will reinstall SwiftDialog as the final step before completion. Default behavior if this key is omitted will reinstall SwiftDialog if a custom PNG is found in /Library/Application Support/Dialog/Dialog.png.</string>
 			<key>pfm_name</key>
-			<string>CleanupAfterUse</string>
+			<string>ReinstallDialog</string>
 			<key>pfm_title</key>
-			<string>Cleanup After Use</string>
+			<string>Reinstall SwiftDialog</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Tell Installomator to use it's built in SwiftDialog integration for the List View.</string>
+			<key>pfm_name</key>
+			<string>InstallomatorSwiftDialogIntegration</string>
+			<key>pfm_title</key>
+			<string>Use Installomator SwiftDialog Integration</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>By default, Baseline uses "NOTIFY=silent" and "BLOCKING_PROCESS_ACTION=kill" Installomator options. Setting this to True means Baseline will not use those options.</string>
+			<key>pfm_name</key>
+			<string>IgnoreDefaultInstallomatorOptions</string>
+			<key>pfm_title</key>
+			<string>Ignore Default Installomator Options</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>This setting enables SwiftDialog "Button 1" (the OK button) on the Baseline List View. This allows users to dismiss the list view and continue working while Baseline runs. By default this button is disabled.</string>
+			<key>pfm_name</key>
+			<string>Button1Enabled</string>
+			<key>pfm_title</key>
+			<string>Button 1 Enabled</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -425,6 +553,16 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Define a file path. If this file exists at any point while Baseline is running, Baseline will exit and will not process additional items.</string>
+			<key>pfm_name</key>
+			<string>BailOutFile</string>
+			<key>pfm_title</key>
+			<string>Bail Out File</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -435,6 +573,6 @@ A profile can consist of payloads with different version numbers. For example, c
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
