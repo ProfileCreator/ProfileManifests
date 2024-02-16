@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Configures an app extension to handle Kerberos SSO.</string>
+	<string>Configures an app extension to handle SSO.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/extensiblesinglesignon</string>
 	<key>pfm_domain</key>
@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>13.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-01-30T09:09:49Z</date>
+	<date>2024-02-16T12:49:29Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -100,9 +100,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -115,9 +112,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -153,7 +147,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value must be 'Credential' for the Kerberos extension.</string>
+			<string>The type of SSO.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -188,7 +182,8 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>This value must be 'apple' for the Kerberos extension.</string>
+			<string>The team identifier of the app extension.
+This key is required on macOS and ignored elsewhere.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -228,8 +223,10 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>One or more host or domain names for which the app extension performs SSO. Host or domain names are matched case-insensitively, and all the host/domain names of all installed Extensible SSO payloads must be unique.
-Hosts that begin with a “.” are wildcard suffixes and will match all subdomains, otherwise the host must be an exact match.</string>
+			<string>An array of host names or domain names that apps can authenticate through the app extension.
+Required for 'Credential' payloads. Ignored for 'Redirect' payloads.
+Host or domain names are matched case-insensitively, and all the host/domain names of all installed Extensible SSO payloads must be unique.
+Hosts that begin with a “.” are wildcard suffixes and match all subdomains; otherwise the host must be an exact match.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -270,7 +267,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The Kerberos realm, which should be properly capitalized. If in an Active Directory forest, this is the realm where the user logs in.</string>
+			<string>The realm name for 'Credential' payloads. Use proper capitalization for this value.
+This key is ignored for 'Redirect' payloads.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -424,7 +422,7 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>This is the dictionary used by the Apple built-in Kerberos extension.</string>
+			<string>A dictionary of arbitrary data passed through to the app extension.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1839,7 +1837,8 @@ If the credential is expired or missing, a new one will be created. Available in
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Platform SSO authentication method supported and used by the configured SSO extension.</string>
+			<string>The Platform SSO authentication method the extension uses. Requires that the SSO Extension also supports the method.
+Available in macOS 13 and later and deprecated in macOS 14.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>14.0</string>
 			<key>pfm_macos_min</key>
@@ -1882,7 +1881,7 @@ If the credential is expired or missing, a new one will be created. Available in
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The token this device uses for registration with Platform SSO. Use it for silent registration with the Identity Provider. Requires that 'AuthenticationMethod' isn't empty.
+			<string>The token this device uses for registration with Platform SSO. Use it for silent registration with the Identity Provider. Requires that 'PlatformSSO' 'AuthenticationMethod' isn't empty.
 Available in macOS 13 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
@@ -1926,7 +1925,7 @@ Available in macOS 13 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This is the dictionary used to configure PlatformSSO.</string>
+			<string>The dictionary to configure Platform SSO.</string>
 			<key>pfm_macos_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -1939,7 +1938,7 @@ Available in macOS 13 and later.</string>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The Platform SSO authentication method to be used with the extension. Requires that the SSO Extension also support the method.</string>
+					<string>The Platform SSO authentication method to use with the extension. Requires that the SSO Extension also support the method.</string>
 					<key>pfm_name</key>
 					<string>AuthenticationMethod</string>
 					<key>pfm_range_list</key>
@@ -1955,7 +1954,7 @@ Available in macOS 13 and later.</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If set to true, Platform SSO will use the same signing and encryption keys for all users.</string>
+					<string>If 'true', the system uses the same signing and encryption keys for all users. Only supported on the device channel.</string>
 					<key>pfm_name</key>
 					<string>UseSharedDeviceKeys</string>
 					<key>pfm_type</key>
@@ -1973,7 +1972,7 @@ Available in macOS 13 and later.</string>
 					<key>pfm_default</key>
 					<integer>64800</integer>
 					<key>pfm_description</key>
-					<string>The frequency where a full login is required instead of a refresh. Default is 18 hours. Must be &gt; 1 hour.</string>
+					<string>The duration, in seconds, until the system requires a full login instead of a refresh. The default value is 64,800 (18 hours). The minimum value is 3600 (1 hour).</string>
 					<key>pfm_name</key>
 					<string>LoginFrequency</string>
 					<key>pfm_range_min</key>
@@ -1985,7 +1984,7 @@ Available in macOS 13 and later.</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Enables creating new users at the login window with either Passwords or SmartCards. Requires 'UseSharedDeviceKeys' is true.</string>
+					<string>Enables creating new users at the login window with an 'AuthenticationMethod' of either 'Password' or 'SmartCard'. Requires that 'UseSharedDeviceKeys' is 'true'.</string>
 					<key>pfm_name</key>
 					<string>EnableCreateUserAtLogin</string>
 					<key>pfm_type</key>
@@ -1995,7 +1994,7 @@ Available in macOS 13 and later.</string>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Enables using identity provider accounts at authorization prompts. Requires 'UseSharedDeviceKeys' is true. The account will be assigned groups using the 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
+					<string>Enables using identity provider accounts at authorization prompts. Requires that 'UseSharedDeviceKeys' is 'true'. The system assigns groups using 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
 					<key>pfm_name</key>
 					<string>EnableAuthorization</string>
 					<key>pfm_type</key>
@@ -2003,7 +2002,7 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The attribute mapping used when creating new users or for authorization.</string>
+					<string>The attribute mapping to use when creating new users or for authorization.</string>
 					<key>pfm_name</key>
 					<string>TokenToUserMapping</string>
 					<key>pfm_subkeys</key>
@@ -2030,13 +2029,10 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>This setting affects the permissions for accounts created at login by Platform SSO. It is only used when the account is created. Use of the following:
-* Standard
-    The account will be a standard user.
-* Admin
-    The account will be added to the local administrators group.
-* Groups
-    The account will be assigned groups using the 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
+					<string>The permission to apply to newly created accounts at login, which has the following values:
+* 'Standard': The account is a standard user.
+* 'Admin': The system adds the account to the local administrators group.
+* 'Groups': The system assigns group to the account using 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
 					<key>pfm_name</key>
 					<string>NewUserAuthorizationMode</string>
 					<key>pfm_range_list</key>
@@ -2050,13 +2046,10 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>This setting affects the permissions after authentication by Platform SSO. It is applied each time user authenticates. Use of the following:
-* Standard
-    The account will be a standard user. It will be removed from the 'admin' group.
-* Admin
-    The account will be added to the local administrators group.
-* Groups
-    The account will be assigned groups using the 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
+					<string>The permission to apply to an account each time the user authenticates, which has the following values:
+* 'Standard': The account is a standard user.
+* 'Admin': The system adds the account to the local administrators group.
+* 'Groups': The system assigns group to the account using 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
 					<key>pfm_name</key>
 					<string>UserAuthorizationMode</string>
 					<key>pfm_range_list</key>
@@ -2070,7 +2063,7 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The list of groups that are used for administrator access. Membership will be requested during authentication.</string>
+					<string>The list of groups to use for administrator access. The system requests membership during authentication.</string>
 					<key>pfm_name</key>
 					<string>AdministratorGroups</string>
 					<key>pfm_subkeys</key>
@@ -2089,7 +2082,7 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The list of groups that are created and do not have administrator access.</string>
+					<string>The list of created groups that don't have administrator access.</string>
 					<key>pfm_name</key>
 					<string>AdditionalGroups</string>
 					<key>pfm_subkeys</key>
@@ -2108,7 +2101,7 @@ Available in macOS 13 and later.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The pairing of Authorization Rights to group names. The Authorization Right will be updated to use the group when used.</string>
+					<string>The pairing of Authorization Rights to group names. The system updates the Authorization Right to use the group when used.</string>
 					<key>pfm_name</key>
 					<string>AuthorizationGroups</string>
 					<key>pfm_subkeys</key>
