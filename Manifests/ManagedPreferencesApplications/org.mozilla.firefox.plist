@@ -20,7 +20,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-01T15:48:15Z</date>
+	<date>2024-02-16T10:50:53Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.12</string>
 	<key>pfm_platforms</key>
@@ -212,6 +212,7 @@
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
+					<string>3rdparty</string>
 					<string>RequestedLocales</string>
 					<string>Preferences</string>
 					<string>SupportMenu</string>
@@ -282,6 +283,7 @@
 					<string>Extensions</string>
 					<string>ExtensionSettings</string>
 					<string>ExtensionUpdate</string>
+					<string>3rdparty</string>
 				</array>
 				<key>Bookmarks</key>
 				<array>
@@ -1593,6 +1595,58 @@ The configuration for each extension is another dictionary that can contain the 
 			<string>Extension Update</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>68</string>
+			<key>pfm_description</key>
+			<string>Configure third party components.</string>
+			<key>pfm_description_reference</key>
+			<string>Allow WebExtensions to configure policy.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/mozilla/policy-templates/blob/master/docs/index.md#3rdparty</string>
+			<key>pfm_name</key>
+			<string>3rdparty</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>68</string>
+					<key>pfm_description</key>
+					<string>Configure third party extensions. Keys in this dictionary specify IDs of extensions to configure, and values are dictionaries containing each third party extension configuration.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://github.com/mozilla/policy-templates/blob/master/docs/index.md#3rdparty</string>
+					<key>pfm_name</key>
+					<string>Extensions</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{key}}</string>
+							<key>pfm_title</key>
+							<string>Extension ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{value}}</string>
+							<key>pfm_title</key>
+							<string>Extension Configuration</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>3rd Party Extension Configuration</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>3rd Party Configuration</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -5988,6 +6042,6 @@ UrlbarInterventions Don't offer Firefox specific suggestions in the URL bar. (Fi
 	<key>pfm_user_approved</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>13</integer>
+	<integer>14</integer>
 </dict>
 </plist>
