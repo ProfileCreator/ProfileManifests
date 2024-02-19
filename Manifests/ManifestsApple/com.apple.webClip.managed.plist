@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2022-03-31T08:41:40Z</date>
+	<date>2024-01-30T12:59:18Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -238,10 +238,24 @@ The payload organization for a payload need not match the payload organization i
 			<false/>
 			<key>pfm_description</key>
 			<string>If true, a full screen web clip will not show the Safari UI when navigating to URLs other than the web clip's own.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<true/>
+							</array>
+							<key>pfm_target</key>
+							<string>FullScreen</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
-			<key>pfm_macos_min</key>
-			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>IgnoreManifestScope</string>
 			<key>pfm_title</key>
@@ -254,12 +268,8 @@ The payload organization for a payload need not match the payload organization i
 			<string>Bundle identifier of the application that opens this web clip's URL.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
-			<key>pfm_macos_min</key>
-			<string>11.3</string>
 			<key>pfm_name</key>
 			<string>TargetApplicationBundleIdentifier</string>
-			<key>pfm_supervised</key>
-			<true/>
 			<key>pfm_title</key>
 			<string>Target Application Bundle Identifier</string>
 			<key>pfm_type</key>
