@@ -5,7 +5,7 @@
 	<key>pfm_app_url</key>
 	<string>https://github.com/twocanoes/xcreds</string>
 	<key>pfm_description</key>
-	<string>XCreds 4.0 (6274) OAuth Settings</string>
+	<string>XCreds 4.1 (6375) OAuth Settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-01-29T16:50:44Z</date>
+	<date>2024-02-26T20:49:54Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -134,6 +134,18 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>ADDomain</string>
 			<key>pfm_title</key>
 			<string>ADDomain</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The OIDC claim that has the kerberos principal name. This is used when logging in with OIDC and ADDomain is defined. During login, the claim that contains the kerberos principal name will be read and the local account will set dsAttrTypeNative:_xcreds_activedirectory_kerberosPrincipal to the kerberos principal name. The menu item will then use this value and the password to get a kerberos ticket.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>mapKerberosPrincipalName</string>
+			<key>pfm_title</key>
+			<string>Map Kerberos Principal Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -402,6 +414,34 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>URL to an image to show in the background of the window that appears when logged in and prompting for Active Directory username and password.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_format</key>
+			<string>(https?://|file:///).*</string>
+			<key>pfm_name</key>
+			<string>menuItemWindowBackgroundImageURL</string>
+			<key>pfm_title</key>
+			<string>Menu Item Window BackgroundImageURL</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Set the background image to Fill Screen rather than Fit to Screen</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldLoginWindowBackgroundImageFillScreen</string>
+			<key>pfm_title</key>
+			<string>Login Window Background Image Fill Screen</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>Add a menu item for changing the password that will open this URL when the menu item is selected.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
@@ -535,6 +575,20 @@ Note that Google does not support the offline_access scope so instead use the pr
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Determine if the Sign In menu item is shown in the XCreds menu. When not set or set to true, show Sign In. If false, the Sign In menu item is hidden.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldShowSignInMenuItem</string>
+			<key>pfm_title</key>
+			<string>Show Sign In Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
 			<string>Favor using XCreds' local login screen over the cloud login UI.</string>
@@ -547,50 +601,50 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
-    <dict>
-      <key>pfm_default</key>
-      <false/>
-      <key>pfm_description</key>
-      <string>(Deprecated in v4.0) When verifying password in the menu app, use ROPG.</string>
-      <key>pfm_documentation_url</key>
-      <string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
-      <key>pfm_name</key>
-      <string>shouldVerifyPasswordWithRopg</string>
-      <key>pfm_title</key>
-      <string>Use ROPG when testing password</string>
-      <key>pfm_type</key>
-      <string>boolean</string>
-      <key>pfm_app_max</key>
-      <string>3.2.1</string>
-    </dict>
-    <dict>
-      <key>pfm_description</key>
-      <string>(Deprecated in v4.0) ROPG Client ID for use when checking password.</string>
-      <key>pfm_documentation_url</key>
-      <string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
-      <key>pfm_name</key>
-      <string>ropgClientID</string>
-      <key>pfm_title</key>
-      <string>ROPG Client ID</string>
-      <key>pfm_type</key>
-      <string>string</string>
-      <key>pfm_app_max</key>
-      <string>3.2.1</string>
-    </dict>
-    <dict>
-      <key>pfm_description</key>
-      <string>(Deprecated in v4.0) ROPG Client Secret for use when checking password.</string>
-      <key>pfm_documentation_url</key>
-      <string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
-      <key>pfm_name</key>
-      <string>ropgClientSecret</string>
-      <key>pfm_title</key>
-      <string>ROPG Client Secret</string>
-      <key>pfm_type</key>
-      <string>string</string>
-      <key>pfm_app_max</key>
-      <string>3.2.1</string>
-    </dict>
+		<dict>
+			<key>pfm_app_max</key>
+			<string>3.2.1</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>(Deprecated in v4.0) When verifying password in the menu app, use ROPG.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shouldVerifyPasswordWithRopg</string>
+			<key>pfm_title</key>
+			<string>Use ROPG when testing password</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_max</key>
+			<string>3.2.1</string>
+			<key>pfm_description</key>
+			<string>(Deprecated in v4.0) ROPG Client ID for use when checking password.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>ropgClientID</string>
+			<key>pfm_title</key>
+			<string>ROPG Client ID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_max</key>
+			<string>3.2.1</string>
+			<key>pfm_description</key>
+			<string>(Deprecated in v4.0) ROPG Client Secret for use when checking password.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>ropgClientSecret</string>
+			<key>pfm_title</key>
+			<string>ROPG Client Secret</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<false/>
@@ -615,7 +669,7 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<key>pfm_name</key>
 			<string>shouldUseROPGForMenuLogin</string>
 			<key>pfm_title</key>
-			<string>Use ROPG when testing password</string>
+			<string>Use ROPG For Menu Login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1094,6 +1148,194 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Menu Items</string>
+			<key>pfm_description_reference</key>
+			<string>Optional Array of Additional Menu Items</string>
+			<key>pfm_name</key>
+			<string>menuItems</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Menu Item Name</string>
+					<key>pfm_name</key>
+					<string>menuItemName</string>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Menu Item</string>
+							<key>pfm_name</key>
+							<string>menuItemName</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Menu Item Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>Menu Item Name</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Link or App Path</string>
+							<key>pfm_name</key>
+							<string>linkOrAppPath</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Web page URL or local path to app</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>/System/Applications/Utilities/Keychain Access.app or http://twocanoes.com/info</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<false/>
+							<key>pfm_description</key>
+							<string>Separator line before menu item</string>
+							<key>pfm_description_reference</key>
+							<string>Add a line before menu item</string>
+							<key>pfm_name</key>
+							<string>separatorBefore</string>
+							<key>pfm_title</key>
+							<string>Separator Before</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<false/>
+							<key>pfm_description</key>
+							<string>Separator line after menu item</string>
+							<key>pfm_description_reference</key>
+							<string>Add a line after menu item</string>
+							<key>pfm_name</key>
+							<string>separatorAfter</string>
+							<key>pfm_title</key>
+							<string>Separator After</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Optional Menu Items</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Menu Items</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Add menu item and mount/automount shares</string>
+			<key>pfm_name</key>
+			<string>Shares</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Name of share to show in menu</string>
+							<key>pfm_name</key>
+							<string>Name</string>
+							<key>pfm_title</key>
+							<string>Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>URL for share (eg smb://server.example.com/share)</string>
+							<key>pfm_name</key>
+							<string>URL</string>
+							<key>pfm_title</key>
+							<string>URL</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string></string>
+							<key>pfm_name</key>
+							<string>Groups</string>
+							<key>pfm_title</key>
+							<string>Groups</string>
+							<key>pfm_type</key>
+							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Allow mounting only if network connection is detected</string>
+							<key>pfm_name</key>
+							<string>ConnectedOnly</string>
+							<key>pfm_title</key>
+							<string>ConnectedOnly</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Automatically mount when XCreds starts</string>
+							<key>pfm_name</key>
+							<string>AutoMount</string>
+							<key>pfm_title</key>
+							<string>AutoMount</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Shares</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Show and mount home directory from AD profile if defined.</string>
+			<key>pfm_name</key>
+			<string>HomeMountEnabled</string>
+			<key>pfm_title</key>
+			<string>Home Mount Enabled</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Append the domain name to the share defined in the profile.</string>
+			<key>pfm_name</key>
+			<string>HomeAppendDomain</string>
+			<key>pfm_title</key>
+			<string>Home Append Domain</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Name for Shares menu item. Default: "Shares".</string>
+			<key>pfm_documentation_url</key>
+			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
+			<key>pfm_name</key>
+			<string>shareMenuItemName</string>
+			<key>pfm_title</key>
+			<string>Share Menu Item Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1105,6 +1347,6 @@ changing “passwordID” to the correct element ID. If the value you typed into
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>
