@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-02-16T14:35:00Z</date>
+	<date>2024-03-14T09:10:36Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -601,13 +601,11 @@
 			<array>
 				<string>None</string>
 				<string>WEP</string>
-				<string>WPA/WPA2</string>
-				<string>WPA2</string>
+				<string>WPA and WPA2</string>
+				<string>WPA2 and WPA3</string>
 				<string>WPA3</string>
 				<string>Any</string>
 			</array>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Encryption Type</string>
 			<key>pfm_type</key>
@@ -618,6 +616,19 @@
 			<string>Specifies the password for the access point.</string>
 			<key>pfm_exclude</key>
 			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>None</string>
+							</array>
+							<key>pfm_target</key>
+							<string>EncryptionType</string>
+						</dict>
+					</array>
+				</dict>
 				<dict>
 					<key>pfm_target_conditions</key>
 					<array>
@@ -1029,6 +1040,33 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Specifies 802.1x EAP authentication parameters.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>None</string>
+							</array>
+							<key>pfm_target</key>
+							<string>EncryptionType</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>Password</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>EAPClientConfiguration</string>
 			<key>pfm_subkeys</key>
@@ -1741,6 +1779,25 @@
 			<false/>
 			<key>pfm_description</key>
 			<string>If set, force a non-default authentication method. (if YES, uses certificate from PayloadCertificateUUID).</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_contains_any</key>
+							<array>
+								<integer>13</integer>
+								<integer>21</integer>
+								<integer>25</integer>
+								<integer>43</integer>
+							</array>
+							<key>pfm_target</key>
+							<string>EAPClientConfiguration.AcceptEAPTypes</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
