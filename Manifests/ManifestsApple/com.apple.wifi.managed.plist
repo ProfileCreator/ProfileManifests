@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-03-14T09:10:36Z</date>
+	<date>2024-03-14T11:31:49Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -1001,6 +1001,20 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Select "Login Window" to authenticate the Mac to the network when the user logs in.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<false/>
+							<key>pfm_target</key>
+							<string>EAPClientConfiguration</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>SetupModes</string>
 			<key>pfm_platforms</key>
@@ -1489,6 +1503,32 @@
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_contains_any</key>
+									<array>
+										<integer>43</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<true/>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.EAPFASTUsePAC</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
