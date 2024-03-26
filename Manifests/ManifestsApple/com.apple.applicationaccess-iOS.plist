@@ -239,6 +239,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowHostPairing</string>
 					<string>allowiPhoneWidgetsOnMac</string>
 					<string>allowKeyboardShortcuts</string>
+					<string>allowLiveVoicemail</string>
 					<string>allowLockScreenControlCenter</string>
 					<string>allowLockScreenNotificationsView</string>
 					<string>allowLockScreenTodayView</string>
@@ -1223,6 +1224,22 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 		</dict>
 		<dict>
 			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string> If set to true, eSIM will be preserved when a device is erased due to too many failed password attempt or the "Erase All Content and Settings" option in Settings &gt; General &gt; Reset. eSIM will not be preserved if the device is erased by FindMy.</string>
+			<key>pfm_ios_min</key>
+			<string>17.2</string>
+			<key>pfm_name</key>
+			<string>forcePreserveESIMOnErase</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Force Preserve ESIM on Erase</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
 			<string></string>
@@ -2121,6 +2138,22 @@ Available on iOS 17 and later.</string>
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow Personal Hotspot modification</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If set to false, disables live voicemail on the device.</string>
+			<key>pfm_ios_min</key>
+			<string>17.2</string>
+			<key>pfm_name</key>
+			<string>allowLiveVoicemail</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Live Voicemail</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>

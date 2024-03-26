@@ -5,7 +5,7 @@
 	<key>pfm_app_url</key>
 	<string>https://gitlab.rrze.uni-erlangen.de/faumac/networkShareMounter</string>
 	<key>pfm_description</key>
-	<string>Network Share Mounter v2 settings</string>
+	<string>Network Share Mounter settings</string>
 	<key>pfm_documentation_url</key>
 	<string>https://gitlab.rrze.uni-erlangen.de/faumac/networkShareMounter</string>
 	<key>pfm_domain</key>
@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2024-02-26T13:10:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -98,6 +98,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Enable Autostart</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>2</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -110,6 +112,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Can Change Autostart</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>2</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -124,6 +128,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Help URL</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>2</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -136,6 +142,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Allow to Quit App</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>2</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -148,18 +156,105 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Unmount Shares on Exit</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>pfm_title</key>
+			<string>Managed network shares</string>
+			<key>pfm_description</key>
+			<string>Array with managed network shares.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://gitlab.rrze.fau.de/faumac/networkShareMounter#configuration-preferences</string>
+			<key>pfm_app_min</key>
+			<string>3</string>
+			<key>pfm_name</key>
+			<string>managedNetworkShares</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>managedNetworkShares</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_title</key>
+							<string>Server and share</string>
+							<key>pfm_description</key>
+							<string>Example: smb://filer.your.domain.tld/share. Note: %USERNAME% will be replaced with the current user's login name.</string>
+							<key>pfm_name</key>
+							<string>networkShare</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_format</key>
+							<string>^(smb|afp|https)://.*$</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>smb://filer.yourdomain.tld/share</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<string>krb</string>
+							<key>pfm_title</key>
+							<string>Authentication type</string>
+							<key>pfm_description</key>
+							<string>Authentication type for the share, it can be either through Kerberos (krb) or using a username/password (auth). Default: Kerberos.</string>
+							<key>pfm_name</key>
+							<string>authType</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>krb</string>
+								<string>password</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>Kerberos</string>
+								<string>Password</string>
+							</array>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_title</key>
+							<string>Username (Optional)</string>
+							<key>pfm_description</key>
+							<string>Optional: Predefine a username for authentication using username/password</string>
+							<key>pfm_name</key>
+							<string>username</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_title</key>
+							<string>Mount point name (Optional)</string>
+							<key>pfm_description</key>
+							<string>Optional: Change the mount point name for the network share. Leave blank for the default value (recommended)</string>
+							<key>pfm_name</key>
+							<string>mountPoint</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Array with all network shares. Example: smb://filer.your.domain/share
-Note: %USERNAME% will be replaced with the login name of the current user.</string>
+			<string>Array with all network shares. Example: smb://filer.your.domain/share. Note: %USERNAME% will be replaced with the login name of the current user.</string>
 			<key>pfm_name</key>
 			<string>networkShares</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_format</key>
-					<string>^smb:\/\/\S*\/.+$</string>
+					<string>^smb://\S*/.+$</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfm_value_placeholder</key>
@@ -167,7 +262,9 @@ Note: %USERNAME% will be replaced with the login name of the current user.</stri
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>List of Network Shares to Mount</string>
+			<string>Network shares</string>
+			<key>pfm_app_deprecated</key>
+			<string>3</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -182,6 +279,6 @@ Note: %USERNAME% will be replaced with the login name of the current user.</stri
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
