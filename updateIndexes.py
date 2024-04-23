@@ -4,7 +4,7 @@
 import hashlib
 import os
 import plistlib
-from datetime import datetime
+from datetime import datetime, UTC
 from glob import glob
 
 
@@ -17,7 +17,7 @@ def main():
     # Iterate through index types
     file_types = {"Icons": "png", "Manifests": "plist"}
     for index_type, ext in file_types.items():
-        index = {"date": datetime.utcnow()}
+        index = {"date": datetime.now(UTC)}
 
         # Get all matching files in the desired subfolder
         file_list = glob("%s/%s/*/*.%s" % (repo_path, index_type, ext))
