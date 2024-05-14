@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-05-02T12:51:54Z</date>
+	<date>2024-05-14T10:08:53Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -1512,6 +1512,25 @@ For EAP-TLS authentication without a network payload, install the necessary iden
 				<dict>
 					<key>pfm_description</key>
 					<string>The user name for the account. If you don't specify a value, the system prompts the user during login.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_contains_any</key>
+									<array>
+										<integer>17</integer>
+										<integer>21</integer>
+										<integer>25</integer>
+										<integer>43</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_name</key>
 					<string>UserName</string>
 					<key>pfm_title</key>
