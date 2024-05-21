@@ -110,6 +110,7 @@
 				<string>General</string>
 				<string>Applications</string>
 				<string>Scheduled Updates</string>
+				<string>Update Deferral</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
@@ -141,6 +142,11 @@
 				<key>Scheduled Updates</key>
 				<array>
 					<string>UpdateDeadline.ApplicationsForcedUpdateSchedule</string>
+				</array>
+				<key>Update Deferral</key>
+				<array>
+					<string>OptionalUpdatesDeferralsDays</string>
+					<string>OptionalUpdatesDeferrals</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -495,6 +501,153 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 			<string>Updater Optimization</string>
 			<key>pfm_type</key>
 			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>4.68.1</string>
+			<key>pfm_description</key>
+			<string>Global number of days after a release for which updates and offers to update will be postponed.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/deployoffice/mac/mau-deferred-updates#global-deferral-days-setting</string>
+			<key>pfm_name</key>
+			<string>OptionalUpdatesDeferralsDays</string>
+			<key>pfm_range_max</key>
+			<integer>28</integer>
+			<key>pfm_range_min</key>
+			<integer>1</integer>
+			<key>pfm_title</key>
+			<string>Global Deferral Days</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
+			<string>4.68.1</string>
+			<key>pfm_description</key>
+			<string>Number of days after a release for which updates and offers to update will be postponed, per individual app. This setting takes precedence over the global setting.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/deployoffice/mac/mau-deferred-updates#app-specific-deferral-days-setting</string>
+			<key>pfm_name</key>
+			<string>OptionalUpdatesDeferrals</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>Number of days after a release for which updates and offers to update will be postponed, per individual app. This setting takes precedence over the global setting.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://learn.microsoft.com/en-us/deployoffice/mac/mau-deferred-updates#app-specific-deferral-days-setting</string>
+					<key>pfm_name</key>
+					<string>DeferralDays</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{key}}</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>XCEL2019</string>
+								<string>IMCP01</string>
+								<string>OLIC02</string>
+								<string>MSau04</string>
+								<string>WDAVCONSUMER</string>
+								<string>WDAV00</string>
+								<string>WDAVSHIM</string>
+								<string>ONDR18</string>
+								<string>ONMC2019</string>
+								<string>OPIM2019</string>
+								<string>PPT32019</string>
+								<string>MSQA01</string>
+								<string>MSRD10</string>
+								<string>MSRH01</string>
+								<string>MSFB16</string>
+								<string>TEAMS10</string>
+								<string>TEAMS21</string>
+								<string>MSWD2019</string>
+							</array>
+							<key>pfm_range_list_allow_custom_value</key>
+							<true/>
+							<key>pfm_title</key>
+							<string>Application Identifier</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_unique</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{value}}</string>
+							<key>pfm_title</key>
+							<string>Number of Days</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>App Specific Deferral Days</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Upper limits to the update version, per individual app. Discovered updates are offered/applied to and including the specified version.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://learn.microsoft.com/en-us/deployoffice/mac/mau-deferred-updates#deferral-version</string>
+					<key>pfm_name</key>
+					<string>DeferralVersions</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{key}}</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>XCEL2019</string>
+								<string>IMCP01</string>
+								<string>OLIC02</string>
+								<string>MSau04</string>
+								<string>WDAVCONSUMER</string>
+								<string>WDAV00</string>
+								<string>WDAVSHIM</string>
+								<string>ONDR18</string>
+								<string>ONMC2019</string>
+								<string>OPIM2019</string>
+								<string>PPT32019</string>
+								<string>MSQA01</string>
+								<string>MSRD10</string>
+								<string>MSRH01</string>
+								<string>MSFB16</string>
+								<string>TEAMS10</string>
+								<string>TEAMS21</string>
+								<string>MSWD2019</string>
+							</array>
+							<key>pfm_range_list_allow_custom_value</key>
+							<true/>
+							<key>pfm_title</key>
+							<string>Application Identifier</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_unique</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>{{value}}</string>
+							<key>pfm_title</key>
+							<string>Version</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>App Specific Deferral Versions</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>App Specific Deferral</string>
+			<key>pfm_type</key>
+			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
@@ -2225,6 +2378,6 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>15</integer>
+	<integer>16</integer>
 </dict>
 </plist>
