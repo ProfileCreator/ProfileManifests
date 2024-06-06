@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-03-04T09:35:44Z</date>
+	<date>2024-03-28T10:22:24Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -152,6 +152,33 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>Specifies 802.1x EAP authentication parameters.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>None</string>
+							</array>
+							<key>pfm_target</key>
+							<string>EncryptionType</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_present</key>
+							<true/>
+							<key>pfm_target</key>
+							<string>Password</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>EAPClientConfiguration</string>
 			<key>pfm_subkeys</key>
@@ -159,12 +186,10 @@
 				<dict>
 					<key>pfm_description</key>
 					<string>The EAP types accepted.</string>
-					<key>pfm_description_reference</key>
-					<string>For EAP-TLS authentication without a network payload, install the necessary identity certificates and have your users select EAP-TLS mode in the 802.1X credentials dialog that appears when they connect to the network. For other EAP types, a network payload is necessary and must specify the correct settings for the network.</string>
 					<key>pfm_name</key>
 					<string>AcceptEAPTypes</string>
-					<key>pfm_note</key>
-					<string>For EAP-TLS authentication without a network payload, install the necessary identity certificates and have your users select EAP-TLS mode in the 802.1X credentials dialog that appears when they connect to the network.</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
@@ -192,8 +217,6 @@
 								<string>EAP-SIM</string>
 								<string>EAP-AKA</string>
 							</array>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_title</key>
 							<string>EAP Type</string>
 							<key>pfm_type</key>
@@ -208,7 +231,7 @@
 					<string>boolean</string>
 				</dict>
 				<dict>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Username. If not provided, the user may be prompted during login.</string>
 					<key>pfm_name</key>
 					<string>UserName</string>
@@ -226,6 +249,17 @@
 							<key>pfm_target_conditions</key>
 							<array>
 								<dict>
+									<key>pfm_contains_any</key>
+									<array>
+										<integer>17</integer>
+										<integer>21</integer>
+										<integer>25</integer>
+										<integer>43</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+								<dict>
 									<key>pfm_n_range_list</key>
 									<array>
 										<true/>
@@ -236,7 +270,7 @@
 							</array>
 						</dict>
 					</array>
-					<key>pfm_description_reference</key>
+					<key>pfm_description</key>
 					<string>Password. If not provided, the user may be prompted during login.</string>
 					<key>pfm_exclude</key>
 					<array>
@@ -251,11 +285,21 @@
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.OneTimeUserPassword</string>
 								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
 								<dict>
-									<key>pfm_present</key>
-									<true/>
+									<key>pfm_n_contains_any</key>
+									<array>
+										<integer>17</integer>
+										<integer>21</integer>
+										<integer>25</integer>
+										<integer>43</integer>
+									</array>
 									<key>pfm_target</key>
-									<string>EAPClientConfiguration.OneTimeUserPassword</string>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
 							</array>
 						</dict>
@@ -268,20 +312,6 @@
 					<string>Password</string>
 					<key>pfm_type</key>
 					<string>string</string>
-				</dict>
-				<dict>
-					<key>pfm_default</key>
-					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, the user will be prompted for a password each time they connect to the network.</string>
-					<key>pfm_name</key>
-					<string>OneTimePassword</string>
-					<key>pfm_note</key>
-					<string>Apple's documentation does not indicate the difference or when this preference should be used vs. OneTimeUserPassword</string>
-					<key>pfm_title</key>
-					<string>One Time Password</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
@@ -301,20 +331,22 @@
 										<integer>25</integer>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>8.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.8</string>
 					<key>pfm_name</key>
 					<string>OneTimeUserPassword</string>
-					<key>pfm_note</key>
-					<string>Apple's documentation does not indicate the difference or when this preference should be used vs. OneTimeUserPassword</string>
 					<key>pfm_title</key>
 					<string>Per-Connection Password</string>
+					<key>pfm_tvos_min</key>
+					<string>7.0</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -370,27 +402,15 @@
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>Allows a dynamic trust decision by the user. If false, the authentication fails if the certificate isn't already trusted.</string>
-					<key>pfm_description_reference</key>
-					<string>If true, allows a dynamic trust decision by the user. The dynamic trust is the certificate dialogue that appears when a certificate isn't trusted.
-
-If false, the authentication fails if the certificate isn't already trusted.</string>
+					<string>Allows a dynamic trust decision by the user.</string>
+					<key>pfm_ios_deprecated</key>
+					<string>7.1.2</string>
+					<key>pfm_ios_max</key>
+					<string>7.1.2</string>
 					<key>pfm_name</key>
 					<string>TLSAllowTrustExceptions</string>
 					<key>pfm_title</key>
 					<string>Allow Trust Exceptions</string>
-					<key>pfm_type</key>
-					<string>boolean</string>
-				</dict>
-				<dict>
-					<key>pfm_default</key>
-					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, allows for two-factor authentication for EAP-TTLS, PEAP, or EAP-FAST. If false, allows for zero-factor authentication for EAP-TLS.</string>
-					<key>pfm_name</key>
-					<string>TLSCertificateIsRequired</string>
-					<key>pfm_title</key>
-					<string>TLS Certificate is Required</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -427,8 +447,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 									<array>
 										<integer>21</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
@@ -465,8 +483,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 										<integer>25</integer>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
@@ -483,8 +499,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<string>1.0</string>
-					<key>pfm_description_reference</key>
-					<string>The minimum TLS version to be used with EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -497,14 +511,16 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 										<integer>25</integer>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>11.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.13</string>
 					<key>pfm_name</key>
 					<string>TLSMinimumVersion</string>
 					<key>pfm_range_list</key>
@@ -512,17 +528,18 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 						<string>1.0</string>
 						<string>1.1</string>
 						<string>1.2</string>
+						<string>1.3</string>
 					</array>
 					<key>pfm_title</key>
 					<string>TLS Minimum Version</string>
+					<key>pfm_tvos_min</key>
+					<string>11.0</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<string>1.2</string>
-					<key>pfm_description_reference</key>
-					<string>The maximum TLS version to be used with EAP authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -535,14 +552,16 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 										<integer>25</integer>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>11.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.13</string>
 					<key>pfm_name</key>
 					<string>TLSMaximumVersion</string>
 					<key>pfm_range_list</key>
@@ -550,17 +569,20 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 						<string>1.0</string>
 						<string>1.1</string>
 						<string>1.2</string>
+						<string>1.3</string>
 					</array>
 					<key>pfm_title</key>
 					<string>TLS Maximum Version</string>
+					<key>pfm_tvos_min</key>
+					<string>11.0</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, the device will use an existing PAC if it's present. Otherwise, the server must present its identity using a certificate.</string>
+					<key>pfm_description</key>
+					<string>If set, the device will use an existing PAC if it's present. Otherwise the server must present its identity using a certificate.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -571,8 +593,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 									<array>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
@@ -587,6 +607,32 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_conditionals</key>
+					<array>
+						<dict>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_contains_any</key>
+									<array>
+										<integer>43</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<true/>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.EAPFASTUsePAC</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
@@ -601,18 +647,19 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 									<array>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
 								<dict>
 									<key>pfm_n_range_list</key>
 									<array>
 										<true/>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.EAPFASTUsePAC</string>
 								</dict>
@@ -629,8 +676,8 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 				<dict>
 					<key>pfm_default</key>
 					<false/>
-					<key>pfm_description_reference</key>
-					<string>If true, provisions the device anonymously. Note that there are known man-in-the-middle attacks for anonymous provisioning. </string>
+					<key>pfm_description</key>
+					<string>If set, provisions the device anonymously. Note that there are known man-in-the-middle attacks for anonymous provisioning.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -641,18 +688,19 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 									<array>
 										<integer>43</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
 								<dict>
 									<key>pfm_n_range_list</key>
 									<array>
 										<true/>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.EAPFASTProvisionPAC</string>
 								</dict>
@@ -681,14 +729,14 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 									<array>
 										<integer>18</integer>
 									</array>
-									<key>pfm_present</key>
-									<false/>
 									<key>pfm_target</key>
 									<string>EAPClientConfiguration.AcceptEAPTypes</string>
 								</dict>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>8.0</string>
 					<key>pfm_name</key>
 					<string>EAPSIMNumberOfRANDs</string>
 					<key>pfm_range_list</key>
@@ -720,15 +768,9 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 					</array>
 					<key>pfm_name</key>
 					<string>SystemModeCredentialsSource</string>
-					<key>pfm_note</key>
-					<string>Only SystemModeCredentialsSource or SystemModeUseOpenDirectoryCredentials keys should exist in the profile. Not both.</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>ActiveDirectory</string>
-					</array>
-					<key>pfm_range_list_titles</key>
-					<array>
-						<string>Active Directory</string>
 					</array>
 					<key>pfm_title</key>
 					<string>System Profile Credentials Source</string>
@@ -736,6 +778,8 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_default</key>
+					<false/>
 					<key>pfm_description</key>
 					<string>This indicates if the connection should try to use the OpenDirectory machine credentials.</string>
 					<key>pfm_exclude</key>
@@ -754,12 +798,80 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 					</array>
 					<key>pfm_name</key>
 					<string>SystemModeUseOpenDirectoryCredentials</string>
-					<key>pfm_note</key>
-					<string>Only SystemModeCredentialsSource or SystemModeUseOpenDirectoryCredentials keys should exist in the profile. Not both.</string>
 					<key>pfm_title</key>
 					<string>Use OpenDirectory System Profile Credentials</string>
 					<key>pfm_type</key>
-					<string>string</string>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>An array of trusted certificates. Each entry in the array must contain certificate data that represents an anchor certificate used for verifying the server certificate.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_contains_any</key>
+									<array>
+										<integer>13</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_name</key>
+					<string>TLSTrustedCertificates</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>A certificate identifier.</string>
+							<key>pfm_name</key>
+							<string>TLSTrustedCertificatesItem</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>TLS Trusted Certificates</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>If 'true', allows for two-factor authentication for EAP-TTLS, PEAP, or EAP-FAST. If 'false', allows for zero-factor authentication for EAP-TLS.
+If you don't specify a value, the default is 'true' for EAP-TLS, and 'false' for other EAP types.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_contains_any</key>
+									<array>
+										<integer>13</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>EAPClientConfiguration.AcceptEAPTypes</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_ios_min</key>
+					<string>7.0</string>
+					<key>pfm_name</key>
+					<string>TLSCertificateIsRequired</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>boolean</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
@@ -797,6 +909,6 @@ If false, the authentication fails if the certificate isn't already trusted.</st
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>
