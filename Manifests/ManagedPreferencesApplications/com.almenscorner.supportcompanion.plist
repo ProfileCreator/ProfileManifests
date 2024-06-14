@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-05-31T16:17:02Z</date>
+	<date>2024-06-14T11:51:55Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -138,6 +138,7 @@
 				<array>
 					<string>HiddenWidgets</string>
 					<string>HiddenActions</string>
+					<string>ShowMenuToggle</string>
 					<string>SupportEmail</string>
 					<string>SupportPhone</string>
 					<string>SupportUrl</string>
@@ -198,7 +199,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures the brand logo shown in the apps side menu. Specify a local path.</string>
+			<string>Configures the brand logo shown in the apps side menu. Specify a local path or Base64 string.</string>
 			<key>pfm_name</key>
 			<string>BrandLogo</string>
 			<key>pfm_title</key>
@@ -277,6 +278,18 @@
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
 			<string>111-222-333-4444</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the menu toggle button in the apps side menu.</string>
+			<key>pfm_name</key>
+			<string>ShowMenuToggle</string>
+			<key>pfm_title</key>
+			<string>Show Menu Toggle</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -443,6 +456,8 @@
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
 			<string>Configures the app to use Intune for application information. Only supports PKG and DMG type apps, not LOB.</string>
 			<key>pfm_name</key>
@@ -526,6 +541,6 @@
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 </dict>
 </plist>
