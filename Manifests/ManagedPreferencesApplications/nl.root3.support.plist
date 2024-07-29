@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-01-15T02:15:59Z</date>
+	<date>2024-07-29T11:57:57Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0.1</string>
 	<key>pfm_platforms</key>
@@ -26,9 +26,7 @@
 			<key>pfm_default</key>
 			<string>SupportApp by Root3</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -42,9 +40,7 @@
 			<key>pfm_default</key>
 			<string>nl.root3.support</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -58,9 +54,7 @@
 			<key>pfm_default</key>
 			<string>nl.root3.support</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -74,9 +68,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -92,10 +84,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -109,9 +98,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>SupportApp by Root3 settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -239,7 +226,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Support</string>
 			<key>pfm_description</key>
-			<string>Text shown in the top left corner when the app opens.</string>
+			<string>Text shown in the top left corner when the app opens</string>
 			<key>pfm_name</key>
 			<string>Title</string>
 			<key>pfm_title</key>
@@ -251,13 +238,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Path to the logo shown in the top right corner when the app opens. Scales to 48 points maximum height.</string>
+			<string>Path to the logo shown in the top right corner when the app opens. Scales to 48 points maximum height</string>
 			<key>pfm_name</key>
 			<string>Logo</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_title</key>
-			<string>Light Mode Logo</string>
+			<string>Custom Logo</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -265,13 +252,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Path to the logo shown in the top right corner when the app opens for Dark Mode. Scales to 48 points maximum height.</string>
+			<string>Path to the logo shown in the top right corner when the app opens for Dark Mode. Scales to 48 points maximum height</string>
 			<key>pfm_name</key>
 			<string>LogoDarkMode</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_title</key>
-			<string>Dark Mode Logo</string>
+			<string>Custom Logo Dark Mode</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -279,13 +266,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Path to a custom square image to be shown in alerts and the about window.</string>
+			<string>Path to the notification icon</string>
 			<key>pfm_name</key>
 			<string>NotificationIcon</string>
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_title</key>
-			<string>Notification Icon</string>
+			<string>Custom Notification Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -299,7 +286,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_note</key>
 			<string>Some preference keys like the icon and status bar icon point to a file location. Due to the sandboxed characteristic of the app, not all file locations are allowed. We suggest putting the files in a folder within Application Support such as /Library/Application Support/Your Company/ where the app can read the contents. Other supported file locations can be found in Apple's documentation about App Sandbox: https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#/apple_ref/doc/uid/TP40011183-CH3-SW17</string>
 			<key>pfm_title</key>
-			<string>Status Bar Icon</string>
+			<string>Custom Status Bar Icon</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -307,13 +294,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Custom status bar icon using an SF Symbol. Ignored when StatusBarIcon is also set.</string>
+			<string>Custom status bar icon using an SF Symbol. Ignored when StatusBarIcon is also set</string>
 			<key>pfm_name</key>
 			<string>StatusBarIconSFSymbol</string>
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>Status Bar SF Symbol Icon</string>
+			<string>Custom Status Bar Icon using SF Symbols</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -323,23 +310,23 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Shows a small notification badge in the Status Bar icon when there is an Apple Software Update available.</string>
+			<string>Shows a small notification badge in the Status Bar Icon when there is an Apple Software Update available or when the UptimeDaysLimit or PasswordExpiryLimit is reached</string>
 			<key>pfm_name</key>
 			<string>StatusBarIconNotifierEnabled</string>
 			<key>pfm_title</key>
-			<string>Enable Status Bar Software Update Notifier</string>
+			<string>Notification badge in Status Bar Icon</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Custom color in HEX for all symbols. Leave empty to use macOS Accent Color.</string>
+			<string>HEX color in RGB format. Example: #8cc63f. Leave empty to use macOS Accent Color</string>
 			<key>pfm_name</key>
 			<string>CustomColor</string>
 			<key>pfm_note</key>
 			<string>Root3 recommends to not to use a very light color as text may become hard to read.</string>
 			<key>pfm_title</key>
-			<string>macOS Accent Color</string>
+			<string>Custom Color</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -347,13 +334,13 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Custom color in HEX for all symbols in Dark Mode. Leave empty to use macOS Accent Color or CustomColor if specified.</string>
+			<string>HEX color in RGB format for Dark Mode. Example: #8cc63f. CustomColor is used when CustomColorDarkMode is not specified</string>
 			<key>pfm_name</key>
 			<string>CustomColorDarkMode</string>
 			<key>pfm_note</key>
 			<string>Root3 recommends to not to use a very dark color as text may become hard to read.</string>
 			<key>pfm_title</key>
-			<string>macOS Dark Mode Accent Color</string>
+			<string>Custom Color Dark Mode</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -387,11 +374,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Please contact IT</string>
 			<key>pfm_description</key>
-			<string>Shown when clicking an action that results in an error.</string>
+			<string>Shown when clicking an action results in an error</string>
 			<key>pfm_name</key>
 			<string>ErrorMessage</string>
 			<key>pfm_title</key>
-			<string>Error Message</string>
+			<string>Custom error message</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -399,21 +386,21 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Shows the welcome screen when the Support App is opened for the first time.</string>
+			<string>A welcome screen and feature explanation to show when the app is first opened</string>
 			<key>pfm_name</key>
 			<string>ShowWelcomeScreen</string>
 			<key>pfm_title</key>
-			<string>Show Welcome Screen</string>
+			<string>Welcome Screen</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Text shown at the bottom as footnote</string>
+			<string>Shown at the bottom as footnote. Supports both text and Emoji. Markdown is supported for macOS Monterey and higher</string>
 			<key>pfm_name</key>
 			<string>FooterText</string>
 			<key>pfm_title</key>
-			<string>Footer Text</string>
+			<string>Footer text</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -423,11 +410,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Launch Support automatically at login and keep it open (macOS 13 and higher). This setting is ignored if a legacy LaunchAgent is installed/active. Disable this if you don't want to open Support at login or use your own LaunchAgent</string>
+			<string>Disabled by default. Launch Support (non-PKG) automatically at login and keep it open (macOS 13 and higher). This setting is ignored if a legacy LaunchAgent is installed/active. Keep disabled if you don't want to open Support at login or use your own LaunchAgent</string>
 			<key>pfm_name</key>
 			<string>OpenAtLogin</string>
 			<key>pfm_title</key>
-			<string>Open At Login</string>
+			<string>Automatically Support (non-PKG) at login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -435,7 +422,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>ComputerName</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the upper left corner.</string>
+			<string>Info item shown in the upper left corner</string>
 			<key>pfm_name</key>
 			<string>InfoItemOne</string>
 			<key>pfm_range_list</key>
@@ -446,6 +433,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -455,9 +445,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 1</string>
+			<string>Info item 1st tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -465,7 +458,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>MacOSVersion</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the upper right corner.</string>
+			<string>Info item shown in the upper right corner</string>
 			<key>pfm_name</key>
 			<string>InfoItemTwo</string>
 			<key>pfm_range_list</key>
@@ -476,6 +469,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -485,9 +481,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 2</string>
+			<string>Info item 2nd tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -495,7 +494,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Uptime</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the second row left.</string>
+			<string>Info item shown in the second row left</string>
 			<key>pfm_name</key>
 			<string>InfoItemThree</string>
 			<key>pfm_range_list</key>
@@ -506,6 +505,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -515,9 +517,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 3</string>
+			<string>Info item 3rd tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -525,7 +530,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Storage</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the second row right.</string>
+			<string>Info item shown in the second row right</string>
 			<key>pfm_name</key>
 			<string>InfoItemFour</string>
 			<key>pfm_range_list</key>
@@ -536,6 +541,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -545,9 +553,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 4</string>
+			<string>Info item 4th tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -555,7 +566,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Storage</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the third row left.</string>
+			<string>Info item shown in the third row left</string>
 			<key>pfm_name</key>
 			<string>InfoItemFive</string>
 			<key>pfm_range_list</key>
@@ -566,6 +577,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -575,9 +589,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 5</string>
+			<string>Info item 5th tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -585,7 +602,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Storage</string>
 			<key>pfm_description</key>
-			<string>Info item shown in the third row right.</string>
+			<string>Info item shown in the third row right</string>
 			<key>pfm_name</key>
 			<string>InfoItemSix</string>
 			<key>pfm_range_list</key>
@@ -596,6 +613,9 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>ExtensionA</string>
+				<string>ExtensionB</string>
+				<string>AppCatalog</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -605,9 +625,12 @@ A profile can consist of payloads with different version numbers. For example, c
 				<string>Password</string>
 				<string>Storage</string>
 				<string>Uptime</string>
+				<string>Extension A</string>
+				<string>Extension B</string>
+				<string>App Catalog</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Info Item 6</string>
+			<string>Info item 6th tile</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -615,11 +638,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Days of uptime after which a notification badge is shown, disabled by default</string>
+			<string>Days of uptime after which a notification badge is shown</string>
 			<key>pfm_name</key>
 			<string>UptimeDaysLimit</string>
 			<key>pfm_title</key>
-			<string>Computer Uptime Limit</string>
+			<string>Maximum uptime in days</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
@@ -629,13 +652,13 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Days until password expiry after which a notification badge is shown, disabled by default</string>
+			<string>Days until password expiry after which a notification badge is shown</string>
 			<key>pfm_name</key>
 			<string>PasswordExpiryLimit</string>
 			<key>pfm_range_min</key>
 			<integer>0</integer>
 			<key>pfm_title</key>
-			<string>Password Expiration Limit</string>
+			<string>Maximum password expiry in days</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
@@ -645,11 +668,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Mac Password</string>
 			<key>pfm_description</key>
-			<string>Alternative text label shown in the Password info item.</string>
+			<string>Alternative text label shown in the Password info item</string>
 			<key>pfm_name</key>
 			<string>PasswordLabel</string>
 			<key>pfm_title</key>
-			<string>Password Label</string>
+			<string>Password item label</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -657,11 +680,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<integer>0</integer>
 			<key>pfm_description</key>
-			<string>Percentage of storage used after which a notification badge is shown, disabled by default.</string>
+			<string>Percentage of storage after which a notification badge is shown</string>
 			<key>pfm_name</key>
 			<string>StorageLimit</string>
 			<key>pfm_title</key>
-			<string>Storage Limit</string>
+			<string>Maximum used storage percentage</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfm_value_unit</key>
@@ -671,11 +694,11 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>Remote Support</string>
 			<key>pfm_description</key>
-			<string>The text shown in the button label.</string>
+			<string>The text shown in the button label</string>
 			<key>pfm_name</key>
 			<string>FirstRowTitleLeft</string>
 			<key>pfm_title</key>
-			<string>First Row Left Title</string>
+			<string>First Row Left: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -685,13 +708,13 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_name</key>
 			<string>FirstRowSubtitleLeft</string>
 			<key>pfm_title</key>
-			<string>First Row Left Subtitle</string>
+			<string>First Row Left: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. App by default.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeLeft</string>
 			<key>pfm_note</key>
@@ -699,19 +722,21 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>First Row Left Link Type</string>
+			<string>First Row Left: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -733,7 +758,7 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script</string>
 			<key>pfm_name</key>
 			<string>FirstRowLinkLeft</string>
 			<key>pfm_note</key>
@@ -741,7 +766,7 @@ A profile can consist of payloads with different version numbers. For example, c
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>First Row Left Link</string>
+			<string>First Row Left: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -749,13 +774,13 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>cursorarrow</string>
 			<key>pfm_description</key>
-			<string>The SF Symbol shown in the button.</string>
+			<string>The SF Symbol shown in the button</string>
 			<key>pfm_name</key>
 			<string>FirstRowSymbolLeft</string>
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>First Row Left Symbol</string>
+			<string>First Row Left: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -763,11 +788,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>Company Store</string>
 			<key>pfm_description</key>
-			<string>The text shown in the button label.</string>
+			<string>The text shown in the button label</string>
 			<key>pfm_name</key>
 			<string>FirstRowTitleMiddle</string>
 			<key>pfm_title</key>
-			<string>First Row Middle Title</string>
+			<string>First Row Middle: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -777,13 +802,13 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>FirstRowSubtitleMiddle</string>
 			<key>pfm_title</key>
-			<string>First Row Middle Subtitle</string>
+			<string>First Row Middle: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. App by default.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeMiddle</string>
 			<key>pfm_note</key>
@@ -791,19 +816,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>First Row Middle Link Type</string>
+			<string>First Row Middle: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -825,7 +852,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script</string>
 			<key>pfm_name</key>
 			<string>FirstRowLinkMiddle</string>
 			<key>pfm_note</key>
@@ -833,7 +860,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>First Row Middle Link</string>
+			<string>First Row Middle: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -841,13 +868,13 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>cart.fill</string>
 			<key>pfm_description</key>
-			<string>The SF Symbol shown in the button.</string>
+			<string>The SF Symbol shown in the button</string>
 			<key>pfm_name</key>
 			<string>FirstRowSymbolMiddle</string>
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>First Row Middle Symbol</string>
+			<string>First Row Middle: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -859,7 +886,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>FirstRowTitleRight</string>
 			<key>pfm_title</key>
-			<string>First Row Right Title</string>
+			<string>First Row Right: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -869,13 +896,13 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>FirstRowSubtitleRight</string>
 			<key>pfm_title</key>
-			<string>First Row Right Subtitle</string>
+			<string>First Row Right: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. App by default.</string>
 			<key>pfm_name</key>
 			<string>FirstRowTypeRight</string>
 			<key>pfm_note</key>
@@ -883,19 +910,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>First Row Right Link Type</string>
+			<string>First Row Right: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -917,7 +946,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script</string>
 			<key>pfm_name</key>
 			<string>FirstRowLinkRight</string>
 			<key>pfm_note</key>
@@ -925,7 +954,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>First Row Right Link</string>
+			<string>First Row Right: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -939,7 +968,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>First Row Right Symbol</string>
+			<string>First Row Right: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -951,7 +980,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>SecondRowTitleLeft</string>
 			<key>pfm_title</key>
-			<string>Second Row Left Title</string>
+			<string>Second Row Left: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -959,17 +988,17 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Subtitle text will appear under title when the user hovers over the button. Ignored if left empty.</string>
+			<string>Subtitle text will replace the title when the user hovers over the button. Ignored if left empty.</string>
 			<key>pfm_name</key>
 			<string>SecondRowSubtitleLeft</string>
 			<key>pfm_title</key>
-			<string>Second Row Left Subtitle</string>
+			<string>Second Row Left: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. URL by default.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeLeft</string>
 			<key>pfm_note</key>
@@ -977,19 +1006,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Second Row Left Link Type</string>
+			<string>Second Row Left: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1011,7 +1042,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script.</string>
 			<key>pfm_name</key>
 			<string>SecondRowLinkLeft</string>
 			<key>pfm_note</key>
@@ -1019,7 +1050,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>Second Row Left Link</string>
+			<string>Second Row Left: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1033,7 +1064,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>Second Row Left Symbol</string>
+			<string>Second Row Left: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1045,23 +1076,23 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>SecondRowTitleMiddle</string>
 			<key>pfm_title</key>
-			<string>Second Row Middle Title</string>
+			<string>Second Row Middle: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Subtitle text will appear under title when the user hovers over the button. Ignored if left empty.</string>
+			<string>Subtitle text will replace the title when the user hovers over the button. Ignored if left empty.</string>
 			<key>pfm_name</key>
 			<string>SecondRowSubtitleMiddle</string>
 			<key>pfm_title</key>
-			<string>Second Row Middle Subtitle</string>
+			<string>Second Row Middle: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. URL by default.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeMiddle</string>
 			<key>pfm_note</key>
@@ -1069,19 +1100,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Second Row Middle Link Type</string>
+			<string>Second Row Middle: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1103,7 +1136,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script.</string>
 			<key>pfm_name</key>
 			<string>SecondRowLinkMiddle</string>
 			<key>pfm_note</key>
@@ -1111,7 +1144,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>Second Row Middle Link</string>
+			<string>Second Row Middle: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1125,7 +1158,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>Second Row Middle Symbol</string>
+			<string>Second Row Middle: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1137,23 +1170,23 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_name</key>
 			<string>SecondRowTitleRight</string>
 			<key>pfm_title</key>
-			<string>Second Row Right Title</string>
+			<string>Second Row Right: Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Subtitle text will appear under title when the user hovers over the button. Ignored if left empty.</string>
+			<string>Subtitle text will replace the title when the user hovers over the button. Ignored if left empty.</string>
 			<key>pfm_name</key>
 			<string>SecondRowSubtitleRight</string>
 			<key>pfm_title</key>
-			<string>Second Row Right Subtitle</string>
+			<string>Second Row Right: Subtitle</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization. URL by default.</string>
 			<key>pfm_name</key>
 			<string>SecondRowTypeRight</string>
 			<key>pfm_note</key>
@@ -1161,19 +1194,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Second Row Right Link Type</string>
+			<string>Second Row Right: Type</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1195,7 +1230,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>com.apple.ScreenSharing</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App or URL that should be opened, command or script to be run.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script.</string>
 			<key>pfm_name</key>
 			<string>SecondRowLinkRight</string>
 			<key>pfm_note</key>
@@ -1203,7 +1238,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 URL: Link to a webpage or other links that would normaly work like PROTOCOL://URL
 Command: Zsh command or path to a script. Be aware that this will be executed as the user and therefore has its limitations</string>
 			<key>pfm_title</key>
-			<string>Second Row Right Link</string>
+			<string>Second Row Right: Link</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1217,7 +1252,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_note</key>
 			<string>For more info on how to use SF Symbols, checkout https://github.com/root3nl/SupportApp/#how-to-use-sf-symbols</string>
 			<key>pfm_title</key>
-			<string>Second Row Right Symbol</string>
+			<string>Second Row Right: SF Symbol name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1225,11 +1260,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The title shown in extension A.</string>
+			<string>The text shown in the Extension.</string>
 			<key>pfm_name</key>
 			<string>ExtensionTitleA</string>
 			<key>pfm_title</key>
-			<string>Support App Extension A: Title</string>
+			<string>Extension Title A</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1239,11 +1274,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The SF Symbol shown in extension A.</string>
+			<string>The SF Symbol shown in the Extension.</string>
 			<key>pfm_name</key>
 			<string>ExtensionSymbolA</string>
 			<key>pfm_title</key>
-			<string>Support App Extension A: Symbol</string>
+			<string>Extension SF Symbol A</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1255,7 +1290,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>App</string>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the Extension should open.</string>
 			<key>pfm_name</key>
 			<string>ExtensionTypeA</string>
 			<key>pfm_note</key>
@@ -1263,19 +1298,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Support App Extension A: Type</string>
+			<string>Extension Link Type A</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1283,11 +1320,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App, URL or command to open.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script.</string>
 			<key>pfm_name</key>
 			<string>ExtensionLinkA</string>
 			<key>pfm_title</key>
-			<string>Support App Extension A: Link</string>
+			<string>Extension Link A</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1297,11 +1334,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The title shown in extension B.</string>
+			<string>The text shown in the Extension.</string>
 			<key>pfm_name</key>
 			<string>ExtensionTitleB</string>
 			<key>pfm_title</key>
-			<string>Support App Extension B: Title</string>
+			<string>Extension Title B</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1311,11 +1348,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The SF Symbol shown in extension B.</string>
+			<string>The SF Symbol shown in the Extension.</string>
 			<key>pfm_name</key>
 			<string>ExtensionSymbolB</string>
 			<key>pfm_title</key>
-			<string>Support App Extension B: Symbol</string>
+			<string>Extension SF Symbol B</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1327,7 +1364,7 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_default</key>
 			<string>App</string>
 			<key>pfm_description</key>
-			<string>Type of link the item should open. Can be anything like screen sharing tools, company stores, file servers or core applications in your organization.</string>
+			<string>Type of link the Extension should open</string>
 			<key>pfm_name</key>
 			<string>ExtensionTypeB</string>
 			<key>pfm_note</key>
@@ -1335,19 +1372,21 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_range_list</key>
 			<array>
 				<string>App</string>
-				<string>Command</string>
-				<string>DistributedNotification</string>
 				<string>URL</string>
+				<string>Command</string>
+				<string>PrivilegedScript</string>
+				<string>DistributedNotification</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>App</string>
-				<string>Command or Script (Run as user)</string>
-				<string>Command or Script (Run with elevated privileges)</string>
 				<string>URL</string>
+				<string>User Command</string>
+				<string>Privileged Script</string>
+				<string>Command or Script (deprecated as of v2.6, use Privileged Script)</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Support App Extension B: Type</string>
+			<string>Extension Link Type B</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1355,11 +1394,11 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<key>pfm_app_min</key>
 			<string>2.4</string>
 			<key>pfm_description</key>
-			<string>The Bundle Identifier of the App, URL or command to open.</string>
+			<string>The Bundle Identifier of the app, link, command or path to script.</string>
 			<key>pfm_name</key>
 			<string>ExtensionLinkB</string>
 			<key>pfm_title</key>
-			<string>Support App Extension B: Link</string>
+			<string>Extension Link B</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -1378,6 +1417,120 @@ Command: Zsh command or path to a script. Be aware that this will be executed as
 			<string>HideMajorUpdates</string>
 			<key>pfm_title</key>
 			<string>Hide Major macOS Updates / Upgrades</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Optional text to shown in the macOS Managed Updates popover to tell users about the updates</string>
+			<key>pfm_name</key>
+			<string>UpdateText</string>
+			<key>pfm_title</key>
+			<string>Update Text</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the first row with Info Items</string>
+			<key>pfm_name</key>
+			<string>HideFirstRowInfoItems</string>
+			<key>pfm_title</key>
+			<string>Hide first row Info Items</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the second row with Info Items</string>
+			<key>pfm_name</key>
+			<string>HideSecondRowInfoItems</string>
+			<key>pfm_title</key>
+			<string>Hide second row Info Items</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the third row with Info Items</string>
+			<key>pfm_name</key>
+			<string>HideThirdRowInfoItems</string>
+			<key>pfm_title</key>
+			<string>Hide third row Info Items</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the first row with configurable items</string>
+			<key>pfm_name</key>
+			<string>HideFirstRowButtons</string>
+			<key>pfm_title</key>
+			<string>Hide first row configurable buttons</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Hide the second row with configurable items</string>
+			<key>pfm_name</key>
+			<string>HideSecondRowButtons</string>
+			<key>pfm_title</key>
+			<string>Hide second row configurable buttons</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Password expiry information source: Apple (local account or AD), Jamf Connect or Kerberos SSO Extension</string>
+			<key>pfm_name</key>
+			<string>PasswordType</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Apple</string>
+				<string>JamfConnect</string>
+				<string>KerberosSSO</string>
+				<string>Nomad</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Apple</string>
+				<string> Jamf Connect</string>
+				<string>Kerberos SSO Extension</string>
+				<string>NoMAD</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Password type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Path to script script or command to be executed when the Support App is opened by clicking on the menu bar item.</string>
+			<key>pfm_name</key>
+			<string>OnAppearAction</string>
+			<key>pfm_title</key>
+			<string>On Appear Script/Command</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Option to enable or disable the Privileged Helper Tool. Re-enabling requires the reinstallation of the Support App.</string>
+			<key>pfm_name</key>
+			<string>DisablePrivilegedHelperTool</string>
+			<key>pfm_title</key>
+			<string>Enable or Disable Privileged Helper Tool</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
