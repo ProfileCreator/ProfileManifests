@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-07-29T11:47:04Z</date>
+	<date>2024-08-12T12:03:49Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0</string>
 	<key>pfm_platforms</key>
@@ -151,6 +151,7 @@
 					<string>attemptToBlockApplicationLaunches</string>
 					<string>asynchronousSoftwareUpdate</string>
 					<string>blockedApplicationBundleIDs</string>
+					<string>disableNudgeForStandardInstalls</string>
 					<string>disableSoftwareUpdateWorkflow</string>
 					<string>terminateApplicationsOnLaunch</string>
 					<string>attemptToFetchMajorUpgrade</string>
@@ -415,6 +416,18 @@
 					<string>Blocked Application Bundle IDs</string>
 					<key>pfm_type</key>
 					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>2.0</string>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>When utilizing a SOFA feed and disableNudgeForStandardInstalls is true, Nudge will only enforce updates with published CVEs. Defaults to false.</string>
+					<key>pfm_name</key>
+					<string>disableNudgeForStandardInstalls</string>
+					<key>pfm_type</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_app_min</key>
@@ -876,8 +889,38 @@
 									<string>dictionary</string>
 								</dict>
 							</array>
+							<key>pfm_title</key>
+							<string>unsupportedURLs</string>
 							<key>pfm_type</key>
 							<string>array</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>2.0.5</string>
+							<key>pfm_default</key>
+							<integer>0</integer>
+							<key>pfm_description</key>
+							<string>The amount of minor versions a device can be behind before the requiredInstallationDate is recalculated against a previous update.</string>
+							<key>pfm_name</key>
+							<string>minorVersionRecalculationThreshold</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+							<key>pfm_value_placeholder</key>
+							<string>0</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>2.0.0</string>
+							<key>pfm_default</key>
+							<integer>28</integer>
+							<key>pfm_description</key>
+							<string>When a minor update has no known CVEs, this is the amount of days a user has to install the update.</string>
+							<key>pfm_name</key>
+							<string>standardMinorUpdateSLA</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+							<key>pfm_value_placeholder</key>
+							<string>28</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
@@ -986,7 +1029,7 @@
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_value_placeholder</key>
-					<string>24</string>
+					<string>23</string>
 					<key>pfm_value_unit</key>
 					<string>hours</string>
 				</dict>
