@@ -13,7 +13,9 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-29T16:46:29Z</date>
+	<date>2024-08-20T09:06:20Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_note</key>
 	<string>As with VPN and Wi-Fi configurations, it is possible to associate an SCEP credential with an Exchange configu- ration via the PayloadCertificateUUID key.</string>
 	<key>pfm_platforms</key>
@@ -52,13 +54,15 @@
 				</dict>
 			</array>
 			<key>pfm_default</key>
-			<string></string>
+			<string>Exchange Web Services</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_enabled</key>
 			<true/>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
 			<string>Account name</string>
 			<key>pfm_type</key>
@@ -113,9 +117,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -128,9 +129,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -156,10 +154,7 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The user name for this Exchange account. This string is required for noninteractive (for example, MDM) installation. If it's missing, the device prompts for it during interactive profile installation.</string>
-			<key>pfm_description_reference</key>
-			<string>This string specifies the user name for this Exchange account.
-Required in macOS or non-interactive installations (like MDM on iOS).</string>
+			<string>The user name for this Exchange account. Required for noninteractive installation, such as through MDM. If missing, the system prompts the user for it during interactive profile installation.</string>
 			<key>pfm_name</key>
 			<string>UserName</string>
 			<key>pfm_title</key>
@@ -186,9 +181,6 @@ Required in macOS or non-interactive installations (like MDM on iOS).</string>
 			</array>
 			<key>pfm_description</key>
 			<string>The full email address for the account. If the email address string isn't present in the payload, the device prompts for it during profile installation.</string>
-			<key>pfm_description_reference</key>
-			<string>Specifies the full email address for the account. If not present in the payload, the device prompts for this string during profile installation.
-In macOS, this key is required.</string>
 			<key>pfm_name</key>
 			<string>EmailAddress</string>
 			<key>pfm_title</key>
@@ -238,8 +230,7 @@ In macOS, this key is required.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The Exchange server host name or IP address.
-If using OAuth, the host name is ignored..</string>
+			<string>The Exchange server host name or IP address. Ignored if using OAuth.</string>
 			<key>pfm_name</key>
 			<string>Host</string>
 			<key>pfm_title</key>
@@ -275,7 +266,7 @@ If using OAuth, the host name is ignored..</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'true', enables SSL.</string>
+			<string>If 'true', the system enables SSL.</string>
 			<key>pfm_name</key>
 			<string>SSL</string>
 			<key>pfm_title</key>
@@ -321,7 +312,7 @@ If using OAuth, the host name is ignored..</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'true', enables SSL for connections to the external server.</string>
+			<string>If 'true', the system enables SSL for connections to the external server.</string>
 			<key>pfm_name</key>
 			<string>ExternalSSL</string>
 			<key>pfm_title</key>
@@ -333,11 +324,7 @@ If using OAuth, the host name is ignored..</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables OAuth for authentication. If OAuth is enabled, don't specify a password.
-Available in macOS 10.14 and later</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Specifies whether the connection should use OAuth for authentication. If enabled, a password should not be specified. This defaults to false.
-Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
+			<string>If 'true', the system enables OAuth for authentication. Don't specify a password if 'OAuth' is 'true'. Available in macOS 10.14 and later</string>
 			<key>pfm_macos_min</key>
 			<string>10.14</string>
 			<key>pfm_name</key>
@@ -357,10 +344,7 @@ Availability: Available only in iOS 12.0 and macOS 10.14 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The URL to load into a web view for authentication via OAuth when autodiscovery isn't used. This setting requires a 'Host' value.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Specifies the URL to load into a webview for authentication via OAuth when auto-discovery is not used. Requires a Host value.
-Availability: Available only in macOS 10.14 and later.</string>
+			<string>The URL to load into a web view for authentication through OAuth when autodiscovery isn't used. This setting requires a 'Host' value.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -380,17 +364,47 @@ Availability: Available only in macOS 10.14 and later.</string>
 			<key>pfm_name</key>
 			<string>OAuthSignInURL</string>
 			<key>pfm_title</key>
-			<string>OAuth Sign-In URL</string>
+			<string>URL for OAuth sign-in</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfmx_supported_oses</key>
-			<dict>
-				<key>macOS</key>
-				<dict>
-					<key>pfmx_introduced</key>
-					<string>10.14</string>
-				</dict>
-			</dict>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The UUID of the certificate payload within the same profile to use for the identity credential. Supported on macOS 10.12 or later.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>PayloadCertificateUUID</string>
+			<key>pfm_title</key>
+			<string>Payload Certificate UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The UUID of the certificate payload within the same profile to use for the identity credential. Supported on macOS 10.11 or later. On macOS 10.12 or later use the PayloadCertificateUUID.</string>
+			<key>pfm_macos_min</key>
+			<string>10.11</string>
+			<key>pfm_name</key>
+			<string>AuthenticationCertificateUUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', the system enables Mail Drop.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>allowMailDrop</string>
+			<key>pfm_title</key>
+			<string>Allow Mail Drop</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
@@ -398,35 +412,10 @@ Availability: Available only in macOS 10.14 and later.</string>
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Exchange (macOS)</string>
+	<string>Exchange Web Services</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>3</integer>
-	<key>pfmx_supported_oses</key>
-	<dict>
-		<key>macOS</key>
-		<dict>
-			<key>pfmx_allow_manual_install</key>
-			<true/>
-			<key>pfmx_device_channel</key>
-			<false/>
-			<key>pfmx_introduced</key>
-			<string>10.7</string>
-			<key>pfmx_multiple</key>
-			<true/>
-			<key>pfmx_requires_dep</key>
-			<false/>
-			<key>pfmx_user_approved_mdm</key>
-			<false/>
-			<key>pfmx_user_channel</key>
-			<true/>
-			<key>pfmx_user_enrollment</key>
-			<dict>
-				<key>pfmx_mode</key>
-				<string>allowed</string>
-			</dict>
-		</dict>
-	</dict>
+	<integer>4</integer>
 </dict>
 </plist>
