@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>macOS Restrictions preferences</string>
+	<string>Use this section to define restrictions settings</string>
 	<key>pfm_description_reference</key>
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
 	<key>pfm_documentation_url</key>
@@ -15,7 +15,9 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-02-28T13:23:12Z</date>
+	<date>2024-08-21T14:59:51Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -122,6 +124,16 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_description</key>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
 			<key>pfm_name</key>
 			<string>PFC_SegmentedControl_0</string>
 			<key>pfm_range_list_titles</key>
@@ -163,6 +175,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<key>General</key>
 				<array>
 					<string>allowAccountModification</string>
+					<string>allowApplePersonalizedAdvertising</string>
 					<string>allowActivityContinuation</string>
 					<string>allowAddingGameCenterFriends</string>
 					<string>allowARDRemoteManagementModification</string>
@@ -174,8 +187,11 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>allowDeviceNameModification</string>
 					<string>allowDictation</string>
 					<string>allowEraseContentAndSettings</string>
+					<string>allowFindMyDevice</string>
+					<string>allowFindMyFriends</string>
 					<string>allowFileSharingModification</string>
 					<string>allowGameCenter</string>
+					<string>allowMultiplayerGaming</string>
 					<string>allowInternetSharingModification</string>
 					<string>allowLocalUserCreation</string>
 					<string>forceOnDeviceOnlyTranslation</string>
@@ -192,13 +208,19 @@ A profile can consist of payloads with different version numbers. For example, c
 					<string>allowSpotlightInternetResults</string>
 					<string>allowiTunesFileSharing</string>
 					<string>allowUSBRestrictedMode</string>
+					<string>allowWallpaperModification</string>
 					<string>forceOnDeviceOnlyDictation</string>
+					<string>safariAllowAutoFill</string>
+				</array>
+				<array>
+					<string>ratingRegion</string>
 				</array>
 				<key>Passwords / Unlock</key>
 				<array>
 					<string>allowAutoUnlock</string>
 					<string>allowFingerprintForUnlock</string>
 					<string>allowFingerprintModification</string>
+					<string>allowPasscodeModification</string>
 					<string>allowPasswordAutoFill</string>
 					<string>allowPasswordProximityRequests</string>
 					<string>allowPasswordSharing</string>
@@ -207,6 +229,7 @@ A profile can consist of payloads with different version numbers. For example, c
 				<key>Siri</key>
 				<array>
 					<string>allowAssistant</string>
+					<string>forceAssistantProfanityFilter</string>
 				</array>
 				<key>Updates</key>
 				<array>
@@ -254,6 +277,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>10.13</string>
 			<key>pfm_name</key>
 			<string>allowAirDrop</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow AirDrop</string>
 			<key>pfm_type</key>
@@ -354,6 +379,18 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_default</key>
 			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system limits Apple personalized advertising. Available in iOS 14 and later, and macOS 12 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>12.0</string>
+			<key>pfm_name</key>
+			<string>allowApplePersonalizedAdvertising</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
 			<key>pfm_macos_min</key>
 			<string>12</string>
 			<key>pfm_name</key>
@@ -417,6 +454,8 @@ Available in macOS 14 and later.</string>
 			<string>14.0</string>
 			<key>pfm_name</key>
 			<string>allowAccountModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -706,6 +745,8 @@ Available in macOS 14 and later.</string>
 			<string>12.0</string>
 			<key>pfm_name</key>
 			<string>allowCloudPrivateRelay</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow iCloud Private Relay</string>
 			<key>pfm_type</key>
@@ -788,6 +829,8 @@ Available in macOS 14 and later.</string>
 			<string>14.0</string>
 			<key>pfm_name</key>
 			<string>allowFingerprintModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Modifying Touch ID Fingerprints</string>
 			<key>pfm_type</key>
@@ -801,7 +844,7 @@ Available in macOS 14 and later.</string>
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to false, disables definition lookup. Defaults to true. Availability: Available in iOS 8.1.3 and later and in macOS 10.11.2 and later.</string>
 			<key>pfm_macos_min</key>
-			<string>10.11.2</string>
+			<string>10.11</string>
 			<key>pfm_name</key>
 			<string>allowDefinitionLookup</string>
 			<key>pfm_supervised</key>
@@ -837,6 +880,8 @@ Available in iOS 9 and later, macOS 14 and later, and tvOS 11.0 and later.</stri
 			<string>14.0</string>
 			<key>pfm_name</key>
 			<string>allowDeviceNameModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow Modifying Device Name</string>
 			<key>pfm_type</key>
@@ -855,6 +900,22 @@ Available in iOS 9 and later, macOS 14 and later, and tvOS 11.0 and later.</stri
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow Game Center</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prohibits multiplayer gaming. Available in iOS 4.1 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowMultiplayerGaming</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Multiplayer Gaming</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -903,6 +964,40 @@ Available in macOS 14 and later.</string>
 			<string>Allow adding Game Center friends</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The two-letter key that profile tools use to display the proper ratings for the given region. The client doesn't recognize or report this data.</string>
+			<key>pfm_name</key>
+			<string>ratingRegion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>au</string>
+				<string>ca</string>
+				<string>fr</string>
+				<string>de</string>
+				<string>ie</string>
+				<string>jp</string>
+				<string>nz</string>
+				<string>gb</string>
+				<string>us</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Australia</string>
+				<string>Canada</string>
+				<string>France</string>
+				<string>Germany</string>
+				<string>Ireland</string>
+				<string>Japan</string>
+				<string>New Zealand</string>
+				<string>United Kingdom</string>
+				<string>United States</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Region Code</string>
+			<key>pfm_type</key>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1175,6 +1270,8 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<string>13.0</string>
 			<key>pfm_name</key>
 			<string>allowBluetoothModification</string>
+			<key>pfm_supervised</key>
+			<true/>
 			<key>pfm_title</key>
 			<string>Allow modifying Bluetooth settings</string>
 			<key>pfm_type</key>
@@ -1195,6 +1292,38 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow proximity based password sharing requests</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prevents adding, changing, or removing the passcode. The system ignores this restriction on Shared iPad. Available in iOS 9 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowPasscodeModification</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Modifying Passcode</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prevents changing the wallpaper. Available in iOS 9 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>allowWallpaperModification</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Modifying Wallpaper</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -1232,11 +1361,27 @@ Additionally, if set to true and ScreenObservationPermissionModificationAllowed 
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
+			<string>If 'true', the system forces the use of the profanity filter assistant. Available in iOS 11 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>forceAssistantProfanityFilter</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Enable Siri Profanity Filter</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
 			<string></string>
 			<key>pfm_description_reference</key>
 			<string>Supervised only. If set to true, delays user visibility of Software Updates. Defaults to false. On macOS, seed build updates will be allowed, without delay. Availability: Available in iOS 11.3 and later and macOS 10.13 and later.</string>
 			<key>pfm_macos_min</key>
-			<string>10.13.4</string>
+			<string>10.13</string>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
 			<key>pfm_note</key>
@@ -1523,6 +1668,55 @@ Available in macOS 11 and later.</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system disables Safari AutoFill for passwords, contact info, and credit cards and also prevents using the Keychain for AutoFill. As of iOS 13, requires a supervised device. Available in iOS 4 and later, and macOS 10.13 and later.
+The system still allows third-party password managers, and apps can use AutoFill.</string>
+			<key>pfm_macos_min</key>
+			<string>10.13</string>
+			<key>pfm_name</key>
+			<string>safariAllowAutoFill</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow AutoFill in Safari</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system disables Find My Device in the Find My app. Requires a supervised device. Available in iOS 13 and later, and macOS 10.15 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>allowFindMyDevice</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Find My Devices</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system disables Find My Friends in the Find My app. Requires a supervised device. Available in iOS 13 and later, and macOS 10.15 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>allowFindMyFriends</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Find My Friends</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1534,6 +1728,6 @@ Available in macOS 11 and later.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>14</integer>
+	<integer>15</integer>
 </dict>
 </plist>
