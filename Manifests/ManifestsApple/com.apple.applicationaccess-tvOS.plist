@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-02-28T13:23:12Z</date>
+	<date>2024-08-23T13:25:42Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>tvOS</string>
@@ -160,6 +160,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowInAppPurchases</string>
 					<string>allowRemoteAppPairing</string>
 					<string>forceAutomaticDateAndTime</string>
+					<string>allowDeviceSleep</string>
 				</array>
 				<key>Media</key>
 				<array>
@@ -450,6 +451,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appBlockedBundleID</string>
 					<key>pfm_title</key>
 					<string>Bundle ID</string>
 					<key>pfm_type</key>
@@ -523,6 +526,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appBlacklistedBundleID</string>
 					<key>pfm_title</key>
 					<string>iOS / tvOS Bundle ID</string>
 					<key>pfm_type</key>
@@ -600,6 +605,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appAllowlistedBundleID</string>
 					<key>pfm_title</key>
 					<string>Bundle ID</string>
 					<key>pfm_type</key>
@@ -673,6 +680,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appWhitelistedBundleID</string>
 					<key>pfm_title</key>
 					<string>iOS / tvOS Bundle ID</string>
 					<key>pfm_type</key>
@@ -905,6 +914,10 @@ Possible values (with the US description of the rating level):
 				<string>100: 4+</string>
 				<string>Don't Allow Apps</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - Apps</string>
 			<key>pfm_tvos_min</key>
@@ -983,6 +996,10 @@ Possible values (with the US description of the rating level):
 				<string>100: G</string>
 				<string>0: Don't Allow Movies</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - Movies</string>
 			<key>pfm_tvos_min</key>
@@ -1064,6 +1081,10 @@ Possible values (with the US description of the rating level):
 				<string>100: TV-Y</string>
 				<string>0: Don't Allow TV Shows</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - TV Shows</string>
 			<key>pfm_tvos_min</key>
@@ -1154,6 +1175,8 @@ Possible values (with the US description of the rating level):
 			<string>allowBookstoreErotica</string>
 			<key>pfm_title</key>
 			<string>Allow explicit sexual content in iBooks Store</string>
+			<key>pfm_tvos_deprecated</key>
+			<string>17.0</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -1237,7 +1260,7 @@ Possible values (with the US description of the rating level):
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', forces all devices sending AirPlay requests to this device to use a pairing password. Available in Apple TV Software 6.2 and later. This key isn't supported in tvOS 10.2 and later. Use the AirPlay Security Payload instead.</string>
 			<key>pfm_name</key>
@@ -1500,6 +1523,50 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 				</dict>
 			</dict>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prevents the device from automatically sleeping. Requires a supervised device. Available in tvOS 13 and later.</string>
+			<key>pfm_name</key>
+			<string>allowDeviceSleep</string>
+			<key>pfm_title</key>
+			<string>Allow Device Sleep</string>
+			<key>pfm_tvos_min</key>
+			<string>13.0</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>13.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1508,10 +1575,12 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 	</array>
 	<key>pfm_title</key>
 	<string>Restrictions (tvOS)</string>
+	<key>pfm_tvos_min</key>
+	<string>6.1</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
@@ -1528,6 +1597,8 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 				<true/>
 				<key>pfmx_mode</key>
 				<string>allowed</string>
+				<key>pfmx_user_channel</key>
+				<true/>
 			</dict>
 			<key>pfmx_supervised</key>
 			<false/>
