@@ -13,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>17.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -24,9 +24,7 @@
 			<key>pfm_default</key>
 			<string>Cellular Private Network Settings and Device Configuration</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -38,9 +36,7 @@
 			<key>pfm_default</key>
 			<string>Cellular Private Network</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -54,9 +50,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.cellularprivatenetwork.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -70,9 +64,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.cellularprivatenetwork.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -84,9 +76,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -102,9 +92,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -116,7 +104,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -126,7 +114,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>List of up to 1000 geofences for private networks. Geofencing is only used on iPhones.</string>
+			<string>A list of up to 1000 geofences for private networks. Geofencing is only used on iPhone.</string>
 			<key>pfm_name</key>
 			<string>Geofences</string>
 			<key>pfm_subkeys</key>
@@ -138,7 +126,7 @@
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>Signed decimal value of longitude from -180 to 180</string>
+							<string>The longitude of the geofence.</string>
 							<key>pfm_name</key>
 							<string>Longitude</string>
 							<key>pfm_range_max</key>
@@ -152,7 +140,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Signed decimal value of latitude from -90 to 90</string>
+							<string>The latitude of the geofence.</string>
 							<key>pfm_name</key>
 							<string>Latitude</string>
 							<key>pfm_range_max</key>
@@ -166,7 +154,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Specifies the radius of the geofence in meters. Should be set slightly greater than the private cellular network coverage area. Supported values 100 to 6500</string>
+							<string>Specifies the radius of the geofence in meters. Set this value slightly greater than the private cellular network coverage area.</string>
 							<key>pfm_name</key>
 							<string>Radius</string>
 							<key>pfm_range_max</key>
@@ -180,7 +168,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>ID of geofence, must be unique amongst list</string>
+							<string>A geofence identifier that's unique within a list of geofences.</string>
 							<key>pfm_name</key>
 							<string>GeofenceId</string>
 							<key>pfm_require</key>
@@ -198,7 +186,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name for private network configuration dataset</string>
+			<string>The name of the private network configuration data set.</string>
 			<key>pfm_name</key>
 			<string>DataSetName</string>
 			<key>pfm_require</key>
@@ -208,7 +196,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The version number of this dataset. Used to track updates</string>
+			<string>The version number of this dataset that the system uses to track updates.</string>
 			<key>pfm_name</key>
 			<string>VersionNumber</string>
 			<key>pfm_require</key>
@@ -217,16 +205,20 @@
 			<string>string</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Set to true if this private network should be preferred over wifi</string>
+			<string>Set to 'true' to prefer this private network over Wi-Fi.</string>
 			<key>pfm_name</key>
 			<string>CellularDataPreferred</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>Set to true if this private network is NR Standalone</string>
+			<string>Set to 'true' if this private network is NR Standalone.</string>
 			<key>pfm_name</key>
 			<string>EnableNRStandalone</string>
 			<key>pfm_type</key>
