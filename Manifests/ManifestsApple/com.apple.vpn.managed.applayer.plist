@@ -13,7 +13,7 @@
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-09-04T12:53:38Z</date>
+	<date>2024-09-04T13:29:58Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.9</string>
 	<key>pfm_platforms</key>
@@ -532,6 +532,8 @@ Not available in watchOS.</string>
 					<string>Use Token Card</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -568,6 +570,8 @@ Not available in watchOS.</string>
 					<string>Enable CCP</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -630,6 +634,8 @@ Not available in watchOS.</string>
 					<string>Enable CCPMPPE40</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -692,6 +698,8 @@ Not available in watchOS.</string>
 					<string>Enable CCPMPPE128</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
@@ -2702,12 +2710,30 @@ This field is available in iOS 13 and later, and tvOS 17 and later. Not availabl
 					<string>Enable VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
 					<string>If '1', the system disables the Connect On Demand toggle in Settings for this configuration.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<integer>1</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>IKEv2.OnDemandEnabled</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_name</key>
@@ -2725,6 +2751,8 @@ This field is available in iOS 13 and later, and tvOS 17 and later. Not availabl
 					<string>Prevent users from toggling VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 					<key>pfmx_supported_oses</key>
 					<dict>
 						<key>iOS</key>
@@ -2742,6 +2770,22 @@ This field is available in iOS 13 and later, and tvOS 17 and later. Not availabl
 				<dict>
 					<key>pfm_description</key>
 					<string>A list of rules that determine when and how to use an OnDemand VPN.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<integer>1</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>IKEv2.OnDemandEnabled</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>pfm_name</key>
 					<string>OnDemandRules</string>
 					<key>pfm_subkeys</key>
@@ -3002,6 +3046,8 @@ NAT keepalive offload has an impact on the battery life due to the extra workloa
 					<string>NAT Keep Alive Offload Enable</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 					<key>pfmx_supported_oses</key>
 					<dict>
 						<key>iOS</key>
@@ -3158,6 +3204,8 @@ NAT keepalive offload has an impact on the battery life due to the extra workloa
 					<string>18.0</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 					<key>pfmx_supported_oses</key>
 					<dict>
 						<key>iOS</key>
@@ -4789,6 +4837,8 @@ Split-tunnel configurations can direct all DNS queries to the VPN DNS servers be
 					<string>XAUTH Enabled</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
