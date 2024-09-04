@@ -11,13 +11,14 @@
 	<key>pfm_ios_min</key>
 	<string>17.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-03-01T15:25:39Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_macos_min</key>
 	<string>14.0</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
 		<string>macOS</string>
+		<string>tvOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
@@ -25,9 +26,7 @@
 			<key>pfm_default</key>
 			<string>Use this section to define settings for network relays.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -39,9 +38,7 @@
 			<key>pfm_default</key>
 			<string>Relay</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -55,9 +52,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.relay.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -71,9 +66,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.relay.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -85,9 +78,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -103,9 +94,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload. A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -117,7 +106,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -127,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of dictionaries that describes one or more relay servers that can be chained together.</string>
+			<string>An array of dictionaries that describe one or more relay servers that the system can chain together.</string>
 			<key>pfm_name</key>
 			<string>Relays</string>
 			<key>pfm_require</key>
@@ -141,7 +130,8 @@
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The URL or URI template (such as defined in RFC 9298) of a relay server that is reachable using HTTP/3 and supports proxying TCP and UDP using the CONNECT method. Each relay must have at least one URL, for either HTTP/3 or HTTP/2, and may support both.</string>
+							<string>The URL or URI template, as defined in RFC 9298, of a relay server that's reachable using HTTP/3 and supports proxying TCP and UDP using the CONNECT method.
+Each relay needs to include either 'HTTP2RelayURL' or 'HTTP3RelayURL', or it can include both.</string>
 							<key>pfm_name</key>
 							<string>HTTP3RelayURL</string>
 							<key>pfm_title</key>
@@ -151,7 +141,8 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>The URL or URI template (such as defined in RFC 9298) of a relay server that is reachable using HTTP/2 and supports proxying TCP and UDP using the CONNECT method. Each relay must have at least one URL, for either HTTP/3 or HTTP/2, and may support both.</string>
+							<string>The URL or URI template, as defined in RFC 9298, of a relay server that's reachable using HTTP/2 and supports proxying TCP and UDP using the CONNECT method.
+Each relay needs to include either 'HTTP2RelayURL' or 'HTTP3RelayURL', or it can include both.</string>
 							<key>pfm_name</key>
 							<string>HTTP2RelayURL</string>
 							<key>pfm_title</key>
@@ -161,7 +152,7 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>A dictionary of custom HTTP header keys and values to add to each request to the relay. The dictionary key name represents the HTTP header field name to use, and the dictionary value is the string to use as the HTTP header field value.</string>
+							<string>A dictionary that contains custom HTTP header keys and values to add to each request. The dictionary key name represents the HTTP header field name to use, and the dictionary value is the string to use as the HTTP header field value.</string>
 							<key>pfm_name</key>
 							<string>AdditionalHTTPHeaderFields</string>
 							<key>pfm_subkeys</key>
@@ -173,6 +164,8 @@
 									<string>{{key}}</string>
 									<key>pfm_repetition_min</key>
 									<integer>1</integer>
+									<key>pfm_require</key>
+									<string>always</string>
 									<key>pfm_type</key>
 									<string>string</string>
 									<key>pfm_value_unique</key>
@@ -180,11 +173,13 @@
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string></string>
+									<string>The HTTP header field value for the corresponding header field name.</string>
 									<key>pfm_name</key>
 									<string>{{value}}</string>
 									<key>pfm_repetition_min</key>
 									<integer>1</integer>
+									<key>pfm_require</key>
+									<string>always</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
@@ -196,7 +191,9 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>UUID pointing to an identity certificate payload. This identity will be used to authenticate the user to the relay server.</string>
+							<string>The UUID that points to an identity certificate payload, which the system uses to authenticate the user to the relay server.</string>
+							<key>pfm_format</key>
+							<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 							<key>pfm_name</key>
 							<string>PayloadCertificateUUID</string>
 							<key>pfm_title</key>
@@ -206,7 +203,8 @@
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>An array of raw public keys used to authenticate the server during a TLS handshake. The server must use one of the keys in the handshake in order to authenticate. If no keys are specified, default TLS trust evaluation is used.</string>
+							<string>An array of raw public keys that the system uses to authenticate the server during a TLS handshake. The server needs to use one of the keys in the handshake to authenticate.
+If this array is empty, the system uses the default TLS trust evaluation.</string>
 							<key>pfm_name</key>
 							<string>RawPublicKeys</string>
 							<key>pfm_subkeys</key>
@@ -239,7 +237,9 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A list of domain strings used to determine which connection should be routed through the servers contained in Relays. Any connection that matches the domain exactly or is a subdomain of the listed domain will use the relay servers, unless they match an excluded domain. If no domains are listed, traffic to all domains, except those matching an excluded domain, will be routed to the relay servers.</string>
+			<string>A list of domain strings that the system uses to determine which connection to route through the servers in 'Relays'.
+Any connection that matches a domain in the list exactly or is a subdomain of the listed domain uses the relay servers, unless it matches a domain in 'ExcludedDomains'.
+If this list is empty, the system routes traffic to all domains to the relay servers, except those that match an excluded domain.</string>
 			<key>pfm_name</key>
 			<string>MatchDomains</string>
 			<key>pfm_subkeys</key>
@@ -260,7 +260,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A list of domain strings that should not be routed through the servers contained in Relays. Any connection that matches the domain exactly or is a subdomain of the listed domain will not use the relay server.</string>
+			<string>A list of domain strings to exclude from routing through the servers in 'Relays'. Any connection that matches a domain in the list exactly or is a subdomain of the listed domain won't use the relay server.</string>
 			<key>pfm_name</key>
 			<string>ExcludedDomains</string>
 			<key>pfm_subkeys</key>
@@ -281,7 +281,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A globally-unique identifier for this relay configuration. This UUID is used to route managed apps through the servers contained in Relays.</string>
+			<string>A globally-unique identifier for this relay configuration. The system uses this UUID to route managed apps through the servers in 'Relays'. This key is required for user enrollments.</string>
 			<key>pfm_name</key>
 			<string>RelayUUID</string>
 			<key>pfm_type</key>
@@ -291,10 +291,14 @@
 	<key>pfm_targets</key>
 	<array>
 		<string>system</string>
-		<string>system</string>
+		<string>user</string>
 	</array>
 	<key>pfm_title</key>
 	<string>Relay</string>
+	<key>pfm_tvos_min</key>
+	<string>17.0</string>
+	<key>pfm_unique</key>
+	<false/>
 	<key>pfm_version</key>
 	<integer>1</integer>
 	<key>pfmx_supported_oses</key>
@@ -321,7 +325,7 @@
 			<key>pfmx_user_enrollment</key>
 			<dict>
 				<key>pfmx_mode</key>
-				<string>forbidden</string>
+				<string>allowed</string>
 			</dict>
 		</dict>
 		<key>macOS</key>
@@ -344,6 +348,33 @@
 			<dict>
 				<key>pfmx_mode</key>
 				<string>forbidden</string>
+			</dict>
+		</dict>
+		<key>tvOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>17.0</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>1.0</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>allowed</string>
 			</dict>
 		</dict>
 	</dict>

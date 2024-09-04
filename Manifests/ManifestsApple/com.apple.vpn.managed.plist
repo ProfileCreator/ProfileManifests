@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Use this section to define settings for virtual private networks.</string>
+	<string>Use this section to define settings for VPN access.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/vpn</string>
 	<key>pfm_domain</key>
@@ -15,21 +15,22 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-06-11T14:41:57Z</date>
+	<date>2024-09-04T13:46:53Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
 		<string>macOS</string>
+		<string>tvOS</string>
 	</array>
 	<key>pfm_subkeys</key>
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures VPN settings</string>
+			<string>Use this section to define settings for VPN access.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -41,7 +42,7 @@
 			<key>pfm_default</key>
 			<string>VPN</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -55,7 +56,8 @@
 			<key>pfm_default</key>
 			<string>com.apple.vpn.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited. Usually root PayloadIdentifier+subidentifier</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -69,7 +71,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.vpn.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -83,7 +85,8 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -99,9 +102,13 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -111,7 +118,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -160,7 +167,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The description of the VPN connection displayed on the device</string>
+			<string>The description of the VPN connection that the system displays on the device. Not available in watchOS.</string>
 			<key>pfm_name</key>
 			<string>UserDefinedName</string>
 			<key>pfm_require</key>
@@ -181,23 +188,23 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			<string>VPNType</string>
 			<key>pfm_range_list</key>
 			<array>
+				<string>VPN</string>
+				<string>L2TP</string>
+				<string>IPSec</string>
 				<string>IKEv2</string>
 				<string>AlwaysOn</string>
-				<string>IPSec</string>
-				<string>L2TP</string>
 				<string>PPTP</string>
 				<string>TransparentProxy</string>
-				<string>VPN</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
+				<string>VPN (vendor-specific)</string>
+				<string>L2TP (no tvOS)</string>
+				<string>IPSec (no tvOS)</string>
 				<string>IKEv2</string>
 				<string>IKEv2 Always-On (supervised iOS only)</string>
-				<string>IPSec (no tvOS)</string>
-				<string>L2TP (no tvOS)</string>
-				<string>PPTP (removed in iOS 10 and macOS 10.12) </string>
+				<string>PPTP (removed in iOS 10 and macOS 10.12)</string>
 				<string>Transparent Proxy (macOS only)</string>
-				<string>VPN (vendor-specific)</string>
 			</array>
 			<key>pfm_require</key>
 			<string>always</string>
@@ -227,7 +234,10 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Bundle ID of a VPN plugin or of an app containing a network extension provider, for use in vendor specific VPN configurations</string>
+			<string>An identifier for a vendor-specified configuration dictionary when the value for 'VPNType' is 'VPN'.
+If 'VPNType' is 'VPN', the system requires this field. If the configuration targets a VPN solution that uses a network extension provider, then this field contains the bundle identifier of the app that contains the provider. Contact the VPN solution vendor for the value of the identifier.
+If 'VPNType' is 'IKEv2', then the 'VPNSubType' field is optional and reserved for future use. If it's specified, it needs to contain an empty string.
+Not available in watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -267,7 +277,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>PPP Settings for L2TP and PPTP VPN types</string>
+			<string>The dictionary to use when 'VPNType' is 'L2TP' or 'PTPP'. Not available in watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -287,35 +297,40 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			</array>
 			<key>pfm_name</key>
 			<string>PPP</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>IP address or hostname of the VPN server</string>
+					<string>The IP address or host name of VPN server. This key is for use with L2TP and PPTP networks.</string>
 					<key>pfm_name</key>
 					<string>CommRemoteAddress</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Server</string>
+					<string>Remote Address</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Username for the VPN account</string>
+					<string>The VPN account user name. This key is for use with L2TP and PPTP networks.</string>
 					<key>pfm_name</key>
 					<string>AuthName</string>
 					<key>pfm_require</key>
 					<string>push</string>
 					<key>pfm_title</key>
-					<string>Account</string>
+					<string>Account Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Password for the VPN account. Setting this disables the authentication plugin (AuthEAPPlugins) and the authentication protocol (AuthProtocol) fields</string>
+					<string>If 'TokenCard' is '1', use this password for authentication. This key is for use with L2TP and PPTP networks.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -344,7 +359,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>AuthPassword</string>
 					<key>pfm_title</key>
-					<string>Password</string>
+					<string>Account Password</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -366,7 +381,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>When using RSA SecurID, this array should contain the sole value of EAP-RSA. Setting this disables the password field (AuthPassword)</string>
+					<string>An array of authentication plugins. For use of RSA SecurID, this array should only have one value: 'EAP-RSA'. This key is for use with L2TP and PPTP networks.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -393,6 +408,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_range_list</key>
 							<array>
 								<string>EAP-RSA</string>
+								<string>EAP-TLS</string>
+								<string>EAP-KRB</string>
 							</array>
 							<key>pfm_repetition_max</key>
 							<integer>1</integer>
@@ -400,12 +417,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<integer>1</integer>
 							<key>pfm_require</key>
 							<string>always</string>
+							<key>pfm_title</key>
+							<string>EAP Plugin</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Authentication Plugin</string>
+					<string>EAP Plugins</string>
 					<key>pfm_type</key>
 					<string>array</string>
 					<key>pfm_type_input</key>
@@ -429,7 +448,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>When using RSA SecurID, this array should contain the sole value of EAP. Setting this disables the password field (AuthPassword)</string>
+					<string>An array of authentication protocols. For use of RSA SecurID, this array should have one value, 'EAP'. This key is for use with L2TP and PPTP networks.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -463,12 +482,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<integer>1</integer>
 							<key>pfm_require</key>
 							<string>always</string>
+							<key>pfm_title</key>
+							<string>Auth Protocol</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Authentication Protocol</string>
+					<string>Protocol</string>
 					<key>pfm_type</key>
 					<string>array</string>
 					<key>pfm_type_input</key>
@@ -476,9 +497,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_default</key>
-					<false/>
+					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Sets the VPN connection to use a token card (e.gß. RSA SecurID) for authentication</string>
+					<string>If '1', uses a token card such as an RSA SecurID card for connecting. This key is for use with L2TP networks.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -497,14 +518,21 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					</array>
 					<key>pfm_name</key>
 					<string>TokenCard</string>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
 					<key>pfm_title</key>
 					<string>Use Token Card</string>
 					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Enables encryption on the connection in conjunciton with either CCPMPPE40Enabled or CCPMPPE128Enabled</string>
+					<string>If '1', enables encryption on the connection. This key is for use with PPTP networks.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -534,13 +562,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Encryption</string>
+					<string>Enable CCP</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>In conjunction with Enable Encryption (CCPEnabled), enables CCPMPPE40 encryption on the connection. Enabling this disables the CCPMPPE128 encryption field</string>
+					<string>If '1' and 'CCPEnabled' is also '1', enables CCPMPPE128 encryption.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -596,13 +626,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable CCPMPPE40 Encryption</string>
+					<string>Enable CCPMPPE40</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>In conjunction with Enable Encryption (CCPEnabled), enables CCPMPPE128 encryption on the connection. Enabling this disables the CCPMPPE40 encryption field</string>
+					<string>If '1' and 'CCPEnabled' is also '1', enables CCPMPPE40 encryption.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -658,15 +690,17 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable CCPMPPE128 Encryption</string>
+					<string>Enable CCPMPPE128</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disconnect an on demand connection after it becomes idle</string>
+					<string>If '1', disconnects after an on demand connection idles.</string>
 					<key>pfm_name</key>
 					<string>DisconnectOnIdle</string>
 					<key>pfm_range_list</key>
@@ -688,7 +722,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Time interval between a connection becoming idle and when it is finally disconnected, when Enable Disconnect on Idle (DisconnectOnIdle) is enabled. The value is an integer number representing seconds</string>
+					<string>The length of time to wait before disconnecting an on demand connection</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -710,7 +744,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>Disconnect on Idle Interval</string>
+					<string>Disconnect on Idle time</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
@@ -721,7 +755,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			<string>dictionary</string>
 			<key>pfmx_supported_oses</key>
 			<dict>
-				<key>tvOS</key>
+				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -730,7 +764,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary used when VPNType is set to TransparentProxy. The keys in this dictionary are the same as the keys in the VPN dictionary with the addition of the fields shown below.</string>
+			<string>The dictionary to use when 'VPNType' is 'TransparentProxy'. Available in macOS 14 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -779,7 +813,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>Password</string>
 					<key>pfm_description</key>
-					<string>Type of authentication method for use with the VPN connection</string>
+					<string>The type of authentication method to use: 'Password', 'Certificate', or 'Password+Certificate'.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>AuthenticationMethod</string>
 					<key>pfm_range_list</key>
@@ -795,7 +830,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The VPN user password.</string>
+					<string>The password to use for the account credentials. Only used if 'AuthenticationMethod' is 'Password'.
+Available in macOS 14 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -822,7 +858,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>UUID of a certificate payload in this profile that will be used for authentication</string>
+					<string>The UUID of the identity certificate as the account credential. If 'AuthenticationMethod' is 'Certificate', and extended authentication (EAP) isn't used, this certificate is sent out for IKE client authentication. If extended authentication is used, this certificate can be used for EAP-TLS.
+Available in macOS 14 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -852,7 +889,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>macOS</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Certificate</string>
+					<string>PayloadCertificateUUID</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -860,7 +897,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables the VPN connection on-demand</string>
+					<string>If '1', the system brings up the VPN on demand.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>OnDemandEnabled</string>
 					<key>pfm_range_list</key>
@@ -874,7 +912,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable VPN On-Demand</string>
+					<string>Enable VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -882,7 +920,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Rules for establishing VPN connection on-demand</string>
+					<string>Determines when and how the system uses an OnDemand VPN.
+Available in macOS 14 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -910,7 +949,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<array>
 								<dict>
 									<key>pfm_description</key>
-									<string>Action to be taken when all of the accompanying matches evaluate positivley</string>
+									<string>The action to take if this dictionary matches the current network. Possible values are:
+* 'Allow': Deprecated. Allow VPN On Demand to connect if triggered.
+* 'Connect': Unconditionally initiate a VPN connection on the next network attempt.
+* 'Disconnect': Tear down the VPN connection and don't reconnect on demand as long as this dictionary matches.
+* 'EvaluateConnection': Evaluate the ActionParameters array for each connection attempt.
+* 'Ignore:' Leave any existing VPN connection up, but don't reconnect on demand as long as this dictionary matches.
+Only the 'Disconnect' action is available on watchOS 10 and later.</string>
 									<key>pfm_name</key>
 									<string>Action</string>
 									<key>pfm_range_list</key>
@@ -938,7 +983,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>An interface type which when present is used to match against the interface type of the primary network interface</string>
+									<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
 									<key>pfm_name</key>
 									<string>InterfaceTypeMatch</string>
 									<key>pfm_range_list</key>
@@ -954,13 +999,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 										<string>Cellular</string>
 									</array>
 									<key>pfm_title</key>
-									<string>Primary Interface Type Match</string>
+									<string>Interface Type Match</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of domain names which when present are used for matching any of the devices search domains. A single wildcard '*' is supported</string>
+									<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list.
+The system supports a wildcard ('*') prefix. For example, '*.example.com' matches against either 'mydomain.example.com' or 'yourdomain.example.com'.</string>
 									<key>pfm_name</key>
 									<string>DNSDomainMatch</string>
 									<key>pfm_subkeys</key>
@@ -983,7 +1029,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of IP addresses which when present are used for matching any of the current network's DNS servers against</string>
+									<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
+The system supports matching with a single wildcard. For example, '17.*' matches any DNS server in the '17.0.0.0/8' subnet.</string>
 									<key>pfm_name</key>
 									<string>DNSServerAddressMatch</string>
 									<key>pfm_subkeys</key>
@@ -992,19 +1039,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>DNSServerAddressMatchElement</string>
 											<key>pfm_title</key>
-											<string>DNS Server Address</string>
+											<string>DNS Server Address Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
 									</array>
 									<key>pfm_title</key>
-									<string>DNS Server IP Address Match</string>
+									<string>DNS Server Address Match</string>
 									<key>pfm_type</key>
 									<string>array</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of Wi-Fi SSIDs which when present are used for matching the current connected network against. None Wi-Fi networks fail the match</string>
+									<string>An array of SSIDs to match against the current network. If the network isn't a Wi-Fi network or if the SSID doesn't appear in this array, the match fails.
+Omit this key and the corresponding array to match against any SSID.</string>
 									<key>pfm_name</key>
 									<string>SSIDMatch</string>
 									<key>pfm_subkeys</key>
@@ -1013,7 +1061,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>SSIDMatchElement</string>
 											<key>pfm_title</key>
-											<string>SSID Match</string>
+											<string>SSID Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
@@ -1025,29 +1073,34 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A URL which when present is tested for successful fetching without redirection</string>
+									<string>A URL to probe. This rule matches when this URL is successfully fetched (returns a '200' HTTP status code) without redirection. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>URLStringProbe</string>
 									<key>pfm_title</key>
-									<string>Test URL Match</string>
+									<string>URL String Probe</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Similar to the on-demand rules, but evaluated on every connection instead of on network change. Applicable only when Action is set to 'EvaluateConnection'</string>
+									<string>An array of dictionaries that provides rules similar to the 'OnDemandRules' dictionary, but evaluated on each connection instead of when the network changes. This value is only for use with dictionaries in which the 'Action' value is 'EvaluateConnection'. The system evaluates these dictionaries in order and the first dictionary that matches determines the behavior. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>ActionParameters</string>
 									<key>pfm_subkeys</key>
 									<array>
 										<dict>
+											<key>pfm_description</key>
+											<string>A dictionary that provides rules similar to the OnDemandRules dictionary, but evaluated on each connection instead of when the network changes. These dictionaries are evaluated in order, and the behavior is determined by the first dictionary that matches.
+The keys allowed in each dictionary are described below. Note: This array is used only for dictionaries in which EvaluateConnection is the Action value.</string>
 											<key>pfm_name</key>
 											<string>ActionParameter</string>
 											<key>pfm_subkeys</key>
 											<array>
 												<dict>
 													<key>pfm_description</key>
-													<string>Action to be taken when all of the accompanying action parameter matches evaluate positivley</string>
+													<string>Defines the VPN behavior for the specified domains. Allowed values are:
+* 'ConnectIfNeeded': The specified domains should trigger a VPN connection attempt if domain name resolution fails, such as when the DNS server indicates that it can't resolve the domain, responds with a redirection to a different server, or fails to respond (timeout).
+* 'NeverConnect': The specified domains should never trigger a VPN connection attempt.</string>
 													<key>pfm_name</key>
 													<string>DomainAction</string>
 													<key>pfm_range_list</key>
@@ -1063,13 +1116,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 													<key>pfm_require</key>
 													<string>always</string>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Action</string>
+													<string>Domain Action</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of domain for which the action parameter evaluation applies</string>
+													<string>The domains to apply this evaluation.</string>
 													<key>pfm_name</key>
 													<string>Domains</string>
 													<key>pfm_require</key>
@@ -1080,19 +1133,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>DomainsElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Domain Matches Element</string>
+															<string>Domains Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Matches</string>
+													<string>Domains</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of IP addresses of internal or external-trusted DNS servers which are used to resolve the domains in the Domains field. A VPN connection will be established when these servers are unreachable.  Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An array of IP addresses of DNS servers to use for resolving the specified domains. These servers don't need to be part of the device's current network configuration. If these DNS servers aren't reachable, the system establishes a VPN connection. These DNS servers need to be either internal DNS servers or trusted external DNS servers.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredDNSServers</string>
 													<key>pfm_subkeys</key>
@@ -1101,23 +1155,24 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>RequiredDNSServersElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Required DNS Servers Element</string>
+															<string>Required DNS Servers Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Required DNS Servers</string>
+													<string>Required DNS Servers</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A URL which when present is tested for successful fetching without redirection. A VPN connection will be established when the URL is unreachable. Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An HTTP or HTTPS (preferred) URL to probe, using a GET request. If the URL's hostname can't be resolved, if the server is unreachable, or if the server doesn't respond with a 200 HTTP status code, a VPN connection is established in response.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredURLStringProbe</string>
 													<key>pfm_title</key>
-													<string>Per Connection Required Test URL</string>
+													<string>Required URL String Probe</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
@@ -1141,7 +1196,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>VPN On-Demand Rules</string>
+					<string>On Demand Rules</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -1149,7 +1204,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>packet-tunnel</string>
 					<key>pfm_description</key>
-					<string>Switches between </string>
+					<string>If the value of this key is 'app-proxy', the VPN service tunnels traffic at the application layer. If the value of this key is 'packet-tunnel', the VPN service tunnels traffic at the IP layer.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>ProviderType</string>
 					<key>pfm_range_list</key>
@@ -1169,7 +1225,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Bundle ID for the VPN connection provider</string>
+					<string>If the VPNSubType field contains the bundle identifier of an app that contains multiple VPN providers of the same type (app-proxy or packet-tunnel), then the system uses this field to choose which provider to use for this configuration. If the VPN provider is implemented as a System Extension, then this field is required.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>ProviderBundleIdentifier</string>
 					<key>pfm_title</key>
@@ -1179,7 +1236,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Applicable when the VPN connection is provided by a system extension</string>
+					<string>If the VPN provider is implemented as a System Extension, then this field is required.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>ProviderDesignatedRequirement</string>
 					<key>pfm_title</key>
@@ -1191,7 +1249,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disconnect an on demand connection after it becomes idle</string>
+					<string>If '1', the VPN disconnects automatically disconnect after a period defined by 'DisconnectOnIdleTimer'.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>DisconnectOnIdle</string>
 					<key>pfm_range_list</key>
@@ -1215,7 +1274,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all the VPN's non-default routes will take precedence over any locally-defined routes. If IncludeAllNetworks is 1, the value of EnforceRoutes is ignored.</string>
+					<string>If '1', then all the VPN's non-default routes take precedence over any locally-defined routes. If 'IncludeAllNetworks' is '1', the system ignores the value of 'EnforceRoutes'.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>EnforceRoutes</string>
 					<key>pfm_range_list</key>
@@ -1232,7 +1292,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Time interval between a connection becoming idle and when it is finally disconnected, when Enable Disconnect on Idle (DisconnectOnIdle) is enabled. The value is an integer number representing seconds</string>
+					<string>The number of seconds before the VPN disconnects. This value is only used if 'DisconnectOnIdle' is '1'.
+Available in macOS 14 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1254,13 +1315,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>Disconnect on Idle Interval</string>
+					<string>Disconnect on Idle time</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>A positive integer.</string>
+					<string>A positive integer.
+Available in macOS 14 and later.</string>
 					<key>pfm_name</key>
 					<string>Order</string>
 					<key>pfm_title</key>
@@ -1283,7 +1345,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Transparent Proxy</string>
+			<string>TransparentProxy</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 			<key>pfmx_supported_oses</key>
@@ -1303,11 +1365,16 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Settings for IKEv2 VPN types</string>
+			<string>The dictionary to use when 'VPNType' is 'IKEv2'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1330,37 +1397,37 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>IP address or hostname of the VPN server</string>
+					<string>The IP address or host name of the VPN server.</string>
 					<key>pfm_name</key>
 					<string>RemoteAddress</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Server</string>
+					<string>RemoteAddress</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>FQDN, UserFQDN, Address, or ASN1DN of the IKEv2 server</string>
+					<string>The remote identifier.</string>
 					<key>pfm_name</key>
 					<string>RemoteIdentifier</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Remote Identifier</string>
+					<string>RemoteIdentifier</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>FQDN, UserFQDN, Address, or ASN1DN of the IKEv2 client</string>
+					<string>Identifier of the IKEv2 client.</string>
 					<key>pfm_name</key>
 					<string>LocalIdentifier</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Local Identifier</string>
+					<string>LocalIdentifier</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1368,7 +1435,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>SharedSecret</string>
 					<key>pfm_description</key>
-					<string>Type of authentication method for use with the VPN connection. Set to None when enabling EAP (ExtendedAuthEnabled)</string>
+					<string>The type of authentication method for the VPN.
+To enable EAP-only authentication, set this to 'None' and 'ExtendedAuthEnabled' to '1'. If this is 'None' and the 'ExtendedAuthEnabled' key isn't set, the authentication configuration defaults to 'SharedSecret'.</string>
 					<key>pfm_name</key>
 					<string>AuthenticationMethod</string>
 					<key>pfm_range_list</key>
@@ -1386,7 +1454,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Authentication Method</string>
+					<string>AuthenticationMethod</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1394,7 +1462,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables extended authentication</string>
+					<string>If '1', enables EAP-only authentication.</string>
 					<key>pfm_name</key>
 					<string>ExtendedAuthEnabled</string>
 					<key>pfm_range_list</key>
@@ -1408,7 +1476,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable EAP-only authentication</string>
+					<string>ExtendedAuthEnabled</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -1416,7 +1484,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Username for EAP-only authentication</string>
+					<string>The user name to use for authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1436,13 +1504,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>AuthName</string>
 					<key>pfm_title</key>
-					<string>Authentication Name</string>
+					<string>AuthName</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Password used for EAP-only  authentication</string>
+					<string>The password to use for authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1462,7 +1530,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>AuthPassword</string>
 					<key>pfm_title</key>
-					<string>Authentication Password</string>
+					<string>AuthPassword</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1470,7 +1538,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>1.0</string>
 					<key>pfm_description</key>
-					<string>The minimum TLS version to be used in EAP-only authentication</string>
+					<string>The minimum TLS version to use with EAP-TLS authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1500,7 +1568,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>1.2</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Minimum TLS</string>
+					<string>TLS Minimum Version</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfmx_supported_oses</key>
@@ -1521,7 +1589,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>1.2</string>
 					<key>pfm_description</key>
-					<string>The maximum TLS version to be used in EAP-only authentication</string>
+					<string>The maximum TLS version to use with EAP-TLS authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1551,7 +1619,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>1.2</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Maximum TLS</string>
+					<string>TLS Maximum Version</string>
 					<key>pfm_type</key>
 					<string>string</string>
 					<key>pfmx_supported_oses</key>
@@ -1570,7 +1638,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Shared secret string for the VPN connection</string>
+					<string>If 'AuthenticationMethod' is 'SharedSecret', this value is used for IKE authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1590,13 +1658,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>SharedSecret</string>
 					<key>pfm_title</key>
-					<string>Shared Secret</string>
+					<string>SharedSecret</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>UUID of a certificate payload in this profile that will be used for authentication</string>
+					<string>The UUID of the certificate payload within the same profile to use as the account credential. If the value of 'AuthenticationMethod' is 'Certificate', the system sends this certificate out for IKEv2 machine authentication. If extended authentication (EAP) is used, the system sends this certificate out for EAP-TLS authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1633,7 +1701,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>PayloadCertificateUUID</string>
 					<key>pfm_title</key>
-					<string>Certificate</string>
+					<string>PayloadCertificateUUID</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1641,7 +1709,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>RSA</string>
 					<key>pfm_description</key>
-					<string>Type of certificate used for authentication</string>
+					<string>The type of 'PayloadCertificateUUID' to use for IKEv2 machine authentication. If this key is included, the system requires a value for 'ServerCertificateIssuerCommonName'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1699,7 +1767,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>Common name of the server certificate issuer</string>
+					<string>Common Name of the server certificate issuer. If set, this field causes IKE to send a certificate request based on this certificate issuer to the server. This key is required if the 'CertificateType' key is included and the 'ExtendedAuthEnabled' key is '1'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1719,13 +1787,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>ServerCertificateIssuerCommonName</string>
 					<key>pfm_title</key>
-					<string>Server Certificate Issuer Common Name</string>
+					<string>ServerCertificateIssuerCommonName</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Common name of the server certificate</string>
+					<string>The common name of the server certificate. The system uses this name to validate the certificate sent by the IKE server. If not set, the system uses the remote identifier to validate the certificate.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1745,7 +1813,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>ServerCertificateCommonName</string>
 					<key>pfm_title</key>
-					<string>Server Certificate Common Name</string>
+					<string>ServerCertificateCommonName</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -1753,7 +1821,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disconnect an on demand connection after it becomes idle</string>
+					<string>If '1', the VPN disconnects automatically after a period defined by 'DisconnectOnIdleTimer'.</string>
 					<key>pfm_name</key>
 					<string>DisconnectOnIdle</string>
 					<key>pfm_range_list</key>
@@ -1775,7 +1843,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Time interval between a connection becoming idle and when it is finally disconnected, when Enable Disconnect on Idle (DisconnectOnIdle) is enabled. The value is an integer number representing seconds</string>
+					<string>Only used if 'DisconnectOnIdle' is '1'. The number of seconds before the VPN disconnects. On watchOS, maximum allowed value is 15 seconds</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1797,7 +1865,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>Disconnect on Idle Interval</string>
+					<string>Disconnect on Idle time</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
@@ -1805,7 +1873,12 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>Medium</string>
 					<key>pfm_description</key>
-					<string>Sets the frequency of sending a keepalive signal</string>
+					<string>One of the following:
+* 'None': No keepalive.
+* 'Low': Send keepalive every 30 minutes.
+* 'Medium': Send keepalive every 10 minutes.
+* 'High': Send keepalive every 1 minute.
+Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>DeadPeerDetectionRate</string>
 					<key>pfm_range_list</key>
@@ -1839,7 +1912,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disables connection redirection by redirect requests from VPN server</string>
+					<string>If '1', the system disables IKEv2 redirect. If not set, the system redirects an IKEv2 connection when it receives a redirect request from the server.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
 					<key>pfm_name</key>
 					<string>DisableRedirect</string>
 					<key>pfm_range_list</key>
@@ -1853,7 +1928,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Disable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Disable Redirects</string>
+					<string>Disable Redirect</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -1871,7 +1946,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disables mobility and multihoming (MOBIKE)</string>
+					<string>If '1', the system disables MOBIKE.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
 					<key>pfm_name</key>
 					<string>DisableMOBIKE</string>
 					<key>pfm_range_list</key>
@@ -1903,7 +1980,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables the use of IKEv2 Configuration Attributes INTERNAL_IP4_SUBNET and INTERNAL_IP6_SUBNET in connection negotiation</string>
+					<string>If '1', negotiations should use IKEv2 Configuration Attribute 'INTERNAL_IP4_SUBNET' and 'INTERNAL_IP6_SUBNET'.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
 					<key>pfm_name</key>
 					<string>UseConfigurationAttributeInternalIPSubnet</string>
 					<key>pfm_range_list</key>
@@ -1917,7 +1996,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable IPv4 / IPv6 Internal Subnet Attributes</string>
+					<string>Use IPv4 / IPv6 Internal Subnet Attributes</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -1935,7 +2014,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables Perfect Forward Secrecy for the VPN connection</string>
+					<string>If '1',  enables Perfect Forward Secrecy (PFS) for IKEv2 Connections.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
 					<key>pfm_name</key>
 					<string>EnablePFS</string>
 					<key>pfm_range_list</key>
@@ -1949,7 +2030,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Perfect Forward Secrecy</string>
+					<string>Enable perfect forward secrecy</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -1967,7 +2048,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables certificate revocation checks for the VPN connection</string>
+					<string>If '1', the system performs a certificate revocation check for IKEv2 connections. This is a best-effort revocation check and server response timeouts won't cause it to fail.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
 					<key>pfm_name</key>
 					<string>EnableCertificateRevocationCheck</string>
 					<key>pfm_range_list</key>
@@ -1981,7 +2064,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Certificate Revocation Check</string>
+					<string>Enable certificate revocation check</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -1999,7 +2082,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables Wi-Fi assist for the VPN connection</string>
+					<string>If '1', the system enables a tunnel over cellular data to carry traffic that's eligible for WiFi Assist and also requires VPN.
+Enabling fallback requires that the server support multiple tunnels for a single user.
+This field is available in iOS 13 and later, and tvOS 17 and later. Not available in watchOS.</string>
+					<key>pfm_ios_min</key>
+					<string>13.0</string>
 					<key>pfm_name</key>
 					<string>EnableFallback</string>
 					<key>pfm_range_list</key>
@@ -2013,7 +2100,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Wi-Fi Assist (Cellular Fallback)</string>
+					<string>Enable fallback</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -2039,7 +2126,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Parameters for IKE Security Association</string>
+					<string>These parameters apply to Child Security Association unless 'ChildSecurityAssociationParameters' is specified.</string>
 					<key>pfm_name</key>
 					<string>IKESecurityAssociationParameters</string>
 					<key>pfm_subkeys</key>
@@ -2047,6 +2134,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_default</key>
 							<string>AES-256</string>
+							<key>pfm_description</key>
+							<string>The encryption algorithm.</string>
 							<key>pfm_name</key>
 							<string>EncryptionAlgorithm</string>
 							<key>pfm_range_list</key>
@@ -2060,13 +2149,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<string>ChaCha20Poly1305</string>
 							</array>
 							<key>pfm_title</key>
-							<string>IKE SA Encryption Algorithm</string>
+							<string>EncryptionAlgorithm</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
 							<key>pfm_default</key>
 							<string>SHA2-256</string>
+							<key>pfm_description</key>
+							<string>The integrity algorithm.</string>
 							<key>pfm_name</key>
 							<string>IntegrityAlgorithm</string>
 							<key>pfm_range_list</key>
@@ -2078,13 +2169,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<string>SHA2-512</string>
 							</array>
 							<key>pfm_title</key>
-							<string>IKE SA Integrity Algorithm</string>
+							<string>IntegrityAlgorithm</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
 							<key>pfm_default</key>
 							<integer>14</integer>
+							<key>pfm_description</key>
+							<string>The Diffie-Hellman group. For AlwaysOn VPN, minimum allowed Diffie Hellman Group is '14' in iOS 14.2 and later.</string>
 							<key>pfm_name</key>
 							<string>DiffieHellmanGroup</string>
 							<key>pfm_range_list</key>
@@ -2104,7 +2197,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<integer>32</integer>
 							</array>
 							<key>pfm_title</key>
-							<string>IKE SA Diffie Hellman Group</string>
+							<string>DiffieHellmanGroup</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
@@ -2112,7 +2205,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_default</key>
 							<integer>1440</integer>
 							<key>pfm_description</key>
-							<string>SA lifetime (interval for rekey interval). The value is an integer number representing minutes</string>
+							<string>The SA lifetime (rekey interval) in minutes.</string>
 							<key>pfm_name</key>
 							<string>LifeTimeInMinutes</string>
 							<key>pfm_range_max</key>
@@ -2120,19 +2213,19 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_range_min</key>
 							<integer>10</integer>
 							<key>pfm_title</key>
-							<string>IKE SA Lifetime</string>
+							<string>LifeTimeInMinutes</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>IKE Security Association Parameters</string>
+					<string>IKESecurityAssociationParameters</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Parameters for Child Security Association</string>
+					<string>The 'ChildSecurityAssociationParameters' dictionaries.</string>
 					<key>pfm_name</key>
 					<string>ChildSecurityAssociationParameters</string>
 					<key>pfm_subkeys</key>
@@ -2140,6 +2233,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_default</key>
 							<string>AES-256</string>
+							<key>pfm_description</key>
+							<string>The encryption algorithm.</string>
 							<key>pfm_name</key>
 							<string>EncryptionAlgorithm</string>
 							<key>pfm_range_list</key>
@@ -2153,13 +2248,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<string>ChaCha20Poly1305</string>
 							</array>
 							<key>pfm_title</key>
-							<string>Child SA Encryption Algorithm</string>
+							<string>EncryptionAlgorithm</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
 							<key>pfm_default</key>
 							<string>SHA2-256</string>
+							<key>pfm_description</key>
+							<string>The integrity algorithm.</string>
 							<key>pfm_name</key>
 							<string>IntegrityAlgorithm</string>
 							<key>pfm_range_list</key>
@@ -2171,13 +2268,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<string>SHA2-512</string>
 							</array>
 							<key>pfm_title</key>
-							<string>Child SA Integrity Algorithm</string>
+							<string>IntegrityAlgorithm</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
 							<key>pfm_default</key>
 							<integer>14</integer>
+							<key>pfm_description</key>
+							<string>The Diffie-Hellman group. For AlwaysOn VPN, minimum allowed Diffie Hellman Group is '14' in iOS 14.2 and later.</string>
 							<key>pfm_name</key>
 							<string>DiffieHellmanGroup</string>
 							<key>pfm_range_list</key>
@@ -2197,7 +2296,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								<integer>32</integer>
 							</array>
 							<key>pfm_title</key>
-							<string>Child SA Diffie Hellman Group</string>
+							<string>DiffieHellmanGroup</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
@@ -2205,7 +2304,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_default</key>
 							<integer>1440</integer>
 							<key>pfm_description</key>
-							<string>SA lifetime (interval for rekey interval). The value is an integer number representing minutes</string>
+							<string>The SA lifetime (rekey interval) in minutes.</string>
 							<key>pfm_name</key>
 							<string>LifeTimeInMinutes</string>
 							<key>pfm_range_max</key>
@@ -2213,23 +2312,33 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_range_min</key>
 							<integer>10</integer>
 							<key>pfm_title</key>
-							<string>Child SA Lifetime</string>
+							<string>LifeTimeInMinutes</string>
 							<key>pfm_type</key>
 							<string>integer</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Child Security Association Parameters</string>
+					<string>ChildSecurityAssociationParameters</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>1280</integer>
+					<key>pfm_description</key>
+					<string>The Maximum Transmission Unit (MTU) specifies the maximum size in bytes of each packet that the system sends over the IKEv2 VPN interface. Available in iOS 14 and later, and macOS 11 and later.</string>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
+					<key>pfm_macos_min</key>
+					<string>11.0</string>
 					<key>pfm_name</key>
 					<string>MTU</string>
+					<key>pfm_range_max</key>
+					<integer>1400</integer>
+					<key>pfm_range_min</key>
+					<integer>1280</integer>
 					<key>pfm_title</key>
-					<string>MTU</string>
+					<string>Maximum Transmission Unit</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfmx_supported_oses</key>
@@ -2250,7 +2359,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all the VPN's non-default routes will take precedence over any locally-defined routes. If IncludeAllNetworks is 1, the value of EnforceRoutes is ignored.</string>
+					<string>If '1', all the VPN's non-default routes take precedence over any locally-defined routes. If 'IncludeAllNetworks' is '1', the system ignores 'EnforceRoutes'.</string>
 					<key>pfm_ios_min</key>
 					<string>14.2</string>
 					<key>pfm_macos_min</key>
@@ -2280,19 +2389,29 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>11.0</string>
 						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>1</integer>
 					<key>pfm_description</key>
-					<string>If 1 and either IncludeAllNetworks or EnforceRoutes are 1, then local network traffic will be routed outside of the VPN. The default for this value is 0 on macOS and 1 on iOS.</string>
+					<string>If '1' and either 'IncludeAllNetworks' or 'EnforceRoutes' are '1', then the system routes local network traffic outside of the VPN. The default for this value is '0' on macOS and '1' on iOS.</string>
 					<key>pfm_ios_min</key>
 					<string>14.2</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
 					<string>ExcludeLocalNetworks</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -2321,24 +2440,33 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
 						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all network traffic will be routed through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, and ExcludeAPNs properties. See the documentation for those properties.  The following traffic is always excluded from the tunnel.
-
+					<string>If '1', then the system routes all network traffic through the VPN, with some controllable exclusions, such as 'ExcludeLocalNetworks', 'ExcludeCellularServices', 'ExcludeAPNs', and 'ExcludeDeviceCommunication' properties. The system always excludes the following traffic from the tunnel:
 * Traffic necessary for connecting and maintaining the device's network connection, such as DHCP.
 * Traffic necessary for connecting to captive networks.
-* Certain cellular services traffic that is not routable over the internet and is instead directly routed to the cellular network. See the ExcludeCellularServices property for more details.
-* Network communication with a companion device such as a watchOS device</string>
+* Certain cellular services traffic that's not routable over the internet and is instead directly routed to the cellular network. See the 'ExcludeCellularServices' field for more information.
+* Network communication with a companion device such as a watchOS device.</string>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
 					<string>IncludeAllNetworks</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -2367,19 +2495,29 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
 						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>1</integer>
 					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) is excluded from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet.  Such cellular services traffic is always excluded from the tunnel.</string>
+					<string>If '1' and 'IncludeAllNetworks' is '1', the system excludes internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet. Such cellular services traffic is always excluded from the tunnel.</string>
 					<key>pfm_ios_min</key>
 					<string>16.4</string>
 					<key>pfm_macos_min</key>
 					<string>13.3</string>
 					<key>pfm_name</key>
 					<string>ExcludeCellularServices</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -2408,17 +2546,29 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
 						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If 1 and IncludeAllNetworks is 1, then network traffic used for communicating with devices connected via USB or Wi-Fi is excluded from the tunnel.</string>
 					<key>pfm_ios_min</key>
-					<string>17.5</string>
+					<string>17.4</string>
 					<key>pfm_macos_min</key>
-					<string>14.5</string>
+					<string>14.4</string>
 					<key>pfm_name</key>
 					<string>ExcludeDeviceCommunication</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -2435,14 +2585,24 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<key>iOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
-							<string>17.5</string>
+							<string>17.4</string>
 						</dict>
 						<key>macOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
-							<string>14.5</string>
+							<string>14.4</string>
 						</dict>
 						<key>tvOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>1.1</string>
+						</dict>
+						<key>watchOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
@@ -2453,13 +2613,18 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>1</integer>
 					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then network traffic for the Apple Push Notification service (APNs) is excluded from the tunnel.</string>
+					<string>If '1' and 'IncludeAllNetworks' is '1', the system excludes network traffic for the Apple Push Notification service (APNs) from the tunnel.</string>
 					<key>pfm_ios_min</key>
 					<string>16.4</string>
 					<key>pfm_macos_min</key>
 					<string>13.3</string>
 					<key>pfm_name</key>
 					<string>ExcludeAPNs</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -2488,6 +2653,608 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
 						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The password to use for the account credentials. Only used if 'AuthenticationMethod' is 'Password'.</string>
+					<key>pfm_name</key>
+					<string>Password</string>
+					<key>pfm_title</key>
+					<string>Account Password</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>If the VPNSubType field contains the bundle identifier of an app that contains multiple VPN providers of the same type (app-proxy or packet-tunnel), then the system uses this field to choose which provider to use for this configuration. If the VPN provider is implemented as a System Extension, then this field is required.</string>
+					<key>pfm_name</key>
+					<string>ProviderBundleIdentifier</string>
+					<key>pfm_title</key>
+					<string>Provider Bundle Identifier</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>If the VPN provider is implemented as a System Extension, then this field is required. Available in macOS 10.15 and later, tvOS 17 and later, and watchOS 10 and later.</string>
+					<key>pfm_macos_min</key>
+					<string>10.15</string>
+					<key>pfm_name</key>
+					<string>ProviderDesignatedRequirement</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+						<string>tvOS</string>
+					</array>
+					<key>pfm_title</key>
+					<string>Provider Designated Requirement</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>10.15</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If '1', enables VPN up on demand.</string>
+					<key>pfm_name</key>
+					<string>OnDemandEnabled</string>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
+					<key>pfm_title</key>
+					<string>Enable VPN On Demand</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If '1', the system disables the Connect On Demand toggle in Settings for this configuration.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<integer>1</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>IKEv2.OnDemandEnabled</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
+					<key>pfm_name</key>
+					<string>OnDemandUserOverrideDisabled</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>tvOS</string>
+					</array>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
+					<key>pfm_title</key>
+					<string>Prevent users from toggling VPN On Demand</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>A list of rules that determine when and how to use an OnDemand VPN.</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<integer>1</integer>
+									</array>
+									<key>pfm_target</key>
+									<string>IKEv2.OnDemandEnabled</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_name</key>
+					<string>OnDemandRules</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>OnDemandRulesElement</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The action to take if this dictionary matches the current network. Possible values are:
+* 'Allow': Deprecated. Allow VPN On Demand to connect if triggered.
+* 'Connect': Unconditionally initiate a VPN connection on the next network attempt.
+* 'Disconnect': Tear down the VPN connection and don't reconnect on demand as long as this dictionary matches.
+* 'EvaluateConnection': Evaluate the ActionParameters array for each connection attempt.
+* 'Ignore:' Leave any existing VPN connection up, but don't reconnect on demand as long as this dictionary matches.
+Only the 'Disconnect' action is available on watchOS 10 and later.</string>
+									<key>pfm_name</key>
+									<string>Action</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>Allow</string>
+										<string>Connect</string>
+										<string>Disconnect</string>
+										<string>EvaluateConnection</string>
+										<string>Ignore</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>On Demand Action</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>An array of dictionaries that provides rules similar to the 'OnDemandRules' dictionary, but evaluated on each connection instead of when the network changes. This value is only for use with dictionaries in which the 'Action' value is 'EvaluateConnection'. The system evaluates these dictionaries in order and the first dictionary that matches determines the behavior. Not available in watchOS.</string>
+									<key>pfm_name</key>
+									<string>ActionParameters</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>A dictionary that provides rules similar to the OnDemandRules dictionary, but evaluated on each connection instead of when the network changes. These dictionaries are evaluated in order, and the behavior is determined by the first dictionary that matches.
+The keys allowed in each dictionary are described below. Note: This array is used only for dictionaries in which EvaluateConnection is the Action value.</string>
+											<key>pfm_name</key>
+											<string>ActionParameter</string>
+											<key>pfm_subkeys</key>
+											<array>
+												<dict>
+													<key>pfm_description</key>
+													<string>The domains to apply this evaluation.</string>
+													<key>pfm_name</key>
+													<string>Domains</string>
+													<key>pfm_require</key>
+													<string>always</string>
+													<key>pfm_subkeys</key>
+													<array>
+														<dict>
+															<key>pfm_name</key>
+															<string>DomainsElement</string>
+															<key>pfm_title</key>
+															<string>Domains Element</string>
+															<key>pfm_type</key>
+															<string>string</string>
+														</dict>
+													</array>
+													<key>pfm_title</key>
+													<string>Domains</string>
+													<key>pfm_type</key>
+													<string>array</string>
+												</dict>
+												<dict>
+													<key>pfm_description</key>
+													<string>Defines the VPN behavior for the specified domains. Allowed values are:
+* 'ConnectIfNeeded': The specified domains should trigger a VPN connection attempt if domain name resolution fails, such as when the DNS server indicates that it can't resolve the domain, responds with a redirection to a different server, or fails to respond (timeout).
+* 'NeverConnect': The specified domains should never trigger a VPN connection attempt.</string>
+													<key>pfm_name</key>
+													<string>DomainAction</string>
+													<key>pfm_range_list</key>
+													<array>
+														<string>ConnectIfNeeded</string>
+														<string>NeverConnect</string>
+													</array>
+													<key>pfm_require</key>
+													<string>always</string>
+													<key>pfm_title</key>
+													<string>Domain Action</string>
+													<key>pfm_type</key>
+													<string>string</string>
+												</dict>
+												<dict>
+													<key>pfm_description</key>
+													<string>An array of IP addresses of DNS servers to use for resolving the specified domains. These servers don't need to be part of the device's current network configuration. If these DNS servers aren't reachable, the system establishes a VPN connection. These DNS servers need to be either internal DNS servers or trusted external DNS servers.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
+													<key>pfm_name</key>
+													<string>RequiredDNSServers</string>
+													<key>pfm_subkeys</key>
+													<array>
+														<dict>
+															<key>pfm_name</key>
+															<string>RequiredDNSServersElement</string>
+															<key>pfm_title</key>
+															<string>Required DNS Servers Element</string>
+															<key>pfm_type</key>
+															<string>string</string>
+														</dict>
+													</array>
+													<key>pfm_title</key>
+													<string>Required DNS Servers</string>
+													<key>pfm_type</key>
+													<string>array</string>
+												</dict>
+												<dict>
+													<key>pfm_description</key>
+													<string>An HTTP or HTTPS (preferred) URL to probe, using a GET request. If the URL's hostname can't be resolved, if the server is unreachable, or if the server doesn't respond with a 200 HTTP status code, a VPN connection is established in response.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
+													<key>pfm_name</key>
+													<string>RequiredURLStringProbe</string>
+													<key>pfm_title</key>
+													<string>Required URL String Probe</string>
+													<key>pfm_type</key>
+													<string>string</string>
+												</dict>
+											</array>
+											<key>pfm_title</key>
+											<string>Action Parameter</string>
+											<key>pfm_type</key>
+											<string>dictionary</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>Action Parameters</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list.
+The system supports a wildcard ('*') prefix. For example, '*.example.com' matches against either 'mydomain.example.com' or 'yourdomain.example.com'.</string>
+									<key>pfm_name</key>
+									<string>DNSDomainMatch</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>DNSDomainMatchElement</string>
+											<key>pfm_title</key>
+											<string>DNS Domain Match Element</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>DNS Domain Match</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
+The system supports matching with a single wildcard. For example, '17.*' matches any DNS server in the '17.0.0.0/8' subnet.</string>
+									<key>pfm_name</key>
+									<string>DNSServerAddressMatch</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>DNSServerAddressMatchElement</string>
+											<key>pfm_title</key>
+											<string>DNS Server Address Match Element</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>DNS Server Address Match</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
+									<key>pfm_name</key>
+									<string>InterfaceTypeMatch</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>Ethernet</string>
+										<string>WiFi</string>
+										<string>Cellular</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Interface Type Match</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>An array of SSIDs to match against the current network. If the network isn't a Wi-Fi network or if the SSID doesn't appear in this array, the match fails.
+Omit this key and the corresponding array to match against any SSID.</string>
+									<key>pfm_name</key>
+									<string>SSIDMatch</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>SSIDMatchElement</string>
+											<key>pfm_title</key>
+											<string>SSID Match Element</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>SSID Match</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>A URL to probe. This rule matches when this URL is successfully fetched (returns a '200' HTTP status code) without redirection. Not available in watchOS.</string>
+									<key>pfm_name</key>
+									<string>URLStringProbe</string>
+									<key>pfm_title</key>
+									<string>URL String Probe</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>On Demand Rules Element</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>On Demand Rules</string>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If '1', enables NAT keepalive offload for Always On VPN IKEv2 connections. The device sends keepalive packets to maintain NAT mappings for IKEv2 connections that have a NAT on the path. It sends keepalive packets at regular intervals when the device is awake. If 'NATKeepAliveOffloadEnable' is '1', the system offloads keepalive packets to hardware while the device is asleep.
+NAT keepalive offload has an impact on the battery life due to the extra workload during sleep. The default interval for the keepalive offload packets is 20 seconds over WiFi and 110 seconds over Cellular interface. The default NAT keepalive works well on networks with small NAT mapping timeouts but imposes a potential battery impact. If a network has larger NAT mapping timeouts, larger keepalive intervals may be safely used to minimize battery impact. Modify the keepalive interval through the 'NATKeepAliveInterval' key.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
+					<key>pfm_name</key>
+					<string>NATKeepAliveOffloadEnable</string>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
+					<key>pfm_title</key>
+					<string>NAT Keep Alive Offload Enable</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>9.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<integer>20</integer>
+					<key>pfm_description</key>
+					<string>The NAT Keepalive interval for Always On VPN IKEv2 connections. This value controls the interval that the device sends keepalive offload packets. The minimum value is 20 seconds. If no key is specified, the default is 20 seconds over Wi-Fi and 110 seconds over a cellular interface.</string>
+					<key>pfm_ios_min</key>
+					<string>9.0</string>
+					<key>pfm_name</key>
+					<string>NATKeepAliveInterval</string>
+					<key>pfm_title</key>
+					<string>NAT Keepalive Interval</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>9.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<string>packet-tunnel</string>
+					<key>pfm_description</key>
+					<string>If the value of this key is 'app-proxy', the VPN service tunnels traffic at the application layer. If the value of this key is 'packet-tunnel', the VPN service tunnels traffic at the IP layer.</string>
+					<key>pfm_name</key>
+					<string>ProviderType</string>
+					<key>pfm_range_list</key>
+					<array>
+						<string>packet-tunnel</string>
+						<string>app-proxy</string>
+					</array>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The Post-quantum Pre-shared key (PPK) used for this VPN. This key is meant to be used with VPN servers that support RFC 8784. If this key is present PPKIdentifier must also be present.</string>
+					<key>pfm_ios_min</key>
+					<string>18.0</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>PPK</string>
+					<key>pfm_title</key>
+					<string>Post-quantum Pre-shared Key</string>
+					<key>pfm_tvos_min</key>
+					<string>18.0</string>
+					<key>pfm_type</key>
+					<string>data</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>tvOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>2.0</string>
+						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The identifier for the Post-quantum Pre-shared key (PPK) used for this VPN. This key is meant to be used with VPN servers that support RFC 8784. If this key is present PPK must also be present.</string>
+					<key>pfm_ios_min</key>
+					<string>18.0</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>PPKIdentifier</string>
+					<key>pfm_title</key>
+					<string>Post-quantum Pre-shared Key Identifier</string>
+					<key>pfm_tvos_min</key>
+					<string>18.0</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>tvOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>2.0</string>
+						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>This key has no effect if PPK and PPKIdentifier are not present. If the value of this key is 1, the VPN will fail to establish if the server does not support RFC 8784 or does not accept the PPK identifier specified in PPKIdentifier.</string>
+					<key>pfm_ios_min</key>
+					<string>18.0</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>PPKMandatory</string>
+					<key>pfm_range_list</key>
+					<array>
+						<integer>0</integer>
+						<integer>1</integer>
+					</array>
+					<key>pfm_title</key>
+					<string>Post-quantum Pre-shared Key Mandatory</string>
+					<key>pfm_tvos_min</key>
+					<string>18.0</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>tvOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>18.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>2.0</string>
+						</dict>
+						<key>watchOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
 					</dict>
 				</dict>
 			</array>
@@ -2506,7 +3273,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Settings for always-on IKEv2 VPN type</string>
+			<string>The dictionary to use when 'VPNType' is 'AlwaysOn'. Not available in tvOS or watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -2523,15 +3290,22 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					</array>
 				</dict>
 			</array>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>AlwaysOn</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Allows traffic from all captive networking apps outside the VPN tunnel. Alternatively, specify apps in Allowed Captive Network Plugins (AllowedCaptiveNetworkPlugins)</string>
+					<string>If '1', allows traffic from all captive networking apps outside the VPN tunnel to perform captive network handling.</string>
 					<key>pfm_name</key>
 					<string>AllowAllCaptiveNetworkPlugins</string>
 					<key>pfm_range_list</key>
@@ -2555,7 +3329,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Allows traffic from captive web portal outside the VPN tunnel</string>
+					<string>If '1', allows traffic from Captive Web Sheet outside the VPN tunnel.</string>
 					<key>pfm_name</key>
 					<string>AllowCaptiveWebSheet</string>
 					<key>pfm_range_list</key>
@@ -2577,7 +3351,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Bundle ID list of specific approved captive networking apps, for use when not allowing all captive network plugins (AllowAllCaptiveNetworkPlugins)</string>
+					<string>The array of captive networking apps whose traffic is allowed outside the VPN tunnel, to perform captive network handling. Used only when 'AllowAllCaptiveNetworkPlugins 'is 'false'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -2606,13 +3380,42 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>AllowedCaptiveNetworkPluginElement</string>
+							<key>pfm_platforms</key>
+							<array>
+								<string>iOS</string>
+							</array>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The bundle identifier for the app that's allowed on the captive network.</string>
+									<key>pfm_name</key>
+									<string>BundleIdentifier</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Bundle Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>An AllowedCaptiveNetworkPlugin Element</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Allowed Captive Network Plugins</string>
+					<string>AllowedCaptiveNetworkPlugins</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>An array that contains an arbitrary number of service exceptions.</string>
 					<key>pfm_name</key>
 					<string>ServiceExceptions</string>
 					<key>pfm_subkeys</key>
@@ -2671,15 +3474,66 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_type</key>
 							<string>dictionary</string>
 						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>ServiceExceptionElement</string>
+							<key>pfm_platforms</key>
+							<array>
+								<string>iOS</string>
+							</array>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The name of a service that's exempt from Always On VPN. 'CellularServices' is available in iOS 11.3 and later; it exempts 'VoLTE', 'IMS' and 'MMS'. WiFiCalling is exempted in iOS 13.4 and later.  DeviceCommunication is available in iOS 17.4 and later; it exempts network traffic used for communicating with devices connected via USB or Wi-Fi.</string>
+									<key>pfm_name</key>
+									<string>ServiceName</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>VoiceMail</string>
+										<string>AirPrint</string>
+										<string>CellularServices</string>
+										<string>DeviceCommunication</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Service Name</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The action to take with network connections from the named service.</string>
+									<key>pfm_name</key>
+									<string>Action</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>Allow</string>
+										<string>Drop</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Action</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>A ServiceException Element</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Service Exceptions</string>
+					<string>ServiceExceptions</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Per-interface always-on IKEv2 VPN connection settings</string>
+					<string>An array that contains an arbitrary number of tunnel configurations.</string>
 					<key>pfm_name</key>
 					<string>TunnelConfigurations</string>
 					<key>pfm_require</key>
@@ -3396,9 +4250,66 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfm_type</key>
 							<string>dictionary</string>
 						</dict>
+						<dict>
+							<key>pfm_name</key>
+							<string>TunnelConfigurationElement</string>
+							<key>pfm_platforms</key>
+							<array>
+								<string>iOS</string>
+							</array>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The type of connection, which needs to be 'IKEv2'.</string>
+									<key>pfm_name</key>
+									<string>ProtocolType</string>
+									<key>pfm_range_list</key>
+									<array>
+										<string>IKEv2</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Protocol Type</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The interfaces to apply this configuration to.</string>
+									<key>pfm_name</key>
+									<string>Interfaces</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>InterfacesElement</string>
+											<key>pfm_range_list</key>
+											<array>
+												<string>Cellular</string>
+												<string>WiFi</string>
+											</array>
+											<key>pfm_title</key>
+											<string>Interfaces Element</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>Interfaces</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>A TunnelConfiguration Element</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Tunnel Configurations</string>
+					<string>TunnelConfigurations</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -3406,7 +4317,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Permits the user to toggle the VPN configuration via the UI</string>
+					<string>If '1', allows the user to disable the VPN configuration.</string>
 					<key>pfm_name</key>
 					<string>UIToggleEnabled</string>
 					<key>pfm_range_list</key>
@@ -3420,15 +4331,90 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Allow User Toggle</string>
+					<string>UI Toggle Enabled</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>An array that contains an arbitrary number of apps whose connections occur outside the VPN.</string>
+					<key>pfm_ios_min</key>
+					<string>13.6</string>
+					<key>pfm_name</key>
+					<string>ApplicationExceptions</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+					</array>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_name</key>
+							<string>ApplicationExceptionElement</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The app's bundle identifier.</string>
+									<key>pfm_name</key>
+									<string>BundleIdentifier</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Bundle Identifier</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Limit the exception to only the specified list of protocols, with support for 'UDP' only.</string>
+									<key>pfm_name</key>
+									<string>LimitToProtocols</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_name</key>
+											<string>LimitToProtocolElement</string>
+											<key>pfm_range_list</key>
+											<array>
+												<string>UDP</string>
+											</array>
+											<key>pfm_title</key>
+											<string>LimitToProtocol Element</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>LimitToProtocols</string>
+									<key>pfm_type</key>
+									<string>array</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>A ApplicationException Element</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>ApplicationExceptions</string>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>13.6</string>
+						</dict>
+					</dict>
+				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>IKEv2 Always-On</string>
+			<string>AlwaysOn</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 			<key>pfmx_supported_oses</key>
@@ -3452,7 +4438,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>DNS settings for the VPN</string>
+			<string>A dictionary to use for all VPN types.</string>
 			<key>pfm_ios_min</key>
 			<string>10</string>
 			<key>pfm_macos_min</key>
@@ -3463,7 +4449,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>The primary domain of the VPN connection. Use when defining DNS settings</string>
+					<string>The primary domain of the tunnel.</string>
+					<key>pfm_ios_min</key>
+					<string>10.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.12</string>
 					<key>pfm_name</key>
 					<string>DomainName</string>
 					<key>pfm_title</key>
@@ -3486,7 +4476,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>DNS server addresses. Can contain both IPv4 and IPv6 addresses</string>
+					<string>The array of DNS server IP address strings. These IP addresses can be a mixture of IPv4 and IPv6 addresses.</string>
+					<key>pfm_ios_min</key>
+					<string>10.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.12</string>
 					<key>pfm_name</key>
 					<string>ServerAddresses</string>
 					<key>pfm_require</key>
@@ -3496,12 +4490,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_name</key>
 							<string>ServerAddressesElement</string>
+							<key>pfm_title</key>
+							<string>Server Address Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Server Addresses</string>
+					<string>DNS Server Addresses</string>
 					<key>pfm_type</key>
 					<string>array</string>
 					<key>pfmx_supported_oses</key>
@@ -3520,7 +4516,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>List of domain names used when qualifying single-label hostnames</string>
+					<string>The list of domain strings used to fully qualify single-label host names.</string>
+					<key>pfm_ios_min</key>
+					<string>10.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.12</string>
 					<key>pfm_name</key>
 					<string>SearchDomains</string>
 					<key>pfm_subkeys</key>
@@ -3528,12 +4528,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_name</key>
 							<string>SearchDomainsElement</string>
+							<key>pfm_title</key>
+							<string>Search Domains Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Search Domains</string>
+					<string>DNS Search Domains</string>
 					<key>pfm_type</key>
 					<string>array</string>
 					<key>pfmx_supported_oses</key>
@@ -3552,7 +4554,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Domains to be looked up using DNS servers listed in the Server Addresses (ServerAddresses) field</string>
+					<string>The list of domain strings used to determine which DNS queries use the DNS resolver settings in 'ServerAddresses'. The system uses this key to create a split DNS configuration where it resolves only hosts in certain domains using the tunnel's DNS resolver. The system uses the default resolver for hosts that aren't in one of the domains in this list.
+If 'SupplementalMatchDomains' contains the empty string it becomes the default domain.
+Split-tunnel configurations can direct all DNS queries to the VPN DNS servers before the primary DNS servers. If the VPN tunnel becomes the network's default route, the servers listed in 'ServerAddresses' become the default resolver and the system ignores the 'SupplementalMatchDomains' list.</string>
+					<key>pfm_ios_min</key>
+					<string>10.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.12</string>
 					<key>pfm_name</key>
 					<string>SupplementalMatchDomains</string>
 					<key>pfm_subkeys</key>
@@ -3560,6 +4568,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_name</key>
 							<string>SupplementalMatchDomainsElement</string>
+							<key>pfm_title</key>
+							<string>Supplemental Match Domains Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -3586,7 +4596,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Do not append the Supplemental Match Domains to the resolver's search domains</string>
+					<string>If '0', append the domains in the 'SupplementalMatchDomains' list to the resolver's list of search domains.</string>
+					<key>pfm_ios_min</key>
+					<string>10.0</string>
+					<key>pfm_macos_min</key>
+					<string>10.12</string>
 					<key>pfm_name</key>
 					<string>SupplementalMatchDomainsNoSearch</string>
 					<key>pfm_range_list</key>
@@ -3600,7 +4614,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Do not append</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Do Not Search Supplemental Match Domains</string>
+					<string>Supplemental Match Domains No Search</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -3621,7 +4635,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The transport protocol used to communicate with the DNS server.</string>
+					<string>The transport protocol to communicate with the DNS server.</string>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -3656,7 +4670,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The URI template of a DNS-over-HTTPS server, as defined in RFC 8484. This URL must use the https:// scheme, and the hostname or address in the URL will be used to validate the server certificate. If no ServerAddresses are provided, the hostname or address in the URL will be used to determine the server addresses. This key must be present only if the DNSProtocol is HTTPS.</string>
+					<string>The URI template of a DNS-over-HTTPS server, as defined in RFC 8484, which needs to use the 'https://' scheme. The system uses the hostname or address in the URL to validate the server certificate. If 'ServerAddresses' isn't specified, the system uses the hostname or address in the URL to determine the server addresses. This key is required if the 'DNSProtocol' is 'HTTPS'.</string>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -3683,7 +4697,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The hostname of a DNS-over-TLS server used to validate the server certificate, as defined in RFC 7858. If no ServerAddresses are provided, the hostname will be used to determine the server addresses. This key must be present only if the DNSProtocol is TLS.</string>
+					<string>The hostname of a DNS-over-TLS server to validate the server certificate, as defined in RFC 7858. If 'ServerAddresses' isn't specified, the system uses the hostname to determine the server addresses. This key is required if the 'DNSProtocol' is 'TLS'.</string>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
@@ -3708,6 +4722,35 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</dict>
 				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>That UUID that points to an identity certificate payload. The system uses this identity to authenticate the user to the DNS resolver.</string>
+					<key>pfm_format</key>
+					<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+					<key>pfm_ios_min</key>
+					<string>16.0</string>
+					<key>pfm_macos_min</key>
+					<string>13.0</string>
+					<key>pfm_name</key>
+					<string>PayloadCertificateUUID</string>
+					<key>pfm_title</key>
+					<string>DNS Certificate UUID</string>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>16.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>13.0</string>
+						</dict>
+					</dict>
+				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>DNS</string>
@@ -3724,7 +4767,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Settings for IPSec VPN type</string>
+			<string>The dictionary that contains IPSec settings. Not available in watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -3744,11 +4787,16 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			</array>
 			<key>pfm_name</key>
 			<string>IPSec</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_description</key>
-					<string>IP address or hostname of the VPN server</string>
+					<string>The IP address or host name of the VPN server.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3770,13 +4818,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
-					<string>Server</string>
+					<string>Remote Address</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Enables XAUTH for a Cisco IPSec VPN connection</string>
+					<string>If '1', enables Xauth for Cisco IPSec VPNs.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3806,13 +4854,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable XAUTH</string>
+					<string>XAUTH Enabled</string>
 					<key>pfm_type</key>
 					<string>integer</string>
+					<key>pfm_type_input</key>
+					<string>boolean</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Username for the VPN account</string>
+					<string>The user name for the VPN account for Cisco IPSec.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3847,13 +4897,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_require</key>
 					<string>push</string>
 					<key>pfm_title</key>
-					<string>Account</string>
+					<string>Username</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Password for the VPN account</string>
+					<string>The VPN account password for Cisco IPSec.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3894,7 +4944,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Determines if the user shall be prompted for an XAUTH password for a Cisco IPsec VPN connection</string>
+					<string>A string that either has the value “Prompt” or isn't present.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3931,7 +4981,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Prompt</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Prompt for XAUTH Password</string>
+					<string>XAUTH Password Encryption</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -3939,7 +4989,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>SharedSecret</string>
 					<key>pfm_description</key>
-					<string>Type of authentication method for use with the VPN connection</string>
+					<string>The authentication method for L2TP and Cisco IPSec.</string>
 					<key>pfm_name</key>
 					<string>AuthenticationMethod</string>
 					<key>pfm_range_list</key>
@@ -3961,7 +5011,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The name of the group for Cisco IPSec. To enable Hybrid Authentication append "[hybrid]" to this value</string>
+					<string>The name of the group. For hybrid authentication, the string needs to end with 'hybrid'.
+Present only for Cisco IPSec if 'AuthenticationMethod' is 'SharedSecret'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -3994,7 +5045,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>LocalIdentifier</string>
 					<key>pfm_title</key>
-					<string>Group Name</string>
+					<string>Local Identifier</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4002,7 +5053,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>KeyID</string>
 					<key>pfm_description</key>
-					<string>Value can only be "KeyID". Preference is excluded if Authentication Method (AuthenticationMethod) is not "SharedSecret"</string>
+					<string>Present only if 'AuthenticationMethod' is 'SharedSecret'. The value is 'KeyID'. The system uses this value for L2TP and Cisco IPSec VPNs.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4032,7 +5083,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Shared secret string for a Cisco IPsec VPN connection</string>
+					<string>The shared secret for this VPN account.
+Only use this with L2TP and Cisco IPSec VPNs and if the 'AuthenticationMethod' key is to 'SharedSecret'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4060,7 +5112,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>UUID of a certificate payload in this profile that will be used for authentication for a Cisco IPSec VPN connection</string>
+					<string>The UUID of the certificate payload within the same profile to use for the account credentials.
+Only use this with Cisco IPSec VPNs and if the 'AuthenticationMethod' key is to 'Certificate'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4084,7 +5137,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>PayloadCertificateUUID</string>
 					<key>pfm_title</key>
-					<string>Certificate</string>
+					<string>Certificate UUID</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4092,7 +5145,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>Enables prompting the user for their PIN on connection to a Cisco IPSec VPN</string>
+					<string>If 'true', prompts for a PIN when connecting to Cisco IPSec VPNs.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4112,7 +5165,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>PromptForVPNPIN</string>
 					<key>pfm_title</key>
-					<string>Prompt for User PIN</string>
+					<string>Prompt for PIN</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
 				</dict>
@@ -4120,7 +5173,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables the VPN connection on-demand</string>
+					<string>If '1', enables bringing the VPN connection up on demand.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4150,7 +5203,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable VPN On-Demand</string>
+					<string>Enable VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -4158,7 +5211,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will always establish a VPN connection on-demand</string>
+					<string>Deprecated. A list of domain names. In iOS 7 and later, if this key is present, the system treats associated domain names as though they're associated with the 'OnDemandMatchDomainsOnRetry' key. This behavior can be overridden by 'OnDemandRules'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4189,7 +5242,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsAlways</string>
 					<key>pfm_subkeys</key>
@@ -4204,13 +5257,21 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Always Establish On-Demand VPN</string>
+					<string>On Demand Match Domains Always</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will never establish an on-demand VPN connection</string>
+					<string>Deprecated. A list of domain names. In iOS 7 and later, this key is deprecated (but still supported) in favor of 'EvaluateConnection' actions in the 'OnDemandRules' dictionaries.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4241,7 +5302,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsNever</string>
 					<key>pfm_subkeys</key>
@@ -4256,13 +5317,21 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Never Establish On-Demand VPN</string>
+					<string>On Demand Match Domains Never</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will establish a VPN connection on-demand if needed</string>
+					<string>Deprecated. A list of domain names. In iOS 7 and later, this field is deprecated (but still supported) in favor of 'EvaluateConnection' actions in the 'OnDemandRules' dictionaries.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4293,7 +5362,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsOnRetry</string>
 					<key>pfm_subkeys</key>
@@ -4308,13 +5377,21 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Establish On-Demand VPN If Needed</string>
+					<string>On Demand Match Domains On Retry</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Rules for establishing VPN connection on-demand</string>
+					<string>The on-demand rules dictionary.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4355,7 +5432,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<array>
 								<dict>
 									<key>pfm_description</key>
-									<string>Action to be taken when all of the accompanying matches evaluate positivley</string>
+									<string>The action to take if this dictionary matches the current network. Possible values are:
+* 'Allow': Deprecated. Allow VPN On Demand to connect if triggered.
+* 'Connect': Unconditionally initiate a VPN connection on the next network attempt.
+* 'Disconnect': Tear down the VPN connection and don't reconnect on demand as long as this dictionary matches.
+* 'EvaluateConnection': Evaluate the ActionParameters array for each connection attempt.
+* 'Ignore:' Leave any existing VPN connection up, but don't reconnect on demand as long as this dictionary matches.
+Only the 'Disconnect' action is available on watchOS 10 and later.</string>
 									<key>pfm_name</key>
 									<string>Action</string>
 									<key>pfm_range_list</key>
@@ -4383,7 +5466,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>An interface type which when present is used to match against the interface type of the primary network interface</string>
+									<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
 									<key>pfm_name</key>
 									<string>InterfaceTypeMatch</string>
 									<key>pfm_range_list</key>
@@ -4399,13 +5482,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 										<string>Cellular</string>
 									</array>
 									<key>pfm_title</key>
-									<string>Primary Interface Type Match</string>
+									<string>Interface Type Match</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of domain names which when present are used for matching any of the devices search domains. A single wildcard '*' is supported</string>
+									<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list.
+The system supports a wildcard ('*') prefix. For example, '*.example.com' matches against either 'mydomain.example.com' or 'yourdomain.example.com'.</string>
 									<key>pfm_name</key>
 									<string>DNSDomainMatch</string>
 									<key>pfm_subkeys</key>
@@ -4428,7 +5512,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of IP addresses which when present are used for matching any of the current network's DNS servers against</string>
+									<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
+The system supports matching with a single wildcard. For example, '17.*' matches any DNS server in the '17.0.0.0/8' subnet.</string>
 									<key>pfm_name</key>
 									<string>DNSServerAddressMatch</string>
 									<key>pfm_subkeys</key>
@@ -4437,19 +5522,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>DNSServerAddressMatchElement</string>
 											<key>pfm_title</key>
-											<string>DNS Server Address</string>
+											<string>DNS Server Address Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
 									</array>
 									<key>pfm_title</key>
-									<string>DNS Server IP Address Match</string>
+									<string>DNS Server Address Match</string>
 									<key>pfm_type</key>
 									<string>array</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of Wi-Fi SSIDs which when present are used for matching the current connected network against. None Wi-Fi networks fail the match</string>
+									<string>An array of SSIDs to match against the current network. If the network isn't a Wi-Fi network or if the SSID doesn't appear in this array, the match fails.
+Omit this key and the corresponding array to match against any SSID.</string>
 									<key>pfm_name</key>
 									<string>SSIDMatch</string>
 									<key>pfm_subkeys</key>
@@ -4458,7 +5544,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>SSIDMatchElement</string>
 											<key>pfm_title</key>
-											<string>SSID Match</string>
+											<string>SSID Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
@@ -4470,29 +5556,34 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A URL which when present is tested for successful fetching without redirection</string>
+									<string>A URL to probe. This rule matches when this URL is successfully fetched (returns a '200' HTTP status code) without redirection. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>URLStringProbe</string>
 									<key>pfm_title</key>
-									<string>Test URL Match</string>
+									<string>URL String Probe</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Similar to the on-demand rules, but evaluated on every connection instead of on network change. Applicable only when Action is set to 'EvaluateConnection'</string>
+									<string>An array of dictionaries that provides rules similar to the 'OnDemandRules' dictionary, but evaluated on each connection instead of when the network changes. This value is only for use with dictionaries in which the 'Action' value is 'EvaluateConnection'. The system evaluates these dictionaries in order and the first dictionary that matches determines the behavior. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>ActionParameters</string>
 									<key>pfm_subkeys</key>
 									<array>
 										<dict>
+											<key>pfm_description</key>
+											<string>A dictionary that provides rules similar to the OnDemandRules dictionary, but evaluated on each connection instead of when the network changes. These dictionaries are evaluated in order, and the behavior is determined by the first dictionary that matches.
+The keys allowed in each dictionary are described below. Note: This array is used only for dictionaries in which EvaluateConnection is the Action value.</string>
 											<key>pfm_name</key>
 											<string>ActionParameter</string>
 											<key>pfm_subkeys</key>
 											<array>
 												<dict>
 													<key>pfm_description</key>
-													<string>Action to be taken when all of the accompanying action parameter matches evaluate positivley</string>
+													<string>Defines the VPN behavior for the specified domains. Allowed values are:
+* 'ConnectIfNeeded': The specified domains should trigger a VPN connection attempt if domain name resolution fails, such as when the DNS server indicates that it can't resolve the domain, responds with a redirection to a different server, or fails to respond (timeout).
+* 'NeverConnect': The specified domains should never trigger a VPN connection attempt.</string>
 													<key>pfm_name</key>
 													<string>DomainAction</string>
 													<key>pfm_range_list</key>
@@ -4508,13 +5599,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 													<key>pfm_require</key>
 													<string>always</string>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Action</string>
+													<string>Domain Action</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of domain for which the action parameter evaluation applies</string>
+													<string>The domains to apply this evaluation.</string>
 													<key>pfm_name</key>
 													<string>Domains</string>
 													<key>pfm_require</key>
@@ -4525,19 +5616,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>DomainsElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Domain Matches Element</string>
+															<string>Domains Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Matches</string>
+													<string>Domains</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of IP addresses of internal or external-trusted DNS servers which are used to resolve the domains in the Domains field. A VPN connection will be established when these servers are unreachable.  Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An array of IP addresses of DNS servers to use for resolving the specified domains. These servers don't need to be part of the device's current network configuration. If these DNS servers aren't reachable, the system establishes a VPN connection. These DNS servers need to be either internal DNS servers or trusted external DNS servers.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredDNSServers</string>
 													<key>pfm_subkeys</key>
@@ -4546,23 +5638,24 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>RequiredDNSServersElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Required DNS Servers Element</string>
+															<string>Required DNS Servers Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Required DNS Servers</string>
+													<string>Required DNS Servers</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A URL which when present is tested for successful fetching without redirection. A VPN connection will be established when the URL is unreachable. Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An HTTP or HTTPS (preferred) URL to probe, using a GET request. If the URL's hostname can't be resolved, if the server is unreachable, or if the server doesn't respond with a 200 HTTP status code, a VPN connection is established in response.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredURLStringProbe</string>
 													<key>pfm_title</key>
-													<string>Per Connection Required Test URL</string>
+													<string>Required URL String Probe</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
@@ -4586,7 +5679,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>VPN On-Demand Rules</string>
+					<string>On Demand Rules</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -4594,7 +5687,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disconnect an on demand connection after it becomes idle</string>
+					<string>If '1', disconnect after an on-demand connection idles.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4632,7 +5725,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Time interval between a connection becoming idle and when it is finally disconnected, when Enable Disconnect on Idle (DisconnectOnIdle) is enabled. The value is an integer number representing seconds</string>
+					<string>The length of time to wait before disconnecting an on-demand connection.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4667,7 +5760,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>Disconnect on Idle Interval</string>
+					<string>Disconnect on Idle time</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
@@ -4706,7 +5799,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>Filtering service vendor configuration dictionary</string>
+			<string>The vendor-specific configuration dictionary, which the system reads only when 'VPNSubType' has a value. Not available in watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -4759,11 +5852,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>Group on connection to a head end. Applicable for Cisco AnyConnect connections</string>
+					<string>The group to connect to on the head end. Valid for Cisco AnyConnect and Cisco Legacy AnyConnect. Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>Group</string>
 					<key>pfm_title</key>
-					<string>Vendor-Specific Group</string>
+					<string>Group</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4786,10 +5879,12 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							</array>
 						</dict>
 					</array>
+					<key>pfm_description</key>
+					<string>The login group or domain. Valid only for SonicWALL Mobile Connect. Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>LoginGroupOrDomain</string>
 					<key>pfm_title</key>
-					<string>Vendor-Specific Login Group or Domain</string>
+					<string>Login Group or Domain</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4814,11 +5909,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>Case-sensitive connected realm name for Kerberos</string>
+					<string>The Kerberos realm name, which needs to be properly capitalized. Valid only for Juniper SSL and Pulse Secure. Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>Realm</string>
 					<key>pfm_title</key>
-					<string>Vendor-Specific Kerberos Realm Name</string>
+					<string>Realm</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4845,7 +5940,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>Role on connection to a server. Applicable for Juniper SSL connections</string>
+					<string>The role to select when connecting to the server. Valid only for Juniper SSL and Pulse Secure. Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -4866,7 +5961,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>Role</string>
 					<key>pfm_title</key>
-					<string>Vendor-Specific Role</string>
+					<string>Role</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -4915,6 +6010,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					</array>
 					<key>pfm_name</key>
 					<string>WgQuickConfig</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_title</key>
 					<string>WireGuard Quick Config</string>
 					<key>pfm_type</key>
@@ -4922,13 +6022,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Vendor Configuration</string>
+			<string>Vendor Configuration Dictionary</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>VPN Settings</string>
+			<string>The VPN dictionary is used when VPNType is VPN.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -4954,6 +6054,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<string>IP address or hostname of the VPN server</string>
 					<key>pfm_name</key>
 					<string>RemoteAddress</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_title</key>
@@ -4966,6 +6071,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<string>The VPN account username</string>
 					<key>pfm_name</key>
 					<string>AuthName</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_require</key>
 					<string>push</string>
 					<key>pfm_title</key>
@@ -4995,7 +6105,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>Password</string>
 					<key>pfm_description</key>
-					<string>Type of authentication method for use with the VPN connection</string>
+					<string>The authentication method to use.</string>
 					<key>pfm_name</key>
 					<string>AuthenticationMethod</string>
 					<key>pfm_range_list</key>
@@ -5038,7 +6148,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>UUID of a certificate payload in this profile that will be used for authentication</string>
+					<string>The UUID of the certificate payload within the same profile to use for account credentials.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5063,7 +6173,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>PayloadCertificateUUID</string>
 					<key>pfm_title</key>
-					<string>Certificate</string>
+					<string>Certificate UUID</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -5071,7 +6181,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables the VPN connection on-demand</string>
+					<string>If '1', enables VPN On Demand.</string>
 					<key>pfm_name</key>
 					<string>OnDemandEnabled</string>
 					<key>pfm_range_list</key>
@@ -5085,7 +6195,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable VPN On-Demand</string>
+					<string>Enable VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -5093,7 +6203,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will always establish a VPN connection on-demand</string>
+					<string>A list of domain names. The system treats associated domain names as though they're associated with the 'OnDemandMatchDomainsOnRetry' key. This behavior can be overridden by 'OnDemandRules'.
+In iOS 7 and later, this key is deprecated (but still supported) in favor of 'EvaluateConnection' actions in the 'OnDemandRules' dictionaries.
+Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5111,7 +6223,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsAlways</string>
 					<key>pfm_subkeys</key>
@@ -5126,13 +6238,23 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Always Establish On-Demand VPN</string>
+					<string>On Demand Match Domains Always</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will never establish an on-demand VPN connection</string>
+					<string>A list of domain names. If the host name ends with one of these domain names, the system doesn't start the VPN automatically. The system uses this value to exclude a subdomain within an included domain.
+In iOS 7 and later, this key is deprecated (but still supported) in favor of 'EvaluateConnection' actions in the 'OnDemandRules' dictionaries.
+Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5150,7 +6272,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsNever</string>
 					<key>pfm_subkeys</key>
@@ -5165,13 +6287,23 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Never Establish On-Demand VPN</string>
+					<string>On Demand Match Domains Never</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Deprecated. List of domain names that will establish a VPN connection on-demand if needed</string>
+					<string>A list of domain names. If the host name ends with one of these domain names and a DNS query for that domain name fails, the system starts the VPN automatically.
+In iOS 7 and later, this key is deprecated (but still supported) in favor of 'EvaluateConnection' actions in the 'OnDemandRules' dictionaries.
+Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5189,7 +6321,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_ios_deprecated</key>
-					<string>7</string>
+					<string>7.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandMatchDomainsOnRetry</string>
 					<key>pfm_subkeys</key>
@@ -5204,13 +6336,21 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Domains to Establish On-Demand VPN If Needed</string>
+					<string>On Demand Match Domains On Retry</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>7.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Rules for establishing VPN connection on-demand</string>
+					<string>An array of dictionaries defining On Demand Rules.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5238,7 +6378,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<array>
 								<dict>
 									<key>pfm_description</key>
-									<string>Action to be taken when all of the accompanying matches evaluate positivley</string>
+									<string>The action to take if this dictionary matches the current network. Possible values are:
+* 'Allow': Deprecated. Allow VPN On Demand to connect if triggered.
+* 'Connect': Unconditionally initiate a VPN connection on the next network attempt.
+* 'Disconnect': Tear down the VPN connection and don't reconnect on demand as long as this dictionary matches.
+* 'EvaluateConnection': Evaluate the ActionParameters array for each connection attempt.
+* 'Ignore:' Leave any existing VPN connection up, but don't reconnect on demand as long as this dictionary matches.
+Only the 'Disconnect' action is available on watchOS 10 and later.</string>
 									<key>pfm_name</key>
 									<string>Action</string>
 									<key>pfm_range_list</key>
@@ -5266,7 +6412,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>An interface type which when present is used to match against the interface type of the primary network interface</string>
+									<string>An interface type. If specified, this rule matches only if the primary network interface hardware matches the specified type.</string>
 									<key>pfm_name</key>
 									<string>InterfaceTypeMatch</string>
 									<key>pfm_range_list</key>
@@ -5282,13 +6428,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 										<string>Cellular</string>
 									</array>
 									<key>pfm_title</key>
-									<string>Primary Interface Type Match</string>
+									<string>Interface Type Match</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of domain names which when present are used for matching any of the devices search domains. A single wildcard '*' is supported</string>
+									<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list.
+The system supports a wildcard ('*') prefix. For example, '*.example.com' matches against either 'mydomain.example.com' or 'yourdomain.example.com'.</string>
 									<key>pfm_name</key>
 									<string>DNSDomainMatch</string>
 									<key>pfm_subkeys</key>
@@ -5311,7 +6458,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of IP addresses which when present are used for matching any of the current network's DNS servers against</string>
+									<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
+The system supports matching with a single wildcard. For example, '17.*' matches any DNS server in the '17.0.0.0/8' subnet.</string>
 									<key>pfm_name</key>
 									<string>DNSServerAddressMatch</string>
 									<key>pfm_subkeys</key>
@@ -5320,19 +6468,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>DNSServerAddressMatchElement</string>
 											<key>pfm_title</key>
-											<string>DNS Server Address</string>
+											<string>DNS Server Address Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
 									</array>
 									<key>pfm_title</key>
-									<string>DNS Server IP Address Match</string>
+									<string>DNS Server Address Match</string>
 									<key>pfm_type</key>
 									<string>array</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A list of Wi-Fi SSIDs which when present are used for matching the current connected network against. None Wi-Fi networks fail the match</string>
+									<string>An array of SSIDs to match against the current network. If the network isn't a Wi-Fi network or if the SSID doesn't appear in this array, the match fails.
+Omit this key and the corresponding array to match against any SSID.</string>
 									<key>pfm_name</key>
 									<string>SSIDMatch</string>
 									<key>pfm_subkeys</key>
@@ -5341,7 +6490,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 											<key>pfm_name</key>
 											<string>SSIDMatchElement</string>
 											<key>pfm_title</key>
-											<string>SSID Match</string>
+											<string>SSID Match Element</string>
 											<key>pfm_type</key>
 											<string>string</string>
 										</dict>
@@ -5353,29 +6502,34 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>A URL which when present is tested for successful fetching without redirection</string>
+									<string>A URL to probe. This rule matches when this URL is successfully fetched (returns a '200' HTTP status code) without redirection. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>URLStringProbe</string>
 									<key>pfm_title</key>
-									<string>Test URL Match</string>
+									<string>URL String Probe</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Similar to the on-demand rules, but evaluated on every connection instead of on network change. Applicable only when Action is set to 'EvaluateConnection'</string>
+									<string>An array of dictionaries that provides rules similar to the 'OnDemandRules' dictionary, but evaluated on each connection instead of when the network changes. This value is only for use with dictionaries in which the 'Action' value is 'EvaluateConnection'. The system evaluates these dictionaries in order and the first dictionary that matches determines the behavior. Not available in watchOS.</string>
 									<key>pfm_name</key>
 									<string>ActionParameters</string>
 									<key>pfm_subkeys</key>
 									<array>
 										<dict>
+											<key>pfm_description</key>
+											<string>A dictionary that provides rules similar to the OnDemandRules dictionary, but evaluated on each connection instead of when the network changes. These dictionaries are evaluated in order, and the behavior is determined by the first dictionary that matches.
+The keys allowed in each dictionary are described below. Note: This array is used only for dictionaries in which EvaluateConnection is the Action value.</string>
 											<key>pfm_name</key>
 											<string>ActionParameter</string>
 											<key>pfm_subkeys</key>
 											<array>
 												<dict>
 													<key>pfm_description</key>
-													<string>Action to be taken when all of the accompanying action parameter matches evaluate positivley</string>
+													<string>Defines the VPN behavior for the specified domains. Allowed values are:
+* 'ConnectIfNeeded': The specified domains should trigger a VPN connection attempt if domain name resolution fails, such as when the DNS server indicates that it can't resolve the domain, responds with a redirection to a different server, or fails to respond (timeout).
+* 'NeverConnect': The specified domains should never trigger a VPN connection attempt.</string>
 													<key>pfm_name</key>
 													<string>DomainAction</string>
 													<key>pfm_range_list</key>
@@ -5391,13 +6545,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 													<key>pfm_require</key>
 													<string>always</string>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Action</string>
+													<string>Domain Action</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of domain for which the action parameter evaluation applies</string>
+													<string>The domains to apply this evaluation.</string>
 													<key>pfm_name</key>
 													<string>Domains</string>
 													<key>pfm_require</key>
@@ -5408,19 +6562,20 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>DomainsElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Domain Matches Element</string>
+															<string>Domains Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Domain Matches</string>
+													<string>Domains</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A list of IP addresses of internal or external-trusted DNS servers which are used to resolve the domains in the Domains field. A VPN connection will be established when these servers are unreachable.  Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An array of IP addresses of DNS servers to use for resolving the specified domains. These servers don't need to be part of the device's current network configuration. If these DNS servers aren't reachable, the system establishes a VPN connection. These DNS servers need to be either internal DNS servers or trusted external DNS servers.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredDNSServers</string>
 													<key>pfm_subkeys</key>
@@ -5429,23 +6584,24 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 															<key>pfm_name</key>
 															<string>RequiredDNSServersElement</string>
 															<key>pfm_title</key>
-															<string>Per Connection Required DNS Servers Element</string>
+															<string>Required DNS Servers Element</string>
 															<key>pfm_type</key>
 															<string>string</string>
 														</dict>
 													</array>
 													<key>pfm_title</key>
-													<string>Per Connection Required DNS Servers</string>
+													<string>Required DNS Servers</string>
 													<key>pfm_type</key>
 													<string>array</string>
 												</dict>
 												<dict>
 													<key>pfm_description</key>
-													<string>A URL which when present is tested for successful fetching without redirection. A VPN connection will be established when the URL is unreachable. Applicable only when DomainAction is set to 'ConnectIfNeeded'</string>
+													<string>An HTTP or HTTPS (preferred) URL to probe, using a GET request. If the URL's hostname can't be resolved, if the server is unreachable, or if the server doesn't respond with a 200 HTTP status code, a VPN connection is established in response.
+This key is valid only if the value of 'DomainAction' is 'ConnectIfNeeded'.</string>
 													<key>pfm_name</key>
 													<string>RequiredURLStringProbe</string>
 													<key>pfm_title</key>
-													<string>Per Connection Required Test URL</string>
+													<string>Required URL String Probe</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
@@ -5469,13 +6625,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>VPN On-Demand Rules</string>
+					<string>On Demand Rules</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If '1', the Connect On Demand toggle in Settings is disabled for this configuration. Available in iOS 14 and later. Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5492,6 +6650,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
 					<key>pfm_name</key>
 					<string>OnDemandUserOverrideDisabled</string>
 					<key>pfm_range_list</key>
@@ -5505,7 +6665,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Disable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Disable On-Demand User Override</string>
+					<string>Prevent users from toggling VPN On Demand</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -5528,25 +6688,30 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all network traffic will be routed through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, and ExcludeAPNs properties. See the documentation for those properties.  The following traffic is always excluded from the tunnel.
+					<string>If '1', routes all traffic through the VPN, with some exclusions. Several of the exclusions can be controlled with the ExcludeLocalNetworks, ExcludeCellularServices, ExcludeAPNs and ExcludeDeviceCommunication properties. See the documentation for those properties. The following traffic is always excluded from the tunnel. Not available in watchOS.
 
 * Traffic necessary for connecting and maintaining the device's network connection, such as DHCP.
 * Traffic necessary for connecting to captive networks.
 * Certain cellular services traffic that is not routable over the internet and is instead directly routed to the cellular network. See the ExcludeCellularServices property for more details.
-* Network communication with a companion device such as a watchOS device</string>
+* Network communication with a companion device such as a watchOS device.</string>
 					<key>pfm_ios_min</key>
 					<string>14.0</string>
 					<key>pfm_macos_min</key>
 					<string>10.15</string>
 					<key>pfm_name</key>
 					<string>IncludeAllNetworks</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
 						<integer>1</integer>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Sending All Traffic Over VPN</string>
+					<string>Include All Networks</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -5592,7 +6757,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1 and either IncludeAllNetworks or EnforceRoutes are 1, then local network traffic will be routed outside of the VPN. The default for this value is 0 on macOS and 1 on iOS.</string>
+					<string>If '1' and 'IncludeAllNetworks' is '1', routes all local network traffic outside the VPN. Not available in watchOS.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5615,6 +6780,11 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<string>10.15</string>
 					<key>pfm_name</key>
 					<string>ExcludeLocalNetworks</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -5649,7 +6819,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<string>packet-tunnel</string>
 					<key>pfm_description</key>
-					<string>Switches between </string>
+					<string>The type of VPN service. If the value is 'app-proxy', the service tunnels traffic at the app level. If the value is 'packet-tunnel', the service tunnels traffic at the IP layer. Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>ProviderType</string>
 					<key>pfm_range_list</key>
@@ -5669,7 +6839,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Bundle ID for the VPN connection provider</string>
+					<string>The bundle identifier for the VPN provider. Not available in watchOS.</string>
 					<key>pfm_name</key>
 					<string>ProviderBundleIdentifier</string>
 					<key>pfm_title</key>
@@ -5679,7 +6849,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Applicable when the VPN connection is provided by a system extension</string>
+					<string>If the VPN provider is implemented as a system extension, this field is required. Not available in watchOS.</string>
+					<key>pfm_macos_min</key>
+					<string>10.15</string>
 					<key>pfm_name</key>
 					<string>ProviderDesignatedRequirement</string>
 					<key>pfm_title</key>
@@ -5698,13 +6870,18 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							<key>pfmx_introduced</key>
 							<string>10.15</string>
 						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Disconnect an on demand connection after it becomes idle</string>
+					<string>If '1', disconnects after an on-demand connection idles.</string>
 					<key>pfm_name</key>
 					<string>DisconnectOnIdle</string>
 					<key>pfm_range_list</key>
@@ -5728,7 +6905,9 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>If 1, then all the VPN's non-default routes will take precedence over any locally-defined routes. If IncludeAllNetworks is 1, the value of EnforceRoutes is ignored.</string>
+					<string>If '1', all the VPN's non-default routes take precedence over any locally defined routes.
+If 'IncludeAllNetworks' is '1', the system ignores the value of 'EnforceRoutes'.
+Available in iOS 14.2 and later, and macOS 11 and later. Not available in watchOS.</string>
 					<key>pfm_ios_min</key>
 					<string>14.2</string>
 					<key>pfm_macos_min</key>
@@ -5764,13 +6943,18 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>1</integer>
 					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) is excluded from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet.  Such cellular services traffic is always excluded from the tunnel.</string>
+					<string>If '1' and 'IncludeAllNetworks' is '1', then the system excludes internet-routable network traffic for cellular services (VoLTE, Wi-Fi Calling, IMS, MMS, Visual Voicemail, etc.) from the tunnel. Note that some cellular carriers route cellular services traffic directly to the carrier network, bypassing the internet. Such cellular services traffic is always excluded from the tunnel. Not available in watchOS.</string>
 					<key>pfm_ios_min</key>
 					<string>16.4</string>
 					<key>pfm_macos_min</key>
 					<string>13.3</string>
 					<key>pfm_name</key>
 					<string>ExcludeCellularServices</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -5804,12 +6988,19 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				<dict>
 					<key>pfm_default</key>
 					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If 1 and IncludeAllNetworks is 1, then network traffic used for communicating with devices connected via USB or Wi-Fi is excluded from the tunnel.</string>
 					<key>pfm_ios_min</key>
-					<string>17.5</string>
+					<string>17.4</string>
 					<key>pfm_macos_min</key>
-					<string>14.5</string>
+					<string>14.4</string>
 					<key>pfm_name</key>
 					<string>ExcludeDeviceCommunication</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -5826,17 +7017,22 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<key>iOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
-							<string>17.5</string>
+							<string>17.4</string>
 						</dict>
 						<key>macOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
-							<string>14.5</string>
+							<string>14.4</string>
 						</dict>
 						<key>tvOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
 							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>1.1</string>
 						</dict>
 					</dict>
 				</dict>
@@ -5844,13 +7040,18 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_default</key>
 					<integer>1</integer>
 					<key>pfm_description</key>
-					<string>If 1 and IncludeAllNetworks is 1, then network traffic for the Apple Push Notification service (APNs) is excluded from the tunnel.</string>
+					<string>If '1' and 'IncludeAllNetworks' is '1', then the system excludes the network traffic for the Apple Push Notification service (APNs) from the tunnel. Not available in watchOS.</string>
 					<key>pfm_ios_min</key>
 					<string>16.4</string>
 					<key>pfm_macos_min</key>
 					<string>13.3</string>
 					<key>pfm_name</key>
 					<string>ExcludeAPNs</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>iOS</string>
+						<string>macOS</string>
+					</array>
 					<key>pfm_range_list</key>
 					<array>
 						<integer>0</integer>
@@ -5883,7 +7084,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Time interval between a connection becoming idle and when it is finally disconnected, when Enable Disconnect on Idle (DisconnectOnIdle) is enabled. The value is an integer number representing seconds</string>
+					<string>The length of time to wait, in seconds, before disconnecting an on-demand connection. In watchOS, the maximum allowed value is '15'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -5905,19 +7106,19 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>Disconnect on Idle Interval</string>
+					<string>Disconnect on Idle time</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Settings for Vendor-Specific VPN type</string>
+			<string>VPN</string>
 			<key>pfm_type</key>
 			<string>dictionary</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary containing settings for VPN types L2TP, PPTP, and Vendor Specific VPN</string>
+			<string>The dictionary that contains IPv4 settings. Not available in watchOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -5938,13 +7139,18 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			</array>
 			<key>pfm_name</key>
 			<string>IPv4</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+				<string>macOS</string>
+			</array>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
 					<key>pfm_description</key>
-					<string>Enables all network traffic to be sent over the VPN connection instead of over the primary network interface</string>
+					<string>If '1', the system sends all network traffic over VPN. Only applies to Cisco IPsec and L2TP VPN types.</string>
 					<key>pfm_name</key>
 					<string>OverridePrimary</string>
 					<key>pfm_range_list</key>
@@ -5958,7 +7164,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Sending All Traffic Over VPN</string>
+					<string>Override Primary Connection</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -5980,7 +7186,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Proxy Settings for all VPN types</string>
+			<string>The dictionary to use to configure 'Proxies' for use with 'VPN'.</string>
 			<key>pfm_name</key>
 			<string>Proxies</string>
 			<key>pfm_subkeys</key>
@@ -5988,6 +7194,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If '1', enables proxy for HTTP traffic.</string>
 					<key>pfm_name</key>
 					<string>HTTPEnable</string>
 					<key>pfm_range_list</key>
@@ -6001,7 +7209,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable HTTP Proxy</string>
+					<string>Enable HTTP</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -6010,6 +7218,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If 'true', enables proxy for HTTPS traffic.</string>
 					<key>pfm_name</key>
 					<string>HTTPSEnable</string>
 					<key>pfm_range_list</key>
@@ -6023,7 +7233,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable HTTPS Proxy</string>
+					<string>Enable HTTPS</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -6031,7 +7241,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Proxy URL</string>
+					<string>The port number of the HTTP proxy. This field is required if 'HTTPProxy' is specified.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6051,7 +7261,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>HTTPProxy</string>
 					<key>pfm_title</key>
-					<string>HTTP Proxy Hostname</string>
+					<string>HTTP Proxy</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -6072,6 +7282,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							</array>
 						</dict>
 					</array>
+					<key>pfm_description</key>
+					<string>The host name of the HTTP proxy.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6095,11 +7307,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>HTTP Proxy Port</string>
+					<string>HTTP Port</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The host name of the HTTPS proxy.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6119,7 +7333,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>HTTPSProxy</string>
 					<key>pfm_title</key>
-					<string>HTTPS Proxy Hostname</string>
+					<string>HTTPS Proxy</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -6140,6 +7354,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 							</array>
 						</dict>
 					</array>
+					<key>pfm_description</key>
+					<string>The port number of the HTTPS proxy. This field is required if 'HTTPSProxy' is specified.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6163,11 +7379,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_range_min</key>
 					<integer>0</integer>
 					<key>pfm_title</key>
-					<string>HTTPS Proxy Port</string>
+					<string>HTTPS Port</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The user name used for authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6195,11 +7413,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>HTTPProxyUsername</string>
 					<key>pfm_title</key>
-					<string>HTTP/HTTPS Proxy Username</string>
+					<string>HTTP ProxyUsername</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The password used for authentication.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6227,13 +7447,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>HTTPProxyPassword</string>
 					<key>pfm_title</key>
-					<string>HTTP/HTTPS Proxy Password</string>
+					<string>HTTP ProxyPassword</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>0</integer>
+					<key>pfm_description</key>
+					<string>If 'true', enables automatic proxy configuration.</string>
 					<key>pfm_name</key>
 					<string>ProxyAutoConfigEnable</string>
 					<key>pfm_range_list</key>
@@ -6247,7 +7469,7 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Proxy AutoConfig</string>
+					<string>Proxy AutoConfig Enable</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
@@ -6256,6 +7478,8 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 				<dict>
 					<key>pfm_default</key>
 					<integer>1</integer>
+					<key>pfm_description</key>
+					<string>If 'true', enables proxy auto discovery.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6296,13 +7520,15 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<string>Enable</string>
 					</array>
 					<key>pfm_title</key>
-					<string>Enable Proxy Auto-Discovery</string>
+					<string>Proxy Auto Discovery Enable</string>
 					<key>pfm_type</key>
 					<string>integer</string>
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The URL to the location of the proxy auto-configuration file. Used only when 'ProxyAutoConfigEnable' is 'true'.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6335,13 +7561,13 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 					<key>pfm_name</key>
 					<string>ProxyAutoConfigURLString</string>
 					<key>pfm_title</key>
-					<string>Proxy AutoConfig Server URL</string>
+					<string>Proxy Server URL</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>Host domains for which host proxy setting will be used</string>
+					<string>An array of domains that defines which hosts use proxy settings for hosts.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -6373,12 +7599,14 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 						<dict>
 							<key>pfm_name</key>
 							<string>SupplementalMatchDomainsElement</string>
+							<key>pfm_title</key>
+							<string>Supplemental Match Domains Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Proxy Applicable Hosts</string>
+					<string>Supplemental Match Domains</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -6399,15 +7627,17 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 	</array>
 	<key>pfm_targets</key>
 	<array>
-		<string>user</string>
 		<string>system</string>
+		<string>user</string>
 	</array>
 	<key>pfm_title</key>
 	<string>VPN</string>
+	<key>pfm_tvos_min</key>
+	<string>17.0</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
@@ -6467,6 +7697,22 @@ If the type is 'VPN' or 'TransparentProxy', then the system requires a value for
 			<true/>
 			<key>pfmx_supervised</key>
 			<false/>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>1.0</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>forbidden</string>
+			</dict>
 		</dict>
 	</dict>
 </dict>

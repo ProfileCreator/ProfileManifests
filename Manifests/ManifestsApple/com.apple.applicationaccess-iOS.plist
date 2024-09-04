@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-08-23T13:25:42Z</date>
+	<date>2024-09-03T14:06:32Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -26,7 +26,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures restrictions</string>
+			<string>Use this section to define restrictions settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -99,9 +99,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -114,9 +111,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -273,6 +267,14 @@ The payload organization for a payload need not match the payload organization i
 					<string>forceWiFiToAllowedNetworksOnly</string>
 					<string>forceWiFiWhitelisting</string>
 					<string>requireManagedPasteboard</string>
+					<string>allowESIMOutgoingTransfers</string>
+					<string>allowGenmoji</string>
+					<string>allowImagePlayground</string>
+					<string>allowImageWand</string>
+					<string>allowiPhoneMirroring</string>
+					<string>allowPersonalizedHandwritingResults</string>
+					<string>allowVideoConferencingRemoteControl</string>
+					<string>allowWritingTools</string>
 				</array>
 				<key>Media</key>
 				<array>
@@ -332,7 +334,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the camera, and its icon is removed from the Home screen. Users are unable to take photographs. This restriction is deprecated on unsupervised devices and will be supervised only in a future release.  Available in iOS 4 and later, and macOS 10.11 and later.</string>
+			<string>If 'false', the system disables the camera and removes its icon from the Home screen, and users are unable to take photographs. Available in iOS 4 and later, macOS 10.11 and later, and tvOS 17 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -347,8 +349,6 @@ The payload organization for a payload need not match the payload organization i
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>4.0</string>
-					<key>pfmx_supervised</key>
-					<false/>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
@@ -369,8 +369,16 @@ The payload organization for a payload need not match the payload organization i
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>17.0</string>
-					<key>pfmx_supervised</key>
-					<false/>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -383,7 +391,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', hides the FaceTime app. As of iOS 13, requires a supervised device. Available in iOS 4 and later.</string>
+			<string>If 'false', the system hides the FaceTime app. Available in iOS 4 and later. Requires a supervised device in iOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -418,6 +426,18 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -429,13 +449,13 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables backing up the device to iCloud. This restriction is deprecated on unsupervised devices and will be supervised only in a future release. Available in iOS 5 and later.</string>
+			<string>If 'false', the system disables backing up the device to iCloud. Available in iOS 5 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
 			<string>allowCloudBackup</string>
 			<key>pfm_title</key>
-			<string>Allow iCloud backup</string>
+			<string>Allow iCloud Backup</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -444,8 +464,6 @@ The payload organization for a payload need not match the payload organization i
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>5.0</string>
-					<key>pfmx_supervised</key>
-					<false/>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
@@ -462,6 +480,16 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -473,7 +501,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables iCloud Photo Library, including iCloud Shared Photo Library. Any photos not fully downloaded from iCloud Photo Library to the device are removed from local storage. Available in iOS 9 and later, and macOS 10.12 and later.</string>
+			<string>If 'false', the system disables iCloud Photo Library. The system removes any photos from local storage that aren't fully downloaded from iCloud Photo Library to the device. Available in iOS 9 and later, and macOS 10.12 and later. Support for this restriction on unsupervised devices and with Managed Apple Accounts is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -509,6 +537,16 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -520,7 +558,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Photo Stream. Available in iOS 5 and later.</string>
+			<string>If 'false', the system disables Photo Stream. Available in iOS 5 and later. This restriction is deprecated and will be removed in a future release.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>17.0</string>
 			<key>pfm_ios_min</key>
@@ -528,7 +566,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>allowPhotoStream</string>
 			<key>pfm_title</key>
-			<string>Allow My Photo Stream</string>
+			<string>Allow Photo Stream</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -555,6 +593,11 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -566,7 +609,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Shared Photo Stream. Available in iOS 6 and later.</string>
+			<string>If 'false', the system disables Shared Photo Stream. Available in iOS 6 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -597,6 +640,11 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -608,10 +656,13 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the AutoFill Passwords feature in iOS (with Keychain and third-party password managers) and the user isn't prompted to use a saved password in Safari or in apps.
-This restriction also disables Automatic Strong Passwords, and strong passwords are no longer suggested to users.
-It doesn't prevent AutoFill for contact info and credit cards in Safari.
-Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and later.</string>
+			<string>If 'false', the system disables:
+* The AutoFill Passwords feature in iOS, with Keychain and third-party password managers
+* Prompting the user to use a saved password in Safari or in apps
+* Automatic strong passwords
+* Suggesting strong passwords to users
+However, if 'false', the system doesn't prevent AutoFill for contact info and credit cards in Safari.
+Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -651,6 +702,18 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -662,7 +725,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disallows auto unlock. Available in macOS 10.12 and later, and iOS 14.5 and later.</string>
+			<string>If 'false', the system disallows auto unlock. Available in macOS 10.12 and later, and iOS 14.5 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -698,6 +761,11 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -709,7 +777,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents Touch ID or Face ID from unlocking a device. Available in iOS 7 and later, and macOS 10.12.4 and later.</string>
+			<string>If 'false', the system prevents Touch ID or Face ID from unlocking a device. Available in iOS 7 and later, and macOS 10.12.4 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -745,6 +813,16 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -756,7 +834,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', removes the Book Store tab from the Books app. Requires a supervised device. Available in iOS 6 and later.</string>
+			<string>If 'false', the system removes the Book Store tab from the Books app. Requires a supervised device. Available in iOS 6 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -764,7 +842,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow iBooks Store</string>
+			<string>Allow Bookstore</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -791,6 +869,11 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -802,7 +885,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the use of the iMessage with supervised devices. If the device supports text messaging, the user can still send and receive text messages. Requires a supervised device. Available in iOS 5 and later.</string>
+			<string>If 'false', the system disables the use of iMessage with supervised devices. If the device supports text messaging, the user can still send and receive text messages. Requires a supervised device. Available in iOS 5 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -837,6 +920,11 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -848,8 +936,7 @@ Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the iTunes Music Store, and its icon is removed from the Home screen. Users cannot preview, purchase, or download content.
-As of iOS 13, requires a supervised device. Available in iOS 4 and later.</string>
+			<string>If 'false', the system disables the iTunes Music Store, and the system removes its icon from the Home screen. Users can't preview, purchase, or download content. Available in iOS 4 and later. Requires a supervised device in iOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -884,6 +971,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -895,7 +987,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the Music service, and the Music app reverts to classic mode. Requires a supervised device. Available in iOS 9.3 and later, and macOS 10.12 and later.</string>
+			<string>If 'false', the system disables the Music service, and the Music app reverts to classic mode. Requires a supervised device. Available in iOS 9.3 and later, and macOS 10.12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3</string>
 			<key>pfm_name</key>
@@ -935,6 +1027,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -946,7 +1043,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables News. Requires a supervised device. Available in iOS 9 and later.</string>
+			<string>If 'false', the system disables News. Requires a supervised device. Available in iOS 9 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -981,6 +1078,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -992,7 +1094,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables podcasts. Requires a supervised device. Available in iOS 8 and later.</string>
+			<string>If 'false', the system disables podcasts. Requires a supervised device. Available in iOS 8 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -1027,6 +1129,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1038,7 +1145,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Apple Music Radio. Requires a supervised device. Available in iOS 9.3 and later.</string>
+			<string>If 'false', the system disables Apple Music Radio. Requires a supervised device. Available in iOS 9.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3</string>
 			<key>pfm_name</key>
@@ -1046,7 +1153,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow Radio</string>
+			<string>Allow iTunes Radio</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1069,6 +1176,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<string>n/a</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -1100,7 +1212,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables document and key-value syncing to iCloud. As of iOS 13, this restriction requires a supervised device and shared iPads don't support it. Available in iOS 5 and later, and macOS 10.11 and later.</string>
+			<string>If 'false', the system disables document and key-value syncing to iCloud. Available in iOS 5 and later, and macOS 10.11 and later. Requires a supervised device in iOS 13 and later, and Shared iPad doesn't support it. Support for this restriction on unsupervised devices and with Managed Apple Accounts is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -1108,7 +1220,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow iCloud Drive</string>
+			<string>Allow iCloud Document Sync</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1145,6 +1257,18 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1156,7 +1280,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables iCloud keychain synchronization. This restriction is deprecated on unsupervised devices and will be supervised only in a future release. Available in iOS 7 and later and macOS 10.12 and later.</string>
+			<string>If 'false', the system disables iCloud keychain synchronization. Available in iOS 7 and later, and macOS 10.12 and later. Support for this restriction on unsupervised devices and with Managed Apple Accounts is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -1171,8 +1295,6 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>7.0</string>
-					<key>pfmx_supervised</key>
-					<false/>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
@@ -1194,6 +1316,16 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1205,7 +1337,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables definition lookup. Requires a supervised device on iOS. Available in iOS 8.1.3 and later and macOS 10.11 and later.</string>
+			<string>If 'false', the system disables definition lookup. Available in iOS 8.1.3 and later, and macOS 10.11 and later. Requires a supervised device on iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>8.1.3</string>
 			<key>pfm_name</key>
@@ -1245,6 +1377,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1272,7 +1409,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables AirPrint.  Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables AirPrint. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -1307,6 +1444,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1318,7 +1460,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables iBeacon discovery of AirPrint printers, which prevents spurious AirPrint Bluetooth beacons from phishing for network traffic. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables iBeacon discovery of AirPrint printers, which prevents spurious AirPrint Bluetooth beacons from phishing for network traffic. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -1355,6 +1497,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1366,7 +1513,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', requires trusted certificates for TLS printing communication. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'true', the system requires trusted certificates for TLS printing communication. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -1403,6 +1550,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1414,13 +1566,13 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables saving a screenshot of the display and capturing a screen recording. It also disables the Classroom app from observing remote screens. Available in iOS 4 and later, and macOS 10.14.4 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables saving a screenshot of the display and capturing a screen recording. It also disables the Classroom app from observing remote screens. Available in iOS 4 and later, and macOS 10.14.4 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>3.1</string>
 			<key>pfm_name</key>
 			<string>allowScreenShot</string>
 			<key>pfm_title</key>
-			<string>Allow screenshots and screen recording</string>
+			<string>Allow Screenshots and Screen Recording</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1440,22 +1592,24 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later.</strin
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables remote screen observation by the Classroom app. Nest this key beneath 'allowScreenShot' as a subrestriction. If 'allowScreenShot' is set to 'false', the Classroom app doesn't observe remote screens. Required a supervised device until iOS 13 and macOS 10.15. Available in iOS 12 and later, and macOS 10.14.4 and later.</string>
-			<key>pfm_description_reference</key>
-			<string>If set to false, remote screen observation by the Classroom app is disabled. Defaults to true.
-This key should be nested beneath allowScreenShot as a sub-restriction. If allowScreenShot is set to false, it also prevents the Classroom app from observing remote screens. Availability: Available in iOS 9.3 and later.</string>
+			<string>If 'false', the system disables remote screen observation by the Classroom app. Nest this key beneath 'allowScreenShot' as a subrestriction. If 'allowScreenShot' is 'false', the Classroom app doesn't observe remote screens. Available in iOS 12 and later, and macOS 10.14.4 and later. Requires a supervised device until iOS 13 and macOS 10.15. Allowed for user enrollments in macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3</string>
 			<key>pfm_name</key>
 			<string>allowRemoteScreenObservation</string>
 			<key>pfm_title</key>
-			<string>Allow AirPlay and View Screen by Classroom app</string>
+			<string>Allow Remote Screen Observation</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1475,6 +1629,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1486,7 +1645,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true' and 'ScreenObservationPermissionModificationAllowed' is also 'true' in the Education payload, a student enrolled in a managed course via the Classroom app automatically gives permission to that course teacher's requests to observe the student's screen without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
+			<string>If 'true' and 'ScreenObservationPermissionModificationAllowed' is also 'true' in the Education payload, a student enrolled in a managed course through the Classroom app automatically gives permission to that course teacher's requests to observe the student's screen without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1544,6 +1703,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1567,7 +1731,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables voice dialing if the device is locked with a passcode. Available in iOS 4 and later.</string>
+			<string>If 'false', the system disables voice dialing if the device is locked with a passcode. Available in iOS 4 and later.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>17.0</string>
 			<key>pfm_ios_min</key>
@@ -1575,7 +1739,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_name</key>
 			<string>allowVoiceDialing</string>
 			<key>pfm_title</key>
-			<string>Allow voice dialing while the device is locked</string>
+			<string>Allow Voice Dialing While Device is Locked</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1602,6 +1766,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1613,7 +1782,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Siri. Available in iOS 5 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables Siri. Available in iOS 5 and later, and macOS 14 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -1644,6 +1813,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1655,13 +1829,13 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Siri when the device is locked. This restriction is ignored if the device doesn't have a passcode set. Available in iOS 5.1 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables Siri when the device is locked. The system ignores this restriction if the device doesn't have a passcode set. Available in iOS 5.1 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>5.1</string>
 			<key>pfm_name</key>
 			<string>allowAssistantWhileLocked</string>
 			<key>pfm_title</key>
-			<string>Allow Siri when device is locked</string>
+			<string>Allow Siri While Locked</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1681,13 +1855,18 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', forces the use of the profanity filter assistant. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'true', the system forces the use of the profanity filter assistant. Available in iOS 11 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
@@ -1695,7 +1874,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Enable Siri profanity filter</string>
+			<string>Enable Siri Profanity Filter</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1727,6 +1906,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1738,7 +1922,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents Siri from querying user-generated content from the web. Requires a supervised device. Available in iOS 7 and later.</string>
+			<string>If 'false', the system prevents Siri from querying user-generated content from the web. Requires a supervised device. Available in iOS 7 and later, and watchOS 10 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -1773,6 +1957,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -1800,7 +1989,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Spotlight Internet search results in Siri Suggestions. Available in iOS 8 and later, and macOS 10.11 and later.</string>
+			<string>If 'false', the system disables Spotlight Internet search results in Siri Suggestions. Available in iOS 8 and later, and macOS 10.11 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -1838,6 +2027,11 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -1849,7 +2043,8 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the App Store, and its icon is removed from the Home screen. Users are unable to install or update their apps. In iOS 10 and later, MDM commands can override this restriction. As of iOS 13, this restriction requires a supervised device. Available in iOS 4 and later.</string>
+			<string>If 'false', the system disables the App Store, and the system removes its icon from the Home screen. Users are unable to install or update their apps. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+In iOS 10 and later, MDM commands can override this restriction. Available in iOS 4 and later, and watchOS 10 and later. Requires a supervised device in iOS 13 and later, and watchOS.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -1857,7 +2052,7 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow installing apps</string>
+			<string>Allow App Installation</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1884,6 +2079,18 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -1895,8 +2102,8 @@ This key should be nested beneath allowScreenShot as a sub-restriction. If allow
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the App Store, and its icon is removed from the Home screen. However, users may continue to use host apps (iTunes, Configurator) to install or update their apps.
-In iOS 10 and later, MDM commands can override this restriction. Requires a supervised device. Available in iOS 9 and later.</string>
+			<string>If 'false', the system disables the App Store, and the systems removes its icon from the Home screen. However, users may continue to install or update their apps either locally (via Configurator, Xcode, etc), or using alternative marketplace apps.
+In iOS 10 and later, MDM commands can override this restriction. Requires a supervised device. Available in iOS 9 and later, and watchOS 10 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -1904,7 +2111,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow installing apps using App Store</string>
+			<string>Allow App Installation from App Store</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1931,6 +2138,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -1942,7 +2161,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents automatic downloading of apps purchased on other devices. This setting doesn't affect updates to existing apps. Requires a supervised device. Available in iOS 9 and later.</string>
+			<string>If 'false', the system prevents automatic downloading of apps purchased on other devices. This setting doesn't affect updates to existing apps. Requires a supervised device. Available in iOS 9 and later, and watchOS 10 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -1950,7 +2169,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow automatic app downloads</string>
+			<string>Allow Automatic App Downloads</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1977,6 +2196,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -1988,7 +2212,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>When 'false', the device prevents installation of alternative marketplace apps from the web, and prevents any installed alternative marketplace apps from installing apps.</string>
+			<string>If 'false', the system prevents installation of alternative marketplace apps from the web and prevents any installed alternative marketplace apps from installing apps. Available in iOS 17.4 and later. Requires a supervised device.</string>
 			<key>pfm_ios_min</key>
 			<string>17.4</string>
 			<key>pfm_name</key>
@@ -1996,7 +2220,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow app installation from alternative marketplaces</string>
+			<string>Allow App Installation from alternative marketplaces</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2023,6 +2247,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2034,7 +2263,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>When 'false', the device prevents installation of apps directly from the web.</string>
+			<string>If 'false', the device prevents installation of apps directly from the web. Available in iOS 17.5 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>17.5</string>
 			<key>pfm_name</key>
@@ -2069,6 +2298,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2080,7 +2314,8 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables removal of apps from an iOS device. Requires a supervised device. Available in iOS 4.2.1 and later.</string>
+			<string>If 'false', the system disables removal of apps from an iOS device. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+Requires a supervised device. Available in iOS 4.2.1 and later, and watchOS 10 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.2.1</string>
 			<key>pfm_name</key>
@@ -2088,7 +2323,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow removing apps</string>
+			<string>Allow App Removal</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2115,6 +2350,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -2126,7 +2366,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents a user from adding any App Clips, and removes any existing App Clips on the device. Requires a supervised device. Available in iOS 14.0 and later.</string>
+			<string>If 'false', the system prevents a user from adding any App Clips, and removes any existing App Clips on the device. Requires a supervised device. Available in iOS 14.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -2161,6 +2401,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2172,7 +2417,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the removal of system apps from the device. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables the removal of system apps from the device. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -2207,6 +2452,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2218,13 +2475,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits in-app purchasing. Available in iOS 4 and later.</string>
+			<string>If 'false', the system prohibits in-app purchasing. Available in iOS 4 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowInAppPurchases</string>
 			<key>pfm_title</key>
-			<string>Allow in app purchases</string>
+			<string>Allow In App Purchases</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2249,6 +2506,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2260,7 +2522,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', forces the user to enter their iTunes password for each transaction. Available in iOS 6 and later.</string>
+			<string>If 'true', the system forces the user to enter their iTunes password for each transaction. Available in iOS 6 and later.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>17.0</string>
 			<key>pfm_ios_min</key>
@@ -2268,7 +2530,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_name</key>
 			<string>forceITunesStorePasswordEntry</string>
 			<key>pfm_title</key>
-			<string>Require iTunes Store password for all purchases</string>
+			<string>Require iTunes password for all purchases</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2295,6 +2557,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2306,13 +2573,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents managed apps from using iCloud sync. Available in iOS 8 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system prevents managed apps from using iCloud sync. Available in iOS 8 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowManagedAppsCloudSync</string>
 			<key>pfm_title</key>
-			<string>Allow managed apps to store data in iCloud</string>
+			<string>Allow iCloud Sync for Managed Apps</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2332,6 +2599,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2343,13 +2615,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables backup of Enterprise books. Available in iOS 8 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables backup of Enterprise books. Available in iOS 8 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEnterpriseBookBackup</string>
 			<key>pfm_title</key>
-			<string>Allow backup of enterprise books</string>
+			<string>Allow Enterprise Books Backup</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2369,6 +2641,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2380,13 +2657,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables sync of Enterprise books, notes, and highlights. Available in iOS 8 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables sync of Enterprise books, notes, and highlights. Available in iOS 8 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>allowEnterpriseBookMetadataSync</string>
 			<key>pfm_title</key>
-			<string>Allow notes and highlights sync for enterprise books</string>
+			<string>Allow Enterprise Books Notes and Highlights Sync</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2406,6 +2683,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2417,7 +2699,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables iCloud Private Relay. For iOS devices, this restriction requires a supervised device. Available in macOS 12 and later, and iOS 15 and later.</string>
+			<string>If 'false', the system disables iCloud Private Relay. Available in iOS 15 and later, and in macOS 12 and later. Requires a supervised device in iOS. Support for this restriction on unsupervised devices and with Managed Apple Accounts is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_name</key>
@@ -2457,6 +2739,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2468,13 +2757,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables global background fetch activity when an iOS phone is roaming. Available in iOS 4 and later.</string>
+			<string>If 'false', the system disables global background fetch activity when an iOS phone is roaming. Available in iOS 4 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>allowGlobalBackgroundFetchWhenRoaming</string>
 			<key>pfm_title</key>
-			<string>Allow automatic sync while roaming</string>
+			<string>Allow Automatic Sync While Roaming</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2499,6 +2788,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2510,13 +2804,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', encrypts all backups. Available in iOS 4 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system encrypts all backups. Available in iOS 4 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>forceEncryptedBackup</string>
 			<key>pfm_title</key>
-			<string>Force encrypted backups</string>
+			<string>Force Encrypted Backups</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2536,6 +2830,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2547,7 +2846,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the Erase All Content And Settings option in the Reset UI. Requires a supervised device. Available in iOS 8 and later, and macOS 12 and later.</string>
+			<string>If 'false', the system disables the Erase All Content and Settings option in the Reset UI. Available in iOS 8 and later, and macOS 12 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -2587,6 +2886,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2598,7 +2909,8 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string> If set to true, eSIM will be preserved when a device is erased due to too many failed password attempt or the "Erase All Content and Settings" option in Settings &gt; General &gt; Reset. eSIM will not be preserved if the device is erased by FindMy.</string>
+			<string>If 'true', the system preserves eSIM when it erases the device due to too many failed password attempts or the Erase All Content and Settings option in Settings &gt; General &gt; Reset. Available in iOS 17.2 and later.
+The system doesn't preserve eSIM if Find My initiates erasing the device.</string>
 			<key>pfm_ios_min</key>
 			<string>17.2</string>
 			<key>pfm_name</key>
@@ -2633,6 +2945,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2644,13 +2961,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', automatically rejects untrusted HTTPS certificates without prompting the user. Available in iOS 5 and later.</string>
+			<string>If 'false', the system automatically rejects untrusted HTTPS certificates without prompting the user. Available in iOS 5 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>5.0</string>
 			<key>pfm_name</key>
 			<string>allowUntrustedTLSPrompt</string>
 			<key>pfm_title</key>
-			<string>Allow users to accept untrusted TLS certificates</string>
+			<string>Allow user to accept untrusted TLS certificates</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2675,6 +2992,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>1.1</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2686,13 +3008,13 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', removes the Trust Enterprise Developer button in Settings &gt; General &gt; Profiles &amp; Device Management, preventing apps from being provisioned by universal provisioning profiles. This restriction applies to free developer accounts. However, it doesn't apply to enterprise app developers who are trusted because their apps were pushed through MDM. It also doesn't revoke previously granted trust. Available in iOS 9 and later.</string>
+			<string>If 'false', the system removes the Trust Enterprise Developer button in Settings &gt; General &gt; Profiles &amp; Device Management, which prevents provisioning apps by universal provisioning profiles. This restriction applies to free developer accounts. However, it doesn't apply to enterprise app developers, because they're trusted and the system installed their apps through MDM. It also doesn't revoke previously granted trust. Available in iOS 9 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>allowEnterpriseAppTrust</string>
 			<key>pfm_title</key>
-			<string>Allow trusting new enterprise app authors</string>
+			<string>Allow Trusting Enterprise Apps</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2717,6 +3039,16 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2728,7 +3060,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables over-the-air PKI updates. Setting this restriction to 'false' doesn't disable CRL and OCSP checks.  Available in iOS 7 and later.</string>
+			<string>If 'false', the system disables over-the-air PKI updates. Setting this restriction to 'false' doesn't disable CRL and OCSP checks. Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -2759,6 +3091,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2770,7 +3107,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits the user from installing configuration profiles and certificates interactively. Requires a supervised device. Available in iOS 6 and later and macOS 13 and later.</string>
+			<string>If 'false', the system prohibits the user from installing configuration profiles and certificates interactively. Available in iOS 6 and later, and macOS 13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -2778,7 +3115,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow user installation of configuration profiles</string>
+			<string>Allow UI Configuration Profile Installation</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2810,6 +3147,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2821,7 +3170,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the creation of VPN configurations. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables the creation of VPN configurations. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -2829,7 +3178,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow adding VPN configurations</string>
+			<string>Allow Adding VPN Configurations (Supervised devices only)</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -2856,6 +3205,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2867,7 +3228,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<string>If 'true', the system enables the Set Automatically feature in Date &amp; Time and the user can't disable it. The system updates the device's time zone only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -2904,6 +3265,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2915,7 +3288,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', allows the teacher to lock apps or the device without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
+			<string>If 'true', the system allows the teacher to lock apps or the device without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -2957,6 +3330,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -2968,7 +3346,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', automatically gives permission to the teacher's requests without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
+			<string>If 'true', the system automatically gives permission to the teacher's requests without prompting the student. Requires a supervised device. Available in iOS 11 and later, and macOS 10.14.4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -3010,6 +3388,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3021,7 +3404,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', a student enrolled in an unmanaged course through Classroom requests permission from the teacher when attempting to leave the course. Requires a supervised device. Available in iOS 11.3 and later, and macOS 10.14.4 and later.</string>
+			<string>If 'true', a student enrolled in an unmanaged course through Classroom needs to request permission from the teacher to leave the course. Requires a supervised device. Available in iOS 11.3 and later, and macOS 10.14.4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.3</string>
 			<key>pfm_name</key>
@@ -3063,6 +3446,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3074,7 +3462,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If  'false', disables account modification. Requires a supervised device. Available in iOS 7 and later.</string>
+			<string>If 'false', the system disables modification of accounts such as Apple Accounts and Internet-based accounts such as Mail, Contacts, and Calendar. Available in iOS 7 and later, macOS 14 and later, and watchOS 10 and later. Requires a supervised device in iOS and watchOS.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -3114,6 +3502,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_supervised</key>
@@ -3125,7 +3525,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents modification of Bluetooth settings. Requires a supervised device. Available in iOS 11 and later, and macOS 13.0 and later.</string>
+			<string>If 'false', the system prevents modification of Bluetooth settings. Requires a supervised device. Available in iOS 11 and later, and macOS 13.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -3165,6 +3565,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3176,7 +3581,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables changing settings for cellular data usage for apps. Requires a supervised device. Available in iOS 7 and later.</string>
+			<string>If 'false', the system disables changing settings for cellular data usage for apps. Requires a supervised device. Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -3184,7 +3589,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying celluar data app settings</string>
+			<string>Allow Modifying Cellular Data Usage for Apps Settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3211,6 +3616,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3222,7 +3632,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', users can't change any settings related to their cellular plan. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system prevents users from changing settings related to their cellular plan (only available on select carriers). Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -3257,6 +3667,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3268,7 +3683,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables modifications to carrier plan related settings (only available on select carriers). Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables modifications of eSIMs. Requires a supervised device. Available in iOS 12.1 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.1</string>
 			<key>pfm_name</key>
@@ -3276,7 +3691,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying eSIM settings</string>
+			<string>Allow eSIM Modification</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3303,6 +3718,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3314,7 +3734,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables changes to Find My Friends. Requires a supervised device. Available in iOS 7 and later.</string>
+			<string>If 'false', the system disables changes to Find My Friends. Requires a supervised device. Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -3349,6 +3769,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3360,7 +3785,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables modification of notification settings. Requires a supervised device. Available in iOS 9.3 and later.</string>
+			<string>If 'false', the system disables modification of notification settings. Requires a supervised device. Available in iOS 9.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3</string>
 			<key>pfm_name</key>
@@ -3368,7 +3793,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying notification settings</string>
+			<string>Allow Modifying Notifications Settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3395,6 +3820,18 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3406,7 +3843,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables NFC. Requires a supervised device. Available in iOS 14.2 and later.</string>
+			<string>If 'false', the system disables NFC. Requires a supervised device. Available in iOS 14.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.2</string>
 			<key>pfm_name</key>
@@ -3441,6 +3878,11 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3452,8 +3894,7 @@ In iOS 10 and later, MDM commands can override this restriction. Requires a supe
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents the device passcode from being added, changed, or removed.
-This restriction is ignored by Shared iPads. Requires a supervised device. Available in iOS 9 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system prevents adding, changing, or removing the passcode. The system ignores this restriction on Shared iPad. Available in iOS 9 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -3461,7 +3902,7 @@ This restriction is ignored by Shared iPads. Requires a supervised device. Avail
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying passcode</string>
+			<string>Allow Modifying Passcode</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3493,6 +3934,18 @@ This restriction is ignored by Shared iPads. Requires a supervised device. Avail
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3504,7 +3957,7 @@ This restriction is ignored by Shared iPads. Requires a supervised device. Avail
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents the user from modifying Touch ID or Face ID. Requires a supervised device. Available in iOS 8.3 and later.</string>
+			<string>If 'false', the system prevents the user from modifying Touch ID or Face ID. Available in iOS 8.3 and later, and macOS 14 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>8.3</string>
 			<key>pfm_name</key>
@@ -3544,6 +3997,18 @@ This restriction is ignored by Shared iPads. Requires a supervised device. Avail
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3555,8 +4020,7 @@ This restriction is ignored by Shared iPads. Requires a supervised device. Avail
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the “Enable Restrictions” option in the Restrictions UI in Settings.
-In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in the ScreenTime UI in Settings and disables ScreenTime if already enabled. Requires a supervised device. Available in iOS 8 and later.</string>
+			<string>If 'false', the system disables the Enable Restrictions option in the Restrictions UI in Settings. If 'false' in iOS 12 and later, the system disables the Enable ScreenTime option in the ScreenTime UI in Settings and disables ScreenTime if already enabled. Requires a supervised device. Available in iOS 8 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -3564,7 +4028,7 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow Screen Time</string>
+			<string>Allow Configuring Restrictions or ScreenTime</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3591,6 +4055,18 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3602,7 +4078,7 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents wallpaper from being changed. Requires a supervised device. Available in iOS 9 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system prevents changing the wallpaper. Available in iOS 9 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -3610,7 +4086,7 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying Wallpaper</string>
+			<string>Allow Modifying Wallpaper</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3642,6 +4118,11 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3653,9 +4134,7 @@ In iOS 12 or later, if 'false', disables the “Enable ScreenTime” option in t
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', allows the device to always connect to USB accessories while locked. On macOS, allows new USB accessories to connect without authorization.
-If the system has Lockdown mode enabled, the system ignores this value.
-Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and later.</string>
+			<string>If 'false', the system allows iOS devices to always connect to USB accessories while locked. On macOS, allows new USB and Thunderbolt accessories and SD cards to connect without authorization. If the system has Lockdown mode enabled, it ignores this value. Available in iOS 11.4.1 and later, and macOS 13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>11.4.1</string>
 			<key>pfm_name</key>
@@ -3697,6 +4176,11 @@ Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3708,7 +4192,7 @@ Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables host pairing with the exception of the supervision host. If no supervision host certificate has been configured, all pairing is disabled. Host pairing lets the administrator control if an iOS device can pair with a host Mac or PC. Requires a supervised device. Available in iOS 7 and later.</string>
+			<string>If 'false', the system disables host pairing with the exception of the supervision host. If there's no configured supervision host certificate, the system disables all pairing. Host pairing lets the administrator control if an iOS device can pair with a host Mac or PC. Requires a supervised device. Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -3743,6 +4227,11 @@ Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3754,10 +4243,7 @@ Requires a supervised device. Available in iOS 11.4.1 and later and macOS 13 and
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disallows iPhone widgets on a Mac that has signed in the same AppleID for iCloud. Supervised only.
-Available on iOS 17 and later.</string>
-			<key>pfm_description_reference</key>
-			<string></string>
+			<string>If 'false', the system disallows iPhone widgets on a Mac that has signed in the same Apple Account for iCloud. Requires a supervised device. Available on iOS 17 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>17.0</string>
 			<key>pfm_name</key>
@@ -3797,6 +4283,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3808,7 +4299,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', allows devices to be booted into recovery by an unpaired device. Requires a supervised device. Available in iOS 14.5 and later.</string>
+			<string>If 'true', the system allows unpaired devices to boot devices into recovery. Requires a supervised device. Available in iOS 14.5 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -3843,6 +4334,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3860,7 +4356,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_name</key>
 			<string>allowOpenFromManagedToUnmanaged</string>
 			<key>pfm_title</key>
-			<string>Allow documents from managed sources in unmanaged destinations</string>
+			<string>Enable allow open from managed to unmanaged</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3879,6 +4375,11 @@ Available on iOS 17 and later.</string>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -3897,7 +4398,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_name</key>
 			<string>allowOpenFromUnmanagedToManaged</string>
 			<key>pfm_title</key>
-			<string>Allow documents from unmanaged sources in managed destinations</string>
+			<string>Enable allow open from unmanaged to managed</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3917,6 +4418,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3928,13 +4434,14 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', unmanaged apps can read from managed contacts accounts. If 'allowOpenFromManagedToUnmanaged' is 'true', this restriction has no effect. If this restriction is set to 'true', you must install the payload through MDM. Available in iOS 12 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system allows unmanaged apps to read from managed contacts accounts. If 'allowOpenFromManagedToUnmanaged' is 'true', this restriction has no effect. Available in iOS 12 and later.
+Use MDM to install profiles that contain this restriction.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
 			<string>allowUnmanagedToReadManagedContacts</string>
 			<key>pfm_title</key>
-			<string>Allow unmanaged apps to read contacts from managed contacts accounts</string>
+			<string>Allow unmanaged apps to read managed contacts accounts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -3956,6 +4463,13 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_allow_manual_install</key>
+					<false/>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -3967,13 +4481,14 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', managed apps can write contacts to unmanaged contacts accounts. If 'allowOpenFromManagedToUnmanaged' is 'true', this restriction has no effect. If this restriction is set to 'true', you must install the payload through MDM. Available in iOS 12 and later.</string>
+			<string>If 'true', the system allows managed apps to write contacts to unmanaged accounts. If 'allowOpenFromManagedToUnmanaged' is 'true', this restriction has no effect. Available in iOS 12 and later.
+Use MDM to install profiles that contain this restriction.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
 			<string>allowManagedToWriteUnmanagedContacts</string>
 			<key>pfm_title</key>
-			<string>Allow managed apps to write contacts to unmanaged contacts accounts</string>
+			<string>Allow managed apps to write to managed contacts accounts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4000,6 +4515,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_allow_manual_install</key>
+					<false/>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4011,7 +4538,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', copy and paste functionality respects the 'allowOpenFromManagedToUnmanaged' and 'allowOpenFromUnmanagedToManaged' restrictions. Also available for user enrollment.</string>
+			<string>If 'true', copy and paste functionality is limited by the 'allowOpenFromManagedToUnmanaged' and 'allowOpenFromUnmanagedToManaged' restrictions. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_name</key>
@@ -4037,6 +4564,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4048,7 +4580,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables AirDrop. Requires a supervised device. Available in iOS 7 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system disables AirDrop. Requires a supervised device. Available in iOS 7 and later, and macOS 10.13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -4088,6 +4620,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4099,13 +4643,13 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', causes AirDrop to be considered an unmanaged drop target. Available in iOS 9 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system considers AirDrop to be an unmanaged drop target. Available in iOS 9 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
 			<string>forceAirDropUnmanaged</string>
 			<key>pfm_title</key>
-			<string>Treat AirDrop as unmanaged destination</string>
+			<string>Treat AirDrop as Unmanaged Destination</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4125,6 +4669,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4136,7 +4685,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables activity continuation. Available in iOS 8 and later, and macOS 10.15 and later.</string>
+			<string>If 'false', the system disables activity continuation. Available in iOS 8 and later, and macOS 10.15 and later. Support for this restriction on unsupervised devices and with Managed Apple Accounts is deprecated. In a future release, this restriction will begin requiring supervision and will apply to personal Apple Accounts only.</string>
 			<key>pfm_ios_min</key>
 			<string>8.0</string>
 			<key>pfm_name</key>
@@ -4172,6 +4721,16 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4183,13 +4742,13 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents the device from automatically submitting diagnostic reports to Apple. Available in iOS 6 and later, and macOS 10.13 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system prevents the device from automatically submitting diagnostic reports to Apple. Available in iOS 6 and later, and macOS 10.13 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowDiagnosticSubmission</string>
 			<key>pfm_title</key>
-			<string>Allow submitting diagnostic and usage data to Apple</string>
+			<string>Allow diagnostic submission</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4209,13 +4768,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables changing the diagnostic submission and app analytics settings in the Diagnostics &amp; Usage UI in Settings. Requires a supervised device. Available in iOS 9.3.2 and later.</string>
+			<string>If 'false', the system disables changing the diagnostic submission and app analytics settings in the Diagnostics &amp; Usage UI in Settings. Requires a supervised device. Available in iOS 9.3.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.3.2</string>
 			<key>pfm_name</key>
@@ -4223,7 +4787,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying diagnostic settings</string>
+			<string>Allow modifying diagnostics settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4250,6 +4814,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4261,7 +4837,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', the user must authenticate before passwords or credit card information can be autofilled in Safari and Apps. If this restriction isn't enforced, the user can toggle this feature in Settings. Only supported on devices with Face ID or Touch ID. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'true', the user needs to authenticate before the system can autofill passwords or credit card information in Safari and apps. If this restriction isn't enforced, the user can toggle this feature in Settings. Only supported on devices with Face ID or Touch ID. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -4296,6 +4872,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4307,7 +4895,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables pairing with an Apple Watch. Any currently paired Apple Watch is unpaired and the watch's content is erased. Requires a supervised device. Available in iOS 9 and later.</string>
+			<string>If 'false', the system disables pairing with an Apple Watch, and the system unpairs any currently paired Apple Watch and erases its content. Requires a supervised device. Available in iOS 9 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -4315,7 +4903,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow pairing with Apple Watch</string>
+			<string>Allow Pairing With Apple Watch</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4342,6 +4930,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4353,7 +4946,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', forces a paired Apple Watch to use Wrist Detection. Available in iOS 8.2 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system forces a paired Apple Watch to use Wrist Detection. Available in iOS 8.2 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>8.2</string>
 			<key>pfm_name</key>
@@ -4361,7 +4954,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Force Apple Watch wrist detection</string>
+			<string>Force Apple Watch Wrist Detection</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4381,13 +4974,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', prevents Wi-Fi from being turned off in Settings or Control Center, even by entering or leaving Airplane Mode. It doesn't prevent selecting which Wi-Fi network to use. Requires a supervised device. Available in iOS 13.0 and later.</string>
+			<string>If 'true', the system prevents turning off Wi-Fi in Settings or Control Center, even by entering or leaving Airplane Mode. It doesn't prevent selecting which Wi-Fi network to use. Requires a supervised device. Available in iOS 13.0 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -4395,7 +4993,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Force Wi-Fi Power On</string>
+			<string>Disallow Wi-Fi from being turned off</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4422,6 +5020,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4433,7 +5036,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', limits device to only join Wi-Fi networks set-up via configuration profile. Requires a supervised device. Available in iOS 14.5 and later.</string>
+			<string>If 'true', the system limits the device to only join Wi-Fi networks set up through a configuration profile. Requires a supervised device. Available in iOS 14.5 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -4468,6 +5071,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4489,7 +5104,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Join only Wi-Fi networks installed by a Wi-Fi payload</string>
+			<string>Only join Wi-Fi networks installed by profiles</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4514,6 +5129,11 @@ Available on iOS 17 and later.</string>
 					<string>n/a</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -4564,6 +5184,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4575,7 +5200,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables predictive keyboards. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
+			<string>If 'false', the system disables predictive keyboards. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.1.3</string>
 			<key>pfm_name</key>
@@ -4583,7 +5208,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow predictive keyboard</string>
+			<string>Allow Predictive Keyboard</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4610,6 +5235,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4621,7 +5251,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables keyboard shortcuts. Requires a supervised device. Available in iOS 9 and later.</string>
+			<string>If 'false', the system disables keyboard shortcuts. Requires a supervised device. Available in iOS 9 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -4629,7 +5259,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow keyboard shortcuts</string>
+			<string>Allow Keyboard Shortcuts</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4656,6 +5286,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4667,7 +5302,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables keyboard autocorrection. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
+			<string>If 'false', the system disables keyboard autocorrection. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.1.3</string>
 			<key>pfm_name</key>
@@ -4675,7 +5310,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow auto correction</string>
+			<string>Allow Auto Correction</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4702,6 +5337,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4713,7 +5353,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables QuickPath keyboard. Requires a supervised device. Available in iOS 13 and later.</string>
+			<string>If 'false', the system disables QuickPath keyboard. Requires a supervised device. Available in iOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -4721,7 +5361,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow continuous path keyboard</string>
+			<string>Allow Continuous Path Keyboard</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4748,6 +5388,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4759,7 +5404,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables keyboard spell-check. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
+			<string>If 'false', the system disables the keyboard spell checker. Requires a supervised device. Available in iOS 8.1.3 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>8.1.3</string>
 			<key>pfm_name</key>
@@ -4767,7 +5412,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow spell check</string>
+			<string>Allow Spell Check</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4794,6 +5439,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4805,7 +5455,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', temporary sessions aren't available on Shared iPad. Available in iOS 13.4 and later.</string>
+			<string>If 'false', the system makes temporary sessions unavailable on Shared iPad. Available in iOS 13.4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.4</string>
 			<key>pfm_name</key>
@@ -4840,6 +5490,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4851,7 +5506,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disallows dictation input. Requires a supervised device. Available in iOS 10.3 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system disallows dictation input. Available in iOS 10.3 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>10.3</string>
 			<key>pfm_name</key>
@@ -4891,6 +5546,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -4902,7 +5562,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', disables connections to Siri servers for the purposes of dictation. Available in iOS 14.5 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system disables connections to Siri servers for the purposes of dictation. Available in iOS 14.5 and later, macOS 14 and later, and watchOS 10 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_name</key>
@@ -4927,6 +5587,11 @@ Available on iOS 17 and later.</string>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
 				</dict>
 			</dict>
 		</dict>
@@ -4960,19 +5625,24 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', hides Passbook notifications from the lock screen. Available in iOS 6 and later.</string>
+			<string>If 'false', the system hides Passbook notifications from the lock screen. Available in iOS 6 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowPassbookWhileLocked</string>
 			<key>pfm_title</key>
-			<string>Allow Apple Wallet notifications on Lock screen</string>
+			<string>Allow Wallet While Locked</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -4997,6 +5667,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5008,7 +5683,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables modifications of the personal hotspot setting. Requires a supervised device. Available in iOS 12.2 and later.</string>
+			<string>If 'false', the system disables modifications of the personal hotspot setting. Requires a supervised device. Available in iOS 12.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>12.2</string>
 			<key>pfm_name</key>
@@ -5016,7 +5691,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow Personal Hotspot modification</string>
+			<string>Allow modifying Personal Hotspot settings</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5043,6 +5718,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5054,7 +5734,8 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, disables live voicemail on the device.</string>
+			<string>If 'false', the system disables live voicemail on the device.
+Requires a supervised device. Available in iOS 17.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>17.2</string>
 			<key>pfm_name</key>
@@ -5094,6 +5775,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5105,7 +5791,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents Control Center from appearing on the Lock screen. Available in iOS 7 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system prevents Control Center from appearing on the Lock screen. Available in iOS 7 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -5131,6 +5817,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5142,7 +5833,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the Notifications history view on the lock screen, so users can't view past notifications. However, they can still see notifications when they arrive. Available in iOS 7 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables the Notifications history view on the lock screen, so users can't view past notifications. However, they can still see notifications when they arrive. Available in iOS 7 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -5168,13 +5859,18 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the Today view in Notification Center on the lock screen. Available in iOS 7 and later. Also available for user enrollment.</string>
+			<string>If 'false', the system disables the Today view in Notification Center on the lock screen. Available in iOS 7 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -5200,6 +5896,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5211,7 +5912,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', forces all devices receiving AirPlay requests from this device to use a pairing password. Available in iOS 7.1 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system forces all devices receiving AirPlay requests from this device to use a pairing password. Available in iOS 7.1 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>7.1</string>
 			<key>pfm_name</key>
@@ -5239,6 +5940,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5250,7 +5956,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables keychain storage of user name and password for AirPrint. Requires a supervised device. Available in iOS 11 and later.</string>
+			<string>If 'false', the system disables keychain storage of user name and password for AirPrint. Requires a supervised device. Available in iOS 11 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.0</string>
 			<key>pfm_name</key>
@@ -5285,6 +5991,11 @@ Available on iOS 17 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5296,8 +6007,7 @@ Available on iOS 17 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', limits ad tracking. Additionally, it disables app tracking and the Allow Apps To Request To Track setting.
-Available in iOS 7 and later.</string>
+			<string>If 'true', the system limits ad tracking. Additionally, it disables app tracking and the Allow Apps to Request to Track setting. Available in iOS 7 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>7.0</string>
 			<key>pfm_name</key>
@@ -5328,6 +6038,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5339,7 +6054,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', limits Apple personalized advertising. Available in iOS 14 and later and macOS 12 and later.</string>
+			<string>If 'false', the system limits Apple personalized advertising. Available in iOS 14 and later, and macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -5375,6 +6090,16 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5386,7 +6111,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Mail Privacy Protection on the device. Requires a supervised device. Available in iOS 15.2 and later.</string>
+			<string>If 'false', the system disables Mail Privacy Protection on the device. Requires a supervised device. Available in iOS 15.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.2</string>
 			<key>pfm_name</key>
@@ -5421,6 +6146,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5432,7 +6162,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If set to false, disables auto dim on iPads with OLED displays.</string>
+			<string>If 'false', disables auto dim on iPads with OLED displays. Available in iOS 17.4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>17.4</string>
 			<key>pfm_name</key>
@@ -5467,6 +6197,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5478,7 +6213,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Game Center, and its icon is removed from the Home screen. Requires a supervised device. Available in iOS 6 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system disables Game Center, and the system removes its icon from the Home screen. Available in iOS 6 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -5518,6 +6253,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5529,7 +6269,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits adding friends to Game Center. As of iOS 13, requires a supervised device. Available in iOS 4.2.1 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system prohibits adding friends to Game Center. Available in iOS 4.2.1 and later, and macOS 10.13 and later. Requires a supervised device in iOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.2.1</string>
 			<key>pfm_name</key>
@@ -5537,7 +6277,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow adding Game Center friends</string>
+			<string>Allow Adding Game Center Friends</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5569,6 +6309,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5580,7 +6325,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits multiplayer gaming. Requires a supervised device. Available in iOS 4.1 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system prohibits multiplayer gaming. Available in iOS 4.1 and later, and macOS 10.13 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>4.1</string>
 			<key>pfm_name</key>
@@ -5588,7 +6333,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow multiplayer gaming</string>
+			<string>Allow Multiplayer Gaming</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5620,6 +6365,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5631,7 +6381,7 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the Safari web browser app, and its icon is removed from the Home screen. This setting also prevents users from opening web clips. As of iOS 13, requires a supervised device. Available in iOS 4 and later.</string>
+			<string>If 'false', the system disables the Safari web browser app, and the system removes its icon from the Home screen. This setting also prevents users from opening web clips. As of iOS 13, requires a supervised device. Available in iOS 4 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -5666,6 +6416,11 @@ Available in iOS 7 and later.</string>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5677,8 +6432,8 @@ Available in iOS 7 and later.</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Safari AutoFill for passwords, contact info, and credit cards and also prevents the Keychain from being used for AutoFill. Though third-party password managers are allowed and apps can use AutoFill.
-As of iOS 13, requires a supervised device. Available in iOS 4 and later, and macOS 10.13 and later.</string>
+			<string>If 'false', the system disables Safari AutoFill for passwords, contact info, and credit cards and also prevents using the Keychain for AutoFill. As of iOS 13, requires a supervised device. Available in iOS 4 and later, and macOS 10.13 and later.
+The system still allows third-party password managers, and apps can use AutoFill.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -5686,7 +6441,7 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Enable AutoFill</string>
+			<string>Allow AutoFill in Safari</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5718,6 +6473,18 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5729,13 +6496,13 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables Safari fraud warning. Available in iOS 4 and later. Also available for user enrollment.</string>
+			<string>If 'true', the system enables Safari fraud warning. Available in iOS 4 and later. Also available for user enrollment.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>safariForceFraudWarning</string>
 			<key>pfm_title</key>
-			<string>Force fraud warning</string>
+			<string>Enable Fraud Warning</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5755,6 +6522,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5766,13 +6538,13 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', Safari doesn't execute JavaScript. Available in iOS 4 and later.</string>
+			<string>If 'false', Safari doesn't execute JavaScript. Available in iOS 4 and later. This restriction will require supervision in a future release.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>safariAllowJavaScript</string>
 			<key>pfm_title</key>
-			<string>Enable JavaScript</string>
+			<string>Allow JavaScript</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5793,6 +6565,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 					<string>n/a</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -5808,13 +6585,13 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', Safari doesn't allow pop-up windows. Available in iOS 4 and later.</string>
+			<string>If 'false', Safari doesn't allow pop-up windows. Available in iOS 4 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
 			<string>safariAllowPopups</string>
 			<key>pfm_title</key>
-			<string>Block popups</string>
+			<string>Allow Pop-ups</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5835,6 +6612,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 					<string>n/a</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -5850,24 +6632,11 @@ As of iOS 13, requires a supervised device. Available in iOS 4 and later, and ma
 			<key>pfm_default</key>
 			<real>2</real>
 			<key>pfm_description</key>
-			<string>This value defines the conditions under which the device accepts cookies. The user-facing settings changed in iOS 11, although the possible values remain the same. Available in iOS 4 and later.
-'0': Prevent Cross-Site Tracking and Block All Cookies are enabled and the user canʼt disable either setting.
-'1' or '1.5': Prevent Cross-Site Tracking is enabled and the user canʼt disable it. Block All Cookies is not enabled, although the user can enable it.
-'2': Prevent Cross-Site Tracking is enabled and Block All Cookies is not enabled. The user can toggle either setting.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Determines conditions under which the device will accept cookies. The user facing settings changed in iOS 11, though the possible values remain the same. 
+			<string>Defines the conditions under which the device accepts cookies. The user-facing settings changed in iOS 11, although the possible values remain the same. Available in iOS 4 and later. Support for this restriction on unsupervised devices is deprecated. Allowed values:
 
-- 0: PreventCross-SiteTrackingandBlockAllCookiesare enabled and the user canʼt disable either setting.
-- 1 or 1.5: PreventCross-SiteTrackingisenabledandthe user canʼt disable it. Block All Cookies is not enabled, though the user can enable it.
-- 2: PreventCross-SiteTrackingisenabledandBlockAll Cookies is not enabled. The user can toggle either setting. (Default)
-
-These are the allowed values and settings in iOS 10 and earlier:
-- 0: Never
-- 1: Allow from current website only
-- 1.5: Allow from websites visited (Available in iOS 8.0 and later); enter '&lt;real&gt;1.5&lt;/real&gt;'
-- 2: Always (Default)
-
-In iOS 10 and earlier, users can always pick an option that is more restrictive than the payload policy, but not a less restrictive policy. For example, with a payload value of 1.5, a user could switch to Never, but not Always Allow.</string>
+* '0': Enables Prevent Cross-Site Tracking and Block All Cookies, and the user canʼt disable either setting.
+* '1' or '1.5': Enables Prevent Cross-Site Tracking, and the user canʼt disable it. Doesn't enable Block All Cookies, but the user can enable it.
+* '2': Enables Prevent Cross-Site Tracking but doesn't enable Block All Cookies. The user can toggle either setting.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -5887,7 +6656,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 				<string>Always / Prevent Cross-Site Tracking</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Accept cookies</string>
+			<string>Accept Cookies in Safari</string>
 			<key>pfm_type</key>
 			<string>real</string>
 			<key>pfmx_supported_oses</key>
@@ -5912,6 +6681,11 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5923,7 +6697,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents the user from changing the device name. Requires a supervised device. Available in iOS 9 and later, and tvOS 11.0 and later.</string>
+			<string>If 'false', the system prevents the user from changing the device name. Available in iOS 9 and later, macOS 14 and later, and tvOS 11.0 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_ios_min</key>
 			<string>9.0</string>
 			<key>pfm_name</key>
@@ -5931,7 +6705,7 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying device name</string>
+			<string>Allow Modifying Device Name</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -5965,6 +6739,18 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -5974,8 +6760,9 @@ In iOS 10 and earlier, users can always pick an option that is more restrictive 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value 'com.apple.webapp' to restrict all webclips. Note that denying system apps may disable other functionality. For example, denying the App Store app may prevent users from accepting the terms and conditions for user-based VPP.
-Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<string>If present, the system prevents showing or launching apps with bundle IDs in the array. Include the value 'com.apple.webapp' to restrict all webclips. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and later.
+Denying system apps may disable other functionality. For example, denying the App Store app may prevent users from accepting the terms and conditions for the user-based Volume Purchase Program (VPP).</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -6039,6 +6826,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6048,7 +6840,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Use blockedAppBundleIDs instead.</string>
+			<string>Use 'blockedAppBundleIDs' instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -6120,6 +6912,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6129,7 +6926,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value 'com.apple.webapp' to allow all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<string>If present, the system only shows or can launch apps with bundle IDs in the array. Include the value 'com.apple.webapp' to allow all webclips. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -6164,7 +6962,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allowed Apps</string>
+			<string>Allow Listed Apps</string>
 			<key>pfm_type</key>
 			<string>array</string>
 			<key>pfmx_supported_oses</key>
@@ -6192,6 +6990,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 					<string>15.0</string>
 					<key>pfmx_supervised</key>
 					<true/>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -6274,6 +7077,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6329,6 +7137,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6340,7 +7153,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_default</key>
 			<string>us</string>
 			<key>pfm_description</key>
-			<string>The two-letter key that profile tools use to display the proper ratings for the given region. This data isn't recognized or reported by the client.</string>
+			<string>The two-letter key that profile tools use to display the proper ratings for the given region. The client doesn't recognize or report this data.</string>
 			<key>pfm_ios_min</key>
 			<string>11.3</string>
 			<key>pfm_name</key>
@@ -6375,6 +7188,11 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<string>string</string>
 			<key>pfmx_supported_oses</key>
 			<dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6386,14 +7204,15 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of app content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
-Possible values (with the US description of the rating level):
-* 1000: All
-* 600: 17+
-* 300: 12+
-* 200: 9+
-* 100: 4+
-* 0: None</string>
+			<string>The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '600': 17+
+* '300': 12+
+* '200': 9+
+* '100': 4+
+* '0': None</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -6431,7 +7250,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_range_min</key>
 			<integer>0</integer>
 			<key>pfm_title</key>
-			<string>Allowed content ratings - Apps</string>
+			<string>Apps Ranking Number</string>
 			<key>pfm_type</key>
 			<string>integer</string>
 			<key>pfmx_supported_oses</key>
@@ -6456,6 +7275,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>11.3</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6467,15 +7291,16 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
-Possible values (with the US description of the rating level):
-* 1000: All
-* 500: NC-17
-* 400: R
-* 300: PG-13
-* 200: PG
-* 100: G
-* 0: None</string>
+			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '500': NC-17
+* '400': R
+* '300': PG-13
+* '200': PG
+* '100': G
+* '0': None</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -6538,6 +7363,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>11.3</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6549,18 +7379,17 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
+			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
 
-Possible values (with the US description of the rating level):
-
-* 1000: All
-* 600: TV-MA
-* 500: TV-14
-* 400: TV-PG
-* 300: TV-G
-* 200: TV-Y7
-* 100: TV-Y
-* 0: None</string>
+* '1000': All
+* '600': TV-MA
+* '500': TV-14
+* '400': TV-PG
+* '300': TV-G
+* '200': TV-Y7
+* '100': TV-Y
+* '0': None</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -6623,6 +7452,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>11.3</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6634,7 +7468,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', hides explicit music or video content purchased from the iTunes Store. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. As of iOS 13, requires a supervised device. Available in iOS 4 and later, and tvOS 11.3 and later.</string>
+			<string>If 'false', the system hides explicit music or video content purchased from the iTunes Store. The system marks explicit content as such by content providers, such as record labels, when sold through the iTunes Store. Available in iOS 4 and later, and tvOS 11.3 and later. Requires a supervised device in iOS 13 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>4.0</string>
 			<key>pfm_name</key>
@@ -6642,7 +7476,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow playback of explicit music, podcasts, and iTunes U</string>
+			<string>Allow Explicit Content</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -6671,6 +7505,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>11.3</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6682,7 +7521,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents connecting to any connected USB devices in the Files app. Requires a supervised device. Available in iOS 13.1 and later.</string>
+			<string>If 'false', the system prevents connecting to any connected USB devices in the Files app. Requires a supervised device. Available in iOS 13.1 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -6717,6 +7556,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6728,13 +7572,13 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', the user can't download Apple Books media that is tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later.</string>
+			<string>If 'false', the system prevents the user from downloading Apple Books media that's tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
 			<string>allowBookstoreErotica</string>
 			<key>pfm_title</key>
-			<string>Allow explicit sexual content in iBooks Store</string>
+			<string>Allow Bookstore Erotica</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -6761,6 +7605,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>11.3</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6772,7 +7621,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables sharing passwords with the Airdrop Passwords feature. Requires a supervised device. Available in iOS 12 and later, and macOS 10.14 and later.</string>
+			<string>If 'false', the system disables sharing passwords with the Airdrop Passwords feature. Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised device in iOS.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -6812,6 +7661,18 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6823,7 +7684,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables requesting passwords from nearby devices. Requires a supervised device. Available in iOS 12 and later, macOS 10.14 and later, and tvOS 12 and later.</string>
+			<string>If 'false', the system disables requesting passwords from nearby devices. Available in iOS 12 and later, macOS 10.14 and later, and tvOS 12 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_ios_min</key>
 			<string>12.0</string>
 			<key>pfm_name</key>
@@ -6865,6 +7726,11 @@ Possible values (with the US description of the rating level):
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6876,9 +7742,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', delays user visibility of software updates. In macOS, seed build updates are allowed, without delay. Requires a supervised device in iOS and tvOS.
-The delay is 30 days unless 'enforcedSoftwareUpdateDelay' is set to another value.
-Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.</string>
+			<string>If 'true', the system delays user visibility of software updates. In macOS, the system allows seed build updates without delay. The delay is 30 days unless you set 'enforcedSoftwareUpdateDelay' to another value. Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_ios_min</key>
 			<string>11.3</string>
 			<key>pfm_name</key>
@@ -6920,6 +7784,11 @@ Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -6931,9 +7800,7 @@ Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.
 			<key>pfm_default</key>
 			<integer>30</integer>
 			<key>pfm_description</key>
-			<string>Sets how many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. This value is used by 'forceDelayedAppSoftwareUpdates' and 'forceDelayedSoftwareUpdates'.
-Requires a supervised device in iOS and tvOS.
-Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and later.</string>
+			<string>How many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. The restrictions 'forceDelayedAppSoftwareUpdates' and 'forceDelayedSoftwareUpdates' use this value. Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -6997,6 +7864,11 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_supervised</key>
 					<true/>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7008,7 +7880,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits installation of rapid security responses.</string>
+			<string>If 'false', the system prohibits installation of rapid security responses. Available in iOS 16 and later, and macOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_name</key>
@@ -7016,7 +7888,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow rapid security response installation</string>
+			<string>Allow Rapid Security Response Installation</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -7048,6 +7920,11 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7059,7 +7936,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prohibits removal of rapid security responses.</string>
+			<string>If 'false', the system prohibits removal of rapid security responses. Available in iOS 16 and later, and macOS 13 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_name</key>
@@ -7067,7 +7944,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow rapid security response removal</string>
+			<string>Allow Rapid Security Response Removal</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -7099,6 +7976,11 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7110,7 +7992,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Find My Device in the Find My app. Requires a supervised device. Available in iOS 13 and later.</string>
+			<string>If 'false', the system disables Find My Device in the Find My app. Requires a supervised device. Available in iOS 13 and later, and macOS 10.15 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -7150,6 +8032,11 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7161,7 +8048,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Find My Friends in the Find My app. Requires a supervised device. Available in iOS 13 and later.</string>
+			<string>If 'false', the system disables Find My Friends in the Find My app. Requires a supervised device. Available in iOS 13 and later, and macOS 10.15 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_name</key>
@@ -7201,6 +8088,11 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7212,7 +8104,7 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents connecting to network drives in the Files app. Requires a supervised device. Available in iOS 13.1 and later.</string>
+			<string>If 'false', the system prevents connecting to network drives in the Files app. Requires a supervised device. Available in iOS 13.1 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>13.1</string>
 			<key>pfm_name</key>
@@ -7247,6 +8139,466 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>2.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', prevents the transfer of an eSIM from the device on which the restriction is installed to a different device. Available in iOS 18 and later.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowESIMOutgoingTransfers</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow eSIM Outgoing Transfers</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false, prohibits creating new Genmoji.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowGenmoji</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Genmoji</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_shared_ipad</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, prohibits the use of image generation.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowImagePlayground</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Image Playground</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_shared_ipad</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false, prohibits the use of Image Wand.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowImageWand</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Image Wand</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_shared_ipad</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, prohibits the use of iPhone Mirroring. When used on macOS, this prevents the Mac from mirroring any iPhone. When used on iOS, this prevents the iPhone from mirroring to any Mac.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowiPhoneMirroring</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow iPhone mirroring</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, prevents the system from generating text in the user's handwriting.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowPersonalizedHandwritingResults</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow personalized handwriting results</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>When false, disables the ability for a remote FaceTime session to request control of the device.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowVideoConferencingRemoteControl</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Video Conferencing Remote Control</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>watchOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, disables Apple Intelligence writing tools.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>allowWritingTools</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow writing tools</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+			<key>pfmx_supported_oses</key>
+			<dict>
+				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>18.0</string>
+					<key>pfmx_shared_ipad</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>macOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 				<key>watchOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
@@ -7263,9 +8615,9 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 	<key>pfm_title</key>
 	<string>Restrictions (iOS)</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
-	<integer>12</integer>
+	<integer>13</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
@@ -7320,11 +8672,27 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 			<key>pfmx_allow_manual_install</key>
 			<true/>
 			<key>pfmx_introduced</key>
-			<string>6.1</string>
+			<string>9.0</string>
 			<key>pfmx_multiple</key>
 			<true/>
 			<key>pfmx_supervised</key>
 			<false/>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>1.1</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>allowed</string>
+			</dict>
 		</dict>
 		<key>watchOS</key>
 		<dict>

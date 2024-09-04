@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>13.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-08-23T07:17:52Z</date>
+	<date>2024-09-03T14:39:05Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -27,7 +27,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures an app extension that performs single sign-on</string>
+			<string>Configures an app extension to handle SSO.</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -39,7 +39,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Single Sign-On Extensions</string>
+			<string>Extensible Single Sign-On</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
@@ -192,6 +192,8 @@ This key is required on macOS and ignored elsewhere.</string>
 			<string>TeamIdentifier</string>
 			<key>pfm_note</key>
 			<string>If ExtensionIdentifier is set to com.apple.AppSSOKerberos.KerberosExtension, this preference value must be 'apple'.</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_title</key>
 			<string>Team Identifier</string>
 			<key>pfm_type</key>
@@ -199,6 +201,11 @@ This key is required on macOS and ignored elsewhere.</string>
 			<key>pfmx_supported_oses</key>
 			<dict>
 				<key>iOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -223,10 +230,12 @@ This key is required on macOS and ignored elsewhere.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>An array of host names or domain names that apps can authenticate through the app extension.
+			<string>An array of host or domain names that apps can authenticate through the app extension.
 Required for 'Credential' payloads. Ignored for 'Redirect' payloads.
-Host or domain names are matched case-insensitively, and all the host/domain names of all installed Extensible SSO payloads must be unique.
-Hosts that begin with a “.” are wildcard suffixes and match all subdomains; otherwise the host must be an exact match.</string>
+The system:
+* Matches host or domain names case-insensitively
+* Requires that all the host and domain names of all installed Extensible SSO payloads are unique
+Host names that begin with a “.” are wildcard suffixes that match all subdomains; otherwise the host name needs be an exact match.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -244,6 +253,8 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					<string>A host or domain name, with or without a leading dot.</string>
 					<key>pfm_name</key>
 					<string>hostname</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_title</key>
 					<string>Hostname / Domain name</string>
 					<key>pfm_type</key>
@@ -271,8 +282,7 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The realm name for 'Credential' payloads. Use proper capitalization for this value.
-This key is ignored for 'Redirect' payloads.</string>
+			<string>The realm name for 'Credential' payloads. Use proper capitalization for this value. Ignored for 'Redirect' payloads.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -281,6 +291,8 @@ This key is ignored for 'Redirect' payloads.</string>
 			<string>Realm</string>
 			<key>pfm_note</key>
 			<string>If ExtensionIdentifier is set to com.apple.AppSSOKerberos.KerberosExtension, this preference is required. The Kerberos realm, which should be properly capitalized. If in an Active Directory forest, this is the realm where the user logs in.</string>
+			<key>pfm_require</key>
+			<string>always</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -304,7 +316,11 @@ This key is ignored for 'Redirect' payloads.</string>
 			<key>pfm_description</key>
 			<string>An array of URL prefixes of identity providers where the app extension performs SSO.
 Required for 'Redirect' payloads. Ignored for 'Credential' payloads.
-The URLs must begin with 'http://' or 'https://', the scheme and host name are matched case-insensitively, query parameters and URL fragments are not allowed, and the URLs of all installed Extensible SSO payloads must be unique.</string>
+The URLs need to begin with 'http://' or 'https://'.
+The system:
+* Matches scheme and host name case-insensitively
+* Doesn't allow query parameters and URL fragments
+* Requires that the URLs of all installed Extensible SSO payloads are unique</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -322,6 +338,8 @@ The URLs must begin with 'http://' or 'https://', the scheme and host name are m
 					<string>^https?://.*</string>
 					<key>pfm_name</key>
 					<string>URL</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_title</key>
 					<string>URL</string>
 					<key>pfm_type</key>
@@ -337,8 +355,7 @@ The URLs must begin with 'http://' or 'https://', the scheme and host name are m
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of bundle identifiers of apps that don't use SSO provided by this extension.
-Available in iOS 15 and later and macOS 12 and later.</string>
+			<string>An array of bundle identifiers of apps that don't use SSO provided by this extension. Available in iOS 15 and later, and macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -352,6 +369,8 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 					<string>The bundle identifier of the app.</string>
 					<key>pfm_name</key>
 					<string>bundleIdentifier</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_title</key>
 					<string>Bundle Identifier</string>
 					<key>pfm_type</key>
@@ -380,8 +399,7 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 			<key>pfm_default</key>
 			<string>Cancel</string>
 			<key>pfm_description</key>
-			<string>If set to 'Cancel', the system cancels authentication requests when the screen is locked. If set to 'DoNotHandle', the request continues without SSO instead. This does not apply to requests where 'userInterfaceEnabled' is set to 'false' or background NSURLSession requests.
-Available in iOS 15 and later and macOS 12 and later.</string>
+			<string>If set to 'Cancel', the system cancels authentication requests when the screen is locked. If set to 'DoNotHandle', the request continues without SSO instead. This doesn't apply to requests where 'userInterfaceEnabled' is 'false', or for background NSURLSession requests. Available in iOS 15 and later, and macOS 12 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>15.0</string>
 			<key>pfm_macos_min</key>
@@ -465,7 +483,7 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If 'false', passwords are not allowed to be saved to the keychain.</string>
+					<string>If 'false', the system doesn't allow saving passwords in the keychain.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -497,7 +515,7 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If 'false', disables password changes. Available in macOS 10.15 and later.</string>
+					<string>If 'false', the system disables password changes. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -522,13 +540,25 @@ Available in iOS 15 and later and macOS 12 and later.</string>
 					<string>Allow Password Change</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', requires this configuration uses a TGT from Platform SSO instead of requesting a new one.
-Available in macOS 13 and later.</string>
+					<string>If 'true', the system requires this configuration uses a TGT from Platform SSO instead of requesting a new one. Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -557,13 +587,30 @@ Available in macOS 13 and later.</string>
 					<string>Use Platform SSO TGT</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>13.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If 'true' and 'usePlatformSSOTGT' is 'true', allows the user to manually sign in.
-Available in macOS 13 and later.</string>
+					<string>If 'true' and 'usePlatformSSOTGT' is 'true', the system allows the user to manually sign in. Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -605,13 +652,30 @@ Available in macOS 13 and later.</string>
 					<string>Allow Platform SSO Authentication Fallback</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>13.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', the Kerberos Extension handles Kerberos requests only. It doesn't check for password expiration, show the password expiration in the menu, check for external password changes, perform password sync, or retrieve the home directory.
-Available in macOS 13 and later.</string>
+					<string>If 'true', the Kerberos Extension handles Kerberos requests only. It doesn't check for password expiration, show the password expiration in the menu, check for external password changes, perform password sync, or retrieve the home directory. Available in macOS 13 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -628,6 +692,8 @@ Available in macOS 13 and later.</string>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>16.0</string>
 					<key>pfm_macos_min</key>
 					<string>13.0</string>
 					<key>pfm_name</key>
@@ -640,6 +706,19 @@ Available in macOS 13 and later.</string>
 					<string>Perform Kerberos Requests Only</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>16.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>13.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -674,6 +753,19 @@ Available in macOS 13 and later.</string>
 					<string>Cache Name</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>15.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>12.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default_copy</key>
@@ -738,7 +830,7 @@ Available in macOS 13 and later.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>Bundle IDs allowed to access the TGT.  These values are case sensitive.</string>
+							<string>Bundle IDs allowed to access the TGT. These values are case sensitive.</string>
 							<key>pfm_name</key>
 							<string>credentialBundleIdACLItem</string>
 							<key>pfm_title</key>
@@ -756,10 +848,12 @@ Available in macOS 13 and later.</string>
 					<key>pfm_default</key>
 					<string>always</string>
 					<key>pfm_description</key>
-					<string>This setting affects how the Kerberos Extension credential is used by other processes. Use of the following:
-* 'always -' The extension credential will always be used if the SPN matches the Kerberos Extension 'Hosts' array. The credential will not be used if the calling app is not in the 'credentialBundleIDACL'.
-* 'whenNotSpecified -' The credential will only be used when another credential has not been specified by the caller and the SPN matches the Kerberos Extensions 'Hosts' array. The credential will not be used if the calling app is not in the 'credentialBundleIDACL'.
-* 'kerberosDefault - 'The default Kerberos processes for selecting credentials is used which normally uses the default Kerberos credential. This is the same as turning off this capability.
+					<string>This setting affects how other processes use the Kerberos Extension credential. Allowed values:
+
+* 'always': The system always uses the credential if the SPN matches the Kerberos Extension 'Hosts' array and the caller hasn't specified another credential. However, the system won't use the credential if the calling app isn't in the 'credentialBundleIDACL'.
+* 'whenNotSpecified': The system only uses the extension credential if the SPN matches the Kerberos Extension 'Hosts' array. However, the system won't use the credential if the calling app isn't in the 'credentialBundleIDACL'.
+* 'kerberosDefault': The system uses the default Kerberos processes to select credentials, and normally uses the default Kerberos credential. This is the same as turning off this capability.
+
 Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
@@ -777,6 +871,8 @@ Available in macOS 11 and later.</string>
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -803,10 +899,23 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<string>Credential Use Mode</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The custom user name label used in the Kerberos extension instead of “Username”. For example, “Company ID”. Available in macOS 11 and later.</string>
+					<string>The custom user name label used in the Kerberos extension instead of “Username,” such as “Company ID”. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -823,6 +932,8 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -831,12 +942,25 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<string>Custom Username Label</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', doesn't prompt the user to setup the Kerberos extension until either the administrator enables it with the 'app-sso' tool or a Kerberos challenge is received. Available in macOS 11 and later.</string>
+					<string>If 'true', the system doesn't prompt the user to setup the Kerberos extension until either the administrator enables it with the 'app-sso' tool or the system receives a Kerberos challenge. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -861,10 +985,28 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<string>Delay User Setup</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The text to be displayed to the user at the bottom of the Kerberos login window. It can be used to display help information or disclaimer text. Available in iOS 14 and later and macOS 11 and later.</string>
+					<string>The text to display to the user at the bottom of the Kerberos login window. You can also use this to display help information or disclaimer text. Available in iOS 14 and later, and macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -891,12 +1033,25 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<string>Help Text</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>This property specifies it is the default realm if there is more than one Kerberos extension configuration.</string>
+					<string>Specifies whether this is the default realm if there's more than one Kerberos extension configuration.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -928,7 +1083,7 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', the Kerberos extension allows only managed apps to access and use the credential. This is in addition to the 'credentialBundleIDACL', if it is specified. Available in iOS 14 and later, and macOS 12 and later.</string>
+					<string>If 'true', the Kerberos extension allows only managed apps to access and use the credential. This is in addition to the 'credentialBundleIDACL', if you specify that value. Available in iOS 14 and later, and macOS 12 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -955,13 +1110,25 @@ kerberosDefault - The default Kerberos processes for selecting credentials is us
 					<string>Include Managed Apps in Bundle ID ACL</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>12.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', the Kerberos extension allows the standard kerberos utilities including 'TicketViewer' and 'klist' to access and use the credential. This is in addition to 'includeManagedAppsInBundleIdACL' or the 'credentialBundleIdACL', if it is specified.
-Available in macOS 12 and later.</string>
+					<string>If 'true', the Kerberos extension allows the standard Kerberos utilities including 'TicketViewer' and 'klist' to access and use the credential. This is in addition to 'includeManagedAppsInBundleIdACL' or the 'credentialBundleIdACL', if you specify those values. Available in macOS 12 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -986,13 +1153,30 @@ Available in macOS 12 and later.</string>
 					<string>Include Kerberos Apps in Bundle ID ACL</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>12.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<true/>
 					<key>pfm_description</key>
-					<string>If 'false', the credential is requested on the next matching Kerberos challenge or network state change.
-If the credential is expired or missing, a new one will be created. Available in macOS 11 and later.</string>
+					<string>If 'false', the system requests the credential on the next matching Kerberos challenge or network state change. If the credential is expired or missing, the system creates a new one. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1017,10 +1201,28 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Monitor Credential Cache</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The principal (aka username) to use. You do not need to include the realm.</string>
+					<string>The principal (username) to use. You don't need to include the realm.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1050,7 +1252,7 @@ If the credential is expired or missing, a new one will be created. Available in
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The ordered list of preferred Key Distribution Centers (KDCs) to use for Kerberos traffic. Use this if the servers are not discoverable via DNS. If the servers are specified, then they are used for both connectivity checks and attempted first for Kerberos traffic. If the servers do not respond, then the device falls back to DNS discovery. Each entry is formatted the same as it would be in a 'krb5.conf' file. Examples of entries are:
+					<string>The ordered list of preferred Key Distribution Centers (KDCs) to use for Kerberos traffic. Use this if the servers aren't discoverable through DNS. If the servers are specified, then the system uses them for both connectivity checks and attempts to use them first for Kerberos traffic. If the servers don't respond, the device falls back to DNS discovery. Format each entry the same as it would be in a 'krb5.conf' file, for example:
 * 'adserver1.example.com'
 * 'tcp/adserver1.example.com:88'
 * 'kkdcp://kerberosproxy.example.com:443/kkdcp'</string>
@@ -1085,6 +1287,8 @@ If the credential is expired or missing, a new one will be created. Available in
 							<string>A host or domain name in the format of [protocol/]hostname[:port][/path]</string>
 							<key>pfm_name</key>
 							<string>preferredKDC</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Key Distribution Center</string>
 							<key>pfm_type</key>
@@ -1095,6 +1299,19 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Preferred KDCs</string>
 					<key>pfm_type</key>
 					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>12.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -1123,12 +1340,25 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Password Change URL</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>15</integer>
 					<key>pfm_description</key>
-					<string>The number of days prior to password expiration when a notification of password expiration will be sent to the user. Available in macOS 10.15 and later.</string>
+					<string>The number of days prior to password expiration when the system sends a notification of password expiration to the user. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1155,10 +1385,23 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>days</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The number of days that passwords can be used on this domain. For most domains, this can be calculated automatically. Available in macOS 10.15 and later.</string>
+					<string>The number of days that the system allows using passwords on this domain. For most domains, this calculation is automatic. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1187,12 +1430,30 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>days</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>12.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', passwords must meet Active Directory's definition of 'complex'.Available in macOS 10.15 and later.</string>
+					<string>If 'true', the system requires passwords to meet Active Directory's definition of 'complex'. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1217,10 +1478,23 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Password Requirement Complexity</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The number of prior passwords that cannot be re-used on this domain.Available in macOS 10.15 and later.</string>
+					<string>The number of prior passwords that the system disallows reuse on this domain. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1247,6 +1521,19 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>prior passwords</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -1277,10 +1564,23 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>characters</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The minimum age of passwords before they can be changed on this domain. Available in macOS 10.15 and later.</string>
+					<string>The minimum age of passwords before the system allows changing them on this domain. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1307,6 +1607,19 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>days</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
@@ -1335,12 +1648,97 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Password Requirement Text</string>
 					<key>pfm_type</key>
 					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>RTF file formatted version of the domain’s password requirements. Only for use if “pwReqComplexity” or “pwReqLength” aren’t specified. (macOS only)</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_range_list</key>
+									<array>
+										<true/>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionData.pwReqComplexity</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_present</key>
+									<true/>
+									<key>pfm_target</key>
+									<string>ExtensionData.pwReqLength</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>pwReqRTFData</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>data</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<integer>900</integer>
 					<key>pfm_description</key>
-					<string>The time, in seconds, required to replicate changes in the Active Directory domain. The Kerberos extension will use this when checking password age after a change. Available in macOS 11 and later.</string>
+					<string>The time, in seconds, required to replicate changes in the Active Directory domain. The Kerberos extension uses this when checking password age after a change. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1369,8 +1767,30 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>integer</string>
 					<key>pfm_value_unit</key>
 					<string>seconds</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_deprecated</key>
+							<string>12.0</string>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
+					<key>pfm_default</key>
+					<false/>
 					<key>pfm_description</key>
 					<string>Require that LDAP connections use TLS. Available in macOS 11 and later.</string>
 					<key>pfm_exclude</key>
@@ -1389,6 +1809,8 @@ If the credential is expired or missing, a new one will be created. Available in
 							</array>
 						</dict>
 					</array>
+					<key>pfm_ios_min</key>
+					<string>14.0</string>
 					<key>pfm_macos_min</key>
 					<string>11.0</string>
 					<key>pfm_name</key>
@@ -1397,12 +1819,25 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Require TLS for LDAP</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>14.0</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>11.0</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'true', requires the user to provide Touch ID, Face ID or their passcode to access the keychain entry.</string>
+					<string>If 'true', the system requires the user to provide Touch ID, Face ID or their passcode to access the keychain entry.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1432,7 +1867,7 @@ If the credential is expired or missing, a new one will be created. Available in
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The name of the Active Directory site the Kerberos extension should use. Most administrators will never need to modify this value, as the Kerberos extension can normally find the site automatically.</string>
+					<string>The name of the Active Directory site the Kerberos extension should use. Most administrators don't need to modify this value, as the Kerberos extension can normally find the site automatically.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1464,7 +1899,7 @@ If the credential is expired or missing, a new one will be created. Available in
 					<key>pfm_default</key>
 					<false/>
 					<key>pfm_description</key>
-					<string>If 'false', disables password sync. Note that this will not work if the user is logged in with a mobile account. Available in macOS 10.15 and later.</string>
+					<string>If 'false', the system disables password sync. Note that this will not work if the user is logged in with a mobile account. Available in macOS 10.15 and later.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1489,6 +1924,19 @@ If the credential is expired or missing, a new one will be created. Available in
 					<string>Sync Local Password</string>
 					<key>pfm_type</key>
 					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
 				</dict>
 				<dict>
 					<key>pfm_default</key>
@@ -1522,7 +1970,7 @@ If the credential is expired or missing, a new one will be created. Available in
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>A custom domain-realm mapping for Kerberos. This is used when the DNS name of hosts do not match the realm name. Most administrators will not need to customize this.</string>
+					<string>A custom domain-realm mapping for Kerberos. The system uses this when the DNS name of hosts doesn't match the realm name. Most administrators don't need to customize this.</string>
 					<key>pfm_exclude</key>
 					<array>
 						<dict>
@@ -1895,6 +2343,204 @@ If the credential is expired or missing, a new one will be created. Available in
 					<key>pfm_type_input</key>
 					<string>boolean</string>
 				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>A string with wildcards that can use used to filter the list of available SmartCards by issuer.  e.g  "*My CA2*".  If there is one remaining, it will be auto-selected.  If there more than one remaining, then the list is shorter.  (macOS only)</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>identityIssuerAutoSelectFilter</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>string</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If set to true, the user to switch the user interface to SmartCard mode. (macOS only)</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>allowSmartCard</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<true/>
+					<key>pfm_description</key>
+					<string>If set to true, the user to switch the user interface to Password mode. (macOS only)</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>allowPassword</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_default</key>
+					<false/>
+					<key>pfm_description</key>
+					<string>If set to true, the user interface will start in SmartCard mode. (macOS only)</string>
+					<key>pfm_exclude</key>
+					<array>
+						<dict>
+							<key>pfm_target_conditions</key>
+							<array>
+								<dict>
+									<key>pfm_n_range_list</key>
+									<array>
+										<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+									</array>
+									<key>pfm_target</key>
+									<string>ExtensionIdentifier</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>startInSmartCardMode</string>
+					<key>pfm_platforms</key>
+					<array>
+						<string>macOS</string>
+					</array>
+					<key>pfm_type</key>
+					<string>boolean</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>iOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
+					</dict>
+				</dict>
 			</array>
 			<key>pfm_title</key>
 			<string>Kerberos Extension Data</string>
@@ -1903,8 +2549,7 @@ If the credential is expired or missing, a new one will be created. Available in
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The Platform SSO authentication method the extension uses. Requires that the SSO Extension also supports the method.
-Available in macOS 13 and later and deprecated in macOS 14.</string>
+			<string>The Platform SSO authentication method the extension uses. Requires that the SSO Extension also supports the method. Available in macOS 13 and later, and deprecated in macOS 14.</string>
 			<key>pfm_macos_deprecated</key>
 			<string>14.0</string>
 			<key>pfm_macos_min</key>
@@ -1943,11 +2588,16 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 					<key>pfmx_introduced</key>
 					<string>13.0</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This is the dictionary used to configure PlatformSSO.</string>
+			<string>The dictionary to configure Platform SSO.</string>
 			<key>pfm_macos_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -2059,7 +2709,8 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The permission to apply to newly created accounts at login, which has the following values:
+					<string>The permission to apply to newly created accounts at login. Allowed values:
+
 * 'Standard': The account is a standard user.
 * 'Admin': The system adds the account to the local administrators group.
 * 'Groups': The system assigns group to the account using 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
@@ -2076,7 +2727,8 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>The permission to apply to an account each time the user authenticates, which has the following values:
+					<string>The permission to apply to an account each time the user authenticates. Allowed values:
+
 * 'Standard': The account is a standard user.
 * 'Admin': The system adds the account to the local administrators group.
 * 'Groups': The system assigns group to the account using 'AdministratorGroups', 'AdditionalGroups', or 'AuthorizationGroups'.</string>
@@ -2138,7 +2790,7 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The Authorization Right to update.</string>
+							<string></string>
 							<key>pfm_name</key>
 							<string>{{key}}</string>
 							<key>pfm_require</key>
@@ -2148,7 +2800,7 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>The group to use for the Authorization Right.</string>
+							<string>The key is an access right value, the value is the group to be associated with that access right.</string>
 							<key>pfm_name</key>
 							<string>{{value}}</string>
 							<key>pfm_require</key>
@@ -2159,6 +2811,242 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 					</array>
 					<key>pfm_type</key>
 					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The policy to apply when using Platform SSO at FileVault unlock on Apple Silicon Macs.  Applies when 'AuthenticationMethod' is `Password`.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>FileVaultPolicy</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>* AttemptAuthentication
+    Platform SSO authentication is attempted before proceeding. If offline, unlock will continue
+    if the local account password matches. If online and the credential is incorrect, then a
+    successful Platform SSO authentication is required to proceed, even if taken offline.
+* RequireAuthentication
+    Platform SSO authentication is required before proceeding.  If the device is offline and
+    `AllowOfflineGracePeriod` is enabled, then the offline `OfflineGracePeriod` is used to determine
+    if the user can proceed or not. If online and the credential is incorrect, then a valid Platform
+    SSO authentication is required to proceed regardless of the `OfflineGracePeriod`. If the account
+    is not registered for Platform SSO and `AllowAuthenticationGracePeriod` is enabled, then the
+    `AuthenticationGracePeriod` is used to determine if the user can proceed or not.
+* AllowOfflineGracePeriod
+    Allow the use of the `OfflineGracePeriod` when `RequireAuthentication` is enabled.  If
+    `AllowOfflineGracePeriod` is not set, then offline access is denied.
+* AllowAuthenticationGracePeriod
+    Allow the use of the `AuthenticationGracePeriod` for other local accounts when `RequireAuthentication`
+    is enabled. The `AuthenticationGracePeriod` starts when any of the policies have been updated. If
+    `AllowAuthenticationGracePeriod` is not set, then unregistered account access is denied.</string>
+							<key>pfm_name</key>
+							<string>policy</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>AttemptAuthentication</string>
+								<string>RequireAuthentication</string>
+								<string>AllowOfflineGracePeriod</string>
+								<string>AllowAuthenticationGracePeriod</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The policy to apply when using Platform SSO at the login window.  Applies when 'AuthenticationMethod' is `Password`.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>LoginPolicy</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>* AttemptAuthentication
+    Platform SSO authentication is attempted before proceeding. If offline, unlock will continue
+    if the local account password matches. If online and the credential is incorrect, then a
+    successful Platform SSO authentication is required to proceed, even if taken offline.
+* RequireAuthentication
+    Platform SSO authentication is required before proceeding.  If the device is offline and
+    `AllowOfflineGracePeriod` is enabled, then the offline `OfflineGracePeriod` is used to determine
+    if the user can proceed or not. If online and the credential is incorrect, then a valid Platform
+    SSO authentication is required to proceed regardless of the `OfflineGracePeriod`. If the account
+    is not registered for Platform SSO and `AllowAuthenticationGracePeriod` is enabled, then the
+    `AuthenticationGracePeriod` is used to determine if the user can proceed or not.
+* AllowOfflineGracePeriod
+    Allow the use of the `OfflineGracePeriod` when `RequireAuthentication` is enabled.  If
+    `AllowOfflineGracePeriod` is not set, then offline access is denied.
+* AllowAuthenticationGracePeriod
+    Allow the use of the `AuthenticationGracePeriod` for other local accounts when `RequireAuthentication`
+    is enabled. The `AuthenticationGracePeriod` starts when any of the policies have been updated. If
+    `AllowAuthenticationGracePeriod` is not set, then unregistered account access is denied.</string>
+							<key>pfm_name</key>
+							<string>policy</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>AttemptAuthentication</string>
+								<string>RequireAuthentication</string>
+								<string>AllowOfflineGracePeriod</string>
+								<string>AllowAuthenticationGracePeriod</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The policy to apply when using Platform SSO at screensaver unlock.  Applies when 'AuthenticationMethod' is `Password`.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>UnlockPolicy</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>* AttemptAuthentication
+    Platform SSO authentication is attempted before proceeding. If offline, unlock will continue
+    if the local account password matches. If online and the credential is incorrect, then a
+    successful Platform SSO authentication is required to proceed, even if taken offline.
+* RequireAuthentication
+    Platform SSO authentication is required before proceeding.  If the device is offline and
+    `AllowOfflineGracePeriod` is enabled, then the offline `OfflineGracePeriod` is used to determine
+    if the user can proceed or not. If online and the credential is incorrect, then a valid Platform
+    SSO authentication is required to proceed regardless of the `OfflineGracePeriod`. If the account
+    is not registered for Platform SSO and `AllowAuthenticationGracePeriod` is enabled, then the
+    `AuthenticationGracePeriod` is used to determine if the user can proceed or not.
+* AllowOfflineGracePeriod
+    Allow the use of the `OfflineGracePeriod` when `RequireAuthentication` is enabled.  If
+    `AllowOfflineGracePeriod` is not set, then offline access is denied.
+* AllowAuthenticationGracePeriod
+    Allow the use of the `AuthenticationGracePeriod` for other local accounts when `RequireAuthentication`
+    is enabled. The `AuthenticationGracePeriod` starts when any of the policies have been updated. If
+    `AllowAuthenticationGracePeriod` is not set, then unregistered account access is denied.
+* AllowTouchIDOrWatchForUnlock
+    Allow TouchID or Watch to unlock the screensaver instead of Platform SSO authentication when
+    `RequireAuthentication` is enabled.</string>
+							<key>pfm_name</key>
+							<string>policy</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>AttemptAuthentication</string>
+								<string>RequireAuthentication</string>
+								<string>AllowOfflineGracePeriod</string>
+								<string>AllowAuthenticationGracePeriod</string>
+								<string>AllowTouchIDOrWatchForUnlock</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The amount of time after the last successful Platform SSO login a local account password can be used offline. Required when 'AllowOfflineGracePeriod' is set.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>OfflineGracePeriod</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The amount of time after a 'FileVaultPolicy', 'LoginPolicy', or 'UnlockPolicy' is received or updated that unregistered local accounts can be used. Required when 'AllowAuthenticationGracePeriod' is set.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>AuthenticationGracePeriod</string>
+					<key>pfm_type</key>
+					<string>integer</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>The list of local accounts that are not subject to the 'FileVaultPolicy', 'LoginPolicy', or 'UnlockPolicy'.  The accounts are also not prompted to register for Platform SSO.</string>
+					<key>pfm_macos_min</key>
+					<string>15.0</string>
+					<key>pfm_name</key>
+					<string>NonPlatformSSOAccounts</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>A local account username.</string>
+							<key>pfm_name</key>
+							<string>username</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+					<key>pfmx_supported_oses</key>
+					<dict>
+						<key>macOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>15.0</string>
+						</dict>
+					</dict>
 				</dict>
 			</array>
 			<key>pfm_type</key>
@@ -2175,11 +3063,16 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 					<key>pfmx_introduced</key>
 					<string>14.0</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Platform SSO token for use in silent registration.</string>
+			<string>The token this device uses for registration with Platform SSO. Use it for silent registration with the Identity Provider. Requires that 'PlatformSSO.AuthenticationMethod' isn't empty. Available in macOS 13 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -2224,6 +3117,11 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 					<key>pfmx_introduced</key>
 					<string>13.0</string>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
 			</dict>
 		</dict>
 	</array>
@@ -2233,13 +3131,13 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Single Sign-On Extensions</string>
+	<string>Extensible Single Sign-On</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_user_approved</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
@@ -2283,6 +3181,22 @@ Available in macOS 13 and later and deprecated in macOS 14.</string>
 			<true/>
 			<key>pfmx_user_channel</key>
 			<true/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>allowed</string>
+			</dict>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<false/>
+			<key>pfmx_introduced</key>
+			<string>1.1</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
 			<key>pfmx_user_enrollment</key>
 			<dict>
 				<key>pfmx_mode</key>
