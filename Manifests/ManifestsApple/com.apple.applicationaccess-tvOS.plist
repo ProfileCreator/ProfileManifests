@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-08-23T13:25:42Z</date>
+	<date>2024-09-03T14:06:32Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>tvOS</string>
@@ -24,7 +24,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures restrictions</string>
+			<string>Use this section to define restrictions settings</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -97,9 +97,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -112,9 +109,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -192,13 +186,13 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents the user from changing the device name. Requires a supervised device. Available in iOS 9 and later, and tvOS 11.0 and later.</string>
+			<string>If 'false', the system prevents the user from changing the device name. Available in iOS 9 and later, macOS 14 and later, and tvOS 11.0 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_name</key>
 			<string>allowDeviceNameModification</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allow modifying device name</string>
+			<string>Allow Modifying Device Name</string>
 			<key>pfm_tvos_min</key>
 			<string>11.0</string>
 			<key>pfm_type</key>
@@ -245,7 +239,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables the Set Automatically feature in Date &amp; Time and can't be disabled by the user.  The device's time zone is updated only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
+			<string>If 'true', the system enables the Set Automatically feature in Date &amp; Time and the user can't disable it. The system updates the device's time zone only when the device can determine its location using a cellular connection or Wi-Fi with location services enabled. Requires a supervised device. Available in iOS 12 and later, and tvOS 12.2 and later.</string>
 			<key>pfm_name</key>
 			<string>forceAutomaticDateAndTime</string>
 			<key>pfm_supervised</key>
@@ -293,7 +287,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables Apple TV's automatic screen saver. Available in tvOS 15.4 and later.</string>
+			<string>If 'false', the system disables Apple TV's automatic screen saver. Available in tvOS 15.4 and later.</string>
 			<key>pfm_name</key>
 			<string>allowAutomaticScreenSaver</string>
 			<key>pfm_title</key>
@@ -332,11 +326,11 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables the camera, and its icon is removed from the Home screen. Users are unable to take photographs. This restriction is deprecated on unsupervised devices and will be supervised only in a future release.  Available in iOS 4 and later, and macOS 10.11 and later.</string>
+			<string>If 'false', the system disables the camera and removes its icon from the Home screen, and users are unable to take photographs. Available in iOS 4 and later, macOS 10.11 and later, and tvOS 17 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_name</key>
 			<string>allowCamera</string>
 			<key>pfm_title</key>
-			<string>Allow Camera</string>
+			<string>Allow Camera Use</string>
 			<key>pfm_tvos_min</key>
 			<string>17.0</string>
 			<key>pfm_type</key>
@@ -430,8 +424,9 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, prevents bundle IDs listed in the array from being shown or launchable. Include the value 'com.apple.webapp' to restrict all webclips. Note that denying system apps may disable other functionality. For example, denying the App Store app may prevent users from accepting the terms and conditions for user-based VPP.
-Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<string>If present, the system prevents showing or launching apps with bundle IDs in the array. Include the value 'com.apple.webapp' to restrict all webclips. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and later.
+Denying system apps may disable other functionality. For example, denying the App Store app may prevent users from accepting the terms and conditions for the user-based Volume Purchase Program (VPP).</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -504,7 +499,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Use blockedAppBundleIDs instead.</string>
+			<string>Use 'blockedAppBundleIDs' instead.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -539,7 +534,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Restrict App Usage - Denylist</string>
+			<string>Blacklisted Apps</string>
 			<key>pfm_tvos_deprecated</key>
 			<string>15.0</string>
 			<key>pfm_tvos_min</key>
@@ -585,7 +580,8 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If present, this property allows only bundle IDs listed in the array to be shown or launchable. Include the value 'com.apple.webapp' to allow all webclips. Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and later.</string>
+			<string>If present, the system only shows or can launch apps with bundle IDs in the array. Include the value 'com.apple.webapp' to allow all webclips. This applies to App Store apps, marketplace apps, and locally installed apps (using Configurator, Xcode, etc).
+Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and later.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -618,7 +614,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allowed Apps</string>
+			<string>Allow Listed Apps</string>
 			<key>pfm_tvos_min</key>
 			<string>15.0</string>
 			<key>pfm_type</key>
@@ -693,7 +689,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Restrict App Usage - Allowlist</string>
+			<string>Whitelisted Apps</string>
 			<key>pfm_tvos_deprecated</key>
 			<string>15.0</string>
 			<key>pfm_tvos_min</key>
@@ -830,7 +826,7 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_default</key>
 			<string>us</string>
 			<key>pfm_description</key>
-			<string>The two-letter key that profile tools use to display the proper ratings for the given region. This data isn't recognized or reported by the client.</string>
+			<string>The two-letter key that profile tools use to display the proper ratings for the given region. The client doesn't recognize or report this data.</string>
 			<key>pfm_name</key>
 			<string>ratingRegion</string>
 			<key>pfm_range_list</key>
@@ -876,14 +872,15 @@ Requires a supervised device. Available in iOS 9.3 and later, and tvOS 11.0 and 
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of app content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
-Possible values (with the US description of the rating level):
-* 1000: All
-* 600: 17+
-* 300: 12+
-* 200: 9+
-* 100: 4+
-* 0: None</string>
+			<string>The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '600': 17+
+* '300': 12+
+* '200': 9+
+* '100': 4+
+* '0': None</string>
 			<key>pfm_name</key>
 			<string>ratingApps</string>
 			<key>pfm_range_list</key>
@@ -957,15 +954,16 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
-Possible values (with the US description of the rating level):
-* 1000: All
-* 500: NC-17
-* 400: R
-* 300: PG-13
-* 200: PG
-* 100: G
-* 0: None</string>
+			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '500': NC-17
+* '400': R
+* '300': PG-13
+* '200': PG
+* '100': G
+* '0': None</string>
 			<key>pfm_name</key>
 			<string>ratingMovies</string>
 			<key>pfm_range_list</key>
@@ -1039,18 +1037,17 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later.
+			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
 
-Possible values (with the US description of the rating level):
-
-* 1000: All
-* 600: TV-MA
-* 500: TV-14
-* 400: TV-PG
-* 300: TV-G
-* 200: TV-Y7
-* 100: TV-Y
-* 0: None</string>
+* '1000': All
+* '600': TV-MA
+* '500': TV-14
+* '400': TV-PG
+* '300': TV-G
+* '200': TV-Y7
+* '100': TV-Y
+* '0': None</string>
 			<key>pfm_name</key>
 			<string>ratingTVShows</string>
 			<key>pfm_range_list</key>
@@ -1124,7 +1121,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', hides explicit music or video content purchased from the iTunes Store. Explicit content is marked as such by content providers, such as record labels, when sold through the iTunes Store. As of iOS 13, requires a supervised device. Available in iOS 4 and later, and tvOS 11.3 and later.</string>
+			<string>If 'false', the system hides explicit music or video content purchased from the iTunes Store. The system marks explicit content as such by content providers, such as record labels, when sold through the iTunes Store. Available in iOS 4 and later, and tvOS 11.3 and later. Requires a supervised device in iOS 13 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_name</key>
 			<string>allowExplicitContent</string>
 			<key>pfm_supervised</key>
@@ -1170,7 +1167,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', the user can't download Apple Books media that is tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later.</string>
+			<string>If 'false', the system prevents the user from downloading Apple Books media that's tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_name</key>
 			<string>allowBookstoreErotica</string>
 			<key>pfm_title</key>
@@ -1216,7 +1213,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables incoming AirPlay requests. Requires a supervised device. Available in macOS 12.3 and later, and tvOS 10.2 and later.</string>
+			<string>If 'false', the system disables incoming AirPlay requests. Available in macOS 12.3 and later, and tvOS 10.2 and later. Requires a supervised device in tvOS.</string>
 			<key>pfm_name</key>
 			<string>allowAirPlayIncomingRequests</string>
 			<key>pfm_supervised</key>
@@ -1262,7 +1259,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', forces all devices sending AirPlay requests to this device to use a pairing password. Available in Apple TV Software 6.2 and later. This key isn't supported in tvOS 10.2 and later. Use the AirPlay Security Payload instead.</string>
+			<string>If 'true', the system forces all devices sending AirPlay requests to this device to use a pairing password. Available in tvOS 6.2 and later. This key isn't supported in tvOS 10.2 and later. Use the AirPlay Security Payload instead.</string>
 			<key>pfm_name</key>
 			<string>forceAirPlayIncomingRequestsPairingPassword</string>
 			<key>pfm_note</key>
@@ -1272,7 +1269,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_tvos_deprecated</key>
 			<string>10.2</string>
 			<key>pfm_tvos_min</key>
-			<string>6.1</string>
+			<string>9.0</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_supported_oses</key>
@@ -1303,7 +1300,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables pairing Apple TV for use with the Remote app or Control Center widget. Requires a supervised device. Available in tvOS 10.2 and later.</string>
+			<string>If 'false', the system disables pairing Apple TV for use with the Control Center widget. Requires a supervised device. Available in tvOS 10.2 and later.</string>
 			<key>pfm_name</key>
 			<string>allowRemoteAppPairing</string>
 			<key>pfm_title</key>
@@ -1342,7 +1339,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', disables requesting passwords from nearby devices. Requires a supervised device. Available in iOS 12 and later, macOS 10.14 and later, and tvOS 12 and later.</string>
+			<string>If 'false', the system disables requesting passwords from nearby devices. Available in iOS 12 and later, macOS 10.14 and later, and tvOS 12 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_name</key>
 			<string>allowPasswordProximityRequests</string>
 			<key>pfm_supervised</key>
@@ -1395,9 +1392,7 @@ Possible values (with the US description of the rating level):
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', delays user visibility of software updates. In macOS, seed build updates are allowed, without delay. Requires a supervised device in iOS and tvOS.
-The delay is 30 days unless 'enforcedSoftwareUpdateDelay' is set to another value.
-Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.</string>
+			<string>If 'true', the system delays user visibility of software updates. In macOS, the system allows seed build updates without delay. The delay is 30 days unless you set 'enforcedSoftwareUpdateDelay' to another value. Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_name</key>
 			<string>forceDelayedSoftwareUpdates</string>
 			<key>pfm_supervised</key>
@@ -1450,9 +1445,7 @@ Available in iOS 11.3 and later, macOS 10.13 and later, and tvOS 12.2 and later.
 			<key>pfm_default</key>
 			<integer>30</integer>
 			<key>pfm_description</key>
-			<string>Sets how many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. This value is used by 'forceDelayedAppSoftwareUpdates' and 'forceDelayedSoftwareUpdates'.
-Requires a supervised device in iOS and tvOS.
-Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and later.</string>
+			<string>How many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. The restrictions 'forceDelayedAppSoftwareUpdates' and 'forceDelayedSoftwareUpdates' use this value. Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and later. Requires a supervised device in iOS and tvOS.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1576,9 +1569,9 @@ Available in iOS 11.3 and later, macOS 10.13.4 and later, and tvOS 12.2 and late
 	<key>pfm_title</key>
 	<string>Restrictions (tvOS)</string>
 	<key>pfm_tvos_min</key>
-	<string>6.1</string>
+	<string>9.0</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
 	<integer>7</integer>
 	<key>pfmx_supported_oses</key>

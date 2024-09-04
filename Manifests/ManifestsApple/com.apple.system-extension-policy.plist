@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-08-22T09:50:16Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -24,7 +24,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures System Extensions Policy</string>
+			<string></string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -36,7 +36,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>System Extension Policy</string>
+			<string>System Extensions</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
@@ -133,7 +133,7 @@
 		<dict>
 			<key>pfm_description</key>
 			<string>An array of team identifiers that defines valid, signed system extensions that are allowable to load. Approved system extensions are those signed with any of the specified team identifiers.
-To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequestForExtension:queue:.
+To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequest(forExtensionWithIdentifier:queue:).
 It's an error for the same team identifier to appear in both this array and as a key in the 'AllowedSystemExtensions' dictionary.</string>
 			<key>pfm_format</key>
 			<string>^[A-Z0-9]{10}$</string>
@@ -162,7 +162,7 @@ It's an error for the same team identifier to appear in both this array and as a
 		<dict>
 			<key>pfm_description</key>
 			<string>A dictionary of approved system extensions on the computer. The dictionary maps the team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension to install.
-To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequestForExtension:queue:.
+To avoid requiring an administrator to authorize the operation, you can activate system extensions that this key specifies using activationRequest(forExtensionWithIdentifier:queue:).
 It's an error for the same team identifier to appear in both the 'AllowedTeamIdentifiers' array and as a key in this dictionary.</string>
 			<key>pfm_name</key>
 			<string>AllowedSystemExtensions</string>
@@ -183,13 +183,19 @@ It's an error for the same team identifier to appear in both the 'AllowedTeamIde
 					<string>A1B2C3D4E5</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The mapping of team identifiers to arrays of bundle identifiers, where the bundle identifier is that of the system extension to be installed.</string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_description</key>
+							<string>Allowed system extension bundle ID</string>
 							<key>pfm_name</key>
 							<string>AllowedSystemExtensionsItems</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Bundle Identifier</string>
 							<key>pfm_type</key>
@@ -230,11 +236,15 @@ If there's no entry for a specified team identifier in the dictionary, the syste
 					<string>A1B2C3D4E5</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The mapping of team identifier to an array of strings, where each string is a type of system extension that may be installed for that team identifier.</string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_description</key>
+							<string>Permitted System Extension Type</string>
 							<key>pfm_name</key>
 							<string>AllowedSystemExtensionTypesItems</string>
 							<key>pfm_range_list</key>
@@ -249,6 +259,8 @@ If there's no entry for a specified team identifier in the dictionary, the syste
 								<string>Network</string>
 								<string>Endpoint Security</string>
 							</array>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>System Extension Type</string>
 							<key>pfm_type</key>
@@ -289,13 +301,19 @@ Available in macOS 12 and later.</string>
 					<string>A1B2C3D4E5</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The dictionary maps team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension.</string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_description</key>
+							<string>Removed system extension bundle ID</string>
 							<key>pfm_name</key>
 							<string>RemovableSystemExtensionsItems</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_title</key>
 							<string>Bundle Identifier</string>
 							<key>pfm_type</key>
@@ -323,6 +341,90 @@ Available in macOS 12 and later.</string>
 				</dict>
 			</dict>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>A dictionary of system extensions on the computer. The dictionary maps the team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension which cannot be disabled or uninstalled when SIP is enabled. It's an error for the same mapping to appear in the dictionary values corresponding to 'RemovableSystemExtensions' and 'NonRemovableSystemExtensions' keys.</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>NonRemovableSystemExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>System extension bundle identifiers</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Non Removable system extension bundle ID</string>
+							<key>pfm_name</key>
+							<string>NonRemovableSystemExtensionsItems</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>A dictionary of system extensions on the computer. The dictionary maps the team identifiers (keys) to arrays of bundle identifiers, where the bundle identifier defines the system extension which cannot be disabled or uninstalled from System Settings or Finder. The set of system extensions between 'RemovableSystemExtensions' and 'NonRemovableFromUISystemExtensions' are allowed to overlap.</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>NonRemovableFromUISystemExtensions</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>System extension bundle identifiers</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_description</key>
+							<string>Non Removable from UI system extension bundle ID</string>
+							<key>pfm_name</key>
+							<string>NonRemovableFromUISystemExtensionsItems</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>array</string>
+				</dict>
+			</array>
+			<key>pfm_type</key>
+			<string>dictionary</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -331,11 +433,11 @@ Available in macOS 12 and later.</string>
 	<key>pfm_title</key>
 	<string>System Extension Policy</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_user_approved</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>macOS</key>

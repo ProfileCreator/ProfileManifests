@@ -11,7 +11,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-23T13:57:28Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_macos_max</key>
 	<string>10.12.6</string>
 	<key>pfm_macos_min</key>
@@ -97,9 +97,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -112,9 +109,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -124,7 +118,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If 'true', enables FileVault.</string>
+			<string>Set to 'On' to enable FileVault and set to 'Off' to disable FileVault. Payloads set to 'On' sent through MDM need to either include full authentication information in the payload or have the 'Defer' option set to 'true'. When 'Defer' is 'true', the system prompts for the authentication information when the user enables FileVault.</string>
 			<key>pfm_name</key>
 			<string>Enable</string>
 			<key>pfm_range_list</key>
@@ -143,7 +137,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', defers enabling FileVault until the designated user logs out. For details, see 'fdesetup(8)'. The person enabling FileVault must be either a local user or a mobile account user.</string>
+			<string>If 'true', the system defers enabling FileVault until the designated user logs out. For details, see 'fdesetup(8)'. Only a local user or a mobile account user can enable FileVault.</string>
 			<key>pfm_name</key>
 			<string>Defer</string>
 			<key>pfm_title</key>
@@ -153,9 +147,9 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables a prompt for missing user name or password fields.</string>
+			<string>If 'true', the system enables a prompt for missing user name or password fields.</string>
 			<key>pfm_name</key>
 			<string>UserEntersMissingInfo</string>
 			<key>pfm_title</key>
@@ -167,7 +161,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'true', creates a personal recovery key and displays it to the user.</string>
+			<string>If 'true', the system creates a personal recovery key and displays it to the user.</string>
 			<key>pfm_name</key>
 			<string>UseRecoveryKey</string>
 			<key>pfm_title</key>
@@ -179,7 +173,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', prevents display of the personal recovery key to the user after FileVault is enabled.</string>
+			<string>If 'false', the system prevents display of the personal recovery key to the user after the system enables FileVault.</string>
 			<key>pfm_name</key>
 			<string>ShowRecoveryKey</string>
 			<key>pfm_title</key>
@@ -189,7 +183,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The path to the location where the recovery key and computer information property list are stored.</string>
+			<string>The path to the location of the recovery key and computer information property list.</string>
 			<key>pfm_name</key>
 			<string>OutputPath</string>
 			<key>pfm_title</key>
@@ -203,7 +197,7 @@ The payload organization for a payload need not match the payload organization i
 				<string>public.x509-certificate</string>
 			</array>
 			<key>pfm_description</key>
-			<string>The DER-encoded certificate data if 'UseRecoveryKey' is enabled.</string>
+			<string>DER-encoded certificate data if an institutional recovery key will be added. This key is not supported on Macs with Apple silicon.</string>
 			<key>pfm_name</key>
 			<string>Certificate</string>
 			<key>pfm_title</key>
@@ -223,7 +217,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user name of the Open Directory user to be added to FileVault.</string>
+			<string>The user name of the Open Directory user to add to FileVault.</string>
 			<key>pfm_name</key>
 			<string>Username</string>
 			<key>pfm_title</key>
@@ -233,7 +227,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password of the Open Directory user to be added to FileVault. Use the 'UserEntersMissingInfo' key if you want to prompt for this information.</string>
+			<string>The password of the Open Directory user to add to FileVault. Use the 'UserEntersMissingInfo' key to prompt for this information.</string>
 			<key>pfm_name</key>
 			<string>Password</string>
 			<key>pfm_title</key>
@@ -245,7 +239,7 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true' and no certificate information is provided in this payload, the keychain created at '/Library/Keychains/FileVaultMaster.keychain' is used when the institutional recovery key is added.</string>
+			<string>If 'true' and you don't include certificate information in this payload, the system uses the keychain created at '/Library/Keychains/FileVaultMaster.keychain' when it adds the institutional recovery key.</string>
 			<key>pfm_name</key>
 			<string>UseKeychain</string>
 			<key>pfm_title</key>
@@ -255,14 +249,15 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The maximum number of times users can bypass enabling FileVault before being required to enable it to log in. If the value is '0', the user will be required to enabled FileVault the next time they attempt to log in. Setting this key to '–1' disables the feature.</string>
-			<key>pfm_description_reference</key>
-			<string>When using the Defer option you can optionally set this key to the maximum number of times the user can bypass enabling FileVault before it will require that it be enabled before the user can log in. If set to 0, it will always prompt to enable FileVault until it is enabled, though it will allow you to bypass enabling it. Setting this key to –1 will disable this feature.
-Availability: Available in macOS 10.10 and later.</string>
+			<string>The maximum number of times users can bypass enabling FileVault before the system requires the user to enable it to log in. If the value is '0', the system requires the user to enable FileVault the next time they attempt to log in. Set this key to '–1' to disable this feature.</string>
 			<key>pfm_macos_min</key>
 			<string>10.10.0</string>
 			<key>pfm_name</key>
 			<string>DeferForceAtUserLoginMaxBypassAttempts</string>
+			<key>pfm_range_max</key>
+			<integer>9999</integer>
+			<key>pfm_range_min</key>
+			<integer>-1</integer>
 			<key>pfm_title</key>
 			<string>Maximum number of times FileVault can be skipped</string>
 			<key>pfm_type</key>
@@ -272,9 +267,9 @@ Availability: Available in macOS 10.10 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', prevents requests for enabling FileVault at user logout time.</string>
+			<string>If 'true', the system prevents requests to enable FileVault at user logout time.</string>
 			<key>pfm_macos_min</key>
-			<string>10.10.0</string>
+			<string>10.10</string>
 			<key>pfm_name</key>
 			<string>DeferDontAskAtUserLogout</string>
 			<key>pfm_title</key>
@@ -294,8 +289,9 @@ Availability: Available in macOS 10.10 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', and this payload is installed after enrolling with MDM in Setup Assistant, it requests Setup Assistant to enable FileVault at setup time. In this case, the system also ignores all other keys in this payload, except for 'ShowRecoveryKey'.
-To use this, enable the Await Device Configured DEP configuration option, send this profile with this key set, before sending the DeviceConfiguredCommand.</string>
+			<string>If 'true', and installation of this payload occurs after enrolling with MDM in Setup Assistant, the system requests Setup Assistant to enable FileVault at setup time.
+To use this, enable the Await Device Configured DEP configuration option and send this profile with this key set, before sending the DeviceConfiguredCommand.
+An admin SecureToken user is required, otherwise the FileVault pane does not appear.</string>
 			<key>pfm_macos_min</key>
 			<string>14.0</string>
 			<key>pfm_name</key>
@@ -323,7 +319,7 @@ To use this, enable the Await Device Configured DEP configuration option, send t
 	<key>pfm_title</key>
 	<string>FileVault 2</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
 	<integer>5</integer>
 	<key>pfmx_supported_oses</key>

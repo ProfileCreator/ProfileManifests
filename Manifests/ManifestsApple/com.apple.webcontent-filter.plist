@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Web Content Filter settings</string>
+	<string>Use this section to define managed email and web domains.</string>
+	<key>pfm_description_reference</key>
+	<string>URLs are matched by using string-based root matching. A URL matches an allow list, deny list, or permitted list pattern if the exact characters of the pattern appear as the root of the URL. For example, if test.com/a is denylisted, then test.com, test.com/b, and test.com/c/d/e will all be blocked. Matching also discards subdomain prefixes, so if test.com/a is denylisted, m.test.com is also blocked.</string>
 	<key>pfm_documentation_url</key>
 	<string>https://developer.apple.com/documentation/devicemanagement/webcontentfilter</string>
 	<key>pfm_domain</key>
@@ -13,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-08-22T09:50:16Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -25,7 +27,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Adds a Web Content Filter</string>
+			<string>Use this section to define managed email and web domains.</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -121,7 +123,9 @@
 			<key>pfm_default</key>
 			<string>BuiltIn</string>
 			<key>pfm_description</key>
-			<string>The type of filter, built-in or plug-in. In macOS, the system supports only the plug-in value.</string>
+			<string>The type of filter, built-in or plug-in. In macOS, the system only supports the plug-in value.</string>
+			<key>pfm_ios_min</key>
+			<string>8.0</string>
 			<key>pfm_name</key>
 			<string>FilterType</string>
 			<key>pfm_range_list</key>
@@ -151,8 +155,7 @@
 			<key>pfm_default</key>
 			<string>firewall</string>
 			<key>pfm_description</key>
-			<string>This value is for deriving the relative order of content filters. Filters with a grade of 'firewall' see network traffic before filters with a grade of 'inspector'. The system doesn't define the order of filters within a grade.
-Available in macOS 10.15 and later.</string>
+			<string>The system uses this value to derive the relative order of content filters. Filters with a grade of 'firewall' see network traffic before filters with a grade of 'inspector'. However, the system doesn't define the order of filters within a grade.</string>
 			<key>pfm_macos_min</key>
 			<string>10.15</string>
 			<key>pfm_name</key>
@@ -193,7 +196,7 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', automatic filtering is in an enabled state. This function evaluates each web page as it loads and attempts to identify and block content not suitable for children. The search algorithm is complex and may vary from release to release, but it's basically looking for adult language.</string>
+			<string>If 'true', the system enables automatic filtering. Use when 'FilterType' is 'BuiltIn'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -227,7 +230,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array or URLs that are accessible whether or not the automatic filter allows access. The system uses this array only when 'AutoFilterEnabled' is 'true'. Otherwise, it ignores this field.</string>
+			<string>An array or URLs that are accessible whether or not the automatic filter allows access. Use when 'FilterType' is 'BuiltIn'. Requires that 'AutoFilterEnabled' is 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -289,7 +292,8 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables the filtering of WebKit traffic. Either 'FilterBrowsers' or 'FilterSockets' must be 'true'.</string>
+			<string>If 'true', the system enables filtering WebKit traffic. Use when 'FilterType' is 'Plugin'.
+At least one of 'FilterBrowsers' or 'FilterSockets' needs to be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -323,7 +327,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of dictionaries defining the pages that the user can visit.</string>
+			<string>An array of dictionaries that define the pages that the user can bookmark or visit. Use when 'FilterType' is 'BuiltIn'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -372,7 +376,7 @@ Available in macOS 10.15 and later.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>URL of the allow list bookmark.</string>
+							<string>The URL of the bookmark in the allow list.</string>
 							<key>pfm_format</key>
 							<string>^https?:\/\/.*$</string>
 							<key>pfm_name</key>
@@ -472,7 +476,7 @@ Available in macOS 10.15 and later.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>URL of the allowlisted bookmark.</string>
+							<string>The URL of the bookmark in the allow list.</string>
 							<key>pfm_format</key>
 							<string>^https?:\/\/.*$</string>
 							<key>pfm_name</key>
@@ -523,7 +527,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of URLs that are inaccessible. Limit the number of these URLs to about 500.</string>
+			<string>An array of URLs that are inaccessible. Use when 'FilterType' is 'BuiltIn'. Limit the number of these URLs to about 500.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -653,7 +657,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The display name for this filtering configuration.</string>
+			<string>The display name for this filtering configuration. Required when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -697,7 +701,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The bundle ID of the plug-in that provides filtering service.</string>
+			<string>The bundle ID of the plug-in that provides filtering service. Required when 'FilterType' is 'Plugin'. Otherwise, it ignores this value. Consult your filtering solution vendor to determine what to specify for this value. Required when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -723,7 +727,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The server address, which may be the IP address, hostname, or URL.</string>
+			<string>The server address, which may be the IP address, hostname, or URL. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -749,7 +753,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The user name for the service.</string>
+			<string>The user name for the service. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -775,7 +779,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The password for the service.</string>
+			<string>The password for the service. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -794,12 +798,14 @@ Available in macOS 10.15 and later.</string>
 			</array>
 			<key>pfm_name</key>
 			<string>Password</string>
+			<key>pfm_title</key>
+			<string>Password</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The UUID of the certificate payload within the same profile that the system uses to authenticate the user.</string>
+			<string>The UUID of the certificate payload within the same profile that the system uses to authenticate the user. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -827,7 +833,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The organization string that passes to the third-party plug-in.</string>
+			<string>The organization string to pass to the third-party plug-in. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -846,6 +852,8 @@ Available in macOS 10.15 and later.</string>
 			</array>
 			<key>pfm_name</key>
 			<string>Organization</string>
+			<key>pfm_title</key>
+			<string>Organization</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -853,7 +861,8 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', enables the filtering of socket traffic. Either 'FilterBrowsers' or 'FilterSockets' must be 'true'.</string>
+			<string>If 'true', enables the filtering of socket traffic. Use when 'FilterType' is 'Plugin'.
+At least one of 'FilterBrowsers' or 'FilterSockets' needs to be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -899,8 +908,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The bundle identifier string of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. This field is a requirement if 'FilterSockets' is 'true'.
-Available in macOS 10.15 and later.</string>
+			<string>The bundle identifier string of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. Required if 'FilterSockets' is 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -934,7 +942,7 @@ Available in macOS 10.15 and later.</string>
 				<string>macOS</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Filter Data Provider System Extension Bundle ID</string>
+			<string>Filter Data Provider Bundle Identifier</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfmx_supported_oses</key>
@@ -971,12 +979,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The designated requirement string that the system embeds in the code signature of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. This field is a requirement if 'FilterSockets' is 'true'.
-Available in macOS 10.15 and later.</string>
-			<key>pfm_description_reference</key>
-			<string>The designated requirement string that is embedded in the code signature of the Filter Data Provider System Extension. This string identifies the Filter Data Provider when the filter starts running. This field is required if FilterSockets is set to 1.
-
-Available in macOS 10.15 and later.</string>
+			<string>The designated requirement string that the system embeds in the code signature of the filter data provider system extension. This string identifies the filter data provider when the filter starts running. Required if 'FilterSockets' is 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1031,10 +1034,8 @@ Available in macOS 10.15 and later.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If this value is 'true', the property enables the filtering of network packets.
-Either 'FilterPackets' or 'FilterSockets' must be 'true'.
-You can only use this when 'FilterType' is 'Plugin'.
-Available in macOS 10.15 and later.</string>
+			<string>If 'true' and 'FilterType' is 'Plugin', the system enables filtering network packets. Use when 'FilterType' is 'Plugin'.
+At least one of 'FilterPackets' or 'FilterSockets' needs to be 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1099,12 +1100,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The bundle identifier string of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. This field is a requirement if 'FilterPackets' is 'true'.
-Available in macOS 10.15 and later.</string>
-			<key>pfm_description_reference</key>
-			<string>The bundle identifier string of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
-
-Available in macOS 10.15 and later.</string>
+			<string>The bundle identifier string of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. Required if 'FilterPackets' is 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1175,12 +1171,7 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</array>
 			<key>pfm_description</key>
-			<string>The designated requirement string that the system embeds in the code signature of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. This field is a requirement if 'FilterPackets' is 'true'.
-Available in macOS 10.15 and later.</string>
-			<key>pfm_description_reference</key>
-			<string>The designated requirement string that is embedded in the code signature of the Filter Packet Provider System Extension. This string identifies the Filter Packet Provider when the filter starts running. This field is required if FilterPackets is set to 1.
-
-Available in macOS 10.15 and later.</string>
+			<string>The designated requirement string that the system embeds in the code signature of the filter packet provider system extension. This string identifies the filter packet provider when the filter starts running. Required if 'FilterPackets' is 'true'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1233,7 +1224,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The custom dictionary that the filtering service plug-in needs.</string>
+			<string>The custom dictionary that the filtering service plug-in needs. Use when 'FilterType' is 'Plugin'.</string>
 			<key>pfm_exclude</key>
 			<array>
 				<dict>
@@ -1257,14 +1248,20 @@ Available in macOS 10.15 and later.</string>
 				<dict>
 					<key>pfm_name</key>
 					<string>{{key}}</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_title</key>
 					<string>Vendor Custom Key Name</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 				<dict>
+					<key>pfm_description</key>
+					<string>The custom key/value pairs for the filtering service.</string>
 					<key>pfm_name</key>
 					<string>{{value}}</string>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_title</key>
 					<string>Vendor Custom Key Value</string>
 					<key>pfm_type</key>
@@ -1278,7 +1275,7 @@ Available in macOS 10.15 and later.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A globally-unique identifier for this content filter configuration. Managed apps with the same 'ContentFilterUUID' in their app attributes have their network traffic processed by the content filter.</string>
+			<string>A globally unique identifier for this content filter configuration. The content filter processes network traffic for managed apps with the same 'ContentFilterUUID' in their app attributes. Use when 'FilterType' is 'Plugin'. This key must be present for unsupervised devices and user enrollments.</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_name</key>
@@ -1305,6 +1302,24 @@ Available in macOS 10.15 and later.</string>
 				</dict>
 			</dict>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>Hide the DenyListURLs in profiles UI in Settings &gt; General &gt; VPN &amp; Device Management &gt; profiles details.</string>
+			<key>pfm_ios_min</key>
+			<string>18.0</string>
+			<key>pfm_name</key>
+			<string>HideDenyListURLs</string>
+			<key>pfm_platforms</key>
+			<array>
+				<string>iOS</string>
+			</array>
+			<key>pfm_title</key>
+			<string>HideDenyListURLs</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1313,9 +1328,9 @@ Available in macOS 10.15 and later.</string>
 	<key>pfm_title</key>
 	<string>Web Content Filter</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>

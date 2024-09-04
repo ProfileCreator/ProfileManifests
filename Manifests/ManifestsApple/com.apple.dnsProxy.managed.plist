@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>11.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-03-01T15:25:39Z</date>
+	<date>2024-09-03T15:13:17Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -27,7 +27,7 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures DNS Proxy settings</string>
+			<string>Use this section to configure a DNS proxy network extension</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -100,9 +100,6 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -115,9 +112,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -156,6 +150,23 @@ The payload organization for a payload need not match the payload organization i
 			<string>The dictionary of vendor-specific configuration items.</string>
 			<key>pfm_name</key>
 			<string>ProviderConfiguration</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>{{key}}</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+				<dict>
+					<key>pfm_description</key>
+					<string>Key/value pairs.</string>
+					<key>pfm_name</key>
+					<string>{{value}}</string>
+				</dict>
+			</array>
 			<key>pfm_title</key>
 			<string>Provider Custom Configuration</string>
 			<key>pfm_type</key>
@@ -167,7 +178,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A globally-unique identifier for this DNS proxy configuration. Managed apps with the same 'DNSProxyUUID' in their app attributes have their DNS lookups traffic processed by the proxy.</string>
+			<string>A globally-unique identifier for this DNS proxy configuration. Managed apps with the same 'DNSProxyUUID' in their app attributes have their DNS lookups traffic processed by the proxy. This key is required for user enrollments.</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_name</key>
@@ -202,9 +213,9 @@ The payload organization for a payload need not match the payload organization i
 	<key>pfm_title</key>
 	<string>DNS Proxy</string>
 	<key>pfm_unique</key>
-	<false/>
+	<true/>
 	<key>pfm_version</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>iOS</key>
