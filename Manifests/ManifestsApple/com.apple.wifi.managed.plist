@@ -386,12 +386,25 @@ This value is only locked when MDM installs the profile. If the profile is manua
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -434,6 +447,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 			<key>pfmx_supported_oses</key>
 			<dict>
 				<key>iOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_user_enrollment</key>
 					<dict>
@@ -503,6 +524,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 					</dict>
 				</dict>
 				<key>macOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_user_enrollment</key>
 					<dict>
@@ -583,6 +612,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 						<string>forbidden</string>
 					</dict>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -628,6 +665,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 						<string>forbidden</string>
 					</dict>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -660,6 +705,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 			<key>pfmx_supported_oses</key>
 			<dict>
 				<key>iOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_user_enrollment</key>
 					<dict>
@@ -712,6 +765,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 						<string>forbidden</string>
 					</dict>
 				</dict>
+				<key>visionOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -752,6 +813,14 @@ This value is only locked when MDM installs the profile. If the profile is manua
 					</dict>
 				</dict>
 				<key>macOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_user_enrollment</key>
 					<dict>
@@ -1290,11 +1359,6 @@ Prior to macOS 13, the encryption type, if specified explicitly, needed to match
 					<key>pfmx_introduced</key>
 					<string>7.0</string>
 				</dict>
-				<key>macOS</key>
-				<dict>
-					<key>pfmx_introduced</key>
-					<string>n/a</string>
-				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -1366,6 +1430,11 @@ Prior to macOS 13, the encryption type, if specified explicitly, needed to match
 					<string>10.7</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -1621,7 +1690,7 @@ For EAP-TLS authentication without a network payload, install the necessary iden
 						<key>tvOS</key>
 						<dict>
 							<key>pfmx_introduced</key>
-							<string>7.0</string>
+							<string>9.0</string>
 						</dict>
 					</dict>
 				</dict>
@@ -1698,6 +1767,11 @@ As of iOS 8, Apple no longer supports this key.</string>
 						<dict>
 							<key>pfmx_removed</key>
 							<string>8.0</string>
+						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
 						</dict>
 					</dict>
 				</dict>
@@ -2356,6 +2430,11 @@ If 'false', the system behaves as if Wi-Fi doesn't have an association with a Ci
 							<key>pfmx_deprecated</key>
 							<string>14.0</string>
 						</dict>
+						<key>visionOS</key>
+						<dict>
+							<key>pfmx_introduced</key>
+							<string>n/a</string>
+						</dict>
 					</dict>
 				</dict>
 			</array>
@@ -2557,11 +2636,27 @@ If 'false', the system behaves as if Wi-Fi doesn't have an association with a Ci
 			<key>pfmx_allow_manual_install</key>
 			<true/>
 			<key>pfmx_introduced</key>
-			<string>5.1</string>
+			<string>9.0</string>
 			<key>pfmx_multiple</key>
 			<true/>
 			<key>pfmx_supervised</key>
 			<false/>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>1.0</string>
+			<key>pfmx_multiple</key>
+			<true/>
+			<key>pfmx_supervised</key>
+			<false/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>allowed</string>
+			</dict>
 		</dict>
 		<key>watchOS</key>
 		<dict>

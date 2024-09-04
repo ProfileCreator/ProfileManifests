@@ -273,6 +273,8 @@ Removed as of iOS 18 and macOS 15.</string>
 					<string>17.0</string>
 					<key>pfmx_introduced</key>
 					<string>13.1</string>
+					<key>pfmx_removed</key>
+					<string>18.0</string>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
@@ -285,6 +287,8 @@ Removed as of iOS 18 and macOS 15.</string>
 					<string>14.0</string>
 					<key>pfmx_introduced</key>
 					<string>10.15</string>
+					<key>pfmx_removed</key>
+					<string>15.0</string>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
@@ -292,6 +296,11 @@ Removed as of iOS 18 and macOS 15.</string>
 					</dict>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -367,6 +376,14 @@ If the 'ManagedAppleID' is included, then 'AccessRights' are ignored.</string>
 					</dict>
 				</dict>
 				<key>macOS</key>
+				<dict>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>ignored</string>
+					</dict>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_user_enrollment</key>
 					<dict>
@@ -543,6 +560,11 @@ Available in macOS 11 and later.</string>
 					<string>11.0</string>
 				</dict>
 				<key>tvOS</key>
+				<dict>
+					<key>pfmx_introduced</key>
+					<string>n/a</string>
+				</dict>
+				<key>visionOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>n/a</string>
@@ -779,11 +801,27 @@ Available in iOS 15.1 and later.</string>
 			<key>pfmx_allow_manual_install</key>
 			<true/>
 			<key>pfmx_introduced</key>
-			<string>6.0</string>
+			<string>9.0</string>
 			<key>pfmx_multiple</key>
 			<false/>
 			<key>pfmx_supervised</key>
 			<false/>
+		</dict>
+		<key>visionOS</key>
+		<dict>
+			<key>pfmx_allow_manual_install</key>
+			<true/>
+			<key>pfmx_introduced</key>
+			<string>1.1</string>
+			<key>pfmx_multiple</key>
+			<false/>
+			<key>pfmx_supervised</key>
+			<false/>
+			<key>pfmx_user_enrollment</key>
+			<dict>
+				<key>pfmx_mode</key>
+				<string>allowed</string>
+			</dict>
 		</dict>
 		<key>watchOS</key>
 		<dict>
