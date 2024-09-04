@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2023-11-21T16:48:27Z</date>
+	<date>2024-09-04T15:50:02Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -443,6 +443,7 @@
 					<string>BraveShieldsDisabledForUrls</string>
 					<string>BraveShieldsEnabledForUrls</string>
 					<string>BraveVPNDisabled</string>
+					<string>BraveAIChatEnabled</string>
 				</array>
 				<key>Native Messaging</key>
 				<array>
@@ -9951,24 +9952,23 @@ This policy is not available on Windows instances that are not joined to a Micro
 			<key>pfm_description</key>
 			<string>Allows you to specify the behavior on startup.</string>
 			<key>pfm_description_reference</key>
-			<string>5 - Open New Tab Page
-1 - Restore the last session
-4 - Open a list of URLs
-Allows you to specify the behavior on startup.
+			<string>Setting the policy lets you specify system behavior on startup. Turning this setting off amounts to leaving it unset as Brave Browser must have specified start up behavior.
 
-If you choose 'Open New Tab Page' the New Tab Page will always be opened when you start Brave Browser.
+If you set the policy, users can't change it in Brave Browser. If not set, users can change it.
 
-If you choose 'Restore the last session', the URLs that were open last time Brave Browser was closed will be reopened and the browsing session will be restored as it was left.
-Choosing this option disables some settings that rely on sessions or that perform actions on exit (such as Clear browsing data on exit or session-only cookies).
+Setting this policy to RestoreOnStartupIsLastSession or RestoreOnStartupIsLastSessionAndURLs turns off some settings that rely on sessions or that perform actions on exit, such as clearing browsing data on exit or session-only cookies.
 
-If you choose 'Open a list of URLs', the list of 'URLs to open on startup' will be opened when a user starts Brave Browser.
+If this policy is set to RestoreOnStartupIsLastSessionAndURLs, browser will restore previous session and open a separate window to show URLs that are set from RestoreOnStartupURLs. Note that users can choose to keep those URLs open and they will also be restored in the future session.
 
-If you enable this setting, users cannot change or override it in Brave Browser.
+On Microsoft® Windows®, this policy is only available on instances that are joined to a Microsoft® Active Directory® domain, joined to Microsoft® Azure® Active Directory® or enrolled in Brave Browser Browser Cloud Management.
 
-Disabling this setting is equivalent to leaving it not configured. The user will still be able to change it in Brave Browser.
+On macOS, this policy is only available on instances that are managed via MDM, joined to a domain via MCX or enrolled in Brave Browser Browser Cloud Management.
 
-This policy is not available on Windows instances that are not joined
-to a Microsoft® Active Directory® domain.</string>
+    5 = Open New Tab Page
+    1 = Restore the last session
+    4 = Open a list of URLs
+    6 = Open a list of URLs and restore the last session
+</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RestoreOnStartup</string>
 			<key>pfm_name</key>
@@ -9978,12 +9978,14 @@ to a Microsoft® Active Directory® domain.</string>
 				<integer>5</integer>
 				<integer>1</integer>
 				<integer>4</integer>
+				<integer>6</integer>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>Open New Tab Page</string>
 				<string>Restore the last session</string>
 				<string>Open a list of URLs</string>
+				<string>Open a list of URLs and restore the last session</string>
 			</array>
 			<key>pfm_title</key>
 			<string>Action on startup</string>
@@ -10004,6 +10006,23 @@ This policy is not available on Windows instances that are not joined
 to a Microsoft® Active Directory® domain.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RestoreOnStartupURLs</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_n_range_list</key>
+							<array>
+								<integer>4</integer>
+								<integer>6</integer>
+							</array>
+							<key>pfm_target</key>
+							<string>RestoreOnStartup</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_name</key>
 			<string>RestoreOnStartupURLs</string>
 			<key>pfm_subkeys</key>
@@ -10257,6 +10276,32 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>boolean</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_documentation_url</key>
+			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
+			<key>pfm_name</key>
+			<string>BraveAIChatEnabled</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Disable</string>
+				<string>Enable</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Enable Brave AI Chat</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_type_input</key>
+			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>`1` is the default value, see https://github.com/brave/brave-browser/issues/36974</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>Setting this to a non-existent URL will disable the ability for users to manually check for updates. Useful when you intend to use your own software distribution mechanism to deploy updates.</string>
 			<key>pfm_documentation_url</key>
@@ -10341,6 +10386,6 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>16</integer>
+	<integer>17</integer>
 </dict>
 </plist>
