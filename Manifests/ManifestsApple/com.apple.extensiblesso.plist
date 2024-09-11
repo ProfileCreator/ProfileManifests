@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>13.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-09-03T14:39:05Z</date>
+	<date>2024-09-11T07:56:14Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.15</string>
 	<key>pfm_platforms</key>
@@ -170,6 +170,23 @@
 			<key>pfm_conditionals</key>
 			<array>
 				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+							</array>
+							<key>pfm_target</key>
+							<string>ExtensionIdentifier</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
@@ -192,8 +209,6 @@ This key is required on macOS and ignored elsewhere.</string>
 			<string>TeamIdentifier</string>
 			<key>pfm_note</key>
 			<string>If ExtensionIdentifier is set to com.apple.AppSSOKerberos.KerberosExtension, this preference value must be 'apple'.</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_title</key>
 			<string>Team Identifier</string>
 			<key>pfm_type</key>
@@ -236,6 +251,22 @@ The system:
 * Matches host or domain names case-insensitively
 * Requires that all the host and domain names of all installed Extensible SSO payloads are unique
 Host names that begin with a “.” are wildcard suffixes that match all subdomains; otherwise the host name needs be an exact match.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Redirect</string>
+							</array>
+							<key>pfm_target</key>
+							<string>Type</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -268,12 +299,32 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 			<key>pfm_conditionals</key>
 			<array>
 				<dict>
+					<key>pfm_require</key>
+					<string>always</string>
 					<key>pfm_target_conditions</key>
 					<array>
 						<dict>
 							<key>pfm_range_list</key>
 							<array>
-								<string>Credential</string>
+								<string>com.apple.AppSSOKerberos.KerberosExtension</string>
+							</array>
+							<key>pfm_target</key>
+							<string>ExtensionIdentifier</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>pfm_description</key>
+			<string>The realm name for 'Credential' payloads. Use proper capitalization for this value. Ignored for 'Redirect' payloads.</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Redirect</string>
 							</array>
 							<key>pfm_target</key>
 							<string>Type</string>
@@ -281,8 +332,6 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 					</array>
 				</dict>
 			</array>
-			<key>pfm_description</key>
-			<string>The realm name for 'Credential' payloads. Use proper capitalization for this value. Ignored for 'Redirect' payloads.</string>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
@@ -291,8 +340,6 @@ Hosts that begin with a "." are wildcard suffixes and will match all subdomains,
 			<string>Realm</string>
 			<key>pfm_note</key>
 			<string>If ExtensionIdentifier is set to com.apple.AppSSOKerberos.KerberosExtension, this preference is required. The Kerberos realm, which should be properly capitalized. If in an Active Directory forest, this is the realm where the user logs in.</string>
-			<key>pfm_require</key>
-			<string>always</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -321,6 +368,22 @@ The system:
 * Matches scheme and host name case-insensitively
 * Doesn't allow query parameters and URL fragments
 * Requires that the URLs of all installed Extensible SSO payloads are unique</string>
+			<key>pfm_exclude</key>
+			<array>
+				<dict>
+					<key>pfm_target_conditions</key>
+					<array>
+						<dict>
+							<key>pfm_range_list</key>
+							<array>
+								<string>Credential</string>
+							</array>
+							<key>pfm_target</key>
+							<string>Type</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>pfm_ios_min</key>
 			<string>13.0</string>
 			<key>pfm_macos_min</key>
