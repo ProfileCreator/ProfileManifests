@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>Dock settings</string>
+	<string>Use this section to manage the Dock.</string>
 	<key>pfm_description_reference</key>
 	<string>The Dock payload is designated by specifying com.apple.dock as the PayloadType.
 The Dock payload is supported on the user channel and, except for AllowDockFixupOverride, on all version of
@@ -17,7 +17,9 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-06-10T15:45:52Z</date>
+	<date>2024-09-18T11:20:15Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -26,7 +28,7 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Dock Payload</string>
+			<string>Use this section to manage the Dock.</string>
 			<key>pfm_description</key>
 			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
@@ -54,7 +56,8 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string>com.apple.dock</string>
 			<key>pfm_description</key>
-			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -82,7 +85,8 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -99,11 +103,12 @@ macOS. The key AllowDockFixupOverride is supported on macOS 10.12 and later.</st
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -114,9 +119,6 @@ A profile can consist of payloads with different version numbers. For example, c
 		<dict>
 			<key>pfm_description</key>
 			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -136,17 +138,15 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
-					<key>pfm_description</key>
-					<string></string>
 					<key>pfm_name</key>
-					<string>static-app</string>
+					<string>StaticItem</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_default</key>
 							<string>file-tile</string>
 							<key>pfm_description</key>
-							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
+							<string>The type of tile.</string>
 							<key>pfm_hidden</key>
 							<string>all</string>
 							<key>pfm_name</key>
@@ -168,16 +168,18 @@ The payload organization for a payload need not match the payload organization i
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Information about a dock item.</string>
+							<string>The information about the dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
 							<string>tile-data</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
 									<key>pfm_description</key>
-									<string>Label of a dock item.</string>
+									<string>The label of the dock item.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -189,7 +191,7 @@ The payload organization for a payload need not match the payload organization i
 									<key>pfm_type</key>
 									<string>string</string>
 									<key>pfm_value_copy</key>
-									<string>static-apps.static-app.tile-data.file-data._CFURLString</string>
+									<string>static-apps.StaticItem.tile-data.file-data._CFURLString</string>
 									<key>pfm_value_processor</key>
 									<string>dockTileLabel</string>
 								</dict>
@@ -207,11 +209,11 @@ The payload organization for a payload need not match the payload organization i
 									<key>pfm_type</key>
 									<string>string</string>
 									<key>pfm_value_copy</key>
-									<string>static-apps.static-app.tile-data.label</string>
+									<string>static-apps.StaticItem.tile-data.label</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>The type of the tile expressed as a number.</string>
+									<string>The type of tile.</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
@@ -233,13 +235,13 @@ The payload organization for a payload need not match the payload organization i
 									<key>pfm_type_input</key>
 									<string>string</string>
 									<key>pfm_value_copy</key>
-									<string>static-apps.static-app.tile-type</string>
+									<string>static-apps.StaticItem.tile-type</string>
 									<key>pfm_value_processor</key>
 									<string>dockTileType</string>
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Dictionary describing the target file.</string>
+									<string>The data in a file. For Apple use only.</string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_hidden</key>
@@ -276,6 +278,11 @@ The payload organization for a payload need not match the payload organization i
 												<integer>0</integer>
 												<integer>15</integer>
 											</array>
+											<key>pfm_range_list_titles</key>
+											<array>
+												<string>Path</string>
+												<string>File URL</string>
+											</array>
 											<key>pfm_title</key>
 											<string>Path Type</string>
 											<key>pfm_type</key>
@@ -283,7 +290,7 @@ The payload organization for a payload need not match the payload organization i
 											<key>pfm_type_input</key>
 											<string>string</string>
 											<key>pfm_value_copy</key>
-											<string>static-apps.static-app.tile-data.file-data._CFURLString</string>
+											<string>static-apps.StaticItem.tile-data.file-data._CFURLString</string>
 											<key>pfm_value_processor</key>
 											<string>dockTilePathType</string>
 											<key>pfmx_comment</key>
@@ -294,6 +301,14 @@ The payload organization for a payload need not match the payload organization i
 									<string>File Data</string>
 									<key>pfm_type</key>
 									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The URL string.</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_type</key>
+									<string>string</string>
 								</dict>
 							</array>
 							<key>pfm_title</key>
@@ -324,14 +339,14 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_description</key>
 					<string></string>
 					<key>pfm_name</key>
-					<string>static-other</string>
+					<string>StaticItem</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_default</key>
 							<string>file-tile</string>
 							<key>pfm_description</key>
-							<string>The type of the tile. Values may be file-tile, directory-tile, or url-tile. If you are unsure whether the file item is a file or a directory, set this key to file-tile.</string>
+							<string>The type of tile.</string>
 							<key>pfm_name</key>
 							<string>tile-type</string>
 							<key>pfm_range_list</key>
@@ -355,18 +370,20 @@ The payload organization for a payload need not match the payload organization i
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>Information about a dock item.</string>
+							<string>The information about the dock item.</string>
 							<key>pfm_hidden</key>
 							<string>container</string>
 							<key>pfm_name</key>
 							<string>tile-data</string>
+							<key>pfm_require</key>
+							<string>always</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
 									<key>pfm_default_copy</key>
-									<string>static-others.static-other.tile-data.file-data._CFURLString</string>
+									<string>static-others.StaticItem.tile-data.file-data._CFURLString</string>
 									<key>pfm_description</key>
-									<string>Label of a dock item.</string>
+									<string>The label of the dock item.</string>
 									<key>pfm_name</key>
 									<string>label</string>
 									<key>pfm_require</key>
@@ -380,7 +397,7 @@ The payload organization for a payload need not match the payload organization i
 								</dict>
 								<dict>
 									<key>pfm_default_copy</key>
-									<string>static-others.static-other.tile-data.label</string>
+									<string>static-others.StaticItem.tile-data.label</string>
 									<key>pfm_description</key>
 									<string>Display name in the profile GUI of a dock item.</string>
 									<key>pfm_documentation_source</key>
@@ -396,7 +413,7 @@ The payload organization for a payload need not match the payload organization i
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>For URL tiles, the URL string.</string>
+									<string>The URL string.</string>
 									<key>pfm_name</key>
 									<string>url</string>
 									<key>pfm_title</key>
@@ -406,24 +423,27 @@ The payload organization for a payload need not match the payload organization i
 								</dict>
 								<dict>
 									<key>pfm_default_copy</key>
-									<string>static-others.static-other.tile-type</string>
+									<string>static-others.StaticItem.tile-type</string>
 									<key>pfm_description</key>
-									<string>The type of the tile expressed as a number.</string>
+									<string>The type of tile:
+* '0': URL
+* '1': File
+* '3': Directory</string>
 									<key>pfm_hidden</key>
 									<string>all</string>
 									<key>pfm_name</key>
 									<string>file-type</string>
 									<key>pfm_range_list</key>
 									<array>
+										<integer>0</integer>
 										<integer>1</integer>
 										<integer>3</integer>
-										<integer>2</integer>
 									</array>
 									<key>pfm_range_list_titles</key>
 									<array>
+										<string>URL</string>
 										<string>File</string>
 										<string>Directory</string>
-										<string>URL</string>
 									</array>
 									<key>pfm_require</key>
 									<string>always</string>
@@ -438,7 +458,7 @@ The payload organization for a payload need not match the payload organization i
 								</dict>
 								<dict>
 									<key>pfm_description</key>
-									<string>Dictionary describing the target file.</string>
+									<string>The data in a file. For Apple use only.</string>
 									<key>pfm_documentation_source</key>
 									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
 									<key>pfm_exclude</key>
@@ -453,11 +473,11 @@ The payload organization for a payload need not match the payload organization i
 														<string>directory-tile</string>
 													</array>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-type</string>
+													<string>static-others.StaticItem.tile-type</string>
 												</dict>
 												<dict>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-data.home directory relative</string>
+													<string>static-others.StaticItem.tile-data.home directory relative</string>
 													<key>pfm_value_empty</key>
 													<false/>
 												</dict>
@@ -498,6 +518,11 @@ The payload organization for a payload need not match the payload organization i
 												<integer>0</integer>
 												<integer>15</integer>
 											</array>
+											<key>pfm_range_list_titles</key>
+											<array>
+												<string>Path</string>
+												<string>File URL</string>
+											</array>
 											<key>pfm_title</key>
 											<string>Path Type</string>
 											<key>pfm_type</key>
@@ -505,7 +530,7 @@ The payload organization for a payload need not match the payload organization i
 											<key>pfm_type_input</key>
 											<string>string</string>
 											<key>pfm_value_copy</key>
-											<string>static-others.static-other.tile-data.file-data._CFURLString</string>
+											<string>static-others.StaticItem.tile-data.file-data._CFURLString</string>
 											<key>pfm_value_processor</key>
 											<string>dockTilePathType</string>
 											<key>pfmx_comment</key>
@@ -533,11 +558,11 @@ The payload organization for a payload need not match the payload organization i
 														<string>directory-tile</string>
 													</array>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-type</string>
+													<string>static-others.StaticItem.tile-type</string>
 												</dict>
 												<dict>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-data.file-data._CFURLString</string>
+													<string>static-others.StaticItem.tile-data.file-data._CFURLString</string>
 													<key>pfm_value_empty</key>
 													<false/>
 												</dict>
@@ -569,7 +594,7 @@ The payload organization for a payload need not match the payload organization i
 														<string>directory-tile</string>
 													</array>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-type</string>
+													<string>static-others.StaticItem.tile-type</string>
 												</dict>
 											</array>
 										</dict>
@@ -615,7 +640,7 @@ The payload organization for a payload need not match the payload organization i
 														<string>directory-tile</string>
 													</array>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-type</string>
+													<string>static-others.StaticItem.tile-type</string>
 												</dict>
 											</array>
 										</dict>
@@ -655,7 +680,7 @@ The payload organization for a payload need not match the payload organization i
 														<string>directory-tile</string>
 													</array>
 													<key>pfm_target</key>
-													<string>static-others.static-other.tile-type</string>
+													<string>static-others.StaticItem.tile-type</string>
 												</dict>
 											</array>
 										</dict>
@@ -700,6 +725,620 @@ The payload organization for a payload need not match the payload organization i
 			<string>array</string>
 			<key>pfm_value_import_processor</key>
 			<string>com.apple.dock.static-others</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>An array of items located on the Applications side of the Dock that can be removed from the dock.</string>
+			<key>pfm_name</key>
+			<string>persistent-apps</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_name</key>
+					<string>StaticItem</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>file-tile</string>
+							<key>pfm_description</key>
+							<string>The type of tile.</string>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>tile-type</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>file-tile</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>File</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The information about the dock item.</string>
+							<key>pfm_hidden</key>
+							<string>container</string>
+							<key>pfm_name</key>
+							<string>tile-data</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_description</key>
+									<string>The label of the dock item.</string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>label</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Label</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_copy</key>
+									<string>persistent-apps.StaticItem.tile-data.file-data._CFURLString</string>
+									<key>pfm_value_processor</key>
+									<string>dockTileLabel</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Display name in the profile GUI of a dock item.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>file-label</string>
+									<key>pfm_title</key>
+									<string>Display Name</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_copy</key>
+									<string>persistent-apps.StaticItem.tile-data.label</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The type of tile.</string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>file-type</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>1</integer>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>File</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Type</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+									<key>pfm_type_input</key>
+									<string>string</string>
+									<key>pfm_value_copy</key>
+									<string>persistent-apps.StaticItem.tile-type</string>
+									<key>pfm_value_processor</key>
+									<string>dockTileType</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The data in a file. For Apple use only.</string>
+									<key>pfm_documentation_source</key>
+									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_name</key>
+									<string>file-data</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Path to the application.</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_documentation_source</key>
+											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+											<key>pfm_name</key>
+											<string>_CFURLString</string>
+											<key>pfm_title</key>
+											<string>Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_documentation_source</key>
+											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+											<key>pfm_hidden</key>
+											<string>all</string>
+											<key>pfm_name</key>
+											<string>_CFURLStringType</string>
+											<key>pfm_range_list</key>
+											<array>
+												<integer>0</integer>
+												<integer>15</integer>
+											</array>
+											<key>pfm_range_list_titles</key>
+											<array>
+												<string>Path</string>
+												<string>File URL</string>
+											</array>
+											<key>pfm_title</key>
+											<string>Path Type</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+											<key>pfm_type_input</key>
+											<string>string</string>
+											<key>pfm_value_copy</key>
+											<string>persistent-apps.StaticItem.tile-data.file-data._CFURLString</string>
+											<key>pfm_value_processor</key>
+											<string>dockTilePathType</string>
+											<key>pfmx_comment</key>
+											<string>pfm_type_input set to string to enable pfm_value_copy to work as expected.</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>File Data</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The URL string.</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Information</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Persistent Apps</string>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>An array of items located on the Documents side of the Dock that can be removed from the dock.</string>
+			<key>pfm_name</key>
+			<string>persistent-others</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string></string>
+					<key>pfm_description_reference</key>
+					<string></string>
+					<key>pfm_name</key>
+					<string>StaticItem</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>file-tile</string>
+							<key>pfm_description</key>
+							<string>The type of tile.</string>
+							<key>pfm_name</key>
+							<string>tile-type</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>file-tile</string>
+								<string>directory-tile</string>
+								<string>url-tile</string>
+							</array>
+							<key>pfm_range_list_titles</key>
+							<array>
+								<string>File</string>
+								<string>Directory</string>
+								<string>URL</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Type</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The information about the dock item.</string>
+							<key>pfm_hidden</key>
+							<string>container</string>
+							<key>pfm_name</key>
+							<string>tile-data</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_subkeys</key>
+							<array>
+								<dict>
+									<key>pfm_default_copy</key>
+									<string>persistent-others.StaticItem.tile-data.file-data._CFURLString</string>
+									<key>pfm_description</key>
+									<string>The label of the dock item.</string>
+									<key>pfm_name</key>
+									<string>label</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Label</string>
+									<key>pfm_type</key>
+									<string>string</string>
+									<key>pfm_value_processor</key>
+									<string>dockTileLabel</string>
+								</dict>
+								<dict>
+									<key>pfm_default_copy</key>
+									<string>persistent-others.StaticItem.tile-data.label</string>
+									<key>pfm_description</key>
+									<string>Display name in the profile GUI of a dock item.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>file-label</string>
+									<key>pfm_title</key>
+									<string>Display Name</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The URL string.</string>
+									<key>pfm_name</key>
+									<string>url</string>
+									<key>pfm_title</key>
+									<string>URL</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_default_copy</key>
+									<string>persistent-others.StaticItem.tile-type</string>
+									<key>pfm_description</key>
+									<string>The type of tile:
+* '0': URL
+* '1': File
+* '3': Directory</string>
+									<key>pfm_hidden</key>
+									<string>all</string>
+									<key>pfm_name</key>
+									<string>file-type</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>0</integer>
+										<integer>1</integer>
+										<integer>3</integer>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>URL</string>
+										<string>File</string>
+										<string>Directory</string>
+									</array>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_title</key>
+									<string>Type</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+									<key>pfm_type_input</key>
+									<string>string</string>
+									<key>pfm_value_processor</key>
+									<string>dockTileType</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>The data in a file. For Apple use only.</string>
+									<key>pfm_documentation_source</key>
+									<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+									<key>pfm_exclude</key>
+									<array>
+										<dict>
+											<key>pfm_target_conditions</key>
+											<array>
+												<dict>
+													<key>pfm_n_contains_any</key>
+													<array>
+														<string>file-tile</string>
+														<string>directory-tile</string>
+													</array>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-type</string>
+												</dict>
+												<dict>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-data.home directory relative</string>
+													<key>pfm_value_empty</key>
+													<false/>
+												</dict>
+											</array>
+										</dict>
+									</array>
+									<key>pfm_hidden</key>
+									<string>container</string>
+									<key>pfm_name</key>
+									<string>file-data</string>
+									<key>pfm_require</key>
+									<string>always</string>
+									<key>pfm_subkeys</key>
+									<array>
+										<dict>
+											<key>pfm_description</key>
+											<string>Path to the file.</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_documentation_source</key>
+											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+											<key>pfm_name</key>
+											<string>_CFURLString</string>
+											<key>pfm_title</key>
+											<string>Path</string>
+											<key>pfm_type</key>
+											<string>string</string>
+										</dict>
+										<dict>
+											<key>pfm_description</key>
+											<string>Path type. 0 = /Path/to/item, 15 = file://Path/to/item</string>
+											<key>pfm_description_reference</key>
+											<string></string>
+											<key>pfm_documentation_source</key>
+											<string>/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/Versions/A/ConfigurationEngineModel</string>
+											<key>pfm_hidden</key>
+											<string>all</string>
+											<key>pfm_name</key>
+											<string>_CFURLStringType</string>
+											<key>pfm_range_list</key>
+											<array>
+												<integer>0</integer>
+												<integer>15</integer>
+											</array>
+											<key>pfm_range_list_titles</key>
+											<array>
+												<string>Path</string>
+												<string>File URL</string>
+											</array>
+											<key>pfm_title</key>
+											<string>Path Type</string>
+											<key>pfm_type</key>
+											<string>integer</string>
+											<key>pfm_type_input</key>
+											<string>string</string>
+											<key>pfm_value_copy</key>
+											<string>persistent-others.StaticItem.tile-data.file-data._CFURLString</string>
+											<key>pfm_value_processor</key>
+											<string>dockTilePathType</string>
+											<key>pfmx_comment</key>
+											<string>pfm_type_input set to string to enable pfm_value_copy to work as expected.</string>
+										</dict>
+									</array>
+									<key>pfm_title</key>
+									<string>File Data</string>
+									<key>pfm_type</key>
+									<string>dictionary</string>
+								</dict>
+								<dict>
+									<key>pfm_description</key>
+									<string>Path to item relative to the current user's home directory.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_exclude</key>
+									<array>
+										<dict>
+											<key>pfm_target_conditions</key>
+											<array>
+												<dict>
+													<key>pfm_n_range_list</key>
+													<array>
+														<string>directory-tile</string>
+													</array>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-type</string>
+												</dict>
+												<dict>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-data.file-data._CFURLString</string>
+													<key>pfm_value_empty</key>
+													<false/>
+												</dict>
+											</array>
+										</dict>
+									</array>
+									<key>pfm_name</key>
+									<string>home directory relative</string>
+									<key>pfm_title</key>
+									<string>Home Directory Relative</string>
+									<key>pfm_type</key>
+									<string>string</string>
+								</dict>
+								<dict>
+									<key>pfm_default</key>
+									<integer>1</integer>
+									<key>pfm_description</key>
+									<string>Arrangement (sorting) of the directory contents.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_exclude</key>
+									<array>
+										<dict>
+											<key>pfm_target_conditions</key>
+											<array>
+												<dict>
+													<key>pfm_n_range_list</key>
+													<array>
+														<string>directory-tile</string>
+													</array>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-type</string>
+												</dict>
+											</array>
+										</dict>
+									</array>
+									<key>pfm_name</key>
+									<string>arrangement</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>1</integer>
+										<integer>2</integer>
+										<integer>3</integer>
+										<integer>4</integer>
+										<integer>5</integer>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Name</string>
+										<string>Date Added</string>
+										<string>Date Modified</string>
+										<string>Date Created</string>
+										<string>Kind</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Arrangement</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+								</dict>
+								<dict>
+									<key>pfm_default</key>
+									<integer>2</integer>
+									<key>pfm_description</key>
+									<string>Display directory as either a Folder or a Stack.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_exclude</key>
+									<array>
+										<dict>
+											<key>pfm_target_conditions</key>
+											<array>
+												<dict>
+													<key>pfm_n_range_list</key>
+													<array>
+														<string>directory-tile</string>
+													</array>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-type</string>
+												</dict>
+											</array>
+										</dict>
+									</array>
+									<key>pfm_name</key>
+									<string>displayas</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>1</integer>
+										<integer>2</integer>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Folder</string>
+										<string>Stack</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Display As</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+								</dict>
+								<dict>
+									<key>pfm_default</key>
+									<integer>4</integer>
+									<key>pfm_description</key>
+									<string>How to show directory contents.</string>
+									<key>pfm_description_reference</key>
+									<string></string>
+									<key>pfm_documentation_source</key>
+									<string></string>
+									<key>pfm_exclude</key>
+									<array>
+										<dict>
+											<key>pfm_target_conditions</key>
+											<array>
+												<dict>
+													<key>pfm_n_range_list</key>
+													<array>
+														<string>directory-tile</string>
+													</array>
+													<key>pfm_target</key>
+													<string>persistent-others.StaticItem.tile-type</string>
+												</dict>
+											</array>
+										</dict>
+									</array>
+									<key>pfm_name</key>
+									<string>showas</string>
+									<key>pfm_range_list</key>
+									<array>
+										<integer>1</integer>
+										<integer>2</integer>
+										<integer>3</integer>
+										<integer>4</integer>
+									</array>
+									<key>pfm_range_list_titles</key>
+									<array>
+										<string>Fan</string>
+										<string>Grid</string>
+										<string>List</string>
+										<string>Automatic</string>
+									</array>
+									<key>pfm_title</key>
+									<string>Show As</string>
+									<key>pfm_type</key>
+									<string>integer</string>
+								</dict>
+							</array>
+							<key>pfm_title</key>
+							<string>Information</string>
+							<key>pfm_type</key>
+							<string>dictionary</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Static Other</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+			</array>
+			<key>pfm_title</key>
+			<string>Persistent Others</string>
+			<key>pfm_type</key>
+			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -804,14 +1443,14 @@ The payload organization for a payload need not match the payload organization i
 			<string>orientation</string>
 			<key>pfm_range_list</key>
 			<array>
-				<string>left</string>
 				<string>bottom</string>
+				<string>left</string>
 				<string>right</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>Left</string>
 				<string>Bottom</string>
+				<string>Left</string>
 				<string>Right</string>
 			</array>
 			<key>pfm_title</key>
@@ -839,6 +1478,11 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_name</key>
 			<string>mineffect</string>
 			<key>pfm_range_list</key>
+			<array>
+				<string>genie</string>
+				<string>scale</string>
+			</array>
+			<key>pfm_range_list_titles</key>
 			<array>
 				<string>Genie Effect</string>
 				<string>Scale Effect</string>
@@ -877,6 +1521,8 @@ The payload organization for a payload need not match the payload organization i
 			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', disables the 'Minimize windows into application icon' checkbox.</string>
+			<key>pfm_macos_min</key>
+			<string>10.14</string>
 			<key>pfm_name</key>
 			<string>minintoapp-immutable</string>
 			<key>pfm_title</key>
@@ -894,7 +1540,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', enables 'Animate opening applications.'</string>
 			<key>pfm_name</key>
@@ -942,7 +1588,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string>If true, shows the process indicator.</string>
 			<key>pfm_name</key>
@@ -954,7 +1600,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string>If 'true', enables 'Show recent items.'</string>
 			<key>pfm_macos_min</key>
@@ -1035,7 +1681,7 @@ The 'My Applications' item is only used for Simple Finder environments. The 'Ori
 					<key>pfm_description</key>
 					<string>Flag for the folder to be added by Managed Client.</string>
 					<key>pfm_name</key>
-					<string>mcxfolderflag</string>
+					<string>MCXDockSpecialFoldersItems</string>
 					<key>pfm_range_list</key>
 					<array>
 						<string>AddDockMCXMyApplicationsFolder</string>
@@ -1431,6 +2077,108 @@ The 'My Applications' item is only used for Simple Finder environments. The 'Ori
 			<key>pfm_type</key>
 			<string>integer</string>
 		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Set the 'Prefer tabs when opening documents' to the provided value.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>windowtabbing</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>manual</string>
+				<string>always</string>
+				<string>fullscreen</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Manual</string>
+				<string>Always</string>
+				<string>Fullscreen</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Prefer tabs when opening documents</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', disables 'Prefer tabs when opening documents' checkbox.</string>
+			<key>pfm_macos_min</key>
+			<string>10.12</string>
+			<key>pfm_name</key>
+			<string>windowtabbing-immutable</string>
+			<key>pfm_title</key>
+			<string>Prevent changing tabs preference</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>The behavior when the window's title bar is double-clicked.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>dblclickbehavior</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>minimize</string>
+				<string>maximize</string>
+				<string>none</string>
+			</array>
+			<key>pfm_range_list_titles</key>
+			<array>
+				<string>Minimize</string>
+				<string>Maximize</string>
+				<string>None</string>
+			</array>
+			<key>pfm_title</key>
+			<string>Doubleclick behavior</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', locks 'Double-click a window's title bar.'</string>
+			<key>pfm_macos_min</key>
+			<string>10.14</string>
+			<key>pfm_name</key>
+			<string>dblclickbehavior-immutable</string>
+			<key>pfm_title</key>
+			<string>Prevent changing doubleclick behavior</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', locks 'Show indicators.'</string>
+			<key>pfm_name</key>
+			<string>showindicators-immutable</string>
+			<key>pfm_title</key>
+			<string>Prevent changing indicators display</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If 'true', disables 'Show recent applications' checkbox.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
+			<key>pfm_name</key>
+			<string>showrecents-immutable</string>
+			<key>pfm_title</key>
+			<string>Prevent shanging recents display</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -1440,9 +2188,9 @@ The 'My Applications' item is only used for Simple Finder environments. The 'Ori
 	<key>pfm_title</key>
 	<string>Dock</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>macOS</key>
