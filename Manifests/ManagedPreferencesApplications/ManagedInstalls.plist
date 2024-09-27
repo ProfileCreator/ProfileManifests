@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2024-08-29T07:55:25Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -191,6 +191,7 @@
 					<string>Region</string>
 					<string>SecretKey</string>
 					<string>S3Endpoint</string>
+					<string>IgnoreMiddleware</string>
 				</array>
 				<key>URL</key>
 				<array>
@@ -792,6 +793,7 @@
 					<string>SecretKey</string>
 					<string>Region</string>
 					<string>S3Endpoint</string>
+					<string>IgnoreMiddleware</string>
 				</array>
 			</dict>
 			<key>pfm_type</key>
@@ -869,6 +871,22 @@ S3 Endpoint for bucket.</string>
 		</dict>
 		<dict>
 			<key>pfm_app_min</key>
+			<string>6.4.2</string>
+			<key>pfm_default</key>
+			<false/>
+			<key>pfm_description</key>
+			<string>If true, Munki will ignore installed middleware. Useful for when moving away from middleware.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://github.com/munki/munki/wiki/Preferences#details</string>
+			<key>pfm_name</key>
+			<string>IgnoreMiddleware</string>
+			<key>pfm_title</key>
+			<string>Ignore Middleware</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_app_min</key>
 			<string>5.0</string>
 			<key>pfm_default</key>
 			<integer>14</integer>
@@ -893,6 +911,6 @@ S3 Endpoint for bucket.</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>10</integer>
+	<integer>11</integer>
 </dict>
 </plist>
