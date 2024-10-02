@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-08-23T02:21:00Z</date>
+	<date>2024-10-02T14:21:00Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -200,6 +200,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Allow Users Claim</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+      		<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -219,6 +221,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Allowed Users</string>
 			<key>pfm_type</key>
 			<string>array</string>
+			<key>pfm_app_min</key>
+      		<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -238,6 +242,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Allow Login If Member Of Group</string>
 			<key>pfm_type</key>
 			<string>array</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -276,6 +282,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Claims To Add To Local User Account</string>
 			<key>pfm_type</key>
 			<string>array</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -304,6 +312,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>LocalFallback</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -414,6 +424,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>LoadPage Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -428,6 +440,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>LoadPage Info</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+			<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -456,6 +470,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Menu Item Icon Data</string>
 			<key>pfm_type</key>
 			<string>data</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -468,6 +484,8 @@ A profile can consist of payloads with different version numbers. For example, c
 			<string>Menu Item Icon Checked Data</string>
 			<key>pfm_type</key>
 			<string>data</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -648,7 +666,7 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Favor using XCreds&apos; local login screen over the cloud login UI.</string>
+			<string>Favor using XCreds' local login screen over the cloud login UI.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -729,6 +747,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Use ROPG for menu login</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -743,10 +763,12 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Should Use ROPG For Password Change Checking</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Don&apos;t show the UI if this key is defined and a file or folder exists at this path.</string>
+			<string>Don't show the UI if this key is defined and a file or folder exists at this path.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -755,10 +777,12 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Hide If Path Exists</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name of OIDC claim that contains an alias to add to a user account. Usually this is the &quot;upn&quot; (eg syd@twocanoes.com) so the user can log in at the standard login window the same as the IdP login window. Adds the value to record name of the user account as an alias.</string>
+			<string>Name of OIDC claim that contains an alias to add to a user account. Usually this is the "upn" (eg syd@twocanoes.com) so the user can log in at the standard login window the same as the IdP login window. Adds the value to record name of the user account as an alias.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -767,6 +791,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Alias Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -823,6 +849,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Should Show Menu Bar Sign In Without Login Window Sign In</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -837,6 +865,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Refresh Banner Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -879,6 +909,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Show Shutdown Button</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -893,6 +925,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Show Restart Button</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -907,6 +941,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Show System Info Button</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -935,6 +971,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Should Prompt for Migration</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -949,6 +987,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Should Allow Key Combo For Mac Login Window</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>4.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -961,6 +1001,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Key Code For Login Window Change</string>
 			<key>pfm_type</key>
 			<string>integer</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1086,7 +1128,7 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Reset the keychain without prompting if the login password doesn&apos;t match the local password.</string>
+			<string>Reset the keychain without prompting if the login password doesn't match the local password.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -1123,6 +1165,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Hide Expiration</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -1161,6 +1205,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>Reset Password Dialog Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1175,6 +1221,8 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>System Info Button Title</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1212,7 +1260,7 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<key>pfm_name</key>
 			<string>idpHostName</string>
 			<key>pfm_title</key>
-			<string>idpHostName</string>
+			<string>IDP Host Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1231,7 +1279,7 @@ Note that Google does not support the offline_access scope so instead use the pr
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>idpHostNames</string>
+			<string>IDP Host Names</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
@@ -1253,12 +1301,14 @@ Note that Google does not support the offline_access scope so instead use the pr
 			<string>AD User Attributes To Add To Local User Account</string>
 			<key>pfm_type</key>
 			<string>array</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Password element id of the html element that has the password. It is read by using JavaScript to get the value (for example, for Azure, the JavaScript document.getElementById(&apos;i0118&apos;).value is sent. If this default is not set, standard values for Azure and Google Cloud will be used. To find out this value, use a browser to inspect the source of the page that has the password on it. Find the id of the textfield that has the password. Fill in the password and then open the JavaScript console. Run:
+			<string>Password element id of the html element that has the password. It is read by using JavaScript to get the value (for example, for Azure, the JavaScript document.getElementById('i0118').value is sent. If this default is not set, standard values for Azure and Google Cloud will be used. To find out this value, use a browser to inspect the source of the page that has the password on it. Find the id of the textfield that has the password. Fill in the password and then open the JavaScript console. Run:
 
-document.getElementById(&apos;passwordID&apos;).value
+document.getElementById('passwordID').value
 
 changing “passwordID” to the correct element ID. If the value you typed into the textfield is returned, this is the correct ID.</string>
 			<key>pfm_documentation_url</key>
@@ -1266,7 +1316,7 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<key>pfm_name</key>
 			<string>passwordElementID</string>
 			<key>pfm_title</key>
-			<string>passwordElementID</string>
+			<string>Password Element ID</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -1290,7 +1340,7 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<key>pfm_default</key>
 			<string>family_name</string>
 			<key>pfm_description</key>
-			<string>Local DS to OIDC/AD Mapping for Last Name. Default value: “family_name” (OIDC), &quot;sn&quot; (AD). map_lastname should be set to an OIDC claim for last name.</string>
+			<string>Local DS to OIDC/AD Mapping for Last Name. Default value: “family_name” (OIDC), "sn" (AD). map_lastname should be set to an OIDC claim for last name.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -1306,7 +1356,7 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<key>pfm_default</key>
 			<string>name</string>
 			<key>pfm_description</key>
-			<string>Local DS to OIDC/AD Attribute Mapping for Full Name. Default value: “name”(OIDC), &quot;displayName&quot; (AD). map_fullname should be set to an OIDC claim/AD Attribute for full name.</string>
+			<string>Local DS to OIDC/AD Attribute Mapping for Full Name. Default value: “name”(OIDC), "displayName" (AD). map_fullname should be set to an OIDC claim/AD Attribute for full name.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -1322,7 +1372,7 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<key>pfm_default</key>
 			<string>name</string>
 			<key>pfm_description</key>
-			<string>Local DS to OIDC Mapping/AD Attribute for Name. Default value: “name” (OIDC), &quot;userPrincipalName&quot; (AD). map_username should be set to an OIDC claim/AD Attribute for name. The macOS username will be set as the portion of this value before an @ symbol if present.</string>
+			<string>Local DS to OIDC Mapping/AD Attribute for Name. Default value: “name” (OIDC), "userPrincipalName" (AD). map_username should be set to an OIDC claim/AD Attribute for name. The macOS username will be set as the portion of this value before an @ symbol if present.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
@@ -1349,6 +1399,8 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<string>Full Username OIDC Mapping/AD Attribute</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -1363,6 +1415,8 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<string>Map UID</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1379,6 +1433,8 @@ changing “passwordID” to the correct element ID. If the value you typed into
 			<string>Map OIDC claim to Password Expiry in Seconds</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_app_min</key>
+          	<string>5.0</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -1572,7 +1628,7 @@ changing “passwordID” to the correct element ID. If the value you typed into
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name for Shares menu item. Default: &quot;Shares&quot;.</string>
+			<string>Name for Shares menu item. Default: "Shares".</string>
 			<key>pfm_documentation_url</key>
 			<string>https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences</string>
 			<key>pfm_name</key>
