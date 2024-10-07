@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>tvOS Restrictions preferences</string>
+	<string>Use this section to define restrictions settings</string>
 	<key>pfm_description_reference</key>
 	<string>The Restrictions payload is designated by specifying com.apple.applicationaccess as the PayloadType value. A Restrictions payload allows the administrator to restrict the user from doing certain things with the device, such as using the camera. The Restrictions payload is supported in iOS; some keys are also supported in macOS, as noted below.</string>
 	<key>pfm_documentation_url</key>
@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-02-28T13:23:12Z</date>
+	<date>2024-08-21T14:59:51Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>tvOS</string>
@@ -172,6 +172,7 @@ The payload organization for a payload need not match the payload organization i
 					<string>allowInAppPurchases</string>
 					<string>allowRemoteAppPairing</string>
 					<string>forceAutomaticDateAndTime</string>
+					<string>allowDeviceSleep</string>
 				</array>
 				<key>Media</key>
 				<array>
@@ -297,6 +298,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appBlockedBundleID</string>
 					<key>pfm_title</key>
 					<string>Bundle ID</string>
 					<key>pfm_type</key>
@@ -340,6 +343,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appBlacklistedBundleID</string>
 					<key>pfm_title</key>
 					<string>iOS / tvOS Bundle ID</string>
 					<key>pfm_type</key>
@@ -381,6 +386,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appAllowlistedBundleID</string>
 					<key>pfm_title</key>
 					<string>Bundle ID</string>
 					<key>pfm_type</key>
@@ -424,6 +431,8 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_name</key>
+					<string>appWhitelistedBundleID</string>
 					<key>pfm_title</key>
 					<string>iOS / tvOS Bundle ID</string>
 					<key>pfm_type</key>
@@ -550,6 +559,10 @@ The payload organization for a payload need not match the payload organization i
 				<string>100: 4+</string>
 				<string>Don't Allow Apps</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - Apps</string>
 			<key>pfm_tvos_min</key>
@@ -594,6 +607,10 @@ The payload organization for a payload need not match the payload organization i
 				<string>100: G</string>
 				<string>0: Don't Allow Movies</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - Movies</string>
 			<key>pfm_tvos_min</key>
@@ -638,6 +655,10 @@ The payload organization for a payload need not match the payload organization i
 				<string>100: TV-Y</string>
 				<string>0: Don't Allow TV Shows</string>
 			</array>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
 			<key>pfm_title</key>
 			<string>Allowed content ratings - TV Shows</string>
 			<key>pfm_tvos_min</key>
@@ -674,6 +695,8 @@ The payload organization for a payload need not match the payload organization i
 			<string>allowBookstoreErotica</string>
 			<key>pfm_title</key>
 			<string>Allow explicit sexual content in iBooks Store</string>
+			<key>pfm_tvos_deprecated</key>
+			<string>17.0</string>
 			<key>pfm_tvos_min</key>
 			<string>11.3</string>
 			<key>pfm_type</key>
@@ -699,7 +722,7 @@ The payload organization for a payload need not match the payload organization i
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<false/>
 			<key>pfm_description</key>
 			<string>It is recommended to use the AirPlay Security Payload.</string>
 			<key>pfm_description_reference</key>
@@ -809,6 +832,20 @@ The payload organization for a payload need not match the payload organization i
 			<key>pfm_value_unit</key>
 			<string>Days</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prevents the device from automatically sleeping. Requires a supervised device. Available in tvOS 13 and later.</string>
+			<key>pfm_name</key>
+			<string>allowDeviceSleep</string>
+			<key>pfm_title</key>
+			<string>Allow Device Sleep</string>
+			<key>pfm_tvos_min</key>
+			<string>13.0</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -817,9 +854,11 @@ The payload organization for a payload need not match the payload organization i
 	</array>
 	<key>pfm_title</key>
 	<string>Restrictions (tvOS)</string>
+	<key>pfm_tvos_min</key>
+	<string>6.1</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>
