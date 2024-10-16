@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pfm_description</key>
-	<string>DNS Settings</string>
+	<string>Use this section to configure DNS settings.</string>
 	<key>pfm_description_reference</key>
 	<string>The DNS Settings payload is designated by specifying com.apple.dnsSettings.managed as the PayloadType.</string>
 	<key>pfm_documentation_url</key>
@@ -17,7 +17,7 @@
 	<key>pfm_ios_min</key>
 	<string>14.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-03-06T10:45:31Z</date>
+	<date>2024-09-12T10:00:38Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0</string>
 	<key>pfm_platforms</key>
@@ -29,11 +29,9 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures DNS Settings</string>
+			<string>Use this section to configure DNS settings.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -45,9 +43,7 @@
 			<key>pfm_default</key>
 			<string>DNS Settings</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -61,9 +57,8 @@
 			<key>pfm_default</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -77,9 +72,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -93,9 +86,8 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF).</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -111,12 +103,13 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -126,10 +119,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -159,7 +149,7 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_require</key>
 					<string>always-nested</string>
 					<key>pfm_title</key>
-					<string>Protocol</string>
+					<string>DNS Protocol</string>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
@@ -171,14 +161,16 @@ The payload organization for a payload need not match the payload organization i
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_name</key>
+							<string>ServerAddressesElement</string>
 							<key>pfm_title</key>
-							<string>IP Address</string>
+							<string>Server Address Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 					</array>
 					<key>pfm_title</key>
-					<string>Server IP Addresses</string>
+					<string>DNS Server Addresses</string>
 					<key>pfm_type</key>
 					<string>array</string>
 				</dict>
@@ -200,7 +192,7 @@ The payload organization for a payload need not match the payload organization i
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>The hostname of a DNS-over-TLS server used to validate the server certificate, as defined in RFC 7858. If no ServerAddresses are provided, the hostname will be used to determine the server addresses.</string>
+					<string>The hostname of a DNS-over-TLS server used to validate the server certificate, as defined in RFC 7858. If no 'ServerAddresses' are provided, the system uses the hostname to determine the server addresses. This key must be present only if the DNSProtocol is 'TLS'.</string>
 					<key>pfm_name</key>
 					<string>ServerName</string>
 					<key>pfm_note</key>
@@ -228,9 +220,7 @@ The payload organization for a payload need not match the payload organization i
 						</dict>
 					</array>
 					<key>pfm_description</key>
-					<string>The URI template of a DNS-over-HTTPS server, as defined in RFC 8484. This URL must use the https:// scheme, and the hostname or address in the URL will be used to validate the server certificate</string>
-					<key>pfm_description_reference</key>
-					<string>The URI template of a DNS-over-HTTPS server, as defined in RFC 8484. This URL must use the https:// scheme, and the hostname or address in the URL will be used to validate the server certificate. If no ServerAddresses are provided, the hostname or address in the URL will be used to determine the server addresses. This key must be present only if the DNSProtocol is HTTPS.</string>
+					<string>The URI template of a DNS-over-HTTPS server, as defined in RFC 8484. This URL needs to use the 'https://' scheme, and the system uses the hostname or address in the URL to validate the server certificate. If no 'ServerAddresses' are provided, the system uses the hostname or address in the URL to determine the server addresses. Required if 'DNSProtocol' is 'HTTPS'.</string>
 					<key>pfm_format</key>
 					<string>^https://.*</string>
 					<key>pfm_name</key>
@@ -246,18 +236,17 @@ The payload organization for a payload need not match the payload organization i
 				</dict>
 				<dict>
 					<key>pfm_description</key>
-					<string>A list of domain strings used to determine which DNS queries will use the DNS server. If this array is not provided, all domains will use the DNS server. A single wildcard * prefix is supported, but is not required.</string>
-					<key>pfm_description_reference</key>
-					<string>A list of domain strings used to determine which DNS queries will use the DNS server. If this array is not provided, all domains will use the DNS server.
-
-A single wildcard * prefix is supported, but is not required. For example, both *.example.com and example.com match against mydomain.example.com and your.domain.example.com, but do not match against mydomain-example.com.</string>
+					<string>A list of domain strings used to determine which DNS queries use the DNS server. If not set, all domains use the DNS server.
+The system supports a single wildcard ('*') prefix, but it's not required. For example, both '*.example.com' and 'example.com' match against 'mydomain.example.com' and 'your.domain.example.com', but don't match against 'mydomain-example.com'.</string>
 					<key>pfm_name</key>
 					<string>SupplementalMatchDomains</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
+							<key>pfm_name</key>
+							<string>SupplementalMatchDomainsElement</string>
 							<key>pfm_title</key>
-							<string>Domain</string>
+							<string>Supplemental Match Domains Element</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
@@ -277,7 +266,7 @@ A single wildcard * prefix is supported, but is not required. For example, both 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>An array of rules defining the DNS settings. If rules are not present, the system always applies the DNS settings. These rules are identical to the OnDemandRules array in VPN payloads.</string>
+			<string>An array of rules that define the DNS settings. If not set, the system always applies the DNS settings. These rules are identical to the 'OnDemandRules' array in VPN payloads.</string>
 			<key>pfm_name</key>
 			<string>OnDemandRules</string>
 			<key>pfm_subkeys</key>
@@ -289,10 +278,11 @@ A single wildcard * prefix is supported, but is not required. For example, both 
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The action to take if this dictionary matches the current network. Options:
-Connect: Apply DNS Settings when the dictionary matches.
-Disconnect: Do not apply DNS Settings when the dictionary matches.
-EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dictionary matches.</string>
+							<string>The action to take if this dictionary matches the current network. Allowed values:
+
+* 'Connect': Apply DNS Settings when the dictionary matches.
+* 'Disconnect': Don't apply DNS Settings when the dictionary matches.
+* 'EvaluateConnection': Apply DNS Settings with per-domain exceptions when the dictionary matches.</string>
 							<key>pfm_name</key>
 							<string>Action</string>
 							<key>pfm_range_list</key>
@@ -309,6 +299,8 @@ EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dicti
 							</array>
 							<key>pfm_require</key>
 							<string>always-nested</string>
+							<key>pfm_title</key>
+							<string>On Demand Action</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
@@ -330,7 +322,7 @@ EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dicti
 								</dict>
 							</array>
 							<key>pfm_description</key>
-							<string>A dictionary that provides per-connection rules. This array is used only for settings where the Action value is EvaluateConnection.</string>
+							<string>An array of dictionaries that provide per-connection rules. The system uses this array only for settings where the 'Action' value is 'EvaluateConnection'.</string>
 							<key>pfm_name</key>
 							<string>ActionParameters</string>
 							<key>pfm_note</key>
@@ -338,15 +330,19 @@ EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dicti
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
+									<key>pfm_description</key>
+									<string>A dictionary that provides per-connection rules.
+The keys allowed in each dictionary are described below. Note: This array is used only for dictionaries in which EvaluateConnection is the Action value.</string>
 									<key>pfm_name</key>
 									<string>ActionParameter</string>
 									<key>pfm_subkeys</key>
 									<array>
 										<dict>
 											<key>pfm_description</key>
-											<string>The DNS settings behavior for the specified domains. Options:
-		NeverConnect: Do not use the DNS Settings for the specified domains.
-		ConnectIfNeeded: Allow using the DNS Settings for the specified domains.</string>
+											<string>The DNS settings behavior for the specified domains. Allowed values:
+
+* 'NeverConnect': Don't use the DNS Settings for the specified domains.
+* 'ConnectIfNeeded': Allow using the DNS Settings for the specified domains.</string>
 											<key>pfm_name</key>
 											<string>DomainAction</string>
 											<key>pfm_range_list</key>
@@ -376,12 +372,16 @@ EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dicti
 											<key>pfm_subkeys</key>
 											<array>
 												<dict>
+													<key>pfm_name</key>
+													<string>DomainsElement</string>
 													<key>pfm_title</key>
-													<string>Domain</string>
+													<string>Domains Element</string>
 													<key>pfm_type</key>
 													<string>string</string>
 												</dict>
 											</array>
+											<key>pfm_title</key>
+											<string>Domains</string>
 											<key>pfm_type</key>
 											<string>array</string>
 										</dict>
@@ -399,43 +399,45 @@ EvaluateConnection: Apply DNS Settings with per-domain exceptions when the dicti
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list. A single wildcard * prefix is supported, but is not required.</string>
+							<string>An array of domain names. This rule matches if any of the domain names in the specified list matches any domain in the device's search domains list.
+The system supports a single wildcard ('*') prefix, but it's not required. For example, both '*.example.com' and 'example.com' match against 'mydomain.example.com' and 'your.domain.example.com', but don't match against 'mydomain-example.com'.</string>
 							<key>pfm_name</key>
 							<string>DNSDomainMatch</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
+									<key>pfm_name</key>
+									<string>DNSDomainMatchElement</string>
 									<key>pfm_title</key>
-									<string>Domain</string>
+									<string>DNS Domain Match Element</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 							</array>
 							<key>pfm_title</key>
-							<string>Domain Match</string>
+							<string>DNS Domain Match</string>
 							<key>pfm_type</key>
 							<string>array</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array. Matching with a single wildcard is supported.</string>
-							<key>pfm_description_reference</key>
 							<string>An array of IP addresses. This rule matches if any of the network's specified DNS servers match any entry in the array.
-
-Matching with a single wildcard is supported. For example, 17.* matches any DNS server in the 17.0.0.0/8 subnet.</string>
+The system supports matching with a single wildcard. For example, '17.*' matches any DNS server in the 17.0.0.0/8 subnet.</string>
 							<key>pfm_name</key>
 							<string>DNSServerAddressMatch</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
+									<key>pfm_name</key>
+									<string>DNSServerAddressMatchElement</string>
 									<key>pfm_title</key>
-									<string>IP Address</string>
+									<string>DNS Server Address Match Element</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
 							</array>
 							<key>pfm_title</key>
-							<string>Server Address Match</string>
+							<string>DNS Server Address Match</string>
 							<key>pfm_type</key>
 							<string>array</string>
 						</dict>
@@ -446,25 +448,27 @@ Matching with a single wildcard is supported. For example, 17.* matches any DNS 
 							<string>InterfaceTypeMatch</string>
 							<key>pfm_range_list</key>
 							<array>
-								<string>Cellular</string>
 								<string>Ethernet</string>
 								<string>WiFi</string>
+								<string>Cellular</string>
 							</array>
 							<key>pfm_title</key>
-							<string>Interface Type</string>
+							<string>Interface Type Match</string>
 							<key>pfm_type</key>
 							<string>string</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>An array of SSIDs to match against the current network. If the network is not a Wi-Fi network or if the SSID does not appear in this array, the match fails. Omit this key and the corresponding array to match against any SSID.</string>
+							<string>An array of SSIDs to match against the current network. If the network isn't a Wi-Fi network or if the SSID doesn't appear in this array, the match fails. Omit this key and the corresponding array to match against any SSID.</string>
 							<key>pfm_name</key>
 							<string>SSIDMatch</string>
 							<key>pfm_subkeys</key>
 							<array>
 								<dict>
+									<key>pfm_name</key>
+									<string>SSIDMatchElement</string>
 									<key>pfm_title</key>
-									<string>SSID</string>
+									<string>SSID Match Element</string>
 									<key>pfm_type</key>
 									<string>string</string>
 								</dict>
@@ -476,7 +480,7 @@ Matching with a single wildcard is supported. For example, 17.* matches any DNS 
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.</string>
+							<string>A URL to probe. This rule matches if this URL is successfully fetched and returns a 200 HTTP status code without redirection.</string>
 							<key>pfm_name</key>
 							<string>URLStringProbe</string>
 							<key>pfm_title</key>
@@ -497,8 +501,10 @@ Matching with a single wildcard is supported. For example, 17.* matches any DNS 
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<false/>
 			<key>pfm_description</key>
-			<string>If true, prohibits users from disabling DNS settings. This key is only available on supervised devices.</string>
+			<string>If 'true', the system prohibits users from disabling DNS settings. This key is only available on supervised devices.</string>
 			<key>pfm_name</key>
 			<string>ProhibitDisablement</string>
 			<key>pfm_supervised</key>
@@ -512,7 +518,9 @@ Matching with a single wildcard is supported. For example, 17.* matches any DNS 
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>UUID pointing to an identity certificate payload. This identity will be used to authenticate the user to the DNS resolver.</string>
+			<string>The UUID that points to an identity certificate payload. The system uses this identity to authenticate the user to the DNS resolver.</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_ios_min</key>
 			<string>16.0</string>
 			<key>pfm_macos_min</key>

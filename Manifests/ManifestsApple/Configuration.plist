@@ -10,8 +10,12 @@
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
+	<key>pfm_ios_min</key>
+	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-09-02T08:40:11Z</date>
+	<date>2024-09-03T14:06:32Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -22,7 +26,7 @@
 	<array>
 		<dict>
 			<key>pfm_description</key>
-			<string>Display name of the profile.</string>
+			<string>The human-readable name for the profile, which doesn't need to be unique. The system displays this value on the Detail screen.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable name for the profile. This value is displayed on the Detail screen. It does not have to be unique.</string>
 			<key>pfm_name</key>
@@ -30,13 +34,13 @@
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
-			<string>Name</string>
+			<string>Payload Display Name</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Description of this profile.</string>
+			<string>The description of the profile, shown on the Detail screen for the profile. Make this description detailed enough to help the user decide whether to install the profile.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A description of the profile, shown on the Detail screen for the profile. This should be descriptive enough to help the user decide whether to install the profile.</string>
 			<key>pfm_enabled</key>
@@ -50,7 +54,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name of the organization for the profile.</string>
+			<string>The human-readable string that contains the name of the organization that provided the profile.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A human-readable string containing the name of the organization that provided the profile.</string>
 			<key>pfm_enabled</key>
@@ -58,13 +62,13 @@
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
-			<string>Organization</string>
+			<string>Payload Organization</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added.</string>
+			<string>The reverse-DNS style identifier ('com.example.myprofile', for example) that identifies the profile. The system uses this string to determine whether to replace an existing profile or add it as a new profile.</string>
 			<key>pfm_description_reference</key>
 			<string>A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added.</string>
 			<key>pfm_hidden</key>
@@ -80,7 +84,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>A globally unique identifier for the profile.</string>
+			<string>The globally unique identifier for the profile. The actual content is unimportant. In macOS, you can use 'uuidgen' to generate reasonable UUIDs.</string>
 			<key>pfm_description_reference</key>
 			<string>A globally unique identifier for the profile. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
 			<key>pfm_format</key>
@@ -100,9 +104,11 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Prevent manual removal of profiles installed through an MDM. Profiles installed manually can be removed manually, but only by using administrative authority.</string>
-			<key>pfm_description_reference</key>
-			<string></string>
+			<string>If present and set to 'true', the user can't delete the profile unless the profile has a removal password and the user provides it.
+On macOS 10.15 and later, this key only affects removal of manually installed profiles. If set to 'true' and no profile removal payload is present, removing the profile requires admin auth.
+On macOS versions prior to 10.15, this key prevents admins from removing MDM installed profiles. However, as of macOS 10.15, users can never remove MDM profiles, not even the admin.
+On iOS users can't remove a MDM profile.
+Requires a supervised device.</string>
 			<key>pfm_name</key>
 			<string>PayloadRemovalDisallowed</string>
 			<key>pfm_supervised</key>
@@ -114,7 +120,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>The date on which the profile will be automatically removed.</string>
+			<string>The date when the system automatically removes the profile.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Supervised only. If present and set to true, the user cannot delete the profile (unless the profile has a removal password and the user provides it).</string>
 			<key>pfm_name</key>
@@ -126,7 +132,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Number of seconds until the profile is automatically removed. If RemovalDate key is present, its value is used instead.</string>
+			<string>The number of seconds until the profile is automatically removed. If the 'RemovalDate' key is present, the system uses whichever field yields the earliest date.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. Number of seconds until the profile is automatically removed. If the RemovalDate keys is present, whichever field yields the earliest date will be used.</string>
 			<key>pfm_exclude</key>
@@ -156,7 +162,13 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Dictionary specifying localized consent text that will be displayed as a warning during profile installation.</string>
+			<string>A dictionary that includes:
+* A key that contains the IETF BCP 47 identifier for a language, such as en or jp
+* A value that contains the agreement localized to language specified by the key
+The dictionary can also contain an optional key, 'default', with its value consisting of the unlocalized (usually in en) agreement.
+The system always displays the agreement in a dialog, and the user needs to agree before the system can install the profile.
+The system chooses a localized version in the order of preference that the user specifies in macOS, or based on the user's current language setting in iOS. If there's no exact match, the system uses the default localization. If there's no default localization, the system uses the en localization. If there's no en localization, the system uses the first available localization.
+Provide a default value, if possible. The system won't display a warning if the user's locale doesn't match any localization in the 'ConsentText' dictionary.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A dictionary containing these keys and values:
 • For each language in which a consent or license agreement is available, a key consisting of the IETF BCP 47 identifier for that language (for example, en or jp) and a value consisting of the agreement localized to that language. The agreement is displayed in a dialog to which the user must agree before installing the profile.
@@ -215,13 +227,17 @@ You should provide a default value if possible. No warning will be displayed if 
 			<key>pfm_default</key>
 			<string>Configuration</string>
 			<key>pfm_description</key>
-			<string>Payload Type.</string>
+			<string>The type of payload. The only supported value is 'Configuration'.</string>
 			<key>pfm_description_reference</key>
 			<string>The only supported value is Configuration.</string>
 			<key>pfm_hidden</key>
 			<string>all</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
+			<key>pfm_range_list</key>
+			<array>
+				<string>Configuration</string>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -233,7 +249,7 @@ You should provide a default value if possible. No warning will be displayed if 
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version number of the profile format. This describes the version of the configuration profile as a whole, not of the individual profiles within it.</string>
+			<string>The version number of the profile format, which needs to be '1'. This number represents the version of the configuration profile as a whole, not of the individual profiles within it.</string>
 			<key>pfm_description_reference</key>
 			<string>The version number of the profile format. This describes the version of the configuration profile as a whole, not of the individual profiles within it.
 Currently, this value should be 1.</string>
@@ -241,6 +257,10 @@ Currently, this value should be 1.</string>
 			<string>all</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -252,7 +272,7 @@ Currently, this value should be 1.</string>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Specifes if there is a removal passcode for the profile.</string>
+			<string>Set to 'true' if there's a removal passcode.</string>
 			<key>pfm_description_reference</key>
 			<string></string>
 			<key>pfm_hidden</key>
@@ -266,7 +286,7 @@ Currently, this value should be 1.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If provided, will show an OTA-delivered profile as "expired" on a specific date. Users will be offered an "Update" button when the profile has expired.</string>
+			<string>The date when a profile is no longer valid and the system presents an update button to the user.</string>
 			<key>pfm_description_reference</key>
 			<string>Optional. A date on which a profile is considered to have expired and can be updated over the air. This key is only used if the profile is delivered via over-the-air profile delivery.</string>
 			<key>pfm_hidden</key>
@@ -282,7 +302,9 @@ Currently, this value should be 1.</string>
 			<key>pfm_default</key>
 			<string>User</string>
 			<key>pfm_description</key>
-			<string>Defines whether the profile should be installed system-wide or only for the installing user</string>
+			<string>A string that defines whether to install the profile for the system or the user. In many cases, it determines the location of certificate items, such as keychains. Though it's not possible to declare different payload scopes, payloads like VPN can automatically install their items in both scopes, if needed.</string>
+			<key>pfm_macos_min</key>
+			<string>10.8</string>
 			<key>pfm_name</key>
 			<string>PayloadScope</string>
 			<key>pfm_platforms</key>
@@ -318,6 +340,7 @@ Currently, this value should be 1.</string>
 				<integer>3</integer>
 				<integer>4</integer>
 				<integer>5</integer>
+				<integer>6</integer>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
@@ -327,6 +350,7 @@ Currently, this value should be 1.</string>
 				<string>HomePod</string>
 				<string>Apple TV</string>
 				<string>Mac</string>
+				<string>Vision Pro</string>
 			</array>
 			<key>pfm_title</key>
 			<string>Target Device Type</string>
@@ -343,6 +367,8 @@ Currently, this value should be 1.</string>
 	</array>
 	<key>pfm_title</key>
 	<string>General</string>
+	<key>pfm_tvos_min</key>
+	<string>9.0</string>
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
