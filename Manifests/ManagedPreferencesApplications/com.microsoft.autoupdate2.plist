@@ -11,7 +11,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-08-23T07:42:22Z</date>
+	<date>2024-11-05T12:57:51Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -1144,6 +1144,73 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 					<string>dictionary</string>
 				</dict>
 				<dict>
+					<key>pfm_app_min</key>
+					<string>4.75</string>
+					<key>pfm_description</key>
+					<string>Register /Applications/Windows App.app.</string>
+					<key>pfm_name</key>
+					<string>/Applications/Windows App.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>MSRD10</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>MSRD10</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_default</key>
+							<integer>1033</integer>
+							<key>pfm_hidden</key>
+							<string>all</string>
+							<key>pfm_name</key>
+							<string>LCID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<integer>1033</integer>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Language Code ID</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+						</dict>
+						<dict>
+							<key>pfm_app_min</key>
+							<string>4.13</string>
+							<key>pfm_description</key>
+							<string>Force quit this application and update X number of days after MAU first detects the update on each computer. Can be used in conjunction with the higher level option of the same setting for more restrictive per-application updating.</string>
+							<key>pfm_description_reference</key>
+							<string>If you have specified a deadline for all applications, you can still configure a more specific deadline for one of the applications. For example, you can configure a deadline of 7 days for all applications, and then specify that the deadline for Excel is 4 days.</string>
+							<key>pfm_documentation_url</key>
+							<string>https://docs.microsoft.com/en-us/deployoffice/mac/mau-deadline#configure-a-deadline-for-a-certain-number-of-days-after-the-update-is-detected</string>
+							<key>pfm_name</key>
+							<string>UpdateDeadline.DaysBeforeForcedQuit</string>
+							<key>pfm_title</key>
+							<string>Update Deadline: Days Before Forced Quit</string>
+							<key>pfm_type</key>
+							<string>integer</string>
+							<key>pfm_value_unit</key>
+							<string>Days</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Windows App</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
 					<key>pfm_description</key>
 					<string>Register /Applications/Microsoft Remote Desktop.app.</string>
 					<key>pfm_name</key>
@@ -1998,6 +2065,65 @@ Writes logs to: /Library/Logs/Microsoft/autoupdate.log</string>
 					</array>
 					<key>pfm_title</key>
 					<string>Microsoft PowerPoint</string>
+					<key>pfm_type</key>
+					<string>dictionary</string>
+				</dict>
+				<dict>
+					<key>pfm_app_min</key>
+					<string>4.75</string>
+					<key>pfm_description</key>
+					<string>Schedule an update for Windows App.</string>
+					<key>pfm_documentation_url</key>
+					<string>https://docs.microsoft.com/en-us/deployoffice/mac/mau-deadline#configure-a-deadline-for-a-specific-date-and-time</string>
+					<key>pfm_name</key>
+					<string>/Applications/Windows App.app</string>
+					<key>pfm_subkeys</key>
+					<array>
+						<dict>
+							<key>pfm_default</key>
+							<string>MSRD10</string>
+							<key>pfm_name</key>
+							<string>Application ID</string>
+							<key>pfm_range_list</key>
+							<array>
+								<string>MSRD10</string>
+							</array>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Application ID</string>
+							<key>pfm_type</key>
+							<string>string</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The date and time to force the update.</string>
+							<key>pfm_name</key>
+							<string>ForcedUpdateDate</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Forced Update Date</string>
+							<key>pfm_type</key>
+							<string>date</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The version of the update.</string>
+							<key>pfm_name</key>
+							<string>ForcedUpdateVersion</string>
+							<key>pfm_require</key>
+							<string>always</string>
+							<key>pfm_title</key>
+							<string>Forced Update Version</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>10.2.13</string>
+						</dict>
+					</array>
+					<key>pfm_title</key>
+					<string>Windows App</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
