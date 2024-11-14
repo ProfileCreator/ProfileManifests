@@ -13,7 +13,7 @@
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T15:29:51Z</date>
+	<date>2024-09-13T13:27:33Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -328,6 +328,22 @@ Standalone: The path will be created on users' computers if it doesn't already e
 			<string>https://Contoso.SharePoint.com</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>Determines whether or not the sync app should set up sync for SharePoint Server on-premises or SharePoint in Microsoft 365 first during the first-run scenario when the account is the same for both SharePoint Server and SharePoint in Microsoft 365 in a hybrid scenario.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#sharepointonpremprioritizationpolicy</string>
+			<key>pfm_name</key>
+			<string>SharePointOnPremPrioritizationPolicy</string>
+			<key>pfm_title</key>
+			<string>Prioritize SharePoint Server on-premise</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_type_input</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_app_min</key>
 			<string></string>
 			<key>pfm_description</key>
@@ -476,6 +492,22 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 			<string>array</string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>This setting lets the OneDrive sync app report device and health data that's to be included in sync admin reports. You must enable this setting on the devices you want to get reports from.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#enablesyncadminreports</string>
+			<key>pfm_name</key>
+			<string>EnableSyncAdminReports</string>
+			<key>pfm_title</key>
+			<string>Enable Sync Admin Reports</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_type_input</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
 			<key>pfm_description</key>
 			<string>This setting lets multiple users use the Microsoft 365 Apps for enterprise, Office 2019, or Office 2016 desktop apps to simultaneously edit an Office file stored in OneDrive. It also lets users share files from the Office desktop apps.</string>
 			<key>pfm_documentation_url</key>
@@ -487,6 +519,24 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 			<key>pfm_title</key>
 			<string>Enable All Osci Clients</string>
 			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>0</integer>
+			<key>pfm_description</key>
+			<string>Determines whether or not the sync app can automatically sign in.
+
+If you enable this setting, the sync app is prevented from automatically signing with an existing Microsoft Entra credential that is made available to Microsoft applications.</string>
+			<key>pfm_documentation_url</key>
+			<string>https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#disableautoconfig</string>
+			<key>pfm_name</key>
+			<string>DisableAutoConfig</string>
+			<key>pfm_title</key>
+			<string>Disable Auto Config</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+			<key>pfm_type_input</key>
 			<string>boolean</string>
 		</dict>
 		<dict>
@@ -700,6 +750,6 @@ MaxBundleVersion denotes the maximum bundle version of the application that will
 	<key>pfm_unique</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 </dict>
 </plist>

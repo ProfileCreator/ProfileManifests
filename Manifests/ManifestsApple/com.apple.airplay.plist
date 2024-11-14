@@ -15,7 +15,7 @@
 	<key>pfm_ios_min</key>
 	<string>7.0</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-15T08:00:00Z</date>
+	<date>2024-09-12T10:00:38Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.10</string>
 	<key>pfm_platforms</key>
@@ -27,11 +27,9 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Configures AirPlay settings</string>
+			<string>AirPlay settings</string>
 			<key>pfm_description</key>
-			<string>Description of the payload</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable description of this payload. This description is shown on the Detail screen.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -41,11 +39,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>AirPlay settings</string>
+			<string>AirPlay</string>
 			<key>pfm_description</key>
-			<string>Name of the payload</string>
-			<key>pfm_description_reference</key>
-			<string>A human-readable name for the profile payload. This name is displayed on the Detail screen. It does not have to be unique.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -59,9 +55,8 @@
 			<key>pfm_default</key>
 			<string>com.apple.airplay</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
-			<key>pfm_description_reference</key>
-			<string>A reverse-DNS-style identifier for the specific payload. It is usually the same identifier as the root-level PayloadIdentifier value with an additional component appended.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -75,9 +70,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.airplay</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string</string>
-			<key>pfm_description_reference</key>
-			<string>The payload type.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -91,9 +84,8 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
-			<key>pfm_description_reference</key>
-			<string>A globally unique identifier for the payload. The actual content is unimportant, but it must be globally unique. In macOS, you can use uuidgen to generate reasonable UUIDs.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -109,12 +101,13 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -124,10 +117,7 @@ A profile can consist of payloads with different version numbers. For example, c
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. A human-readable string containing the name of the organization that provided the profile.
-The payload organization for a payload need not match the payload organization in the enclosing profile.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -141,10 +131,7 @@ The payload organization for a payload need not match the payload organization i
 				<string>public.plain-text</string>
 			</array>
 			<key>pfm_description</key>
-			<string>List of MAC addresses of AirPlay destinations that the device is restricted to. If this list is empty, the device can connect to any device.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only (ignored otherwise). If present, only AirPlay destinations present in this list are available to the device.
-The dictionary format is described below.</string>
+			<string>If present, only AirPlay destinations in this list are available to the device. This allow list applies to supervised devices.</string>
 			<key>pfm_ios_min</key>
 			<string>14.5</string>
 			<key>pfm_macos_min</key>
@@ -162,23 +149,43 @@ The dictionary format is described below.</string>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The AirPlay destination's MAC address</string>
-							<key>pfm_description_reference</key>
-							<string>The Device ID of the AirPlay destination, in the format xx:xx:xx:xx:xx:xx. This field is not case sensitive.</string>
+							<string>The device ID of the AirPlay destination in the format 'xx:xx:xx:xx:xx:xx'. This field isn't case-sensitive.
+The list of visible AirPlay destinations will be limited to devices that are present in the `AllowList` field of all installed AirPlay payloads.
+Specifying the same MACAddress more than once, whether in the same payload across different payloads, will result in undefined behavior.
+As of iOS 18 and macOS 15, `DeviceID` isn't supported, as tvOS 18 AirPlay destinations do not support it.</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
+							<key>pfm_ios_deprecated</key>
+							<string>18.0</string>
+							<key>pfm_macos_deprecated</key>
+							<string>15.0</string>
 							<key>pfm_name</key>
 							<string>DeviceID</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_title</key>
 							<string>Device ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
-							<string>a4:2d:73:c1:b5:f1</string>
+							<string>xx:xx:xx:xx:xx:xx</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The name of the AirPlay device.
+The list of visible AirPlay destinations will be limited to devices that are present in the AllowList field of all installed AirPlay payloads.</string>
+							<key>pfm_ios_min</key>
+							<string>18.0</string>
+							<key>pfm_macos_min</key>
+							<string>15.0</string>
+							<key>pfm_name</key>
+							<string>DeviceName</string>
+							<key>pfm_title</key>
+							<string>Device Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
 						</dict>
 					</array>
+					<key>pfm_supervised</key>
+					<true/>
 					<key>pfm_title</key>
 					<string>Allow List Content Item</string>
 					<key>pfm_type</key>
@@ -200,10 +207,7 @@ The dictionary format is described below.</string>
 				<string>public.plain-text</string>
 			</array>
 			<key>pfm_description</key>
-			<string>List of MAC addresses of AirPlay destinations that the device is restricted to. If this list is empty, the device can connect to any device.</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. Supervised only (ignored otherwise). If present, only AirPlay destinations present in this list are available to the device.
-The dictionary format is described below.</string>
+			<string>Use 'AllowList' instead. This key is deprecated in iOS 14.5 and macOS 11.3.</string>
 			<key>pfm_ios_deprecated</key>
 			<string>14.5</string>
 			<key>pfm_macos_deprecated</key>
@@ -214,32 +218,52 @@ The dictionary format is described below.</string>
 			<array>
 				<dict>
 					<key>pfm_name</key>
-					<string>WhitelistItem</string>
+					<string>AllowListItem</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The AirPlay destination's MAC address</string>
-							<key>pfm_description_reference</key>
-							<string>The Device ID of the AirPlay destination, in the format xx:xx:xx:xx:xx:xx. This field is not case sensitive.</string>
+							<string>The device ID of the AirPlay destination in the format 'xx:xx:xx:xx:xx:xx'. This field isn't case-sensitive.
+The list of visible AirPlay destinations will be limited to devices that are present in the `AllowList` field of all installed AirPlay payloads.
+Specifying the same MACAddress more than once, whether in the same payload across different payloads, will result in undefined behavior.
+As of iOS 18 and macOS 15, `DeviceID` isn't supported, as tvOS 18 AirPlay destinations do not support it.</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
+							<key>pfm_ios_deprecated</key>
+							<string>18.0</string>
+							<key>pfm_macos_deprecated</key>
+							<string>15.0</string>
 							<key>pfm_name</key>
 							<string>DeviceID</string>
-							<key>pfm_require</key>
-							<string>always</string>
 							<key>pfm_title</key>
 							<string>Device ID</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
-							<string>a4:2d:73:c1:b5:f1</string>
+							<string>xx:xx:xx:xx:xx:xx</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>The name of the AirPlay device.
+The list of visible AirPlay destinations will be limited to devices that are present in the AllowList field of all installed AirPlay payloads.</string>
+							<key>pfm_ios_min</key>
+							<string>18.0</string>
+							<key>pfm_macos_min</key>
+							<string>15.0</string>
+							<key>pfm_name</key>
+							<string>DeviceName</string>
+							<key>pfm_title</key>
+							<string>Device Name</string>
+							<key>pfm_type</key>
+							<string>string</string>
 						</dict>
 					</array>
+					<key>pfm_supervised</key>
+					<true/>
 					<key>pfm_title</key>
-					<string>Allowlist Content Item</string>
+					<string>AllowList Content Item</string>
 					<key>pfm_type</key>
 					<string>dictionary</string>
 				</dict>
@@ -247,7 +271,7 @@ The dictionary format is described below.</string>
 			<key>pfm_supervised</key>
 			<true/>
 			<key>pfm_title</key>
-			<string>Allowlist</string>
+			<string>Allow List (legacy)</string>
 			<key>pfm_type</key>
 			<string>array</string>
 			<key>pfm_value_import_processor</key>
@@ -255,9 +279,7 @@ The dictionary format is described below.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Sets passwords for known AirPlay destinations</string>
-			<key>pfm_description_reference</key>
-			<string>Optional. If present, sets passwords for known AirPlay destinations. The dictionary format is described below.</string>
+			<string>If present, sets passwords for known AirPlay destinations. Using multiple entries for the same destination, whether within the same payload or across multiple installed payloads, is an error and results in undefined behavior.</string>
 			<key>pfm_name</key>
 			<string>Passwords</string>
 			<key>pfm_subkeys</key>
@@ -266,22 +288,18 @@ The dictionary format is described below.</string>
 					<key>pfm_description</key>
 					<string>An item in the passwords</string>
 					<key>pfm_name</key>
-					<string>PasswordItem</string>
+					<string>PasswordsItem</string>
 					<key>pfm_require</key>
 					<string>always</string>
 					<key>pfm_subkeys</key>
 					<array>
 						<dict>
 							<key>pfm_description</key>
-							<string>The AirPlay destination's name</string>
-							<key>pfm_description_reference</key>
-							<string>The name of the AirPlay destination (used on iOS).</string>
+							<string>The name of the AirPlay destination; used in iOS, and available in macOS 15 and later.</string>
+							<key>pfm_macos_min</key>
+							<string>15.0</string>
 							<key>pfm_name</key>
 							<string>DeviceName</string>
-							<key>pfm_platforms</key>
-							<array>
-								<string>iOS</string>
-							</array>
 							<key>pfm_require</key>
 							<string>always</string>
 							<key>pfm_title</key>
@@ -291,11 +309,12 @@ The dictionary format is described below.</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>The AirPlay destination's MAC address</string>
-							<key>pfm_description_reference</key>
-							<string>The DeviceID of the AirPlay destination (used on macOS).</string>
+							<string>The device ID of the AirPlay destination; used in macOS.
+In macOS 15 and later, 'DeviceID' is deprecated as tvOS 18 AirPlay destinations do not support it; use 'DeviceName' instead.</string>
 							<key>pfm_format</key>
 							<string>^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$</string>
+							<key>pfm_macos_deprecated</key>
+							<string>15.0</string>
 							<key>pfm_name</key>
 							<string>DeviceID</string>
 							<key>pfm_platforms</key>
@@ -309,12 +328,10 @@ The dictionary format is described below.</string>
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
-							<string>a4:2d:73:c1:b5:f1</string>
+							<string>xx:xx:xx:xx:xx:xx</string>
 						</dict>
 						<dict>
 							<key>pfm_description</key>
-							<string>The password for the AirPlay destination</string>
-							<key>pfm_description_reference</key>
 							<string>The password for the AirPlay destination.</string>
 							<key>pfm_name</key>
 							<string>Password</string>
@@ -340,13 +357,13 @@ The dictionary format is described below.</string>
 	</array>
 	<key>pfm_targets</key>
 	<array>
-		<string>user</string>
 		<string>system</string>
+		<string>user</string>
 	</array>
 	<key>pfm_title</key>
 	<string>AirPlay</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_version</key>
 	<integer>5</integer>
 </dict>

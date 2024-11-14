@@ -10,8 +10,12 @@
 	<integer>1</integer>
 	<key>pfm_interaction</key>
 	<string>combined</string>
+	<key>pfm_ios_min</key>
+	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2021-07-13T10:23:04Z</date>
+	<date>2024-09-03T15:13:17Z</date>
+	<key>pfm_macos_min</key>
+	<string>10.7</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -22,9 +26,9 @@
 	<array>
 		<dict>
 			<key>pfm_default</key>
-			<string>Adds a PKCS#12-formatted certificate</string>
+			<string>Use this section to define settings for a pkcs12 certificate.</string>
 			<key>pfm_description</key>
-			<string>Description of the payload.</string>
+			<string>The human-readable description of this payload. This description appears on the Detail screen.</string>
 			<key>pfm_name</key>
 			<string>PayloadDescription</string>
 			<key>pfm_title</key>
@@ -34,9 +38,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>Certificate</string>
+			<string>Certificate (PKCS #12)</string>
 			<key>pfm_description</key>
-			<string>Name of the payload.</string>
+			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
 			<string>PayloadDisplayName</string>
 			<key>pfm_require</key>
@@ -50,7 +54,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.pkcs12</string>
 			<key>pfm_description</key>
-			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -64,7 +68,7 @@
 			<key>pfm_default</key>
 			<string>com.apple.security.pkcs12</string>
 			<key>pfm_description</key>
-			<string>The type of the payload, a reverse dns string.</string>
+			<string>The payload type, which each payload domain's reference page specifies.</string>
 			<key>pfm_name</key>
 			<string>PayloadType</string>
 			<key>pfm_require</key>
@@ -78,7 +82,7 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>Unique identifier for the payload. (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -94,7 +98,7 @@
 			<key>pfm_default</key>
 			<integer>1</integer>
 			<key>pfm_description</key>
-			<string>The version of the whole configuration profile.</string>
+			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
 			<key>pfm_require</key>
@@ -106,7 +110,7 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>This value describes the issuing organization of the profile, as displayed to the user.</string>
+			<string>The human-readable string containing the name of the organization that provides the profile. This value doesn't need to match the organization payload value in the enclosing dictionary.</string>
 			<key>pfm_name</key>
 			<string>PayloadOrganization</string>
 			<key>pfm_title</key>
@@ -116,11 +120,11 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Name or description of the certificate credential.</string>
+			<string>The file name of the enclosed certificate.</string>
 			<key>pfm_name</key>
 			<string>PayloadCertificateFileName</string>
 			<key>pfm_title</key>
-			<string>Certificate Name</string>
+			<string>Payload Certificate Filename</string>
 			<key>pfm_type</key>
 			<string>string</string>
 		</dict>
@@ -130,19 +134,19 @@
 				<string>com.rsa.pkcs-12</string>
 			</array>
 			<key>pfm_description</key>
-			<string>X.509 certificate (.p12) for inclusion on device.</string>
+			<string>The binary representation of the payload, encoded in Base64.</string>
 			<key>pfm_name</key>
 			<string>PayloadContent</string>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
-			<string>Certificate or Identity Data</string>
+			<string>Payload Certificate Data</string>
 			<key>pfm_type</key>
 			<string>data</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Password protecting the PKCS12 file.</string>
+			<string>The password to the identity.</string>
 			<key>pfm_name</key>
 			<string>Password</string>
 			<key>pfm_require</key>
@@ -158,7 +162,7 @@
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>Allows all apps on the device to access the private key of this certificate</string>
+			<string>If 'true', the system allows apps access to the private key. Available in macOS 10.10 and later.</string>
 			<key>pfm_macos_min</key>
 			<string>10.10</string>
 			<key>pfm_name</key>
@@ -168,7 +172,7 @@
 				<string>macOS</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Allow Private Key Access to All Apps</string>
+			<string>Allow All Apps Access</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
@@ -176,7 +180,9 @@
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>Allows exporting the private key from the keychain</string>
+			<string>If 'false', the system doesn't tag the private key data as extractable in the keychain.</string>
+			<key>pfm_macos_min</key>
+			<string>10.15</string>
 			<key>pfm_name</key>
 			<string>KeyIsExtractable</string>
 			<key>pfm_title</key>
@@ -187,11 +193,13 @@
 	</array>
 	<key>pfm_targets</key>
 	<array>
-		<string>user</string>
 		<string>system</string>
+		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Certificate PKCS12</string>
+	<string>Certificate (PKCS #12)</string>
+	<key>pfm_tvos_min</key>
+	<string>9.0</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
