@@ -6,7 +6,7 @@ If you have questions or need any help whatsoever in contributing to this reposi
 ## Contributing
 This repository is meant to provide administrators with a central, common framework which makes it possible to easily configure and manage any available settings in Apple products and supporting third-party software.  By contributing to this repo, you are helping make the lives of all members of the Mac Admin community easier and lowering the barrier to entry for those who are new to managing Apple devices in the process.
 
-Before contributing, please review the [Getting Started](https://github.com/ProfileCreator/ProfileManifests/wiki/Getting-Started) and [Contributing to an existing manifest](https://github.com/ProfileCreator/ProfileManifests/wiki/Contribute-to-an-Existing-Manifest) wiki pages.
+Before contributing, please review the [Getting Started](https://github.com/ProfileManifests/ProfileManifests/wiki/Getting-Started) and [Contributing to an existing manifest](https://github.com/ProfileManifests/ProfileManifests/wiki/Contribute-to-an-Existing-Manifest) wiki pages.
 
 ### ProfileManifestsMirror
 
@@ -22,8 +22,8 @@ Link: [Preference Manifest Files for Managed Clients Overview](https://developer
 
 To meet all required functionality that format has been extended with more keys and options. Use this reference to create manifests for the ProfilePayloads framework and ProfileCreator.
 
-Link: [ProfileManifest Format](https://github.com/ProfileCreator/ProfileManifests/wiki/Manifest-Format)
+Link: [ProfileManifest Format](https://github.com/ProfileManifests/ProfileManifests/wiki/Manifest-Format)
 
 ## Create your own manifest
 
-If you want to create your own manifest read the [Getting Started](https://github.com/ProfileCreator/ProfileManifests/wiki/Getting-Started) wiki page for a quick start guide.
+If you want to create your own manifest read the [Getting Started](https://github.com/ProfileManifests/ProfileManifests/wiki/Getting-Started) wiki page for a quick start guide.
