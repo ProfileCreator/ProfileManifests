@@ -871,7 +871,12 @@ Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised 
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -2848,6 +2853,11 @@ Requires a supervised device. Available in iOS 4.2.1 and later, and watchOS 10 a
 					<string>2.0</string>
 					<key>pfmx_supervised</key>
 					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -3092,6 +3102,11 @@ The system doesn't preserve eSIM if Find My initiates erasing the device.</strin
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>1.1</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -6275,6 +6290,11 @@ Requires a supervised device. Available in iOS 17.2 and later.</string>
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>17.4</string>
+					<key>pfmx_shared_ipad</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 					<key>pfmx_supervised</key>
 					<true/>
 					<key>pfmx_user_enrollment</key>
@@ -7347,7 +7367,12 @@ Possible values, with the US description of the rating level:
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -7433,7 +7458,12 @@ Possible values, with the US description of the rating level:
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -7520,7 +7550,12 @@ Possible values, with the US description of the rating level:
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -7571,7 +7606,12 @@ Possible values, with the US description of the rating level:
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -7671,7 +7711,12 @@ Possible values, with the US description of the rating level:
 				<key>macOS</key>
 				<dict>
 					<key>pfmx_introduced</key>
-					<string>n/a</string>
+					<string>15.0</string>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>tvOS</key>
 				<dict>
@@ -8847,6 +8892,13 @@ Possible values, with the US description of the rating level:
 				<dict>
 					<key>pfmx_introduced</key>
 					<string>2.2</string>
+					<key>pfmx_supervised</key>
+					<true/>
+					<key>pfmx_user_enrollment</key>
+					<dict>
+						<key>pfmx_mode</key>
+						<string>forbidden</string>
+					</dict>
 				</dict>
 				<key>watchOS</key>
 				<dict>
@@ -8882,11 +8934,11 @@ Possible values, with the US description of the rating level:
 						<string>forbidden</string>
 					</dict>
 					<key>pfmx_supervised</key>
-					<true/>
+					<false/>
 					<key>pfmx_user_enrollment</key>
 					<dict>
 						<key>pfmx_mode</key>
-						<string>forbidden</string>
+						<string>allowed</string>
 					</dict>
 				</dict>
 				<key>macOS</key>
@@ -9027,6 +9079,8 @@ Possible values, with the US description of the rating level:
 			<key>pfmx_multiple</key>
 			<true/>
 			<key>pfmx_requires_dep</key>
+			<false/>
+			<key>pfmx_supervised</key>
 			<false/>
 			<key>pfmx_user_approved_mdm</key>
 			<false/>
