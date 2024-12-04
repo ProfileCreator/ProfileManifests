@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>exclusive</string>
 	<key>pfm_last_modified</key>
-	<date>2023-08-29T09:17:10Z</date>
+	<date>2024-12-04T09:54:09Z</date>
 	<key>pfm_macos_min</key>
 	<string>11.0</string>
 	<key>pfm_platforms</key>
@@ -52,7 +52,8 @@
 			<key>pfm_default</key>
 			<string>com.apple.fileproviderd</string>
 			<key>pfm_description</key>
-			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -80,7 +81,8 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -97,11 +99,12 @@
 			<integer>1</integer>
 			<key>pfm_description</key>
 			<string>The version of this specific payload.</string>
-			<key>pfm_description_reference</key>
-			<string>The version number of the individual payload.
-A profile can consist of payloads with different version numbers. For example, changes to the VPN software in iOS might introduce a new payload version to support additional features, but Mail payload versions would not necessarily change in the same release.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -131,6 +134,49 @@ A profile can consist of payloads with different version numbers. For example, c
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the device prevents the File Provider extension using desktop and documents synchronization in any app. If 'true', the device allows File Provider extension desktop and documents synchronization. This does not impact the ability for apps to utilize the File Provider extension for file and folder syncing with remote storage.</string>
+			<key>pfm_macos_min</key>
+			<string>15.2</string>
+			<key>pfm_name</key>
+			<string>ManagementAllowsKnownFolderSyncing</string>
+			<key>pfm_targets</key>
+			<array>
+				<string>system</string>
+			</array>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>An array of app identifiers for apps that are allowed to utilize File Provider extension desktop and documents synchronization. If present, and `ManagementAllowsKnownFolderSyncing` is set to `true`, the device allows only the apps in this list to use desktop and documents synchronization. This key is ignored if `ManagementAllowsKnownFolderSyncing` is set to `false`. This setting does not impact the ability for apps to utilize File Provider extension for volume access. The format of the app identifiers is "Bundle.Identifier (TeamIdentifier)".</string>
+			<key>pfm_macos_min</key>
+			<string>15.2</string>
+			<key>pfm_name</key>
+			<string>ManagementKnownFolderSyncingAllowList</string>
+			<key>pfm_subkeys</key>
+			<array>
+				<dict>
+					<key>pfm_description</key>
+					<string>A composed app identifier. The format is "Bundle.Identifier (TeamIdentifier)".</string>
+					<key>pfm_name</key>
+					<string>AllowListItem</string>
+					<key>pfm_require</key>
+					<string>always</string>
+					<key>pfm_type</key>
+					<string>string</string>
+				</dict>
+			</array>
+			<key>pfm_targets</key>
+			<array>
+				<string>system</string>
+			</array>
+			<key>pfm_type</key>
+			<string>array</string>
+		</dict>
 	</array>
 	<key>pfm_targets</key>
 	<array>
@@ -140,11 +186,11 @@ A profile can consist of payloads with different version numbers. For example, c
 	<key>pfm_title</key>
 	<string>File Provider</string>
 	<key>pfm_unique</key>
-	<true/>
+	<false/>
 	<key>pfm_user_approved</key>
 	<true/>
 	<key>pfm_version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>pfmx_supported_oses</key>
 	<dict>
 		<key>macOS</key>

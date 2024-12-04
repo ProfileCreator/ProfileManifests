@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-11-05T09:55:28Z</date>
+	<date>2024-12-04T11:06:55Z</date>
 	<key>pfm_macos_min</key>
 	<string>10.7</string>
 	<key>pfm_platforms</key>
@@ -130,13 +130,14 @@ During a profile replacement, the system updates payloads with the same 'Payload
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>General</string>
+				<string>AI and Siri</string>
 				<string>AirDrop</string>
 				<string>AirPlay</string>
 				<string>AirPrint</string>
 				<string>iCloud</string>
-				<string>Passwords / Unlock</string>
+				<string>Media</string>
+				<string>Passwords and Unlock</string>
 				<string>Classroom</string>
-				<string>AI and Siri</string>
 				<string>Updates</string>
 			</array>
 			<key>pfm_require</key>
@@ -145,14 +146,14 @@ During a profile replacement, the system updates payloads with the same 'Payload
 			<dict>
 				<key>AI and Siri</key>
 				<array>
+					<string>allowAssistant</string>
+					<string>forceAssistantProfanityFilter</string>
 					<string>allowGenmoji</string>
 					<string>allowImagePlayground</string>
 					<string>allowWritingTools</string>
 					<string>allowMailSummary</string>
 					<string>allowExternalIntelligenceIntegrations</string>
 					<string>allowExternalIntelligenceIntegrationsSignIn</string>
-					<string>allowAssistant</string>
-					<string>forceAssistantProfanityFilter</string>
 				</array>
 				<key>AirDrop</key>
 				<array>
@@ -192,6 +193,7 @@ During a profile replacement, the system updates payloads with the same 'Payload
 					<string>allowFindMyDevice</string>
 					<string>allowFindMyFriends</string>
 					<string>allowFileSharingModification</string>
+					<string>allowBookstore</string>
 					<string>allowGameCenter</string>
 					<string>allowMultiplayerGaming</string>
 					<string>allowInternetSharingModification</string>
@@ -213,12 +215,20 @@ During a profile replacement, the system updates payloads with the same 'Payload
 					<string>allowWallpaperModification</string>
 					<string>forceOnDeviceOnlyDictation</string>
 					<string>safariAllowAutoFill</string>
-					<string>ratingRegion</string>
 					<string>allowiPhoneMirroring</string>
 					<string>allowMediaSharingModification</string>
 					<string>forceBypassScreenCaptureAlert</string>
 				</array>
-				<key>Passwords / Unlock</key>
+				<key>Media</key>
+				<array>
+					<string>allowBookstoreErotica</string>
+					<string>allowExplicitContent</string>
+					<string>ratingApps</string>
+					<string>ratingMovies</string>
+					<string>ratingRegion</string>
+					<string>ratingTVShows</string>
+				</array>
+				<key>Passwords and Unlock</key>
 				<array>
 					<string>allowAutoUnlock</string>
 					<string>allowFingerprintForUnlock</string>
@@ -2516,6 +2526,133 @@ Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised 
 					<string>n/a</string>
 				</dict>
 			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '600': 17+
+* '300': 12+
+* '200': 9+
+* '100': 4+
+* '0': None</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>ratingApps</string>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Apps Ranking Number</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '500': NC-17
+* '400': R
+* '300': PG-13
+* '200': PG
+* '100': G
+* '0': None</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>ratingMovies</string>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>Movies Ranking Number</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1000</integer>
+			<key>pfm_description</key>
+			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+Possible values, with the US description of the rating level:
+
+* '1000': All
+* '600': TV-MA
+* '500': TV-14
+* '400': TV-PG
+* '300': TV-G
+* '200': TV-Y7
+* '100': TV-Y
+* '0': None</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>ratingTVShows</string>
+			<key>pfm_range_max</key>
+			<integer>1000</integer>
+			<key>pfm_range_min</key>
+			<integer>0</integer>
+			<key>pfm_title</key>
+			<string>TV Shows Ranking Number</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system hides explicit music or video content purchased from the iTunes Store. The system marks explicit content as such by content providers, such as record labels, when sold through the iTunes Store. Available in iOS 4 and later, and tvOS 11.3 and later. Requires a supervised device in iOS 13 and later. Support for this restriction on unsupervised devices is deprecated.</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>allowExplicitContent</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Explicit Content</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system removes the Book Store tab from the Books app. Requires a supervised device. Available in iOS 6 and later.</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>allowBookstore</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow Bookstore</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If 'false', the system prevents the user from downloading Apple Books media that's tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.</string>
+			<key>pfm_macos_min</key>
+			<string>15.0</string>
+			<key>pfm_name</key>
+			<string>allowBookstoreErotica</string>
+			<key>pfm_title</key>
+			<string>Allow Bookstore Erotica</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
@@ -5058,6 +5195,36 @@ The system still allows third-party password managers, and apps can use AutoFill
 					<string>n/a</string>
 				</dict>
 			</dict>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, disables the use of external, cloud-based intelligence services with Siri. On iOS, this restriction is temporarily allowed on unsupervised and user enrollments. In a future release, this restriction will require supervision, and will be ignored on non-supervised devices.</string>
+			<key>pfm_macos_min</key>
+			<string>15.2</string>
+			<key>pfm_name</key>
+			<string>allowExternalIntelligenceIntegrations</string>
+			<key>pfm_title</key>
+			<string>Allow external intelligence integrations</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, forces external intelligence providers into anonymous mode. If a user is already signed in to an external intelligence provider, applying this restriction will cause them to be signed out when the next ChatGPT request is attempted.</string>
+			<key>pfm_macos_min</key>
+			<string>15.2</string>
+			<key>pfm_name</key>
+			<string>allowExternalIntelligenceIntegrationsSignIn</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow external intelligence integrations sign-in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
 		</dict>
 	</array>
 	<key>pfm_targets</key>
