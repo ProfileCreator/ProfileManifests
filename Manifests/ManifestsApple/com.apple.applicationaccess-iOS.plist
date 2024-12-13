@@ -17,7 +17,7 @@
 	<key>pfm_ios_min</key>
 	<string>4.0</string>
 	<key>pfm_last_modified</key>
-	<date>2024-12-04T10:53:04Z</date>
+	<date>2024-12-13T08:12:27Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>iOS</string>
@@ -299,6 +299,7 @@ During a profile replacement, the system updates payloads with the same 'Payload
 					<string>allowCallRecording</string>
 					<string>allowRCSMessaging</string>
 					<string>allowDefaultBrowserModification</string>
+					<string>allowSatelliteConnection</string>
 				</array>
 				<key>Media</key>
 				<array>
@@ -487,7 +488,7 @@ Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', the system removes the Book Store tab from the Books app. Requires a supervised device. Available in iOS 6 and later.</string>
+			<string>If 'false', the system removes the Book Store tab from the Books app. Requires a supervised device. Available in iOS 6 and later and macOS 15 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -617,7 +618,7 @@ Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables the ability for the user to hide apps. It does not affect the user's ability to leave it in the App Library, while removing it from the home screen.</string>
+			<string>If 'false', disables the ability for the user to hide apps. It doesn't affect the user's ability to leave it in the App Library, while removing it from the home screen. Available in iOS 18 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.0</string>
 			<key>pfm_name</key>
@@ -633,7 +634,7 @@ Available in iOS 12 and later, and macOS 10.14 and later. Requires a supervised 
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables the ability for the user to lock apps. Because hiding apps also requires locking them, disallowing locking also disallows hiding.</string>
+			<string>If 'false', disables the ability for the user to lock apps. Because hiding apps also requires locking them, disallowing locking also disallows hiding. Available in iOS 18 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.0</string>
 			<key>pfm_name</key>
@@ -1210,7 +1211,7 @@ Requires a supervised device. Available in iOS 4.2.1 and later, and watchOS 10 a
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>If 'true', the system preserves eSIM when it erases the device due to too many failed password attempts or the Erase All Content and Settings option in Settings &gt; General &gt; Reset. Available in iOS 17.2 and later.
+			<string>If 'true', the system preserves eSIM when it erases the device due to too many failed password attempts or the Erase All Content and Settings option in Settings &gt; General &gt; Reset. Requires a supervised device. Available in iOS 17.2 and later.
 The system doesn't preserve eSIM if Find My initiates erasing the device.</string>
 			<key>pfm_ios_min</key>
 			<string>17.2</string>
@@ -2573,7 +2574,7 @@ Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and lat
 			<key>pfm_default</key>
 			<string>us</string>
 			<key>pfm_description</key>
-			<string>The two-letter key that profile tools use to display the proper ratings for the given region. The client doesn't recognize or report this data.</string>
+			<string>The two-letter key that profile tools use to display the proper ratings for the given region. The client doesn't recognize or report this data. Available in iOS 4.0 and later, macOS 10.7 and later, and tvOS 9 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>11.3</string>
 			<key>pfm_name</key>
@@ -2611,7 +2612,7 @@ Requires a supervised device. Available in iOS 15 and later, and tvOS 15 and lat
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+			<string>The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later.  Support for this restriction on unsupervised devices is deprecated.
 Possible values, with the US description of the rating level:
 
 * '1000': All
@@ -2665,7 +2666,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+			<string>The maximum level of movie content allowed on the device. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later.  Support for this restriction on unsupervised devices is deprecated.
 Possible values, with the US description of the rating level:
 
 * '1000': All
@@ -2720,7 +2721,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<integer>1000</integer>
 			<key>pfm_description</key>
-			<string>The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+			<string>The maximum level of TV content allowed on the device. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
 Possible values, with the US description of the rating level:
 
 * '1000': All
@@ -2810,7 +2811,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If 'false', the system prevents the user from downloading Apple Books media that's tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.</string>
+			<string>If 'false', the system prevents the user from downloading Apple Books media that's tagged as erotica. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 17 and later. Support for this restriction on unsupervised devices is deprecated.</string>
 			<key>pfm_ios_min</key>
 			<string>6.0</string>
 			<key>pfm_name</key>
@@ -3102,7 +3103,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, call recording is disabled.</string>
+			<string>If 'false', disables call recording. Available in iOS 18 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.1</string>
 			<key>pfm_name</key>
@@ -3118,7 +3119,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables the ability to create summaries of email messages manually. This does not affect automatic summary generation.</string>
+			<string>If 'false', disables the ability to create summaries of email messages manually. This doesn't affect automatic summary generation. Available in iOS 18.1 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.1</string>
 			<key>pfm_name</key>
@@ -3132,7 +3133,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, prevents the use of RCS messaging.</string>
+			<string>If 'false', prevents the use of RCS messaging. Available in iOS 18.1 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.1</string>
 			<key>pfm_name</key>
@@ -3146,7 +3147,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables default browser preference modification. The MDM Settings command to set the default browser preference will still work when this is applied.</string>
+			<string>If 'false', disables default browser preference modification. The MDM Settings command to set the default browser preference will still work when this is applied. Available in iOS 18.2 and later, and visionOS 2.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.2</string>
 			<key>pfm_name</key>
@@ -3162,7 +3163,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, disables the use of external, cloud-based intelligence services with Siri. On iOS, this restriction is temporarily allowed on unsupervised and user enrollments. In a future release, this restriction will require supervision, and will be ignored on non-supervised devices.</string>
+			<string>If 'false', disables the use of external, cloud-based intelligence services with Siri. On iOS, this restriction is temporarily allowed on unsupervised and user enrollments. In a future release, this restriction will require supervision, and will be ignored on non-supervised devices. Available in iOS 18.2 and later, and macOS 15.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.2</string>
 			<key>pfm_name</key>
@@ -3176,7 +3177,7 @@ Possible values, with the US description of the rating level:
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>If false, forces external intelligence providers into anonymous mode. If a user is already signed in to an external intelligence provider, applying this restriction will cause them to be signed out when the next ChatGPT request is attempted.</string>
+			<string>If 'false', forces external intelligence providers into anonymous mode. If a user is already signed in to an external intelligence provider, applying this restriction will cause them to be signed out when the next request is attempted. Available in iOS 18.2 and later, and macOS 15.2 and later.</string>
 			<key>pfm_ios_min</key>
 			<string>18.2</string>
 			<key>pfm_name</key>
@@ -3185,6 +3186,22 @@ Possible values, with the US description of the rating level:
 			<true/>
 			<key>pfm_title</key>
 			<string>Allow external intelligence integrations sign-in</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>If false, the connection to and use of satellite services is prohibited.</string>
+			<key>pfm_ios_min</key>
+			<string>18.2</string>
+			<key>pfm_name</key>
+			<string>allowSatelliteConnection</string>
+			<key>pfm_supervised</key>
+			<true/>
+			<key>pfm_title</key>
+			<string>Allow use of satellite connectivity</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
 		</dict>

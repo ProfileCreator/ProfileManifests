@@ -13,7 +13,7 @@
 	<key>pfm_interaction</key>
 	<string>undefined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-09-03T15:13:17Z</date>
+	<date>2024-12-13T08:12:27Z</date>
 	<key>pfm_macos_max</key>
 	<string>10.12.6</string>
 	<key>pfm_macos_min</key>
@@ -38,7 +38,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>FileVault 2</string>
+			<string>FDE FileVault</string>
 			<key>pfm_description</key>
 			<string>The human-readable name for the profile payload. The name appears on the Detail screen and doesn't need to be unique.</string>
 			<key>pfm_name</key>
@@ -54,7 +54,8 @@
 			<key>pfm_default</key>
 			<string>com.apple.MCX.FileVault2</string>
 			<key>pfm_description</key>
-			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The reverse-DNS-style identifier for the payload. This identifier is usually the same as the TopLevel value, with an additional appended component. This string must be unique within the profile.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_name</key>
 			<string>PayloadIdentifier</string>
 			<key>pfm_require</key>
@@ -82,7 +83,8 @@
 			<key>pfm_default</key>
 			<string></string>
 			<key>pfm_description</key>
-			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs. During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
+			<string>The globally unique identifier for the payload. The actual content is unimportant, but must be globally unique. In macOS, use 'uuidgen' to generate UUIDs.
+During a profile replacement, the system updates payloads with the same 'PayloadIdentifier' and 'PayloadUUID' in the old and new profiles.</string>
 			<key>pfm_format</key>
 			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
 			<key>pfm_name</key>
@@ -101,6 +103,10 @@
 			<string>The version of this specific payload.</string>
 			<key>pfm_name</key>
 			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
 			<key>pfm_require</key>
 			<string>always</string>
 			<key>pfm_title</key>
@@ -199,7 +205,7 @@
 				<string>public.x509-certificate</string>
 			</array>
 			<key>pfm_description</key>
-			<string>DER-encoded certificate data if an institutional recovery key will be added. This key is not supported on Macs with Apple silicon.</string>
+			<string>The DER-encoded certificate data if the system creates an institutional recovery key. This key isn't supported on Macs with Apple silicon.</string>
 			<key>pfm_name</key>
 			<string>Certificate</string>
 			<key>pfm_title</key>
@@ -299,7 +305,7 @@ An admin SecureToken user is required, otherwise the FileVault pane does not app
 		<string>system</string>
 	</array>
 	<key>pfm_title</key>
-	<string>FileVault 2</string>
+	<string>FDE FileVault</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
