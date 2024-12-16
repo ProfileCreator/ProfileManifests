@@ -9,11 +9,13 @@
 	<key>pfm_documentation_url</key>
 	<string>https://github.com/macadmins/supportcompanion</string>
 	<key>pfm_domain</key>
-	<string>SupportCompanion</string>
+	<string>com.github.macadmins.SupportCompanion</string>
 	<key>pfm_format_version</key>
 	<integer>1</integer>
 	<key>pfm_last_modified</key>
-	<date>2024-12-06T14:27:55Z</date>
+	<date>2024-12-16T20:40:00Z</date>
+	<key>pfm_macos_min</key>
+	<string>14.0</string>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -48,7 +50,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>SupportCompanion</string>
+			<string>com.github.macadmins.SupportCompanion</string>
 			<key>pfm_description</key>
 			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
 			<key>pfm_name</key>
@@ -62,7 +64,7 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>SupportCompanion</string>
+			<string>com.github.macadmins.SupportCompanion</string>
 			<key>pfm_description</key>
 			<string>The type of the payload, a reverse dns string.</string>
 			<key>pfm_name</key>
@@ -118,6 +120,7 @@
 			<key>pfm_range_list_titles</key>
 			<array>
 				<string>Home</string>
+				<string>Menu</string>
 				<string>Notifications</string>
 				<string>Branding</string>
 				<string>Mode</string>
@@ -131,38 +134,43 @@
 				<key>Branding</key>
 				<array>
 					<string>BrandName</string>
-					<string>BrandColor</string>
+					<string>AccentColor</string>
 					<string>BrandLogo</string>
-					<string>CustomColors</string>
+					<string>BrandLogoLight</string>
 				</array>
 				<key>Desktop Info</key>
 				<array>
 					<string>ShowDesktopInfo</string>
-					<string>DesktopPosition</string>
+					<string>DesktopInfoWindowPosition</string>
 					<string>DesktopInfoLevel</string>
-					<string>DesktopInfoCustomItems</string>
-					<string>DesktopInfoBackgroundColor</string>
+					<string>DesktopInfoHideItems</string>
 					<string>DesktopInfoBackgroundOpacity</string>
-					<string>DesktopInfoColorHighlight</string>
 					<string>DesktopInfoFontSize</string>
 				</array>
 				<key>Home</key>
 				<array>
-					<string>HiddenWidgets</string>
+					<string>HiddenCards</string>
 					<string>HiddenActions</string>
-					<string>ShowMenuToggle</string>
 					<string>SupportEmail</string>
 					<string>SupportPhone</string>
-					<string>SupportUrl</string>
+					<string>SupportPageUrl</string>
 					<string>ChangePasswordUrl</string>
 					<string>ChangePasswordMode</string>
 					<string>LogFolders</string>
-					<string>CustomWidgetsPath</string>
+					<string>CustomCardPath</string>
+				</array>
+				<key>Menu</key>
+				<array>
+					<string>KnowledgeBaseUrl</string>
+					<string>MenuShowIdentity</string>
+					<string>MenuShowApps</string>
+					<string>MenuShowSelfService</string>
+					<string>MenuShowCompanyPortal</string>
+					<string>MenuShowKnowledgeBase</string>
 				</array>
 				<key>Mode</key>
 				<array>
-					<string>IntuneMode</string>
-					<string>SystemProfilerApps</string>
+					<string>Mode</string>
 				</array>
 				<key>Notifications</key>
 				<array>
@@ -184,6 +192,78 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
+			<string>If configured, a menu item "Knowledge base" will show up where the user can browse the page from the UI.</string>
+			<key>pfm_name</key>
+			<string>KnowledgeBaseUrl</string>
+			<key>pfm_title</key>
+			<string>Knowledge Base Url</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>https://google.com</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the Identity menu item. Defaults to true</string>
+			<key>pfm_name</key>
+			<string>MenuShowIdentity</string>
+			<key>pfm_title</key>
+			<string>Show Identity Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the Apps menu item. Defaults to true</string>
+			<key>pfm_name</key>
+			<string>MenuShowApps</string>
+			<key>pfm_title</key>
+			<string>Show Apps Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the Self Service menu item. Defaults to true</string>
+			<key>pfm_name</key>
+			<string>MenuShowSelfService</string>
+			<key>pfm_title</key>
+			<string>Show Self Service Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the Company Portal menu item. Defaults to true</string>
+			<key>pfm_name</key>
+			<string>MenuShowCompanyPortal</string>
+			<key>pfm_title</key>
+			<string>Show Company Portal Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<true/>
+			<key>pfm_description</key>
+			<string>Configures whether to show the Knowledge Base menu item. Defaults to true</string>
+			<key>pfm_name</key>
+			<string>MenuShowKnowledgeBase</string>
+			<key>pfm_title</key>
+			<string>Show Knowledge Base Menu Item</string>
+			<key>pfm_type</key>
+			<string>boolean</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
 			<string>Configures the name shown in the navigation menu.</string>
 			<key>pfm_name</key>
 			<string>BrandName</string>
@@ -196,24 +276,19 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures the brand color shown in the app, available colors are: Blue, Green, Red, Orange. Defaults to Blue if not configured.</string>
+			<string>Configures the brand color shown in the app, specify in hex format.</string>
 			<key>pfm_name</key>
-			<string>BrandColor</string>
-			<key>pfm_range_list</key>
-			<array>
-				<string>Blue</string>
-				<string>Green</string>
-				<string>Red</string>
-				<string>Orange</string>
-			</array>
+			<string>AccentColor</string>
 			<key>pfm_title</key>
-			<string>Brand Color</string>
+			<string>Accent Color</string>
 			<key>pfm_type</key>
 			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>#FFFFFF</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures the brand logo shown in the apps side menu. Specify a local path or Base64 string.</string>
+			<string>Configures the brand logo shown in the apps side menu. Specify a Base64 string.</string>
 			<key>pfm_name</key>
 			<string>BrandLogo</string>
 			<key>pfm_title</key>
@@ -221,13 +296,25 @@
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
-			<string>/path/to/logo</string>
+			<string>Base64 String</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>Configures the brand logo shown in the apps side menu when light theme is used. Specify a base64 string</string>
+			<key>pfm_name</key>
+			<string>BrandLogoLight</string>
+			<key>pfm_title</key>
+			<string>Brand Logo Light</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_value_placeholder</key>
+			<string>Base64 String</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
 			<string>Configures the URL to open when the user clicks on the Get Support button.</string>
 			<key>pfm_name</key>
-			<string>SupportUrl</string>
+			<string>SupportPageUrl</string>
 			<key>pfm_title</key>
 			<string>Support Page URL</string>
 			<key>pfm_type</key>
@@ -294,22 +381,10 @@
 			<string>111-222-333-4444</string>
 		</dict>
 		<dict>
-			<key>pfm_default</key>
-			<false/>
 			<key>pfm_description</key>
-			<string>Configures whether to show the menu toggle button in the apps side menu.</string>
+			<string>Configures which cards to hide, available cards are: DeviceInformation, Evergreen, Battery, Actions, ApplicationInstallProgress, Storage, DeviceManagement, PendingAppUpdates.</string>
 			<key>pfm_name</key>
-			<string>ShowMenuToggle</string>
-			<key>pfm_title</key>
-			<string>Show Menu Toggle</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Configures which widgets to hide, available widgets are: DeviceInfo, MunkiPendingApps, MunkiUpdates, IntunePendingApps, IntuneUpdates, Storage, MdmStatus, Actions, Battery, EvergreenInfo.</string>
-			<key>pfm_name</key>
-			<string>HiddenWidgets</string>
+			<string>HiddenCards</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
@@ -318,13 +393,13 @@
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Hidden Widgets</string>
+			<string>Hidden Cards</string>
 			<key>pfm_type</key>
 			<string>array</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures which actions to hide, available actions are: Support, ManagedSoftwareCenter, ChangePassword, Reboot, KillAgent, SoftwareUpdates, GatherLogs.</string>
+			<string>Configures which actions to hide, available actions are: ChangePassword, Reboot, OpenManagementApp, GetSupport, GatherLogs, SoftwareUpdates, RestartIntuneAgent.</string>
 			<key>pfm_name</key>
 			<string>HiddenActions</string>
 			<key>pfm_subkeys</key>
@@ -374,126 +449,70 @@
 			<string>Notification Image</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string></string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>Software Updates Available. Please update your device to the latest version.</string>
 			<key>pfm_description</key>
-			<string>Configures the message for notifications for Software Updates notifications. Defaults to "You have software updates available. Take action now! \ud83c\udf89" if not configured.</string>
+			<string>Configures the message for notifications for Software Updates notifications. Defaults to "Software Updates Available. Please update your device to the latest version." if not configured.</string>
 			<key>pfm_name</key>
 			<string>SoftwareUpdateNotificationMessage</string>
 			<key>pfm_title</key>
 			<string>Software Update Notification Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string></string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>Update Now 🚀</string>
 			<key>pfm_description</key>
-			<string>Configures the button text for notifications for Software Updates notifications. Defaults to "Details \ud83d\udc40" if not configured.</string>
+			<string>Configures the button text for notifications for Software Updates notifications. Defaults to "Update Now 🚀" if not configured.</string>
 			<key>pfm_name</key>
 			<string>SoftwareUpdateNotificationButtonText</string>
 			<key>pfm_title</key>
 			<string>Software Update Notification Button Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string></string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>App Updates Available. Please update your apps to the latest version.</string>
 			<key>pfm_description</key>
-			<string>Configures the message for notifications for App Updates notifications. Defaults to "You have app updates available. Take action now! \ud83c\udf89" if not configured.</string>
+			<string>Configures the message for notifications for App Updates notifications. Defaults to "App Updates Available. Please update your apps to the latest version." if not configured.</string>
 			<key>pfm_name</key>
 			<string>AppUpdateNotificationMessage</string>
 			<key>pfm_title</key>
 			<string>App Update Notification Message</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string></string>
 		</dict>
 		<dict>
+			<key>pfm_default</key>
+			<string>Update Now 🚀</string>
 			<key>pfm_description</key>
-			<string>Configures the button text for notifications for App Updates notifications. Defaults to "Details \ud83d\udc40" if not configured.</string>
+			<string>Configures the button text for notifications for App Updates notifications. Defaults to "Update Now 🚀" if not configured.</string>
 			<key>pfm_name</key>
 			<string>AppUpdateNotificationButtonText</string>
 			<key>pfm_title</key>
 			<string>App Update Notification Button Text</string>
 			<key>pfm_type</key>
 			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string></string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures custom colors for the app, should be specified in hex format, see example below. Do not use BrandColor in conjunction with this key.</string>
+			<string>Configures the app to show application info for either Munki, Intune or to use System profiler for app info. The app tries to dynamically detect which mode to use.</string>
 			<key>pfm_name</key>
-			<string>CustomColors</string>
-			<key>pfm_subkeys</key>
+			<string>Mode</string>
+			<key>pfm_range_list</key>
 			<array>
-				<dict>
-					<key>pfm_subkeys</key>
-					<array>
-						<dict>
-							<key>pfm_description</key>
-							<string>Configures the Primary Color for the app.</string>
-							<key>pfm_name</key>
-							<string>PrimaryColor</string>
-							<key>pfm_title</key>
-							<string>Primary Color</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>#00A0D0</string>
-						</dict>
-						<dict>
-							<key>pfm_description</key>
-							<string>Configures the Accent Color for the app.</string>
-							<key>pfm_name</key>
-							<string>AccentColor</string>
-							<key>pfm_title</key>
-							<string>Accent Color</string>
-							<key>pfm_type</key>
-							<string>string</string>
-							<key>pfm_value_placeholder</key>
-							<string>#45637A</string>
-						</dict>
-					</array>
-					<key>pfm_type</key>
-					<string>dictionary</string>
-				</dict>
+				<string>Munki</string>
+				<string>Intune</string>
+				<string>SystemProfiler</string>
 			</array>
 			<key>pfm_title</key>
-			<string>Custom Colors</string>
+			<string>Mode</string>
 			<key>pfm_type</key>
-			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Configures the app to use Intune for application information. Only supports PKG and DMG type apps, not LOB.</string>
-			<key>pfm_name</key>
-			<string>IntuneMode</string>
-			<key>pfm_title</key>
-			<string>Intune Mode</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_app_min</key>
-			<string>1.3.0</string>
-			<key>pfm_default</key>
-			<false/>
-			<key>pfm_description</key>
-			<string>Configures the app to list all applications installed under /Applications and their versions. Useful if Munki or Intune is not used.</string>
-			<key>pfm_name</key>
-			<string>SystemProfilerApps</string>
-			<key>pfm_title</key>
-			<string>System Profiler</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
+			<string>string</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -549,10 +568,8 @@
 							<string>killall pboard</string>
 						</dict>
 						<dict>
-							<key>pfm_app_min</key>
-							<string>1.3.0</string>
 							<key>pfm_description</key>
-							<string>Icon to show in the Self Service page in the UI.</string>
+							<string>SF Symbol to show in the Self Service page in the UI.</string>
 							<key>pfm_name</key>
 							<string>Icon</string>
 							<key>pfm_title</key>
@@ -560,7 +577,31 @@
 							<key>pfm_type</key>
 							<string>string</string>
 							<key>pfm_value_placeholder</key>
-							<string>Restart</string>
+							<string>questionmark</string>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>SF Symbol to show in the Self Service page in the UI.</string>
+							<key>pfm_name</key>
+							<string>IsPrivileged</string>
+							<key>pfm_title</key>
+							<string>Is Privileged</string>
+							<key>pfm_type</key>
+							<string>boolean</string>
+							<key>pfm_value_placeholder</key>
+							<true/>
+						</dict>
+						<dict>
+							<key>pfm_description</key>
+							<string>Description to show in the Self Service page in the UI.</string>
+							<key>pfm_name</key>
+							<string>Description</string>
+							<key>pfm_title</key>
+							<string>Description</string>
+							<key>pfm_type</key>
+							<string>string</string>
+							<key>pfm_value_placeholder</key>
+							<string>Restart the pboard service</string>
 						</dict>
 					</array>
 					<key>pfm_type</key>
@@ -586,24 +627,24 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<string>TopRight</string>
+			<string>LowerRight</string>
 			<key>pfm_description</key>
-			<string>Configures the position of the desktop info. Defaults to TopRight.</string>
+			<string>Configures the position of the desktop info. Defaults to Lower Right.</string>
 			<key>pfm_name</key>
-			<string>DesktopPosition</string>
+			<string>DesktopInfoWindowPosition</string>
 			<key>pfm_range_list</key>
 			<array>
-				<string>TopLeft</string>
-				<string>TopRight</string>
-				<string>BottomLeft</string>
-				<string>BottomRight</string>
+				<string>UpperLeft</string>
+				<string>UpperRight</string>
+				<string>LowerLeft</string>
+				<string>LowerRight</string>
 			</array>
 			<key>pfm_range_list_titles</key>
 			<array>
-				<string>Top Left</string>
-				<string>Top Right</string>
-				<string>Bottom Left</string>
-				<string>Bottom Right</string>
+				<string>Upper Left</string>
+				<string>Upper Right</string>
+				<string>Lower Left</string>
+				<string>Lower Right</string>
 			</array>
 			<key>pfm_title</key>
 			<string>Desktop Position</string>
@@ -612,55 +653,90 @@
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>Configures the level of information to show on the desktop. Defaults to Full.</string>
+			<string>Configures the level of information to show on the desktop. Defaults to 4.</string>
 			<key>pfm_name</key>
 			<string>DesktopInfoLevel</string>
 			<key>pfm_range_list</key>
 			<array>
-				<string>Full</string>
-				<string>Minimal</string>
-				<string>Hardware</string>
-				<string>Custom</string>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
 			</array>
 			<key>pfm_title</key>
 			<string>Desktop Info Level</string>
 			<key>pfm_type</key>
-			<string>string</string>
+			<string>integer</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
-			<string>If DesktopInfoLevel is set to Custom, use this array to determine which information to show. Available info are: HostName, Model, SerialNumber, Processor, IpAddress, MemSize, OsBuild, OsVersion, LastBootTime, StorageInfo, SupportPhone, SupportEmail, Separator.</string>
+			<string>Use this array to determine which information to hide. Available items are: HostName, Model, SerialNumber, Processor, IPAddress, Memory, OSBuild, OSVersion, LastRestart, FileVault, StorageName, SupportPhone, SupportEmail. It is also possible to hide entire sections: Hardware Specifications, System Information, Network Information, Storage, Support.</string>
 			<key>pfm_name</key>
-			<string>DesktopInfoCustomItems</string>
+			<string>DesktopInfoHideItems</string>
 			<key>pfm_subkeys</key>
 			<array>
 				<dict>
+					<key>pfm_range_list</key>
+					<array>
+						<string>HostName</string>
+						<string>Model</string>
+						<string>SerialNumber</string>
+						<string>Processor</string>
+						<string>IPAddress</string>
+						<string>Memory</string>
+						<string>OSBuild</string>
+						<string>OSVersion</string>
+						<string>LastRestart</string>
+						<string>FileVault</string>
+						<string>StorageName</string>
+						<string>SupportPhone</string>
+						<string>SupportEmail</string>
+						<string>Hardware Specifications</string>
+						<string>System Information</string>
+						<string>Network Information</string>
+						<string>Storage</string>
+						<string>Support</string>
+						<string>Category</string>
+						<string>Divider</string>
+					</array>
+					<key>pfm_range_list_titles</key>
+					<array>
+						<string>Host Name</string>
+						<string>Model</string>
+						<string>Serial Number</string>
+						<string>Processor</string>
+						<string>IP Address</string>
+						<string>Memory</string>
+						<string>OS Build</string>
+						<string>OS Version</string>
+						<string>Last Restart</string>
+						<string>FileVault</string>
+						<string>Storage Name</string>
+						<string>Support Phone</string>
+						<string>Support Email</string>
+						<string>Hardware Specifications</string>
+						<string>System Information</string>
+						<string>Network Information</string>
+						<string>Storage</string>
+						<string>Support</string>
+						<string>Category</string>
+						<string>Divider</string>
+					</array>
 					<key>pfm_type</key>
 					<string>string</string>
 				</dict>
 			</array>
 			<key>pfm_title</key>
-			<string>Desktop Info Custom Items</string>
+			<string>Desktop Info Hide Items</string>
 			<key>pfm_type</key>
 			<string>array</string>
-		</dict>
-		<dict>
-			<key>pfm_description</key>
-			<string>Configures the background color for the desktop info. Configure using Hex format. Defaults to Transparent</string>
-			<key>pfm_name</key>
-			<string>DesktopInfoBackgroundColor</string>
-			<key>pfm_title</key>
-			<string>Desktop Info Background Color</string>
-			<key>pfm_type</key>
-			<string>string</string>
-			<key>pfm_value_placeholder</key>
-			<string>#000000</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<real>1</real>
 			<key>pfm_description</key>
-			<string>Configures the position of the desktop info. Defaults to 100%.</string>
+			<string>Configures the opacity of the desktop info. Defaults to 0%.</string>
 			<key>pfm_name</key>
 			<string>DesktopInfoBackgroundOpacity</string>
 			<key>pfm_range_list</key>
@@ -696,21 +772,9 @@
 		</dict>
 		<dict>
 			<key>pfm_default</key>
-			<true/>
+			<integer>14</integer>
 			<key>pfm_description</key>
-			<string>Configures whether to highlight the text in the desktop info. Defaults to true.</string>
-			<key>pfm_name</key>
-			<string>DesktopInfoColorHighlight</string>
-			<key>pfm_title</key>
-			<string>Desktop Info Color Highlight</string>
-			<key>pfm_type</key>
-			<string>boolean</string>
-		</dict>
-		<dict>
-			<key>pfm_default</key>
-			<integer>17</integer>
-			<key>pfm_description</key>
-			<string>Configures the font size for the desktop info. Defaults to 17.</string>
+			<string>Configures the font size for the desktop info. Defaults to 14.</string>
 			<key>pfm_name</key>
 			<string>DesktopInfoFontSize</string>
 			<key>pfm_range_max</key>
@@ -726,9 +790,9 @@
 			<key>pfm_description</key>
 			<string>Configures a path to a JSON file containing custom widgets to show on the Home view.</string>
 			<key>pfm_name</key>
-			<string>CustomWidgetsPath</string>
+			<string>CustomCardPath</string>
 			<key>pfm_title</key>
-			<string>Custom Widgets Path</string>
+			<string>Custom Card Path</string>
 			<key>pfm_type</key>
 			<string>string</string>
 			<key>pfm_value_placeholder</key>
@@ -741,10 +805,10 @@
 		<string>user</string>
 	</array>
 	<key>pfm_title</key>
-	<string>Support Companion v1</string>
+	<string>Support Companion</string>
 	<key>pfm_unique</key>
 	<false/>
 	<key>pfm_version</key>
-	<integer>6</integer>
+	<integer>1</integer>
 </dict>
 </plist>
