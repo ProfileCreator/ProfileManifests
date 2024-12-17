@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/ProfileManifests/ProfileManifests/refs/heads/master/Resources/Assets/profilemanifests-icon.png" width="160" height="160">
 
 # ProfileManifests
-Manifest repository for the ProfilePayloads project that powers [ProfileCreator](https://github.com/ProfileCreator/ProfileCreator) and [iMazing Profile Editor](https://imazing.com/profile-editor).
+Preference manifest repository for Apple devices system and application domains that powers [ProfileCreator](https://github.com/ProfileCreator/ProfileCreator) and [iMazing Profile Editor](https://imazing.com/profile-editor).
 
 If you have questions or need any help whatsoever in contributing to this repository, join the [#profilemanifests](https://macadmins.slack.com/messages/profilemanifests) channel in the [MacAdmins Slack](https://www.macadmins.org/).
 
