@@ -1,4 +1,4 @@
-<img src="https://github.com/ProfileManifests/ProfileManifests/raw/icon/Resources/Assets/profilemanifest-icon.png" width="160" height="160">
+<img src="https://raw.githubusercontent.com/ProfileManifests/ProfileManifests/refs/heads/icon/Resources/Assets/profilemanifests-icon.png" width="160" height="160">
 
 # ProfileManifests
 Manifest repository for the ProfilePayloads project that powers [ProfileCreator](https://github.com/ProfileCreator/ProfileCreator) and [iMazing Profile Editor](https://imazing.com/profile-editor).
