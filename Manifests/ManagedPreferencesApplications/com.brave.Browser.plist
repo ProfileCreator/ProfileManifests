@@ -15,7 +15,7 @@
 	<key>pfm_interaction</key>
 	<string>combined</string>
 	<key>pfm_last_modified</key>
-	<date>2024-12-11T16:26:57Z</date>
+	<date>2024-12-18T15:25:37Z</date>
 	<key>pfm_platforms</key>
 	<array>
 		<string>macOS</string>
@@ -10149,7 +10149,7 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>false = Tor Enabled; true = Tor Disabled</string>
+			<string>If 'true', Tor is disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10158,12 +10158,16 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Disable Tor</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Contrary to the documentation, the key is boolean. See https://github.com/ProfileManifests/ProfileManifests/issues/712.</string>
 		</dict>
 		<dict>
+			<key>pfm_app_deprecated</key>
+			<string>1.69.153</string>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>false = IPFS Disabled; true = IPFS Enabled</string>
+			<string>If 'false', IPFS is disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10172,12 +10176,14 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Enable IPFS</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Deprecated, see https://github.com/brave/brave-browser/issues/41529.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>false = Brave Rewards Enabled; true = Brave Rewards Disabled</string>
+			<string>If 'true', Brave Rewards are disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10186,12 +10192,14 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Disable Brave Rewards</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Contrary to the documentation, the key is boolean. See https://github.com/ProfileManifests/ProfileManifests/issues/712.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>false = Brave Wallet Enabled; true = Brave Wallet Disabled</string>
+			<string>If 'true', Brave Wallet is disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10200,6 +10208,8 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Disable Brave Wallet</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Contrary to the documentation, the key is boolean. See https://github.com/ProfileManifests/ProfileManifests/issues/712.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
@@ -10251,7 +10261,7 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<key>pfm_default</key>
 			<false/>
 			<key>pfm_description</key>
-			<string>false = Brave VPN Enabled; true = Brave VPN Disabled</string>
+			<string>If 'true', Brave VPN is disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10260,12 +10270,14 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<string>Disable Brave VPN</string>
 			<key>pfm_type</key>
 			<string>boolean</string>
+			<key>pfmx_comment</key>
+			<string>Contrary to the documentation, the key is boolean. See https://github.com/ProfileManifests/ProfileManifests/issues/712.</string>
 		</dict>
 		<dict>
 			<key>pfm_default</key>
 			<true/>
 			<key>pfm_description</key>
-			<string>false = Brave AI Chat Disabled; true = Brave Ai Chat Enabled</string>
+			<string>If 'false', Brave AI Chat is disabled.</string>
 			<key>pfm_documentation_url</key>
 			<string>https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy</string>
 			<key>pfm_name</key>
@@ -10275,7 +10287,7 @@ If the policy DeveloperToolsAvailability is set, the value of the policy Develop
 			<key>pfm_type</key>
 			<string>boolean</string>
 			<key>pfmx_comment</key>
-			<string>`enabled` is the default value, see https://github.com/brave/brave-browser/issues/36974</string>
+			<string>Contrary to the documentation, the key is boolean – see https://github.com/ProfileManifests/ProfileManifests/issues/712. Also, the default value is 'true' – see https://github.com/brave/brave-browser/issues/36974.</string>
 		</dict>
 		<dict>
 			<key>pfm_description</key>
